@@ -1,7 +1,5 @@
 {
   "name": "dxlab-website",
-  "dotenv": ".env.production",
-  "file": [
-    ".env.production"
-  ]
+  "dotenv": ".env.now-production",
+  "file": [".env.now-production"]
 }

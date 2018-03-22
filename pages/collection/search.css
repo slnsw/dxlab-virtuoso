@@ -394,7 +394,6 @@
   flex-direction: column;
   flex: 3;
   font-size: var(--font-size-sm);
-  font-family: var(--font-secondary);
   color: var(--colour-white);
 
   @media (--screen-sm) {
@@ -408,6 +407,10 @@
   color: var(--colour-grey);
   font-size: var(--font-size-sm);
   font-weight: 700;
+}
+
+.item__content {
+  font-family: var(--font-secondary);
 }
 
 .item__id {

@@ -91,8 +91,6 @@ class CollectionSearchPage extends Component {
           <h1 className="collection-search-page__title">Search Collection</h1>
 
           <form
-            // method="get"
-            // action="/collection/search"
             className="collection-search-page__form"
             onSubmit={this.handleFormSubmit}
           >
@@ -107,25 +105,28 @@ class CollectionSearchPage extends Component {
             <input type="submit" className="button" />
           </form>
 
-          <div className="collection-search-page__info">
-            <button
-              className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
-              onClick={this.handleMobileFacetListToggle}
-            >
-              {showMobileFacetList ? '< Hide' : '> Show'} Facets
-            </button>
+          {items &&
+            items.length > 0 && (
+              <div className="collection-search-page__info">
+                <button
+                  className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
+                  onClick={this.handleMobileFacetListToggle}
+                >
+                  {showMobileFacetList ? '< Hide' : '> Show'} Facets
+                </button>
 
-            <button
-              className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
-              onClick={this.handleDesktopFacetListToggle}
-            >
-              {showDesktopFacetList ? '< Hide' : '> Show'} Facets
-            </button>
+                <button
+                  className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
+                  onClick={this.handleDesktopFacetListToggle}
+                >
+                  {showDesktopFacetList ? '< Hide' : '> Show'} Facets
+                </button>
 
-            <div className="collection-search-page__total-items">
-              {numberWithCommas(totalItems)} results
-            </div>
-          </div>
+                <div className="collection-search-page__total-items">
+                  {numberWithCommas(totalItems)} results
+                </div>
+              </div>
+            )}
 
           <div className="collection-search-page__results">
             <div
@@ -266,83 +267,86 @@ class CollectionSearchPage extends Component {
                     : ''
                 }`}
               >
-                {items && (
-                  <InfiniteScroll
-                    pageStart={0}
-                    loadMore={loadMore}
-                    hasMore={
-                      // Max items to show is 100, but if totalItems is less, use totalItems
-                      items.length < (totalItems < 100 ? totalItems : 100)
-                    }
-                    loader={
-                      <div className="collection-search-page__results__loader">
-                        <div className="collection-search-page__results__loader__text">
-                          Loading <span>.</span>
-                          <span>.</span>
-                          <span>.</span>
+                {items &&
+                  items.length > 0 && (
+                    <InfiniteScroll
+                      pageStart={0}
+                      loadMore={loadMore}
+                      hasMore={
+                        // Max items to show is 100, but if totalItems is less, use totalItems
+                        items.length < (totalItems < 100 ? totalItems : 100)
+                      }
+                      loader={
+                        <div className="collection-search-page__results__loader">
+                          <div className="collection-search-page__results__loader__text">
+                            Loading <span>.</span>
+                            <span>.</span>
+                            <span>.</span>
+                          </div>
                         </div>
-                      </div>
-                    }
-                  >
-                    {items.map(
-                      (
-                        {
-                          id,
-                          sourceRecordId,
-                          title,
-                          images,
-                          type,
-                          description,
+                      }
+                    >
+                      {items.map(
+                        (
+                          {
+                            id,
+                            sourceRecordId,
+                            title,
+                            images,
+                            type,
+                            description,
+                          },
+                          i,
+                        ) => {
+                          const imageUrl = images && images[0] && images[0].url;
+                          const totalImages = images && images.length;
+
+                          return (
+                            <article className="item" key={`posts-${i}`}>
+                              <Link to={`/collection/item/${id}`}>
+                                <a>
+                                  <div
+                                    className={`item__image-holder ${
+                                      imageUrl
+                                        ? ''
+                                        : 'item__image-holder--no-image'
+                                    }`}
+                                  >
+                                    {imageUrl ? (
+                                      <img src={imageUrl} alt={title} />
+                                    ) : (
+                                      <div className="item__image-holder__no-image">
+                                        <span>No Image</span>
+                                      </div>
+                                    )}
+
+                                    {totalImages > 1 && (
+                                      <div className="item__image-holder__total-images">
+                                        +{totalImages - 1} Images
+                                      </div>
+                                    )}
+                                  </div>
+
+                                  <div className="item__info">
+                                    <div className="item__type">{type}</div>
+                                    <h1 className="item__title">{title}</h1>
+                                    <div className="item__content">
+                                      <p
+                                        dangerouslySetInnerHTML={{
+                                          __html: description,
+                                        }}
+                                      />
+                                    </div>
+                                    <p className="item__id">{id}</p>
+                                  </div>
+                                </a>
+                              </Link>
+                            </article>
+                          );
                         },
-                        i,
-                      ) => {
-                        const imageUrl = images && images[0] && images[0].url;
-                        const totalImages = images && images.length;
-
-                        return (
-                          <article className="item" key={`posts-${i}`}>
-                            <Link to={`/collection/item/${id}`}>
-                              <a>
-                                <div
-                                  className={`item__image-holder ${
-                                    imageUrl
-                                      ? ''
-                                      : 'item__image-holder--no-image'
-                                  }`}
-                                >
-                                  {imageUrl ? (
-                                    <img src={imageUrl} alt={title} />
-                                  ) : (
-                                    <div className="item__image-holder__no-image">
-                                      <span>No Image</span>
-                                    </div>
-                                  )}
-
-                                  {totalImages > 1 && (
-                                    <div className="item__image-holder__total-images">
-                                      +{totalImages - 1} Images
-                                    </div>
-                                  )}
-                                </div>
-
-                                <div className="item__info">
-                                  <div className="item__type">{type}</div>
-                                  <h1 className="item__title">{title}</h1>
-                                  <p
-                                    dangerouslySetInnerHTML={{
-                                      __html: description,
-                                    }}
-                                  />
-                                  <p className="item__id">{id}</p>
-                                </div>
-                              </a>
-                            </Link>
-                          </article>
-                        );
-                      },
-                    )}
-                  </InfiniteScroll>
-                )}
+                      )}
+                    </InfiniteScroll>
+                  )}
               </div>
             </div>
           </div>
@@ -364,7 +368,7 @@ const query = gql`
         title
         type
         description
-        images {
+        images(size: FULL) {
           url
         }
       }
@@ -399,10 +403,18 @@ export default withData(
     },
     props: ({ data, ownProps }) => {
       if (ownProps.url.query.q && data.primoSearch) {
+        // const facets = modifyFacets(data.primoSearch.facets);
+
         return {
           ...data,
           items: data.primoSearch.records,
-          facets: data.primoSearch.facets,
+          // facets: data.primoSearch.facets,
+          facets:
+            data.primoSearch.facets &&
+            modifyFacets(data.primoSearch.facets).filter((facet) => {
+              // Filter out 'Archival Start Date' (WTF??), 'Prefilter', 'domain'
+              return ['local8', 'pfilter', 'domain'].indexOf(facet.slug) === -1;
+            }),
           totalItems: data.primoSearch.info.total,
           loadMore() {
             return data.fetchMore({
@@ -433,6 +445,40 @@ export default withData(
     },
   })(CollectionSearchPage),
 );
+
+const modifyFacets = (facets) => {
+  // Add priority key and then sort by priority
+  return facets
+    .map((facet) => {
+      let priority = 100;
+
+      if (facet.slug === 'rtype') {
+        priority = 0;
+      } else if (facet.slug === 'local6') {
+        priority = 1;
+      } else if (facet.slug === 'tlevel') {
+        priority = 2;
+      } else if (facet.slug === 'newrecords') {
+        priority = 3;
+      } else if (facet.slug === 'creator') {
+        priority = 4;
+      } else if (facet.slug === 'local30') {
+        priority = 110;
+      }
+
+      return {
+        ...facet,
+        priority,
+      };
+    })
+    .sort(compare);
+
+  function compare(a, b) {
+    if (a.priority < b.priority) return -1;
+    if (a.priority > b.priority) return 1;
+    return 0;
+  }
+};
 
 const buildFacetQuery = (facetUrlArgs) => {
   const args = wrapArray(facetUrlArgs);

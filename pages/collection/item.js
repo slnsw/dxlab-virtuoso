@@ -18,7 +18,7 @@ class CollectionItemPage extends Component {
   }
 
   render() {
-    const { isLoading, item } = this.props;
+    const { loading: isLoading, item } = this.props;
 
     const images =
       item &&
@@ -141,6 +141,7 @@ export default withData(
     },
     props: ({ data }) => {
       // console.log(data.primoRecord);
+
       return {
         ...data,
         item: data.primoRecord,
