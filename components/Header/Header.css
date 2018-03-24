@@ -145,7 +145,7 @@ ul.primary-menu {
   margin-bottom: 0;
   padding: 0;
   text-align: left;
-  transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1); /* easeInOutQuint */
+  transition: 0.5s var(--ease-in-out-quint);
 
   @media (--screen-sm) {
     margin-top: var(--spacing-xlg);

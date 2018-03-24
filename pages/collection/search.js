@@ -183,6 +183,7 @@ class CollectionSearchPage extends Component {
                               `${facet.slug},${encodeURIComponent(value.slug)}`,
                             ],
                           };
+
                           const urlString = queryString.stringify(urlObject, {
                             encode: false,
                           });
@@ -193,6 +194,11 @@ class CollectionSearchPage extends Component {
                               key={`collection-search-page__facet__value-name-${
                                 value.name
                               }`}
+                              onClick={() => {
+                                this.setState({
+                                  showMobileFacetList: false,
+                                });
+                              }}
                             >
                               <Link to={`${url.pathname}?${urlString}`}>
                                 <a>
@@ -234,7 +240,7 @@ class CollectionSearchPage extends Component {
                         (facetString) => {
                           return (
                             facetString !==
-                            `${selectedFacet.name},${selectedFacet.value}`
+                            `${selectedFacet.slug},${selectedFacet.value}`
                           );
                         },
                       ),
@@ -252,7 +258,7 @@ class CollectionSearchPage extends Component {
                         }`}
                       >
                         <a className="collection-search-page__facet-button">
-                          {selectedFacet.name}: {selectedFacet.value} (x)
+                          {selectedFacet.slug}: {selectedFacet.value} (x)
                         </a>
                       </Link>
                     );
@@ -458,14 +464,16 @@ const modifyFacets = (facets) => {
 
       if (facet.slug === 'rtype') {
         priority = 0;
-      } else if (facet.slug === 'local6') {
+      } else if (facet.slug === 'local5') {
         priority = 1;
-      } else if (facet.slug === 'tlevel') {
+      } else if (facet.slug === 'local6') {
         priority = 2;
-      } else if (facet.slug === 'newrecords') {
+      } else if (facet.slug === 'tlevel') {
         priority = 3;
-      } else if (facet.slug === 'creator') {
+      } else if (facet.slug === 'newrecords') {
         priority = 4;
+      } else if (facet.slug === 'creator') {
+        priority = 5;
       } else if (facet.slug === 'local30') {
         priority = 110;
       }
@@ -502,7 +510,7 @@ const convertStringToFacet = (string) => {
   const facet = string.match(/([^,]*),(.*)/);
 
   return {
-    name: facet[1],
+    slug: facet[1],
     value: facet[2],
   };
 

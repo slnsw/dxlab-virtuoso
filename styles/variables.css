@@ -169,4 +169,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /*
+   * Animation
+   * ------------------------------------------------------------------------ */
+
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1); /* easeInOutQuint */
 }
