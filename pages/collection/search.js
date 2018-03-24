@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Head from 'next/head';
 import { gql, graphql } from 'react-apollo';
 import queryString from 'query-string';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -87,6 +88,9 @@ class CollectionSearchPage extends Component {
         title="Search"
         metaDescription="{excerpt}"
       >
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
         <div className="collection-search-page container container--lg">
           <h1 className="collection-search-page__title">Search Collection</h1>
 
