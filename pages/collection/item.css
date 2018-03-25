@@ -1,29 +1,64 @@
 @import '../../styles/variables.css';
 
-.collection-item__back-button {
+.collection-item-page {
+  padding-top: var(--spacing-xs);
+}
+
+.collection-item-page__back-button {
   display: block;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xlg);
   padding: 0;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   @apply (--font-uppercase);
   color: var(--colour-highlight);
+
+  @media (--screen-sm) {
+    font-size: var(--font-size-sm);
+  }
 }
 
-.collection-item__gallery {
-  margin-bottom: var(--spacing-xlg);
+.collection-item-page__gallery {
+  margin-bottom: var(--spacing-md);
 }
 
-.collection-item__type {
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-sm);
+.collection-item-page__id {
   @apply (--font-uppercase);
 }
 
-.collection-item__id {
-  @apply (--font-uppercase);
-}
-
-.collection-item__title {
+.collection-item-page__title {
   margin-top: 0;
-  line-height: 1.2;
+  line-height: var(--line-height-xs);
+  font-size: var(--font-size-lg);
+}
+
+.collection-item-page__heading {
+  font-size: var(--font-size-sm);
+  color: var(--colour-grey);
+  /* margin-bottom: 0; */
+}
+
+/* Table */
+/* TODO: Move to own Component */
+.table {
+  padding-top: var(--spacing-sm);
+  border-top: 1px dashed var(--colour-grey);
+  border-bottom: 1px dashed var(--colour-grey);
+  text-transform: uppercase;
+  @apply (--font-uppercase);
+  font-size: var(--font-size-sm);
+}
+
+.table__row {
+  display: flex;
+  margin-bottom: var(--spacing-xxs);
+}
+
+.table__cell {
+  flex: 10;
+  line-height: var(--line-height-sm);
+}
+
+.table__cell--head {
+  flex: 4;
+  color: var(--colour-grey);
 }

@@ -43,14 +43,14 @@ class CollectionItemPage extends Component {
         </Head>
 
         {item && (
-          <div className="collection-item container container--md">
+          <div className="collection-item-page container container--md">
             <button
-              className="collection-item__back-button"
+              className="collection-item-page__back-button"
               onClick={() => window.history.back()}
             >
               &#9664; Back to search
             </button>
-            <div className="collection-item__gallery">
+            <div className="collection-item-page__gallery">
               {images &&
                 images.length > 0 && (
                   <PhotoSwipeGallery
@@ -59,7 +59,7 @@ class CollectionItemPage extends Component {
                       return (
                         <img
                           src={image.src}
-                          className="collection-item__image"
+                          className="collection-item-page__image"
                           alt="This should be something meaningful"
                         />
                       );
@@ -68,11 +68,44 @@ class CollectionItemPage extends Component {
                 )}
             </div>
 
-            <h1 className="collection-item__title">{item.title}</h1>
-            <p className="collection-item__type">Type: {item.type}</p>
-            <p className="collection-item__id">Id: {item.id}</p>
+            <h1 className="collection-item-page__title">{item.title}</h1>
 
-            <p dangerouslySetInnerHTML={{ __html: item.description }} />
+            <div className="table">
+              <div className="table__row">
+                <div className="table__cell table__cell--head">Type</div>
+                <div className="table__cell">{item.type}</div>
+              </div>
+              <div className="table__row">
+                <div className="table__cell table__cell--head">ID</div>
+                <div className="table__cell">{item.id}</div>
+              </div>
+              <div className="table__row">
+                <div className="table__cell table__cell--head">Call Number</div>
+                <div className="table__cell">{item.callNumber}</div>
+              </div>
+              <div className="table__row">
+                <div className="table__cell table__cell--head">
+                  Reference Code
+                </div>
+                <div className="table__cell">{item.referenceCode}</div>
+              </div>
+            </div>
+
+            <h2 className="collection-item-page__heading">Description</h2>
+
+            {item.description && (
+              <p dangerouslySetInnerHTML={{ __html: item.description }} />
+            )}
+
+            {item.physicalDescription}
+
+            {item.history}
+
+            {item.notes}
+
+            {item.copyright}
+
+            {item.accessConditions}
 
             <h2>Subjects</h2>
             <ul>
@@ -115,9 +148,19 @@ const query = gql`
       id
       sourceId
       sourceRecordId
+      referenceCode
+      callNumber
       title
       type
       description
+      physicalDescription
+      subjects
+      exhibitions
+      source
+      history
+      notes
+      copyright
+      accessConditions
       images(size: FULL) {
         url
         width
