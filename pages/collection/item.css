@@ -22,6 +22,10 @@
 }
 
 .collection-item-page__id {
+  margin-bottom: var(--spacing-xxxs);
+  color: var(--colour-grey);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
   @apply (--font-uppercase);
 }
 
@@ -29,6 +33,10 @@
   margin-top: 0;
   line-height: var(--line-height-xs);
   font-size: var(--font-size-lg);
+
+  @media (--screen-sm) {
+    font-size: var(--font-size-xlg);
+  }
 }
 
 .collection-item-page__heading {
@@ -37,28 +45,33 @@
   /* margin-bottom: 0; */
 }
 
-/* Table */
+/* Holdings */
 /* TODO: Move to own Component */
-.table {
-  padding-top: var(--spacing-sm);
-  border-top: 1px dashed var(--colour-grey);
-  border-bottom: 1px dashed var(--colour-grey);
-  text-transform: uppercase;
-  @apply (--font-uppercase);
+.collection-item-page__holdings {
+  margin-bottom: var(--spacing-xxxlg);
+  padding: var(--spacing-sm);
+  background-color: var(--colour-grey-darkest);
   font-size: var(--font-size-sm);
+  @apply (--font-uppercase);
 }
 
-.table__row {
-  display: flex;
-  margin-bottom: var(--spacing-xxs);
+.collection-item-page__holdings__sub-location {
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--colour-black);
 }
 
-.table__cell {
-  flex: 10;
-  line-height: var(--line-height-sm);
+.collection-item-page__description {
+  font-family: var(--font-secondary);
 }
 
-.table__cell--head {
-  flex: 4;
-  color: var(--colour-grey);
+/* Tag */
+/* TODO: Move to own Component */
+.tag {
+  display: inline-block;
+  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxxs);
+  margin: 0 var(--spacing-sm) var(--spacing-sm) 0;
+  border: 1px solid var(--colour-primary);
+  @apply (--font-uppercase);
+  font-size: var(--font-size-xs);
 }

@@ -417,6 +417,7 @@
 
 .item__content {
   opacity: 0.9;
+  margin-bottom: var(--spacing-md);
   font-family: var(--font-secondary);
 }
 

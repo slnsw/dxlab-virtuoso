@@ -412,7 +412,7 @@ export default withData(
       };
     },
     props: ({ data, ownProps }) => {
-      if (ownProps.url.query.q && data.primoSearch) {
+      if (ownProps.url.query && data.primoSearch) {
         // const facets = modifyFacets(data.primoSearch.facets);
 
         return {

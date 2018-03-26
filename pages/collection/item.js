@@ -6,6 +6,8 @@ import Head from 'next/head';
 
 import withData from '../../lib/withData';
 import App from '../../components/App';
+import Table from '../../components/Table';
+import Link from '../../components/Link';
 import styles from './item.css';
 
 class CollectionItemPage extends Component {
@@ -68,50 +70,147 @@ class CollectionItemPage extends Component {
                 )}
             </div>
 
+            <p className="collection-item-page__id">{item.type}</p>
             <h1 className="collection-item-page__title">{item.title}</h1>
 
-            <div className="table">
-              <div className="table__row">
-                <div className="table__cell table__cell--head">Type</div>
-                <div className="table__cell">{item.type}</div>
-              </div>
-              <div className="table__row">
-                <div className="table__cell table__cell--head">ID</div>
-                <div className="table__cell">{item.id}</div>
-              </div>
-              <div className="table__row">
-                <div className="table__cell table__cell--head">Call Number</div>
-                <div className="table__cell">{item.callNumber}</div>
-              </div>
-              <div className="table__row">
-                <div className="table__cell table__cell--head">
-                  Reference Code
-                </div>
-                <div className="table__cell">{item.referenceCode}</div>
-              </div>
-            </div>
+            <Table
+              items={[
+                {
+                  name: 'ID',
+                  value: item.sourceRecordId,
+                },
+                {
+                  name: 'Source',
+                  value: item.sourceId,
+                },
+                {
+                  name: 'Date',
+                  value: item.creationDate,
+                },
+                item.dewey && {
+                  name: 'Dewey',
+                  value: item.dewey,
+                },
+                item.callNumber && {
+                  name: 'Call Number',
+                  value: item.callNumber,
+                },
+                item.isbn && {
+                  name: 'ISBN',
+                  value: item.isbn,
+                },
+                item.publisher && {
+                  name: 'Publisher',
+                  value: item.publisher,
+                },
+                item.referenceCode && {
+                  name: 'Reference Code',
+                  value: item.referenceCode,
+                },
+              ]}
+            />
 
-            <h2 className="collection-item-page__heading">Description</h2>
-
-            {item.description && (
-              <p dangerouslySetInnerHTML={{ __html: item.description }} />
+            {item.holdings.length > 0 && (
+              <div className="collection-item-page__holdings">
+                {item.holdings.map((holding, i) => {
+                  return (
+                    <div key={`holding-${i}`}>
+                      {holding.mainLocation === 'slnsw' ? (
+                        <strong>State Library of NSW</strong>
+                      ) : (
+                        'Other'
+                      )}
+                      <p className="collection-item-page__holdings__sub-location">
+                        {holding.subLocation}
+                      </p>
+                      <p>1 copy, 1 available, 0 requests</p>
+                    </div>
+                  );
+                })}
+              </div>
             )}
 
-            {item.physicalDescription}
+            {(item.description || item.physicalDescription) && (
+              <div>
+                <h2 className="collection-item-page__heading">Description</h2>
 
-            {item.history}
+                {item.description && (
+                  <p
+                    className="collection-item-page__description"
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  />
+                )}
 
-            {item.notes}
+                {item.physicalDescription && (
+                  <p
+                    className="collection-item-page__description"
+                    dangerouslySetInnerHTML={{
+                      __html: item.physicalDescription,
+                    }}
+                  />
+                )}
+              </div>
+            )}
 
-            {item.copyright}
+            {item.history && (
+              <div>
+                <h2 className="collection-item-page__heading">History</h2>
 
-            {item.accessConditions}
+                <p
+                  className="collection-item-page__description"
+                  dangerouslySetInnerHTML={{ __html: item.history }}
+                />
+              </div>
+            )}
 
-            <h2>Subjects</h2>
-            <ul>
-              {item.subjects &&
-                item.subjects.map((subject) => <li>{subject}</li>)}
-            </ul>
+            {item.notes && (
+              <div>
+                <h2 className="collection-item-page__heading">Notes</h2>
+                <p
+                  className="collection-item-page__description"
+                  dangerouslySetInnerHTML={{ __html: item.notes }}
+                />
+              </div>
+            )}
+
+            {item.copyright && (
+              <div>
+                <h2 className="collection-item-page__heading">Copyright</h2>
+
+                <p className="collection-item-page__description">
+                  {item.copyright}
+                </p>
+              </div>
+            )}
+
+            {item.accessConditions && (
+              <div>
+                <div>
+                  <h2 className="collection-item-page__heading">
+                    Access Conditions
+                  </h2>
+
+                  <p className="collection-item-page__description">
+                    {item.accessConditions}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <h2 className="collection-item-page__heading">Subjects</h2>
+            {item.subjects &&
+              item.subjects.map((subject) => (
+                <Link key={`tag-${subject}`}>
+                  <a
+                    className="tag"
+                    href={`../search?facets=topic,${encodeURIComponent(
+                      subject,
+                    )}`}
+                  >
+                    {subject}
+                  </a>
+                </Link>
+              ))}
           </div>
         )}
 
@@ -124,16 +223,54 @@ class CollectionItemPage extends Component {
             }
 
             .pswp-thumbnail {
-              width: 10%;
-              margin-right: 3px;
+              display: none;
+              width: 20%;
+              padding-right: 3px;
             }
 
             .pswp-thumbnail:first-child {
               width: 100%;
+              padding-right: 0;
+            }
+
+            .pswp-thumbnail:nth-child(5n + 1) {
+              padding-right: 0;
+            }
+
+            .pswp-thumbnail:first-child img {
+              width: 100%;
+              height: auto;
+            }
+
+            .pswp-thumbnail:nth-child(1),
+            .pswp-thumbnail:nth-child(2),
+            .pswp-thumbnail:nth-child(3),
+            .pswp-thumbnail:nth-child(4),
+            .pswp-thumbnail:nth-child(5),
+            .pswp-thumbnail:nth-child(6) {
+              display: block;
+            }
+
+            .pswp-thumbnail:nth-child(6) {
+              position: relative;
+              display: flex;
+              text-transform: uppercase;
+            }
+
+            .pswp-thumbnail:nth-child(6):before {
+              position: absolute;
+              content: '+ more';
+            }
+
+            .pswp-thumbnail:nth-child(6) img {
+              opacity: 0.2;
             }
 
             .pswp-thumbnail img {
+              object-fit: cover;
+              margin-bottom: -5px;
               width: 100%;
+              height: 70px;
             }
           `}
         </style>
@@ -149,7 +286,16 @@ const query = gql`
       sourceId
       sourceRecordId
       referenceCode
+      dewey
       callNumber
+      isbn
+      publisher
+      creationDate
+      holdings {
+        mainLocation
+        subLocation
+        status
+      }
       title
       type
       description
@@ -161,7 +307,7 @@ const query = gql`
       notes
       copyright
       accessConditions
-      images(size: FULL) {
+      images(size: FULL, limit: 31) {
         url
         width
         height
