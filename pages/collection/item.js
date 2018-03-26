@@ -8,6 +8,7 @@ import withData from '../../lib/withData';
 import App from '../../components/App';
 import Table from '../../components/Table';
 import Link from '../../components/Link';
+import ShareBox from '../../components/ShareBox';
 import styles from './item.css';
 
 class CollectionItemPage extends Component {
@@ -20,19 +21,22 @@ class CollectionItemPage extends Component {
   }
 
   render() {
-    const { loading: isLoading, item } = this.props;
+    const { loading: isLoading, item, url } = this.props;
 
     const images =
       item &&
       item.images &&
       item.images.length > 0 &&
-      item.images.map((image) => {
+      item.images.map((image, i) => {
         return {
+          i,
           src: image.url,
           w: image.width,
           h: image.height,
         };
       });
+
+    const numberOfThumbnails = 5;
 
     return (
       <App pathname="/search" isLoading={isLoading} title="Collection Item">
@@ -52,83 +56,91 @@ class CollectionItemPage extends Component {
             >
               &#9664; Back to search
             </button>
-            <div className="collection-item-page__gallery">
-              {images &&
-                images.length > 0 && (
-                  <PhotoSwipeGallery
-                    items={images}
-                    thumbnailContent={(image) => {
-                      return (
+            {images &&
+              images.length > 0 && (
+                <PhotoSwipeGallery
+                  className="collection-item-page__gallery"
+                  items={images}
+                  thumbnailContent={(image) => {
+                    return (
+                      <span>
+                        {images.length > numberOfThumbnails + 1 &&
+                          image.i === numberOfThumbnails && (
+                            <div>+ {images.length - numberOfThumbnails}</div>
+                          )}
                         <img
                           src={image.src}
                           className="collection-item-page__image"
                           alt="This should be something meaningful"
                         />
-                      );
-                    }}
-                  />
-                )}
-            </div>
+                      </span>
+                    );
+                  }}
+                />
+              )}
 
             <p className="collection-item-page__id">{item.type}</p>
             <h1 className="collection-item-page__title">{item.title}</h1>
 
-            <Table
-              items={[
-                {
-                  name: 'ID',
-                  value: item.sourceRecordId,
-                },
-                {
-                  name: 'Source',
-                  value: item.sourceId,
-                },
-                {
-                  name: 'Date',
-                  value: item.creationDate,
-                },
-                item.dewey && {
-                  name: 'Dewey',
-                  value: item.dewey,
-                },
-                item.callNumber && {
-                  name: 'Call Number',
-                  value: item.callNumber,
-                },
-                item.isbn && {
-                  name: 'ISBN',
-                  value: item.isbn,
-                },
-                item.publisher && {
-                  name: 'Publisher',
-                  value: item.publisher,
-                },
-                item.referenceCode && {
-                  name: 'Reference Code',
-                  value: item.referenceCode,
-                },
-              ]}
-            />
+            <div className="collection-item-page__data">
+              <Table
+                className="collection-item-page__table"
+                items={[
+                  {
+                    name: 'ID',
+                    value: item.sourceRecordId,
+                  },
+                  {
+                    name: 'Source',
+                    value: item.sourceId,
+                  },
+                  {
+                    name: 'Date',
+                    value: item.creationDate,
+                  },
+                  item.dewey && {
+                    name: 'Dewey',
+                    value: item.dewey,
+                  },
+                  item.callNumber && {
+                    name: 'Call Number',
+                    value: item.callNumber,
+                  },
+                  item.isbn && {
+                    name: 'ISBN',
+                    value: item.isbn,
+                  },
+                  item.publisher && {
+                    name: 'Publisher',
+                    value: item.publisher,
+                  },
+                  item.referenceCode && {
+                    name: 'Reference Code',
+                    value: item.referenceCode,
+                  },
+                ]}
+              />
 
-            {item.holdings.length > 0 && (
-              <div className="collection-item-page__holdings">
-                {item.holdings.map((holding, i) => {
-                  return (
-                    <div key={`holding-${i}`}>
-                      {holding.mainLocation === 'slnsw' ? (
-                        <strong>State Library of NSW</strong>
-                      ) : (
-                        'Other'
-                      )}
-                      <p className="collection-item-page__holdings__sub-location">
-                        {holding.subLocation}
-                      </p>
-                      <p>1 copy, 1 available, 0 requests</p>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
+              {item.holdings.length > 0 && (
+                <div className="collection-item-page__holdings">
+                  {item.holdings.map((holding, i) => {
+                    return (
+                      <div key={`holding-${i}`}>
+                        {holding.mainLocation === 'slnsw' ? (
+                          <strong>State Library of NSW</strong>
+                        ) : (
+                          'Other'
+                        )}
+                        <p className="collection-item-page__holdings__sub-location">
+                          {holding.subLocation}
+                        </p>
+                        <p>1 copy, 1 available, 0 requests</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
 
             {(item.description || item.physicalDescription) && (
               <div>
@@ -136,14 +148,14 @@ class CollectionItemPage extends Component {
 
                 {item.description && (
                   <p
-                    className="collection-item-page__description"
+                    className="collection-item-page__text collection-item-page__text--lg"
                     dangerouslySetInnerHTML={{ __html: item.description }}
                   />
                 )}
 
                 {item.physicalDescription && (
                   <p
-                    className="collection-item-page__description"
+                    className="collection-item-page__text collection-item-page__text--lg"
                     dangerouslySetInnerHTML={{
                       __html: item.physicalDescription,
                     }}
@@ -157,7 +169,7 @@ class CollectionItemPage extends Component {
                 <h2 className="collection-item-page__heading">History</h2>
 
                 <p
-                  className="collection-item-page__description"
+                  className="collection-item-page__text collection-item-page__text--lg"
                   dangerouslySetInnerHTML={{ __html: item.history }}
                 />
               </div>
@@ -167,7 +179,7 @@ class CollectionItemPage extends Component {
               <div>
                 <h2 className="collection-item-page__heading">Notes</h2>
                 <p
-                  className="collection-item-page__description"
+                  className="collection-item-page__text"
                   dangerouslySetInnerHTML={{ __html: item.notes }}
                 />
               </div>
@@ -177,9 +189,7 @@ class CollectionItemPage extends Component {
               <div>
                 <h2 className="collection-item-page__heading">Copyright</h2>
 
-                <p className="collection-item-page__description">
-                  {item.copyright}
-                </p>
+                <p className="collection-item-page__text">{item.copyright}</p>
               </div>
             )}
 
@@ -190,7 +200,7 @@ class CollectionItemPage extends Component {
                     Access Conditions
                   </h2>
 
-                  <p className="collection-item-page__description">
+                  <p className="collection-item-page__text">
                     {item.accessConditions}
                   </p>
                 </div>
@@ -211,69 +221,13 @@ class CollectionItemPage extends Component {
                   </a>
                 </Link>
               ))}
+
+            <ShareBox pathname={url.pathname} />
           </div>
         )}
 
-        <style jsx>{styles}</style>
-        <style jsx global>
-          {`
-            .pswp-thumbnails {
-              display: flex;
-              flex-wrap: wrap;
-            }
-
-            .pswp-thumbnail {
-              display: none;
-              width: 20%;
-              padding-right: 3px;
-            }
-
-            .pswp-thumbnail:first-child {
-              width: 100%;
-              padding-right: 0;
-            }
-
-            .pswp-thumbnail:nth-child(5n + 1) {
-              padding-right: 0;
-            }
-
-            .pswp-thumbnail:first-child img {
-              width: 100%;
-              height: auto;
-            }
-
-            .pswp-thumbnail:nth-child(1),
-            .pswp-thumbnail:nth-child(2),
-            .pswp-thumbnail:nth-child(3),
-            .pswp-thumbnail:nth-child(4),
-            .pswp-thumbnail:nth-child(5),
-            .pswp-thumbnail:nth-child(6) {
-              display: block;
-            }
-
-            .pswp-thumbnail:nth-child(6) {
-              position: relative;
-              display: flex;
-              text-transform: uppercase;
-            }
-
-            .pswp-thumbnail:nth-child(6):before {
-              position: absolute;
-              content: '+ more';
-            }
-
-            .pswp-thumbnail:nth-child(6) img {
-              opacity: 0.2;
-            }
-
-            .pswp-thumbnail img {
-              object-fit: cover;
-              margin-bottom: -5px;
-              width: 100%;
-              height: 70px;
-            }
-          `}
-        </style>
+        {/* prettier-ignore */}
+        <style global jsx>{styles}</style>
       </App>
     );
   }
@@ -307,7 +261,7 @@ const query = gql`
       notes
       copyright
       accessConditions
-      images(size: FULL, limit: 31) {
+      images(size: FULL, limit: 100) {
         url
         width
         height

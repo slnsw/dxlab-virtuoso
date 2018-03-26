@@ -6,6 +6,7 @@ import styles from './Table.css';
 class Table extends Component {
   static propTypes = {
     items: PropTypes.array,
+    className: PropTypes.string,
   };
 
   // .shape({
@@ -14,10 +15,10 @@ class Table extends Component {
   // })
 
   render() {
-    const { items } = this.props;
+    const { items, className } = this.props;
 
     return (
-      <div className="table">
+      <div className={`table ${className}`}>
         {items &&
           items.filter((item) => item).map((item, i) => {
             return (

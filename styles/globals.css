@@ -47,3 +47,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* TAG */
+.tag {
+  display: inline-block;
+  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxxs);
+  margin: 0 var(--spacing-sm) var(--spacing-sm) 0;
+  border: 1px solid var(--colour-primary);
+  @apply (--font-uppercase);
+  font-size: var(--font-size-xs);
+}

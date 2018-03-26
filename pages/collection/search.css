@@ -68,7 +68,7 @@
 }
 
 .collection-search-page__results__loader__text {
-  color: var(--colour-grey-light);
+  color: var(--colour-grey-lightest);
   font-size: var(--font-size-sm);
   padding-top: var(--spacing-md);
 
@@ -265,6 +265,7 @@
 
 .collection-search-page__facet__value-name {
   line-height: var(--line-height-sm);
+  font-size: var(--font-size-lg);
 
   & a:link,
   & a:visited {
@@ -291,15 +292,8 @@
   /* margin-bottom: var(--spacing-md); */
 }
 
-/* Move to global function */
 .collection-search-page__facet-button {
-  display: inline-block;
-  margin-right: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-  padding: var(--spacing-md);
-  border: 1px solid var(--colour-primary);
-  font-size: var(--font-size-sm);
-  @apply (--font-uppercase);
+  /* Something */
 }
 
 /* Results */
@@ -313,6 +307,8 @@
 }
 
 .collection-search-page__items {
+  width: 100%;
+
   @media (--screen-sm) {
     flex: 3;
   }
@@ -374,11 +370,11 @@
 }
 
 .item__image-holder__total-images {
-  margin-top: var(--spacing-xxxs);
+  margin-top: var(--spacing-xs);
   width: 100%;
   color: var(--colour-grey);
   @apply (--font-uppercase);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   /* text-align: right; */
 }
 

@@ -10,6 +10,16 @@ import Link from '../../components/Link';
 import { Router } from '../../routes';
 import styles from './search.css';
 
+const Loader = () => (
+  <div className="collection-search-page__results__loader">
+    <div className="collection-search-page__results__loader__text">
+      Loading <span>.</span>
+      <span>.</span>
+      <span>.</span>
+    </div>
+  </div>
+);
+
 class CollectionSearchPage extends Component {
   constructor() {
     super();
@@ -109,28 +119,33 @@ class CollectionSearchPage extends Component {
             <input type="submit" className="button" />
           </form>
 
-          {items &&
-            items.length > 0 && (
-              <div className="collection-search-page__info">
-                <button
-                  className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
-                  onClick={this.handleMobileFacetListToggle}
-                >
-                  {showMobileFacetList ? '< Hide' : '> Show'} Facets
-                </button>
+          {
+            <div className="collection-search-page__info">
+              {facets &&
+                facets.length > 0 && (
+                  <button
+                    className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
+                    onClick={this.handleMobileFacetListToggle}
+                  >
+                    {showMobileFacetList ? '< Hide' : '> Show'} Facets
+                  </button>
+                )}
 
-                <button
-                  className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
-                  onClick={this.handleDesktopFacetListToggle}
-                >
-                  {showDesktopFacetList ? '< Hide' : '> Show'} Facets
-                </button>
+              {facets &&
+                facets.length > 0 && (
+                  <button
+                    className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
+                    onClick={this.handleDesktopFacetListToggle}
+                  >
+                    {showDesktopFacetList ? '< Hide' : '> Show'} Facets
+                  </button>
+                )}
 
-                <div className="collection-search-page__total-items">
-                  {numberWithCommas(totalItems)} results
-                </div>
+              <div className="collection-search-page__total-items">
+                {numberWithCommas(totalItems)} results
               </div>
-            )}
+            </div>
+          }
 
           <div className="collection-search-page__results">
             <div
@@ -151,6 +166,7 @@ class CollectionSearchPage extends Component {
                 {showMobileFacetList ? '< Hide' : '> Show'} Facets
               </button>
 
+              {/* Facets */}
               {facets &&
                 facets.map((facet) => {
                   // Check if facet.name is in facetsShowAll, if so, show all facet values.
@@ -229,6 +245,7 @@ class CollectionSearchPage extends Component {
             </div>
 
             <div className="collection-search-page__items">
+              {/* Selected Facets */}
               {selectedFacets.length > 0 && (
                 <div className="collection-search-page__selected-facets">
                   {selectedFacets.map((selectedFacet) => {
@@ -257,7 +274,7 @@ class CollectionSearchPage extends Component {
                           selectedFacet.value
                         }`}
                       >
-                        <a className="collection-search-page__facet-button">
+                        <a className="collection-search-page__facet-button tag">
                           {selectedFacet.slug}: {selectedFacet.value} (x)
                         </a>
                       </Link>
@@ -266,9 +283,7 @@ class CollectionSearchPage extends Component {
                 </div>
               )}
 
-              {isLoading && (
-                <div className="collection-search-page__results__loader" />
-              )}
+              {isLoading && <Loader />}
 
               <div
                 className={`collection-search-page__results__items ${
@@ -286,15 +301,7 @@ class CollectionSearchPage extends Component {
                         // Max items to show is 100, but if totalItems is less, use totalItems
                         items.length < (totalItems < 100 ? totalItems : 100)
                       }
-                      loader={
-                        <div className="collection-search-page__results__loader">
-                          <div className="collection-search-page__results__loader__text">
-                            Loading <span>.</span>
-                            <span>.</span>
-                            <span>.</span>
-                          </div>
-                        </div>
-                      }
+                      loader={<Loader />}
                     >
                       {items.map(
                         (
@@ -332,7 +339,8 @@ class CollectionSearchPage extends Component {
 
                                     {totalImages > 1 && (
                                       <div className="item__image-holder__total-images">
-                                        +{totalImages - 1} Images
+                                        {totalImages > 10 ? '+10' : totalImages}{' '}
+                                        Images
                                       </div>
                                     )}
                                   </div>
@@ -362,7 +370,8 @@ class CollectionSearchPage extends Component {
           </div>
         </div>
 
-        <style jsx>{styles}</style>
+        {/* prettier-ignore */}
+        <style global jsx>{styles}</style>
       </App>
     );
   }
@@ -378,7 +387,7 @@ const query = gql`
         title
         type
         description
-        images(size: FULL) {
+        images(size: FULL, limit: 11) {
           url
         }
       }
@@ -411,8 +420,8 @@ export default withData(
         },
       };
     },
-    props: ({ data, ownProps }) => {
-      if (ownProps.url.query && data.primoSearch) {
+    props: ({ data }) => {
+      if (data.primoSearch) {
         // const facets = modifyFacets(data.primoSearch.facets);
 
         return {
@@ -451,7 +460,9 @@ export default withData(
         };
       }
 
-      return null;
+      return {
+        ...data,
+      };
     },
   })(CollectionSearchPage),
 );
