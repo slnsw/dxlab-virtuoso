@@ -9,6 +9,7 @@ import App from '../../components/App';
 import Table from '../../components/Table';
 import Link from '../../components/Link';
 import ShareBox from '../../components/ShareBox';
+import RelatedCollectionItems from '../../components/RelatedCollectionItems';
 import styles from './item.css';
 
 class CollectionItemPage extends Component {
@@ -97,6 +98,13 @@ class CollectionItemPage extends Component {
                   {
                     name: 'Date',
                     value: item.creationDate,
+                  },
+                  item.creator && {
+                    name: 'Creator',
+                    value: item.creator,
+                    url: `../search?facets=creator,${encodeURIComponent(
+                      item.creator,
+                    )}`,
                   },
                   item.dewey && {
                     name: 'Dewey',
@@ -222,7 +230,11 @@ class CollectionItemPage extends Component {
                 </Link>
               ))}
 
-            <ShareBox pathname={url.pathname} />
+            <ShareBox pathname={url.pathname} title={item.title} />
+
+            {item.relatedItems && (
+              <RelatedCollectionItems items={item.relatedItems} />
+            )}
           </div>
         )}
 
@@ -254,6 +266,7 @@ const query = gql`
       type
       description
       physicalDescription
+      creator
       subjects
       exhibitions
       source
@@ -267,6 +280,14 @@ const query = gql`
         height
       }
       subjects
+      relatedItems(limit: 4) {
+        id
+        title
+        type
+        images(size: FULL, limit: 1) {
+          url
+        }
+      }
     }
   }
 `;
@@ -283,8 +304,6 @@ export default withData(
       };
     },
     props: ({ data }) => {
-      // console.log(data.primoRecord);
-
       return {
         ...data,
         item: data.primoRecord,

@@ -55,5 +55,5 @@
   margin: 0 var(--spacing-sm) var(--spacing-sm) 0;
   border: 1px solid var(--colour-primary);
   @apply (--font-uppercase);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
 }

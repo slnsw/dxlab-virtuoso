@@ -7,7 +7,7 @@
   border-bottom: 1px dashed var(--colour-grey);
   text-transform: uppercase;
   @apply (--font-uppercase);
-  font-size: var(--font-size-sm);
+  /* font-size: var(--font-size-sm); */
 }
 
 .table__row {

@@ -28,6 +28,10 @@
 .collection-search-page__form__input {
   flex: 4;
   margin-right: var(--spacing-md);
+
+  @media (--screen-sm) {
+    font-size: var(--font-size-lg);
+  }
 }
 
 /* Results */

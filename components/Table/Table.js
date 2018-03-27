@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import Link from '../Link';
 
 import styles from './Table.css';
 
@@ -24,7 +25,13 @@ class Table extends Component {
             return (
               <div className="table__row" key={`table-row-${i}`}>
                 <div className="table__cell table__cell--head">{item.name}</div>
-                <div className="table__cell">{item.value}</div>
+                <div className="table__cell">
+                  {item.url ? (
+                    <Link to={item.url}>{item.value}</Link>
+                  ) : (
+                    item.value
+                  )}
+                </div>
               </div>
             );
           })}
