@@ -55,20 +55,20 @@
   background-size: 400% 400%;
   @apply (--font-uppercase);
 
-  animation: AnimationName 2s ease infinite;
+  animation: LoaderAnimation 3s ease-in-out infinite;
+}
 
-  @keyframes AnimationName {
-    0% {
-      background-position: 0% 50%;
-    }
+@keyframes LoaderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
 
-    50% {
-      background-position: 100% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
+  }
 
-    100% {
-      background-position: 0% 50%;
-    }
+  100% {
+    background-position: 0% 50%;
   }
 }
 

@@ -92,11 +92,9 @@ class CollectionSearchPage extends Component {
       showDesktopFacetList,
     } = this.state;
 
-    console.log(url.query.scope);
-
     return (
       <App
-        pathname="/search"
+        pathname="/collection/search"
         // isLoading={isLoading}
         title="Search"
         metaDescription="{excerpt}"
