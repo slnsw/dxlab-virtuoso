@@ -16,7 +16,6 @@ class Popover extends Component {
 
     this.state = {
       isOpen: false,
-      selectedItemIndex: 0,
     };
   }
 
@@ -28,9 +27,9 @@ class Popover extends Component {
     });
 
     if (typeof i === 'number') {
-      this.setState({
-        selectedItemIndex: i,
-      });
+      // this.setState({
+      //   selectedItemIndex: i,
+      // });
 
       const url = this.props.items[i].url;
       Router.push(url);
@@ -39,8 +38,10 @@ class Popover extends Component {
 
   render() {
     const { items } = this.props;
-    const { isOpen, selectedItemIndex } = this.state;
-    const selectedItem = items[selectedItemIndex];
+    const { isOpen } = this.state;
+
+    // Find selectedItem
+    const selectedItem = items.filter((item) => item.isSelected)[0] || items[0];
 
     return (
       <div className="popover">
@@ -66,7 +67,11 @@ class Popover extends Component {
             <ul>
               {items.map((item, i) => {
                 return (
-                  <li>
+                  <li
+                    className={`popover__item ${
+                      item.isSelected ? 'popover__item--is-selected' : undefined
+                    }`}
+                  >
                     <a onClick={(event) => this.handleTitleClick(event, i)}>
                       {item.name}
                     </a>

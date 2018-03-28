@@ -92,6 +92,8 @@ class CollectionSearchPage extends Component {
       showDesktopFacetList,
     } = this.state;
 
+    console.log(url.query.scope);
+
     return (
       <App
         pathname="/search"
@@ -108,10 +110,12 @@ class CollectionSearchPage extends Component {
               {
                 name: 'Search Collection',
                 url: '/collection/search',
+                isSelected: url.query.scope !== 'articles',
               },
               {
                 name: 'Search Articles',
                 url: '/collection/search?scope=articles',
+                isSelected: url.query.scope === 'articles',
               },
             ]}
           />

@@ -25,16 +25,21 @@
 
 .popover__items {
   position: absolute;
-  top: calc(-1 * var(--spacing-xxxs) - 1px);
+  /* top: calc(-1 * var(--spacing-xxxs) - 1px); */
+  top: var(--spacing-xlg);
   left: calc(-1 * var(--spacing-sm) - 1px);
   margin-bottom: var(--spacing-xs);
   padding: 0 var(--spacing-lg) 0 var(--spacing-sm);
   border: 1px solid var(--colour-grey-darkest);
   background-color: var(--colour-black);
-  font-weight: 700;
+  /* font-weight: 700; */
   @apply (--font-uppercase);
 
   & li {
     padding: var(--spacing-xxxs) 0;
   }
+}
+
+.popover__item--is-selected {
+	color: var(--colour-highlight);
 }
