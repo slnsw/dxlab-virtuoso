@@ -7,8 +7,9 @@ import InfiniteScroll from 'react-infinite-scroller';
 import withData from '../../lib/withData';
 import App from '../../components/App';
 import Link from '../../components/Link';
+import Popover from '../../components/Popover';
 import { Router } from '../../routes';
-import styles from './search.css';
+import './search.css';
 
 const Loader = () => (
   <div className="collection-search-page__results__loader">
@@ -102,7 +103,18 @@ class CollectionSearchPage extends Component {
           <meta name="robots" content="noindex" />
         </Head>
         <div className="collection-search-page container container--lg">
-          <h1 className="collection-search-page__title">Search Collection</h1>
+          <Popover
+            items={[
+              {
+                name: 'Search Collection',
+                url: '/collection/search',
+              },
+              {
+                name: 'Search Articles',
+                url: '/collection/search?scope=articles',
+              },
+            ]}
+          />
 
           <form
             className="collection-search-page__form"
@@ -369,17 +381,19 @@ class CollectionSearchPage extends Component {
             </div>
           </div>
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </App>
     );
   }
 }
 
 const query = gql`
-  query Search($q: String, $facets: [PrimoFacetType], $offset: Int) {
-    primoSearch(search: $q, facets: $facets, offset: $offset) {
+  query Search(
+    $q: String
+    $facets: [PrimoFacetType]
+    $offset: Int
+    $scope: PrimoScopeType
+  ) {
+    primoSearch(search: $q, facets: $facets, offset: $offset, scope: $scope) {
       records {
         id
         sourceId
@@ -411,12 +425,13 @@ const query = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(
   graphql(query, {
-    options: ({ url: { query: { q, facets } } }) => {
+    options: ({ url: { query: { q, facets, scope } } }) => {
       return {
         variables: {
           q,
           facets: buildFacetQuery(facets),
           offset: 0,
+          scope: scope && scope.toUpperCase(),
         },
       };
     },

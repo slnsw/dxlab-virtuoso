@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
-// import sizeOf from 'image-size';
 
 import withData from '../../lib/withData';
 import App from '../../components/App';
@@ -10,7 +9,7 @@ import Table from '../../components/Table';
 import Link from '../../components/Link';
 import ShareBox from '../../components/ShareBox';
 import RelatedCollectionItems from '../../components/RelatedCollectionItems';
-import styles from './item.css';
+import './item.css';
 
 class CollectionItemPage extends Component {
   constructor() {
@@ -34,6 +33,7 @@ class CollectionItemPage extends Component {
           src: image.url,
           w: image.width,
           h: image.height,
+          title: image.fileNumber ? `File Number: ${image.fileNumber}` : null,
         };
       });
 
@@ -208,9 +208,10 @@ class CollectionItemPage extends Component {
                     Access Conditions
                   </h2>
 
-                  <p className="collection-item-page__text">
-                    {item.accessConditions}
-                  </p>
+                  <p
+                    className="collection-item-page__text"
+                    dangerouslySetInnerHTML={{ __html: item.accessConditions }}
+                  />
                 </div>
               </div>
             )}
@@ -230,6 +231,39 @@ class CollectionItemPage extends Component {
                 </Link>
               ))}
 
+            <br />
+            <br />
+
+            {item.projects && (
+              <div className="collection-item-page__projects">
+                {item.projects.map((project) => {
+                  return (
+                    <article className="collection-item-page__project">
+                      <Link to={project.url}>
+                        <a>
+                          <h2>{project.type}</h2>
+                          <h1>{project.title}</h1>
+
+                          <div className="collection-item-page__project__content">
+                            {project.imageUrl && (
+                              <div className="collection-item-page__project__image-holder">
+                                <img src={project.imageUrl} />
+                              </div>
+                            )}
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: project.description,
+                              }}
+                            />
+                          </div>
+                        </a>
+                      </Link>
+                    </article>
+                  );
+                })}
+              </div>
+            )}
+
             <ShareBox pathname={url.pathname} title={item.title} />
 
             {item.relatedItems && (
@@ -237,9 +271,6 @@ class CollectionItemPage extends Component {
             )}
           </div>
         )}
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </App>
     );
   }
@@ -278,6 +309,7 @@ const query = gql`
         url
         width
         height
+        fileNumber
       }
       subjects
       relatedItems(limit: 4) {
@@ -287,6 +319,13 @@ const query = gql`
         images(size: FULL, limit: 1) {
           url
         }
+      }
+      projects {
+        title
+        type
+        url
+        imageUrl
+        description
       }
     }
   }

@@ -105,6 +105,49 @@
   font-size: var(--font-size-lg);
 }
 
+/* Project */
+/* TODO New component */
+.collection-item-page__project {
+  padding: var(--spacing-md);
+  border: 1px solid var(--colour-grey-darker);
+
+  & a:link,
+  & a:visited {
+    color: var(--colour-white);
+  }
+
+  & h2 {
+    margin-bottom: 0;
+    color: var(--colour-grey);
+    font-size: var(--spacing-sm);
+  }
+
+  & h1 {
+    margin-top: 0;
+    font-size: var(--spacing-lg);
+  }
+
+  & p {
+    flex: 2;
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+  }
+}
+
+.collection-item-page__project__image-holder {
+  flex: 1;
+  margin-right: 1em;
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.collection-item-page__project__content {
+  display: flex;
+}
+
 /* Photoswipe */
 /* TODO: Work out what to put in shared component */
 .collection-item-page__gallery {

@@ -1,4 +1,40 @@
 @import '../../styles/variables.css';
 
-/* .popover {
-} */
+.popover {
+  position: relative;
+
+  & a:link,
+  & a:visited {
+    color: var(--colour-white);
+  }
+
+  & a:hover {
+    cursor: pointer;
+  }
+}
+
+.popover__title {
+  margin-bottom: var(--spacing-xs);
+  font-weight: 700;
+  @apply (--font-uppercase);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.popover__items {
+  position: absolute;
+  top: calc(-1 * var(--spacing-xxxs) - 1px);
+  left: calc(-1 * var(--spacing-sm) - 1px);
+  margin-bottom: var(--spacing-xs);
+  padding: 0 var(--spacing-lg) 0 var(--spacing-sm);
+  border: 1px solid var(--colour-grey-darkest);
+  background-color: var(--colour-black);
+  font-weight: 700;
+  @apply (--font-uppercase);
+
+  & li {
+    padding: var(--spacing-xxxs) 0;
+  }
+}
