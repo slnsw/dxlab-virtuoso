@@ -265,9 +265,10 @@ ul.primary-menu {
       padding: 0;
     }
 
-    /*&:hover {
-      border-bottom: 1px solid var(--colour-highlight);
-    }*/
+    &:link,
+    &:visited {
+      color: var(--colour-white);
+    }
 
     &.is-active {
       color: var(--colour-highlight);

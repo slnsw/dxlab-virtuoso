@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './ShareBox.css';
+import './ShareBox.css';
 
 class ShareBox extends Component {
   static propTypes = {
@@ -53,8 +53,6 @@ class ShareBox extends Component {
             />
           </a>
         </div>
-
-        <style jsx>{styles}</style>
       </div>
     );
   }

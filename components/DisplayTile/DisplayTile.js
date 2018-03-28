@@ -5,7 +5,7 @@ import TileImage from '../TileImage';
 import TileButtonGroup from '../TileButtonGroup';
 import Link from '../Link';
 // import Button from '../Button';
-import styles from './DisplayTile.css';
+import './DisplayTile.css';
 
 class DisplayTile extends Component {
   static propTypes = {
@@ -90,9 +90,6 @@ class DisplayTile extends Component {
             />
           </div>
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </article>
     );
   }

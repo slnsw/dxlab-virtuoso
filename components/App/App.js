@@ -6,10 +6,10 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { buildHeadTitle } from '../../lib';
 import { initGA, logPageView } from '../../lib/analytics';
-import styles from './App.css';
-import baseStyles from '../../styles/base.css';
-import globalsStyles from '../../styles/globals.css';
-import loaderStyles from '../../styles/loader.css';
+import './App.css';
+import '../../styles/base.css';
+import '../../styles/globals.css';
+import '../../styles/loader.css';
 
 const SCROLLTOP_THRESHOLD = 100;
 
@@ -163,13 +163,6 @@ class App extends Component {
         <main>{!isLoading && children}</main>
 
         <Footer pathname={pathname} />
-
-        {/* prettier-ignore */}
-        <style jsx global>{baseStyles}</style>
-        {/* prettier-ignore */}
-        <style jsx global>{globalsStyles}</style>
-        <style jsx>{loaderStyles}</style>
-        <style jsx>{styles}</style>
       </div>
     );
   }

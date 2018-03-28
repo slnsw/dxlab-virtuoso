@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SectionTitle from '../SectionTitle';
 import Comment from '../Comment';
 import CommentForm from '../CommentForm';
-import styles from './Comments.css';
+import './Comments.css';
 
 class Comments extends Component {
   static propTypes = {
@@ -54,8 +54,6 @@ class Comments extends Component {
 
           <CommentForm postId={postId} />
         </div>
-
-        <style jsx>{styles}</style>
       </div>
     );
   }

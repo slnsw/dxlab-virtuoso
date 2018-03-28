@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import classNames from 'classnames';
 
-import styles from './Image.css';
+import './Image.css';
 
 // TODO: Lots to fix up here, imported from another project
 
@@ -135,9 +135,6 @@ class Image extends Component {
               {this.props.loadingContent}
             </div>
           )}
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </div>
     );
   }

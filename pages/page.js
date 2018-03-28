@@ -4,7 +4,7 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import styles from './post.css';
+import './post.css';
 import config from '../lib/config';
 
 class Page extends Component {
@@ -34,9 +34,6 @@ class Page extends Component {
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </article>
-
-        {/* prettier-ignore */}
-        <style jsx global>{styles}</style>
       </App>
     );
   }

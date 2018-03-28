@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import Link from '../Link';
-import styles from './TileImage.css';
+import './TileImage.css';
 
 class TileImage extends Component {
   handleMouseOver = () => {
@@ -38,7 +38,7 @@ class TileImage extends Component {
         onMouseOver={this.handleMouseOver}
         onMouseOut={this.handleMouseOut}
       >
-        <style jsx>{styles}</style>
+        &nbsp;
       </a>
     ) : (
       <Link to={url}>
@@ -52,7 +52,7 @@ class TileImage extends Component {
           onMouseOver={this.handleMouseOver}
           onMouseOut={this.handleMouseOut}
         >
-          <style jsx>{styles}</style>
+          &nbsp;
         </a>
       </Link>
     );

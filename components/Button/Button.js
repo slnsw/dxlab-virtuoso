@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Button.css';
+import './Button.css';
 import Link from '../Link';
 
 class Button extends Component {
@@ -22,8 +22,6 @@ class Button extends Component {
         target={target}
       >
         {children}
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </a>
     ) : (
       <Link to={href}>
@@ -32,9 +30,6 @@ class Button extends Component {
           target={target}
         >
           {children}
-
-          {/* prettier-ignore */}
-          <style global jsx>{styles}</style>
         </a>
       </Link>
     );

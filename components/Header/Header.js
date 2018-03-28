@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import Menu from '../Menu';
-import styles from './Header.css';
+import './Header.css';
 
 const menuItems = [
   { name: 'Home', url: '/' },
@@ -99,9 +99,6 @@ class Header extends Component {
             <span />
           </div>
         </button>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </header>
     );
   }

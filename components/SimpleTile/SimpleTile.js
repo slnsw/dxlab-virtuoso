@@ -5,7 +5,7 @@ import Link from '../Link';
 import Image from '../Image';
 // import TileImage from '../TileImage';
 // import Button from '../Button';
-import styles from './SimpleTile.css';
+import './SimpleTile.css';
 
 class SimpleTile extends Component {
   static propTypes = {
@@ -41,9 +41,6 @@ class SimpleTile extends Component {
           </h1>
           <p className="simple-tile__subtitle">{subtitle}</p>
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </article>
     );
   }

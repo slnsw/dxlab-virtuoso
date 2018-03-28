@@ -1,8 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import Comment from './Comment';
-import styles from './Comment.css';
+import './Comment.css';
 import { formatDate } from '../../lib';
 
 class Comment extends Component {
@@ -48,8 +47,6 @@ class Comment extends Component {
               );
             })}
         </div>
-
-        <style jsx>{styles}</style>
       </article>
     );
   }

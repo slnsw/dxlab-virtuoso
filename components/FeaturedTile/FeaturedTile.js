@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TileImage from '../TileImage';
 // import Link from '../Link';
 import Button from '../Button';
-import styles from './FeaturedTile.css';
+import './FeaturedTile.css';
 
 class FeaturedTile extends Component {
   static propTypes = {
@@ -37,9 +37,6 @@ class FeaturedTile extends Component {
             <Button>Read</Button>
           </div>
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </article>
     );
   }

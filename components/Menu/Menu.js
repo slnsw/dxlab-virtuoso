@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Link from '../Link';
-import styles from './Menu.css';
+import './Menu.css';
 
 class Menu extends Component {
   static propTypes = {
@@ -40,7 +40,7 @@ class Menu extends Component {
     return (
       <ul
         id={id}
-        className={`menu ${className}`}
+        className={`menu ${className !== false ? className : undefined}`}
         role="menu"
         aria-labelledby={labelledby}
       >
@@ -65,8 +65,6 @@ class Menu extends Component {
             </li>
           );
         })}
-
-        <style jsx>{styles}</style>
       </ul>
     );
   }

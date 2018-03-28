@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
-import styles from './CommentForm.css';
+import './CommentForm.css';
 
 class CommentForm extends Component {
   static propTypes = {
@@ -132,8 +132,6 @@ class CommentForm extends Component {
             <p>Thanks for your feedback, your comment is awaiting approval.</p>
           </div>
         )}
-
-        <style jsx>{styles}</style>
       </div>
     );
   }

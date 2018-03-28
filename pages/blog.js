@@ -38,7 +38,7 @@ class Blog extends Component {
               pageStart={0}
               loadMore={loadMore}
               hasMore={posts.length < 46}
-              loader={<div className="loader">Loading ...</div>}
+              loader={<div>Loading ...</div>}
             >
               {posts.map((post, i) => (
                 <SimpleTile
@@ -54,8 +54,6 @@ class Blog extends Component {
             </InfiniteScroll>
           )}
         </div>
-
-        {/* <style global jsx>{styles}</style> */}
       </App>
     );
   }

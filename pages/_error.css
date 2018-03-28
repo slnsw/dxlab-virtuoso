@@ -4,24 +4,26 @@
   margin-top: 0;
 }
 
-h1,
-h2 {
-  text-align: center;
-  padding-top: 0;
-}
-
-h1 {
-  font-size: var(--font-size-md);
-
-  @media (--screen-sm) {
-    font-size: var(--font-size-lg);
+.error-page {
+  & h1,
+  & h2 {
+    text-align: center;
+    padding-top: 0;
   }
 
-  @media (--screen-md) {
-    font-size: var(--font-size-xlg);
-  }
-}
+  & h1 {
+    font-size: var(--font-size-md);
 
-h2 {
-  margin-top: 0;
+    @media (--screen-sm) {
+      font-size: var(--font-size-lg);
+    }
+
+    @media (--screen-md) {
+      font-size: var(--font-size-xlg);
+    }
+  }
+
+  & h2 {
+    margin-top: 0;
+  }
 }

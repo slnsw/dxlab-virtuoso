@@ -5,7 +5,7 @@ import { gql, graphql } from 'react-apollo';
 // import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
 import { mapPostToTile } from '../../lib';
-import styles from './SearchModal.css';
+import './SearchModal.css';
 
 class SearchModal extends Component {
   static propTypes = {
@@ -110,9 +110,6 @@ class SearchModal extends Component {
             <p>{this.props.q && <span>No results found.</span>}</p>
           )}
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </div>
     );
   }

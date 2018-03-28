@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from '../Link';
 
-import styles from './Table.css';
+import './Table.css';
 
 class Table extends Component {
   static propTypes = {
@@ -35,7 +35,6 @@ class Table extends Component {
               </div>
             );
           })}
-        <style jsx>{styles}</style>
       </div>
     );
   }

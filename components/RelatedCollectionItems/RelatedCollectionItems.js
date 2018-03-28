@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './RelatedCollectionItems.css';
+import './RelatedCollectionItems.css';
 import Link from '../Link';
 
 class RelatedCollectionItems extends Component {
@@ -43,9 +43,6 @@ class RelatedCollectionItems extends Component {
             );
           })}
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </div>
     );
   }

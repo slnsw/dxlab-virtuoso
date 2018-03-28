@@ -9,8 +9,8 @@ import Button from '../components/Button';
 import Comments from '../components/Comments';
 import { formatDate } from '../lib';
 import Four04 from './_error';
-import styles from './post.css';
-import galleryStyles from '../styles/gallery.css';
+import './post.css';
+import '../styles/gallery.css';
 
 class Post extends Component {
   static propTypes = {
@@ -159,10 +159,6 @@ class Post extends Component {
             <Comments postId={id} comments={comments} />
           </div>
         </article>
-        {/* prettier-ignore */}
-        <style jsx global>{styles}</style>
-        {/* prettier-ignore */}
-        <style jsx global>{galleryStyles}</style>
       </App>
     );
   }

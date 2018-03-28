@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import styles from './Footer.css';
+import './Footer.css';
 // import Menu from '../Menu';
 
 class Footer extends Component {
@@ -53,9 +53,6 @@ class Footer extends Component {
             />
           </a>
         </div>
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </footer>
     );
   }

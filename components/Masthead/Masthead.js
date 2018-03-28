@@ -2,8 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import shuffle from '../../lib/shuffle';
-import styles from './Masthead.css';
-import glitchStyles from '../../styles/glitch.css';
+import './Masthead.css';
+import '../../styles/glitch.css';
 
 class Masthead extends Component {
   static propTypes = {
@@ -89,13 +89,6 @@ class Masthead extends Component {
             <div className="masthead__caption">{`${this.props.caption}_`}</div>
           )}
         </div>
-
-        {/* {this.props.children} */}
-
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
-        {/* prettier-ignore */}
-        <style global jsx>{glitchStyles}</style>
       </div>
     );
   }

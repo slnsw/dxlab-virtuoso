@@ -5,7 +5,7 @@ import Link from '../Link';
 import TileImage from '../TileImage';
 // import Button from '../Button';
 import TileButtonGroup from '../TileButtonGroup';
-import styles from './Tile.css';
+import './Tile.css';
 
 class Tile extends Component {
   static propTypes = {
@@ -94,8 +94,6 @@ class Tile extends Component {
         </div>
 
         {/* TODO: CSS is targeting Button, hence why it is global. Need to add appropriate styles to Button so global can be removed. */}
-        {/* prettier-ignore */}
-        <style global jsx>{styles}</style>
       </article>
     );
   }
