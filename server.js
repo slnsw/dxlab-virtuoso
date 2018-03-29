@@ -39,7 +39,7 @@ app
 
     // Add no-index headers for staging and dev sites
     // Skip if actual dxlab.sl.nsw.gov.au website
-    if (process.env.BASE_URL !== 'dxlab.sl.nsw.gov.au') {
+    if (process.env.BASE_URL !== 'https://dxlab.sl.nsw.gov.au') {
       server.use((req, res, next) => {
         res.set({
           'X-Robots-Tag': 'noindex',
