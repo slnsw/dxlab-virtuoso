@@ -55,11 +55,7 @@ class CollectionItemPage extends Component {
               className="collection-item-page__back-button"
               onClick={() => window.history.back()}
             >
-              <span
-                className="slnsw-icon-ArrowheadLeft"
-                // style={{ fontSize: '2em', lineHeight: 1 }}
-              />{' '}
-              Back to search
+              <span className="slnsw-icon-ArrowheadLeft" /> Back to search
             </button>
 
             {item.id === 'SLNSW_ALMA21124805750002626' && (
@@ -68,6 +64,7 @@ class CollectionItemPage extends Component {
                 height="400"
                 src="https://www.youtube.com/embed/ARMz5c7yonk"
                 frameborder="0"
+                title={`${item.title} video`}
                 allow="autoplay; encrypted-media"
                 allowfullscreen
                 style={{ marginBottom: '2em' }}
@@ -80,6 +77,7 @@ class CollectionItemPage extends Component {
                 frameborder="0"
                 width="100%"
                 height="600"
+                title={`${item.title} Google Cultural Institute embed`}
                 src="https://embed.culturalspot.org/embed/asset-viewer/uwETHdJSqlHCpw"
               />
             )}

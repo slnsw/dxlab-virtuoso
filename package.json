@@ -50,8 +50,7 @@
     "react-redux": "^5.0.5",
     "recharts": "^1.0.0-beta.10",
     "redux": "^3.6.0",
-    "ua-compatible": "0.0.0",
-    "victory": "^0.25.7"
+    "ua-compatible": "0.0.0"
   },
   "license": "ISC",
   "devDependencies": {

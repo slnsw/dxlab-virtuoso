@@ -21,6 +21,7 @@ console.log(`PORT=${process.env.PORT}`);
 console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
 console.log(`TEST=${process.env.TEST}`);
 console.log(`DXLAB_URL=${process.env.DXLAB_URL}`);
+console.log(`BASE_URL=${process.env.BASE_URL}`);
 console.log('----------------------------------');
 
 const port = process.env.PORT || 3000;
@@ -35,6 +36,17 @@ app
 
     // Adds X-UA-Compatible: IE=edge, chrome=1 header for our IE friends.
     server.use(uaCompatible);
+
+    // Add no-index headers for staging and dev sites
+    // Skip if actual dxlab.sl.nsw.gov.au website
+    if (process.env.BASE_URL !== 'dxlab.sl.nsw.gov.au') {
+      server.use((req, res, next) => {
+        res.set({
+          'X-Robots-Tag': 'noindex',
+        });
+        next();
+      });
+    }
 
     server.enable('strict routing');
 

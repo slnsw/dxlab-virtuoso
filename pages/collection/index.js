@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
-// import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
 import {
   LineChart,
   Line,
@@ -10,8 +9,6 @@ import {
   YAxis,
   PieChart,
   Pie,
-  // Label,
-  // LabelList,
   Legend,
   Cell,
 } from 'recharts';
