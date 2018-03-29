@@ -61,7 +61,31 @@ class CollectionItemPage extends Component {
               />{' '}
               Back to search
             </button>
-            {images &&
+
+            {item.id === 'SLNSW_ALMA21124805750002626' && (
+              <iframe
+                width="100%"
+                height="400"
+                src="https://www.youtube.com/embed/ARMz5c7yonk"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                style={{ marginBottom: '2em' }}
+              />
+            )}
+
+            {item.id === 'ADLIB110335247' && (
+              <iframe
+                allowfullscreen
+                frameborder="0"
+                width="100%"
+                height="600"
+                src="https://embed.culturalspot.org/embed/asset-viewer/uwETHdJSqlHCpw"
+              />
+            )}
+
+            {item.id !== 'ADLIB110335247' &&
+              images &&
               images.length > 0 && (
                 <PhotoSwipeGallery
                   className="collection-item-page__gallery"
