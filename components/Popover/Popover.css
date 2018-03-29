@@ -41,5 +41,5 @@
 }
 
 .popover__item--is-selected {
-	color: var(--colour-highlight);
+  color: var(--colour-highlight);
 }

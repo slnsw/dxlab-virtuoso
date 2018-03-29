@@ -1,26 +1,40 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
-import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
+// import { VictoryChart, VictoryBar, VictoryTheme } from 'victory';
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  ResponsiveContainer,
+  YAxis,
+  PieChart,
+  Pie,
+  // Label,
+  // LabelList,
+  Legend,
+  Cell,
+} from 'recharts';
 import queryString from 'query-string';
 
 import withData from '../../lib/withData';
 import App from '../../components/App';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
-import SectionTitle from '../../components/SectionTitle';
 import { Router } from '../../routes';
 import './search.css';
 import './index.css';
 
-const Loader = () => (
-  <div className="collection-search-page__results__loader">
-    <div className="collection-search-page__results__loader__text">
-      Loading <span>.</span>
-      <span>.</span>
-      <span>.</span>
-    </div>
-  </div>
-);
+const COLORS = [
+  '#e6007e',
+  '#f53057',
+  '#f35b32',
+  '#e38001',
+  '#c9a000',
+  '#a6bb16',
+  '#77d251',
+  '#00e68d',
+];
 
 class CollectionSearchPage extends Component {
   constructor() {
@@ -51,20 +65,26 @@ class CollectionSearchPage extends Component {
   };
 
   render() {
-    const { url, loading: isLoading, primoSearch, dataViz } = this.props;
+    const {
+      url,
+      // loading: isLoading,
+      primoSearch,
+      dataViz,
+    } = this.props;
 
-    const dataVizDataSorted = [...dataViz.facets[6].values]
+    const creationDateData = [...dataViz.facets[6].values]
+      /* eslint-disable */
       .sort((a, b) => {
         return parseInt(a.slug) < parseInt(b.slug)
           ? -1
           : parseInt(a.slug) > parseInt(b.slug) ? 1 : 0;
       })
+      /* eslint-enable */
       .slice(1)
-      .slice(-20);
-    const dataVizData = dataVizDataSorted.map((value) => value.count);
-    const dataVizCategories = dataVizDataSorted.map((value) => value.slug);
+      .slice(-60);
 
-    console.log(dataVizData);
+    const formatData = dataViz.facets[2].values;
+    console.log(dataViz.facets);
 
     return (
       <App
@@ -72,7 +92,7 @@ class CollectionSearchPage extends Component {
         title="Collection Home Page"
         metaDescription="{excerpt}"
       >
-        <div className="collection-search-page container container--lg">
+        <div className="collection-home-page container container--lg">
           {/* TODO: Put into CollectionSearchBox component! */}
           <Popover
             items={[
@@ -127,19 +147,44 @@ class CollectionSearchPage extends Component {
           </div>
 
           <h2>Data</h2>
+          <h3>Date Created Per Year of Items</h3>
           <div className="collection-home-page__data-viz">
-            <VictoryChart
-              // theme={VictoryTheme.material}
-              domainPadding={0}
-              height={200}
-            >
-              <VictoryBar
-                style={{ data: { fill: '#e6007e' } }}
-                data={dataVizData}
-                categories={{ x: dataVizCategories }}
-                height={200}
-              />
-            </VictoryChart>
+            <ResponsiveContainer width="100%" height={400}>
+              <LineChart data={creationDateData}>
+                <Line
+                  type="monotone"
+                  dataKey="count"
+                  stroke="#e6007e"
+                  yAxisId={0}
+                />
+                <XAxis dataKey="name" />
+                <CartesianGrid stroke="#222" />
+                <YAxis />
+              </LineChart>
+            </ResponsiveContainer>
+
+            <br />
+            <br />
+
+            <h3>Published Items</h3>
+            <ResponsiveContainer width="100%" height={500}>
+              <PieChart>
+                <Pie
+                  data={formatData}
+                  nameKey="name"
+                  dataKey="count"
+                  legendType="square"
+                  fill="#e6007e"
+                  line="#ccc"
+                  label
+                >
+                  {formatData.map((entry, index) => (
+                    <Cell fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Legend height={100} />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </App>
@@ -147,13 +192,13 @@ class CollectionSearchPage extends Component {
   }
 }
 
-function sortByKey(array, key) {
-  return array.sort((a, b) => {
-    const x = a[key];
-    const y = b[key];
-    return x < y ? -1 : x > y ? 1 : 0;
-  });
-}
+// function sortByKey(array, key) {
+//   return array.sort((a, b) => {
+//     const x = a[key];
+//     const y = b[key];
+//     return x < y ? -1 : x > y ? 1 : 0;
+//   });
+// }
 
 const query = gql`
   query Search {

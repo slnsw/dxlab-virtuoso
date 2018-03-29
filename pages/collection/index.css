@@ -1,21 +1,28 @@
 @import '../../styles/variables.css';
 
+.collection-home-page {
+  /* TODO: Move this! */
+  & h3 {
+    font-weight: 400;
+  }
+}
+
 .collection-home-page__latest {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr; */
+  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
   grid-template-areas:
     'a a b b b'
-    'c c c d d'
-    'e f g g g'
-    'h i i i i';
+    'a a c c d'
+    'e f f h h'
+    'i f f g g';
   grid-gap: 10px;
 }
 
 /* TODO: Move to component */
 .grid-tile {
   display: block;
-  height: 20em;
+  min-height: 20em;
 }
 
 .grid-tile:nth-child(1) {

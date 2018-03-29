@@ -55,7 +55,11 @@ class CollectionItemPage extends Component {
               className="collection-item-page__back-button"
               onClick={() => window.history.back()}
             >
-              &#9664; Back to search
+              <span
+                className="slnsw-icon-ArrowheadLeft"
+                // style={{ fontSize: '2em', lineHeight: 1 }}
+              />{' '}
+              Back to search
             </button>
             {images &&
               images.length > 0 && (
@@ -247,7 +251,10 @@ class CollectionItemPage extends Component {
                           <div className="collection-item-page__project__content">
                             {project.imageUrl && (
                               <div className="collection-item-page__project__image-holder">
-                                <img src={project.imageUrl} />
+                                <img
+                                  src={project.imageUrl}
+                                  alt={project.title}
+                                />
                               </div>
                             )}
                             <p
