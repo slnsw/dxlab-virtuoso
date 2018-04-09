@@ -250,6 +250,8 @@ const homeQuery = gql`
 export default withData(
   graphql(homeQuery, {
     props: ({ data }) => {
+      console.log(data.experiments);
+
       return {
         ...data,
         posts:
@@ -258,9 +260,14 @@ export default withData(
           data.posts.map((item) => {
             return {
               ...mapItemToTile(item),
-              experimentUrl: item.experiments[0] && item.experiments[0].url,
-              githubUrl: item.experiments[0] && item.experiments[0].githubUrl,
-              // blogUrl,
+              experimentUrl:
+                item.experiments &&
+                item.experiments[0] &&
+                item.experiments[0].url,
+              githubUrl:
+                item.experiments &&
+                item.experiments[0] &&
+                item.experiments[0].githubUrl,
             };
           }),
         experiments:
