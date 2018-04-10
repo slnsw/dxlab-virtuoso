@@ -20,7 +20,7 @@ console.log('----------------------------------');
 console.log(`PORT=${process.env.PORT}`);
 console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
 console.log(`TEST=${process.env.TEST}`);
-console.log(`DXLAB_URL=${process.env.DXLAB_URL}`);
+console.log(`DXLAB_WP_URL=${process.env.DXLAB_WP_URL}`);
 console.log(`BASE_URL=${process.env.BASE_URL}`);
 console.log('----------------------------------');
 

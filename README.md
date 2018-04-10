@@ -17,8 +17,16 @@ $ npm start
 # .env
 PORT=5010
 TEST=it works!
-GRAPHQL_URL=http://localhost:5000/graphql or https://12ke3766e4.execute-api.ap-southeast-2.amazonaws.com/staging/graphql
-DXLAB_URL=https://staging-wp.dxlab.sl.nsw.gov.au
+GRAPHQL_URL=http://localhost:5000/graphql
+DXLAB_WP_URL=https://staging-wp.dxlab.sl.nsw.gov.au
+GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
+FB_APP_ID=XXXXXXXXXXXXX
+
+# .env.staging
+PORT=3000
+TEST=it works!
+GRAPHQL_URL=https://12ke3766e4.execute-api.ap-southeast-2.amazonaws.com/staging/graphql
+DXLAB_WP_URL=https://staging-wp.dxlab.sl.nsw.gov.au
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 FB_APP_ID=XXXXXXXXXXXXX
 
@@ -27,7 +35,7 @@ PORT=3000
 TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=https://syggbw4nm9.execute-api.ap-southeast-2.amazonaws.com/production/graphql
-DXLAB_URL=https://wp.dxlab.sl.nsw.gov.au
+DXLAB_WP_URL=https://wp.dxlab.sl.nsw.gov.au
 FB_APP_ID=XXXXXXXXXXXXX
 ```
 
@@ -54,14 +62,19 @@ $ chown ubuntu:ubuntu dxlab.sl.nsw.gov.au
 
 ### Ansible
 
-Run `npm run deploy-[stage]`.
+```
+# Deploy staging
+$ npm run deploy-staging
+# Deploy production
+$ npm run deploy-production
+```
 
 Try adding your local `id_rsa.pub` to ubuntu user's `.authorized_keys` file if you get a UNREACHABLE error.
 
 Using `now`:
 
 ```
-# Configuration in .env.staging
+# Configuration in .env.now-production
 # TODO: Remove now.json?
 $ npm run deploy
 $ npm run alias-staging # Alias to dxlab-staging.now.sh
@@ -79,10 +92,11 @@ $ git push heroku
 
 ## Hygen generator
 
-To generate a new component
+To generate a new React component:
 
 ```
 # Make sure hygen is installed
+$ npm i -g hygen
 $ hygen component new --name NewComponent
 ```
 
