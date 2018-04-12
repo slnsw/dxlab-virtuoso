@@ -88,6 +88,9 @@ class CollectionItemPage extends Component {
                 <PhotoSwipeGallery
                   className="collection-item-page__gallery"
                   items={images}
+                  options={{
+                    history: false,
+                  }}
                   thumbnailContent={(image) => {
                     return (
                       <span>
