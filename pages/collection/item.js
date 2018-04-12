@@ -89,6 +89,7 @@ class CollectionItemPage extends Component {
                   className="collection-item-page__gallery"
                   items={images}
                   options={{
+                    // https://github.com/minhtranite/react-photoswipe/issues/35
                     history: false,
                   }}
                   thumbnailContent={(image) => {
