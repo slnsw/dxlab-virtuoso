@@ -250,7 +250,7 @@ const homeQuery = gql`
 export default withData(
   graphql(homeQuery, {
     props: ({ data }) => {
-      console.log(data.experiments);
+      // console.log(data.experiments);
 
       return {
         ...data,

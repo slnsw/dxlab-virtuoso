@@ -77,6 +77,24 @@ app
       }
     });
 
+    // NEWSELFWALES EXPERIMENT
+
+    // Proxy app
+    server.use(
+      proxy('/newselfwales', {
+        target: 'https://dxlab-selfie.now.sh',
+        changeOrigin: true,
+      }),
+    );
+
+    // Proxy static assets
+    server.use(
+      proxy('/static/newselfwales', {
+        target: 'https://dxlab-selfie.now.sh',
+        changeOrigin: true,
+      }),
+    );
+
     // Redirects
     server.get('/open-data', (req, res) => {
       res.redirect('/code');
