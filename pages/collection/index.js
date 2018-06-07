@@ -14,13 +14,13 @@ import {
 } from 'recharts';
 import queryString from 'query-string';
 
-import withData from '../lib/withData';
-import App from '../components/App';
-import Link from '../components/Link';
-import Popover from '../components/Popover';
-import { Router } from '../routes';
-import './collection.css';
-import './collection/search.css';
+import withData from '../../lib/withData';
+import App from '../../components/App';
+import Link from '../../components/Link';
+import Popover from '../../components/Popover';
+import { Router } from '../../routes';
+import './index.css';
+import './search.css';
 
 const COLORS = [
   '#e6007e',

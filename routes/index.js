@@ -8,6 +8,8 @@ routes
   .add('code', '/code')
   .add('search', '/search')
   .add('post', '/blog/:slug')
+  .add('collection', '/collection')
+  .add('collection/search', '/collection/search')
   .add('collection/item', '/collection/item/:item');
 
 module.exports = routes;
