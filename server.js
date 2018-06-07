@@ -48,6 +48,7 @@ app
       });
     }
 
+    // Don't automatically add forward slash
     server.enable('strict routing');
 
     // Proxy external apps

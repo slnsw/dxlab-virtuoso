@@ -1,5 +1,3 @@
 {
-  "name": "dxlab-website",
-  "dotenv": ".env.now-production",
-  "file": [".env.now-production"]
+  "name": "dxlab-website"
 }

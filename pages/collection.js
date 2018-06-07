@@ -14,13 +14,13 @@ import {
 } from 'recharts';
 import queryString from 'query-string';
 
-import withData from '../../lib/withData';
-import App from '../../components/App';
-import Link from '../../components/Link';
-import Popover from '../../components/Popover';
-import { Router } from '../../routes';
-import './search.css';
-import './index.css';
+import withData from '../lib/withData';
+import App from '../components/App';
+import Link from '../components/Link';
+import Popover from '../components/Popover';
+import { Router } from '../routes';
+import './collection.css';
+import './collection/search.css';
 
 const COLORS = [
   '#e6007e',
@@ -39,6 +39,9 @@ class CollectionSearchPage extends Component {
 
     this.state = {
       inputTextValue: '',
+      dataViz: [],
+      creationDateData: [],
+      formatData: [],
     };
   }
 
@@ -61,27 +64,35 @@ class CollectionSearchPage extends Component {
     this.setState({ inputTextValue: event.target.value });
   };
 
+  componentDidMount() {
+    const { dataViz } = this.props;
+
+    if (dataViz) {
+      const { creationDateData, formatData } = buildDataVizData(dataViz);
+
+      this.setState({
+        creationDateData,
+        formatData,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { dataViz } = this.props;
+
+    if (dataViz !== prevProps.dataViz) {
+      const { creationDateData, formatData } = buildDataVizData(dataViz);
+
+      this.setState({
+        creationDateData,
+        formatData,
+      });
+    }
+  }
+
   render() {
-    const {
-      url,
-      // loading: isLoading,
-      primoSearch,
-      dataViz,
-    } = this.props;
-
-    const creationDateData = [...dataViz.facets[6].values]
-      /* eslint-disable */
-      .sort((a, b) => {
-        return parseInt(a.slug) < parseInt(b.slug)
-          ? -1
-          : parseInt(a.slug) > parseInt(b.slug) ? 1 : 0;
-      })
-      /* eslint-enable */
-      .slice(1)
-      .slice(-60);
-
-    const formatData = dataViz.facets[2].values;
-    console.log(dataViz.facets);
+    const { url, loading: isLoading, primoSearch } = this.props;
+    const { creationDateData, formatData } = this.state;
 
     return (
       <App
@@ -249,7 +260,6 @@ export default withData(
     //   };
     // },
     props: ({ data }) => {
-      // console.log(data);
       if (data.primoSearch) {
         return {
           ...data,
@@ -262,3 +272,29 @@ export default withData(
     },
   })(CollectionSearchPage),
 );
+
+function buildDataVizData(data) {
+  const creationDateData = [...data.facets[6].values]
+    /* eslint-disable */
+    .sort((a, b) => {
+      return parseInt(a.slug) < parseInt(b.slug)
+        ? -1
+        : parseInt(a.slug) > parseInt(b.slug) ? 1 : 0;
+    })
+    /* eslint-enable */
+    .slice(1)
+    .slice(-60);
+
+  const formatData = data.facets[2].values;
+
+  // this.setState({
+  // 	dataViz,
+  // 	creationDateData,
+  // 	formatData,
+  // });
+
+  return {
+    creationDateData,
+    formatData,
+  };
+}
