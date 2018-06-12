@@ -79,6 +79,7 @@ app
       });
     });
 
+    // Redirect old WP search queries
     server.get('/', (req, res) => {
       if (req.query.s) {
         res.redirect(`/search?q=${req.query.s}`);

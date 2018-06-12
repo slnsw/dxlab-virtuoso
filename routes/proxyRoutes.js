@@ -50,4 +50,8 @@ module.exports = {
     target: process.env.DXLAB_WP_URL,
     changeOrigin: true,
   },
+  '/feed/': {
+    target: process.env.DXLAB_WP_URL,
+    changeOrigin: true,
+  },
 };
