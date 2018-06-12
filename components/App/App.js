@@ -125,7 +125,7 @@ class App extends Component {
           <meta name="twitter:site" content="@statelibrarynsw" />
           <link
             rel="shortcut icon"
-            href="http://www.sl.nsw.gov.au/sites/all/themes/slnsw_frontend/favicon.ico"
+            href="https://www.sl.nsw.gov.au/sites/all/themes/slnsw_frontend/favicon.ico"
             type="image/vnd.microsoft.icon"
           />
 
