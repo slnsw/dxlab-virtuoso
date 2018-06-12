@@ -489,6 +489,7 @@ const modifyFacets = (facets) => {
   return facets
     .map((facet) => {
       let priority = 100;
+      let name;
 
       if (facet.slug === 'rtype') {
         priority = 0;
@@ -496,6 +497,7 @@ const modifyFacets = (facets) => {
         priority = 1;
       } else if (facet.slug === 'local6') {
         priority = 2;
+        name = 'Digitised';
       } else if (facet.slug === 'tlevel') {
         priority = 3;
       } else if (facet.slug === 'newrecords') {
@@ -508,6 +510,8 @@ const modifyFacets = (facets) => {
 
       return {
         ...facet,
+        // Replace value name with name field if defined
+        values: facet.values.map((f) => (name ? { ...f, name } : f)),
         priority,
       };
     })

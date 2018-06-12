@@ -24,7 +24,10 @@
 
   & h1 {
     margin-top: var(--spacing-xxxs);
+    font-family: var(--font-secondary);
     font-size: var(--font-size-md);
+    text-transform: none;
+    letter-spacing: 0;
     line-height: var(--line-height-xs);
   }
 }

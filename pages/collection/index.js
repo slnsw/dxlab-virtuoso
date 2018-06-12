@@ -154,7 +154,7 @@ class CollectionSearchPage extends Component {
               })}
           </div>
 
-          <h2>Data</h2>
+          {/* <h2>Data</h2>
           <h3>Date Created Per Year of Items</h3>
           <div className="collection-home-page__data-viz">
             <ResponsiveContainer width="100%" height={400}>
@@ -193,7 +193,7 @@ class CollectionSearchPage extends Component {
                 <Legend height={100} />
               </PieChart>
             </ResponsiveContainer>
-          </div>
+          </div>*/}
         </div>
       </App>
     );

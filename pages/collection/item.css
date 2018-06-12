@@ -35,12 +35,15 @@
   margin-top: 0;
   margin-bottom: var(--spacing-lg);
   line-height: var(--line-height-xs);
+  font-family: var(--font-secondary);
   font-size: var(--font-size-lg);
+  text-transform: none;
+  letter-spacing: 0;
 
   @media (--screen-sm) {
     margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-xxxlg);
-    line-height: var(--line-height-xxs);
+    font-size: var(--font-size-xxlg);
+    line-height: var(--line-height-xs);
   }
 }
 

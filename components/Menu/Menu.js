@@ -55,7 +55,9 @@ class Menu extends Component {
               <Link prefetch to={item.url} key={item.url}>
                 <a
                   className={
-                    (pathname === item.url || item.isActive) && 'is-active'
+                    pathname === item.url || item.isActive
+                      ? 'is-active'
+                      : undefined
                   }
                   aria-label={item.ariaLabel}
                 >

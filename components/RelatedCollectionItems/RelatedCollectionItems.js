@@ -19,7 +19,10 @@ class RelatedCollectionItems extends Component {
         <div className="related-collection-items__cards">
           {items.map((item) => {
             return (
-              <article className="related-collection-items__card">
+              <article
+                className="related-collection-items__card"
+                key={`related-collection-items__card-${item.id}`}
+              >
                 <Link to={`/collection/item/${item.id}`}>
                   <a>
                     <div className="related-collection-items__card__type">

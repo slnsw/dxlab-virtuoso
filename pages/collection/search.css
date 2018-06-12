@@ -341,14 +341,16 @@
 }
 
 .item__title {
-  font-weight: 700;
+  font-family: var(--font-secondary);
   line-height: var(--line-height-xs);
   margin-top: 0;
   font-size: var(--font-size-lg);
-  color: var(--colour-primary);
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--colour-white);
+  opacity: 0.9;
 
   @media (--screen-sm) {
-    font-weight: 400;
     /* font-size: var(--font-size-lg); */
   }
 
