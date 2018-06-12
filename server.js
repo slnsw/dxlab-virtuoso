@@ -51,6 +51,15 @@ app
     // Don't automatically add forward slash
     server.enable('strict routing');
 
+    // Proxy GraphQL API
+    // TODO: use /api/graphql
+    server.use(
+      proxy('/graphql', {
+        target: 'https://dxlab-graphql-proxy.now.sh',
+        changeOrigin: true,
+      }),
+    );
+
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {
       // Proxy route to DX Lab WP Server
