@@ -52,11 +52,13 @@ app
     server.enable('strict routing');
 
     // Proxy GraphQL API
-    // TODO: use /api/graphql
     server.use(
-      proxy('/graphql', {
+      proxy('/api/graphql', {
         target: 'https://dxlab-graphql-proxy.now.sh',
         changeOrigin: true,
+        pathRewrite: {
+          '^/api/graphql': '/graphql',
+        },
       }),
     );
 
