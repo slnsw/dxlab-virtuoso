@@ -13,11 +13,14 @@ $ npm start
 
 ### ENV Variables
 
+_Note:_ GRAPHQL_HOST is being proxied to `/api/graphql` on this website. It is possible to use `GRAPHQL_URL=/api/graphql`, but need to test speed a bit more, as that is a lot of proxying!
+
 ```
 # .env
 PORT=5010
 TEST=it works!
 GRAPHQL_URL=http://localhost:5000/graphql
+GRAPHQL_HOST=http://localhost:5000
 DXLAB_WP_URL=https://staging-wp.dxlab.sl.nsw.gov.au
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 FB_APP_ID=XXXXXXXXXXXXX
@@ -25,7 +28,8 @@ FB_APP_ID=XXXXXXXXXXXXX
 # .env.staging
 PORT=3000
 TEST=it works!
-GRAPHQL_URL=https://12ke3766e4.execute-api.ap-southeast-2.amazonaws.com/staging/graphql
+GRAPHQL_URL=https://dxlab-staging-graphql-proxy.now.sh/graphql
+GRAPHQL_HOST=https://dxlab-staging-graphql-proxy.now.sh
 DXLAB_WP_URL=https://staging-wp.dxlab.sl.nsw.gov.au
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 FB_APP_ID=XXXXXXXXXXXXX
@@ -34,7 +38,8 @@ FB_APP_ID=XXXXXXXXXXXXX
 PORT=3000
 TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
-GRAPHQL_URL=https://syggbw4nm9.execute-api.ap-southeast-2.amazonaws.com/production/graphql
+GRAPHQL_URL=https://dxlab-graphql-proxy.now.sh/graphql
+GRAPHQL_HOST=https://dxlab-graphql-proxy.now.sh
 DXLAB_WP_URL=https://wp.dxlab.sl.nsw.gov.au
 FB_APP_ID=XXXXXXXXXXXXX
 ```
