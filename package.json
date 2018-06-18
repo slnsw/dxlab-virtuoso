@@ -52,7 +52,8 @@
     "react-redux": "^5.0.5",
     "recharts": "^1.0.0-beta.10",
     "redux": "^3.6.0",
-    "ua-compatible": "0.0.0"
+    "ua-compatible": "0.0.0",
+    "url-parse": "^1.4.1"
   },
   "license": "ISC",
   "devDependencies": {

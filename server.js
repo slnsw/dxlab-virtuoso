@@ -5,6 +5,7 @@ const next = require('next');
 const proxy = require('http-proxy-middleware');
 const uaCompatible = require('ua-compatible');
 const helmet = require('helmet');
+const parse = require('url-parse');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
@@ -13,6 +14,10 @@ const proxyRoutes = require('./routes/proxyRoutes');
 const redirectRoutes = require('./routes/redirectRoutes');
 
 const handler = routes.getRequestHandler(app);
+
+const port = process.env.PORT || 3000;
+const graphqlUrl = parse(process.env.GRAPHQL_URL, true);
+const GRAPHQL_HOST = `${graphqlUrl.protocol}//${graphqlUrl.host}`;
 
 console.log('----------------------------------');
 console.log('Environment Variables:');
@@ -23,8 +28,6 @@ console.log(`TEST=${process.env.TEST}`);
 console.log(`DXLAB_WP_URL=${process.env.DXLAB_WP_URL}`);
 console.log(`BASE_URL=${process.env.BASE_URL}`);
 console.log('----------------------------------');
-
-const port = process.env.PORT || 3000;
 
 app
   .prepare()
@@ -54,7 +57,7 @@ app
     // Proxy GraphQL API
     server.use(
       proxy('/api/graphql', {
-        target: 'https://dxlab-graphql-proxy.now.sh',
+        target: GRAPHQL_HOST,
         changeOrigin: true,
         pathRewrite: {
           '^/api/graphql': '/graphql',
