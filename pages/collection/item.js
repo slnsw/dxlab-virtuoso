@@ -297,6 +297,12 @@ class CollectionItemPage extends Component {
               </div>
             )}
 
+            {/* Activate when images are available */}
+            {/* {item.parts 
+              item.parts.map((part) => {
+                return <h3>{part.title}</h3>;
+              })} */}
+
             <ShareBox pathname={url.pathname} title={item.title} />
 
             {item.relatedItems && (
@@ -352,6 +358,10 @@ const query = gql`
         images(size: FULL, limit: 1) {
           url
         }
+      }
+      parts {
+        id
+        title
       }
       projects {
         title
