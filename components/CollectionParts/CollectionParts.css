@@ -1,0 +1,43 @@
+@import '../../styles/variables.css';
+
+.collection-part {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.collection-part__image-holder {
+  flex: 1;
+  margin-right: var(--spacing-xs);
+  /* background-color: var(--colour-grey-darker); */
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.collection-part__info {
+  flex: 5;
+
+	@media(--screen-sm) {
+		flex: 9;
+	}
+}
+
+.collection-part__level {
+  font-size: var(--font-size-sm);
+  /* font-weight: 700; */
+  @apply (--font-uppercase);
+  color: var(--colour-grey);
+}
+
+.collection-part__title {
+  display: block;
+  font-family: var(--font-secondary);
+  margin-bottom: var(--spacing-lg);
+
+  &:link,
+  &:visited {
+    color: var(--colour-white);
+  }
+}

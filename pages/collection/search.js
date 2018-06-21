@@ -218,6 +218,8 @@ class CollectionSearchPage extends Component {
                             encode: false,
                           });
 
+                          // console.log(urlString);
+
                           return (
                             <div
                               className="collection-search-page__facet__value-name"
@@ -333,43 +335,52 @@ class CollectionSearchPage extends Component {
                           const totalImages = images && images.length;
 
                           return (
-                            <article className="item" key={`posts-${i}`}>
+                            <article
+                              className="collection-search__item"
+                              key={`posts-${i}`}
+                            >
                               <Link to={`/collection/item/${id}`}>
                                 <a>
                                   <div
-                                    className={`item__image-holder ${
+                                    className={`collection-search__item__image-holder ${
                                       imageUrl
                                         ? ''
-                                        : 'item__image-holder--no-image'
+                                        : 'collection-search__item__image-holder--no-image'
                                     }`}
                                   >
                                     {imageUrl ? (
                                       <img src={imageUrl} alt={title} />
                                     ) : (
-                                      <div className="item__image-holder__no-image">
+                                      <div className="collection-search__item__image-holder__no-image">
                                         <span>No Image</span>
                                       </div>
                                     )}
 
                                     {totalImages > 1 && (
-                                      <div className="item__image-holder__total-images">
+                                      <div className="collection-search__item__image-holder__total-images">
                                         {totalImages > 10 ? '+10' : totalImages}{' '}
                                         Images
                                       </div>
                                     )}
                                   </div>
 
-                                  <div className="item__info">
-                                    <div className="item__type">{type}</div>
-                                    <h1 className="item__title">{title}</h1>
-                                    <div className="item__content">
+                                  <div className="collection-search__item__info">
+                                    <div className="collection-search__item__type">
+                                      {type}
+                                    </div>
+                                    <h1 className="collection-search__item__title">
+                                      {title}
+                                    </h1>
+                                    <div className="collection-search__item__content">
                                       <p
                                         dangerouslySetInnerHTML={{
                                           __html: description,
                                         }}
                                       />
                                     </div>
-                                    <p className="item__id">{id}</p>
+                                    <p className="collection-search__item__id">
+                                      {id}
+                                    </p>
                                   </div>
                                 </a>
                               </Link>
@@ -484,6 +495,7 @@ export default withData(
   })(CollectionSearchPage),
 );
 
+// Change the order and rename facets
 const modifyFacets = (facets) => {
   // Add priority key and then sort by priority
   return facets
@@ -535,7 +547,11 @@ const buildFacetQuery = (facetUrlArgs) => {
 };
 
 const wrapArray = (stringOrArray = []) => {
-  return typeof stringOrArray === 'string' ? [stringOrArray] : stringOrArray;
+  return typeof stringOrArray === 'string'
+    ? // Url params with the same name are returned as a string with / in between.
+      // Need to convert to array
+      stringOrArray.split('/')
+    : stringOrArray;
 };
 
 const convertStringToFacet = (string) => {

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { gql, graphql } from 'react-apollo';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
@@ -9,6 +9,7 @@ import Table from '../../components/Table';
 import Link from '../../components/Link';
 import ShareBox from '../../components/ShareBox';
 import RelatedCollectionItems from '../../components/RelatedCollectionItems';
+import CollectionParts from '../../components/CollectionParts';
 import './item.css';
 
 class CollectionItemPage extends Component {
@@ -246,23 +247,27 @@ class CollectionItemPage extends Component {
               </div>
             )}
 
-            <h2 className="collection-item-page__heading">Subjects</h2>
-            {item.subjects &&
-              item.subjects.map((subject) => (
-                <Link key={`tag-${subject}`}>
-                  <a
-                    className="tag"
-                    href={`../search?facets=topic,${encodeURIComponent(
-                      subject,
-                    )}`}
-                  >
-                    {subject}
-                  </a>
-                </Link>
-              ))}
+            {item.subjects && (
+              <Fragment>
+                <h2 className="collection-item-page__heading">Subjects</h2>
+                {item.subjects &&
+                  item.subjects.map((subject) => (
+                    <Link key={`tag-${subject}`}>
+                      <a
+                        className="tag"
+                        href={`../search?facets=topic,${encodeURIComponent(
+                          subject,
+                        )}`}
+                      >
+                        {subject}
+                      </a>
+                    </Link>
+                  ))}
 
-            <br />
-            <br />
+                <br />
+                <br />
+              </Fragment>
+            )}
 
             {item.projects && (
               <div className="collection-item-page__projects">
@@ -297,11 +302,12 @@ class CollectionItemPage extends Component {
               </div>
             )}
 
-            {/* Activate when images are available */}
-            {/* {item.parts 
-              item.parts.map((part) => {
-                return <h3>{part.title}</h3>;
-              })} */}
+            {item.parts && (
+              <Fragment>
+                <h2>Parts</h2>
+                <CollectionParts parts={item.parts} />
+              </Fragment>
+            )}
 
             <ShareBox pathname={url.pathname} title={item.title} />
 
@@ -362,6 +368,18 @@ const query = gql`
       parts {
         id
         title
+        level
+        images {
+          url
+        }
+        parts {
+          id
+          title
+          level
+          images {
+            url
+          }
+        }
       }
       projects {
         title
