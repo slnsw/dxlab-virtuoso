@@ -1,7 +1,13 @@
 @import '../../styles/variables.css';
 
+.collection-parts {
+  padding-left: 1em;
+  border-left: 1px solid var(--colour-grey-darkest);
+}
+
 .collection-part {
   display: flex;
+  align-content: flex-start;
   margin-bottom: 1em;
 }
 
@@ -19,9 +25,9 @@
 .collection-part__info {
   flex: 5;
 
-	@media(--screen-sm) {
-		flex: 9;
-	}
+  @media (--screen-sm) {
+    flex: 9;
+  }
 }
 
 .collection-part__level {
@@ -35,9 +41,18 @@
   display: block;
   font-family: var(--font-secondary);
   margin-bottom: var(--spacing-lg);
+  opacity: 0.85;
 
   &:link,
   &:visited {
     color: var(--colour-white);
   }
+}
+
+.collection-part__toggle-button {
+  padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xxxs)
+    var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  @apply --font-uppercase;
+  border: 1px solid var(--colour-white);
 }

@@ -1,17 +1,17 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
-import {
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  ResponsiveContainer,
-  YAxis,
-  PieChart,
-  Pie,
-  Legend,
-  Cell,
-} from 'recharts';
+// import {
+//   LineChart,
+//   Line,
+//   CartesianGrid,
+//   XAxis,
+//   ResponsiveContainer,
+//   YAxis,
+//   PieChart,
+//   Pie,
+//   Legend,
+//   Cell,
+// } from 'recharts';
 import queryString from 'query-string';
 
 import withData from '../../lib/withData';
