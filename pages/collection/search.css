@@ -43,19 +43,26 @@
 /* Loader */
 .collection-search-page__results__loader {
   position: relative;
-  height: 1px;
-  margin-bottom: -1px;
   z-index: 15;
-  background: linear-gradient(
-    270deg,
-    var(--colour-black),
-    var(--colour-highlight),
-    var(--colour-black)
-  );
-  background-size: 400% 400%;
-  @apply (--font-uppercase);
+  padding-top: var(--spacing-xxs);
+  margin-bottom: calc(var(--spacing-xs) * -1 - 1em);
 
-  animation: LoaderAnimation 3s ease-in-out infinite;
+  &:before {
+    position: absolute;
+    top: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      270deg,
+      var(--colour-black),
+      var(--colour-highlight),
+      var(--colour-black)
+    );
+    background-size: 400% 400%;
+    animation: LoaderAnimation 3s ease-in-out infinite;
+  }
 }
 
 @keyframes LoaderAnimation {
@@ -69,77 +76,6 @@
 
   100% {
     background-position: 0% 50%;
-  }
-}
-
-.collection-search-page__results__loader__text {
-  color: var(--colour-grey-lightest);
-  font-size: var(--font-size-sm);
-  padding-top: var(--spacing-md);
-
-  & span {
-    /**
-	     * Use the blink animation, which is defined above
-	     */
-    animation-name: blink;
-    /**
-	     * The animation should take 1.4 seconds
-	     */
-    animation-duration: 1.4s;
-    /**
-	     * It will repeat itself forever
-	     */
-    animation-iteration-count: infinite;
-    /**
-	     * This makes sure that the starting style (opacity: .2)
-	     * of the animation is applied before the animation starts.
-	     * Otherwise we would see a short flash or would have
-	     * to set the default styling of the dots to the same
-	     * as the animation. Same applies for the ending styles.
-	     */
-    animation-fill-mode: both;
-  }
-
-  & span:nth-child(2) {
-    /**
-	     * Starts the animation of the third dot
-	     * with a delay of .2s, otherwise all dots
-	     * would animate at the same time
-	     */
-    animation-delay: 0.2s;
-  }
-
-  & span:nth-child(3) {
-    /**
-	     * Starts the animation of the third dot
-	     * with a delay of .4s, otherwise all dots
-	     * would animate at the same time
-	     */
-    animation-delay: 0.4s;
-  }
-}
-
-@keyframes blink {
-  /**
-     * At the start of the animation the dot
-     * has an opacity of .2
-     */
-  0% {
-    opacity: 0.2;
-  }
-  /**
-     * At 20% the dot is fully visible and
-     * then fades out slowly
-     */
-  20% {
-    opacity: 1;
-  }
-  /**
-     * Until it reaches an opacity of .2 and
-     * the animation can start again
-     */
-  100% {
-    opacity: 0.2;
   }
 }
 
@@ -189,9 +125,43 @@
   text-align: right;
 
   @media (--screen-sm) {
-    flex: 3;
+    flex: 2;
     text-align: left;
   }
+}
+
+.collection-search-page__item-type-chooser {
+  /* TODO: Work out a way to show this on mobile! */
+  display: none;
+
+  & button {
+    @apply (--font-uppercase);
+    padding-left: var(--spacing-lg);
+    padding-right: 1em;
+    border-right: 1px solid var(--colour-white);
+    transition: color 0.3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+
+  @media (--screen-sm) {
+    display: block;
+    flex: 1;
+    padding: var(--spacing-sm) 0;
+    font-size: var(--font-size-sm);
+    text-align: right;
+  }
+}
+
+.collection-search-page__item-type-chooser--is-active {
+  color: var(--colour-primary);
 }
 
 /* Facets */
@@ -302,15 +272,6 @@
 }
 
 /* Results */
-.collection-search-page__results__items {
-  transition: 0.3s;
-  opacity: 1;
-}
-
-.collection-search-page__results__items--is-loading {
-  opacity: 0.2;
-}
-
 .collection-search-page__items {
   width: 100%;
 
@@ -319,120 +280,18 @@
   }
 }
 
-.collection-search__item {
-  lost-utility: clearfix;
-
-  margin-bottom: var(--spacing-md);
-  border-top: 1px solid var(--colour-grey-darkest);
-  padding-top: var(--spacing-md);
-
-  & a {
-    display: flex;
-    height: 100%;
-  }
-
-  & a:hover {
-    text-decoration: none;
-
-    & h2 {
-      text-decoration: underline;
-    }
-  }
-}
-
-.collection-search__item__title {
-  font-family: var(--font-secondary);
-  line-height: var(--line-height-xs);
-  margin-top: 0;
-  font-size: var(--font-size-lg);
-  text-transform: none;
-  letter-spacing: 0;
-  color: var(--colour-white);
-  opacity: 0.9;
-
-  @media (--screen-sm) {
-    /* font-size: var(--font-size-lg); */
-  }
-
-  @nest a:hover & {
-    text-decoration: underline;
-  }
-}
-
-.collection-search__item__image-holder {
+.collection-search-page__results__items {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  margin-right: var(--spacing-sm);
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  @media (--screen-sm) {
-    margin-right: var(--spacing-xlg);
-  }
-
-  & img {
-    width: 100%;
-  }
+  transition: opacity 0.3s;
+  opacity: 1;
 }
 
-.collection-search__item__image-holder__total-images {
-  margin-top: var(--spacing-xs);
-  width: 100%;
-  color: var(--colour-grey);
-  @apply (--font-uppercase);
-  font-size: var(--font-size-xs);
-  /* text-align: right; */
+.collection-search-page__results__items--grid {
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-.collection-search__item__image-holder--no-image {
-  background-color: var(--colour-grey-darkest);
-  justify-content: center;
-  align-items: center;
-  max-height: 8em;
-
-  & span {
-    font-size: var(--spacing-sm);
-    color: var(--colour-grey);
-  }
-}
-
-.collection-search__item__info {
-  display: flex;
-  flex-direction: column;
-  flex: 2;
-  font-size: var(--font-size-sm);
-  color: var(--colour-grey-light);
-
-  @media (--screen-sm) {
-    flex: 3;
-    font-size: var(--font-size-md);
-  }
-}
-
-.collection-search__item__type {
-  margin-bottom: var(--spacing-xxs);
-  @apply (--font-uppercase);
-  color: var(--colour-grey);
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-}
-
-.collection-search__item__content {
-  opacity: 0.9;
-  margin-bottom: var(--spacing-md);
-  font-family: var(--font-secondary);
-}
-
-.collection-search__item__id {
-  align-self: flex-start;
-  @apply (--font-uppercase);
-  font-size: var(--font-size-sm);
-  color: var(--colour-grey);
-  margin-top: auto;
-  margin-bottom: 0;
-
-  @media (--screen-sm) {
-    align-self: flex-end;
-  }
+.collection-search-page__results__items--is-loading {
+  opacity: 0.2;
 }

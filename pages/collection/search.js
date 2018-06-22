@@ -8,16 +8,14 @@ import withData from '../../lib/withData';
 import App from '../../components/App';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
+import CollectionItem from '../../components/CollectionItem';
+import LoaderText from '../../components/LoaderText';
 import { Router } from '../../routes';
 import './search.css';
 
 const Loader = () => (
   <div className="collection-search-page__results__loader">
-    <div className="collection-search-page__results__loader__text">
-      Loading <span>.</span>
-      <span>.</span>
-      <span>.</span>
-    </div>
+    <LoaderText />
   </div>
 );
 
@@ -31,6 +29,7 @@ class CollectionSearchPage extends Component {
       showDesktopFacetList: true,
       facetsShowAll: [],
       initialFacetValueCount: 5,
+      itemsLayoutType: 'grid',
     };
   }
 
@@ -71,6 +70,12 @@ class CollectionSearchPage extends Component {
     this.setState({ inputTextValue: event.target.value });
   };
 
+  handleItemsLayoutTypeChange = (layoutType) => {
+    console.log(layoutType);
+
+    this.setState({ itemsLayoutType: layoutType });
+  };
+
   render() {
     const {
       url,
@@ -90,6 +95,7 @@ class CollectionSearchPage extends Component {
       initialFacetValueCount,
       showMobileFacetList,
       showDesktopFacetList,
+      itemsLayoutType,
     } = this.state;
 
     return (
@@ -157,6 +163,21 @@ class CollectionSearchPage extends Component {
 
               <div className="collection-search-page__total-items">
                 {numberWithCommas(totalItems)} results
+              </div>
+
+              <div className="collection-search-page__item-type-chooser">
+                {['list', 'grid'].map((layoutType) => (
+                  <button
+                    className={
+                      layoutType === itemsLayoutType
+                        ? 'collection-search-page__item-type-chooser--is-active'
+                        : ''
+                    }
+                    onClick={() => this.handleItemsLayoutTypeChange(layoutType)}
+                  >
+                    {layoutType}
+                  </button>
+                ))}
               </div>
             </div>
           }
@@ -301,97 +322,53 @@ class CollectionSearchPage extends Component {
 
               {isLoading && <Loader />}
 
-              <div
+              {/* <div
                 className={`collection-search-page__results__items ${
                   isLoading
                     ? 'collection-search-page__results__items--is-loading'
                     : ''
                 }`}
-              >
-                {items &&
-                  items.length > 0 && (
-                    <InfiniteScroll
-                      pageStart={0}
-                      loadMore={loadMore}
-                      hasMore={
-                        // Max items to show is 100, but if totalItems is less, use totalItems
-                        items.length < (totalItems < 100 ? totalItems : 100)
-                      }
-                      loader={<Loader />}
-                    >
-                      {items.map(
-                        (
-                          {
-                            id,
-                            sourceRecordId,
-                            title,
-                            images,
-                            type,
-                            description,
-                          },
-                          i,
-                        ) => {
-                          const imageUrl = images && images[0] && images[0].url;
-                          const totalImages = images && images.length;
+              > */}
+              {items &&
+                items.length > 0 && (
+                  <InfiniteScroll
+                    className={`collection-search-page__results__items ${
+                      isLoading
+                        ? 'collection-search-page__results__items--is-loading'
+                        : ''
+                    } ${
+                      itemsLayoutType === 'grid'
+                        ? 'collection-search-page__results__items--grid'
+                        : ''
+                    }`}
+                    pageStart={0}
+                    loadMore={loadMore}
+                    hasMore={
+                      // Max items to show is 100, but if totalItems is less, use totalItems
+                      items.length < (totalItems < 100 ? totalItems : 100)
+                    }
+                    loader={<Loader />}
+                  >
+                    {items.map(({ id, title, images, type, description }) => {
+                      const imageUrl = images && images[0] && images[0].url;
+                      const totalImages = images && images.length;
 
-                          return (
-                            <article
-                              className="collection-search__item"
-                              key={`posts-${i}`}
-                            >
-                              <Link to={`/collection/item/${id}`}>
-                                <a>
-                                  <div
-                                    className={`collection-search__item__image-holder ${
-                                      imageUrl
-                                        ? ''
-                                        : 'collection-search__item__image-holder--no-image'
-                                    }`}
-                                  >
-                                    {imageUrl ? (
-                                      <img src={imageUrl} alt={title} />
-                                    ) : (
-                                      <div className="collection-search__item__image-holder__no-image">
-                                        <span>No Image</span>
-                                      </div>
-                                    )}
-
-                                    {totalImages > 1 && (
-                                      <div className="collection-search__item__image-holder__total-images">
-                                        {totalImages > 10 ? '+10' : totalImages}{' '}
-                                        Images
-                                      </div>
-                                    )}
-                                  </div>
-
-                                  <div className="collection-search__item__info">
-                                    <div className="collection-search__item__type">
-                                      {type}
-                                    </div>
-                                    <h1 className="collection-search__item__title">
-                                      {title}
-                                    </h1>
-                                    <div className="collection-search__item__content">
-                                      <p
-                                        dangerouslySetInnerHTML={{
-                                          __html: description,
-                                        }}
-                                      />
-                                    </div>
-                                    <p className="collection-search__item__id">
-                                      {id}
-                                    </p>
-                                  </div>
-                                </a>
-                              </Link>
-                            </article>
-                          );
-                        },
-                      )}
-                    </InfiniteScroll>
-                  )}
-              </div>
+                      return (
+                        <CollectionItem
+                          id={id}
+                          layoutType={itemsLayoutType}
+                          title={title}
+                          description={description}
+                          imageUrl={imageUrl}
+                          totalImages={totalImages}
+                          type={type}
+                        />
+                      );
+                    })}
+                  </InfiniteScroll>
+                )}
             </div>
+            {/* </div> */}
           </div>
         </div>
       </App>

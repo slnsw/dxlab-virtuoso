@@ -1,0 +1,16 @@
+@import '../../styles/variables.css';
+
+.no-image {
+  display: flex;
+  width: 100%;
+  background-color: var(--colour-grey-darkest);
+  justify-content: center;
+  align-items: center;
+  min-height: 7em;
+  max-height: 8em;
+
+  & span {
+    font-size: var(--spacing-sm);
+    color: var(--colour-grey);
+  }
+}

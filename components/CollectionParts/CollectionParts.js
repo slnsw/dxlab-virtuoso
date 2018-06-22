@@ -1,10 +1,11 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
 import './CollectionParts.css';
 import withData from '../../lib/withData';
 import CollectionPart from '../CollectionPart';
+import LoaderText from '../LoaderText';
 
 const LIMIT = 10;
 
@@ -34,7 +35,11 @@ class CollectionParts extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.loading && !this.state.initialPropsLoaded) {
+    if (
+      prevProps.loading &&
+      !this.props.loading &&
+      !this.state.initialPropsLoaded
+    ) {
       this.setState({
         initialPropsLoaded: true,
       });
@@ -52,7 +57,7 @@ class CollectionParts extends Component {
     const { parts, loading } = this.props;
     const { loadMoreClickedTotal, initialPropsLoaded } = this.state;
 
-    if (loading && !initialPropsLoaded) return <p>Loading...</p>;
+    if (loading && !initialPropsLoaded) return <LoaderText />;
     if (!parts) return null;
 
     // NOTE: A better way is to check against total parts, but we need data for that.
@@ -70,7 +75,7 @@ class CollectionParts extends Component {
         </ul>
 
         {loading ? (
-          <p>Loading...</p>
+          <LoaderText />
         ) : (
           showMoreButton && (
             <button

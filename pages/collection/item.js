@@ -8,6 +8,7 @@ import App from '../../components/App';
 import Table from '../../components/Table';
 import Link from '../../components/Link';
 import ShareBox from '../../components/ShareBox';
+import LoaderText from '../../components/LoaderText';
 import RelatedCollectionItems from '../../components/RelatedCollectionItems';
 import CollectionParts from '../../components/CollectionParts';
 import './item.css';
@@ -305,10 +306,11 @@ class CollectionItemPage extends Component {
             {item.parts && (
               <Fragment>
                 <h2>Parts</h2>
-                <CollectionParts
-                  id={+item.id.replace('ADLIB', '')}
-                  // parts={item.parts}
-                />
+                {isLoading ? (
+                  <LoaderText />
+                ) : (
+                  <CollectionParts id={+item.id.replace('ADLIB', '')} />
+                )}
               </Fragment>
             )}
 

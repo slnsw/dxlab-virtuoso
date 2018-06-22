@@ -3,6 +3,7 @@ import { Component, Fragment } from 'react';
 
 import './CollectionPart.css';
 import CollectionParts from '../CollectionParts';
+import NoImage from '../NoImage';
 import Link from '../Link';
 
 class CollectionPart extends Component {
@@ -32,12 +33,14 @@ class CollectionPart extends Component {
     return (
       <li className="collection-part" key={`collection-part-${part.id}`}>
         <div className="collection-part__image-holder">
-          {imageUrl && (
+          {imageUrl ? (
             <img
               className="collection-part__image"
               src={imageUrl}
               alt={part.title}
             />
+          ) : (
+            <NoImage />
           )}
         </div>
 
