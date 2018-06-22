@@ -305,7 +305,10 @@ class CollectionItemPage extends Component {
             {item.parts && (
               <Fragment>
                 <h2>Parts</h2>
-                <CollectionParts parts={item.parts} />
+                <CollectionParts
+                  id={+item.id.replace('ADLIB', '')}
+                  // parts={item.parts}
+                />
               </Fragment>
             )}
 

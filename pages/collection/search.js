@@ -435,7 +435,7 @@ const query = gql`
 `;
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (ExamplePage)
+// available on the `data` prop of the wrapped component
 export default withData(
   graphql(query, {
     options: ({ url: { query: { q, facets, scope } } }) => {

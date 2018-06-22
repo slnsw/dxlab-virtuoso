@@ -1,77 +1,16 @@
 import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { gql, graphql } from 'react-apollo';
 
 import './CollectionParts.css';
-import Link from '../Link';
+import withData from '../../lib/withData';
+import CollectionPart from '../CollectionPart';
 
-class CollectionPart extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      isShowingParts: false,
-    };
-  }
-
-  handleToggleButton = () => {
-    this.setState({
-      isShowingParts: !this.state.isShowingParts,
-    });
-  };
-
-  render() {
-    const { part } = this.props;
-    const { isShowingParts } = this.state;
-    const imageUrl = part.images && part.images[0] && part.images[0].url;
-
-    return (
-      <li className="collection-part" key={`collection-part-${part.id}`}>
-        <div className="collection-part__image-holder">
-          {imageUrl && (
-            <img
-              className="collection-part__image"
-              src={imageUrl}
-              alt={part.title}
-            />
-          )}
-        </div>
-
-        <div className="collection-part__info">
-          <div className="collection-part__content">
-            <div className="collection-part__level">{part.level}</div>
-            <Link to={`/collection/item/ADLIB${part.id}`}>
-              <a className="collection-part__title">{part.title}</a>
-            </Link>
-          </div>
-
-          {part.parts &&
-            part.parts.length > 0 && (
-              <Fragment>
-                <button
-                  className="collection-part__toggle-button button"
-                  onClick={this.handleToggleButton}
-                >
-                  {isShowingParts
-                    ? 'Hide'
-                    : `More (${
-                        part.parts.length > 9 ? '+10' : part.parts.length
-                      })`}
-                </button>
-
-                <br />
-                <br />
-
-                {isShowingParts && <CollectionParts parts={part.parts} />}
-              </Fragment>
-            )}
-        </div>
-      </li>
-    );
-  }
-}
+const LIMIT = 10;
 
 class CollectionParts extends Component {
   static propTypes = {
+    id: PropTypes.number,
     parts: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
@@ -85,19 +24,124 @@ class CollectionParts extends Component {
     ),
   };
 
-  render() {
-    const { parts } = this.props;
+  constructor() {
+    super();
 
-    return parts ? (
+    this.state = {
+      loadMoreClickedTotal: 0,
+      initialPropsLoaded: false,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.loading && !this.state.initialPropsLoaded) {
+      this.setState({
+        initialPropsLoaded: true,
+      });
+    }
+  }
+
+  handleMoreButton = () => {
+    this.props.loadMore();
+    this.setState({
+      loadMoreClickedTotal: this.state.loadMoreClickedTotal + 1,
+    });
+  };
+
+  render() {
+    const { parts, loading } = this.props;
+    const { loadMoreClickedTotal, initialPropsLoaded } = this.state;
+
+    if (loading && !initialPropsLoaded) return <p>Loading...</p>;
+    if (!parts) return null;
+
+    // NOTE: A better way is to check against total parts, but we need data for that.
+    const totalCheck = (loadMoreClickedTotal + 1) * LIMIT;
+    const showMoreButton = parts.length === totalCheck;
+
+    return (
       <div className="collection-parts">
         <ul>
-          {parts.map((part) => {
-            return <CollectionPart part={part} />;
+          {[...new Set(parts)].map((part) => {
+            return (
+              <CollectionPart part={part} key={`collection-part-${part.id}`} />
+            );
           })}
         </ul>
+
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          showMoreButton && (
+            <button
+              className="collection-parts__load-more-button"
+              onClick={this.handleMoreButton}
+            >
+              Load more
+            </button>
+          )
+        )}
       </div>
-    ) : null;
+    );
   }
 }
 
-export default CollectionParts;
+const QUERY = gql`
+  query GetParts($id: Int!, $offset: Int, $limit: Int) {
+    parts: adlibRecords(parentId: $id, offset: $offset, limit: $limit) {
+      id
+      level
+      title
+      images {
+        url
+      }
+      parts {
+        id
+        level
+        title
+        images {
+          url
+        }
+      }
+    }
+  }
+`;
+
+export default withData(
+  graphql(QUERY, {
+    options: ({ id, offset = 0 }) => {
+      return {
+        variables: {
+          id,
+          offset,
+          limit: LIMIT,
+        },
+        notifyOnNetworkStatusChange: true,
+      };
+    },
+    props: ({ data }) => {
+      return {
+        ...data,
+        loadMore() {
+          return data.fetchMore({
+            variables: {
+              offset: data.parts.length,
+            },
+            updateQuery: (previousResult, result) => {
+              const { fetchMoreResult } = result;
+
+              if (!fetchMoreResult) {
+                return previousResult;
+              }
+
+              return {
+                ...previousResult,
+                parts: [...previousResult.parts, ...fetchMoreResult.parts],
+              };
+            },
+          });
+        },
+      };
+    },
+  })(CollectionParts),
+);
