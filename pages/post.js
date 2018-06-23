@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
-import App from '../components/App';
+import WebsiteApp from '../components/WebsiteApp';
 import ShareBox from '../components/ShareBox';
 import Button from '../components/Button';
 import Comments from '../components/Comments';
@@ -102,7 +102,7 @@ class Post extends Component {
     }
 
     return (
-      <App
+      <WebsiteApp
         isLoading={loading}
         pathname={`/blog/${url.query.slug}`}
         title={title}
@@ -159,7 +159,7 @@ class Post extends Component {
             <Comments postId={id} comments={comments} />
           </div>
         </article>
-      </App>
+      </WebsiteApp>
     );
   }
 }

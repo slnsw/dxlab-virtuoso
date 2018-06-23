@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
-import App from '../components/App';
+import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 // import DisplayTile from '../components/DisplayTile';
 import MainTile from '../components/MainTile';
@@ -20,7 +20,7 @@ class Experiments extends Component {
     } = this.props;
 
     return (
-      <App
+      <WebsiteApp
         pathname={url.pathname}
         isLoading={isLoading}
         title="Experiments"
@@ -66,7 +66,7 @@ class Experiments extends Component {
         </div>
 
         {/* <style global jsx>{styles}</style> */}
-      </App>
+      </WebsiteApp>
     );
   }
 }

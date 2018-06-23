@@ -30,7 +30,7 @@ class CollectionItem extends Component {
     return (
       <article
         className={`collection-item ${
-          layoutType === 'grid' ? 'collection-item--grid' : undefined
+          layoutType === 'grid' ? 'collection-item--grid' : ''
         }`}
         key={`collection-item-${id}`}
       >

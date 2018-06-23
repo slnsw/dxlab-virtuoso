@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import App from '../components/App';
+import WebsiteApp from '../components/WebsiteApp';
 import SearchModal from '../components/SearchModal';
 import withData from '../lib/withData';
 import config from '../lib/config';
@@ -10,7 +10,7 @@ class SearchPage extends Component {
     const { url, posts, loading: isLoading } = this.props;
 
     return (
-      <App
+      <WebsiteApp
         pathname={url.pathname}
         isLoading={isLoading}
         title="Search"
@@ -21,7 +21,7 @@ class SearchPage extends Component {
         <div className="search-page container container--md">
           <SearchModal posts={posts} q={url.query.q} isLoading />
         </div>
-      </App>
+      </WebsiteApp>
     );
   }
 }

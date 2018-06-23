@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
-import App from '../components/App';
+import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import './post.css';
 import config from '../lib/config';
@@ -14,7 +14,7 @@ class Page extends Component {
     const slug = url.pathname.substr(1);
 
     return (
-      <App
+      <WebsiteApp
         pathname={`/${slug}`}
         isLoading={isLoading}
         title={title}
@@ -34,7 +34,7 @@ class Page extends Component {
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </article>
-      </App>
+      </WebsiteApp>
     );
   }
 }

@@ -15,7 +15,7 @@ import { gql, graphql } from 'react-apollo';
 import queryString from 'query-string';
 
 import withData from '../../lib/withData';
-import App from '../../components/App';
+import CollectionApp from '../../components/CollectionApp';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
 import { Router } from '../../routes';
@@ -95,7 +95,7 @@ class CollectionSearchPage extends Component {
     const { creationDateData, formatData } = this.state;
 
     return (
-      <App
+      <CollectionApp
         pathname="/collection"
         title="Collection Home Page"
         metaDescription="{excerpt}"
@@ -195,7 +195,7 @@ class CollectionSearchPage extends Component {
             </ResponsiveContainer>
           </div>*/}
         </div>
-      </App>
+      </CollectionApp>
     );
   }
 }

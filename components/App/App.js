@@ -22,6 +22,11 @@ class App extends Component {
     metaDescription: PropTypes.string,
     metaImageUrl: PropTypes.string,
     metaImageAlt: PropTypes.string,
+    headerMenuItems: PropTypes.array,
+  };
+
+  static defaultProps = {
+    headerMenuItems: [],
   };
 
   constructor() {
@@ -78,6 +83,7 @@ class App extends Component {
       metaDescription,
       metaImageUrl,
       metaImageAlt,
+      headerMenuItems,
       // metaUrl,
     } = this.props;
 
@@ -139,7 +145,7 @@ class App extends Component {
           />
         </Head>
 
-        <Header pathname={pathname} />
+        <Header pathname={pathname} menuItems={headerMenuItems} />
         {/*
           .header-bg is needed for tricky position: sticky css
           Includes line decoration for .primary-menu

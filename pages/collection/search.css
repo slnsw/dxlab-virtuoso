@@ -44,6 +44,7 @@
 .collection-search-page__results__loader {
   position: relative;
   z-index: 15;
+  width: 100%;
   padding-top: var(--spacing-xxs);
   margin-bottom: calc(var(--spacing-xs) * -1 - 1em);
 
@@ -140,6 +141,7 @@
     padding-right: 1em;
     border-right: 1px solid var(--colour-white);
     transition: color 0.3s;
+    color: var(--colour-grey);
 
     &:hover {
       text-decoration: underline;
@@ -160,8 +162,8 @@
   }
 }
 
-.collection-search-page__item-type-chooser--is-active {
-  color: var(--colour-primary);
+button.collection-search-page__item-type-chooser--is-active {
+  color: var(--colour-white);
 }
 
 /* Facets */

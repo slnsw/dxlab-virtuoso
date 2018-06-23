@@ -3,7 +3,7 @@ import { gql, graphql } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../lib/withData';
-import App from '../components/App';
+import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
@@ -15,7 +15,7 @@ class Blog extends Component {
     const { url, posts, loading: isLoading, loadMore } = this.props;
 
     return (
-      <App
+      <WebsiteApp
         pathname={url.pathname}
         isLoading={isLoading}
         title="Blog"
@@ -54,7 +54,7 @@ class Blog extends Component {
             </InfiniteScroll>
           )}
         </div>
-      </App>
+      </WebsiteApp>
     );
   }
 }

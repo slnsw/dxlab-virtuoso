@@ -4,7 +4,7 @@ import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
 
 import withData from '../../lib/withData';
-import App from '../../components/App';
+import CollectionApp from '../../components/CollectionApp';
 import Table from '../../components/Table';
 import Link from '../../components/Link';
 import ShareBox from '../../components/ShareBox';
@@ -42,7 +42,11 @@ class CollectionItemPage extends Component {
     const numberOfThumbnails = 5;
 
     return (
-      <App pathname="/search" isLoading={isLoading} title="Collection Item">
+      <CollectionApp
+        pathname="/search"
+        isLoading={isLoading}
+        title="Collection Item"
+      >
         <Head>
           <link
             rel="stylesheet"
@@ -321,7 +325,7 @@ class CollectionItemPage extends Component {
             )}
           </div>
         )}
-      </App>
+      </CollectionApp>
     );
   }
 }

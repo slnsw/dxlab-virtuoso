@@ -2,10 +2,9 @@ import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
-import App from '../components/App';
+import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';
-// import DisplayTile from '../components/DisplayTile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -22,7 +21,7 @@ class HomePage extends Component {
     const { url, posts, experiments, loading: isLoading } = this.props;
 
     return (
-      <App
+      <WebsiteApp
         pathname={url.pathname}
         isLoading={isLoading}
         title="Home"
@@ -170,7 +169,7 @@ class HomePage extends Component {
             <Button href="/grants">Read about our grants</Button>
           </div>
         </div>
-      </App>
+      </WebsiteApp>
     );
   }
 }

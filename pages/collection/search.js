@@ -5,7 +5,7 @@ import queryString from 'query-string';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../../lib/withData';
-import App from '../../components/App';
+import CollectionApp from '../../components/CollectionApp';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
 import CollectionItem from '../../components/CollectionItem';
@@ -99,7 +99,7 @@ class CollectionSearchPage extends Component {
     } = this.state;
 
     return (
-      <App
+      <CollectionApp
         pathname="/collection/search"
         // isLoading={isLoading}
         title="Search"
@@ -371,7 +371,7 @@ class CollectionSearchPage extends Component {
             {/* </div> */}
           </div>
         </div>
-      </App>
+      </CollectionApp>
     );
   }
 }

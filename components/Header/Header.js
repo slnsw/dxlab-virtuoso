@@ -1,28 +1,34 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Menu from '../Menu';
 import './Header.css';
 
-const menuItems = [
-  { name: 'Home', url: '/' },
-  { name: 'About', url: '/about' },
-  { name: 'Experiments', url: '/experiments' },
-  { name: 'Blog', url: '/blog' },
-  { name: 'Grants', url: '/grants' },
-  { name: 'Code', url: '/code' },
-  {
-    name: (
-      <span>
-        <span className="primary-menu__divider">/</span>{' '}
-        <span className="slnsw-icon-ZoomOL2" />
-      </span>
-    ),
-    url: '/search',
-    ariaLabel: 'search',
-  },
-];
+// const menuItems = [
+//   { name: 'Home', url: '/' },
+//   { name: 'About', url: '/about' },
+//   { name: 'Experiments', url: '/experiments' },
+//   { name: 'Blog', url: '/blog' },
+//   { name: 'Grants', url: '/grants' },
+//   { name: 'Code', url: '/code' },
+//   {
+//     name: (
+//       <span>
+//         <span className="primary-menu__divider">/</span>{' '}
+//         <span className="slnsw-icon-ZoomOL2" />
+//       </span>
+//     ),
+//     url: '/search',
+//     ariaLabel: 'search',
+//   },
+// ];
 
 class Header extends Component {
+  static propTypes = {
+    menuItems: PropTypes.array,
+    pathname: PropTypes.string,
+  };
+
   constructor() {
     super();
 
@@ -38,7 +44,7 @@ class Header extends Component {
   };
 
   render() {
-    const { pathname = '' } = this.props;
+    const { pathname = '', menuItems } = this.props;
 
     return (
       <header className="header">
