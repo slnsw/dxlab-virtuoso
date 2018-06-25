@@ -56,7 +56,7 @@ class CollectionPart extends Component {
             part.parts.length > 0 && (
               <Fragment>
                 <button
-                  className="collection-part__toggle-button button"
+                  className="collection-part__toggle-button"
                   onClick={this.handleToggleButton}
                 >
                   {isShowingParts
