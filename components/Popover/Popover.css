@@ -15,6 +15,7 @@
 
 .popover__title {
   margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
   font-weight: 700;
   @apply (--font-uppercase);
 
@@ -29,7 +30,8 @@
   top: var(--spacing-xlg);
   left: calc(-1 * var(--spacing-sm) - 1px);
   margin-bottom: var(--spacing-xs);
-  padding: 0 var(--spacing-lg) 0 var(--spacing-sm);
+  padding: 0.3em var(--spacing-lg) 0.2em var(--spacing-sm);
+  font-size: var(--font-size-sm);
   border: 1px solid var(--colour-grey-darkest);
   background-color: var(--colour-black);
   /* font-weight: 700; */

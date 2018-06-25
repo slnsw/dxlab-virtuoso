@@ -22,16 +22,16 @@ import { Router } from '../../routes';
 import './index.css';
 import './search.css';
 
-const COLORS = [
-  '#e6007e',
-  '#f53057',
-  '#f35b32',
-  '#e38001',
-  '#c9a000',
-  '#a6bb16',
-  '#77d251',
-  '#00e68d',
-];
+// const COLORS = [
+//   '#e6007e',
+//   '#f53057',
+//   '#f35b32',
+//   '#e38001',
+//   '#c9a000',
+//   '#a6bb16',
+//   '#77d251',
+//   '#00e68d',
+// ];
 
 class CollectionSearchPage extends Component {
   constructor() {
@@ -92,10 +92,11 @@ class CollectionSearchPage extends Component {
 
   render() {
     const { url, loading: isLoading, primoSearch } = this.props;
-    const { creationDateData, formatData } = this.state;
+    // const { creationDateData, formatData } = this.state;
 
     return (
       <CollectionApp
+        isLoading={isLoading}
         pathname="/collection"
         title="Collection Home Page"
         metaDescription="{excerpt}"
@@ -133,7 +134,7 @@ class CollectionSearchPage extends Component {
           </form>
           {/* TODO: Put into CollectionSearchBox component! */}
 
-          <h2>Latest items</h2>
+          <h2 className="collection-home-page__title">Latest items</h2>
           <div className="collection-home-page__latest">
             {primoSearch &&
               primoSearch.records &&
@@ -220,7 +221,7 @@ const query = gql`
       records {
         id
         title
-        images(size: FULL) {
+        images(size: FULL, limit: 1) {
           url
         }
       }

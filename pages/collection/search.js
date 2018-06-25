@@ -29,7 +29,7 @@ class CollectionSearchPage extends Component {
       showDesktopFacetList: true,
       facetsShowAll: [],
       initialFacetValueCount: 5,
-      itemsLayoutType: 'grid',
+      itemsLayoutType: 'list',
     };
   }
 

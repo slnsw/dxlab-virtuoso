@@ -139,7 +139,7 @@
     @apply (--font-uppercase);
     padding-left: var(--spacing-lg);
     padding-right: 1em;
-    border-right: 1px solid var(--colour-white);
+    border-right: 1px solid var(--colour-grey-darker);
     transition: color 0.3s;
     color: var(--colour-grey);
 

@@ -116,17 +116,6 @@ figure {
   max-width: 100%;
 }
 
-button,
-input[type='submit'] {
-  background: none;
-  border: none;
-  color: var(--colour-white);
-  font-family: var(--font-primary);
-  text-transform: uppercase;
-  border-radius: 0;
-  cursor: pointer;
-}
-
 label {
   display: block;
   margin-bottom: var(--font-size-xs);
@@ -153,6 +142,17 @@ textarea {
   line-height: 1.4;
 }
 
+button,
+input[type='submit'] {
+  background: none;
+  border: none;
+  color: var(--colour-white);
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+}
+
 button[type='submit'],
 input[type='submit'] {
   padding: var(--spacing-md);
@@ -174,4 +174,9 @@ input[type='button'],
 input[type='submit'] {
   -webkit-appearance: none;
   border-radius: 0;
+
+  &:focus {
+    outline: 1;
+    outline-color: var(--colour-highlight);
+  }
 }

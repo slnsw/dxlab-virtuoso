@@ -27,6 +27,7 @@
     font-family: var(--font-secondary);
     font-size: var(--font-size-md);
     text-transform: none;
+    color: var(--colour-white);
     letter-spacing: 0;
     line-height: var(--line-height-xs);
   }

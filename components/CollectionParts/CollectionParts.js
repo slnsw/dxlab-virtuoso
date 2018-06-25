@@ -93,7 +93,13 @@ class CollectionParts extends Component {
 
 const QUERY = gql`
   query GetParts($id: Int!, $offset: Int, $limit: Int) {
-    parts: adlibRecords(parentId: $id, offset: $offset, limit: $limit) {
+    parts: adlibRecords(
+      parentId: $id
+      offset: $offset
+      limit: $limit
+      orderBy: TITLE
+      order: ASC
+    ) {
       id
       level
       title

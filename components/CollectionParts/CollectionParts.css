@@ -2,7 +2,7 @@
 
 .collection-parts {
   padding-left: 1em;
-  border-left: 1px solid var(--colour-grey-darkest);
+  border-left: 2px solid var(--colour-grey-darkest);
 }
 
 .collection-part {
@@ -32,7 +32,7 @@
 
 .collection-part__level {
   font-size: var(--font-size-sm);
-  /* font-weight: 700; */
+  font-weight: 700;
   @apply (--font-uppercase);
   color: var(--colour-grey);
 }
