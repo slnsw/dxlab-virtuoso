@@ -428,6 +428,7 @@ export default withData(
       };
     },
     props: ({ data }) => {
+      console.log(data);
       return {
         ...data,
         item: data.primoRecord,

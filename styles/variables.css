@@ -18,6 +18,18 @@
   --colour-black: #060606;
   --colour-white: #e6e6e6;
 
+  /* Named colours */
+  --colour-pink: #e6007e;
+  --colour-orange: #f64248;
+  --colour-light-orange: #e8790f;
+  --colour-yellow: #c3a600;
+  --colour-lime-green: #8cca3a;
+  --colour-hyper-green: #00e68d;
+  --colour-teal: #00c8c7;
+  --colour-sky-blue: #00a3ff;
+  --colour-water-blue: #0074ff;
+  --colour-blue: #1300e6;
+
   /* Greys */
   --colour-grey-lightest: color(var(--colour-white) shade(5%));
   --colour-grey-lighter: color(var(--colour-white) shade(30%));

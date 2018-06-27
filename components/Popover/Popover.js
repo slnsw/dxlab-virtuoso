@@ -71,6 +71,7 @@ class Popover extends Component {
                     className={`popover__item ${
                       item.isSelected ? 'popover__item--is-selected' : undefined
                     }`}
+                    key={`popover__item-${item.name}`}
                   >
                     <a onClick={(event) => this.handleTitleClick(event, i)}>
                       {item.name}

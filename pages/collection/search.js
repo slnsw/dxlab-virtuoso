@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import Head from 'next/head';
 import { gql, graphql } from 'react-apollo';
 import queryString from 'query-string';
@@ -143,22 +143,21 @@ class CollectionSearchPage extends Component {
             <div className="collection-search-page__info">
               {facets &&
                 facets.length > 0 && (
-                  <button
-                    className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
-                    onClick={this.handleMobileFacetListToggle}
-                  >
-                    {showMobileFacetList ? '< Hide' : '> Show'} Facets
-                  </button>
-                )}
+                  <Fragment>
+                    <button
+                      className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
+                      onClick={this.handleMobileFacetListToggle}
+                    >
+                      {showMobileFacetList ? '< Hide' : '> Show'} Facets
+                    </button>
 
-              {facets &&
-                facets.length > 0 && (
-                  <button
-                    className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
-                    onClick={this.handleDesktopFacetListToggle}
-                  >
-                    {showDesktopFacetList ? '< Hide' : '> Show'} Facets
-                  </button>
+                    <button
+                      className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
+                      onClick={this.handleDesktopFacetListToggle}
+                    >
+                      {showDesktopFacetList ? '< Hide' : '> Show'} Facets
+                    </button>
+                  </Fragment>
                 )}
 
               <div className="collection-search-page__total-items">
@@ -174,6 +173,7 @@ class CollectionSearchPage extends Component {
                         : ''
                     }
                     onClick={() => this.handleItemsLayoutTypeChange(layoutType)}
+                    key={`collection-search-page__item-type-chooser-${layoutType}`}
                   >
                     {layoutType}
                   </button>
@@ -362,6 +362,7 @@ class CollectionSearchPage extends Component {
                           imageUrl={imageUrl}
                           totalImages={totalImages}
                           type={type}
+                          key={`collection-search-page__results__item-${id}`}
                         />
                       );
                     })}
