@@ -36,7 +36,7 @@ class HomePage extends Component {
           titleSmall="The State Library of NSW's"
           title="Experimental"
           titleHighlight="Innovation Lab"
-          text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+          text="We build and support new ways of design thinking, experimentation and research with digital technologies."
           // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
           backgroundImageUrl="/static/images/masthead-background-01.gif"
           slug="Experimental"
