@@ -5,9 +5,9 @@ import './ShareBox.css';
 
 class ShareBox extends Component {
   static propTypes = {
-    pathname: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    pathname: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string,
     imageUrl: PropTypes.string,
   };
 
