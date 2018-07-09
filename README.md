@@ -89,7 +89,23 @@ $ npm run alias-production # Alias to dxlab.now.sh
 $ now scale dxlab-website-xxxxxxxxxx.now.sh 1
 ```
 
-Using `heroku`:
+#### Issues
+
+Every 5-10 deployments or so, you may run into a `Nginx 500 Internal Error`. It is an issue with the NodeJS process manageer `pm2`. This should be a relatively easy fix:
+
+```
+# SSH into the server
+$ ssh dxlab-wp
+$ cd /srv/www/dxlab.sl.nsw.gov.au/current
+$ npx pm2 logs
+# You should see - `cannot find module pm2/lib/ProcessContainerFork.js`
+# Fix here - https://github.com/Unitech/pm2/issues/1943
+$ rm -rf ~/.pm2
+$ npm run start-pm2
+# Should be up and running@
+```
+
+Using `heroku` (deprecated, only use if `now` is down):
 
 ```
 $ git push heroku
