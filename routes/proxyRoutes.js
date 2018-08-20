@@ -54,4 +54,8 @@ module.exports = {
     target: process.env.DXLAB_WP_URL,
     changeOrigin: true,
   },
+  '/young-ct-2018/': {
+    target: process.env.DXLAB_WP_URL,
+    changeOrigin: true,
+  },
 };
