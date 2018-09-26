@@ -38,10 +38,11 @@ class HomePage extends Component {
           titleHighlight="Innovation Lab"
           text="We build and support new ways of design thinking, experimentation and research with digital technologies."
           // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
-          backgroundImageUrl="/static/images/masthead-background-01.gif"
+          // backgroundImageUrl="/static/images/masthead-background-01.gif"
+          backgroundImageUrl="/static/images/masthead-field-of-view-a.jpg"
           slug="Experimental"
           size="lg"
-          caption="Loom Atlas view"
+          caption="Field of View: Point Cloud of Mitchell Library"
         />
 
         <div className="posts container container--lg">
