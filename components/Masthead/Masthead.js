@@ -32,9 +32,11 @@ class Masthead extends Component {
         <div
           className="masthead__bg"
           style={
-            this.props.backgroundImageUrl && {
-              backgroundImage: `url(${this.props.backgroundImageUrl})`,
-            }
+            this.props.backgroundImageUrl
+              ? {
+                  backgroundImage: `url(${this.props.backgroundImageUrl})`,
+                }
+              : {}
           }
         />
 

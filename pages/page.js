@@ -12,6 +12,8 @@ class Page extends Component {
     const { title, url, content, excerpt, loading: isLoading } = this.props;
 
     const slug = url.pathname.substr(1);
+    const imageUrl = images[slug] ? images[slug].imageUrl : '';
+    const caption = images[slug] ? images[slug].caption : '';
 
     return (
       <WebsiteApp
@@ -19,13 +21,13 @@ class Page extends Component {
         isLoading={isLoading}
         title={title}
         metaDescription={excerpt}
-        metaImageUrl={`${config.baseUrl}${images[slug].imageUrl}`}
+        metaImageUrl={`${config.baseUrl}${imageUrl}`}
       >
         <Masthead
-          title={slug}
-          backgroundImageUrl={images[slug].imageUrl}
+          title={title}
+          backgroundImageUrl={imageUrl}
           slug={slug}
-          caption={images[slug].caption}
+          caption={caption}
         />
 
         <article className="post antialiased container container--md">
@@ -89,8 +91,13 @@ const images = {
     caption: 'Book projection',
   },
   code: {
-    imageUrl: '/static/images/masthead-portico.jpg',
-    url: 'http://dxlab.sl.nsw.gov.au/portico',
-    caption: 'Portico',
+    imageUrl: '/static/images/masthead-background-01.gif',
+    url: 'http://dxlab.sl.nsw.gov.au/loom',
+    caption: 'Loom Atlas View',
+  },
+  '80hz-sound-lab': {
+    imageUrl: '/static/images/masthead-80hz.jpg',
+    url: 'http://dxlab.sl.nsw.gov.au/80hz-sound-lab',
+    caption: '80hz concept render',
   },
 };

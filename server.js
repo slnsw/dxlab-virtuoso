@@ -19,11 +19,11 @@ console.log('----------------------------------');
 console.log('Environment Variables:');
 console.log('----------------------------------');
 console.log(`PORT=${process.env.PORT}`);
+console.log(`BASE_URL=${process.env.BASE_URL}`);
 console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
 console.log(`GRAPHQL_HOST=${process.env.GRAPHQL_HOST}`);
-console.log(`TEST=${process.env.TEST}`);
 console.log(`DXLAB_WP_URL=${process.env.DXLAB_WP_URL}`);
-console.log(`BASE_URL=${process.env.BASE_URL}`);
+console.log(`TEST=${process.env.TEST}`);
 console.log('----------------------------------');
 
 app
@@ -131,6 +131,10 @@ app
 
     server.get('/unstacked/', (req, res) => {
       res.redirect('http://unstacked.dxlab.sl.nsw.gov.au');
+    });
+
+    server.get('/80hz/', (req, res) => {
+      res.redirect('/80hz-sound-lab');
     });
 
     server.all('*', (req, res) => handler(req, res));

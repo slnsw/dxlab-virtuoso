@@ -154,7 +154,8 @@ function getTileSize(slug) {
   if (
     slug === 'painting-by-numbers' ||
     slug === 'unstacked' ||
-    slug === 'loom'
+    slug === 'loom' ||
+    slug === 'newselfwales'
   ) {
     return '1x2';
   }
