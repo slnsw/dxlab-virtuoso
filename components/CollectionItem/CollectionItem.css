@@ -39,12 +39,16 @@
 }
 
 .collection-item__title {
+  display: -webkit-box;
+  overflow: hidden;
   font-family: var(--font-secondary);
   line-height: var(--line-height-xs);
   margin-top: 0;
   font-size: var(--font-size-lg);
   text-transform: none;
   letter-spacing: 0;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
   color: var(--colour-white);
   opacity: 0.9;
 
@@ -121,6 +125,13 @@
   opacity: 0.9;
   margin-bottom: var(--spacing-md);
   font-family: var(--font-secondary);
+
+  & p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
 }
 
 .collection-item__id {

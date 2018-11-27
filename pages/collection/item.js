@@ -13,7 +13,7 @@ import RelatedCollectionItems from '../../components/RelatedCollectionItems';
 import CollectionParts from '../../components/CollectionParts';
 import './item.css';
 
-const NUMBER_OF_THUMBNAILS = 10;
+const NUMBER_OF_THUMBNAILS = 5;
 
 class CollectionItemPage extends Component {
   constructor() {
