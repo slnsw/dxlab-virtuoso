@@ -18,6 +18,9 @@ const NUMBER_OF_THUMBNAILS = 5;
 class CollectionItemPage extends Component {
   static defaultProps = {
     url: {},
+    item: {
+      holdings: [],
+    },
   };
 
   constructor() {
@@ -433,7 +436,7 @@ export default withData(
       };
     },
     props: ({ data }) => {
-      console.log(data);
+      // console.log(data);
       return {
         ...data,
         item: data.primoRecord,
