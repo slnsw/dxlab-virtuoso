@@ -16,6 +16,10 @@ import './item.css';
 const NUMBER_OF_THUMBNAILS = 5;
 
 class CollectionItemPage extends Component {
+  static defaultProps = {
+    url: {},
+  };
+
   constructor() {
     super();
 
@@ -43,9 +47,10 @@ class CollectionItemPage extends Component {
 
     return (
       <CollectionApp
-        pathname="/search"
+        pathname={url.asPath}
         isLoading={isLoading}
-        title="Collection Item"
+        title={item.title}
+        metaDescription={item.description || item.physicalDescription}
       >
         <Head>
           <link
