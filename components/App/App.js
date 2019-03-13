@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Header from '../Header';
 import Footer from '../Footer';
 import { buildHeadTitle } from '../../lib';
-import { initGA, logPageView } from '../../lib/analytics';
+import { initGA } from '../../lib/analytics'; // logPageView
 import './App.css';
 import '../../styles/base.css';
 import '../../styles/globals.css';
@@ -46,7 +46,7 @@ class App extends Component {
       window.GA_INITIALIZED = true;
     }
 
-    logPageView();
+    // logPageView();
   }
 
   // componentDidUpdate() {
