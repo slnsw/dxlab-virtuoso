@@ -95,7 +95,7 @@ app
     // Proxy app
     server.use(
       proxy('/newselfwales', {
-        target: 'https://dxlab-selfie.now.sh',
+        target: process.env.NEWSELFWALES_URL,
         changeOrigin: true,
       }),
     );
@@ -103,7 +103,7 @@ app
     // Proxy static assets
     server.use(
       proxy('/static/newselfwales', {
-        target: 'https://dxlab-selfie.now.sh',
+        target: process.env.NEWSELFWALES_URL,
         changeOrigin: true,
       }),
     );
