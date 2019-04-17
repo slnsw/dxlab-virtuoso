@@ -6,6 +6,7 @@ import './LoaderText.css';
 class LoaderText extends Component {
   static propTypes = {
     text: PropTypes.string,
+    className: PropTypes.string,
   };
 
   static defaultProps = {
@@ -13,10 +14,10 @@ class LoaderText extends Component {
   };
 
   render() {
-    const { text } = this.props;
+    const { text, className } = this.props;
 
     return (
-      <div className="loader-text">
+      <div className={['loader-text', className || ''].join(' ')}>
         {text} <span>.</span>
         <span>.</span>
         <span>.</span>

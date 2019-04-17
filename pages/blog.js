@@ -7,12 +7,15 @@ import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
+import LoaderText from '../components/LoaderText';
 import { mapPostToTile } from '../lib';
 import config from '../lib/config';
 
+import './blog.css';
+
 class Blog extends Component {
   render() {
-    const { url, posts, loading: isLoading, loadMore } = this.props;
+    const { url, posts, postTotal, loading: isLoading, loadMore } = this.props;
 
     return (
       <WebsiteApp
@@ -30,15 +33,15 @@ class Blog extends Component {
           caption="Portico"
         />
 
-        <div className="posts container container--lg">
+        <div className="blog__posts container container--lg">
           <SectionTitle>Read our posts</SectionTitle>
 
           {posts && (
             <InfiniteScroll
               pageStart={0}
               loadMore={loadMore}
-              hasMore={posts.length < 46}
-              loader={<div>Loading ...</div>}
+              hasMore={posts.length < postTotal}
+              loader={<LoaderText className="blog__loader" />}
             >
               {posts.map((post, i) => (
                 <SimpleTile
@@ -77,6 +80,7 @@ const query = gql`
         }
       }
     }
+    postTotal
   }
 `;
 
