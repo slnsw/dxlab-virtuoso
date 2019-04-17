@@ -1,0 +1,10 @@
+@import '../styles/variables.css';
+
+.blog__posts > div {
+  overflow: auto;
+}
+
+.blog__loader {
+  width: 100%;
+  float: left;
+}

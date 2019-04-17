@@ -170,14 +170,13 @@
 .post__content {
   position: relative;
   font-size: var(--font-size-md);
-  line-height: 1.45;
   font-family: 'Barlow';
-  color: var(--colour-grey-lightest);
+  letter-spacing: -0.01em;
   @apply (--font-antialiased);
 
-  @media (--screen-sm) {
+  /* @media (--screen-sm) {
     line-height: inherit;
-  }
+  } */
 
   @media (--screen-md) {
     font-size: var(--font-size-lg);

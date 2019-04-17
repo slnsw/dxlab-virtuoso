@@ -14,7 +14,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    content: "";
+    content: '';
     width: 1em;
     border-top: 1px solid var(--colour-white);
   }
@@ -26,24 +26,26 @@
   & header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
   }
 }
 
-  .comment__author {
-    @apply --font-uppercase;
-    font-weight: bold;
-  }
+.comment__author {
+  @apply --font-uppercase;
+  font-weight: bold;
+}
 
-  .comment__date {
-    font-size: var(--font-size-sm);
-    @apply --font-uppercase;
-  }
+.comment__date {
+  font-size: var(--font-size-sm);
+  @apply --font-uppercase;
+}
 
-  .comment__content {
-    font-size: var(--font-size-sm);
+.comment__content {
+  /* font-size: var(--font-size-sm); */
+  font-family: var(--font-secondary);
 
-    @media (--screen-sm) {
-      font-size: var(--font-size-md);
-      @apply --font-antialiased;
-    }
+  @media (--screen-sm) {
+    /* font-size: var(--font-size-md); */
+    @apply --font-antialiased;
   }
+}
