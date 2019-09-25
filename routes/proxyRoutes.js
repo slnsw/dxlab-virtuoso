@@ -2,6 +2,10 @@
 // Make sure to add trailing slash
 
 module.exports = {
+  '/80hz/': {
+    target: process.env.DXLAB_WP_URL,
+    changeOrigin: true,
+  },
   '/index/': {
     target: process.env.DXLAB_WP_URL,
     changeOrigin: true,

@@ -133,9 +133,9 @@ app
       res.redirect('http://unstacked.dxlab.sl.nsw.gov.au');
     });
 
-    server.get('/80hz/', (req, res) => {
-      res.redirect('/80hz-sound-lab');
-    });
+    // server.get('/80hz/', (req, res) => {
+    //   res.redirect('/80hz-sound-lab');
+    // });
 
     server.all('*', (req, res) => handler(req, res));
 

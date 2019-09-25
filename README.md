@@ -125,6 +125,7 @@ $ hygen component new --name NewComponent
 
 Express proxies the following sites:
 
+* dxlab.sl.nsw.gov.au/80hz/
 * dxlab.sl.nsw.gov.au/index/
 * dxlab.sl.nsw.gov.au/loom/
 * dxlab.sl.nsw.gov.au/mainstreet/
@@ -136,6 +137,8 @@ Express proxies the following sites:
 * dxlab.sl.nsw.gov.au/search-terms/
 * dxlab.sl.nsw.gov.au/weemala/
 * dxlab.sl.nsw.gov.au/youngsydney/
+
+Changes to this list are made in /routes/proxyRoutes.js
 
 Now alias can proxy using rules.json, but doesn't seem to work for http/https connections.
 
