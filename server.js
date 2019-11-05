@@ -108,6 +108,24 @@ app
       }),
     );
 
+    // OFF THE SHELF EXPERIMENT
+
+    // Proxy app
+    server.use(
+      proxy('/off-the-shelf', {
+        target: process.env.OFF_THE_SHELF_URL,
+        changeOrigin: true,
+      }),
+    );
+
+    // Proxy static assets
+    // server.use(
+    //   proxy('/static/newselfwales', {
+    //     target: process.env.NEWSELFWALES_URL,
+    //     changeOrigin: true,
+    //   }),
+    // );
+
     // Redirects
     server.get('/open-data', (req, res) => {
       res.redirect('/code');
