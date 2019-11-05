@@ -118,14 +118,6 @@ app
       }),
     );
 
-    // Proxy static assets
-    // server.use(
-    //   proxy('/static/newselfwales', {
-    //     target: process.env.NEWSELFWALES_URL,
-    //     changeOrigin: true,
-    //   }),
-    // );
-
     // Redirects
     server.get('/open-data', (req, res) => {
       res.redirect('/code');
