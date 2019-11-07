@@ -52,15 +52,16 @@ app
     server.enable('strict routing');
 
     // Proxy GraphQL API
-    server.use(
-      proxy('/api/graphql', {
-        target: process.env.GRAPHQL_HOST,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api/graphql': '/graphql',
-        },
-      }),
-    );
+    // Currently proxied on server by NGINX
+    // server.use(
+    //   proxy('/api/graphql', {
+    //     target: process.env.GRAPHQL_HOST,
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api/graphql': '/graphql',
+    //     },
+    //   }),
+    // );
 
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {
