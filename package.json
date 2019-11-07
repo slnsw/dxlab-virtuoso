@@ -7,16 +7,21 @@
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node server.js -p $PORT",
     "start-pm2": "NODE_ENV=production pm2 start server.js --name dxlab-website",
-    "deploy:staging": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
-    "deploy:prod": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
-    "deploy:now-staging": "now --dotenv=.env.now-staging && now alias dxlab-staging",
-    "deploy:now-production": "now --dotenv=.env.now-production && now alias dxlab",
+    "deploy:staging":
+      "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
+    "deploy:prod":
+      "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
+    "deploy:now-staging":
+      "now --dotenv=.env.now-staging && now alias dxlab-staging",
+    "deploy:now-production":
+      "now --dotenv=.env.now-production && now alias dxlab",
     "alias:staging": "now alias staging-dxlab.now.sh -r rules.json",
     "alias:production": "now alias dxlab.now.sh -r rules.json",
     "flow": "flow",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+    "test:lint":
+      "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "precommit": "lint-staged"
   },
   "engines": {
@@ -100,10 +105,6 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "jest",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "jest", "git add"]
   }
 }
