@@ -7,21 +7,16 @@
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node server.js -p $PORT",
     "start-pm2": "NODE_ENV=production pm2 start server.js --name dxlab-website",
-    "deploy:staging":
-      "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
-    "deploy:prod":
-      "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
-    "deploy:now-staging":
-      "now --dotenv=.env.now-staging && now alias dxlab-staging",
-    "deploy:now-production":
-      "now --dotenv=.env.now-production && now alias dxlab",
+    "deploy:staging": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
+    "deploy:prod": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
+    "deploy:now-staging": "now --dotenv=.env.now-staging && now alias dxlab-staging",
+    "deploy:now-production": "now --dotenv=.env.now-production && now alias dxlab",
     "alias:staging": "now alias staging-dxlab.now.sh -r rules.json",
     "alias:production": "now alias dxlab.now.sh -r rules.json",
     "flow": "flow",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:lint":
-      "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "precommit": "lint-staged"
   },
   "engines": {
@@ -32,7 +27,7 @@
     "url": "git+https://github.com/slnsw/dxlab-website.git"
   },
   "dependencies": {
-    "@zeit/next-css": "^0.1.5",
+    "@zeit/next-css": "^1.0.1",
     "cssnano": "^3.10.0",
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
@@ -41,7 +36,7 @@
     "http-proxy-middleware": "^0.17.4",
     "isomorphic-fetch": "^2.2.1",
     "lost": "^8.1.0",
-    "next": "^5.1.0",
+    "next": "^9.2.1",
     "next-routes": "^1.4.1",
     "normalize.css": "^7.0.0",
     "pm2": "^2.9.1",
@@ -70,7 +65,7 @@
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-react-app": "^1.0.5",
-    "eslint-loader": "^1.9.0",
+    "eslint-loader": "^3.0.3",
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
@@ -97,7 +92,7 @@
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-standard": "^16.0.0",
     "stylelint-webpack-plugin": "^0.8.0",
-    "webpack": "^3.8.1"
+    "webpack": "^4.41.2"
   },
   "jest": {
     "transform": {
@@ -105,6 +100,10 @@
     }
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "jest", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "jest",
+      "git add"
+    ]
   }
 }
