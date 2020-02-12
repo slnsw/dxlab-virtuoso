@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
 
-import withData from '../../lib/withData';
+import { withApollo } from '../lib/apollo';
 import CollectionApp from '../../components/CollectionApp';
 import Table from '../../components/Table';
 import Link from '../../components/Link';
@@ -425,7 +425,7 @@ const query = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(
+export default withApollo(
   graphql(query, {
     options: ({
       url: {

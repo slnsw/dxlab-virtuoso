@@ -16,7 +16,7 @@ import gql from 'graphql-tag';
 // } from 'recharts';
 import queryString from 'query-string';
 
-import withData from '../../lib/withData';
+import { withApollo } from '../../lib/apollo';
 import CollectionApp from '../../components/CollectionApp';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
@@ -250,7 +250,7 @@ const query = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(
+export default withApollo(
   graphql(query, {
     // options: ({ url: { query: { q, facets, scope } } }) => {
     //   return {

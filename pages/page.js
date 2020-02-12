@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import withData from '../lib/withData';
+import { withApollo } from '../lib/apollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import './post.css';
@@ -54,7 +54,7 @@ const query = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(
+export default withApollo(
   graphql(query, {
     options: ({ url: { pathname } }) => {
       const slug = pathname.substr(1);

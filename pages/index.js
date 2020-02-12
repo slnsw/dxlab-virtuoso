@@ -2,8 +2,7 @@ import { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-// import withData from '../lib/withData';
-import withApollo from '../lib/withApollo';
+import { withApollo } from '../lib/apollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';

@@ -4,7 +4,8 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 // import './example-page.css';
-import withData, { createApolloReduxStore } from '../lib/withData';
+import { withApollo } from '../lib/apollo';
+import { createApolloReduxStore } from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
@@ -102,7 +103,7 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(
+export default withApollo(
   graphql(allObjects, {
     props: ({ data }) => {
       return {

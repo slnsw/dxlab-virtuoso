@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 import WebsiteApp from '../components/WebsiteApp';
 import SearchModal from '../components/SearchModal';
-import withData from '../lib/withData';
+import { withApollo } from '../lib/apollo';
 import config from '../lib/config';
 
 class SearchPage extends Component {
@@ -24,4 +24,4 @@ class SearchPage extends Component {
   }
 }
 
-export default withData(SearchPage);
+export default withApollo(SearchPage);
