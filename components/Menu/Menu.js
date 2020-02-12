@@ -52,8 +52,9 @@ class Menu extends Component {
               role="menuitem"
               onClick={onMenuItemClick}
             >
-              <Link prefetch to={item.url} key={item.url}>
+              <Link to={item.url} key={item.url}>
                 <a
+                  href={item.url}
                   className={
                     pathname === item.url || item.isActive
                       ? 'is-active'

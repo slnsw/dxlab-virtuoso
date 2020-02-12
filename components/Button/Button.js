@@ -26,6 +26,7 @@ class Button extends Component {
     ) : (
       <Link to={href}>
         <a
+          href={href}
           className={`button ${size ? `button--${size}` : ''}`}
           target={target}
         >

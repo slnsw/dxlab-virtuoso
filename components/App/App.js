@@ -66,7 +66,7 @@ class App extends Component {
 
   handleOnScroll = (event) => {
     if (event && event.srcElement && event.srcElement.scrollingElement) {
-      const scrollTop = event.srcElement.scrollingElement.scrollTop;
+      const { scrollTop } = event.srcElement.scrollingElement;
 
       this.setState({
         isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,

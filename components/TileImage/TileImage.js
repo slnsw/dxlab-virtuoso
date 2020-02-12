@@ -43,6 +43,7 @@ class TileImage extends Component {
     ) : (
       <Link to={url}>
         <a
+          href={url}
           className={`tile-image ${className}`}
           target={target}
           aria-label={ariaLabel}

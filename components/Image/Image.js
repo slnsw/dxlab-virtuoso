@@ -97,7 +97,10 @@ class Image extends Component {
         height={this.props.height}
         srcSet={this.props.srcSet}
         sizes={this.props.sizes}
-        ref={(node) => (this.node = node)}
+        ref={(node) => {
+          this.node = node;
+          return null;
+        }}
       />
     );
 

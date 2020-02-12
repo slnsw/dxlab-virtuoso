@@ -35,6 +35,7 @@ class ShareBox extends Component {
             href={fbLink}
             aria-label="Share this post on Facebook"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <span
               className="share-box__icon slnsw-icon-facebook"
@@ -46,6 +47,7 @@ class ShareBox extends Component {
             href={twitterLink}
             aria-label="Share this post on Twitter"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <span
               className="share-box__icon slnsw-icon-twitter"

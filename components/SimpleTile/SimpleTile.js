@@ -28,7 +28,7 @@ class SimpleTile extends Component {
         /> */}
 
         <Link to={url}>
-          <a className="simple-tile__image">
+          <a href={url} className="simple-tile__image">
             <Image src={imageUrl} alt={imageAltText || title} />
           </a>
         </Link>
@@ -36,7 +36,7 @@ class SimpleTile extends Component {
         <div className="simple-tile__info">
           <h1 className="simple-tile__title">
             <Link to={url}>
-              <a dangerouslySetInnerHTML={{ __html: title }} />
+              <a href={url} dangerouslySetInnerHTML={{ __html: title }} />
             </Link>
           </h1>
           <p className="simple-tile__subtitle">{subtitle}</p>

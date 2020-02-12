@@ -1,1 +1,1 @@
-export { default } from './ShareBox.js';
+export { default } from './ShareBox';

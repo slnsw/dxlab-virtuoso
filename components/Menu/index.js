@@ -1,1 +1,1 @@
-export { default } from './Menu.js';
+export { default } from './Menu';

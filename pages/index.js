@@ -26,9 +26,7 @@ class HomePage extends Component {
         isLoading={isLoading}
         title="Home"
         metaDescription="The State Library of NSW's experimental innovation lab."
-        metaImageUrl={`${
-          config.baseUrl
-        }/static/images/masthead-background-01.gif`}
+        metaImageUrl={`${config.baseUrl}/static/images/masthead-background-01.gif`}
       >
         <Masthead
           className="home-page__masthead--main"
@@ -184,11 +182,13 @@ function getTileSize(index) {
 }
 
 function getExperimentTileSize(index) {
+  let size;
   if (index === 0 || index === 5) {
-    return '1x2';
+    size = '1x2';
   } else if (index === 3) {
-    return '2x1';
+    size = '2x1';
   }
+  return size;
 }
 
 const homeQuery = gql`

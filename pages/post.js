@@ -198,7 +198,11 @@ const postQuery = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(
   graphql(postQuery, {
-    options: ({ url: { query: { slug } } }) => {
+    options: ({
+      url: {
+        query: { slug },
+      },
+    }) => {
       return {
         variables: {
           slug,
