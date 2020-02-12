@@ -1,4 +1,5 @@
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import ErrorMessage from './ErrorMessage';
 import PostUpvoter from './PostUpvoter';
 
@@ -111,10 +112,10 @@ export default graphql(allPosts, {
           if (!fetchMoreResult) {
             return previousResult;
           }
-          return Object.assign({}, previousResult, {
-            // Append the new posts results to the old one
+          return {
+            ...previousResult, // Append the new posts results to the old one
             allPosts: [...previousResult.allPosts, ...fetchMoreResult.allPosts],
-          });
+          };
         },
       });
     },

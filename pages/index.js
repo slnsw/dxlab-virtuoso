@@ -1,7 +1,9 @@
 import { Component } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
-import withData from '../lib/withData';
+// import withData from '../lib/withData';
+import withApollo from '../lib/withApollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';
@@ -26,7 +28,7 @@ class HomePage extends Component {
         isLoading={isLoading}
         title="Home"
         metaDescription="The State Library of NSW's experimental innovation lab."
-        metaImageUrl={`${config.baseUrl}/static/images/masthead-background-01.gif`}
+        metaImageUrl={`${config.baseUrl}/images/masthead-background-01.gif`}
       >
         <Masthead
           className="home-page__masthead--main"
@@ -36,8 +38,8 @@ class HomePage extends Component {
           titleHighlight="Innovation Lab"
           text="We build and support new ways of design thinking, experimentation and research with digital technologies."
           // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
-          // backgroundImageUrl="/static/images/masthead-background-01.gif"
-          backgroundImageUrl="/static/images/masthead-field-of-view-a.jpg"
+          // backgroundImageUrl="/images/masthead-background-01.gif"
+          backgroundImageUrl="/images/masthead-field-of-view-a.jpg"
           slug="Experimental"
           size="lg"
           caption="Field of View: Point Cloud of Mitchell Library"
@@ -110,7 +112,7 @@ class HomePage extends Component {
           // subtitle="We make experiments"
           title="We make"
           titleHighlight="Experiments"
-          backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+          backgroundImageUrl="/images/masthead-meridian-f.jpg"
           slug="We Make"
         />
 
@@ -159,7 +161,7 @@ class HomePage extends Component {
           title="We run"
           titleHighlight="Grants"
           text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."
-          backgroundImageUrl="/static/images/masthead-bookman.jpg"
+          backgroundImageUrl="/images/masthead-bookman.jpg"
           slug="We run"
         />
 
@@ -247,7 +249,7 @@ const homeQuery = gql`
   }
 `;
 
-export default withData(
+export default withApollo(
   graphql(homeQuery, {
     props: ({ data }) => {
       // console.log(data.experiments);

@@ -14,9 +14,7 @@ class SearchPage extends Component {
         pathname={url.pathname}
         isLoading={isLoading}
         title="Search"
-        metaImageUrl={`${
-          config.baseUrl
-        }/static/images/masthead-search-terms-projection.jpg`}
+        metaImageUrl={`${config.baseUrl}/images/masthead-search-terms-projection.jpg`}
       >
         <div className="search-page container container--md">
           <SearchModal posts={posts} q={url.query.q} isLoading />

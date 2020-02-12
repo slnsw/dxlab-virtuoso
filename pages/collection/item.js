@@ -1,5 +1,6 @@
 import { Component, Fragment } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
 
@@ -60,7 +61,7 @@ class CollectionItemPage extends Component {
           <link
             rel="stylesheet"
             type="text/css"
-            href="/static/styles/photoswipe.css"
+            href="/styles/photoswipe.css"
           />
         </Head>
 
@@ -99,35 +100,33 @@ class CollectionItemPage extends Component {
                   />
                 )}
 
-                {item.id !== 'ADLIB110335247' &&
-                  images &&
-                  images.length > 0 && (
-                    <PhotoSwipeGallery
-                      className="collection-item-page__gallery"
-                      items={images}
-                      options={{
-                        // https://github.com/minhtranite/react-photoswipe/issues/35
-                        history: false,
-                      }}
-                      thumbnailContent={(image) => {
-                        return (
-                          <span>
-                            {images.length > NUMBER_OF_THUMBNAILS + 1 &&
-                              image.i === NUMBER_OF_THUMBNAILS && (
-                                <div>
-                                  + {images.length - NUMBER_OF_THUMBNAILS}
-                                </div>
-                              )}
-                            <img
-                              src={image.src}
-                              className="collection-item-page__image"
-                              alt="This should be something meaningful"
-                            />
-                          </span>
-                        );
-                      }}
-                    />
-                  )}
+                {item.id !== 'ADLIB110335247' && images && images.length > 0 && (
+                  <PhotoSwipeGallery
+                    className="collection-item-page__gallery"
+                    items={images}
+                    options={{
+                      // https://github.com/minhtranite/react-photoswipe/issues/35
+                      history: false,
+                    }}
+                    thumbnailContent={(image) => {
+                      return (
+                        <span>
+                          {images.length > NUMBER_OF_THUMBNAILS + 1 &&
+                            image.i === NUMBER_OF_THUMBNAILS && (
+                              <div>
+                                + {images.length - NUMBER_OF_THUMBNAILS}
+                              </div>
+                            )}
+                          <img
+                            src={image.src}
+                            className="collection-item-page__image"
+                            alt="This should be something meaningful"
+                          />
+                        </span>
+                      );
+                    }}
+                  />
+                )}
               </div>
 
               <div className=" container container--md">
@@ -328,17 +327,16 @@ class CollectionItemPage extends Component {
                   </div>
                 )}
 
-                {item.parts &&
-                  item.parts.length > 0 && (
-                    <Fragment>
-                      <h2>Hierarchy</h2>
-                      {isLoading ? (
-                        <LoaderText />
-                      ) : (
-                        <CollectionParts id={+item.id.replace('ADLIB', '')} />
-                      )}
-                    </Fragment>
-                  )}
+                {item.parts && item.parts.length > 0 && (
+                  <Fragment>
+                    <h2>Hierarchy</h2>
+                    {isLoading ? (
+                      <LoaderText />
+                    ) : (
+                      <CollectionParts id={+item.id.replace('ADLIB', '')} />
+                    )}
+                  </Fragment>
+                )}
 
                 <ShareBox pathname={url.pathname} title={item.title} />
 
@@ -429,7 +427,11 @@ const query = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(
   graphql(query, {
-    options: ({ url: { query: { item } } }) => {
+    options: ({
+      url: {
+        query: { item },
+      },
+    }) => {
       return {
         variables: {
           id: item,

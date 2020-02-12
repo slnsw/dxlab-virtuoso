@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../lib/withData';
@@ -22,12 +23,12 @@ class Blog extends Component {
         pathname={url.pathname}
         isLoading={isLoading}
         title="Blog"
-        metaImageUrl={`${config.baseUrl}/static/images/masthead-portico.jpg`}
+        metaImageUrl={`${config.baseUrl}/images/masthead-portico.jpg`}
       >
         <Masthead
           title="Blog"
           // titleHighlight="#DXLAB"
-          backgroundImageUrl="/static/images/masthead-portico.jpg"
+          backgroundImageUrl="/images/masthead-portico.jpg"
           slug="BLOG"
           size="md"
           caption="Portico"

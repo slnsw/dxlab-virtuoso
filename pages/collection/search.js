@@ -1,6 +1,7 @@
 import { Component, Fragment } from 'react';
 import Head from 'next/head';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import queryString from 'query-string';
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -141,24 +142,23 @@ class CollectionSearchPage extends Component {
 
           {
             <div className="collection-search-page__info">
-              {facets &&
-                facets.length > 0 && (
-                  <Fragment>
-                    <button
-                      className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
-                      onClick={this.handleMobileFacetListToggle}
-                    >
-                      {showMobileFacetList ? '< Hide' : '> Show'} Facets
-                    </button>
+              {facets && facets.length > 0 && (
+                <Fragment>
+                  <button
+                    className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
+                    onClick={this.handleMobileFacetListToggle}
+                  >
+                    {showMobileFacetList ? '< Hide' : '> Show'} Facets
+                  </button>
 
-                    <button
-                      className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
-                      onClick={this.handleDesktopFacetListToggle}
-                    >
-                      {showDesktopFacetList ? '< Hide' : '> Show'} Facets
-                    </button>
-                  </Fragment>
-                )}
+                  <button
+                    className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
+                    onClick={this.handleDesktopFacetListToggle}
+                  >
+                    {showDesktopFacetList ? '< Hide' : '> Show'} Facets
+                  </button>
+                </Fragment>
+              )}
 
               <div className="collection-search-page__total-items">
                 {numberWithCommas(totalItems)} results
@@ -244,9 +244,7 @@ class CollectionSearchPage extends Component {
                           return (
                             <div
                               className="collection-search-page__facet__value-name"
-                              key={`collection-search-page__facet__value-name-${
-                                value.name
-                              }`}
+                              key={`collection-search-page__facet__value-name-${value.name}`}
                               onClick={() => {
                                 this.setState({
                                   showMobileFacetList: false,
@@ -307,9 +305,7 @@ class CollectionSearchPage extends Component {
                     return (
                       <Link
                         to={`${url.pathname}?${urlString}`}
-                        key={`collection-search-page__facet-button-${
-                          selectedFacet.value
-                        }`}
+                        key={`collection-search-page__facet-button-${selectedFacet.value}`}
                       >
                         <a className="collection-search-page__facet-button tag">
                           {selectedFacet.slug}: {selectedFacet.value} (x)
@@ -329,45 +325,44 @@ class CollectionSearchPage extends Component {
                     : ''
                 }`}
               > */}
-              {items &&
-                items.length > 0 && (
-                  <InfiniteScroll
-                    className={`collection-search-page__results__items ${
-                      isLoading
-                        ? 'collection-search-page__results__items--is-loading'
-                        : ''
-                    } ${
-                      itemsLayoutType === 'grid'
-                        ? 'collection-search-page__results__items--grid'
-                        : ''
-                    }`}
-                    pageStart={0}
-                    loadMore={loadMore}
-                    hasMore={
-                      // Max items to show is 100, but if totalItems is less, use totalItems
-                      items.length < (totalItems < 100 ? totalItems : 100)
-                    }
-                    loader={<Loader />}
-                  >
-                    {items.map(({ id, title, images, type, description }) => {
-                      const imageUrl = images && images[0] && images[0].url;
-                      const totalImages = images && images.length;
+              {items && items.length > 0 && (
+                <InfiniteScroll
+                  className={`collection-search-page__results__items ${
+                    isLoading
+                      ? 'collection-search-page__results__items--is-loading'
+                      : ''
+                  } ${
+                    itemsLayoutType === 'grid'
+                      ? 'collection-search-page__results__items--grid'
+                      : ''
+                  }`}
+                  pageStart={0}
+                  loadMore={loadMore}
+                  hasMore={
+                    // Max items to show is 100, but if totalItems is less, use totalItems
+                    items.length < (totalItems < 100 ? totalItems : 100)
+                  }
+                  loader={<Loader />}
+                >
+                  {items.map(({ id, title, images, type, description }) => {
+                    const imageUrl = images && images[0] && images[0].url;
+                    const totalImages = images && images.length;
 
-                      return (
-                        <CollectionItem
-                          id={id}
-                          layoutType={itemsLayoutType}
-                          title={title}
-                          description={description}
-                          imageUrl={imageUrl}
-                          totalImages={totalImages}
-                          type={type}
-                          key={`collection-search-page__results__item-${id}`}
-                        />
-                      );
-                    })}
-                  </InfiniteScroll>
-                )}
+                    return (
+                      <CollectionItem
+                        id={id}
+                        layoutType={itemsLayoutType}
+                        title={title}
+                        description={description}
+                        imageUrl={imageUrl}
+                        totalImages={totalImages}
+                        type={type}
+                        key={`collection-search-page__results__item-${id}`}
+                      />
+                    );
+                  })}
+                </InfiniteScroll>
+              )}
             </div>
             {/* </div> */}
           </div>
@@ -416,7 +411,11 @@ const query = gql`
 // available on the `data` prop of the wrapped component
 export default withData(
   graphql(query, {
-    options: ({ url: { query: { q, facets, scope } } }) => {
+    options: ({
+      url: {
+        query: { q, facets, scope },
+      },
+    }) => {
       return {
         variables: {
           q,

@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import withData from '../lib/withData';
 import WebsiteApp from '../components/WebsiteApp';
@@ -77,26 +78,26 @@ export default withData(
 
 const images = {
   about: {
-    imageUrl: '/static/images/masthead-loom-bg.jpg',
+    imageUrl: '/images/masthead-loom-bg.jpg',
     url: 'http://dxlab.sl.nsw.gov.au/loom',
     caption: 'Loom Index view',
   },
   experiments: {
-    imageUrl: '/static/images/masthead-meridian-f.jpg',
+    imageUrl: '/images/masthead-meridian-f.jpg',
     url: 'http://dxlab.sl.nsw.gov.au/meridian',
     caption: 'Meridian: Miranda Globe',
   },
   grants: {
-    imageUrl: '/static/images/masthead-bookman.jpg',
+    imageUrl: '/images/masthead-bookman.jpg',
     caption: 'Book projection',
   },
   code: {
-    imageUrl: '/static/images/masthead-background-01.gif',
+    imageUrl: '/images/masthead-background-01.gif',
     url: 'http://dxlab.sl.nsw.gov.au/loom',
     caption: 'Loom Atlas View',
   },
   '80hz-sound-lab': {
-    imageUrl: '/static/images/masthead-80hz.jpg',
+    imageUrl: '/images/masthead-80hz.jpg',
     url: 'http://dxlab.sl.nsw.gov.au/80hz-sound-lab',
     caption: '80hz concept render',
   },

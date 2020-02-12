@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
 // import {
 //   LineChart,
 //   Line,
@@ -194,7 +196,7 @@ class CollectionSearchPage extends Component {
                 <Legend height={100} />
               </PieChart>
             </ResponsiveContainer>
-          </div>*/}
+          </div> */}
         </div>
       </CollectionApp>
     );
@@ -280,7 +282,9 @@ function buildDataVizData(data) {
     .sort((a, b) => {
       return parseInt(a.slug) < parseInt(b.slug)
         ? -1
-        : parseInt(a.slug) > parseInt(b.slug) ? 1 : 0;
+        : parseInt(a.slug) > parseInt(b.slug)
+        ? 1
+        : 0;
     })
     /* eslint-enable */
     .slice(1)

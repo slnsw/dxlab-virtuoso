@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 // import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
@@ -55,7 +56,7 @@ class SearchModal extends Component {
       // isLoading,
     } = this.props;
 
-    const q = this.state.q;
+    const { q } = this.state;
     // console.log(isLoading);
 
     return (

@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import withData from '../lib/withData';
 import WebsiteApp from '../components/WebsiteApp';
@@ -24,13 +25,13 @@ class Experiments extends Component {
         pathname={url.pathname}
         isLoading={isLoading}
         title="Experiments"
-        metaImageUrl={`${config.baseUrl}/static/images/masthead-meridian-f.jpg`}
+        metaImageUrl={`${config.baseUrl}/images/masthead-meridian-f.jpg`}
       >
         <Masthead
           title="Experiments"
           // titleHighlight="#DXLAB"
           // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-          backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+          backgroundImageUrl="/images/masthead-meridian-f.jpg"
           slug="Experiments"
           size="md"
           caption="Meridian: Miranda Globe"

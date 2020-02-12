@@ -103,7 +103,8 @@ app
 
     // Proxy static assets
     server.use(
-      proxy('/static/newselfwales', {
+      // proxy('/static/newselfwales', {
+      proxy('/newselfwales', {
         target: process.env.NEWSELFWALES_URL,
         changeOrigin: true,
       }),

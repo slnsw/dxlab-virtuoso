@@ -48,7 +48,7 @@ class Footer extends Component {
           >
             <img
               className=""
-              src="/static/images/logo-nsw-white.png"
+              src="/images/logo-nsw-white.png"
               alt="NSW Government logo."
             />
           </a>
