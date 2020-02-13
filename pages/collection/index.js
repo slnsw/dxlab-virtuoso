@@ -50,7 +50,7 @@ class CollectionSearchPage extends Component {
   handleFormSubmit = (event) => {
     const query = queryString.stringify(
       {
-        ...this.props.url.query,
+        ...this.props.router.query,
         q: this.state.inputTextValue,
       },
       {
@@ -93,7 +93,8 @@ class CollectionSearchPage extends Component {
   }
 
   render() {
-    const { url, loading: isLoading, primoSearch } = this.props;
+    const { router, loading: isLoading, primoSearch } = this.props;
+    const { query } = router;
     // const { creationDateData, formatData } = this.state;
 
     return (
@@ -110,12 +111,12 @@ class CollectionSearchPage extends Component {
               {
                 name: 'Search Collection',
                 url: '/collection/search',
-                isSelected: url.query.scope !== 'articles',
+                isSelected: query.scope !== 'articles',
               },
               {
                 name: 'Search Articles',
                 url: '/collection/search?scope=articles',
-                isSelected: url.query.scope === 'articles',
+                isSelected: query.scope === 'articles',
               },
             ]}
           />
@@ -128,7 +129,7 @@ class CollectionSearchPage extends Component {
               type="text"
               name="q"
               placeholder="Start searching"
-              defaultValue={url.query.q}
+              defaultValue={query.q}
               onChange={this.handleInputTextChange}
               className="collection-search-page__form__input"
             />

@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import './CollectionParts.css';
-import withData from '../../lib/withData';
+import { withApollo } from '../../lib/apollo';
 import CollectionPart from '../CollectionPart';
 import LoaderText from '../LoaderText';
 
@@ -119,7 +119,7 @@ const QUERY = gql`
   }
 `;
 
-export default withData(
+export default withApollo(
   graphql(QUERY, {
     options: ({ id, offset = 0 }) => {
       return {

@@ -15,15 +15,16 @@ import config from '../lib/config';
 
 class HomePage extends Component {
   static defaultProps = {
-    url: {},
+    router: {},
   };
 
   render() {
-    const { url, posts, experiments, loading: isLoading } = this.props;
+    const { router, posts, experiments, loading: isLoading } = this.props;
+    const { pathname } = router;
 
     return (
       <WebsiteApp
-        pathname={url.pathname}
+        pathname={pathname}
         isLoading={isLoading}
         title="Home"
         metaDescription="The State Library of NSW's experimental innovation lab."

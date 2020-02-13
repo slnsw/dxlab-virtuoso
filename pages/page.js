@@ -10,9 +10,10 @@ import config from '../lib/config';
 
 class Page extends Component {
   render() {
-    const { title, url, content, excerpt, loading: isLoading } = this.props;
+    const { title, router, content, excerpt, loading: isLoading } = this.props;
+    const { pathname } = router;
 
-    const slug = url.pathname.substr(1);
+    const slug = pathname.substr(1);
     const imageUrl = images[slug] ? images[slug].imageUrl : '';
     const caption = images[slug] ? images[slug].caption : '';
 
@@ -24,12 +25,14 @@ class Page extends Component {
         metaDescription={excerpt}
         metaImageUrl={`${config.baseUrl}${imageUrl}`}
       >
-        <Masthead
-          title={title}
-          backgroundImageUrl={imageUrl}
-          slug={slug}
-          caption={caption}
-        />
+        {!isLoading && (
+          <Masthead
+            title={title}
+            backgroundImageUrl={imageUrl}
+            slug={slug}
+            caption={caption}
+          />
+        )}
 
         <article className="post antialiased container container--md">
           <div
@@ -56,7 +59,7 @@ const query = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withApollo(
   graphql(query, {
-    options: ({ url: { pathname } }) => {
+    options: ({ router: { pathname } }) => {
       const slug = pathname.substr(1);
 
       return {

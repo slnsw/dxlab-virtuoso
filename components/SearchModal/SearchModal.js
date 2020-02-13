@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-// import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
 import { mapPostToTile } from '../../lib';
 import './SearchModal.css';

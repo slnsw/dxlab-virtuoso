@@ -7,17 +7,18 @@ import config from '../lib/config';
 
 class SearchPage extends Component {
   render() {
-    const { url, posts, loading: isLoading } = this.props;
+    const { router, posts, loading: isLoading } = this.props;
+    const { pathname, query } = router;
 
     return (
       <WebsiteApp
-        pathname={url.pathname}
+        pathname={pathname}
         isLoading={isLoading}
         title="Search"
         metaImageUrl={`${config.baseUrl}/images/masthead-search-terms-projection.jpg`}
       >
         <div className="search-page container container--md">
-          <SearchModal posts={posts} q={url.query.q} isLoading />
+          <SearchModal posts={posts} q={query.q} isLoading />
         </div>
       </WebsiteApp>
     );

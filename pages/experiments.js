@@ -14,15 +14,16 @@ import config from '../lib/config';
 class Experiments extends Component {
   render() {
     const {
-      url,
+      router,
       loading: isLoading,
       // loadMore,
       experiments,
     } = this.props;
+    const { pathname } = router;
 
     return (
       <WebsiteApp
-        pathname={url.pathname}
+        pathname={pathname}
         isLoading={isLoading}
         title="Experiments"
         metaImageUrl={`${config.baseUrl}/images/masthead-meridian-f.jpg`}

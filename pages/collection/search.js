@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import queryString from 'query-string';
 import InfiniteScroll from 'react-infinite-scroller';
 
-import { withApollo } from '../lib/apollo';
+import { withApollo } from '../../lib/apollo';
 import CollectionApp from '../../components/CollectionApp';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
@@ -79,15 +79,16 @@ class CollectionSearchPage extends Component {
 
   render() {
     const {
-      url,
+      router,
       items,
       facets,
       loading: isLoading,
       totalItems,
       loadMore,
     } = this.props;
+    const { query, pathname } = router;
 
-    const selectedFacets = wrapArray(url.query.facets).map((f) =>
+    const selectedFacets = wrapArray(query.facets).map((f) =>
       convertStringToFacet(f),
     );
 
@@ -115,12 +116,12 @@ class CollectionSearchPage extends Component {
               {
                 name: 'Search Collection',
                 url: '/collection/search',
-                isSelected: url.query.scope !== 'articles',
+                isSelected: query.scope !== 'articles',
               },
               {
                 name: 'Search Articles',
                 url: '/collection/search?scope=articles',
-                isSelected: url.query.scope === 'articles',
+                isSelected: query.scope === 'articles',
               },
             ]}
           />
@@ -133,7 +134,7 @@ class CollectionSearchPage extends Component {
               type="text"
               name="q"
               placeholder="Start searching"
-              defaultValue={url.query.q}
+              defaultValue={query.q}
               onChange={this.handleInputTextChange}
               className="collection-search-page__form__input"
             />
@@ -223,12 +224,12 @@ class CollectionSearchPage extends Component {
                         {facetValues.map((value) => {
                           // Change to array if string
                           const facetParams =
-                            typeof url.query.facets === 'string'
-                              ? [url.query.facets]
-                              : url.query.facets;
+                            typeof query.facets === 'string'
+                              ? [query.facets]
+                              : query.facets;
 
                           const urlObject = {
-                            ...url.query,
+                            ...query,
                             facets: [
                               ...(facetParams || []),
                               `${facet.slug},${encodeURIComponent(value.slug)}`,
@@ -251,7 +252,7 @@ class CollectionSearchPage extends Component {
                                 });
                               }}
                             >
-                              <Link to={`${url.pathname}?${urlString}`}>
+                              <Link to={`${pathname}?${urlString}`}>
                                 <a>
                                   {value.name}{' '}
                                   <span className="collection-search-page__facet__value-count">
@@ -285,17 +286,15 @@ class CollectionSearchPage extends Component {
                 <div className="collection-search-page__selected-facets">
                   {selectedFacets.map((selectedFacet) => {
                     const urlObject = {
-                      ...url.query,
+                      ...query,
 
                       // Filter out current facet
-                      facets: wrapArray(url.query.facets).filter(
-                        (facetString) => {
-                          return (
-                            facetString !==
-                            `${selectedFacet.slug},${selectedFacet.value}`
-                          );
-                        },
-                      ),
+                      facets: wrapArray(query.facets).filter((facetString) => {
+                        return (
+                          facetString !==
+                          `${selectedFacet.slug},${selectedFacet.value}`
+                        );
+                      }),
                     };
 
                     const urlString = queryString.stringify(urlObject, {
@@ -304,7 +303,7 @@ class CollectionSearchPage extends Component {
 
                     return (
                       <Link
-                        to={`${url.pathname}?${urlString}`}
+                        to={`${pathname}?${urlString}`}
                         key={`collection-search-page__facet-button-${selectedFacet.value}`}
                       >
                         <a className="collection-search-page__facet-button tag">

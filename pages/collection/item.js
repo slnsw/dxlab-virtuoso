@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
 
-import { withApollo } from '../lib/apollo';
+import { withApollo } from '../../lib/apollo';
 import CollectionApp from '../../components/CollectionApp';
 import Table from '../../components/Table';
 import Link from '../../components/Link';
@@ -33,7 +33,8 @@ class CollectionItemPage extends Component {
   }
 
   render() {
-    const { loading: isLoading, item, url } = this.props;
+    const { loading: isLoading, item, router } = this.props;
+    const { asPath, pathname } = router;
 
     const images =
       item &&
@@ -51,7 +52,7 @@ class CollectionItemPage extends Component {
 
     return (
       <CollectionApp
-        pathname={url.asPath}
+        pathname={asPath}
         isLoading={isLoading}
         title={item.title}
         metaImageUrl={images && images[0].src}
@@ -338,7 +339,7 @@ class CollectionItemPage extends Component {
                   </Fragment>
                 )}
 
-                <ShareBox pathname={url.pathname} title={item.title} />
+                <ShareBox pathname={pathname} title={item.title} />
 
                 {item.relatedItems && (
                   <RelatedCollectionItems items={item.relatedItems} />
@@ -428,7 +429,7 @@ const query = gql`
 export default withApollo(
   graphql(query, {
     options: ({
-      url: {
+      router: {
         query: { item },
       },
     }) => {

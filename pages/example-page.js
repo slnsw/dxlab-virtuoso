@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-// import './example-page.css';
 import { withApollo } from '../lib/apollo';
-import { createApolloReduxStore } from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
-import { exampleAction } from '../actions/exampleActions';
+// import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
   static propTypes = {
@@ -22,9 +20,8 @@ class ExamplePage extends Component {
     this.state = {};
   }
 
-  static getInitialProps({ query: { id = null }, serverState }) {
-    const store = createApolloReduxStore(serverState);
-    store.dispatch(exampleAction('payload'));
+  static getInitialProps({ query: { id = null } }) {
+    // store.dispatch(exampleAction('payload'));
 
     return {
       id,
@@ -32,7 +29,8 @@ class ExamplePage extends Component {
   }
 
   render() {
-    const { id, url, objects } = this.props;
+    const { id, router, objects } = this.props;
+    const { pathname } = router;
 
     // console.log(objects);
 
@@ -41,7 +39,7 @@ class ExamplePage extends Component {
 
     return (
       <ExampleApp>
-        <Header pathname={url.pathname} />
+        <Header pathname={pathname} />
 
         <h1 className="title">
           Page <span>{id}</span>

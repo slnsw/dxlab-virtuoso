@@ -16,11 +16,18 @@ import './blog.css';
 
 class Blog extends Component {
   render() {
-    const { url, posts, postTotal, loading: isLoading, loadMore } = this.props;
+    const {
+      router,
+      posts,
+      postTotal,
+      loading: isLoading,
+      loadMore,
+    } = this.props;
+    const { pathname } = router;
 
     return (
       <WebsiteApp
-        pathname={url.pathname}
+        pathname={pathname}
         isLoading={isLoading}
         title="Blog"
         metaImageUrl={`${config.baseUrl}/images/masthead-portico.jpg`}
