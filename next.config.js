@@ -2,7 +2,6 @@ require('dotenv').config();
 const webpack = require('webpack');
 const fs = require('fs');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-// const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 const withCSS = require('@zeit/next-css');
 
@@ -27,10 +26,6 @@ module.exports = withCSS({
           emitErrors: false,
         }),
       );
-
-      // FIXME: Getting hot-reloader errors if Flow catches something
-      // Commented for now
-      // config.plugins.push(new FlowBabelWebpackPlugin());
     }
 
     customConfig.module.rules.push({
