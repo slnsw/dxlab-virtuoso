@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update all pages to use `withApollo` higher order component
 - Switch to Node 10.16.3
 - Remove `flow` references
+- Add `stylelint-config-rational-order` for peak OCD
+- Add `@testing-library/react`
 
 ## [1.6.1] - 2019-11-05
 

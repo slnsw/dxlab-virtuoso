@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-lost'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-rational-order',
+    'stylelint-config-lost',
+  ],
   rules: {
     'at-rule-empty-line-before': null,
     'at-rule-no-unknown': [

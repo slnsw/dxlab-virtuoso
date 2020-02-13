@@ -34,30 +34,6 @@ module.exports = withCSS({
       loader: 'eslint-loader',
     });
 
-    // config.module.rules.push(
-    //   {
-    //     test: /\.css$/,
-    //     use: [
-    //       {
-    //         loader: 'emit-file-loader',
-    //         options: {
-    //           name: 'dist/[path][name].[ext]',
-    //         },
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     test: /\.css$/,
-    //     use: ['babel-loader', 'raw-loader', 'postcss-loader'],
-    //   },
-    //   {
-    //     enforce: 'pre',
-    //     test: /\.js$/,
-    //     exclude: /node_modules/,
-    //     loader: 'eslint-loader',
-    //   },
-    // );
-
     return customConfig;
   },
 });
