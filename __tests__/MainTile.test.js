@@ -1,23 +1,14 @@
-/* eslint-env jest */
-
-import { shallow } from 'enzyme';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
 import MainTile from '../components/MainTile';
 
-describe('With Enzyme', () => {
+describe('Test', () => {
   it('MainTile shows "Main Tile Title"', () => {
-    const app = shallow(<MainTile title="Main Tile Title" />);
+    const { getByText } = render(
+      <MainTile title="Main Tile Title" url="/test" />,
+    );
 
-    expect(app.find('h1 a').text()).toEqual('Main Tile Title');
-  });
-});
-
-describe('With Snapshot Testing', () => {
-  it('MainTile shows "Main Tile Title"', () => {
-    const component = renderer.create(<MainTile />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(getByText('Main Tile Title')).toBeDefined();
   });
 });

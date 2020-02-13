@@ -1,6 +1,5 @@
 require('dotenv').config();
 const webpack = require('webpack');
-const fs = require('fs');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const withCSS = require('@zeit/next-css');
