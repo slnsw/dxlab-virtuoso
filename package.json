@@ -13,7 +13,6 @@
     "deploy:now-production": "now --dotenv=.env.now-production && now alias dxlab",
     "alias:staging": "now alias staging-dxlab.now.sh -r rules.json",
     "alias:production": "now alias dxlab.now.sh -r rules.json",
-    "flow": "flow",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
