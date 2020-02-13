@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update all packages including `react`, `apollo` and `next`
 - Update all pages to use `withApollo` higher order component
 - Switch to Node 10.16.3
+- Remove `flow` references
 
 ## [1.6.1] - 2019-11-05
 
