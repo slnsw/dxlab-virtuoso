@@ -31,13 +31,17 @@
 }
 
 .main-tile__image {
+  flex: 1;
   width: calc(100% + 1em);
   margin-left: -1em;
-  flex: 1;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   @media (--screen-sm) {
-    margin-left: 0;
     width: 55%;
+    margin-left: 0;
   }
 
   @nest .main-tile--1x2 &, .main-tile--2x1 & {
