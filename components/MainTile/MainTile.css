@@ -4,8 +4,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-xxlg);
   height: 20em;
+  margin-bottom: var(--spacing-xxlg);
 
   @media (--screen-sm) {
     flex-direction: row;
@@ -71,25 +71,25 @@
   min-height: 3em;
 
   @media (--screen-sm) {
-    width: 45%;
     flex-direction: row;
-    align-items: flex-end;
     flex-wrap: wrap;
+    align-items: flex-end;
+    width: 45%;
     padding-left: var(--spacing-md);
   }
 
   /* Switch side of image for every 2nd tile */
   @nest .main-tile:nth-of-type(2n) & {
     @media (--screen-sm) {
-      padding-left: 0;
       padding-right: var(--spacing-md);
+      padding-left: 0;
     }
 
     &::before {
       left: 0;
+      width: var(--spacing-xxxlg);
       border-right: none;
       border-left: 1px solid var(--colour-white);
-      width: var(--spacing-xxxlg);
     }
 
     /* &::after {
@@ -104,11 +104,11 @@
   &::before {
     position: absolute;
     top: 0;
-    content: '';
+    width: var(--spacing-xlg);
+    height: 1em;
     border-top: 1px dashed var(--colour-white);
     border-right: 1px solid var(--colour-white);
-    height: 1em;
-    width: var(--spacing-xlg);
+    content: '';
   }
 }
 
@@ -130,42 +130,42 @@
 .main-tile__title {
   display: inline-table;
   margin-top: calc(-1 * var(--spacing-xxxs));
-  margin-left: calc(-1 * var(--spacing-sm));
   margin-bottom: 0;
+  margin-left: calc(-1 * var(--spacing-sm));
   padding-top: var(--spacing-xxxs);
   padding-right: var(--spacing-sm);
   padding-left: var(--spacing-sm);
-  font-size: var(--font-size-lg);
+  color: var(--colour-white);
   font-weight: 700;
+  font-size: var(--font-size-lg);
   @apply --font-uppercase;
   line-height: 1;
-  color: var(--colour-white);
   background-color: var(--colour-black);
 
   @media (--screen-sm) {
-    font-size: var(--font-size-xlg);
     margin-top: 0;
     margin-left: 0;
     padding-left: 0;
+    font-size: var(--font-size-xlg);
   }
 
   @nest .main-tile--1x2 & {
-    font-size: var(--font-size-xxlg);
     margin-left: calc(-1 * var(--spacing-xs));
     padding-left: var(--spacing-xs);
+    font-size: var(--font-size-xxlg);
 
     @media (--screen-md) {
-      font-size: var(--font-size-xxxlg);
       margin-left: -0.04em;
       padding-left: 0;
+      font-size: var(--font-size-xxxlg);
     }
   }
 }
 
 .main-tile__title-button {
+  max-width: 16em;
   margin-top: 1em;
   margin-bottom: 1em;
-  max-width: 16em;
 }
 
 .main-tile__subtitle {
@@ -187,12 +187,12 @@
 }
 
 .main-tile__content {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-sm);
-  font-weight: 300;
   margin-bottom: 1em;
   padding-top: var(--spacing-md);
   padding-right: var(--spacing-xlg);
+  font-weight: 300;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-secondary);
   opacity: 0.7;
 
   @media (--screen-md) {

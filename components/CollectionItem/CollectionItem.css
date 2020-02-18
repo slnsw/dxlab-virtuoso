@@ -4,10 +4,9 @@
 
 .collection-item {
   lost-utility: clearfix;
-
   margin-bottom: var(--spacing-md);
-  border-top: 1px solid var(--colour-grey-darkest);
   padding-top: var(--spacing-md);
+  border-top: 1px solid var(--colour-grey-darkest);
 
   & a {
     display: flex;
@@ -40,16 +39,16 @@
 
 .collection-item__title {
   display: -webkit-box;
+  margin-top: 0;
   overflow: hidden;
+  color: var(--colour-white);
+  font-size: var(--font-size-lg);
   font-family: var(--font-secondary);
   line-height: var(--line-height-xs);
-  margin-top: 0;
-  font-size: var(--font-size-lg);
-  text-transform: none;
   letter-spacing: 0;
+  text-transform: none;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  color: var(--colour-white);
   opacity: 0.9;
 
   @media (--screen-sm) {
@@ -67,11 +66,11 @@
 
 .collection-item__image-holder {
   display: flex;
-  flex-direction: column;
   flex: 1;
-  margin-right: var(--spacing-sm);
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
+  margin-right: var(--spacing-sm);
 
   @media (--screen-sm) {
     margin-right: var(--spacing-xlg);
@@ -89,8 +88,8 @@
 }
 
 .collection-item__image-holder__total-images {
-  margin-top: var(--spacing-xs);
   width: 100%;
+  margin-top: var(--spacing-xs);
   color: var(--colour-grey);
   @apply (--font-uppercase);
   font-size: var(--font-size-xs);
@@ -102,10 +101,10 @@
 
 .collection-item__info {
   display: flex;
-  flex-direction: column;
   flex: 2;
-  font-size: var(--font-size-sm);
+  flex-direction: column;
   color: var(--colour-grey-light);
+  font-size: var(--font-size-sm);
 
   @media (--screen-sm) {
     flex: 3;
@@ -117,14 +116,14 @@
   margin-bottom: var(--spacing-xxs);
   @apply (--font-uppercase);
   color: var(--colour-grey);
-  font-size: var(--font-size-sm);
   font-weight: 700;
+  font-size: var(--font-size-sm);
 }
 
 .collection-item__content {
-  opacity: 0.9;
   margin-bottom: var(--spacing-md);
   font-family: var(--font-secondary);
+  opacity: 0.9;
 
   & p {
     display: -webkit-box;
@@ -137,10 +136,10 @@
 .collection-item__id {
   align-self: flex-start;
   @apply (--font-uppercase);
-  font-size: var(--font-size-sm);
-  color: var(--colour-grey);
   margin-top: auto;
   margin-bottom: 0;
+  color: var(--colour-grey);
+  font-size: var(--font-size-sm);
 
   @media (--screen-sm) {
     align-self: flex-end;

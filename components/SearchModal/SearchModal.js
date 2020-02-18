@@ -92,7 +92,7 @@ class SearchModal extends Component {
             <div>{isLoading}</div>
           )} */}
 
-          {this.props.q && posts.length > 0 ? (
+          {this.props.q && posts && posts.length > 0 ? (
             posts.map((post, i) => {
               return (
                 <SimpleTile

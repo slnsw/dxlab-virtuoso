@@ -3,6 +3,6 @@
 .tile-image {
   display: block;
   min-height: 2em;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }

@@ -21,7 +21,7 @@ class Post extends Component {
     excerpt: PropTypes.string,
     featuredMedia: PropTypes.object,
     author: PropTypes.object,
-    url: PropTypes.object,
+    router: PropTypes.object,
     date: PropTypes.string,
     loading: PropTypes.bool,
     comments: PropTypes.array,
@@ -83,7 +83,7 @@ class Post extends Component {
       excerpt,
       featuredMedia,
       author,
-      url,
+      router,
       date,
       loading,
       comments,
@@ -105,7 +105,7 @@ class Post extends Component {
     return (
       <WebsiteApp
         isLoading={loading}
-        pathname={`/blog/${url.query.slug}`}
+        pathname={`/blog/${router.query.slug}`}
         title={title}
         metaDescription={excerpt}
         metaImageUrl={featuredImageUrl}
@@ -150,7 +150,7 @@ class Post extends Component {
             <ShareBox
               title={title}
               text={excerpt}
-              pathname={`/blog/${url.query.slug}`}
+              pathname={`/blog/${router.query.slug}`}
             />
 
             <br />
@@ -200,7 +200,7 @@ const postQuery = gql`
 export default withApollo(
   graphql(postQuery, {
     options: ({
-      url: {
+      router: {
         query: { slug },
       },
     }) => {

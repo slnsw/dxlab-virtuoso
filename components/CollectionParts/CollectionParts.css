@@ -31,16 +31,16 @@
 }
 
 .collection-part__level {
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  @apply (--font-uppercase);
   color: var(--colour-grey);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  @apply (--font-uppercase);
 }
 
 .collection-part__title {
   display: block;
-  font-family: var(--font-secondary);
   margin-bottom: var(--spacing-lg);
+  font-family: var(--font-secondary);
   opacity: 0.85;
 
   &:link,

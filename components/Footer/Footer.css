@@ -5,11 +5,11 @@
   z-index: 7;
   display: flex;
   flex-direction: column;
-  margin-top: 5em;
   min-height: 6.5em;
+  margin-top: 5em;
 
   @media (--screen-sm) {
-    flex-direction: row;
+    /* flex-direction: row; */
     flex-flow: row wrap;
     align-items: baseline;
     justify-content: flex-end;
@@ -17,24 +17,64 @@
   }
 }
 
-  .footer__cc {
-    position: absolute;
-    left: 0;
-    top: 4.8em;
-    transform: rotate(-90deg);
-    transform-origin: top left;
-    font-size: var(--font-size-sm);
-    @apply --font-uppercase;
-    line-height: 1;
+.footer__cc {
+  position: absolute;
+  top: 4.8em;
+  left: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  @apply --font-uppercase;
 
-    @media (--screen-sm) {
-      top: 3.5em;
+  @media (--screen-sm) {
+    top: 3.5em;
+  }
+
+  &:link,
+  &:visited {
+    color: var(--colour-white);
+  }
+}
+
+.footer__social {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: -0.2em;
+  font-size: var(--font-size-xlg);
+
+  /* Line decoration */
+  @media (--screen-md) {
+    &::before {
+      position: absolute;
+      bottom: -0.9em;
+      left: 0.35em;
+      width: 2.5em;
+      border-bottom: 1px solid var(--colour-white);
+      content: '';
     }
 
-    &:link, &:visited {
-      color: var(--colour-white);
+    &::after {
+      position: absolute;
+      top: 3em;
+      right: 0.2em;
+      height: 0.5em;
+      border-right: 1px solid var(--colour-white);
+      content: '';
     }
   }
+
+  & a:link,
+  & a:visited {
+    color: var(--colour-white);
+  }
+
+  & a:hover {
+    color: var(--colour-highlight);
+    text-decoration: none;
+  }
+}
 
 ul.footer-menu {
   position: relative;
@@ -51,8 +91,8 @@ ul.footer-menu {
     flex-direction: row;
     order: 3;
     width: 100%;
-    text-align: left;
     margin-bottom: 0;
+    text-align: left;
   }
 
   & li {
@@ -63,18 +103,19 @@ ul.footer-menu {
       margin-right: 1em;
 
       &::after {
-        content: "/";
         margin-left: 1em;
+        content: '/';
       }
 
       &:last-child::after {
-        content: "";
         margin-left: 0;
+        content: '';
       }
     }
   }
 
-  & a:link, & a:visited {
+  & a:link,
+  & a:visited {
     color: var(--colour-white);
   }
 
@@ -83,9 +124,9 @@ ul.footer-menu {
     position: absolute;
     bottom: 0.5em;
     left: -3em;
-    content: "";
     width: 3em;
     border-top: 1px solid var(--colour-white);
+    content: '';
 
     @media (--screen-sm) {
       top: -1em;
@@ -93,44 +134,6 @@ ul.footer-menu {
     }
   }
 }
-
-  .footer__social {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    font-size: var(--font-size-xlg);
-    margin-right: -0.2em;
-
-    /* Line decoration */
-    @media (--screen-md) {
-      &::before {
-        position: absolute;
-        left: 0.35em;
-        bottom: -0.9em;
-        content: "";
-        width: 2.5em;
-        border-bottom: 1px solid var(--colour-white);
-      }
-
-      &::after {
-        position: absolute;
-        top: 3em;
-        right: 0.2em;
-        content: "";
-        height: 0.5em;
-        border-right: 1px solid var(--colour-white);
-      }
-    }
-
-    & a:link, & a:visited {
-      color: var(--colour-white);
-    }
-
-    & a:hover {
-      color: var(--colour-highlight);
-      text-decoration: none;
-    }
-  }
 
 .footer__nsw-logo {
   position: relative;
@@ -154,11 +157,11 @@ ul.footer-menu {
   /* Line decoration */
   &::after {
     position: absolute;
-    bottom: -1em;
     right: 0;
-    content: "";
+    bottom: -1em;
     height: 3.5em;
     border-right: 1px solid var(--colour-white);
+    content: '';
 
     @media (--screen-sm) {
       bottom: -2.2em;

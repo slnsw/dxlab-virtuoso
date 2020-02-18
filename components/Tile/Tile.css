@@ -6,8 +6,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2em;
   height: 20em;
+  margin-bottom: 2em;
   lost-masonry-column: 2/2 var(--gutter-masonry);
 
   @media (--screen-sm) {
@@ -49,9 +49,9 @@
 }
 
 .tile__image {
+  flex: 1;
   width: calc(100%);
   /*margin-right: -1em;*/
-  flex: 1;
 
   @media (--screen-sm) {
     width: 100%;
@@ -76,8 +76,8 @@
 
   @media (--screen-md) {
     flex-direction: row;
-    align-items: flex-end;
     flex-wrap: wrap;
+    align-items: flex-end;
   }
 }
 
@@ -92,12 +92,12 @@
   margin-bottom: 0;
   padding-top: 0.1em;
   padding-right: 0.1em;
-  font-size: var(--font-size-lg);
+  color: var(--colour-white);
   font-weight: 700;
+  font-size: var(--font-size-lg);
   @apply --font-uppercase;
   @apply --font-antialiased;
   line-height: 1.2;
-  color: var(--colour-white);
   background-color: var(--colour-black);
 
   @media (--screen-sm) {
@@ -110,9 +110,9 @@
   }
 
   @nest .tile--1x2 & {
-    font-size: var(--font-size-xlg);
     margin-left: calc(-1 * var(--spacing-xs));
     padding-left: var(--spacing-xs);
+    font-size: var(--font-size-xlg);
 
     @media (--screen-md) {
       /* font-size: var(--font-size-xxlg); */
@@ -135,10 +135,10 @@
 }
 
 .tile__content {
-  font-size: var(--font-size-sm);
   margin-bottom: 1em;
-  /* padding-left: var(--spacing-sm); */
   padding-top: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  /* padding-left: var(--spacing-sm); */
   opacity: 0.9;
 
   @media (--screen-md) {

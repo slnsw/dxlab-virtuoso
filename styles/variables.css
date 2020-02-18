@@ -172,8 +172,8 @@
    * ------------------------------------------------------------------------ */
 
   --font-uppercase: {
-    text-transform: uppercase;
     letter-spacing: 0.2em;
+    text-transform: uppercase;
     font-variant-ligatures: none;
   }
 

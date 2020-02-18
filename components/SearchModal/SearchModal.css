@@ -13,9 +13,9 @@
 
   & .button {
     flex: 1;
+    height: auto;
     margin-left: 1em;
     /* TODO: Add this to all buttons? */
-    height: auto;
   }
 }
 

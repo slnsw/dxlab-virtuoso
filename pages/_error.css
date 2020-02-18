@@ -7,8 +7,8 @@
 .error-page {
   & h1,
   & h2 {
-    text-align: center;
     padding-top: 0;
+    text-align: center;
   }
 
   & h1 {

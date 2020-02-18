@@ -8,20 +8,20 @@
 }
 
 .collection-home-page__title {
-  text-align: center;
   margin-bottom: 2em;
+  text-align: center;
 }
 
 .collection-home-page__latest {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+  grid-gap: 10px;
   grid-template-areas:
     'a a b b b'
     'a a c c d'
     'e f f h h'
     'i f f g g';
-  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* TODO: Move to component */

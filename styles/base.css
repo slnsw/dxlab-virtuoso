@@ -20,12 +20,12 @@ html {
 
 body {
   margin: 0 1em 1em;
-  background-color: var(--colour-black);
   color: var(--colour-white);
-  font-family: var(--font-primary);
   font-weight: 400;
-  line-height: 1.4;
   font-size: 17px;
+  font-family: var(--font-primary);
+  line-height: 1.4;
+  background-color: var(--colour-black);
 
   /*-webkit-font-smoothing: antialiased;*/
 
@@ -39,9 +39,9 @@ h1,
 h2,
 h3,
 h4 {
+  font-weight: 700;
   font-family: var(--font-primary);
   @apply --font-uppercase;
-  font-weight: 700;
 }
 
 h1 {
@@ -49,8 +49,8 @@ h1 {
 }
 
 h2 {
-  font-size: var(--font-size-lg);
   margin-top: var(--spacing-xxlg);
+  font-size: var(--font-size-lg);
   line-height: 1.2;
 }
 
@@ -64,8 +64,8 @@ h2:first-child {
 
 a:link,
 a:visited {
-  text-decoration: none;
   color: var(--colour-primary);
+  text-decoration: none;
   transition: 0.3s;
 
   @nest h1 &, h2 & {
@@ -78,8 +78,8 @@ a:active {
   text-decoration: underline;
 
   @nest h1 &, h2 & {
-    text-decoration: none;
     color: var(--colour-highlight);
+    text-decoration: none;
   }
 }
 
@@ -95,14 +95,14 @@ b {
 
 blockquote {
   width: calc(100% + 1rem);
-  font-style: italic;
-  border-left: 2px dashed var(--colour-white);
   margin-left: -1rem;
   padding-left: calc(1rem - 2px);
+  font-style: italic;
+  border-left: 2px dashed var(--colour-white);
 
   @media (--screen-sm) {
-    border-width: 1px;
     padding-left: calc(1rem - 1px);
+    border-width: 1px;
   }
 }
 
@@ -112,8 +112,8 @@ figcaption {
 }
 
 figure {
-  margin: 0 0 var(--spacing-xlg) 0;
   max-width: 100%;
+  margin: 0 0 var(--spacing-xlg) 0;
 }
 
 label {
@@ -128,13 +128,13 @@ input[type='email'],
 textarea {
   width: 100%;
   padding: var(--spacing-sm);
-  font-family: var(--font-primary);
   color: var(--colour-white);
+  font-family: var(--font-primary);
   background-color: var(--colour-grey-darker);
-  border-bottom: 4px solid var(--colour-grey-darkest);
-  border-right: 2px solid rgba(45, 45, 45);
-  border-left: none;
   border-top: none;
+  border-right: 2px solid rgba(45, 45, 45);
+  border-bottom: 4px solid var(--colour-grey-darkest);
+  border-left: none;
   border-radius: 0;
 }
 
@@ -144,11 +144,11 @@ textarea {
 
 button,
 input[type='submit'] {
-  background: none;
-  border: none;
   color: var(--colour-white);
   font-family: var(--font-primary);
   text-transform: uppercase;
+  background: none;
+  border: none;
   border-radius: 0;
   cursor: pointer;
 }
@@ -166,17 +166,18 @@ input[type='submit'] {
     border-color: var(--colour-highlight);
   }
 }
-
+/* stylelint-disable */
 button,
 textarea,
 input[type='text'],
 input[type='button'],
 input[type='submit'] {
-  -webkit-appearance: none;
   border-radius: 0;
+  -webkit-appearance: none;
 
   &:focus {
     outline: 1;
     outline-color: var(--colour-highlight);
   }
 }
+/* stylelint-enable */

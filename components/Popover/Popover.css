@@ -15,8 +15,8 @@
 
 .popover__title {
   margin-bottom: var(--spacing-xs);
-  font-size: var(--font-size-sm);
   font-weight: 700;
+  font-size: var(--font-size-sm);
   @apply (--font-uppercase);
 
   &:hover {
@@ -32,8 +32,8 @@
   margin-bottom: var(--spacing-xs);
   padding: 0.3em var(--spacing-lg) 0.2em var(--spacing-sm);
   font-size: var(--font-size-sm);
-  border: 1px solid var(--colour-grey-darkest);
   background-color: var(--colour-black);
+  border: 1px solid var(--colour-grey-darkest);
   /* font-weight: 700; */
   @apply (--font-uppercase);
 

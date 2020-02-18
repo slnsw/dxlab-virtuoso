@@ -8,11 +8,11 @@
   /* Line decoration at the bottom */
   &::after {
     position: absolute;
-    bottom: 0;
     right: -1em;
-    content: "";
+    bottom: 0;
     width: var(--spacing-xxlg);
     border-bottom: 1px dashed var(--colour-white);
+    content: '';
 
     @media (--screen-sm) {
       border: none;
@@ -20,6 +20,6 @@
   }
 }
 
-  .comments__list {
-    margin-bottom: 3em;
-  }
+.comments__list {
+  margin-bottom: 3em;
+}

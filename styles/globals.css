@@ -10,7 +10,6 @@
 
 .container {
   lost-utility: clearfix;
-
   width: 100%;
   margin: 0 auto;
 }
@@ -51,18 +50,18 @@
 /* TAG */
 .tag {
   display: inline-block;
-  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxxs);
   margin: 0 var(--spacing-sm) var(--spacing-sm) 0;
+  padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxxs);
+  font-size: var(--font-size-sm);
   border: 1px solid var(--colour-primary);
   @apply (--font-uppercase);
-  font-size: var(--font-size-sm);
 }
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 35px;
   height: 0;
+  padding-top: 35px;
+  padding-bottom: 56.25%;
   overflow: hidden;
 }
 

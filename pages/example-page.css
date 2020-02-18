@@ -52,8 +52,8 @@ p {
 }
 
 .box {
-  background-color: var(--colour-secondary);
   padding: var(--spacing-md);
+  background-color: var(--colour-secondary);
 
   @media (--screen-sm) {
     lost-column: 1/7 0 0;

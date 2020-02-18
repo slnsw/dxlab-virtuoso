@@ -2,15 +2,15 @@
 
 .no-image {
   display: flex;
-  width: 100%;
-  background-color: var(--colour-grey-darkest);
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   min-height: 7em;
   max-height: 8em;
+  background-color: var(--colour-grey-darkest);
 
   & span {
-    font-size: var(--spacing-sm);
     color: var(--colour-grey);
+    font-size: var(--spacing-sm);
   }
 }

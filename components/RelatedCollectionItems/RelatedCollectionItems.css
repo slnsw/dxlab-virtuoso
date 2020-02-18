@@ -1,17 +1,27 @@
 @import '../../styles/variables.css';
 
-.related-collection-items {
-}
+/* .related-collection-items {
+} */
 
 /* Card */
-.related-collection-items__cards {
-}
+/* .related-collection-items__cards {
+} */
 
 .related-collection-items__card {
   margin-bottom: var(--spacing-md);
 
   @media (--screen-sm) {
     lost-column: 1/2;
+  }
+
+  & h1 {
+    margin-top: var(--spacing-xxxs);
+    color: var(--colour-white);
+    font-size: var(--font-size-md);
+    font-family: var(--font-secondary);
+    line-height: var(--line-height-xs);
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   & a:hover {
@@ -21,23 +31,13 @@
       text-decoration: underline;
     }
   }
-
-  & h1 {
-    margin-top: var(--spacing-xxxs);
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-md);
-    text-transform: none;
-    color: var(--colour-white);
-    letter-spacing: 0;
-    line-height: var(--line-height-xs);
-  }
 }
 
 .related-collection-items__card__type {
   margin-bottom: 0;
+  color: var(--colour-grey);
   font-size: var(--font-size-sm);
   @apply (--font-uppercase);
-  color: var(--colour-grey);
 }
 
 .related-collection-items__card__content {

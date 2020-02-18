@@ -10,38 +10,40 @@
   &::before {
     position: absolute;
     left: -0.5em;
-    content: "";
     height: 1em;
     border-left: 1px solid var(--colour-white);
+    content: '';
   }
 }
 
-  .share-box__title {
-    position: absolute;
-    top: 3.2em;
-    left: 0;
-    transform: rotate(-90deg);
-    transform-origin: top left;
-    font-size: var(--font-size-sm);
-    line-height: 1;
-    @apply --font-uppercase;
+.share-box__title {
+  position: absolute;
+  top: 3.2em;
+  left: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  @apply --font-uppercase;
+}
+
+.share-box__icons {
+  margin-top: -0.2em;
+  font-size: var(--font-size-xxlg);
+  line-height: 1;
+
+  & a:link,
+  & a:visited {
+    color: var(--colour-white);
   }
 
-  .share-box__icons {
-    line-height: 1;
-    font-size: var(--font-size-xxlg);
-    margin-top: -0.2em;
-
-    & a:link, & a:visited {
-      color: var(--colour-white);
-    }
-
-    & a:hover, & a:active {
-      color: var(--colour-highlight);
-      text-decoration: none;
-    }
+  & a:hover,
+  & a:active {
+    color: var(--colour-highlight);
+    text-decoration: none;
   }
+}
 
-  .share-box__icon {
-    margin-left: var(--font-size-xxxs);
-  }
+.share-box__icon {
+  margin-left: var(--font-size-xxxs);
+}

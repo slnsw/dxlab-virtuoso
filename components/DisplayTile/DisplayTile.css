@@ -6,9 +6,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 20em;
   margin-bottom: var(--spacing-xxxlg);
   lost-masonry-column: 1/1 0;
-  height: 20em;
 
   @media (--screen-sm) {
     height: 26em;
@@ -37,12 +37,12 @@
   }
 
   @nest .display-tile--lg & {
-    margin-left: -1em;
     margin-right: -1em;
+    margin-left: -1em;
 
     @media (--screen-md) {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
   }
 }
@@ -104,8 +104,8 @@
   padding: 0.15em 0 0 0.6em;
   font-size: var(--font-size-lg);
   @apply --font-antialiased;
-  background-color: var(--colour-black);
   line-height: 1;
+  background-color: var(--colour-black);
 
   @media (--screen-md) {
     margin-top: 0;
@@ -118,8 +118,8 @@
   @nest .display-tile--lg & {
     flex: 1;
     margin-top: -0.2em;
-    margin-left: calc(-1 * var(--spacing-xs));
     margin-bottom: 0;
+    margin-left: calc(-1 * var(--spacing-xs));
     padding-left: var(--spacing-xs);
     font-size: var(--font-size-xxlg);
 
@@ -132,9 +132,9 @@
 }
 
 .display-tile__content {
-  font-size: var(--font-size-sm);
   margin-bottom: var(--spacing-lg);
   padding: 0 1em;
+  font-size: var(--font-size-sm);
 
   & p {
     margin-bottom: 0;
@@ -149,8 +149,8 @@
 
     @media (--screen-md) {
       margin-top: var(--spacing-md);
-      margin-bottom: -0.4em;
       margin-right: 2em;
+      margin-bottom: -0.4em;
       padding-right: 1em;
     }
   }
@@ -158,29 +158,29 @@
 
 .display-tile__date {
   padding-left: var(--spacing-lg);
-  font-size: var(--font-size-xs);
   color: var(--colour-grey-light);
+  font-size: var(--font-size-xs);
   @apply --font-uppercase;
 
   @media (--screen-md) {
-    font-size: var(--font-size-sm);
     position: absolute;
-    left: 1em;
     bottom: -0.4em;
+    left: 1em;
     padding-left: 0;
+    font-size: var(--font-size-sm);
   }
 
   @nest .display-tile--lg & {
     position: relative;
-    left: 0;
     bottom: 0;
+    left: 0;
     padding: 0;
   }
 }
 
 .display-tile__cta {
-  width: 80%;
   align-self: flex-start;
+  width: 80%;
   padding-left: var(--spacing-sm);
   /*font-size: var(--font-size-sm);*/
 

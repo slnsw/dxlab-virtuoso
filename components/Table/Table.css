@@ -3,9 +3,9 @@
 .table {
   margin-bottom: var(--spacing-md);
   padding-top: var(--spacing-sm);
+  text-transform: uppercase;
   border-top: 1px dashed var(--colour-grey);
   border-bottom: 1px dashed var(--colour-grey);
-  text-transform: uppercase;
   @apply (--font-uppercase);
   /* font-size: var(--font-size-sm); */
 }

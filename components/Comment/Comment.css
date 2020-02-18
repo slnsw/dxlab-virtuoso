@@ -4,19 +4,18 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  border-left: 1px solid var(--colour-white);
-
+  margin-bottom: 1em;
   padding-top: var(--spacing-sm);
   padding-left: 1em;
-  margin-bottom: 1em;
+  border-left: 1px solid var(--colour-white);
 
   &::before {
     position: absolute;
     top: 0;
     left: 0;
-    content: '';
     width: 1em;
     border-top: 1px solid var(--colour-white);
+    content: '';
   }
 
   &:last-child {

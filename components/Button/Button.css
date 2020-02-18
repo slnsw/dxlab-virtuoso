@@ -8,17 +8,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--colour-white);
-  /* border: 1px solid var(--colour-grey-darkest); */
   width: 100%;
   height: 3em;
-  padding-left: var(--spacing-md);
   padding-right: var(--spacing-xs);
+  padding-left: var(--spacing-md);
   font-size: var(--font-size-sm);
-  @apply --font-uppercase;
   line-height: 1;
   letter-spacing: 0.4em;
   text-align: center;
+  border: 1px solid var(--colour-white);
+  /* border: 1px solid var(--colour-grey-darkest); */
+  @apply --font-uppercase;
   transition: 0.3s;
 
   &:link,
@@ -27,8 +27,8 @@
   }
 
   &:hover {
-    text-decoration: none;
     color: var(--colour-highlight);
+    text-decoration: none;
     border: 1px solid var(--colour-highlight);
   }
 }

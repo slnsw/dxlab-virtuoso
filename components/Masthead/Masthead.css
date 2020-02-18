@@ -5,19 +5,19 @@
   width: calc(100% + 2em);
   height: 20em;
   margin-top: -3em;
-  margin-left: -1em;
   margin-right: -1em;
+  margin-left: -1em;
   padding-top: 0;
-  padding-left: 1em;
   padding-right: 1em;
+  padding-left: 1em;
 
   @media (--screen-sm) {
     width: calc(100% + 4em);
     height: 40em;
     margin-top: -7.5em;
     margin-left: -2em;
-    padding-left: 2em;
     padding-right: 2em;
+    padding-left: 2em;
   }
 
   @media (--screen-lg) {
@@ -37,15 +37,15 @@
 
 .masthead__bg {
   position: absolute;
-  z-index: 0;
   left: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.35;
-  /* background-image: url('../images/masthead-background-01.gif'); */
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
+  background-size: cover;
+  opacity: 0.35;
+  /* background-image: url('../images/masthead-background-01.gif'); */
 
   @media (--screen-sm) {
     /*top: -8em;*/
@@ -53,7 +53,6 @@
 
   /* Gradient */
   &::after {
-    content: '';
     display: block;
     width: 100%;
     height: 100%;
@@ -62,6 +61,7 @@
       rgba(0, 0, 0, 0),
       var(--colour-black)
     );
+    content: '';
   }
 }
 
@@ -69,10 +69,10 @@
 .masthead__title {
   position: absolute;
   top: 50%;
-  letter-spacing: 0.25em;
-  line-height: 1;
-  /* font-size: var(--font-size-xlg); */
   font-size: 1.9em;
+  line-height: 1;
+  letter-spacing: 0.25em;
+  /* font-size: var(--font-size-xlg); */
 
   @media (--screen-sm) {
     font-size: var(--font-size-xxxlg);
@@ -94,8 +94,8 @@
 }
 
 .masthead__title__main {
-  display: block;
   position: relative;
+  display: block;
 }
 
 .masthead__title__small {
@@ -127,9 +127,9 @@
   &::before {
     position: absolute;
     top: -1.6em;
-    content: '';
     height: 1em;
     border-left: 1px solid var(--colour-white);
+    content: '';
   }
 }
 
@@ -139,11 +139,11 @@
   left: 0;
   width: 80%;
   padding: 0 var(--spacing-md) 0 0;
+  font-weight: 300;
   font-size: var(--font-size-sm);
   font-family: var(--font-secondary);
-  font-weight: 300;
-  letter-spacing: 0.05em;
   line-height: 1.4em;
+  letter-spacing: 0.05em;
 
   @media (--screen-sm) {
     bottom: 11%;
@@ -166,13 +166,13 @@
   /* Corner Line */
   &::after {
     position: absolute;
-    content: '';
     top: -0.6em;
     right: 0;
-    height: 1em;
     width: var(--spacing-xlg);
+    height: 1em;
     border-top: 1px dashed var(--colour-white);
     border-right: 1px solid var(--colour-white);
+    content: '';
   }
 
   /* Left Line */
@@ -190,15 +190,15 @@
   display: none;
 
   @media (--screen-sm) {
-    display: block;
     position: absolute;
     top: 8em;
     right: 0;
+    display: block;
+    font-size: var(--font-size-sm);
+    line-height: 1;
     transform: rotate(-90deg);
     transform-origin: bottom right;
-    font-size: var(--font-size-sm);
     @apply --font-uppercase;
-    line-height: 1;
     opacity: 0.3;
   }
 }
@@ -210,8 +210,8 @@
 
 .masthead__caption {
   position: absolute;
-  bottom: var(--spacing-xxxlg);
   right: 0;
+  bottom: var(--spacing-xxxlg);
   padding-right: var(--spacing-xlg);
   font-size: var(--font-size-xs);
   @apply --font-uppercase;
@@ -224,10 +224,10 @@
     position: absolute;
     top: var(--spacing-xxxs);
     right: 0;
-    content: '';
     width: var(--spacing-sm);
     height: var(--spacing-sm);
-    border-radius: var(--spacing-sm);
     background-color: var(--colour-highlight);
+    border-radius: var(--spacing-sm);
+    content: '';
   }
 }
