@@ -121,7 +121,7 @@ app
     // Proxy app
     server.use(
       proxy('/off-the-shelf', {
-        target: process.env.OFF_THE_SHELF_URL,
+        target: process.env.DXLAB_WEBSITE_OFF_THE_SHELF_URL,
         changeOrigin: true,
       }),
     );
