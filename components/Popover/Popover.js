@@ -31,7 +31,7 @@ class Popover extends Component {
       //   selectedItemIndex: i,
       // });
 
-      const url = this.props.items[i].url;
+      const { url } = this.props.items[i];
       Router.push(url);
     }
   };

@@ -27,19 +27,13 @@ main {
   margin-top: -2em;
   margin-left: -1em;
   background: linear-gradient(
-    pointer-events: none; to bottom,
-    var(
-      --colour-black,
-    ),
-    rgba(
-      0,
-      0,
-      0,
-      0.8,
-    )
+    to bottom,
+    var(--colour-black),
+    rgba(0, 0, 0, 0.8)
   );
   opacity: 0;
   transition: 1s;
+  pointer-events: none;
 
   @media (--screen-sm) {
     top: -5.4em;

@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove `flow` references
 - Add `stylelint-config-rational-order` for peak OCD
 - Add `@testing-library/react`
+- Deprecate use of `server.js` and `next-routes` in favour of `next`'s dynamic routes feature
+- Migrate towards Zeit Now for deployments, adding all rewrites and redirects into `now.json`
 
 ## [1.6.1] - 2019-11-05
 
