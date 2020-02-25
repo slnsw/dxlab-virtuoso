@@ -23,7 +23,7 @@ class RelatedCollectionItems extends Component {
                 className="related-collection-items__card"
                 key={`related-collection-items__card-${item.id}`}
               >
-                <Link to={`/collection/item/${item.id}`}>
+                <Link as={`/collection/item/${item.id}`}>
                   <a>
                     <div className="related-collection-items__card__type">
                       {item.type}

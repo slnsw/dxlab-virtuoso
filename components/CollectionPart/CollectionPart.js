@@ -47,36 +47,35 @@ class CollectionPart extends Component {
         <div className="collection-part__info">
           <div className="collection-part__content">
             <div className="collection-part__level">{part.level}</div>
-            <Link to={`/collection/item/ADLIB${part.id}`}>
+            <Link as={`/collection/item/ADLIB${part.id}`}>
               <a className="collection-part__title">{part.title}</a>
             </Link>
           </div>
 
-          {part.parts &&
-            part.parts.length > 0 && (
-              <Fragment>
-                <button
-                  className="collection-part__toggle-button"
-                  onClick={this.handleToggleButton}
-                >
-                  {isShowingParts
-                    ? 'Hide'
-                    : `More (${
-                        part.parts.length > 9 ? '+10' : part.parts.length
-                      })`}
-                </button>
+          {part.parts && part.parts.length > 0 && (
+            <Fragment>
+              <button
+                className="collection-part__toggle-button"
+                onClick={this.handleToggleButton}
+              >
+                {isShowingParts
+                  ? 'Hide'
+                  : `More (${
+                      part.parts.length > 9 ? '+10' : part.parts.length
+                    })`}
+              </button>
 
-                <br />
-                <br />
+              <br />
+              <br />
 
-                {isShowingParts && (
-                  <CollectionParts
-                    id={part.id}
-                    // parts={part.parts}
-                  />
-                )}
-              </Fragment>
-            )}
+              {isShowingParts && (
+                <CollectionParts
+                  id={part.id}
+                  // parts={part.parts}
+                />
+              )}
+            </Fragment>
+          )}
         </div>
       </li>
     );

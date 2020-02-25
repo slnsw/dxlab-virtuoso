@@ -1,26 +1,15 @@
 import { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-
-// import {
-//   LineChart,
-//   Line,
-//   CartesianGrid,
-//   XAxis,
-//   ResponsiveContainer,
-//   YAxis,
-//   PieChart,
-//   Pie,
-//   Legend,
-//   Cell,
-// } from 'recharts';
 import queryString from 'query-string';
 
-import { withApollo } from '../../lib/apollo';
 import CollectionApp from '../../components/CollectionApp';
 import Link from '../../components/Link';
 import Popover from '../../components/Popover';
+
+import { withApollo } from '../../lib/apollo';
 import { Router } from '../../routes';
+
 import './index.css';
 import './search.css';
 
@@ -143,7 +132,7 @@ class CollectionSearchPage extends Component {
               primoSearch.records &&
               primoSearch.records.map((record) => {
                 return (
-                  <Link to={`collection/item/${record.id}`}>
+                  <Link as={`/collection/item/${record.id}`}>
                     <a
                       className="grid-tile"
                       style={{

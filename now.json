@@ -26,6 +26,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/unstacked",
+      "destination": "https://unstacked.dxlab.sl.nsw.gov.au"
+    },
     { "source": "/making-meridian/", "destination": "/blog/making-meridian/" },
     { "source": "/making-meridian", "destination": "/blog/making-meridian" },
     {
@@ -247,7 +251,6 @@
       "source": "/digitised-collections",
       "destination": "/blog/digitised-collections"
     },
-
     {
       "source": "/80hz",
       "destination": "/80hz/"

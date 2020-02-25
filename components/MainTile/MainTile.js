@@ -88,10 +88,8 @@ class MainTile extends Component {
                   {title}
                 </a>
               ) : (
-                <Link to={url}>
-                  <a href={url} target={target}>
-                    {title}
-                  </a>
+                <Link as={url}>
+                  <a target={target}>{title}</a>
                 </Link>
               )}
             </h1>

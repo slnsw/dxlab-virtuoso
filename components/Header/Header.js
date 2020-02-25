@@ -2,6 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Menu from '../Menu';
+import Link from '../Link';
 import './Header.css';
 
 // const menuItems = [
@@ -49,9 +50,11 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="logo logo--dxlab">
-          <a href="/">
-            <img src="/images/logo-dxlab.png" alt="DX Lab Logo." />
-          </a>
+          <Link href="/">
+            <a href="/">
+              <img src="/images/logo-dxlab.png" alt="DX Lab Logo." />
+            </a>
+          </Link>
         </div>
 
         <nav

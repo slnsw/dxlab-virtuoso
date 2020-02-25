@@ -252,7 +252,7 @@ class CollectionSearchPage extends Component {
                                 });
                               }}
                             >
-                              <Link to={`${pathname}?${urlString}`}>
+                              <Link as={`${pathname}?${urlString}`}>
                                 <a>
                                   {value.name}{' '}
                                   <span className="collection-search-page__facet__value-count">
@@ -411,7 +411,7 @@ const query = gql`
 export default withApollo(
   graphql(query, {
     options: ({
-      url: {
+      router: {
         query: { q, facets, scope },
       },
     }) => {

@@ -3,7 +3,7 @@
   "author": "Kaho Cheung",
   "version": "1.6.0",
   "scripts": {
-    "dev": "node server.js -p $PORT",
+    "dev": "next dev -p 5010",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node server.js -p $PORT",
     "start-pm2": "NODE_ENV=production pm2 start server.js --name dxlab-website",

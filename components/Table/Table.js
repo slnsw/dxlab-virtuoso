@@ -21,20 +21,24 @@ class Table extends Component {
     return (
       <div className={`table ${className}`}>
         {items &&
-          items.filter((item) => item).map((item, i) => {
-            return (
-              <div className="table__row" key={`table-row-${i}`}>
-                <div className="table__cell table__cell--head">{item.name}</div>
-                <div className="table__cell">
-                  {item.url ? (
-                    <Link to={item.url}>{item.value}</Link>
-                  ) : (
-                    item.value
-                  )}
+          items
+            .filter((item) => item)
+            .map((item, i) => {
+              return (
+                <div className="table__row" key={`table-row-${i}`}>
+                  <div className="table__cell table__cell--head">
+                    {item.name}
+                  </div>
+                  <div className="table__cell">
+                    {item.url ? (
+                      <Link as={item.url}>{item.value}</Link>
+                    ) : (
+                      item.value
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
       </div>
     );
   }

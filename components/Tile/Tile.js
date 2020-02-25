@@ -64,7 +64,7 @@ class Tile extends Component {
                   {title}
                 </a>
               ) : (
-                <Link to={url}>
+                <Link as={url}>
                   <a target={target}>{title}</a>
                 </Link>
               )}

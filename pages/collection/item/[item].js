@@ -4,14 +4,14 @@ import gql from 'graphql-tag';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import Head from 'next/head';
 
-import { withApollo } from '../../lib/apollo';
-import CollectionApp from '../../components/CollectionApp';
-import Table from '../../components/Table';
-import Link from '../../components/Link';
-import ShareBox from '../../components/ShareBox';
-import LoaderText from '../../components/LoaderText';
-import RelatedCollectionItems from '../../components/RelatedCollectionItems';
-import CollectionParts from '../../components/CollectionParts';
+import { withApollo } from '../../../lib/apollo';
+import CollectionApp from '../../../components/CollectionApp';
+import Table from '../../../components/Table';
+import Link from '../../../components/Link';
+import ShareBox from '../../../components/ShareBox';
+import LoaderText from '../../../components/LoaderText';
+import RelatedCollectionItems from '../../../components/RelatedCollectionItems';
+import CollectionParts from '../../../components/CollectionParts';
 import './item.css';
 
 const NUMBER_OF_THUMBNAILS = 5;
@@ -278,15 +278,13 @@ class CollectionItemPage extends Component {
                     <h2 className="collection-item-page__heading">Subjects</h2>
                     {item.subjects &&
                       item.subjects.map((subject) => (
-                        <Link key={`tag-${subject}`}>
-                          <a
-                            className="tag"
-                            href={`../search?facets=topic,${encodeURIComponent(
-                              subject,
-                            )}`}
-                          >
-                            {subject}
-                          </a>
+                        <Link
+                          href={`../search?facets=topic,${encodeURIComponent(
+                            subject,
+                          )}`}
+                          key={`tag-${subject}`}
+                        >
+                          <a className="tag">{subject}</a>
                         </Link>
                       ))}
 
@@ -300,8 +298,8 @@ class CollectionItemPage extends Component {
                     {item.projects.map((project) => {
                       return (
                         <article className="collection-item-page__project">
-                          <Link to={project.url}>
-                            <a>
+                          <Link as={project.url}>
+                            <a href={project.url}>
                               <h2>{project.type}</h2>
                               <h1>{project.title}</h1>
 

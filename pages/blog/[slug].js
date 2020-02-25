@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { withApollo } from '../lib/apollo';
-import WebsiteApp from '../components/WebsiteApp';
-import ShareBox from '../components/ShareBox';
-import Button from '../components/Button';
-import Comments from '../components/Comments';
-import { formatDate } from '../lib';
-import Four04 from './_error';
-import './post.css';
-import '../styles/gallery.css';
+import WebsiteApp from '../../components/WebsiteApp';
+import ShareBox from '../../components/ShareBox';
+import Button from '../../components/Button';
+import Comments from '../../components/Comments';
+import Four04 from '../_error';
+
+import { withApollo } from '../../lib/apollo';
+import { formatDate } from '../../lib';
+
+import '../post.css';
+import '../../styles/gallery.css';
 
 class Post extends Component {
   static propTypes = {
@@ -157,7 +159,7 @@ class Post extends Component {
             <br />
             <br />
 
-            <Comments postId={id} comments={comments} />
+            {id && <Comments postId={id} comments={comments} />}
           </div>
         </article>
       </WebsiteApp>

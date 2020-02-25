@@ -34,7 +34,7 @@ class CollectionItem extends Component {
         }`}
         key={`collection-item-${id}`}
       >
-        <Link to={`/collection/item/${id}`}>
+        <Link as={`/collection/item/${id}`}>
           <a>
             <div
               className={`collection-item__image-holder ${
