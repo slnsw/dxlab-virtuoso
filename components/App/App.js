@@ -87,7 +87,8 @@ class App extends Component {
       // metaUrl,
     } = this.props;
 
-    const baseUrl = process.env.BASE_URL || 'https://dxlab.sl.nsw.gov.au';
+    const baseUrl =
+      process.env.DXLAB_WEBSITE_BASE_URL || 'https://dxlab.sl.nsw.gov.au';
     const metaUrl = `${baseUrl}${pathname}`;
 
     return (
@@ -127,7 +128,10 @@ class App extends Component {
             property="og:site_name"
             content="DX Lab | State Library of NSW"
           />
-          <meta property="fb:app_id" content={process.env.FB_APP_ID} />
+          <meta
+            property="fb:app_id"
+            content={process.env.DXLAB_WEBSITE_FB_APP_ID}
+          />
           <meta name="twitter:site" content="@statelibrarynsw" />
           <link
             rel="shortcut icon"

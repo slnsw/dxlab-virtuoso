@@ -1,3 +1,385 @@
 {
-  "name": "dxlab-website"
+  "name": "dxlab-website",
+  "version": 2,
+  "env": {
+    "DXLAB_WEBSITE_GRAPHQL_URL": "@dxlab_website_prod_graphql_url",
+    "DXLAB_WEBSITE_GRAPHQL_HOST": "@dxlab_website_prod_graphql_host",
+    "DXLAB_WEBSITE_BASE_URL": "@dxlab_website_prod_base_url",
+    "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_prod_dxlab_wp_url",
+    "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
+    "DXLAB_WEBSITE_GTM_ID": "@dxlab_website_prod_gtm_id",
+    "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test",
+    "DXLAB_WEBSITE_NEWSELFWALES_URL": "@dxlab_website_prod_newselfwales_url"
+  },
+  "build": {
+    "env": {
+      "DXLAB_WEBSITE_GRAPHQL_URL": "@dxlab_website_prod_graphql_url",
+      "DXLAB_WEBSITE_GRAPHQL_HOST": "@dxlab_website_prod_graphql_host",
+      "DXLAB_WEBSITE_BASE_URL": "@dxlab_website_prod_base_url",
+      "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_prod_dxlab_wp_url",
+      "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
+      "DXLAB_WEBSITE_GTM_ID": "@dxlab_website_prod_gtm_id",
+      "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test",
+      "DXLAB_WEBSITE_NEWSELFWALES_URL": "@dxlab_website_prod_newselfwales_url"
+    }
+  },
+  "redirects": [
+    { "source": "/making-meridian/", "destination": "/blog/making-meridian/" },
+    { "source": "/making-meridian", "destination": "/blog/making-meridian" },
+    {
+      "source": "/building-painting-by-numbers-2/",
+      "destination": "/blog/building-painting-by-numbers-2/"
+    },
+    {
+      "source": "/building-painting-by-numbers-2",
+      "destination": "/blog/building-painting-by-numbers-2"
+    },
+    { "source": "/young-ct-winner/", "destination": "/blog/young-ct-winner/" },
+    { "source": "/young-ct-winner", "destination": "/blog/young-ct-winner" },
+    {
+      "source": "/fellowship-winner-2/",
+      "destination": "/blog/fellowship-winner-2/"
+    },
+    {
+      "source": "/fellowship-winner-2",
+      "destination": "/blog/fellowship-winner-2"
+    },
+    { "source": "/vending-library/", "destination": "/blog/vending-library/" },
+    { "source": "/vending-library", "destination": "/blog/vending-library" },
+    { "source": "/arvrmr-events/", "destination": "/blog/arvrmr-events/" },
+    { "source": "/arvrmr-events", "destination": "/blog/arvrmr-events" },
+    { "source": "/young-ct-award/", "destination": "/blog/young-ct-award/" },
+    { "source": "/young-ct-award", "destination": "/blog/young-ct-award" },
+    { "source": "/dx-lab-news/", "destination": "/blog/dx-lab-news/" },
+    { "source": "/dx-lab-news", "destination": "/blog/dx-lab-news" },
+    {
+      "source": "/dx-lab-fellowship-2/",
+      "destination": "/blog/dx-lab-fellowship-2/"
+    },
+    {
+      "source": "/dx-lab-fellowship-2",
+      "destination": "/blog/dx-lab-fellowship-2"
+    },
+    { "source": "/making-muruview/", "destination": "/blog/making-muruview/" },
+    { "source": "/making-muruview", "destination": "/blog/making-muruview" },
+    { "source": "/zooming-sydney/", "destination": "/blog/zooming-sydney/" },
+    { "source": "/zooming-sydney", "destination": "/blog/zooming-sydney" },
+    {
+      "source": "/digital-drop-in-4/",
+      "destination": "/blog/digital-drop-in-4/"
+    },
+    {
+      "source": "/digital-drop-in-4",
+      "destination": "/blog/digital-drop-in-4"
+    },
+    { "source": "/young-sydney/", "destination": "/blog/young-sydney/" },
+    { "source": "/young-sydney", "destination": "/blog/young-sydney" },
+    { "source": "/unstackedlaunch/", "destination": "/blog/unstackedlaunch/" },
+    { "source": "/unstackedlaunch", "destination": "/blog/unstackedlaunch" },
+    {
+      "source": "/digital-drop-in-3/",
+      "destination": "/blog/digital-drop-in-3/"
+    },
+    {
+      "source": "/digital-drop-in-3",
+      "destination": "/blog/digital-drop-in-3"
+    },
+    { "source": "/pano-scope-post/", "destination": "/blog/pano-scope-post/" },
+    { "source": "/pano-scope-post", "destination": "/blog/pano-scope-post" },
+    { "source": "/loom-index/", "destination": "/blog/loom-index/" },
+    { "source": "/loom-index", "destination": "/blog/loom-index" },
+    {
+      "source": "/repton-flip-book-2/",
+      "destination": "/blog/repton-flip-book-2/"
+    },
+    {
+      "source": "/repton-flip-book-2",
+      "destination": "/blog/repton-flip-book-2"
+    },
+    { "source": "/loom-ux-updates/", "destination": "/blog/loom-ux-updates/" },
+    { "source": "/loom-ux-updates", "destination": "/blog/loom-ux-updates" },
+    {
+      "source": "/a-symphony-in-steel/",
+      "destination": "/blog/a-symphony-in-steel/"
+    },
+    {
+      "source": "/a-symphony-in-steel",
+      "destination": "/blog/a-symphony-in-steel"
+    },
+    { "source": "/high-res-images/", "destination": "/blog/high-res-images/" },
+    { "source": "/high-res-images", "destination": "/blog/high-res-images" },
+    { "source": "/1001-postcards/", "destination": "/blog/1001-postcards/" },
+    { "source": "/1001-postcards", "destination": "/blog/1001-postcards" },
+    {
+      "source": "/dx-lab-fellows-diary-2/",
+      "destination": "/blog/dx-lab-fellows-diary-2/"
+    },
+    {
+      "source": "/dx-lab-fellows-diary-2",
+      "destination": "/blog/dx-lab-fellows-diary-2"
+    },
+    { "source": "/ux-sketches/", "destination": "/blog/ux-sketches/" },
+    { "source": "/ux-sketches", "destination": "/blog/ux-sketches" },
+    { "source": "/ux-workshop/", "destination": "/blog/ux-workshop/" },
+    { "source": "/ux-workshop", "destination": "/blog/ux-workshop" },
+    {
+      "source": "/building-weemala/",
+      "destination": "/blog/building-weemala/"
+    },
+    { "source": "/building-weemala", "destination": "/blog/building-weemala" },
+    {
+      "source": "/dx-lab-fellows-diary/",
+      "destination": "/blog/dx-lab-fellows-diary/"
+    },
+    {
+      "source": "/dx-lab-fellows-diary",
+      "destination": "/blog/dx-lab-fellows-diary"
+    },
+    {
+      "source": "/digital-fellowship/",
+      "destination": "/blog/digital-fellowship/"
+    },
+    {
+      "source": "/digital-fellowship",
+      "destination": "/blog/digital-fellowship"
+    },
+    { "source": "/50libcats-2/", "destination": "/blog/50libcats-2/" },
+    { "source": "/50libcats-2", "destination": "/blog/50libcats-2" },
+    {
+      "source": "/digital-drop-in-2/",
+      "destination": "/blog/digital-drop-in-2/"
+    },
+    {
+      "source": "/digital-drop-in-2",
+      "destination": "/blog/digital-drop-in-2"
+    },
+    {
+      "source": "/portico-in-gallery/",
+      "destination": "/blog/portico-in-gallery/"
+    },
+    {
+      "source": "/portico-in-gallery",
+      "destination": "/blog/portico-in-gallery"
+    },
+    {
+      "source": "/fellowship-winner/",
+      "destination": "/blog/fellowship-winner/"
+    },
+    {
+      "source": "/fellowship-winner",
+      "destination": "/blog/fellowship-winner"
+    },
+    { "source": "/index-prototype/", "destination": "/blog/index-prototype/" },
+    { "source": "/index-prototype", "destination": "/blog/index-prototype" },
+    {
+      "source": "/dx-lab-fellowship/",
+      "destination": "/blog/dx-lab-fellowship/"
+    },
+    {
+      "source": "/dx-lab-fellowship",
+      "destination": "/blog/dx-lab-fellowship"
+    },
+    { "source": "/loom-atlas-view/", "destination": "/blog/loom-atlas-view/" },
+    { "source": "/loom-atlas-view", "destination": "/blog/loom-atlas-view" },
+    { "source": "/main-street/", "destination": "/blog/main-street/" },
+    { "source": "/main-street", "destination": "/blog/main-street" },
+    {
+      "source": "/two-weeks-in-the-lab/",
+      "destination": "/blog/two-weeks-in-the-lab/"
+    },
+    {
+      "source": "/two-weeks-in-the-lab",
+      "destination": "/blog/two-weeks-in-the-lab"
+    },
+    { "source": "/digital-drop-in/", "destination": "/blog/digital-drop-in/" },
+    { "source": "/digital-drop-in", "destination": "/blog/digital-drop-in" },
+    {
+      "source": "/sneek-peak-map-view/",
+      "destination": "/blog/sneek-peak-map-view/"
+    },
+    {
+      "source": "/sneek-peak-map-view",
+      "destination": "/blog/sneek-peak-map-view"
+    },
+    {
+      "source": "/slides-from-remix/",
+      "destination": "/blog/slides-from-remix/"
+    },
+    {
+      "source": "/slides-from-remix",
+      "destination": "/blog/slides-from-remix"
+    },
+    { "source": "/making-loom/", "destination": "/blog/making-loom/" },
+    { "source": "/making-loom", "destination": "/blog/making-loom" },
+    {
+      "source": "/code-for-australia-meet-the-data-owners/",
+      "destination": "/blog/code-for-australia-meet-the-data-owners/"
+    },
+    {
+      "source": "/code-for-australia-meet-the-data-owners",
+      "destination": "/blog/code-for-australia-meet-the-data-owners"
+    },
+    {
+      "source": "/search-data-visualisation/",
+      "destination": "/blog/search-data-visualisation/"
+    },
+    {
+      "source": "/search-data-visualisation",
+      "destination": "/blog/search-data-visualisation"
+    },
+    {
+      "source": "/design-principles/",
+      "destination": "/blog/design-principles/"
+    },
+    {
+      "source": "/design-principles",
+      "destination": "/blog/design-principles"
+    },
+    { "source": "/meet-the-lab/", "destination": "/blog/meet-the-lab/" },
+    { "source": "/meet-the-lab", "destination": "/blog/meet-the-lab" },
+    {
+      "source": "/digitised-collections/",
+      "destination": "/blog/digitised-collections/"
+    },
+    {
+      "source": "/digitised-collections",
+      "destination": "/blog/digitised-collections"
+    },
+
+    {
+      "source": "/80hz",
+      "destination": "/80hz/"
+    },
+    {
+      "source": "/index",
+      "destination": "/index/"
+    },
+    {
+      "source": "/loom",
+      "destination": "/loom/"
+    },
+    {
+      "source": "/mainstreet",
+      "destination": "/mainstreet/"
+    },
+    {
+      "source": "/meridian",
+      "destination": "/meridian/"
+    },
+    {
+      "source": "/muruview",
+      "destination": "/muruview/"
+    },
+
+    {
+      "source": "/off-the-shelf",
+      "destination": "/off-the-shelf/"
+    },
+    {
+      "source": "/pano-scope",
+      "destination": "/pano-scope/"
+    },
+    {
+      "source": "/portico",
+      "destination": "/portico/"
+    },
+    {
+      "source": "/postcards-1001",
+      "destination": "/postcards-1001/"
+    },
+    {
+      "source": "/search-terms",
+      "destination": "/search-terms/"
+    },
+    {
+      "source": "/weemala",
+      "destination": "/weemala/"
+    },
+    {
+      "source": "/youngsydney",
+      "destination": "/youngsydney/"
+    },
+    {
+      "source": "/visionaries-explorer",
+      "destination": "/visionaries-explorer/"
+    },
+    {
+      "source": "/feed",
+      "destination": "/feed/"
+    },
+    {
+      "source": "/young-ct-2018",
+      "destination": "/young-ct-2018/"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/80hz/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/80hz/$1"
+    },
+    {
+      "source": "/index/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/index/$1"
+    },
+    {
+      "source": "/loom/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/loom/$1"
+    },
+    {
+      "source": "/mainstreet/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/mainstreet/$1"
+    },
+    {
+      "source": "/meridian/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/meridian/$1"
+    },
+    {
+      "source": "/muruview/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/muruview/$1"
+    },
+    {
+      "source": "/newselfwales(.*)",
+      "destination": "https://dxlab-newselfwales.now.sh/newselfwales$1"
+    },
+    {
+      "source": "/off-the-shelf/(.*)",
+      "destination": "https://dxlab-off-the-shelf.now.sh/off-the-shelf/$1"
+    },
+    {
+      "source": "/pano-scope/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/pano-scope/$1"
+    },
+    {
+      "source": "/portico/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/portico/$1"
+    },
+    {
+      "source": "/postcards-1001/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/postcards-1001/$1"
+    },
+    {
+      "source": "/search-terms/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/search-terms/$1"
+    },
+    {
+      "source": "/weemala/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/weemala/$1"
+    },
+    {
+      "source": "/youngsydney/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/youngsydney/$1"
+    },
+    {
+      "source": "/visionaries-explorer/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/visionaries-explorer/$1"
+    },
+    {
+      "source": "/feed/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/feed/$1"
+    },
+    {
+      "source": "/young-ct-2018/(.*)",
+      "destination": "https://wp.dxlab.sl.nsw.gov.au/young-ct-2018/$1"
+    }
+  ]
 }

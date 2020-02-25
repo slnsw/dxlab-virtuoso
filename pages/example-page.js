@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import { withApollo } from '../lib/apollo';
 import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
-import ExampleComponent from '../components/examples/ExampleComponent';
+import ExampleComponent from '../components/ExampleComponent';
 // import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
@@ -76,10 +76,10 @@ class ExamplePage extends Component {
         <ExampleComponent title="Title" />
 
         <h2>dotenv Test</h2>
-        <p>{process.env.TEST}</p>
+        <p>{process.env.DXLAB_WEBSITE_TEST}</p>
 
         <h2>GraphQL Test</h2>
-        <p>{process.env.GRAPHQL_URL}</p>
+        <p>{process.env.DXLAB_WEBSITE_GRAPHQL_URL}</p>
         <ul>
           {objects &&
             objects.map(({ displayTitle }, i) => {

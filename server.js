@@ -19,11 +19,17 @@ console.log('----------------------------------');
 console.log('Environment Variables:');
 console.log('----------------------------------');
 console.log(`PORT=${process.env.PORT}`);
-console.log(`BASE_URL=${process.env.BASE_URL}`);
-console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
-console.log(`GRAPHQL_HOST=${process.env.GRAPHQL_HOST}`);
-console.log(`DXLAB_WP_URL=${process.env.DXLAB_WP_URL}`);
-console.log(`TEST=${process.env.TEST}`);
+console.log(`DXLAB_WEBSITE_BASE_URL=${process.env.DXLAB_WEBSITE_BASE_URL}`);
+console.log(
+  `DXLAB_WEBSITE_GRAPHQL_URL=${process.env.DXLAB_WEBSITE_GRAPHQL_URL}`,
+);
+console.log(
+  `DXLAB_WEBSITE_GRAPHQL_HOST=${process.env.DXLAB_WEBSITE_GRAPHQL_HOST}`,
+);
+console.log(
+  `DXLAB_WEBSITE_DXLAB_WP_URL=${process.env.DXLAB_WEBSITE_DXLAB_WP_URL}`,
+);
+console.log(`DXLAB_WEBSITE_TEST=${process.env.DXLAB_WEBSITE_TEST}`);
 console.log('----------------------------------');
 
 app
@@ -39,7 +45,7 @@ app
 
     // Add no-index headers for staging and dev sites
     // Skip if actual dxlab.sl.nsw.gov.au website
-    if (process.env.BASE_URL !== 'https://dxlab.sl.nsw.gov.au') {
+    if (process.env.DXLAB_WEBSITE_BASE_URL !== 'https://dxlab.sl.nsw.gov.au') {
       server.use((req, res, next) => {
         res.set({
           'X-Robots-Tag': 'noindex',
@@ -96,7 +102,7 @@ app
     // Proxy app
     server.use(
       proxy('/newselfwales', {
-        target: process.env.NEWSELFWALES_URL,
+        target: process.env.DXLAB_WEBSITE_NEWSELFWALES_URL,
         changeOrigin: true,
       }),
     );
@@ -105,7 +111,7 @@ app
     server.use(
       // proxy('/static/newselfwales', {
       proxy('/newselfwales', {
-        target: process.env.NEWSELFWALES_URL,
+        target: process.env.DXLAB_WEBSITE_NEWSELFWALES_URL,
         changeOrigin: true,
       }),
     );

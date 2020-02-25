@@ -50,6 +50,10 @@ NEWSELFWALES_URL=https://xxxxxxxxxxxxxxxx
 OFF_THE_SHELF_URL=https://xxxxxxxxxxxxxxxx
 ```
 
+# DXLAB_WEBSITE_GRAPHQL_URL in now.josn replaces GRAPHQL_URL in .env files
+
+# similarly for other values...
+
 ## Server Setup
 
 ```
