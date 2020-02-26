@@ -25,6 +25,12 @@
       "DXLAB_WEBSITE_OFF_THE_SHELF_URL": "@dxlab_website_prod_off_the_shelf_url"
     }
   },
+  "headers": [
+    {
+      "key": "X-Robots-Tag",
+      "value": "noindex"
+    }
+  ],
   "redirects": [
     {
       "source": "/80hz",
