@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 import Header from '../Header';
+import SocialMetaHead from '../SocialMetaHead';
 import Footer from '../Footer';
+
 import { buildHeadTitle } from '../../lib';
 import { initGA } from '../../lib/analytics'; // logPageView
+
 import './App.css';
 import '../../styles/base.css';
 import '../../styles/globals.css';
@@ -101,38 +104,7 @@ class App extends Component {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"
           />
-          <meta property="og:type" content="website" />
 
-          {title && <meta property="og:title" content={title} />}
-
-          {metaDescription && (
-            <meta property="og:description" content={metaDescription} />
-          )}
-
-          {metaDescription && (
-            <meta name="description" content={metaDescription} />
-          )}
-
-          {metaImageUrl && (
-            <meta property="og:image" content={`${metaImageUrl}`} />
-          )}
-
-          {metaUrl && <meta property="og:url" content={metaUrl} />}
-
-          {metaImageAlt && (
-            <meta name="twitter:image:alt" content={metaImageAlt} />
-          )}
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            property="og:site_name"
-            content="DX Lab | State Library of NSW"
-          />
-          <meta
-            property="fb:app_id"
-            content={process.env.DXLAB_WEBSITE_FB_APP_ID}
-          />
-          <meta name="twitter:site" content="@statelibrarynsw" />
           <link
             rel="shortcut icon"
             href="https://www.sl.nsw.gov.au/sites/all/themes/slnsw_frontend/favicon.ico"
@@ -148,6 +120,19 @@ class App extends Component {
             rel="stylesheet"
           />
         </Head>
+
+        <SocialMetaHead
+          title={title}
+          description={metaDescription}
+          imageUrl={metaImageUrl}
+          imageAlt={metaImageAlt}
+          // Add these when ready
+          // imageWidth={metaImageWidth}
+          // imageHeight={metaImageHeight}
+          siteName="DX Lab | State Library of NSW"
+          fbAppId={process.env.DXLAB_WEBSITE_FB_APP_ID}
+          twitterUsername="@statelibrarynsw"
+        />
 
         <Header pathname={pathname} menuItems={headerMenuItems} />
         {/*
