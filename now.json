@@ -1,6 +1,7 @@
 {
   "name": "dxlab-website",
   "version": 2,
+  "scope": "dxlab",
   "env": {
     "DXLAB_WEBSITE_GRAPHQL_URL": "@dxlab_website_prod_graphql_url",
     "DXLAB_WEBSITE_GRAPHQL_HOST": "@dxlab_website_prod_graphql_host",
