@@ -122,6 +122,10 @@
       "destination": "https://dxlab-newselfwales.now.sh/newselfwales$1"
     },
     {
+      "source": "/static/newselfwales/(.*)",
+      "destination": "https://dxlab-newselfwales.now.sh/static/newselfwales/$1"
+    },
+    {
       "source": "/off-the-shelf/(.*)",
       "destination": "https://dxlab-off-the-shelf.now.sh/off-the-shelf/$1"
     },
