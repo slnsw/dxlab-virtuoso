@@ -127,7 +127,7 @@ $ hygen component new --name NewComponent
 
 ## Proxies
 
-Express proxies the following sites:
+Zeit's `now.json` file has a config that proxies the following sites:
 
 - dxlab.sl.nsw.gov.au/80hz/
 - dxlab.sl.nsw.gov.au/index/
@@ -143,5 +143,3 @@ Express proxies the following sites:
 - dxlab.sl.nsw.gov.au/search-terms/
 - dxlab.sl.nsw.gov.au/weemala/
 - dxlab.sl.nsw.gov.au/youngsydney/
-
-Changes to this list are made in /routes/proxyRoutes.js
