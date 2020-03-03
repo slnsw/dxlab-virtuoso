@@ -119,6 +119,16 @@ app
       }),
     );
 
+    // KIDS' AUDIO GUIDE
+
+    // Proxy app
+    server.use(
+      proxy('/kids-audio-guide', {
+        target: process.env.DXLAB_WEBSITE_KIDS_AUDIO_GUIDE_URL,
+        changeOrigin: true,
+      }),
+    );
+
     // Redirects
     server.get('/open-data', (req, res) => {
       res.redirect('/code');
