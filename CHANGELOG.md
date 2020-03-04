@@ -16,10 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deprecate use of `server.js` and `next-routes` in favour of `next`'s dynamic routes feature
 - Migrate towards Zeit Now for deployments, adding all rewrites and redirects into `now.json`
 
-## [1.6.1] - 2019-11-05
+## [1.6.1] - 2020-03-03
 
 - Add `ansible` scripts to deploy to EC2 server
 - Update `package.json` script with option to deploy with `ansible`
+- Add kids audio guide proxy
 
 ## [1.6.0] - 2019-11-05
 

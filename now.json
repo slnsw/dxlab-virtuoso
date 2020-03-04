@@ -74,7 +74,6 @@
       "source": "/muruview",
       "destination": "/muruview/"
     },
-
     {
       "source": "/off-the-shelf",
       "destination": "/off-the-shelf/"
@@ -128,6 +127,10 @@
     {
       "source": "/loom/(.*)",
       "destination": "https://wp.dxlab.sl.nsw.gov.au/loom/$1"
+    },
+    {
+      "source": "/kids-audio-guide(.*)",
+      "destination": "http://dxlab-kids-audio-guide.s3-website-ap-southeast-2.amazonaws.com/kids-audio-guide$1"
     },
     {
       "source": "/mainstreet/(.*)",
