@@ -131,7 +131,8 @@ app
     // Proxy app
     server.use(
       proxy('/kids-audio-guide', {
-        target: process.env.DXLAB_WEBSITE_KIDS_AUDIO_GUIDE_URL,
+        target:
+          'http://dxlab-kids-audio-guide.s3-website-ap-southeast-2.amazonaws.com',
         changeOrigin: true,
       }),
     );

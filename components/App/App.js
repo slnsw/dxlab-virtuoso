@@ -90,9 +90,9 @@ class App extends Component {
       // metaUrl,
     } = this.props;
 
-    const baseUrl =
-      process.env.DXLAB_WEBSITE_BASE_URL || 'https://dxlab.sl.nsw.gov.au';
-    const metaUrl = `${baseUrl}${pathname}`;
+    // const baseUrl =
+    //   process.env.DXLAB_WEBSITE_BASE_URL || 'https://dxlab.sl.nsw.gov.au';
+    // const metaUrl = `${baseUrl}${pathname}`;
 
     return (
       <div className="app" onScroll={this.handleOnScroll}>
