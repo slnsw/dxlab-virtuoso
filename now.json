@@ -121,7 +121,7 @@
       "destination": "https://wp.dxlab.sl.nsw.gov.au/80hz/$1"
     },
     {
-      "source": "/graphql/api(.*)",
+      "source": "/api/graphql(.*)",
       "destination": "https://x3wb3bjvxa.execute-api.ap-southeast-2.amazonaws.com/prod/graphql$1"
     },
     {
