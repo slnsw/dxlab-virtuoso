@@ -13,46 +13,22 @@ $ npm start
 
 ### ENV Variables
 
-_Note:_ GRAPHQL_HOST is being proxied to `/api/graphql` on this website. It is possible to use `GRAPHQL_URL=/api/graphql`, but need to test speed a bit more, as that is a lot of proxying!
-
 ```
 # .env
 PORT=5010
-TEST=it works!
-GRAPHQL_URL=http://localhost:5000/graphql
-GRAPHQL_HOST=http://localhost:5000
-DXLAB_WP_URL=https://staging-wp.dxlab.sl.nsw.gov.au
-GTM_ID=GTM-XXXXXXX
-FB_APP_ID=XXXXXXXXXXXXX
-NEWSELFWALES_URL=https://xxxxxxxxxxxxxxxx
-OFF_THE_SHELF_URL=https://xxxxxxxxxxxxxxxx
+DXLAB_WEBSITE_BASE_URL=http://localhost:5000
 
-# .env.staging
-PORT=3000
-TEST=it works!
-GRAPHQL_URL=https://dxlab.sl.nsw.gov.au/api/graphql
-GRAPHQL_HOST=https://dxlab.sl.nsw.gov.au
-DXLAB_WP_URL=https://staging-wp.dxlab.sl.nsw.gov.au
-GTM_ID=GTM-XXXXXXX
-FB_APP_ID=XXXXXXXXXXXXX
-NEWSELFWALES_URL=https://xxxxxxxxxxxxxxxx
-OFF_THE_SHELF_URL=https://xxxxxxxxxxxxxxxx
+DXLAB_WEBSITE_TEST=it works!
 
-# .env.production
-PORT=3000
-TEST=it works on production!
-GRAPHQL_URL=https://dxlab.sl.nsw.gov.au/api/graphql
-GRAPHQL_HOST=https://dxlab.sl.nsw.gov.au
-DXLAB_WP_URL=https://wp.dxlab.sl.nsw.gov.au
-GTM_ID=GTM-XXXXXXX
-FB_APP_ID=XXXXXXXXXXXXX
-NEWSELFWALES_URL=https://xxxxxxxxxxxxxxxx
-OFF_THE_SHELF_URL=https://xxxxxxxxxxxxxxxx
+DXLAB_WEBSITE_GRAPHQL_URL=http://localhost:5000/graphql
+DXLAB_WEBSITE_DXLAB_WP_URL=https://wp.dxlab.sl.nsw.gov.au
+
+DXLAB_WEBSITE_GTM_ID=GTM-XXXXXXX
+DXLAB_WEBSITE_FB_APP_ID=XXXXXXXXXXXXX
+
+DXLAB_WEBSITE_NEWSELFWALES_URL=https://xxxxxxxxxxxxxxxx
+DXLAB_WEBSITE_OFF_THE_SHELF_URL=https://xxxxxxxxxxxxxxxx
 ```
-
-# DXLAB_WEBSITE_GRAPHQL_URL in now.josn replaces GRAPHQL_URL in .env files
-
-# similarly for other values...
 
 ## Server Setup
 
@@ -131,6 +107,7 @@ Zeit's `now.json` file has a config that proxies the following sites:
 
 - dxlab.sl.nsw.gov.au/80hz/
 - dxlab.sl.nsw.gov.au/index/
+- dxlab.sl.nsw.gov.au/kids-audio-guide/
 - dxlab.sl.nsw.gov.au/loom/
 - dxlab.sl.nsw.gov.au/mainstreet/
 - dxlab.sl.nsw.gov.au/meridian/

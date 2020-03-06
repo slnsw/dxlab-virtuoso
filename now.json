@@ -4,7 +4,6 @@
   "scope": "dxlab",
   "env": {
     "DXLAB_WEBSITE_GRAPHQL_URL": "@dxlab_website_prod_graphql_url",
-    "DXLAB_WEBSITE_GRAPHQL_HOST": "@dxlab_website_prod_graphql_host",
     "DXLAB_WEBSITE_BASE_URL": "@dxlab_website_prod_base_url",
     "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_prod_dxlab_wp_url",
     "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
@@ -16,7 +15,6 @@
   "build": {
     "env": {
       "DXLAB_WEBSITE_GRAPHQL_URL": "@dxlab_website_prod_graphql_url",
-      "DXLAB_WEBSITE_GRAPHQL_HOST": "@dxlab_website_prod_graphql_host",
       "DXLAB_WEBSITE_BASE_URL": "@dxlab_website_prod_base_url",
       "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_prod_dxlab_wp_url",
       "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
