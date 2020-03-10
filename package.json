@@ -7,6 +7,7 @@
     "start": "next start",
     "build": "NODE_ENV=production next build",
     "deploy": "now",
+    "deploy:staging": "now --local-config now.staging.json",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
