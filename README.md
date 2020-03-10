@@ -4,7 +4,7 @@ Node JS React application with server-side rendering for DX Lab's website.
 
 ## Getting Started
 
-```
+```bash
 $ git clone git@github.com:slnsw/dxlab-website
 $ npm install
 # Create up .env
