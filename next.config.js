@@ -18,21 +18,21 @@ module.exports = withCSS({
     customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
     if (dev) {
-      config.plugins.push(
+      customConfig.plugins.push(
         new StyleLintPlugin({
           configFile: './.stylelintrc.js',
           files: ['**/*.css'],
           emitErrors: false,
         }),
       );
-    }
 
-    customConfig.module.rules.push({
-      enforce: 'pre',
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'eslint-loader',
-    });
+      customConfig.module.rules.push({
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      });
+    }
 
     return customConfig;
   },

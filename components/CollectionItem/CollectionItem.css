@@ -27,7 +27,8 @@
   padding-top: var(--spacing-xs);
   /* margin-bottom: var(--spacing-xs); */
 
-  & a {
+  & a:link,
+  & a:visited {
     display: flex;
     flex-direction: column;
   }
