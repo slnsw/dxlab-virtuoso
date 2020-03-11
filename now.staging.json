@@ -23,6 +23,9 @@
       "DXLAB_WEBSITE_OFF_THE_SHELF_URL": "@dxlab_website_staging_off_the_shelf_url"
     }
   },
+  "github": {
+    "enabled": false
+  },
   "headers": [
     {
       "source": "/(.*)",

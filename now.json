@@ -8,9 +8,7 @@
     "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_prod_dxlab_wp_url",
     "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
     "DXLAB_WEBSITE_GTM_ID": "@dxlab_website_prod_gtm_id",
-    "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test",
-    "DXLAB_WEBSITE_NEWSELFWALES_URL": "@dxlab_website_prod_newselfwales_url",
-    "DXLAB_WEBSITE_OFF_THE_SHELF_URL": "@dxlab_website_prod_off_the_shelf_url"
+    "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test"
   },
   "build": {
     "env": {
@@ -19,10 +17,11 @@
       "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_prod_dxlab_wp_url",
       "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
       "DXLAB_WEBSITE_GTM_ID": "@dxlab_website_prod_gtm_id",
-      "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test",
-      "DXLAB_WEBSITE_NEWSELFWALES_URL": "@dxlab_website_prod_newselfwales_url",
-      "DXLAB_WEBSITE_OFF_THE_SHELF_URL": "@dxlab_website_prod_off_the_shelf_url"
+      "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test"
     }
+  },
+  "github": {
+    "enabled": false
   },
   "headers": [
     {
