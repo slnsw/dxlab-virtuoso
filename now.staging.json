@@ -2,15 +2,14 @@
   "name": "dxlab-website",
   "version": 2,
   "scope": "dxlab",
+  "alias": ["staging-dxlab.sl.nsw.gov.au"],
   "env": {
     "DXLAB_WEBSITE_GRAPHQL_URL": "@dxlab_website_staging_graphql_url",
     "DXLAB_WEBSITE_BASE_URL": "@dxlab_website_staging_base_url",
     "DXLAB_WEBSITE_DXLAB_WP_URL": "@dxlab_website_staging_dxlab_wp_url",
     "DXLAB_WEBSITE_FB_APP_ID": "@dxlab_website_prod_fb_app_id",
     "DXLAB_WEBSITE_GTM_ID": "@dxlab_website_prod_gtm_id",
-    "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test",
-    "DXLAB_WEBSITE_NEWSELFWALES_URL": "@dxlab_website_staging_newselfwales_url",
-    "DXLAB_WEBSITE_OFF_THE_SHELF_URL": "@dxlab_website_staging_off_the_shelf_url"
+    "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test"
   },
   "build": {
     "env": {
@@ -116,19 +115,19 @@
   "rewrites": [
     {
       "source": "/80hz/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/80hz/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/80hz/$1"
     },
     {
       "source": "/api/graphql(.*)",
-      "destination": "https://api.dxlab.sl.nsw.gov.au/graphql$1"
+      "destination": "https://staging-api.dxlab.sl.nsw.gov.au/graphql$1"
     },
     {
       "source": "/index/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/index/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/index/$1"
     },
     {
       "source": "/loom/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/loom/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/loom/$1"
     },
     {
       "source": "/kids-audio-guide(.*)",
@@ -136,63 +135,63 @@
     },
     {
       "source": "/mainstreet/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/mainstreet/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/mainstreet/$1"
     },
     {
       "source": "/meridian/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/meridian/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/meridian/$1"
     },
     {
       "source": "/muruview/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/muruview/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/muruview/$1"
     },
     {
       "source": "/newselfwales(.*)",
-      "destination": "https://dxlab-newselfwales.now.sh/newselfwales$1"
+      "destination": "https://dxlab-staging-newselfwales.now.sh/newselfwales$1"
     },
     {
       "source": "/static/newselfwales/(.*)",
-      "destination": "https://dxlab-newselfwales.now.sh/static/newselfwales/$1"
+      "destination": "https://dxlab-staging-newselfwales.now.sh/static/newselfwales/$1"
     },
     {
       "source": "/off-the-shelf/(.*)",
-      "destination": "https://dxlab-off-the-shelf.now.sh/off-the-shelf/$1"
+      "destination": "https://dxlab-staging-off-the-shelf.now.sh/off-the-shelf/$1"
     },
     {
       "source": "/pano-scope/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/pano-scope/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/pano-scope/$1"
     },
     {
       "source": "/portico/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/portico/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/portico/$1"
     },
     {
       "source": "/postcards-1001/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/postcards-1001/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/postcards-1001/$1"
     },
     {
       "source": "/search-terms/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/search-terms/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/search-terms/$1"
     },
     {
       "source": "/weemala/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/weemala/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/weemala/$1"
     },
     {
       "source": "/youngsydney/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/youngsydney/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/youngsydney/$1"
     },
     {
       "source": "/visionaries-explorer/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/visionaries-explorer/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/visionaries-explorer/$1"
     },
     {
       "source": "/feed/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/feed/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/feed/$1"
     },
     {
       "source": "/young-ct-2018/(.*)",
-      "destination": "https://wp.dxlab.sl.nsw.gov.au/young-ct-2018/$1"
+      "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/young-ct-2018/$1"
     }
   ]
 }
