@@ -6,7 +6,7 @@
     "dev": "next dev -p 5010",
     "start": "next start",
     "build": "NODE_ENV=production next build",
-    "deploy": "now",
+    "deploy:prod": "now --prod",
     "deploy:staging": "now --local-config now.staging.json",
     "test": "jest",
     "test:watch": "jest --watch",
