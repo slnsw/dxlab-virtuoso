@@ -47,10 +47,6 @@
   opacity: 0.35;
   /* background-image: url('../images/masthead-background-01.gif'); */
 
-  @media (--screen-sm) {
-    /*top: -8em;*/
-  }
-
   /* Gradient */
   &::after {
     display: block;
@@ -107,7 +103,6 @@
 
   @media (--screen-md) {
     font-size: var(--font-size-xxxxs);
-    /*font-size: 0.3em;*/
     letter-spacing: 0.3em;
   }
 }
@@ -122,7 +117,9 @@
   position: absolute;
   top: 21%;
   font-weight: 500;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
 
   &::before {
     position: absolute;

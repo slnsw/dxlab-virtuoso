@@ -16,8 +16,7 @@
     position: sticky;
     position: -webkit-sticky;
     top: -2em;
-    /* flex-direction: column; */
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     align-items: flex-start;
     padding-top: 0;
   }
@@ -108,7 +107,7 @@
   overflow: hidden;
   font-size: var(--font-size-sm);
   text-align: center;
-  transition: 0.3s;
+  transition: 0.3s background-color;
   pointer-events: none;
 
   @media (--screen-sm) {
