@@ -81,7 +81,7 @@ main {
   height: 100%;
   background-color: var(--colour-black);
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.3s opacity;
   pointer-events: none;
 }
 
