@@ -20,9 +20,6 @@
       "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test"
     }
   },
-  "github": {
-    "enabled": false
-  },
   "headers": [
     {
       "source": "/(.*)",
