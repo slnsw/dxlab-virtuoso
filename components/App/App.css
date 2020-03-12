@@ -32,7 +32,7 @@ main {
     rgba(0, 0, 0, 0.8)
   );
   opacity: 0;
-  transition: 1s;
+  transition: 1s opacity;
   pointer-events: none;
 
   @media (--screen-sm) {

@@ -140,8 +140,10 @@ class App extends Component {
           Includes line decoration for .primary-menu
         */}
         <div
-          className={`header-bg ${this.state.isHeaderBackgroundActive &&
-            'is-active'}`}
+          className={[
+            'header-bg',
+            this.state.isHeaderBackgroundActive ? 'is-active' : '',
+          ].join(' ')}
         />
 
         <div
