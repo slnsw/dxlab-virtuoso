@@ -118,7 +118,7 @@
   top: 21%;
   font-weight: 500;
   font-size: var(--font-size-xs);
-  letter-spacing: 0.35em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 
   &::before {
