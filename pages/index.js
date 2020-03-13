@@ -290,44 +290,6 @@ export const getStaticProps = async () => {
   };
 };
 
-// export default withApollo(
-//   graphql(homeQuery, {
-//     props: ({ data }) => {
-//       // console.log(data.experiments);
-
-//       return {
-//         ...data,
-//         posts:
-//           data &&
-//           data.posts &&
-//           data.posts.map((item) => {
-//             return {
-//               ...mapItemToTile(item),
-//               experimentUrl:
-//                 item.experiments &&
-//                 item.experiments[0] &&
-//                 item.experiments[0].url,
-//               githubUrl:
-//                 item.experiments &&
-//                 item.experiments[0] &&
-//                 item.experiments[0].githubUrl,
-//             };
-//           }),
-//         experiments:
-//           data.experiments &&
-//           data.experiments.map((item) => {
-//             return {
-//               ...mapItemToTile(item),
-//               url: item.url,
-//               blogUrl: item.posts[0] && `/blog/${item.posts[0].slug}`,
-//               githubUrl: item.githubUrl,
-//             };
-//           }),
-//       };
-//     },
-//   })(HomePage),
-// );
-
 export default HomePage;
 
 // TODO: Move to lib
