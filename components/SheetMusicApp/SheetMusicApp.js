@@ -32,8 +32,9 @@ const SheetMusicApp = ({ className }) => {
       <SheetMusic
         isPlaying={isPlaying}
         bpm={song.bpm}
-        scale={2}
+        scale={1}
         notation={song.notation}
+        // staffWidth={width}
         onEvent={handleEvent}
         onLineEnd={() => {
           setNotes([]);
