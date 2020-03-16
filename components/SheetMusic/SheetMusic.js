@@ -46,24 +46,19 @@ const SheetMusic = ({
             }
           },
           eventCallback: (event) => {
+            if (!event) {
+              return null;
+            }
+
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
             const note = notation.slice(event.startChar, event.endChar);
             const type = note.includes('z') ? 'rest' : 'note';
-            console.log(type);
 
             if (typeof onEvent === 'function') {
-              if (event === null) {
-                onEvent(null);
-              } else {
-                onEvent({
-                  ...event,
-                  note: parseAbcNote(note),
-                });
-              }
-            }
-
-            if (!event) {
-              return null;
+              onEvent({
+                ...event,
+                note: parseAbcNote(note),
+              });
             }
 
             const notes = document.getElementsByClassName('abcjs-note');
