@@ -7,18 +7,23 @@ import songs from './songs';
 import './SheetMusicApp.css';
 
 const SheetMusicApp = ({ className }) => {
+  const [songIndex] = React.useState(0);
+  const song = songs[songIndex];
+
   return (
     <div className={['sheet-music-app', className || ''].join(' ')}>
       <SheetMusic
         // isPlaying={isPlaying}
         // bpm={bpm}
         scale={2}
-        notation={songs[0].notation}
+        notation={song.notation}
         // onEvent={handleEvent.current}
         // onLineEnd={() => {
         //   setNotes([]);
         // }}
       />
+
+      <a href={song.url}>{song.title}</a>
     </div>
   );
 };
