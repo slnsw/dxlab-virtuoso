@@ -16,10 +16,9 @@ const SheetMusicApp = ({ className }) => {
   const [notes, setNotes] = React.useState([]);
 
   const handleEvent = (event) => {
-    // console.log(event);
-
-    if (event && event.note && event.note !== 'z2') {
-      const { name, duration } = parseAbcNote(event.note);
+    if (event && event.note) {
+      // const { name, duration } = parseAbcNote(event.note);
+      const { name, duration } = event.note;
 
       // console.log(event, name, duration);
 
@@ -62,27 +61,27 @@ SheetMusicApp.propTypes = {
   className: PropTypes.string,
 };
 
-const parseAbcNote = (abcNote) => {
-  let octave = 3;
-  let duration;
-  const noteName = abcNote.slice(0, 1);
+// const parseAbcNote = (abcNote) => {
+//   let octave = 3;
+//   let duration;
+//   const noteName = abcNote.slice(0, 1);
 
-  // Higher octave for lower case notes
-  if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
-    octave = 4;
-  }
+//   // Higher octave for lower case notes
+//   if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
+//     octave = 4;
+//   }
 
-  if (abcNote.includes('/')) {
-    duration = '8n';
-  } else {
-    duration = '4n';
-  }
+//   if (abcNote.includes('/')) {
+//     duration = '8n';
+//   } else {
+//     duration = '4n';
+//   }
 
-  return {
-    name: `${noteName}${octave}`,
-    duration,
-    octave,
-  };
-};
+//   return {
+//     name: `${noteName}${octave}`,
+//     duration,
+//     octave,
+//   };
+// };
 
 export default SheetMusicApp;
