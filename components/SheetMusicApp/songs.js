@@ -9,7 +9,7 @@ const lines = [
   '|G2 z2|E c/ B/4A/4 e c|d A B2|',
   'w:|vine|Of count-less * mul ti|tudes of sheep|',
   'V:2',
-  '|[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]'
+  '|[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]',
 ];
 
 const songs = [

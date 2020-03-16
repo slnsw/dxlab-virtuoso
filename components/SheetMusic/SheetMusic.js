@@ -51,16 +51,23 @@ const SheetMusic = ({
             }
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
-            const note = notation.slice(event.startChar, event.endChar);
+            const charNotes = event.startCharArray
+              .map((_, index) => {
+                const startChar = event.startCharArray[index];
+                const endChar = event.endCharArray[index];
+                const chars = notation.slice(startChar, endChar);
 
-            // console.log(event);
+                return chars;
+              })
+              .map((char) => parseAbcNote(char))
+              .filter((char) => Boolean(char));
 
-            // const type = note.includes('z') ? 'rest' : 'note';
+            console.log(charNotes);
 
             if (typeof onEvent === 'function') {
               onEvent({
                 ...event,
-                note: parseAbcNote(note),
+                notes: charNotes,
               });
             }
 
@@ -160,6 +167,13 @@ SheetMusic.propTypes = {
 const parseAbcNote = (abcNote) => {
   // Return null for rests
   if (abcNote.includes('z')) {
+    return null;
+  }
+
+  // Luke
+  // Need to parse the array! Maybe call parseAbcNote recursively?
+  if (abcNote.includes('[')) {
+    // This is a chord.
     return null;
   }
 
