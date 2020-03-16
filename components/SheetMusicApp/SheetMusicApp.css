@@ -1,4 +1,7 @@
 @import '../../styles/variables.css';
 
-/* .sheet-music-app {
-} */
+.sheet-music-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
