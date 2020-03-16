@@ -17,10 +17,7 @@ const SheetMusicApp = ({ className }) => {
 
   const handleEvent = (event) => {
     if (event && event.note) {
-      // const { name, duration } = parseAbcNote(event.note);
       const { name, duration } = event.note;
-
-      // console.log(event, name, duration);
 
       setNotes([{ name, duration }]);
     }
@@ -28,6 +25,10 @@ const SheetMusicApp = ({ className }) => {
 
   return (
     <div className={['sheet-music-app', className || ''].join(' ')}>
+      <p>
+        <a href={song.url}>{song.title}</a>
+      </p>
+
       <SheetMusic
         isPlaying={isPlaying}
         bpm={song.bpm}
@@ -40,13 +41,15 @@ const SheetMusicApp = ({ className }) => {
         }}
       />
 
-      <button onClick={() => setIsPlaying(!isPlaying)}>
+      <button
+        onClick={() => setIsPlaying(!isPlaying)}
+        className="button"
+        style={{
+          fontSize: '2rem',
+        }}
+      >
         {isPlaying ? 'Stop' : 'Play'}
       </button>
-
-      <p>
-        <a href={song.url}>{song.title}</a>
-      </p>
 
       <Song bpm={song.bpm}>
         <Track volume={0}>
@@ -60,28 +63,5 @@ const SheetMusicApp = ({ className }) => {
 SheetMusicApp.propTypes = {
   className: PropTypes.string,
 };
-
-// const parseAbcNote = (abcNote) => {
-//   let octave = 3;
-//   let duration;
-//   const noteName = abcNote.slice(0, 1);
-
-//   // Higher octave for lower case notes
-//   if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
-//     octave = 4;
-//   }
-
-//   if (abcNote.includes('/')) {
-//     duration = '8n';
-//   } else {
-//     duration = '4n';
-//   }
-
-//   return {
-//     name: `${noteName}${octave}`,
-//     duration,
-//     octave,
-//   };
-// };
 
 export default SheetMusicApp;
