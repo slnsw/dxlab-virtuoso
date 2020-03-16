@@ -52,7 +52,10 @@ const SheetMusic = ({
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
             const note = notation.slice(event.startChar, event.endChar);
-            const type = note.includes('z') ? 'rest' : 'note';
+
+            // console.log(event);
+
+            // const type = note.includes('z') ? 'rest' : 'note';
 
             if (typeof onEvent === 'function') {
               onEvent({
@@ -63,6 +66,7 @@ const SheetMusic = ({
 
             const notes = document.getElementsByClassName('abcjs-note');
             const rests = document.getElementsByClassName('abcjs-rest');
+            const lyrics = document.getElementsByClassName('abcjs-lyric');
 
             // Remove all highlighted notes
             /* eslint-disable */
@@ -73,11 +77,30 @@ const SheetMusic = ({
             for (let rest of rests) {
               rest.classList.remove('abcjs-rest-playing');
             }
+
+            for (let lyric of lyrics) {
+              lyric.classList.remove('abcjs-lyric-playing');
+            }
             /* eslint-enable */
 
+            // console.log(event.elements);
+
             // Highlight current playing notes
-            event.elements.forEach((element, index) => {
-              element[index].classList.add(`abcjs-${type}-playing`);
+            event.elements.forEach((nodes) => {
+              nodes.forEach((node) => {
+                const classes = node.className.baseVal;
+                let type;
+
+                if (classes.indexOf('abcjs-lyric') > -1) {
+                  type = 'lyric';
+                } else if (classes.indexOf('abcjs-rest') > -1) {
+                  type = 'rest';
+                } else if (classes.indexOf('abcjs-note') > -1) {
+                  type = 'note';
+                }
+
+                node.classList.add(`abcjs-${type}-playing`);
+              });
             });
           },
         });
@@ -118,6 +141,10 @@ const SheetMusic = ({
           }
 
           #paper .abcjs-rest-playing {
+            fill: #d10fc9;
+          }
+
+          #paper .abcjs-lyric-playing {
             fill: #d10fc9;
           }
         `}
