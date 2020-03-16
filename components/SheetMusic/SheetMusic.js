@@ -51,19 +51,18 @@ const SheetMusic = ({
             }
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
-            const charNotes = event.startCharArray
+            const allNotes = event.startCharArray
               .map((_, index) => {
                 const startChar = event.startCharArray[index];
                 const endChar = event.endCharArray[index];
                 const chars = notation.slice(startChar, endChar);
-
+                console.log(chars);
                 return chars;
               })
-              .map((char) => parseAbcNote(char))
-              .filter((char) => Boolean(char));
+              .map((char) => parseNotesToArray(char));
+            console.log('object:', allNotes);
 
-            console.log(charNotes);
-
+            const charNotes = allNotes[0].filter((char) => Boolean(char));
             if (typeof onEvent === 'function') {
               onEvent({
                 ...event,
@@ -164,38 +163,153 @@ SheetMusic.propTypes = {
   className: PropTypes.string,
 };
 
+const noteNames = [
+  'c',
+  'd',
+  'e',
+  'f',
+  'g',
+  'a',
+  'b',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'A',
+  'B',
+];
+
+const parseNotesToArray = (abcNote) => {
+  let out = [];
+  if (abcNote.includes('[')) {
+    // we have a chord, split it into notes. This is really not easy because
+    // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
+    const noteArray = [];
+    const noteModifiers = ['^', '_', '='];
+    const noteIndicies = [];
+
+    // we know notes will always have a name, so make a list of their locations in the string
+    for (let i = 1; i < abcNote.length - 1; i++) {
+      if (noteNames.includes(abcNote.charAt(i))) {
+        noteIndicies.push(i);
+      }
+    }
+
+    // now for each note
+    for (let i = 0; i < noteIndicies.length; i++) {
+      // look back to see if there is a pitch modifier before it, and start building notes
+      if (noteModifiers.includes(abcNote.charAt(noteIndicies[i] - 1))) {
+        noteArray[i] =
+          abcNote.charAt(noteIndicies[i] - 1) + abcNote.charAt(noteIndicies[i]);
+      } else {
+        noteArray[i] = abcNote.charAt(noteIndicies[i]);
+      }
+      // then look forward to either the closing ] or the next note name or modifier
+
+      let j = noteIndicies[i] + 1;
+      while (
+        abcNote.charAt(j) !== ']' &&
+        !noteNames.includes(abcNote.charAt(j)) &&
+        !noteModifiers.includes(abcNote.charAt(j))
+      ) {
+        noteArray[i] += abcNote.charAt(j);
+        j += 1;
+      }
+    }
+    // console.log('debug:', noteArray);
+    out = noteArray.map((note) => {
+      return parseAbcNote(note);
+    });
+  } else {
+    out = [parseAbcNote(abcNote)];
+  }
+  // console.log(out);
+  return out;
+};
+
+const getModifier = (note) => {
+  let modifier = ''; // none
+  if (note.slice(0, 1) === '^') {
+    modifier = '#'; // sharp
+  } else if (note.slice(0, 1) === '_') {
+    modifier = 'b'; // flat
+  } else if (note.slice(0, 1) === '=') {
+    modifier = ''; // '=' is 'natural' - is this the same as none??
+    // Also ABC notation allows ^^ and __ ... XXXX TODO later
+  }
+  return modifier;
+};
+
+const getNoteName = (abcNote) => {
+  let out = null;
+  for (let i = 0; i < abcNote.length; i++) {
+    if (noteNames.includes(abcNote.charAt(i))) {
+      out = abcNote.charAt(i);
+    }
+  }
+  return out;
+};
+
+const getOctave = (note) => {
+  // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
+  // ^ + and _ before letter - determine shap/flat modifier
+  // comma (,) or ' after letter for octave, then other crap after for note length
+  // So uppercase + comma (,) is lowest octave
+  // uppercase is octave 2, lowercase is octave 3
+  // uppercase + ' is octave 4.
+  const highNoteRE = /[cdefgab]/;
+  let octave = 2;
+  if (note.includes(',')) {
+    octave = 1;
+  } else if (note.includes("'")) {
+    octave = 4;
+  } else if (highNoteRE.test(note)) {
+    octave = 3;
+  }
+  return octave;
+};
+
+const getDuration = (note) => {
+  // this is wrong and needs work... TODO
+  let duration;
+  if (note.includes('/')) {
+    duration = '8n';
+  } else if (note.includes('2')) {
+    duration = '2n';
+  } else {
+    duration = '4n';
+  }
+  return duration;
+};
+
 const parseAbcNote = (abcNote) => {
+  console.log('note', abcNote);
   // Return null for rests
   if (abcNote.includes('z')) {
     return null;
   }
 
-  // Luke
-  // Need to parse the array! Maybe call parseAbcNote recursively?
-  if (abcNote.includes('[')) {
-    // This is a chord.
-    return null;
-  }
-
-  let octave = 3;
-  let duration;
-  const noteName = abcNote.slice(0, 1);
+  const octave = getOctave(abcNote);
+  const modifier = getModifier(abcNote);
+  const duration = getDuration(abcNote);
+  const noteName = getNoteName(abcNote);
 
   // Higher octave for lower case notes
-  if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
-    octave = 4;
-  }
+  // if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
+  //   octave = 4;
+  // }
 
-  if (abcNote.includes('/')) {
-    duration = '8n';
-  } else if (abcNote.includes('2')) {
-    duration = '2n';
-  } else {
-    duration = '4n';
-  }
+  // if (abcNote.includes('/')) {
+  //   duration = '8n';
+  // } else if (abcNote.includes('2')) {
+  //   duration = '2n';
+  // } else {
+  //   duration = '4n';
+  // }
 
   return {
-    name: `${noteName}${octave}`,
+    name: `${noteName}${modifier}${octave}`,
     duration,
     octave,
   };
