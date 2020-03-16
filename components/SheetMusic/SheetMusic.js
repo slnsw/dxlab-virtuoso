@@ -8,6 +8,7 @@ const SheetMusic = ({
   notation,
   bpm,
   scale = 1,
+  staffWidth = 800,
   className,
   onBeat,
   onEvent,
@@ -27,7 +28,8 @@ const SheetMusic = ({
         const tune = abcjs.current.renderAbc('paper', notation, {
           add_classes: true,
           scale,
-          staffwidth: 1200,
+          staffwidth: staffWidth,
+          responsive: 'resize',
         });
 
         timer.current = new abcjs.current.TimingCallbacks(tune[0], {
@@ -85,7 +87,7 @@ const SheetMusic = ({
     }
 
     /* eslint-disable */
-  }, [JSON.stringify(notation)]);
+  }, [JSON.stringify(notation), staffWidth]);
   /* eslint-enable */
 
   React.useEffect(() => {
@@ -103,7 +105,7 @@ const SheetMusic = ({
       <style>
         {`
           #paper {
-            width: 1300px;
+            // width: 1300px;
             margin: 0 auto 2rem auto;
             background-color: #DDD;
             border-radius: 8px;
