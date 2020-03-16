@@ -64,6 +64,7 @@ const SheetMusic = ({
             const notes = document.getElementsByClassName('abcjs-note');
             const rests = document.getElementsByClassName('abcjs-rest');
 
+            // Remove all highlighted notes
             /* eslint-disable */
             for (let note of notes) {
               note.classList.remove('abcjs-note-playing');
@@ -74,6 +75,7 @@ const SheetMusic = ({
             }
             /* eslint-enable */
 
+            // Highlight current playing notes
             event.elements.forEach((element) => {
               element[0].classList.add(`abcjs-${type}-playing`);
             });
