@@ -46,23 +46,19 @@ const SheetMusic = ({
             }
           },
           eventCallback: (event) => {
-            if (typeof onEvent === 'function') {
-              if (event === null) {
-                onEvent(null);
-              } else {
-                // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
-                // const note = notation[event.startChar];
-                const note = notation.slice(event.startChar, event.endChar);
-
-                onEvent({
-                  ...event,
-                  note,
-                });
-              }
-            }
-
             if (!event) {
               return null;
+            }
+
+            // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
+            const note = notation.slice(event.startChar, event.endChar);
+            const type = note.includes('z') ? 'rest' : 'note';
+
+            if (typeof onEvent === 'function') {
+              onEvent({
+                ...event,
+                note: parseAbcNote(note),
+              });
             }
 
             const notes = document.getElementsByClassName('abcjs-note');
@@ -79,7 +75,7 @@ const SheetMusic = ({
             /* eslint-enable */
 
             event.elements.forEach((element) => {
-              element[0].classList.add('abcjs-note-playing');
+              element[0].classList.add(`abcjs-${type}-playing`);
             });
           },
         });
@@ -118,6 +114,10 @@ const SheetMusic = ({
           #paper .abcjs-note-playing {
             fill: #d10fc9;
           }
+
+          #paper .abcjs-rest-playing {
+            fill: #d10fc9;
+          }
         `}
       </style>
     </>
@@ -126,6 +126,34 @@ const SheetMusic = ({
 
 SheetMusic.propTypes = {
   className: PropTypes.string,
+};
+
+const parseAbcNote = (abcNote) => {
+  // Return null for rests
+  if (abcNote.includes('z')) {
+    return null;
+  }
+
+  let octave = 3;
+  let duration;
+  const noteName = abcNote.slice(0, 1);
+
+  // Higher octave for lower case notes
+  if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
+    octave = 4;
+  }
+
+  if (abcNote.includes('/')) {
+    duration = '8n';
+  } else {
+    duration = '4n';
+  }
+
+  return {
+    name: `${noteName}${octave}`,
+    duration,
+    octave,
+  };
 };
 
 export default SheetMusic;
