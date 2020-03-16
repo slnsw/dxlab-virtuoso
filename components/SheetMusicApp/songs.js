@@ -1,5 +1,6 @@
-const header = 'X:1\nM:4/4\nK:A\nL:1/4\n';
+const header = 'X:1\nM:4/4\nK:A\nL:1/4\n%%staves {1 2}\n';
 const lines = [
+  'V:1',
   '|z4|E A/ c/ B G/F/|E e c2|',
   'w:||Our Sail-or Prince thy|no-ble ship|',
   '|A G/ B/ E F|G2 z2|E A/ c/ B G/F/|',
@@ -7,6 +8,8 @@ const lines = [
   '|E c/ B/4A/4 e c|d A B4/3 c/|E F A B|',
   '|G2 z2|E c/ B/4A/4 e c|d A B2|',
   'w:|vine|Of count-less * mul ti|tudes of sheep|',
+  'V:2',
+  '|[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]'
 ];
 
 const songs = [
