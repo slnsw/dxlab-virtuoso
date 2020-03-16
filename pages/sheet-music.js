@@ -1,11 +1,9 @@
 import React from 'react';
 
+import SheetMusicApp from '../components/SheetMusicApp/SheetMusicApp';
+
 const SheetMusicPage = () => {
-  return (
-    <div>
-      <h1>Sheet Music</h1>
-    </div>
-  );
+  return <SheetMusicApp />;
 };
 
 export default SheetMusicPage;
