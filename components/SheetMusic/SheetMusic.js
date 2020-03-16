@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './SheetMusic.css';
 
 const SheetMusic = ({
-  // isPlaying,
+  isPlaying,
   notation,
   bpm,
   scale = 1,
@@ -66,13 +66,15 @@ const SheetMusic = ({
             const notes = document.getElementsByClassName('abcjs-note');
             const rests = document.getElementsByClassName('abcjs-rest');
 
-            notes.forEach((note) => {
+            /* eslint-disable */
+            for (let note of notes) {
               note.classList.remove('abcjs-note-playing');
-            });
+            }
 
-            rests.forEach((rest) => {
-              rest.classList.remove('abcjs-note-playing');
-            });
+            for (let rest of rests) {
+              rest.classList.remove('abcjs-rest-playing');
+            }
+            /* eslint-enable */
 
             event.elements.forEach((element) => {
               element[0].classList.add('abcjs-note-playing');
@@ -86,13 +88,13 @@ const SheetMusic = ({
   }, [JSON.stringify(notation)]);
   /* eslint-enable */
 
-  // React.useEffect(() => {
-  //   if (isPlaying) {
-  //     timer.current.start();
-  //   } else {
-  //     timer.current.stop();
-  //   }
-  // }, [isPlaying]);
+  React.useEffect(() => {
+    if (isPlaying) {
+      timer.current.start();
+    } else {
+      timer.current.stop();
+    }
+  }, [isPlaying]);
 
   return (
     <>
