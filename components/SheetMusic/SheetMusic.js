@@ -51,18 +51,29 @@ const SheetMusic = ({
             }
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
-            const note = notation.slice(event.startChar, event.endChar);
-            const type = note.includes('z') ? 'rest' : 'note';
+            const charNotes = event.startCharArray
+              .map((_, index) => {
+                const startChar = event.startCharArray[index];
+                const endChar = event.endCharArray[index];
+                const chars = notation.slice(startChar, endChar);
+
+                return chars;
+              })
+              .map((char) => parseAbcNote(char))
+              .filter((char) => Boolean(char));
+
+            console.log(charNotes);
 
             if (typeof onEvent === 'function') {
               onEvent({
                 ...event,
-                note: parseAbcNote(note),
+                notes: charNotes,
               });
             }
 
             const notes = document.getElementsByClassName('abcjs-note');
             const rests = document.getElementsByClassName('abcjs-rest');
+            const lyrics = document.getElementsByClassName('abcjs-lyric');
 
             // Remove all highlighted notes
             /* eslint-disable */
@@ -73,11 +84,30 @@ const SheetMusic = ({
             for (let rest of rests) {
               rest.classList.remove('abcjs-rest-playing');
             }
+
+            for (let lyric of lyrics) {
+              lyric.classList.remove('abcjs-lyric-playing');
+            }
             /* eslint-enable */
 
+            // console.log(event.elements);
+
             // Highlight current playing notes
-            event.elements.forEach((element, index) => {
-              element[index].classList.add(`abcjs-${type}-playing`);
+            event.elements.forEach((nodes) => {
+              nodes.forEach((node) => {
+                const classes = node.className.baseVal;
+                let type;
+
+                if (classes.indexOf('abcjs-lyric') > -1) {
+                  type = 'lyric';
+                } else if (classes.indexOf('abcjs-rest') > -1) {
+                  type = 'rest';
+                } else if (classes.indexOf('abcjs-note') > -1) {
+                  type = 'note';
+                }
+
+                node.classList.add(`abcjs-${type}-playing`);
+              });
             });
           },
         });
@@ -120,6 +150,10 @@ const SheetMusic = ({
           #paper .abcjs-rest-playing {
             fill: #d10fc9;
           }
+
+          #paper .abcjs-lyric-playing {
+            fill: #d10fc9;
+          }
         `}
       </style>
     </>
@@ -133,6 +167,13 @@ SheetMusic.propTypes = {
 const parseAbcNote = (abcNote) => {
   // Return null for rests
   if (abcNote.includes('z')) {
+    return null;
+  }
+
+  // Luke
+  // Need to parse the array! Maybe call parseAbcNote recursively?
+  if (abcNote.includes('[')) {
+    // This is a chord.
     return null;
   }
 

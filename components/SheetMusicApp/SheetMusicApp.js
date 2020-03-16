@@ -16,10 +16,8 @@ const SheetMusicApp = ({ className }) => {
   const [notes, setNotes] = React.useState([]);
 
   const handleEvent = (event) => {
-    if (event && event.note) {
-      const { name, duration } = event.note;
-
-      setNotes([{ name, duration }]);
+    if (event && event.notes) {
+      setNotes(event.notes);
     }
   };
 
