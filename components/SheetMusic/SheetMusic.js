@@ -200,7 +200,7 @@ const SheetMusic = ({
     /* eslint-disable */
     const decimalDuration = eval(str) * unitNoteLength;
     /* eslint-enable */
-    const duration = (60 / bpm) * decimalDuration;
+    const duration = (60 / bpm) * 4 * decimalDuration;
 
     // if (note.includes('/')) {
     //   duration = '8n';
