@@ -13,12 +13,11 @@ const AUDIO_BASE_URL =
 
 const pianoSamples = {
   'C#3': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_020.mp3`,
-  'D#3': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_022.mp3`,
-  F3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_024.mp3`,
-  G3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_026.mp3`,
-  A3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_028.mp3`,
-  B3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_030.mp3`,
-  'C#4': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_032.mp3`,
+  F3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_022.mp3`,
+  A3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_024.mp3`,
+  'C#4': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_026.mp3`,
+  F4: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_028.mp3`,
+  G4: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_030.mp3`,
 };
 
 const SheetMusicApp = ({ className }) => {
