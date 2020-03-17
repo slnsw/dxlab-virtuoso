@@ -50,13 +50,60 @@ const SheetMusic = ({
               return null;
             }
 
+            // Some scores can have multiple rows of staves per line. We need to know which
+            // row our notes belong to so the right instrument can play them.
+            // In the abc notation this is denoted by %%staves {1 2} in the header.
+            let numStaves = 1;
+            const staffEndPosns = [notation.length];
+            let staffNums = [];
+            const staves = notation.indexOf('%%staves');
+            if (staves > -1) {
+              // we do in fact have more than one staff per line, lets get a list of the nums
+              const eol = notation.indexOf('\n', staves);
+              staffNums = notation
+                .slice(staves, eol)
+                .match(/\d+/g)
+                .map((n) => {
+                  return parseInt(n, 10);
+                });
+              if (staffNums.length) {
+                numStaves = Math.max(...staffNums);
+              }
+            }
+            // So staffNums will be what was between the { } after %%staves in the header.
+            // But we need the position of where the note data lies within the notation string for
+            // each set of staves. These regions are prepended with V:1, V:2 etc
+            if (numStaves > 1) {
+              for (let i = staffNums.length - 1; i > 0; i--) {
+                const pos = notation.indexOf(`V:${i + 1}`);
+                staffEndPosns.unshift(pos);
+              }
+            }
+            // Now we know where each region ends we can compare a note position with
+            // those end points and deduce which staff it is a note for! Phew.
+
+            // console.log('staves', staffEndPosns);
+
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
             const allNotes = event.startCharArray
-              .map((_, index) => {
+              .map((pos, index) => {
                 const startChar = event.startCharArray[index];
                 const endChar = event.endCharArray[index];
-                const chars = notation.slice(startChar, endChar);
-                console.log(chars);
+                // work out what staff line this note is on
+                let line = null;
+                let lineCounter = 0;
+                while (!line) {
+                  if (staffEndPosns[lineCounter] < startChar) {
+                    lineCounter += 1;
+                  } else {
+                    line = lineCounter + 1;
+                  }
+                }
+                const chars = {
+                  notes: notation.slice(startChar, endChar),
+                  line,
+                };
+                // console.log(chars, line);
                 return chars;
               })
               .map((char) => parseNotesToArray(char));
@@ -180,7 +227,9 @@ const noteNames = [
   'B',
 ];
 
-const parseNotesToArray = (abcNote) => {
+const parseNotesToArray = (data) => {
+  const abcNote = data.notes;
+  const { line } = data;
   let out = [];
   if (abcNote.includes('[')) {
     // we have a chord, split it into notes. This is really not easy because
@@ -217,14 +266,12 @@ const parseNotesToArray = (abcNote) => {
         j += 1;
       }
     }
-    // console.log('debug:', noteArray);
     out = noteArray.map((note) => {
-      return parseAbcNote(note);
+      return parseAbcNote(note, line);
     });
   } else {
-    out = [parseAbcNote(abcNote)];
+    out = [parseAbcNote(abcNote, line)];
   }
-  // console.log(out);
   return out;
 };
 
@@ -245,7 +292,7 @@ const getNoteName = (abcNote) => {
   let out = null;
   for (let i = 0; i < abcNote.length; i++) {
     if (noteNames.includes(abcNote.charAt(i))) {
-      out = abcNote.charAt(i);
+      out = abcNote.charAt(i).toUpperCase();
     }
   }
   return out;
@@ -283,8 +330,7 @@ const getDuration = (note) => {
   return duration;
 };
 
-const parseAbcNote = (abcNote) => {
-  console.log('note', abcNote);
+const parseAbcNote = (abcNote, line) => {
   // Return null for rests
   if (abcNote.includes('z')) {
     return null;
@@ -295,23 +341,11 @@ const parseAbcNote = (abcNote) => {
   const duration = getDuration(abcNote);
   const noteName = getNoteName(abcNote);
 
-  // Higher octave for lower case notes
-  // if (['c', 'd', 'e', 'f', 'g', 'a', 'b'].includes(noteName)) {
-  //   octave = 4;
-  // }
-
-  // if (abcNote.includes('/')) {
-  //   duration = '8n';
-  // } else if (abcNote.includes('2')) {
-  //   duration = '2n';
-  // } else {
-  //   duration = '4n';
-  // }
-
   return {
     name: `${noteName}${modifier}${octave}`,
     duration,
     octave,
+    line,
   };
 };
 
