@@ -103,14 +103,12 @@ const SheetMusic = ({
                   notes: notation.slice(startChar, endChar),
                   line,
                 };
-                // console.log(chars, line);
                 return chars;
               })
               .map((char) => parseNotesToArray(char));
-            // console.log('object:', allNotes);
-
-            const charNotes = [].concat
-              .apply([], allNotes)
+            // now smoosh all the notes into one array and remove nulls (rests)
+            const charNotes = []
+              .concat(...allNotes)
               .filter((char) => Boolean(char));
             if (typeof onEvent === 'function') {
               onEvent({
@@ -137,8 +135,6 @@ const SheetMusic = ({
               lyric.classList.remove('abcjs-lyric-playing');
             }
             /* eslint-enable */
-
-            // console.log(event.elements);
 
             // Highlight current playing notes
             event.elements.forEach((nodes) => {
