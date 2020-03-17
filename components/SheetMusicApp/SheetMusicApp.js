@@ -13,6 +13,7 @@ const SheetMusicApp = ({ className }) => {
   const song = songs[songIndex];
 
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isSoundsLoaded, setIsSoundsLoaded] = React.useState(false);
   const [notes, setNotes] = React.useState([]);
 
   const handleEvent = (event) => {
@@ -39,19 +40,30 @@ const SheetMusicApp = ({ className }) => {
         }}
       />
 
-      <button
-        onClick={() => setIsPlaying(!isPlaying)}
-        className="button"
-        style={{
-          fontSize: '2rem',
-        }}
-      >
-        {isPlaying ? 'Stop' : 'Play'}
-      </button>
+      {isSoundsLoaded && (
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className="button"
+          style={{
+            fontSize: '2rem',
+          }}
+        >
+          {isPlaying ? 'Stop' : 'Play'}
+        </button>
+      )}
 
       <Song bpm={song.bpm}>
         <Track volume={0}>
-          <Instrument type="amSynth" notes={notes} />
+          <Instrument
+            type="sampler"
+            notes={notes}
+            samples={{
+              'C#3': `https://reactronica.com/reactconfau2020/audio/piano/Player_dyn2_rr1_020_louder.wav`,
+              'D#3': `https://reactronica.com/reactconfau2020/audio/piano/Player_dyn2_rr1_022_louder.wav`,
+              F3: `https://reactronica.com/reactconfau2020/audio/piano/Player_dyn2_rr1_024_louder.wav`,
+            }}
+            onLoad={() => setIsSoundsLoaded(true)}
+          />
         </Track>
       </Song>
     </div>
