@@ -51,7 +51,7 @@ const SheetMusicApp = ({ className }) => {
 
       <Song bpm={song.bpm}>
         <Track volume={0}>
-          <Instrument type="synth" notes={notes} />
+          <Instrument type="amSynth" notes={notes} />
         </Track>
       </Song>
     </div>
