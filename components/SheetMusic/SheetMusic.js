@@ -18,6 +18,219 @@ const SheetMusic = ({
   const abcjs = React.useRef();
   const timer = React.useRef();
 
+  // Some scores can have multiple rows of staves per line. We need to know which
+  // row our notes belong to so the right instrument can play them.
+  // In the abc notation this is denoted by %%staves {1 2} in the header.
+  let numStaves = 1;
+  const staffEndPosns = [notation.length];
+  let staffNums = [];
+  const staves = notation.indexOf('%%staves');
+  if (staves > -1) {
+    // we do in fact have more than one staff per line, lets get a list of the nums
+    const eol = notation.indexOf('\n', staves);
+    staffNums = notation
+      .slice(staves, eol)
+      .match(/\d+/g)
+      .map((n) => {
+        return parseInt(n, 10);
+      });
+    if (staffNums.length) {
+      numStaves = Math.max(...staffNums);
+    }
+  }
+  // So staffNums will be what was between the { } after %%staves in the header.
+  // But we need the position of where the note data lies within the notation string for
+  // each set of staves. These regions are prepended with V:1, V:2 etc
+  if (numStaves > 1) {
+    for (let i = staffNums.length - 1; i > 0; i--) {
+      // find posn of V:X
+      const pos = notation.indexOf(`V:${i + 1}`);
+      // add it to front of array
+      staffEndPosns.unshift(pos);
+    }
+  }
+  // Now we know where each region ends we can compare a note position with
+  // those end points and deduce which staff it is a note for! Phew.
+
+  // now compute our unit note length:
+  let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
+  const lPos = notation.indexOf('L:');
+  if (lPos > -1) {
+    const nextNL = notation.indexOf('\n', lPos);
+    const str = notation.slice(lPos + 2, nextNL);
+    /* eslint-disable */
+    unitNoteLength = eval(str);
+    /* eslint-enable */
+  }
+
+  const noteNames = [
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'a',
+    'b',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'A',
+    'B',
+  ];
+
+  const parseNotesToArray = (data) => {
+    const abcNote = data.notes;
+    const { line } = data;
+    let out = [];
+    if (abcNote.includes('[')) {
+      // we have a chord, split it into notes. This is really not easy because
+      // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
+      const noteArray = [];
+      const noteModifiers = ['^', '_', '='];
+      const noteIndicies = [];
+
+      // we know notes will always have a name, so make a list of their locations in the string
+      for (let i = 1; i < abcNote.length - 1; i++) {
+        if (noteNames.includes(abcNote.charAt(i))) {
+          noteIndicies.push(i);
+        }
+      }
+
+      // now for each note
+      for (let i = 0; i < noteIndicies.length; i++) {
+        // look back to see if there is a pitch modifier before it, and start building notes
+        if (noteModifiers.includes(abcNote.charAt(noteIndicies[i] - 1))) {
+          noteArray[i] =
+            abcNote.charAt(noteIndicies[i] - 1) +
+            abcNote.charAt(noteIndicies[i]);
+        } else {
+          noteArray[i] = abcNote.charAt(noteIndicies[i]);
+        }
+        // then look forward to either the closing ] or the next note name or modifier
+        let j = noteIndicies[i] + 1;
+        while (
+          abcNote.charAt(j) !== ']' &&
+          !noteNames.includes(abcNote.charAt(j)) &&
+          !noteModifiers.includes(abcNote.charAt(j))
+        ) {
+          noteArray[i] += abcNote.charAt(j);
+          j += 1;
+        }
+      }
+      out = noteArray.map((note) => {
+        return parseAbcNote(note, line);
+      });
+    } else {
+      out = [parseAbcNote(abcNote, line)];
+    }
+    return out;
+  };
+
+  const getModifier = (note) => {
+    let modifier = ''; // none
+    if (note.slice(0, 1) === '^') {
+      modifier = '#'; // sharp
+    } else if (note.slice(0, 1) === '_') {
+      modifier = 'b'; // flat
+    } else if (note.slice(0, 1) === '=') {
+      modifier = ''; // '=' is 'natural' - is this the same as none??
+      // Also ABC notation allows ^^ and __ ... XXXX TODO later
+    }
+    return modifier;
+  };
+
+  const getNoteName = (abcNote) => {
+    let out = null;
+    for (let i = 0; i < abcNote.length; i++) {
+      if (noteNames.includes(abcNote.charAt(i))) {
+        out = abcNote.charAt(i).toUpperCase();
+      }
+    }
+    return out;
+  };
+
+  const getOctave = (note) => {
+    // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
+    // ^ + and _ before letter - determine shap/flat modifier
+    // comma (,) or ' after letter for octave, then other crap after for note length
+    // So uppercase + comma (,) is lowest octave
+    // uppercase is octave 2, lowercase is octave 3
+    // uppercase + ' is octave 4.
+    const highNoteRE = /[cdefgab]/;
+    let octave = 2;
+    if (note.includes(',')) {
+      octave = 1;
+    } else if (note.includes("'")) {
+      octave = 4;
+    } else if (highNoteRE.test(note)) {
+      octave = 3;
+    }
+    return octave;
+  };
+
+  const getDuration = (note) => {
+    let str = note.trim();
+    // remove accidental modifiers
+    if (
+      str.charAt(0) === '^' ||
+      str.charAt(0) === '_' ||
+      str.charAt(0) === '='
+    ) {
+      str = str.slice(1);
+    }
+    // remove note
+    const notesRE = /[cdefgabCDEFGAB]/;
+    if (notesRE.test(str.charAt(0))) {
+      str = str.slice(1);
+    }
+    // remove any octave modifiers like comma or '
+    if (str.charAt(0) === "'" || str.charAt(0) === ',') {
+      str = str.slice(1);
+    }
+    // add a 1 if missing from start
+    if (str === '' || str.charAt(0) === '/') {
+      str = `1${str}`;
+    }
+    // handle case for / being shorthand for /2
+    if (str.charAt(str.length - 1) === '/') {
+      str += '2';
+    }
+    /* eslint-disable */
+    const decimalDuration = eval(str) * unitNoteLength;
+    /* eslint-enable */
+    const duration = (60 / bpm) * decimalDuration;
+
+    // if (note.includes('/')) {
+    //   duration = '8n';
+    // } else if (note.includes('2')) {
+    //   duration = '2n';
+    // } else {
+    //   duration = '4n';
+    // }
+    return duration;
+  };
+
+  const parseAbcNote = (abcNote, line) => {
+    // Return null for rests
+    if (abcNote.includes('z')) {
+      return null;
+    }
+
+    const octave = getOctave(abcNote);
+    const modifier = getModifier(abcNote);
+    const duration = getDuration(abcNote);
+    const noteName = getNoteName(abcNote);
+
+    return {
+      name: `${noteName}${modifier}${octave}`,
+      duration,
+      octave,
+      line,
+    };
+  };
+
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       /* eslint-disable */
@@ -49,40 +262,6 @@ const SheetMusic = ({
             if (!event) {
               return null;
             }
-
-            // Some scores can have multiple rows of staves per line. We need to know which
-            // row our notes belong to so the right instrument can play them.
-            // In the abc notation this is denoted by %%staves {1 2} in the header.
-            let numStaves = 1;
-            const staffEndPosns = [notation.length];
-            let staffNums = [];
-            const staves = notation.indexOf('%%staves');
-            if (staves > -1) {
-              // we do in fact have more than one staff per line, lets get a list of the nums
-              const eol = notation.indexOf('\n', staves);
-              staffNums = notation
-                .slice(staves, eol)
-                .match(/\d+/g)
-                .map((n) => {
-                  return parseInt(n, 10);
-                });
-              if (staffNums.length) {
-                numStaves = Math.max(...staffNums);
-              }
-            }
-            // So staffNums will be what was between the { } after %%staves in the header.
-            // But we need the position of where the note data lies within the notation string for
-            // each set of staves. These regions are prepended with V:1, V:2 etc
-            if (numStaves > 1) {
-              for (let i = staffNums.length - 1; i > 0; i--) {
-                const pos = notation.indexOf(`V:${i + 1}`);
-                staffEndPosns.unshift(pos);
-              }
-            }
-            // Now we know where each region ends we can compare a note position with
-            // those end points and deduce which staff it is a note for! Phew.
-
-            // console.log('staves', staffEndPosns);
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
             const allNotes = event.startCharArray
@@ -206,145 +385,6 @@ const SheetMusic = ({
 
 SheetMusic.propTypes = {
   className: PropTypes.string,
-};
-
-const noteNames = [
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'a',
-  'b',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'A',
-  'B',
-];
-
-const parseNotesToArray = (data) => {
-  const abcNote = data.notes;
-  const { line } = data;
-  let out = [];
-  if (abcNote.includes('[')) {
-    // we have a chord, split it into notes. This is really not easy because
-    // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
-    const noteArray = [];
-    const noteModifiers = ['^', '_', '='];
-    const noteIndicies = [];
-
-    // we know notes will always have a name, so make a list of their locations in the string
-    for (let i = 1; i < abcNote.length - 1; i++) {
-      if (noteNames.includes(abcNote.charAt(i))) {
-        noteIndicies.push(i);
-      }
-    }
-
-    // now for each note
-    for (let i = 0; i < noteIndicies.length; i++) {
-      // look back to see if there is a pitch modifier before it, and start building notes
-      if (noteModifiers.includes(abcNote.charAt(noteIndicies[i] - 1))) {
-        noteArray[i] =
-          abcNote.charAt(noteIndicies[i] - 1) + abcNote.charAt(noteIndicies[i]);
-      } else {
-        noteArray[i] = abcNote.charAt(noteIndicies[i]);
-      }
-      // then look forward to either the closing ] or the next note name or modifier
-
-      let j = noteIndicies[i] + 1;
-      while (
-        abcNote.charAt(j) !== ']' &&
-        !noteNames.includes(abcNote.charAt(j)) &&
-        !noteModifiers.includes(abcNote.charAt(j))
-      ) {
-        noteArray[i] += abcNote.charAt(j);
-        j += 1;
-      }
-    }
-    out = noteArray.map((note) => {
-      return parseAbcNote(note, line);
-    });
-  } else {
-    out = [parseAbcNote(abcNote, line)];
-  }
-  return out;
-};
-
-const getModifier = (note) => {
-  let modifier = ''; // none
-  if (note.slice(0, 1) === '^') {
-    modifier = '#'; // sharp
-  } else if (note.slice(0, 1) === '_') {
-    modifier = 'b'; // flat
-  } else if (note.slice(0, 1) === '=') {
-    modifier = ''; // '=' is 'natural' - is this the same as none??
-    // Also ABC notation allows ^^ and __ ... XXXX TODO later
-  }
-  return modifier;
-};
-
-const getNoteName = (abcNote) => {
-  let out = null;
-  for (let i = 0; i < abcNote.length; i++) {
-    if (noteNames.includes(abcNote.charAt(i))) {
-      out = abcNote.charAt(i).toUpperCase();
-    }
-  }
-  return out;
-};
-
-const getOctave = (note) => {
-  // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
-  // ^ + and _ before letter - determine shap/flat modifier
-  // comma (,) or ' after letter for octave, then other crap after for note length
-  // So uppercase + comma (,) is lowest octave
-  // uppercase is octave 2, lowercase is octave 3
-  // uppercase + ' is octave 4.
-  const highNoteRE = /[cdefgab]/;
-  let octave = 2;
-  if (note.includes(',')) {
-    octave = 1;
-  } else if (note.includes("'")) {
-    octave = 4;
-  } else if (highNoteRE.test(note)) {
-    octave = 3;
-  }
-  return octave;
-};
-
-const getDuration = (note) => {
-  // this is wrong and needs work... TODO
-  let duration;
-  if (note.includes('/')) {
-    duration = '8n';
-  } else if (note.includes('2')) {
-    duration = '2n';
-  } else {
-    duration = '4n';
-  }
-  return duration;
-};
-
-const parseAbcNote = (abcNote, line) => {
-  // Return null for rests
-  if (abcNote.includes('z')) {
-    return null;
-  }
-
-  const octave = getOctave(abcNote);
-  const modifier = getModifier(abcNote);
-  const duration = getDuration(abcNote);
-  const noteName = getNoteName(abcNote);
-
-  return {
-    name: `${noteName}${modifier}${octave}`,
-    duration,
-    octave,
-    line,
-  };
 };
 
 export default SheetMusic;
