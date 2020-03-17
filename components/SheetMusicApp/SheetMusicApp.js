@@ -88,6 +88,9 @@ const SheetMusicApp = ({ className }) => {
             type="sampler"
             notes={vocalNotes}
             samples={pianoSamples}
+            options={{
+              release: '2n',
+            }}
             onLoad={() => setIsVocalLoaded(true)}
           />
         </Track>
@@ -98,6 +101,9 @@ const SheetMusicApp = ({ className }) => {
             notes={pianoNotes}
             samples={pianoSamples}
             onLoad={() => setIsPianoLoaded(true)}
+            options={{
+              release: '2n',
+            }}
           />
         </Track>
       </Song>
