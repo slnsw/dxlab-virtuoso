@@ -86,7 +86,7 @@ const SheetMusic = ({
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
             const allNotes = event.startCharArray
-              .map((pos, index) => {
+              .map((_, index) => {
                 const startChar = event.startCharArray[index];
                 const endChar = event.endCharArray[index];
                 // work out what staff line this note is on
@@ -107,9 +107,9 @@ const SheetMusic = ({
                 return chars;
               })
               .map((char) => parseNotesToArray(char));
-            console.log('object:', allNotes);
-
-            const charNotes = allNotes[0].filter((char) => Boolean(char));
+              // console.log('object:', allNotes);
+              
+              const charNotes = [].concat.apply([], allNotes).filter((char) => Boolean(char));
             if (typeof onEvent === 'function') {
               onEvent({
                 ...event,

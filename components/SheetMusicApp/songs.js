@@ -21,7 +21,7 @@ const lines = [
   // Hail to the
   '|z [C/E/A/] z/ [B,/E/B/] z/ [C/E/A/] z/| z [A,^DA] [B,=DA] G/E/|E [A,DF] [A,DA] [DFB]|',
   // vine of countless
-  '|[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [A,^DA]|',
+  '|[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [B,^DA]|',
 ];
 
 const songs = [
