@@ -17,6 +17,7 @@ const SheetMusicApp = ({ className }) => {
 
   const handleEvent = (event) => {
     if (event && event.notes) {
+      console.log(event.notes);
       setNotes(event.notes);
     }
   };
