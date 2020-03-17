@@ -107,9 +107,11 @@ const SheetMusic = ({
                 return chars;
               })
               .map((char) => parseNotesToArray(char));
-              // console.log('object:', allNotes);
-              
-              const charNotes = [].concat.apply([], allNotes).filter((char) => Boolean(char));
+            // console.log('object:', allNotes);
+
+            const charNotes = [].concat
+              .apply([], allNotes)
+              .filter((char) => Boolean(char));
             if (typeof onEvent === 'function') {
               onEvent({
                 ...event,
