@@ -11,7 +11,7 @@ const lines = [
   'w:|Hail to the * might-ty|Land of Gold, Of|wav-ing corn and|',
   '|G2 z2|E c/ B/4A/4 e c|d A B2|',
   'w:|vine|Of count-less * mul ti|tudes of sheep|',
-  '|c e/ E/ c3/2 B/|A2 z2|z4|z4|',
+  '|c e/ E/ !fermata!c3/2 B/|A2 z2|z4|z4|',
   'w:|And countless herds of|kine.|||',
   'V:2',
   // Our Sailor
@@ -25,7 +25,7 @@ const lines = [
   // vine of countless
   '|[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [B,^DA]|',
   // And countless
-  '|[CEA] [A,EA] [B,^DA] [B,=DG]|[CA] ((3E/A/c/) e E|[EF] A/d/ [Ec] ((3e/d/c/)|[EA] [CE] [CA] z|',
+  '|[CEA] [A,EA] !fermata![B,^DA] [B,=DG]|[CA] ((3E/A/c/) e E|[EF] A/>d/ [Ec] ((3e/d/c/)|[EA] [CE] [CA] z|',
   // 'V:3 clef=bass',
   // '||',
 ];
