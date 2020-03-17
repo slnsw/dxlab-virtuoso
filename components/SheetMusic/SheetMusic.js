@@ -367,15 +367,15 @@ const SheetMusic = ({
           }
 
           #paper .abcjs-note-playing {
-            fill: #d10fc9;
+            fill: #e6007e;
           }
 
           #paper .abcjs-rest-playing {
-            fill: #d10fc9;
+            fill: #e6007e;
           }
 
           #paper .abcjs-lyric-playing {
-            fill: #d10fc9;
+            fill: #e6007e;
           }
         `}
       </style>
