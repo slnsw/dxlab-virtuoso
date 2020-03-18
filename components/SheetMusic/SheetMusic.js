@@ -351,15 +351,17 @@ const SheetMusic = ({
 
   return (
     <>
-      <div id="paper" ref={paper} className={className || ''}></div>
+      <div
+        id="paper"
+        ref={paper}
+        className={['sheet-music', className || ''].join(' ')}
+      />
 
       <style>
         {`
-          #paper {
-            // width: 1300px;
+          .sheet-music {
             margin: 0 auto 2rem auto;
-            background-color: #DDD;
-            border-radius: 8px;
+            background-color: #FFF;
           }
 
           #paper .abcjs-note, #paper .abcjs-rest {

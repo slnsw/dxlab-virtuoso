@@ -35,8 +35,11 @@ const lines = [
 
 const songs = [
   {
-    title: 'Our Sailor Prince by J.C. Neild Jr, 1867',
+    title: 'National Song: Our Sailor Prince',
+    creator: 'Neild, J. C',
     url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
     notation: header + lines.join('\n'),
     bpm: 70,
   },

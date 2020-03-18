@@ -53,34 +53,42 @@ const SheetMusicApp = ({ className }) => {
 
   return (
     <div className={['sheet-music-app', className || ''].join(' ')}>
-      <p>
-        <a href={song.url}>{song.title}</a>
-      </p>
+      <div className="sheet-music-app__page">
+        <header>
+          <a href={song.url}>
+            <img
+              className="sheet-music-app__thumbnail"
+              src={song.imageUrl}
+              alt={song.title}
+            />
+          </a>
 
-      <SheetMusic
-        isPlaying={isPlaying}
-        bpm={song.bpm}
-        scale={1}
-        notation={song.notation}
-        // staffWidth={width}
-        onEvent={handleEvent}
-        onLineEnd={() => {
-          setVocalNotes([]);
-          setPianoNotes([]);
-        }}
-      />
+          <h1 className={'sheet-music-app__title'}>{song.title}</h1>
+          <p className="sheet-music-app__creator">{song.creator}</p>
 
-      {isSamplesLoaded && (
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="button"
-          style={{
-            fontSize: '2rem',
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="button--light"
+            disabled={!isSamplesLoaded}
+          >
+            {!isSamplesLoaded ? 'Loading' : <>{isPlaying ? 'Stop' : 'Play'}</>}
+          </button>
+        </header>
+
+        <SheetMusic
+          isPlaying={isPlaying}
+          bpm={song.bpm}
+          scale={1}
+          notation={song.notation}
+          // staffWidth={width}
+          className="sheet-music-app__sheet-music"
+          onEvent={handleEvent}
+          onLineEnd={() => {
+            setVocalNotes([]);
+            setPianoNotes([]);
           }}
-        >
-          {isPlaying ? 'Stop' : 'Play'}
-        </button>
-      )}
+        />
+      </div>
 
       <Song bpm={song.bpm}>
         <Track volume={0}>
