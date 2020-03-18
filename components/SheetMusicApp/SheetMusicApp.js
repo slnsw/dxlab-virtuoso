@@ -81,7 +81,13 @@ const SheetMusicApp = ({ className }) => {
           scale={1}
           notation={song.notation}
           // staffWidth={width}
+          oneSvgPerLine={true}
           className="sheet-music-app__sheet-music"
+          // onClick={(element) => {
+          // This is undocumented
+          // console.log(element.abselem);
+          // element.abselem.highlight('test', 'blue');
+          // }}
           onEvent={handleEvent}
           onLineEnd={() => {
             setVocalNotes([]);
