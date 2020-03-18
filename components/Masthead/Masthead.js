@@ -2,8 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import shuffle from '../../lib/shuffle';
-import './Masthead.css';
-import '../../styles/glitch.css';
+// import './Masthead.css';
+// import '../../styles/glitch.css';
 
 class Masthead extends Component {
   static propTypes = {

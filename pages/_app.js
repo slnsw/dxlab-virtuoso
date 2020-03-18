@@ -1,6 +1,13 @@
 import { useRouter } from 'next/router';
 // import App from 'next/app'
 
+import '../styles/base.css';
+import '../styles/globals.css';
+
+import './index.css';
+import '../components/Masthead/Masthead.css';
+import '../components/Header/Header.css';
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../Button';
-import './TileButtonGroup.css';
+// import './TileButtonGroup.css';
 
 class TileButtonGroup extends Component {
   static propTypes = {

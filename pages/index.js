@@ -10,7 +10,7 @@ import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import { formatDate } from '../lib';
-import './index.css';
+// import './index.css';
 import config from '../lib/config';
 
 class HomePage extends Component {
