@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './ShareBox.css';
+// import './ShareBox.css';
 
 class ShareBox extends Component {
   static propTypes = {

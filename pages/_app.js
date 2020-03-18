@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 import '../styles/base.css';
 import '../styles/globals.css';
+import '../styles/loader.css';
 
 // Pages CSS
 import './collection/item/item.css';
@@ -29,6 +30,7 @@ import '../components/FeaturedTile/FeaturedTile.css';
 import '../components/Footer/Footer.css';
 import '../components/Header/Header.css';
 import '../components/Image/Image.css';
+import '../components/MainTile/MainTile.css';
 import '../components/Masthead/Masthead.css';
 import '../components/Menu/Menu.css';
 import '../components/NoImage/NoImage.css';
