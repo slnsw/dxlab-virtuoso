@@ -1,6 +1,7 @@
 const header = 'X:1\nM:4/4\nK:A\nL:1/4\n%%staves {1 2}\n';
 const lines = [
   'V:1',
+  '|z4|z4|z4|',
   '|z4|E A/ c/ B G/F/|E e c2|',
   'w:||Our Sail-or Prince thy|no-ble ship|',
   '|A G/ B/ E F|G2 z2|E A/ c/ B G/F/|',
@@ -14,6 +15,8 @@ const lines = [
   '|c e/ E/ !fermata!c3/2 B/|A2 z2|z4|z4|',
   'w:|And countless herds of|kine.|||',
   'V:2',
+  // Intro
+  "|[Ee] [Aa] [cc'] [B/b][A/a]|[Bb] [ee'] [c2c'2]|[Aa] [F/f][B/b] [cc'] [Bb]|",
   // Our Sailor
   '|[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]',
   // Hath cleft
