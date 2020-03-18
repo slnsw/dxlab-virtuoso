@@ -12,7 +12,7 @@ import LoaderText from '../components/LoaderText';
 import { mapPostToTile } from '../lib';
 import config from '../lib/config';
 
-import './blog.css';
+// import './blog.css';
 
 class Blog extends Component {
   render() {

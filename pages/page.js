@@ -5,8 +5,9 @@ import gql from 'graphql-tag';
 import { withApollo } from '../lib/apollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
-import './post.css';
 import config from '../lib/config';
+
+// import './post.css';
 
 class Page extends Component {
   render() {
