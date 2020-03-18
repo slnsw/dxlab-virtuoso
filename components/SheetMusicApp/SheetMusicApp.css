@@ -9,6 +9,9 @@
   color: var(--colour-black);
 
   & header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: var(--container-width-sm);
     margin-top: var(--spacing-xlg);
     margin-bottom: var(--spacing-md);
@@ -30,7 +33,7 @@
 }
 
 .sheet-music-app__thumbnail {
-  max-width: 6rem;
+  max-width: 8rem;
   margin-bottom: var(--spacing-md);
 }
 
@@ -52,6 +55,7 @@
 .button--light {
   @apply --font-uppercase;
 
+  width: fit-content;
   padding-top: var(--spacing-xxs);
   padding-right: var(--spacing-xxxs);
   padding-bottom: var(--spacing-xxxs);
