@@ -54,7 +54,7 @@ const SheetMusic = ({
       /* eslint-enable */
     }
 
-    const notes = [];
+    const notes = {};
     let tripletMultiplier = 1;
     const lines = Object.values(data.lines);
     for (const line of lines) {
