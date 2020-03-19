@@ -34,6 +34,14 @@ const SheetMusicApp = ({ className }) => {
 
   const isSamplesLoaded = isVocalLoaded && isPianoLoaded;
 
+  const handleBeat = (beatNumber, totalBeats) => {
+    console.log(beatNumber, totalBeats);
+
+    if (beatNumber === totalBeats) {
+      setIsPlaying(false);
+    }
+  };
+
   const handleEvent = (event) => {
     if (event && event.notes) {
       // console.log(event.notes);
@@ -88,6 +96,7 @@ const SheetMusicApp = ({ className }) => {
           // console.log(element.abselem);
           // element.abselem.highlight('test', 'blue');
           // }}
+          onBeat={handleBeat}
           onEvent={handleEvent}
           onLineEnd={() => {
             setVocalNotes([]);
