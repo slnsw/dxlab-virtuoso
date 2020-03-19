@@ -1,4 +1,4 @@
-const header = 'X:1\nM:4/4\nK:A\nL:1/4\n%%staves {1 2}\n';
+const header = 'X:1\nM:4/4\nK:A\nL:1/4\n%%staves {1 2 3}\n';
 const lines = [
   'V:1',
   '|z4|E A/ c/ B G/F/|E e c2|',
@@ -26,8 +26,8 @@ const lines = [
   '|[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [B,^DA]|',
   // And countless
   '|[CEA] [A,EA] !fermata![B,^DA] [B,=DG]|[CA] ((3E/A/c/) e E|[EF] A/>d/ [Ec] ((3e/d/c/)|[EA] [CE] [CA] z|',
-  // 'V:3 clef=bass',
-  // '||',
+  'V:3 clef=bass',
+  '|[G,G] z [A,A] z|[C,/C/] z/ [D,/D/] z/ [E,/E/] z/ [E,/E/] z/|z4|',
 ];
 
 const songs = [

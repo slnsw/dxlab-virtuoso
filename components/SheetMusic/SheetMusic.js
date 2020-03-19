@@ -14,9 +14,95 @@ const SheetMusic = ({
   onEvent,
   onLineEnd,
 }) => {
-  const paper = React.useRef();
+  const [noteList, setNoteList] = React.useState([]);
+
   const abcjs = React.useRef();
+  const paper = React.useRef();
   const timer = React.useRef();
+
+  const noteLetters = {};
+  noteLetters[0] = 'C';
+  noteLetters[1] = 'D';
+  noteLetters[2] = 'E';
+  noteLetters[3] = 'F';
+  noteLetters[4] = 'G';
+  noteLetters[5] = 'A';
+  noteLetters[6] = 'B';
+
+  const computeNoteAndOctave = (n) => {
+    const note = noteLetters[(n + 700) % 7];
+    const octave = Math.floor(n / 7) + 2;
+    const out = { note, octave };
+    return out;
+  };
+
+  const parseJSON = (json) => {
+    const data = json[0];
+    console.log(data);
+    const beatsPerBar = data.lines[0].staff[0].meter.value[0].num;
+    // now compute our unit note length:
+    let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
+    const lPos = notation.indexOf('L:');
+    if (lPos > -1) {
+      const nextNL = notation.indexOf('\n', lPos);
+      const str = notation.slice(lPos + 2, nextNL);
+      /* eslint-disable */
+      unitNoteLength = eval(str);
+      /* eslint-enable */
+    }
+
+    const notes = [];
+    let tripletMultiplier = 1;
+    const lines = Object.values(data.lines);
+    for (const line of lines) {
+      let staffNum = 0;
+      const staves = Object.values(line.staff);
+      for (const staff of staves) {
+        const voices = staff.voices[0];
+        for (const note of voices) {
+          if (note.startTriplet) {
+            tripletMultiplier = note.tripletMultiplier;
+          }
+          if (note.pitches && note.el_type === 'note') {
+            const duration =
+              note.duration *
+              tripletMultiplier *
+              unitNoteLength *
+              (60 / bpm) *
+              beatsPerBar;
+            const index = `s${note.startChar}e${note.endChar}`;
+            const reactronicaNotes = [];
+            for (const pitch of note.pitches) {
+              let accidental = '';
+              if (pitch.accidental && pitch.accidental === 'sharp') {
+                accidental = '#';
+              }
+              if (pitch.accidental && pitch.accidental === 'flat') {
+                accidental = 'b';
+              }
+              const no = computeNoteAndOctave(pitch.pitch);
+              const noteName = no.note;
+              const octave = no.octave;
+              const noteBlob = {
+                name: `${noteName}${accidental}${octave}`,
+                duration,
+                octave,
+                line: staffNum,
+              };
+              reactronicaNotes.push(noteBlob);
+            }
+            notes[index] = reactronicaNotes;
+          }
+          if (note.endTriplet) {
+            tripletMultiplier = 1;
+          }
+        }
+        staffNum += 1;
+      }
+    }
+    console.log(notes);
+    return notes;
+  };
 
   // Some scores can have multiple rows of staves per line. We need to know which
   // row our notes belong to so the right instrument can play them.
@@ -222,7 +308,7 @@ const SheetMusic = ({
     const modifier = getModifier(abcNote);
     const duration = getDuration(abcNote);
     const noteName = getNoteName(abcNote);
-
+    console.log('OLD:', `${noteName}${modifier}${octave}`, line);
     return {
       name: `${noteName}${modifier}${octave}`,
       duration,
@@ -238,6 +324,7 @@ const SheetMusic = ({
       /* eslint-enable */
 
       if (abcjs?.current) {
+        console.log(noteList);
         const tune = abcjs.current.renderAbc('paper', notation, {
           add_classes: true,
           scale,
@@ -282,6 +369,9 @@ const SheetMusic = ({
                   notes: notation.slice(startChar, endChar),
                   line,
                 };
+                console.log(chars);
+                console.log('NEW:', noteList[`s${startChar}e${endChar}`], startChar, endChar);
+                console.log(noteList);
                 return chars;
               })
               .map((char) => parseNotesToArray(char));
@@ -348,6 +438,15 @@ const SheetMusic = ({
       timer.current.stop();
     }
   }, [isPlaying]);
+
+  React.useEffect(() => {
+    console.log('USE EFFECT!!');
+    if (abcjs && abcjs.current) {
+      const json = abcjs.current.parseOnly(notation);
+      const notes = parseJSON(json);
+      setNoteList(notes);
+    }
+  }, [notation]);
 
   return (
     <>
