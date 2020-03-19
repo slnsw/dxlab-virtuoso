@@ -17,8 +17,6 @@ const SheetMusic = ({
   onEvent,
   onLineEnd,
 }) => {
-  const [noteList, setNoteList] = React.useState([]);
-
   const abcjs = React.useRef();
   const paper = React.useRef();
   const timer = React.useRef();
@@ -327,6 +325,9 @@ const SheetMusic = ({
       /* eslint-enable */
 
       if (abcjs?.current) {
+        const json = abcjs.current.parseOnly(notation);
+        const noteList = parseJSON(json);
+
         const tune = abcjs.current.renderAbc(id, notation, {
           add_classes: true,
           scale,
@@ -378,7 +379,12 @@ const SheetMusic = ({
                   line,
                 };
                 console.log(chars);
-                console.log('NEW:', noteList[`s${startChar}e${endChar}`], startChar, endChar);
+                console.log(
+                  'NEW:',
+                  noteList[`s${startChar}e${endChar}`],
+                  startChar,
+                  endChar,
+                );
                 console.log(noteList);
                 return chars;
               })
@@ -447,14 +453,14 @@ const SheetMusic = ({
     }
   }, [isPlaying]);
 
-  React.useEffect(() => {
-    console.log('USE EFFECT!!');
-    if (abcjs && abcjs.current) {
-      const json = abcjs.current.parseOnly(notation);
-      const notes = parseJSON(json);
-      setNoteList(notes);
-    }
-  }, [notation]);
+  // React.useEffect(() => {
+  //   console.log('USE EFFECT!!');
+  //   if (abcjs && abcjs.current) {
+  //     const json = abcjs.current.parseOnly(notation);
+  //     const notes = parseJSON(json);
+  //     setNoteList(notes);
+  //   }
+  // }, [notation]);
 
   return (
     <>
