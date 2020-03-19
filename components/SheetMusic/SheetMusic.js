@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import './SheetMusic.css';
 
 const SheetMusic = ({
+  id = 'sheet-music',
   isPlaying,
   notation,
   bpm,
   scale = 1,
   staffWidth = 800,
+  oneSvgPerLine,
   className,
+  onClick,
   onBeat,
   onEvent,
   onLineEnd,
@@ -324,12 +327,17 @@ const SheetMusic = ({
       /* eslint-enable */
 
       if (abcjs?.current) {
-        console.log(noteList);
-        const tune = abcjs.current.renderAbc('paper', notation, {
+        const tune = abcjs.current.renderAbc(id, notation, {
           add_classes: true,
           scale,
           staffwidth: staffWidth,
           responsive: 'resize',
+          oneSvgPerLine,
+          ...(typeof onClick === 'function'
+            ? {
+                clickListener: onClick,
+              }
+            : {}),
         });
 
         timer.current = new abcjs.current.TimingCallbacks(tune[0], {
@@ -450,30 +458,37 @@ const SheetMusic = ({
 
   return (
     <>
-      <div id="paper" ref={paper} className={className || ''}></div>
+      <div
+        id={id}
+        ref={paper}
+        className={['sheet-music', className || ''].join(' ')}
+      />
 
       <style>
         {`
-          #paper {
-            // width: 1300px;
+          .sheet-music {
+            width: 100%;
             margin: 0 auto 2rem auto;
-            background-color: #DDD;
-            border-radius: 8px;
+            background-color: #FFF;
           }
 
-          #paper .abcjs-note, #paper .abcjs-rest {
+          #${id} .abcjs-note, #${id} .abcjs-rest {
             transition: 0.2s;
           }
 
-          #paper .abcjs-note-playing {
+          #${id} .abcjs-note-playing {
             fill: #e6007e;
           }
 
-          #paper .abcjs-rest-playing {
+          #${id} .abcjs-rest-playing {
             fill: #e6007e;
           }
 
-          #paper .abcjs-lyric-playing {
+          #${id} .abcjs-lyric-playing {
+            fill: #e6007e;
+          }
+
+          #${id} .abcjs-note_selected {
             fill: #e6007e;
           }
         `}
