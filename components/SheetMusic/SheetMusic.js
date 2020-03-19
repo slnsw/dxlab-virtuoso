@@ -229,90 +229,90 @@ const SheetMusic = ({
   //   return out;
   // };
 
-  const getOctave = (note) => {
-    // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
-    // ^ + and _ before letter - determine shap/flat modifier
-    // comma (,) or ' after letter for octave, then other crap after for note length
-    // So uppercase + comma (,) is lowest octave
-    // uppercase is octave 2, lowercase is octave 3
-    // uppercase + ' is octave 4.
-    const highNoteRE = /[cdefgab]/;
-    let octave = 2;
-    if (note.includes(',')) {
-      octave = 1;
-    } else if (note.includes("'")) {
-      octave = 4;
-    } else if (highNoteRE.test(note)) {
-      octave = 3;
-    }
-    return octave;
-  };
+  // const getOctave = (note) => {
+  //   // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
+  //   // ^ + and _ before letter - determine shap/flat modifier
+  //   // comma (,) or ' after letter for octave, then other crap after for note length
+  //   // So uppercase + comma (,) is lowest octave
+  //   // uppercase is octave 2, lowercase is octave 3
+  //   // uppercase + ' is octave 4.
+  //   const highNoteRE = /[cdefgab]/;
+  //   let octave = 2;
+  //   if (note.includes(',')) {
+  //     octave = 1;
+  //   } else if (note.includes("'")) {
+  //     octave = 4;
+  //   } else if (highNoteRE.test(note)) {
+  //     octave = 3;
+  //   }
+  //   return octave;
+  // };
 
-  const getDuration = (note) => {
-    let str = note.trim();
-    // remove accidental modifiers
-    if (
-      str.charAt(0) === '^' ||
-      str.charAt(0) === '_' ||
-      str.charAt(0) === '='
-    ) {
-      str = str.slice(1);
-    }
-    // remove note
-    const notesRE = /[cdefgabCDEFGAB]/;
-    if (notesRE.test(str.charAt(0))) {
-      str = str.slice(1);
-    }
-    // remove any octave modifiers like comma or '
-    if (str.charAt(0) === "'" || str.charAt(0) === ',') {
-      str = str.slice(1);
-    }
-    // add a 1 if missing from start
-    if (str === '' || str.charAt(0) === '/') {
-      str = `1${str}`;
-    }
-    // handle case for / being shorthand for /2
-    if (str.charAt(str.length - 1) === '/') {
-      str += '2';
-    }
-    /* eslint-disable */
-    const decimalDuration = eval(str) * unitNoteLength;
-    /* eslint-enable */
-    const duration = (60 / bpm) * 4 * decimalDuration;
+  // const getDuration = (note) => {
+  //   let str = note.trim();
+  //   // remove accidental modifiers
+  //   if (
+  //     str.charAt(0) === '^' ||
+  //     str.charAt(0) === '_' ||
+  //     str.charAt(0) === '='
+  //   ) {
+  //     str = str.slice(1);
+  //   }
+  //   // remove note
+  //   const notesRE = /[cdefgabCDEFGAB]/;
+  //   if (notesRE.test(str.charAt(0))) {
+  //     str = str.slice(1);
+  //   }
+  //   // remove any octave modifiers like comma or '
+  //   if (str.charAt(0) === "'" || str.charAt(0) === ',') {
+  //     str = str.slice(1);
+  //   }
+  //   // add a 1 if missing from start
+  //   if (str === '' || str.charAt(0) === '/') {
+  //     str = `1${str}`;
+  //   }
+  //   // handle case for / being shorthand for /2
+  //   if (str.charAt(str.length - 1) === '/') {
+  //     str += '2';
+  //   }
+  //   /* eslint-disable */
+  //   const decimalDuration = eval(str) * unitNoteLength;
+  //   /* eslint-enable */
+  //   const duration = (60 / bpm) * 4 * decimalDuration;
 
-    // if (note.includes('/')) {
-    //   duration = '8n';
-    // } else if (note.includes('2')) {
-    //   duration = '2n';
-    // } else {
-    //   duration = '4n';
-    // }
-    return duration;
-  };
+  //   // if (note.includes('/')) {
+  //   //   duration = '8n';
+  //   // } else if (note.includes('2')) {
+  //   //   duration = '2n';
+  //   // } else {
+  //   //   duration = '4n';
+  //   // }
+  //   return duration;
+  // };
 
-  const parseAbcNote = (abcNote, line) => {
-    // Return null for rests
-    if (abcNote.includes('z')) {
-      return null;
-    }
+  // const parseAbcNote = (abcNote, line) => {
+  //   // Return null for rests
+  //   if (abcNote.includes('z')) {
+  //     return null;
+  //   }
 
-    const octave = getOctave(abcNote);
-    const modifier = getModifier(abcNote);
-    const duration = getDuration(abcNote);
-    const noteName = getNoteName(abcNote);
-    console.log('OLD:', {
-      name: `${noteName}${modifier}${octave}`,
-      duration,
-      octave,
-      line,
-    });
-    return {
-      name: `${noteName}${modifier}${octave}`,
-      duration,
-      octave,
-      line,
-    };
-  };
+  //   const octave = getOctave(abcNote);
+  //   const modifier = getModifier(abcNote);
+  //   const duration = getDuration(abcNote);
+  //   const noteName = getNoteName(abcNote);
+  //   console.log('OLD:', {
+  //     name: `${noteName}${modifier}${octave}`,
+  //     duration,
+  //     octave,
+  //     line,
+  //   });
+  //   return {
+  //     name: `${noteName}${modifier}${octave}`,
+  //     duration,
+  //     octave,
+  //     line,
+  //   };
+  // };
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -361,19 +361,19 @@ const SheetMusic = ({
                 const startChar = event.startCharArray[index];
                 const endChar = event.endCharArray[index];
                 // work out what staff line this note is on
-                let line = null;
-                let lineCounter = 0;
-                while (!line) {
-                  if (staffEndPosns[lineCounter] < startChar) {
-                    lineCounter += 1;
-                  } else {
-                    line = lineCounter + 1;
-                  }
-                }
-                const chars = {
-                  notes: notation.slice(startChar, endChar),
-                  line,
-                };
+                // let line = null;
+                // let lineCounter = 0;
+                // while (!line) {
+                //   if (staffEndPosns[lineCounter] < startChar) {
+                //     lineCounter += 1;
+                //   } else {
+                //     line = lineCounter + 1;
+                //   }
+                // }
+                // const chars = {
+                //   notes: notation.slice(startChar, endChar),
+                //   line,
+                // };
                 // console.log(chars);
                 // console.log(
                 //   'NEW:',
