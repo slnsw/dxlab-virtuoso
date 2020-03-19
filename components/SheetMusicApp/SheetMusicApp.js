@@ -35,7 +35,7 @@ const SheetMusicApp = ({ className }) => {
   const isSamplesLoaded = isVocalLoaded && isPianoLoaded;
 
   const handleBeat = (beatNumber, totalBeats) => {
-    console.log(beatNumber, totalBeats);
+    // console.log(beatNumber, totalBeats);
 
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
