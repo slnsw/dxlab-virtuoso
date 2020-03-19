@@ -41,16 +41,18 @@ const SheetMusic = ({
     const data = json[0];
     console.log(data);
     const beatsPerBar = data.lines[0].staff[0].meter.value[0].num;
+    console.log('bpb', beatsPerBar);
     // now compute our unit note length:
-    let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
-    const lPos = notation.indexOf('L:');
-    if (lPos > -1) {
-      const nextNL = notation.indexOf('\n', lPos);
-      const str = notation.slice(lPos + 2, nextNL);
-      /* eslint-disable */
-      unitNoteLength = eval(str);
-      /* eslint-enable */
-    }
+    // let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
+    // const lPos = notation.indexOf('L:');
+    // if (lPos > -1) {
+    //   const nextNL = notation.indexOf('\n', lPos);
+    //   const str = notation.slice(lPos + 2, nextNL);
+    //   /* eslint-disable */
+    //   unitNoteLength = eval(str);
+    //   /* eslint-enable */
+    // }
+    // console.log("unL:", unitNoteLength);
 
     const notes = {};
     let tripletMultiplier = 1;
@@ -65,10 +67,11 @@ const SheetMusic = ({
             tripletMultiplier = note.tripletMultiplier;
           }
           if (note.pitches && note.el_type === 'note') {
+            // console.log(note.duration);
             const duration =
               note.duration *
               tripletMultiplier *
-              unitNoteLength *
+              // unitNoteLength *
               (60 / bpm) *
               beatsPerBar;
             const index = `s${note.startChar}e${note.endChar}`;
@@ -309,7 +312,12 @@ const SheetMusic = ({
     const modifier = getModifier(abcNote);
     const duration = getDuration(abcNote);
     const noteName = getNoteName(abcNote);
-    console.log('OLD:', `${noteName}${modifier}${octave}`, line);
+    console.log('OLD:', {
+      name: `${noteName}${modifier}${octave}`,
+      duration,
+      octave,
+      line,
+    });
     return {
       name: `${noteName}${modifier}${octave}`,
       duration,
@@ -378,17 +386,18 @@ const SheetMusic = ({
                   notes: notation.slice(startChar, endChar),
                   line,
                 };
-                console.log(chars);
-                console.log(
-                  'NEW:',
-                  noteList[`s${startChar}e${endChar}`],
-                  startChar,
-                  endChar,
-                );
-                console.log(noteList);
-                return chars;
-              })
-              .map((char) => parseNotesToArray(char));
+                // console.log(chars);
+                // console.log(
+                //   'NEW:',
+                  // noteList[`s${startChar}e${endChar}`],
+                //   startChar,
+                //   endChar,
+                // );
+                // return chars;
+                return noteList[`s${startChar}e${endChar}`];
+              });
+              // .map((char) => parseNotesToArray(char));
+
             // now smoosh all the notes into one array and remove nulls (rests)
             const charNotes = []
               .concat(...allNotes)
