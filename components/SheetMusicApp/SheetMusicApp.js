@@ -29,8 +29,14 @@ const SheetMusicApp = ({ className }) => {
   const [isVocalLoaded, setIsVocalLoaded] = React.useState(false);
   const [isPianoLoaded, setIsPianoLoaded] = React.useState(false);
 
-  const [vocalNotes, setVocalNotes] = React.useState([]);
-  const [pianoNotes, setPianoNotes] = React.useState([]);
+  const [notes, setNotes] = React.useState([]);
+  console.log(notes);
+
+  const vocalNotes = notes.filter((note) => note.line === 0);
+  const pianoNotes = notes.filter((note) => note.line === 1);
+
+  // const [vocalNotes, setVocalNotes] = React.useState([]);
+  // const [pianoNotes, setPianoNotes] = React.useState([]);
 
   const isSamplesLoaded = isVocalLoaded && isPianoLoaded;
 
@@ -44,18 +50,22 @@ const SheetMusicApp = ({ className }) => {
 
   const handleEvent = (event) => {
     if (event && event.notes) {
-      // console.log(event.notes);
+      setNotes(event.notes);
 
-      const newVocalNotes = event.notes.filter((note) => note.line === 1);
-      const newPianoNotes = event.notes.filter((note) => note.line === 2);
+      // const newVocalNotes = event.notes.filter((note) => note.line === 0);
+      // const newPianoNotes = event.notes.filter((note) => note.line === 1);
 
-      if (newVocalNotes.length > 0) {
-        setVocalNotes(newVocalNotes);
-      }
+      // if (newVocalNotes.length > 0) {
+      //   setVocalNotes(newVocalNotes);
+      // } else {
+      //   setVocalNotes([]);
+      // }
 
-      if (newPianoNotes.length > 0) {
-        setPianoNotes(newPianoNotes);
-      }
+      // if (newPianoNotes.length > 0) {
+      //   setPianoNotes(newPianoNotes);
+      // } else {
+      //   setPianoNotes([]);
+      // }
     }
   };
 
@@ -99,8 +109,8 @@ const SheetMusicApp = ({ className }) => {
           onBeat={handleBeat}
           onEvent={handleEvent}
           onLineEnd={() => {
-            setVocalNotes([]);
-            setPianoNotes([]);
+            // setVocalNotes([]);
+            // setPianoNotes([]);
           }}
         />
       </div>
