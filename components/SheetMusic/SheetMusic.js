@@ -31,29 +31,20 @@ const SheetMusic = ({
   noteLetters[6] = 'B';
 
   const computeNoteAndOctave = (n) => {
+    // Note number n is an integer 0 = C, 1 = D, ... 6 = B
+    // And 7 is C on the next octave up. Note integers can be negative.
+    // This cases a problem when using modulo - so add a large multiple 
+    // of 7 to avoid negatives.
     const note = noteLetters[(n + 700) % 7];
+    // The + 2 here makes sure note 0 is in the correct octave
     const octave = Math.floor(n / 7) + 2;
     const out = { note, octave };
     return out;
   };
 
   const parseJSON = (json) => {
-    const data = json[0];
-    console.log(data);
+    const data = json[0]; // this assumes there is only one song.
     const beatsPerBar = data.lines[0].staff[0].meter.value[0].num;
-    console.log('bpb', beatsPerBar);
-    // now compute our unit note length:
-    // let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
-    // const lPos = notation.indexOf('L:');
-    // if (lPos > -1) {
-    //   const nextNL = notation.indexOf('\n', lPos);
-    //   const str = notation.slice(lPos + 2, nextNL);
-    //   /* eslint-disable */
-    //   unitNoteLength = eval(str);
-    //   /* eslint-enable */
-    // }
-    // console.log("unL:", unitNoteLength);
-
     const notes = {};
     let tripletMultiplier = 1;
     const lines = Object.values(data.lines);
@@ -67,11 +58,9 @@ const SheetMusic = ({
             tripletMultiplier = note.tripletMultiplier;
           }
           if (note.pitches && note.el_type === 'note') {
-            // console.log(note.duration);
             const duration =
               note.duration *
               tripletMultiplier *
-              // unitNoteLength *
               (60 / bpm) *
               beatsPerBar;
             const index = `s${note.startChar}e${note.endChar}`;
@@ -104,142 +93,141 @@ const SheetMusic = ({
         staffNum += 1;
       }
     }
-    console.log(notes);
     return notes;
   };
 
   // Some scores can have multiple rows of staves per line. We need to know which
   // row our notes belong to so the right instrument can play them.
   // In the abc notation this is denoted by %%staves {1 2} in the header.
-  let numStaves = 1;
-  const staffEndPosns = [notation.length];
-  let staffNums = [];
-  const staves = notation.indexOf('%%staves');
-  if (staves > -1) {
-    // we do in fact have more than one staff per line, lets get a list of the nums
-    const eol = notation.indexOf('\n', staves);
-    staffNums = notation
-      .slice(staves, eol)
-      .match(/\d+/g)
-      .map((n) => {
-        return parseInt(n, 10);
-      });
-    if (staffNums.length) {
-      numStaves = Math.max(...staffNums);
-    }
-  }
+  // let numStaves = 1;
+  // const staffEndPosns = [notation.length];
+  // let staffNums = [];
+  // const staves = notation.indexOf('%%staves');
+  // if (staves > -1) {
+  //   // we do in fact have more than one staff per line, lets get a list of the nums
+  //   const eol = notation.indexOf('\n', staves);
+  //   staffNums = notation
+  //     .slice(staves, eol)
+  //     .match(/\d+/g)
+  //     .map((n) => {
+  //       return parseInt(n, 10);
+  //     });
+  //   if (staffNums.length) {
+  //     numStaves = Math.max(...staffNums);
+  //   }
+  // }
   // So staffNums will be what was between the { } after %%staves in the header.
   // But we need the position of where the note data lies within the notation string for
   // each set of staves. These regions are prepended with V:1, V:2 etc
-  if (numStaves > 1) {
-    for (let i = staffNums.length - 1; i > 0; i--) {
-      // find posn of V:X
-      const pos = notation.indexOf(`V:${i + 1}`);
-      // add it to front of array
-      staffEndPosns.unshift(pos);
-    }
-  }
+  // if (numStaves > 1) {
+  //   for (let i = staffNums.length - 1; i > 0; i--) {
+  //     // find posn of V:X
+  //     const pos = notation.indexOf(`V:${i + 1}`);
+  //     // add it to front of array
+  //     staffEndPosns.unshift(pos);
+  //   }
+  // }
   // Now we know where each region ends we can compare a note position with
   // those end points and deduce which staff it is a note for! Phew.
 
   // now compute our unit note length:
-  let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
-  const lPos = notation.indexOf('L:');
-  if (lPos > -1) {
-    const nextNL = notation.indexOf('\n', lPos);
-    const str = notation.slice(lPos + 2, nextNL);
-    /* eslint-disable */
-    unitNoteLength = eval(str);
-    /* eslint-enable */
-  }
+  // let unitNoteLength = 0.125; // default: eighth note. 1 = one bar.
+  // const lPos = notation.indexOf('L:');
+  // if (lPos > -1) {
+  //   const nextNL = notation.indexOf('\n', lPos);
+  //   const str = notation.slice(lPos + 2, nextNL);
+  //   /* eslint-disable */
+  //   unitNoteLength = eval(str);
+  //   /* eslint-enable */
+  // }
 
-  const noteNames = [
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'a',
-    'b',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'A',
-    'B',
-  ];
+  // const noteNames = [
+  //   'c',
+  //   'd',
+  //   'e',
+  //   'f',
+  //   'g',
+  //   'a',
+  //   'b',
+  //   'C',
+  //   'D',
+  //   'E',
+  //   'F',
+  //   'G',
+  //   'A',
+  //   'B',
+  // ];
 
-  const parseNotesToArray = (data) => {
-    const abcNote = data.notes;
-    const { line } = data;
-    let out = [];
-    if (abcNote.includes('[')) {
-      // we have a chord, split it into notes. This is really not easy because
-      // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
-      const noteArray = [];
-      const noteModifiers = ['^', '_', '='];
-      const noteIndicies = [];
+  // const parseNotesToArray = (data) => {
+  //   const abcNote = data.notes;
+  //   const { line } = data;
+  //   let out = [];
+  //   if (abcNote.includes('[')) {
+  //     // we have a chord, split it into notes. This is really not easy because
+  //     // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
+  //     const noteArray = [];
+  //     const noteModifiers = ['^', '_', '='];
+  //     const noteIndicies = [];
 
-      // we know notes will always have a name, so make a list of their locations in the string
-      for (let i = 1; i < abcNote.length - 1; i++) {
-        if (noteNames.includes(abcNote.charAt(i))) {
-          noteIndicies.push(i);
-        }
-      }
+  //     // we know notes will always have a name, so make a list of their locations in the string
+  //     for (let i = 1; i < abcNote.length - 1; i++) {
+  //       if (noteNames.includes(abcNote.charAt(i))) {
+  //         noteIndicies.push(i);
+  //       }
+  //     }
 
-      // now for each note
-      for (let i = 0; i < noteIndicies.length; i++) {
-        // look back to see if there is a pitch modifier before it, and start building notes
-        if (noteModifiers.includes(abcNote.charAt(noteIndicies[i] - 1))) {
-          noteArray[i] =
-            abcNote.charAt(noteIndicies[i] - 1) +
-            abcNote.charAt(noteIndicies[i]);
-        } else {
-          noteArray[i] = abcNote.charAt(noteIndicies[i]);
-        }
-        // then look forward to either the closing ] or the next note name or modifier
-        let j = noteIndicies[i] + 1;
-        while (
-          abcNote.charAt(j) !== ']' &&
-          !noteNames.includes(abcNote.charAt(j)) &&
-          !noteModifiers.includes(abcNote.charAt(j))
-        ) {
-          noteArray[i] += abcNote.charAt(j);
-          j += 1;
-        }
-      }
-      out = noteArray.map((note) => {
-        return parseAbcNote(note, line);
-      });
-    } else {
-      out = [parseAbcNote(abcNote, line)];
-    }
-    return out;
-  };
+  //     // now for each note
+  //     for (let i = 0; i < noteIndicies.length; i++) {
+  //       // look back to see if there is a pitch modifier before it, and start building notes
+  //       if (noteModifiers.includes(abcNote.charAt(noteIndicies[i] - 1))) {
+  //         noteArray[i] =
+  //           abcNote.charAt(noteIndicies[i] - 1) +
+  //           abcNote.charAt(noteIndicies[i]);
+  //       } else {
+  //         noteArray[i] = abcNote.charAt(noteIndicies[i]);
+  //       }
+  //       // then look forward to either the closing ] or the next note name or modifier
+  //       let j = noteIndicies[i] + 1;
+  //       while (
+  //         abcNote.charAt(j) !== ']' &&
+  //         !noteNames.includes(abcNote.charAt(j)) &&
+  //         !noteModifiers.includes(abcNote.charAt(j))
+  //       ) {
+  //         noteArray[i] += abcNote.charAt(j);
+  //         j += 1;
+  //       }
+  //     }
+  //     out = noteArray.map((note) => {
+  //       return parseAbcNote(note, line);
+  //     });
+  //   } else {
+  //     out = [parseAbcNote(abcNote, line)];
+  //   }
+  //   return out;
+  // };
 
-  const getModifier = (note) => {
-    let modifier = ''; // none
-    if (note.slice(0, 1) === '^') {
-      modifier = '#'; // sharp
-    } else if (note.slice(0, 1) === '_') {
-      modifier = 'b'; // flat
-    } else if (note.slice(0, 1) === '=') {
-      modifier = ''; // '=' is 'natural' - is this the same as none??
-      // Also ABC notation allows ^^ and __ ... XXXX TODO later
-    }
-    return modifier;
-  };
+  // const getModifier = (note) => {
+  //   let modifier = ''; // none
+  //   if (note.slice(0, 1) === '^') {
+  //     modifier = '#'; // sharp
+  //   } else if (note.slice(0, 1) === '_') {
+  //     modifier = 'b'; // flat
+  //   } else if (note.slice(0, 1) === '=') {
+  //     modifier = ''; // '=' is 'natural' - is this the same as none??
+  //     // Also ABC notation allows ^^ and __ ... XXXX TODO later
+  //   }
+  //   return modifier;
+  // };
 
-  const getNoteName = (abcNote) => {
-    let out = null;
-    for (let i = 0; i < abcNote.length; i++) {
-      if (noteNames.includes(abcNote.charAt(i))) {
-        out = abcNote.charAt(i).toUpperCase();
-      }
-    }
-    return out;
-  };
+  // const getNoteName = (abcNote) => {
+  //   let out = null;
+  //   for (let i = 0; i < abcNote.length; i++) {
+  //     if (noteNames.includes(abcNote.charAt(i))) {
+  //       out = abcNote.charAt(i).toUpperCase();
+  //     }
+  //   }
+  //   return out;
+  // };
 
   const getOctave = (note) => {
     // note may be things like ^E3/2 or =C, or _f/ or e'/4 etc
