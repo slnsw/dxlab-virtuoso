@@ -33,7 +33,7 @@ const SheetMusic = ({
   const computeNoteAndOctave = (n) => {
     // Note number n is an integer 0 = C, 1 = D, ... 6 = B
     // And 7 is C on the next octave up. Note integers can be negative.
-    // This cases a problem when using modulo - so add a large multiple 
+    // This cases a problem when using modulo - so add a large multiple
     // of 7 to avoid negatives.
     const note = noteLetters[(n + 700) % 7];
     // The + 2 here makes sure note 0 is in the correct octave
@@ -59,10 +59,7 @@ const SheetMusic = ({
           }
           if (note.pitches && note.el_type === 'note') {
             const duration =
-              note.duration *
-              tripletMultiplier *
-              (60 / bpm) *
-              beatsPerBar;
+              note.duration * tripletMultiplier * (60 / bpm) * beatsPerBar;
             const index = `s${note.startChar}e${note.endChar}`;
             const reactronicaNotes = [];
             for (const pitch of note.pitches) {
@@ -356,35 +353,34 @@ const SheetMusic = ({
             }
 
             // Event.midiPitches isn't working, so we need to work out pitch from ABC notation
-            const allNotes = event.startCharArray
-              .map((_, index) => {
-                const startChar = event.startCharArray[index];
-                const endChar = event.endCharArray[index];
-                // work out what staff line this note is on
-                // let line = null;
-                // let lineCounter = 0;
-                // while (!line) {
-                //   if (staffEndPosns[lineCounter] < startChar) {
-                //     lineCounter += 1;
-                //   } else {
-                //     line = lineCounter + 1;
-                //   }
-                // }
-                // const chars = {
-                //   notes: notation.slice(startChar, endChar),
-                //   line,
-                // };
-                // console.log(chars);
-                // console.log(
-                //   'NEW:',
-                  // noteList[`s${startChar}e${endChar}`],
-                //   startChar,
-                //   endChar,
-                // );
-                // return chars;
-                return noteList[`s${startChar}e${endChar}`];
-              });
-              // .map((char) => parseNotesToArray(char));
+            const allNotes = event.startCharArray.map((_, index) => {
+              const startChar = event.startCharArray[index];
+              const endChar = event.endCharArray[index];
+              // work out what staff line this note is on
+              // let line = null;
+              // let lineCounter = 0;
+              // while (!line) {
+              //   if (staffEndPosns[lineCounter] < startChar) {
+              //     lineCounter += 1;
+              //   } else {
+              //     line = lineCounter + 1;
+              //   }
+              // }
+              // const chars = {
+              //   notes: notation.slice(startChar, endChar),
+              //   line,
+              // };
+              // console.log(chars);
+              // console.log(
+              //   'NEW:',
+              // noteList[`s${startChar}e${endChar}`],
+              //   startChar,
+              //   endChar,
+              // );
+              // return chars;
+              return noteList[`s${startChar}e${endChar}`];
+            });
+            // .map((char) => parseNotesToArray(char));
 
             // now smoosh all the notes into one array and remove nulls (rests)
             const charNotes = []
@@ -476,7 +472,7 @@ const SheetMusic = ({
           }
 
           #${id} .abcjs-note, #${id} .abcjs-rest {
-            transition: 0.2s;
+            transition: 0.1s;
           }
 
           #${id} .abcjs-note-playing {

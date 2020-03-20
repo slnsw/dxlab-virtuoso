@@ -48,7 +48,7 @@ const songs = [
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
     notation: header + lines.join('\n'),
-    bpm: 70,
+    bpm: 100,
   },
 ];
 
