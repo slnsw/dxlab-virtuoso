@@ -12,16 +12,16 @@ const AUDIO_BASE_URL =
   'https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/vsco-2-ce';
 
 const pianoSamples = {
-  A1: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_012.mp3`,
-  'C#2': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_014.mp3`,
-  F2: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_016.mp3`,
-  A2: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_018.mp3`,
-  'C#3': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_020.mp3`,
-  F3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_022.mp3`,
-  A3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_024.mp3`,
-  'C#4': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_026.mp3`,
-  F4: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_028.mp3`,
-  G4: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn2_rr1_030.mp3`,
+  A1: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_012.mp3`,
+  'C#2': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_014.mp3`,
+  F2: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_016.mp3`,
+  A2: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_018.mp3`,
+  'C#3': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_020.mp3`,
+  F3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_022.mp3`,
+  A3: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_024.mp3`,
+  'C#4': `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_026.mp3`,
+  F4: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_028.mp3`,
+  G4: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_030.mp3`,
 };
 
 const SheetMusicApp = ({ className }) => {
@@ -132,7 +132,7 @@ const SheetMusicApp = ({ className }) => {
           />
         </Track>
 
-        <Track volume={0}>
+        <Track volume={-6}>
           <Instrument
             type="sampler"
             notes={pianoNotes}
