@@ -216,7 +216,9 @@ const postsQuery = gql`
 `;
 
 export const getStaticPaths = async () => {
-  const { data } = await client.query({
+  const client2 = initApolloClient();
+
+  const { data } = await client2.query({
     query: postsQuery,
   });
 
@@ -235,7 +237,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { data } = await client.query({
+  const client2 = initApolloClient();
+
+  const { data } = await client2.query({
     query: postQuery,
     variables: {
       slug: params.slug,
