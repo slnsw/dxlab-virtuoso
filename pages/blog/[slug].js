@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -10,16 +10,13 @@ import Button from '../../components/Button';
 import Comments from '../../components/Comments';
 import Four04 from '../_error';
 
-import {
-  withApollo,
-  // initApolloClient
-} from '../../lib/apollo';
+import { withApollo, initApolloClient } from '../../lib/apollo';
 import { formatDate } from '../../lib';
 
 import '../post.css';
 import '../../styles/gallery.css';
 
-// const client = initApolloClient();
+const client = initApolloClient();
 
 class Post extends Component {
   static propTypes = {
@@ -91,13 +88,15 @@ class Post extends Component {
       excerpt,
       featuredMedia,
       author,
-      router,
       date,
-      loading,
+      // loading,
       comments,
       experiments,
       posts,
+      router,
     } = this.props;
+
+    // console.log(router);
 
     const featuredImageUrl = featuredMedia && featuredMedia.sourceUrl;
     const featuredImageDescription = featuredMedia && featuredMedia.description;
@@ -111,66 +110,66 @@ class Post extends Component {
     }
 
     return (
-      // <ApolloProvider client={client}>
-      <WebsiteApp
-        isLoading={loading}
-        pathname={`/blog/${router.query.slug}`}
-        title={title}
-        metaDescription={excerpt}
-        metaImageUrl={featuredImageUrl}
-        metaImageAlt={featuredImageDescription}
-      >
-        <article className="post container container--md">
-          <div>
-            <div className="post__featured-image-holder">
-              <img
-                className="post__featured-image"
-                src={featuredImageUrl}
-                alt={featuredImageDescription}
+      <ApolloProvider client={client}>
+        <WebsiteApp
+          isLoading={router?.isFallback}
+          pathname={`/blog/${router.query.slug}`}
+          title={title}
+          metaDescription={excerpt}
+          metaImageUrl={featuredImageUrl}
+          metaImageAlt={featuredImageDescription}
+        >
+          <article className="post container container--md">
+            <div>
+              <div className="post__featured-image-holder">
+                <img
+                  className="post__featured-image"
+                  src={featuredImageUrl}
+                  alt={featuredImageDescription}
+                />
+                <div className="post__date">{dateString}</div>
+              </div>
+
+              <header className="post__header">
+                <h1 className="post__title">{title}</h1>
+                <div className="post__author">
+                  By <a href={`/search?q=${authorName}`}>{authorName}</a>
+                </div>
+
+                <div className="post__cta">
+                  {experimentUrl && (
+                    <Button href={experimentUrl} target="_blank">
+                      LAUNCH EXPERIMENT
+                    </Button>
+                  )}
+                  {githubUrl && (
+                    <Button href={githubUrl} target="_blank">
+                      CODE
+                    </Button>
+                  )}
+                </div>
+              </header>
+
+              <div
+                className="post__content"
+                dangerouslySetInnerHTML={{ __html: content }}
               />
-              <div className="post__date">{dateString}</div>
+
+              <ShareBox
+                title={title}
+                text={excerpt}
+                pathname={`/blog/${router.query.slug}`}
+              />
+
+              <br />
+              <br />
+              <br />
+
+              {id && <Comments postId={id} comments={comments} />}
             </div>
-
-            <header className="post__header">
-              <h1 className="post__title">{title}</h1>
-              <div className="post__author">
-                By <a href={`/search?q=${authorName}`}>{authorName}</a>
-              </div>
-
-              <div className="post__cta">
-                {experimentUrl && (
-                  <Button href={experimentUrl} target="_blank">
-                    LAUNCH EXPERIMENT
-                  </Button>
-                )}
-                {githubUrl && (
-                  <Button href={githubUrl} target="_blank">
-                    CODE
-                  </Button>
-                )}
-              </div>
-            </header>
-
-            <div
-              className="post__content"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-
-            <ShareBox
-              title={title}
-              text={excerpt}
-              pathname={`/blog/${router.query.slug}`}
-            />
-
-            <br />
-            <br />
-            <br />
-
-            {id && <Comments postId={id} comments={comments} />}
-          </div>
-        </article>
-      </WebsiteApp>
-      // </ApolloProvider>
+          </article>
+        </WebsiteApp>
+      </ApolloProvider>
     );
   }
 }
@@ -207,72 +206,85 @@ const postQuery = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withApollo(
-  graphql(postQuery, {
-    options: ({
-      router: {
-        query: { slug },
-      },
-    }) => {
-      return {
-        variables: {
-          slug,
-        },
-      };
-    },
-    props: ({ data }) => {
-      const post = data.posts && data.posts[0];
+// export default withApollo(
+//   graphql(postQuery, {
+//     options: ({
+//       router: {
+//         query: { slug },
+//       },
+//     }) => {
+//       return {
+//         variables: {
+//           slug,
+//         },
+//       };
+//     },
+//     props: ({ data }) => {
+//       const post = data.posts && data.posts[0];
 
-      return {
-        ...data,
-        ...post,
-      };
-    },
-  })(Post),
-);
+//       return {
+//         ...data,
+//         ...post,
+//       };
+//     },
+//   })(Post),
+// );
 
 // Attempt to get dynamic static site working
 // When deployed, Zeit is unable to build fallback posts
-// const postsQuery = gql`
-//   query Posts {
-//     posts(limit: 5) {
-//       slug
-//     }
-//   }
-// `;
+const postsQuery = gql`
+  query Posts {
+    posts(limit: 5) {
+      slug
+    }
+  }
+`;
 
-// export const getStaticPaths = async () => {
-//   const { data } = await client.query({
-//     query: postsQuery,
-//   });
+export const getStaticPaths = async () => {
+  // console.log('getStaticPaths');
+  // console.log(process.env.DXLAB_WEBSITE_GRAPHQL_URL);
 
-//   const paths = data.posts.map((post) => {
-//     return {
-//       params: {
-//         slug: post.slug,
-//       },
-//     };
-//   });
+  const { data } = await client.query({
+    query: postsQuery,
+  });
 
-//   return {
-//     paths,
-//     fallback: true,
-//   };
-// };
+  // console.log(data);
 
-// export const getStaticProps = async ({ params }) => {
-//   const { data } = await client.query({
-//     query: postQuery,
-//     variables: {
-//       slug: params.slug,
-//     },
-//   });
+  const paths = data.posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+    };
+  });
 
-//   const post = data.posts && data.posts[0];
+  // console.log(paths);
 
-//   return {
-//     props: { ...data, ...post },
-//   };
-// };
+  return {
+    paths,
+    fallback: true,
+  };
+};
 
-// export default Post;
+export const getStaticProps = async ({ params }) => {
+  // console.log('getStaticProps');
+  // console.log(process.env.DXLAB_WEBSITE_GRAPHQL_URL);
+  // console.log(params);
+
+  const { data } = await client.query({
+    query: postQuery,
+    variables: {
+      slug: params.slug,
+    },
+  });
+
+  // console.log(data);
+
+  const post = data.posts && data.posts[0];
+
+  return {
+    props: { ...data, ...post },
+  };
+};
+
+export default Post;
