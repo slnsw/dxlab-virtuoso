@@ -1,13 +1,13 @@
 {
   "name": "dxlab-website",
   "author": "Kaho Cheung",
-  "version": "1.7.0",
+  "version": "1.7.2",
   "scripts": {
     "dev": "next dev -p 5010",
     "start": "next start",
     "build": "NODE_ENV=production next build",
-    "deploy:prod": "now --prod",
-    "deploy:staging": "now --local-config now.staging.json",
+    "deploy:prod": "now --prod && now alias https://dxlab-website.dxlab1.now.sh dxlab.sl.nsw.gov.au",
+    "deploy:staging": "now --local-config now.staging.json --confirm --prod",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
