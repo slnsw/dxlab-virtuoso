@@ -70,7 +70,6 @@ class Blog extends Component {
   }
 }
 
-// TODO: Create totalPosts field in Graphql
 const query = gql`
   query Posts($offset: Int) {
     posts(limit: 10, offset: $offset) {

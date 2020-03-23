@@ -8,6 +8,6 @@ class SoundLabPage extends Component {
   }
 }
 
-export const getStaticProps = createGetStaticProps('about');
+export const getStaticProps = createGetStaticProps('80hz-sound-lab');
 
 export default SoundLabPage;

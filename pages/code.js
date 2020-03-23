@@ -8,6 +8,6 @@ class CodePage extends Component {
   }
 }
 
-export const getStaticProps = createGetStaticProps('about');
+export const getStaticProps = createGetStaticProps('code');
 
 export default CodePage;

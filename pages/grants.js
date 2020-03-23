@@ -8,6 +8,6 @@ class GrantsPage extends Component {
   }
 }
 
-export const getStaticProps = createGetStaticProps('about');
+export const getStaticProps = createGetStaticProps('grants');
 
 export default GrantsPage;
