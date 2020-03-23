@@ -88,13 +88,15 @@ class Post extends Component {
       excerpt,
       featuredMedia,
       author,
-      router,
       date,
       loading,
       comments,
       experiments,
       posts,
+      router,
     } = this.props;
+
+    console.log(router);
 
     const featuredImageUrl = featuredMedia && featuredMedia.sourceUrl;
     const featuredImageDescription = featuredMedia && featuredMedia.description;
@@ -239,14 +241,14 @@ const postsQuery = gql`
 `;
 
 export const getStaticPaths = async () => {
-  console.log('getStaticPaths');
-  console.log(process.env.DXLAB_WEBSITE_GRAPHQL_URL);
+  // console.log('getStaticPaths');
+  // console.log(process.env.DXLAB_WEBSITE_GRAPHQL_URL);
 
   const { data } = await client.query({
     query: postsQuery,
   });
 
-  console.log(data);
+  // console.log(data);
 
   const paths = data.posts.map((post) => {
     return {
@@ -256,7 +258,7 @@ export const getStaticPaths = async () => {
     };
   });
 
-  console.log(paths);
+  // console.log(paths);
 
   return {
     paths,
@@ -265,9 +267,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  console.log('getStaticProps');
-  console.log(process.env.DXLAB_WEBSITE_GRAPHQL_URL);
-  console.log(params);
+  // console.log('getStaticProps');
+  // console.log(process.env.DXLAB_WEBSITE_GRAPHQL_URL);
+  // console.log(params);
 
   const { data } = await client.query({
     query: postQuery,
