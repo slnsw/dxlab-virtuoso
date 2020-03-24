@@ -9,7 +9,8 @@ import songs from './songs';
 import './SheetMusicApp.css';
 
 const AUDIO_BASE_URL =
-  'https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/vsco-2-ce/Keys';
+  // 'https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/vsco-2-ce/Keys';
+  'https://dxlab.sl.nsw.gov.au/files/audio/vsco-2-ce/Keys';
 
 const pianoSamples = {
   A1: `${AUDIO_BASE_URL}/Upright+Piano/Player_dyn3_rr1_012.mp3`,
