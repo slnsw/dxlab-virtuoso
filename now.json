@@ -115,6 +115,10 @@
       "destination": "https://api.dxlab.sl.nsw.gov.au/graphql$1"
     },
     {
+      "source": "/files/audio/(.*)",
+      "destination": "https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/$1"
+    },
+    {
       "source": "/index/(.*)",
       "destination": "https://wp.dxlab.sl.nsw.gov.au/index/$1"
     },
