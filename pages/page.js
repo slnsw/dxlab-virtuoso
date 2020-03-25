@@ -1,12 +1,13 @@
 import { Component } from 'react';
-import { graphql } from 'react-apollo';
+// import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { withApollo } from '../lib/apollo';
+import { initApolloClient } from '../lib/apollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
-import './post.css';
 import config from '../lib/config';
+
+import './post.css';
 
 class Page extends Component {
   render() {
@@ -45,7 +46,7 @@ class Page extends Component {
   }
 }
 
-const query = gql`
+export const pageQuery = gql`
   query Post($slug: String!) {
     pages(slug: $slug) {
       title
@@ -55,29 +56,29 @@ const query = gql`
   }
 `;
 
-// The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (ExamplePage)
-export default withApollo(
-  graphql(query, {
-    options: ({ router: { pathname } }) => {
-      const slug = pathname.substr(1);
+export const createGetStaticProps = (slug) => {
+  return async () => {
+    const client = initApolloClient();
 
-      return {
-        variables: {
-          slug,
-        },
-      };
-    },
-    props: ({ data }) => {
-      const page = data.pages && data.pages[0];
+    const { data } = await client.query({
+      query: pageQuery,
+      variables: {
+        slug,
+      },
+    });
 
-      return {
+    const page = data.pages && data.pages[0];
+
+    return {
+      props: {
         ...data,
         ...page,
-      };
-    },
-  })(Page),
-);
+      },
+    };
+  };
+};
+
+export default Page;
 
 const images = {
   about: {

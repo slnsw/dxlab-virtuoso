@@ -20,17 +20,10 @@
       "DXLAB_WEBSITE_TEST": "@dxlab_website_prod_test"
     }
   },
-  "github": {
-    "enabled": false
-  },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
-        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
@@ -120,6 +113,10 @@
     {
       "source": "/api/graphql(.*)",
       "destination": "https://api.dxlab.sl.nsw.gov.au/graphql$1"
+    },
+    {
+      "source": "/files/audio/(.*)",
+      "destination": "https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/$1"
     },
     {
       "source": "/index/(.*)",

@@ -1,7 +1,7 @@
 {
   "name": "dxlab-website",
   "author": "Kaho Cheung",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "scripts": {
     "dev": "next dev -p 5010",
     "start": "next start",
@@ -37,7 +37,7 @@
     "http-proxy-middleware": "^0.20.0",
     "isomorphic-unfetch": "^3.0.0",
     "lost": "^8.3.1",
-    "next": "^9.3.0",
+    "next": "^9.3.1",
     "next-routes": "^1.4.2",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
