@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Song, Track, Instrument } from 'reactronica';
+import SheetMusic from '@slnsw/react-sheet-music';
+import '@slnsw/react-sheet-music/dist/SheetMusic.css';
 
-import SheetMusic from '../SheetMusic';
+// import SheetMusic from '../SheetMusic';
 
 import songs from './songs';
 
 import './SheetMusicApp.css';
 
-const AUDIO_BASE_URL =
-  // 'https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/vsco-2-ce/Keys';
-  'https://dxlab.sl.nsw.gov.au/files/audio/vsco-2-ce';
+const AUDIO_BASE_URL = 'https://dxlab.sl.nsw.gov.au/files/audio/vsco-2-ce';
 
 const pianoSamples = {
   A1: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_012.mp3`,
@@ -38,14 +38,14 @@ const pianoSamples = {
 // };
 
 const clariSamples = {
-  D2:    `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D2_v3_rr1_sum.mp3`,
-  F2:    `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F2_v3_rr1_sum.mp3`,
+  D2: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D2_v3_rr1_sum.mp3`,
+  F2: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F2_v3_rr1_sum.mp3`,
   'A#2': `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_A%232_v3_rr1_sum.mp3`,
-  D3:    `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D3_v3_rr1_sum.mp3`,
-  F3:    `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F3_v3_rr1_sum.mp3`,
+  D3: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D3_v3_rr1_sum.mp3`,
+  F3: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F3_v3_rr1_sum.mp3`,
   'A#3': `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_A%233_v3_rr1_sum.mp3`,
-  D4:    `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D4_v3_rr1_sum.mp3`,
-  F4:    `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F4_v3_rr1_sum.mp3`,
+  D4: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D4_v3_rr1_sum.mp3`,
+  F4: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F4_v3_rr1_sum.mp3`,
   'A#4': `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_A%234_v3_rr1_sum.mp3`,
 };
 
@@ -59,7 +59,6 @@ const SheetMusicApp = ({ className }) => {
   const [isPianoLoaded, setIsPianoLoaded] = React.useState(false);
 
   const [notes, setNotes] = React.useState([]);
-  console.log(notes);
 
   const vocalNotes = notes.filter((note) => note.line === 0);
   const pianoNotes = notes.filter((note) => note.line === 1 || note.line === 2);

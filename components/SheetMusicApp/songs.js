@@ -8,7 +8,7 @@ const lines = [
   'w:||2.~Our Sail~-or Prince we|wel~-come Thee|',
   '|A G/ B/ E F|G2 z2|E A/ c/ B G/F/|',
   "w:|Hath cleft the o~-cean's|foam,|And brought Thee safe~-ly|",
-  "w:|With fes~-tive shout and|cheer,|For thy sake and thy|",
+  'w:|With fes~-tive shout and|cheer,|For thy sake and thy|',
   '|E e c2|A F/ B/ E G|A2 z2|',
   'w:|to the shores|Of our Aust~- tra~- lian|home,|',
   'w:|Mo~- thers’ sake|The Queen to us so|dear,|',
@@ -21,7 +21,7 @@ const lines = [
   '|c e/ E/ !fermata!c3/2 B/|A2 z2|z4|z4|',
   'w:|And count less herds of|kine.|||',
   'w:|We still re~- vere the|Queen.|||',
-  
+
   'V:2 clef=treble name="PIANO-"',
   "|[Ee] [Aa] [cc'] [B/b][A/a]|[Bb] [ee'] [c2c'2]|[Aa] [F/f][B/b] [cc'] [Bb]|",
   '|[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]',
@@ -30,7 +30,7 @@ const lines = [
   '|z [C/E/A/] z/ [B,/E/B/] z/ [C/E/A/] z/| z [A,^DA] [B,=DA] G/F/|E [A,DF] [A,DA] [DFB]|',
   '|[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [B,^DA]|',
   '|[CEA] [A,EA] !fermata![B,^DA] [B,=DG]|[CA] ((3E/A/c/) e E|[EF] A/>d/ [Ec] ((3e/d/c/)|[EA] [CE] [CA] z|',
-  
+
   'V:3 clef=bass name="FORTE"',
   '|A,, [E,A,C] A,, [E,A,C]|G,, [E,G,D] A,, [E,A,C]|[C,,C,] [D,F,B,] [E,,E,] [E,G,D]|',
   '|[A,,A,] z [A,,E,A,] z |[A,,A,] z [E,,E,] z|[G,,G,] z [A,,A,] z|',
