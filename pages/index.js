@@ -1,14 +1,15 @@
 import { Component } from 'react';
-import { graphql } from 'react-apollo';
+// import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { withApollo } from '../lib/apollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
+
+import { initApolloClient } from '../lib/apollo';
 import { formatDate } from '../lib';
 // import './index.css';
 import config from '../lib/config';
@@ -249,43 +250,47 @@ const homeQuery = gql`
   }
 `;
 
-export default withApollo(
-  graphql(homeQuery, {
-    props: ({ data }) => {
-      // console.log(data.experiments);
+export const getStaticProps = async () => {
+  const client = initApolloClient();
 
-      return {
-        ...data,
-        posts:
-          data &&
-          data.posts &&
-          data.posts.map((item) => {
-            return {
-              ...mapItemToTile(item),
-              experimentUrl:
-                item.experiments &&
-                item.experiments[0] &&
-                item.experiments[0].url,
-              githubUrl:
-                item.experiments &&
-                item.experiments[0] &&
-                item.experiments[0].githubUrl,
-            };
-          }),
-        experiments:
-          data.experiments &&
-          data.experiments.map((item) => {
-            return {
-              ...mapItemToTile(item),
-              url: item.url,
-              blogUrl: item.posts[0] && `/blog/${item.posts[0].slug}`,
-              githubUrl: item.githubUrl,
-            };
-          }),
-      };
+  const { data } = await client.query({
+    query: homeQuery,
+  });
+
+  return {
+    props: {
+      // ...data,
+      posts:
+        data &&
+        data.posts &&
+        data.posts.map((item) => {
+          return {
+            ...mapItemToTile(item),
+            experimentUrl:
+              item.experiments &&
+              item.experiments[0] &&
+              item.experiments[0].url,
+            githubUrl:
+              item.experiments &&
+              item.experiments[0] &&
+              item.experiments[0].githubUrl,
+          };
+        }),
+      experiments:
+        data.experiments &&
+        data.experiments.map((item) => {
+          return {
+            ...mapItemToTile(item),
+            url: item.url,
+            blogUrl: item.posts[0] && `/blog/${item.posts[0].slug}`,
+            githubUrl: item.githubUrl,
+          };
+        }),
     },
-  })(HomePage),
-);
+  };
+};
+
+export default HomePage;
 
 // TODO: Move to lib
 function mapItemToTile(item) {

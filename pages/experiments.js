@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { graphql } from 'react-apollo';
+// import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { withApollo } from '../lib/apollo';
+import { initApolloClient } from '../lib/apollo';
 import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 // import DisplayTile from '../components/DisplayTile';
@@ -73,10 +73,10 @@ class Experiments extends Component {
   }
 }
 
-// TODO: Create totalPosts field in Graphql
-const query = gql`
+// NOTE: Will need to increase limit if we go over 30 experiments!
+const experimentsQuery = gql`
   query Experiments($offset: Int) {
-    experiments(limit: 20, offset: $offset) {
+    experiments(limit: 30, offset: $offset) {
       title
       slug
       excerpt
@@ -99,57 +99,90 @@ const query = gql`
   }
 `;
 
-export default withApollo(
-  graphql(query, {
-    options: () => {
-      return {
-        variables: {
-          offset: 0,
-        },
-      };
-    },
-    props: ({ data }) => {
-      return {
-        ...data,
-        experiments:
-          data &&
-          data.experiments &&
-          data.experiments.map((item) => {
-            return {
-              title: item.title,
-              date: formatDate(item.date),
-              content: item.excerpt,
-              slug: item.slug,
-              url: item.url,
-              githubUrl: item.githubUrl,
-              blogUrl: item.posts && `/blog/${item.posts[0].slug}`,
-              imageUrl:
-                item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
-              imageAltText:
-                item.featuredMedia && item.featuredMedia.sizes.full.altText,
-            };
-          }),
-        loadMore() {
-          return data.fetchMore({
-            variables: {
-              offset: data.posts.length,
-            },
-            updateQuery: (previousResult, { fetchMoreResult }) => {
-              if (!fetchMoreResult) {
-                return previousResult;
-              }
+export const getStaticProps = async () => {
+  const client = initApolloClient();
 
-              return {
-                ...previousResult,
-                posts: [...previousResult.posts, ...fetchMoreResult.posts],
-              };
-            },
-          });
-        },
-      };
+  const { data } = await client.query({
+    query: experimentsQuery,
+  });
+
+  return {
+    props: {
+      ...data,
+      experiments:
+        data &&
+        data.experiments &&
+        data.experiments.map((item) => {
+          return {
+            title: item.title,
+            date: formatDate(item.date),
+            content: item.excerpt,
+            slug: item.slug,
+            url: item.url,
+            githubUrl: item.githubUrl,
+            blogUrl: item.posts && `/blog/${item.posts[0].slug}`,
+            imageUrl:
+              item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
+            imageAltText: item.featuredMedia && item.featuredMedia.altText,
+          };
+        }),
     },
-  })(Experiments),
-);
+  };
+};
+
+export default Experiments;
+
+// export default withApollo(
+//   graphql(experimentsQuery, {
+//     options: () => {
+//       return {
+//         variables: {
+//           offset: 0,
+//         },
+//       };
+//     },
+//     props: ({ data }) => {
+//       return {
+//         ...data,
+//         experiments:
+//           data &&
+//           data.experiments &&
+//           data.experiments.map((item) => {
+//             return {
+//               title: item.title,
+//               date: formatDate(item.date),
+//               content: item.excerpt,
+//               slug: item.slug,
+//               url: item.url,
+//               githubUrl: item.githubUrl,
+//               blogUrl: item.posts && `/blog/${item.posts[0].slug}`,
+//               imageUrl:
+//                 item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
+//               imageAltText:
+//                 item.featuredMedia && item.featuredMedia.sizes.full.altText,
+//             };
+//           }),
+//         loadMore() {
+//           return data.fetchMore({
+//             variables: {
+//               offset: data.posts.length,
+//             },
+//             updateQuery: (previousResult, { fetchMoreResult }) => {
+//               if (!fetchMoreResult) {
+//                 return previousResult;
+//               }
+
+//               return {
+//                 ...previousResult,
+//                 posts: [...previousResult.posts, ...fetchMoreResult.posts],
+//               };
+//             },
+//           });
+//         },
+//       };
+//     },
+//   })(Experiments),
+// );
 
 // Very naughty bit of hard-coding here
 function getTileSize(slug) {
