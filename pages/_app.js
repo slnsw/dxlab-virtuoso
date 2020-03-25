@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 
+import '../styles/variables.css';
 import '../styles/base.css';
 import '../styles/globals.css';
 import '../styles/loader.css';

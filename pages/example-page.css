@@ -5,75 +5,77 @@
   font-size: 20px;
 }
 
-h1 {
-  color: var(--colour-primary);
-}
-
-p {
-  &.font-size-xxs {
-    font-size: var(--font-size-xxs);
+.example-page {
+  & h1 {
+    color: var(--colour-primary);
   }
 
-  &.font-size-xs {
-    font-size: var(--font-size-xs);
+  & p {
+    &.font-size-xxs {
+      font-size: var(--font-size-xxs);
+    }
+
+    &.font-size-xs {
+      font-size: var(--font-size-xs);
+    }
+
+    &.font-size-sm {
+      font-size: var(--font-size-sm);
+    }
+
+    &.font-size-md {
+      font-size: var(--font-size-md);
+    }
+
+    &.font-size-lg {
+      font-size: var(--font-size-lg);
+    }
+
+    &.font-size-xlg {
+      font-size: var(--font-size-xlg);
+    }
+
+    &.font-size-xxlg {
+      font-size: var(--font-size-xxlg);
+    }
   }
 
-  &.font-size-sm {
-    font-size: var(--font-size-sm);
+  & .title {
+    color: var(--colour-primary);
+
+    & span {
+      color: green;
+    }
   }
 
-  &.font-size-md {
-    font-size: var(--font-size-md);
+  & .boxes {
+    lost-utility: clearfix;
   }
 
-  &.font-size-lg {
-    font-size: var(--font-size-lg);
+  & .box {
+    padding: var(--spacing-md);
+    background-color: var(--colour-secondary);
+
+    @media (--screen-sm) {
+      lost-column: 1/7 0 0;
+    }
   }
 
-  &.font-size-xlg {
-    font-size: var(--font-size-xlg);
+  & .box--colour-primary {
+    background-color: var(--colour-primary);
   }
 
-  &.font-size-xxlg {
-    font-size: var(--font-size-xxlg);
+  & .box--colour-secondary {
+    background-color: var(--colour-secondary);
   }
-}
 
-.title {
-  color: var(--colour-primary);
-
-  & span {
-    color: green;
+  & .box--colour-tertiary {
+    background-color: var(--colour-tertiary);
   }
-}
 
-.boxes {
-  lost-utility: clearfix;
-}
-
-.box {
-  padding: var(--spacing-md);
-  background-color: var(--colour-secondary);
-
-  @media (--screen-sm) {
-    lost-column: 1/7 0 0;
+  & .box--colour-highlight {
+    background-color: var(--colour-highlight);
   }
-}
-
-.box--colour-primary {
-  background-color: var(--colour-primary);
-}
-
-.box--colour-secondary {
-  background-color: var(--colour-secondary);
-}
-
-.box--colour-tertiary {
-  background-color: var(--colour-tertiary);
-}
-
-.box--colour-highlight {
-  background-color: var(--colour-highlight);
 }
 
 @define-mixin create-box $colour-name, $colour, $index {

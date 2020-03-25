@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SectionTitle from '../SectionTitle';
 import Comment from '../Comment';
 import CommentForm from '../CommentForm';
-import './Comments.css';
+// import './Comments.css';
 
 class Comments extends Component {
   static propTypes = {

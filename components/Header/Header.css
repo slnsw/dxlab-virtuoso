@@ -229,7 +229,8 @@ ul.primary-menu {
     margin-right: var(--spacing-xlg);
   }
 
-  & a {
+  & a:link,
+  & a:visited {
     display: block;
     padding: 1em 1em 1em var(--spacing-xlg);
 

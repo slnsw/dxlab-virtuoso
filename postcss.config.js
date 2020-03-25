@@ -25,6 +25,12 @@ module.exports = {
         prefix: '_',
       },
     ],
+    [
+      'postcss-custom-properties',
+      {
+        importFrom: './styles/variables.css',
+      },
+    ],
     'postcss-mixins',
     [
       'postcss-cssnext',

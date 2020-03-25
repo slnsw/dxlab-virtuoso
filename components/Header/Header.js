@@ -45,7 +45,7 @@ class Header extends Component {
   };
 
   render() {
-    const { pathname = '', menuItems } = this.props;
+    const { pathname = '', menuItems = [] } = this.props;
 
     return (
       <header className="header">
