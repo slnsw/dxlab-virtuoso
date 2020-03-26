@@ -2,9 +2,9 @@ require('dotenv').config();
 const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-const withCSS = require('@zeit/next-css');
+// const withCSS = require('@zeit/next-css');
 
-module.exports = withCSS({
+module.exports = {
   webpack: (config, { dev }) => {
     const customConfig = {
       ...config,
@@ -36,4 +36,4 @@ module.exports = withCSS({
 
     return customConfig;
   },
-});
+};

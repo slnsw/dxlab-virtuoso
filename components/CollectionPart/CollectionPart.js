@@ -1,7 +1,6 @@
 import { Component, Fragment } from 'react';
 // import PropTypes from 'prop-types';
 
-import './CollectionPart.css';
 import CollectionParts from '../CollectionParts';
 import NoImage from '../NoImage';
 import Link from '../Link';

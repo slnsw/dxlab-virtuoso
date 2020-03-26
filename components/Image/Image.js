@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import classNames from 'classnames';
 
-import './Image.css';
+// import './Image.css';
 
 // TODO: Lots to fix up here, imported from another project
 

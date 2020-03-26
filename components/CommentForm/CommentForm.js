@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import './CommentForm.css';
+// import './CommentForm.css';
 
 class CommentForm extends Component {
   static propTypes = {

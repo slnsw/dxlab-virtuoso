@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './WebsiteApp.css';
+// import './WebsiteApp.css';
 import App from '../App';
 
 const HEADER_MENU_ITEMS = [

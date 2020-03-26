@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import './Footer.css';
+// import './Footer.css';
 // import Menu from '../Menu';
 
 class Footer extends Component {

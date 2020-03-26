@@ -12,7 +12,7 @@ import Popover from '../../components/Popover';
 import CollectionItem from '../../components/CollectionItem';
 import LoaderText from '../../components/LoaderText';
 import { Router } from '../../routes';
-import './search.css';
+// import './search.css';
 
 const Loader = () => (
   <div className="collection-search-page__results__loader">

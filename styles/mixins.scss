@@ -1,0 +1,74 @@
+/*
+ * MIXINS
+ * ========================================================================== */
+
+/* Extra small screen / small phone */
+// @custom-media --screen-xs (min-width: 20em);
+
+// /* 576px Small screen / phone */
+// @custom-media --screen-sm (min-width: 36em);
+
+// /* 768px Small screen / tablet */
+// @custom-media --screen-md (min-width: 48em);
+
+// /* 992px Medium screen / desktop */
+// @custom-media --screen-lg (min-width: 62em);
+
+// /* 1200px Large screen / wide desktop */
+// @custom-media --screen-xlg (min-width: 75em);
+
+// /* 1920 HD TV screen */
+// @custom-media --screen-xxlg (min-width: 120em);
+
+$container-width-xs: 20em;
+$container-width-sm: 36em;
+$container-width-md: 48em;
+$container-width-lg: 62em;
+$container-width-xlg: 75em;
+$container-width-xxlg: 120em;
+
+/*
+ * Media Queries
+ * ------------------------------------------------------------------------ */
+
+@mixin media-xs {
+  @media only screen and (min-width: $container-width-xs) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media only screen and (min-width: $container-width-sm) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media only screen and (min-width: $container-width-md) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media only screen and (min-width: $container-width-lg) {
+    @content;
+  }
+}
+
+@mixin media-xlg {
+  @media only screen and (min-width: $container-width-xlg) {
+    @content;
+  }
+}
+
+@mixin media-xxlg {
+  @media only screen and (min-width: $container-width-xxlg) {
+    @content;
+  }
+}
+
+@mixin media-xxxlg {
+  @media only screen and (min-width: $container-width-xxxlg) {
+    @content;
+  }
+}

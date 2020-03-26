@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { graphql } from 'react-apollo';
+// import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import WebsiteApp from '../../components/WebsiteApp';
@@ -10,11 +10,14 @@ import Button from '../../components/Button';
 import Comments from '../../components/Comments';
 import Four04 from '../_error';
 
-import { withApollo, initApolloClient } from '../../lib/apollo';
+import {
+  // withApollo,
+  initApolloClient,
+} from '../../lib/apollo';
 import { formatDate } from '../../lib';
 
-import '../post.css';
-import '../../styles/gallery.css';
+// import '../post.css';
+// import '../../styles/gallery.css';
 
 const client = initApolloClient();
 

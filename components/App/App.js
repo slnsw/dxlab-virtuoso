@@ -9,10 +9,8 @@ import Footer from '../Footer';
 import { buildHeadTitle } from '../../lib';
 import { initGA } from '../../lib/analytics'; // logPageView
 
-import './App.css';
-// import '../../styles/base.css';
-// import '../../styles/globals.css';
-import '../../styles/loader.css';
+// import './App.css';
+// import '../../styles/loader.css';
 
 const SCROLLTOP_THRESHOLD = 100;
 

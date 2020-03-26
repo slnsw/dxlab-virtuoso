@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2020-03-26
+
+- Remove `next-css` and use inbuilt Next JS's inbuilt CSS and SCSS support
+- Rename all `.css` files to `.scss`
+- Remove old postcss packages, including `cssnext`
+- Migrate from `cssnext` to SCSS
+
 ## [1.7.4] - 2020-03-24
 
 - Update `now.json` and `now.staging.json` to have proxy to AWS S3 dxlab-website audio bucket

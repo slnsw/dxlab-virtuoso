@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Menu from '../Menu';
 import Link from '../Link';
-import './Header.css';
+// import './Header.css';
 
 // const menuItems = [
 //   { name: 'Home', url: '/' },
@@ -45,7 +45,7 @@ class Header extends Component {
   };
 
   render() {
-    const { pathname = '', menuItems } = this.props;
+    const { pathname = '', menuItems = [] } = this.props;
 
     return (
       <header className="header">

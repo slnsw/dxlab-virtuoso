@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 
-import './Popover.css';
+// import './Popover.css';
 // import Link from '../Link';
 
 class Popover extends Component {

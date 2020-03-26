@@ -5,7 +5,8 @@ import gql from 'graphql-tag';
 
 import SimpleTile from '../SimpleTile';
 import { mapPostToTile } from '../../lib';
-import './SearchModal.css';
+
+// import './SearchModal.css';
 
 class SearchModal extends Component {
   static propTypes = {

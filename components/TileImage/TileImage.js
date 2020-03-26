@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import Link from '../Link';
-import './TileImage.css';
+// import './TileImage.css';
 
 class TileImage extends Component {
   handleMouseOver = () => {

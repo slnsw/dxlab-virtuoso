@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './CollectionItem.css';
 import Link from '../Link';
 import NoImage from '../NoImage';
 

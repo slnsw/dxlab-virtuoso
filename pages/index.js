@@ -11,7 +11,7 @@ import Button from '../components/Button';
 
 import { initApolloClient } from '../lib/apollo';
 import { formatDate } from '../lib';
-import './index.css';
+// import './index.css';
 import config from '../lib/config';
 
 class HomePage extends Component {

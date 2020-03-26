@@ -1,0 +1,49 @@
+@import '../../styles/globals.scss';
+
+.share-box {
+  position: relative;
+  display: flex;
+  margin-top: 3em;
+  margin-bottom: 4em;
+  padding-left: var(--spacing-md);
+
+  &::before {
+    position: absolute;
+    left: -0.5em;
+    height: 1em;
+    border-left: 1px solid var(--colour-white);
+    content: '';
+  }
+}
+
+.share-box__title {
+  position: absolute;
+  top: 3.2em;
+  left: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  @extend .font-uppercase;
+}
+
+.share-box__icons {
+  margin-top: -0.2em;
+  font-size: var(--font-size-xxlg);
+  line-height: 1;
+
+  & a:link,
+  & a:visited {
+    color: var(--colour-white);
+  }
+
+  & a:hover,
+  & a:active {
+    color: var(--colour-highlight);
+    text-decoration: none;
+  }
+}
+
+.share-box__icon {
+  margin-left: var(--font-size-xxxs);
+}
