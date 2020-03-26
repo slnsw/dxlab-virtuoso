@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.table {
+  margin-bottom: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  text-transform: uppercase;
+  border-top: 1px dashed var(--colour-grey);
+  border-bottom: 1px dashed var(--colour-grey);
+  @apply (--font-uppercase);
+  /* font-size: var(--font-size-sm); */
+}
+
+.table__row {
+  display: flex;
+  margin-bottom: var(--spacing-xxs);
+}
+
+.table__cell {
+  flex: 10;
+  line-height: var(--line-height-sm);
+}
+
+.table__cell--head {
+  flex: 4;
+  color: var(--colour-grey);
+}

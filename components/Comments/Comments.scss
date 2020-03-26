@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.comments {
+  position: relative;
+  display: block;
+  padding-bottom: var(--spacing-xlg);
+
+  /* Line decoration at the bottom */
+  &::after {
+    position: absolute;
+    right: -1em;
+    bottom: 0;
+    width: var(--spacing-xxlg);
+    border-bottom: 1px dashed var(--colour-white);
+    content: '';
+
+    @media (--screen-sm) {
+      border: none;
+    }
+  }
+}
+
+.comments__list {
+  margin-bottom: 3em;
+}

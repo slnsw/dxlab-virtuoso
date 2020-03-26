@@ -1,0 +1,76 @@
+@import '../../styles/variables.scss';
+
+.collection-parts {
+  padding-left: 1em;
+  border-left: 2px solid var(--colour-grey-darkest);
+}
+
+.collection-part {
+  display: flex;
+  align-content: flex-start;
+  margin-bottom: 1em;
+}
+
+.collection-part__image-holder {
+  flex: 1;
+  margin-right: var(--spacing-xs);
+  /* background-color: var(--colour-grey-darker); */
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.collection-part__info {
+  flex: 5;
+
+  @media (--screen-sm) {
+    flex: 9;
+  }
+}
+
+.collection-part__level {
+  color: var(--colour-grey);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  @apply (--font-uppercase);
+}
+
+.collection-part__title {
+  display: block;
+  margin-bottom: var(--spacing-lg);
+  font-family: var(--font-secondary);
+  opacity: 0.85;
+
+  &:link,
+  &:visited {
+    color: var(--colour-white);
+  }
+}
+
+.collection-part__toggle-button {
+  /* padding: 0;
+  font-size: var(--font-size-sm);
+  color: var(--colour-primary);
+  text-transform: lowercase; */
+}
+
+.collection-parts__load-more-button,
+.collection-part__toggle-button {
+  /* padding: 0; */
+  /* font-size: var(--font-size-sm); */
+  /* color: var(--colour-primary);
+  text-transform: lowercase; */
+  padding: var(--spacing-xxs) var(--spacing-sm) var(--spacing-xxxs)
+    var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  @apply --font-uppercase;
+  border: 1px solid var(--colour-white);
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--colour-primary);
+    border: 1px solid var(--colour-primary);
+  }
+}
