@@ -2,12 +2,13 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-rational-order',
+    'stylelint-config-css-modules',
+    'stylelint-prettier/recommended',
     'stylelint-config-lost',
     'stylelint-scss',
   ],
   ignoreFiles: ['**/*.js', '**/*.ts', '**/*.tsx'],
   rules: {
-    'at-rule-empty-line-before': null,
     'at-rule-no-unknown': null,
     'rule-empty-line-before': [
       'always',

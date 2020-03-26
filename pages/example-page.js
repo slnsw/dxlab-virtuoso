@@ -29,7 +29,7 @@ class ExamplePage extends Component {
   }
 
   render() {
-    const { id, router, objects } = this.props;
+    const { id, router, posts } = this.props;
     const { pathname } = router;
 
     // console.log(objects);
@@ -82,9 +82,9 @@ class ExamplePage extends Component {
           <h2>GraphQL Test</h2>
           <p>{process.env.DXLAB_WEBSITE_GRAPHQL_URL}</p>
           <ul>
-            {objects &&
-              objects.map(({ displayTitle }, i) => {
-                return <li key={i}>{displayTitle}</li>;
+            {posts &&
+              posts.map(({ title }, i) => {
+                return <li key={i}>{title}</li>;
               })}
           </ul>
         </div>
@@ -93,10 +93,10 @@ class ExamplePage extends Component {
   }
 }
 
-const allObjects = gql`
+const postsQuery = gql`
   query {
-    objects(limit: 10) {
-      displayTitle
+    posts(limit: 10) {
+      title
     }
   }
 `;
@@ -104,7 +104,7 @@ const allObjects = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withApollo(
-  graphql(allObjects, {
+  graphql(postsQuery, {
     props: ({ data }) => {
       return {
         ...data,
