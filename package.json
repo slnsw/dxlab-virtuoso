@@ -84,12 +84,12 @@
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.1",
     "prettier": "^1.19.1",
-    "react-test-renderer": "^16.12.0",
     "sass": "^1.25.0",
     "stylelint": "^13.1.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.16.0",
     "typescript": "^3.7.5",
     "webpack": "^4.41.6"
   },
