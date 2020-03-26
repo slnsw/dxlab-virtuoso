@@ -75,8 +75,8 @@ class Experiments extends Component {
 
 // NOTE: Will need to increase limit if we go over 30 experiments!
 const experimentsQuery = gql`
-  query Experiments($offset: Int) {
-    experiments(limit: 30, offset: $offset) {
+  query Experiments {
+    experiments(limit: 30) {
       title
       slug
       excerpt

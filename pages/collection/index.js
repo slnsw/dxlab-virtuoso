@@ -10,8 +10,8 @@ import Popover from '../../components/Popover';
 import { withApollo } from '../../lib/apollo';
 import { Router } from '../../routes';
 
-import './index.css';
-import './search.css';
+// import './index.css';
+// import './search.css';
 
 // const COLORS = [
 //   '#e6007e',

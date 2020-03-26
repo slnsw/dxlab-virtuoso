@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './RelatedCollectionItems.css';
+// import './RelatedCollectionItems.css';
 import Link from '../Link';
 
 class RelatedCollectionItems extends Component {
