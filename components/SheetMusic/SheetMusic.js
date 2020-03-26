@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './SheetMusic.css';
-
 const SheetMusic = ({
   id = 'sheet-music',
   isPlaying,
