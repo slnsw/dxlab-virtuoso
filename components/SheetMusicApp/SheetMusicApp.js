@@ -22,7 +22,7 @@ const pianoSamples = {
   A3: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_024.mp3`,
   'C#4': `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_026.mp3`,
   F4: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_028.mp3`,
-  G4: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_030.mp3`,
+  A4: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_030.mp3`,
 };
 
 // const fluteSamples = {
@@ -62,6 +62,8 @@ const SheetMusicApp = ({ className }) => {
 
   const vocalNotes = notes.filter((note) => note.line === 0);
   const pianoNotes = notes.filter((note) => note.line === 1 || note.line === 2);
+
+  console.log(pianoNotes);
 
   // const [vocalNotes, setVocalNotes] = React.useState([]);
   // const [pianoNotes, setPianoNotes] = React.useState([]);
