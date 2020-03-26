@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .comment-form {
   & span {
@@ -6,7 +6,7 @@
   }
 
   & button {
-    @media (--screen-sm) {
+    @include media-sm {
       width: auto;
     }
   }
@@ -19,7 +19,7 @@
 .comment-form__section {
   margin-bottom: var(--spacing-lg);
 
-  @media (--screen-md) {
+  @include media-md {
     &:nth-child(1),
     &:nth-child(2) {
       lost-column: 1/2;

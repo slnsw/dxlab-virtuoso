@@ -1,10 +1,10 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .loader-text {
   /* padding-top: var(--spacing-md); */
   color: var(--colour-grey-lightest);
   font-size: var(--font-size-sm);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 
   & span {
     /**

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .comment {
   position: relative;
@@ -30,21 +30,21 @@
 }
 
 .comment__author {
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   font-weight: bold;
 }
 
 .comment__date {
   font-size: var(--font-size-sm);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 }
 
 .comment__content {
   /* font-size: var(--font-size-sm); */
   font-family: var(--font-secondary);
+  @extend .font-antialiased;
 
-  @media (--screen-sm) {
+  @include media-sm {
     /* font-size: var(--font-size-md); */
-    @apply --font-antialiased;
   }
 }

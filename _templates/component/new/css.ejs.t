@@ -1,7 +1,7 @@
 ---
 to: components/<%= name %>/<%= name %>.css
 ---
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 /* .<%= h.inflection.underscore(name).replace(/_/g, '-') %> {
 } */

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .table {
   margin-bottom: var(--spacing-md);
@@ -6,7 +6,7 @@
   text-transform: uppercase;
   border-top: 1px dashed var(--colour-grey);
   border-bottom: 1px dashed var(--colour-grey);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
   /* font-size: var(--font-size-sm); */
 }
 

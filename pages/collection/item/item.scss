@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import '../../../styles/globals.scss';
 
 .collection-item-page {
   padding-top: var(--spacing-xs);
@@ -11,9 +11,9 @@
   color: var(--colour-highlight);
   font-weight: 700;
   font-size: var(--font-size-xs);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 
-  @media (--screen-sm) {
+  @include media-sm {
     font-weight: 400;
     font-size: var(--font-size-sm);
   }
@@ -28,7 +28,7 @@
   color: var(--colour-grey);
   font-weight: 700;
   font-size: var(--font-size-sm);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 }
 
 .collection-item-page__title {
@@ -40,7 +40,7 @@
   letter-spacing: 0;
   text-transform: none;
 
-  @media (--screen-sm) {
+  @include media-sm {
     margin-bottom: var(--spacing-md);
     font-size: var(--font-size-xxlg);
     line-height: var(--line-height-xs);
@@ -56,7 +56,7 @@
 .collection-item-page__data {
   margin-bottom: var(--spacing-xxlg);
 
-  @media (--screen-sm) {
+  @include media-sm {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -67,7 +67,7 @@
 .collection-item-page__table {
   font-size: var(--font-size-sm);
 
-  @media (--screen-sm) {
+  @include media-sm {
     flex: 2;
     max-width: 70%;
     margin-right: var(--spacing-lg);
@@ -111,9 +111,9 @@
   padding: var(--spacing-sm);
   font-size: var(--font-size-sm);
   background-color: var(--colour-grey-darkest);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 
-  @media (--screen-sm) {
+  @include media-sm {
     flex: 1;
   }
 
@@ -156,7 +156,7 @@
 .collection-item-page__gallery {
   margin-bottom: var(--spacing-md);
 
-  @media (--screen-sm) {
+  @include media-sm {
     margin-bottom: var(--spacing-xlg);
   }
 
@@ -172,7 +172,7 @@
     width: 20%;
     padding-right: 3px;
 
-    @media (--screen-sm) {
+    @include media-sm {
       width: 10%;
     }
   }
@@ -183,7 +183,7 @@
     margin-bottom: -5px;
     object-fit: cover;
 
-    @media (--screen-sm) {
+    @include media-sm {
       height: 6em;
     }
   }
@@ -204,7 +204,7 @@
   & .pswp-thumbnail:nth-child(5n + 1) {
     padding-right: 0;
 
-    @media (--screen-sm) {
+    @include media-sm {
       padding-right: 3px;
     }
   }

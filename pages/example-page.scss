@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../styles/globals.scss';
 
 .paragraph {
   /* composes: font-color from './global.css'; */
@@ -56,7 +56,7 @@
     padding: var(--spacing-md);
     background-color: var(--colour-secondary);
 
-    @media (--screen-sm) {
+    @include media-sm {
       lost-column: 1/7 0 0;
     }
   }

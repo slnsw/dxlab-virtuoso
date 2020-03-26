@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 
-import '../styles/variables.scss';
+import '../styles/custom-properties.scss';
 import '../styles/base.scss';
-import '../styles/globals.scss';
+import '../styles/fonts.scss'; // Icons
 import '../styles/loader.scss';
 
 // Pages CSS

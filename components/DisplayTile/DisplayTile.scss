@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 /*@lost gutter 0.2em;*/
 
@@ -10,11 +10,11 @@
   margin-bottom: var(--spacing-xxxlg);
   lost-masonry-column: 1/1 0;
 
-  @media (--screen-sm) {
+  @include media-sm {
     height: 26em;
   }
 
-  @media (--screen-md) {
+  @include media-md {
     flex-direction: row;
     margin-bottom: 6em;
   }
@@ -24,7 +24,7 @@
   flex-direction: column;
   height: 30em;
 
-  @media (--screen-md) {
+  @include media-md {
     height: 40em;
   }
 }
@@ -32,7 +32,7 @@
 .display-tile__image {
   flex: 1;
 
-  @media (--screen-md) {
+  @include media-md {
     flex: 2;
   }
 
@@ -40,7 +40,7 @@
     margin-right: -1em;
     margin-left: -1em;
 
-    @media (--screen-md) {
+    @include media-md {
       margin-right: 0;
       margin-left: 0;
     }
@@ -52,12 +52,12 @@
   display: flex;
   flex-direction: column;
 
-  @media (--screen-md) {
+  @include media-md {
     flex: 1;
   }
 
   .display-tile--lg & {
-    @media (--screen-md) {
+    @include media-md {
       flex: none;
       flex-direction: row;
     }
@@ -68,12 +68,12 @@
   display: flex;
   flex-direction: column;
 
-  @media (--screen-md) {
+  @include media-md {
     flex: 1;
   }
 
   .display-tile--lg & {
-    @media (--screen-md) {
+    @include media-md {
       flex: 4;
       flex-direction: row;
     }
@@ -84,12 +84,12 @@
   flex: 1;
   margin-bottom: var(--spacing-md);
 
-  @media (--screen-md) {
+  @include media-md {
     flex: none;
   }
 
   .display-tile--lg & {
-    @media (--screen-md) {
+    @include media-md {
       flex: 1;
     }
   }
@@ -103,11 +103,11 @@
   /*margin-bottom: var(--spacing-xs);*/
   padding: 0.15em 0 0 0.6em;
   font-size: var(--font-size-lg);
-  @apply --font-antialiased;
+  @extend .font-antialiased;
   line-height: 1;
   background-color: var(--colour-black);
 
-  @media (--screen-md) {
+  @include media-md {
     margin-top: 0;
     margin-left: -0.2em;
     /*margin-bottom: var(--spacing-md);*/
@@ -123,7 +123,7 @@
     padding-left: var(--spacing-xs);
     font-size: var(--font-size-xxlg);
 
-    @media (--screen-md) {
+    @include media-md {
       margin-left: 0;
       padding-left: 0;
       font-size: var(--font-size-xxlg);
@@ -147,7 +147,7 @@
     padding: 0;
     font-size: var(--font-size-md);
 
-    @media (--screen-md) {
+    @include media-md {
       margin-top: var(--spacing-md);
       margin-right: 2em;
       margin-bottom: -0.4em;
@@ -160,9 +160,9 @@
   padding-left: var(--spacing-lg);
   color: var(--colour-grey-light);
   font-size: var(--font-size-xs);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 
-  @media (--screen-md) {
+  @include media-md {
     position: absolute;
     bottom: -0.4em;
     left: 1em;
@@ -184,7 +184,7 @@
   padding-left: var(--spacing-sm);
   /*font-size: var(--font-size-sm);*/
 
-  @media (--screen-sm) {
+  @include media-sm {
     align-self: flex-end;
     width: 50%;
   }

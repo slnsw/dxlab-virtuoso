@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../styles/globals.scss';
 
 #dxmaze {
   margin-top: 0;
@@ -14,11 +14,11 @@
   & h1 {
     font-size: var(--font-size-md);
 
-    @media (--screen-sm) {
+    @include media-sm {
       font-size: var(--font-size-lg);
     }
 
-    @media (--screen-md) {
+    @include media-md {
       font-size: var(--font-size-xlg);
     }
   }

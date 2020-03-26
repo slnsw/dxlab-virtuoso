@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import '../styles/globals.scss';
 
 .masthead__title {
   /* Adjust glitch effect */
@@ -15,7 +15,7 @@
   & .masthead__title {
     top: 20%;
 
-    @media (--screen-sm) {
+    @include media-sm {
       top: 30%;
     }
   }
@@ -38,7 +38,7 @@
 }
 
 .home-page__button-holder {
-  @media (--screen-md) {
+  @include media-md {
     max-width: 35%;
   }
 }

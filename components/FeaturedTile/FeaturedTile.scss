@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 /*@lost gutter 0.2em;*/
 
@@ -8,7 +8,7 @@
   margin-bottom: 0.2em;
   lost-masonry-column: 1/1 0;
 
-  @media (--screen-sm) {
+  @include media-sm {
     lost-masonry-column: 1/2 4px;
   }
 
@@ -29,13 +29,13 @@
 }
 
 .featured-tile--2x1 {
-  @media (--screen-sm) {
+  @include media-sm {
     lost-masonry-column: 2/2 4px flex;
   }
 }
 
 .featured-tile--1x2 {
-  @media (--screen-sm) {
+  @include media-sm {
     height: 40em;
   }
 }
@@ -64,7 +64,7 @@
     /*padding: 0 var(--spacing-xxxs);*/
     padding: 0.15em 0 0 0.6em;
     font-size: var(--font-size-lg);
-    @apply --font-antialiased;
+    @extend .font-antialiased;
     line-height: 1;
     background-color: var(--colour-black);
   }

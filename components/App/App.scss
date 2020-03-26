@@ -1,11 +1,11 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .app {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 2em);
 
-  @media (--screen-sm) {
+  @include media-sm {
     min-height: calc(100vh - 4.2em);
   }
 }
@@ -35,7 +35,7 @@ main {
   transition: 1s opacity;
   pointer-events: none;
 
-  @media (--screen-sm) {
+  @include media-sm {
     top: -5.4em;
     width: calc(100% + 4em);
     height: 7.7em;
@@ -43,7 +43,7 @@ main {
     margin-left: -2em;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     top: -2em;
     height: 5.5em;
     margin-top: -3.4em;
@@ -51,7 +51,7 @@ main {
 
   /* Line decoration for primary-menu */
   &::after {
-    @media (--screen-sm) {
+    @include media-sm {
       position: absolute;
       top: 4.5em;
       left: 2em;
@@ -62,7 +62,7 @@ main {
       content: '';
     }
 
-    @media (--screen-lg) {
+    @include media-lg {
       display: none;
     }
   }

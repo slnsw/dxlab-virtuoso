@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .share-box {
   position: relative;
@@ -24,7 +24,7 @@
   line-height: 1;
   transform: rotate(-90deg);
   transform-origin: top left;
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 }
 
 .share-box__icons {

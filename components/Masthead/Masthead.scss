@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .masthead {
   position: relative;
@@ -11,7 +11,7 @@
   padding-right: 1em;
   padding-left: 1em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     width: calc(100% + 4em);
     height: 40em;
     margin-top: -7.5em;
@@ -20,7 +20,7 @@
     padding-left: 2em;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     margin-top: -5.5em;
   }
 }
@@ -28,7 +28,7 @@
 .masthead--lg {
   height: 36em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     height: 92vh;
     min-height: 50em;
     max-height: 60em;
@@ -70,11 +70,11 @@
   letter-spacing: 0.25em;
   /* font-size: var(--font-size-xlg); */
 
-  @media (--screen-sm) {
+  @include media-sm {
     font-size: var(--font-size-xxxlg);
   }
 
-  @media (--screen-md) {
+  @include media-md {
     /*line-height: 1.1;*/
     font-size: var(--font-size-xxxxlg);
   }
@@ -101,7 +101,7 @@
   font-size: var(--font-size-xxxs);
   letter-spacing: 0.5em;
 
-  @media (--screen-md) {
+  @include media-md {
     font-size: var(--font-size-xxxxs);
     letter-spacing: 0.3em;
   }
@@ -142,7 +142,7 @@
   line-height: 1.4em;
   letter-spacing: 0.05em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     bottom: 11%;
     left: auto;
     /* right: 10%; */
@@ -151,12 +151,12 @@
     /* border-left: 1px dashed var(--colour-white); */
   }
 
-  @media (--screen-md) {
+  @include media-md {
     right: 0%;
     width: 45%;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     width: 35%;
   }
 
@@ -185,8 +185,9 @@
 
 .masthead__intro-list {
   display: none;
+  @extend .font-uppercase;
 
-  @media (--screen-sm) {
+  @include media-sm {
     position: absolute;
     top: 8em;
     right: 0;
@@ -195,7 +196,6 @@
     line-height: 1;
     transform: rotate(-90deg);
     transform-origin: bottom right;
-    @apply --font-uppercase;
     opacity: 0.3;
   }
 }
@@ -211,9 +211,9 @@
   bottom: var(--spacing-xxxlg);
   padding-right: var(--spacing-xlg);
   font-size: var(--font-size-xs);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 
-  /* @media (--screen-sm) {
+  /* @include media-sm {
     bottom: 10%;
   } */
 

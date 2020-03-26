@@ -1,9 +1,9 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .search-modal__title {
   font-size: 1em;
 
-  @media (--screen-md) {
+  @include media-md {
     font-size: var(--font-size-lg);
   }
 }

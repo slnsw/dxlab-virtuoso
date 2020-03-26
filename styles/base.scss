@@ -1,8 +1,4 @@
-@import 'normalize.css/normalize.css';
-@import './variables';
-@import './fonts';
-
-/*@import 'corporate-icon-library/icomoon/style.css';*/
+@import './globals.scss';
 
 /*
  * BASE STYLES
@@ -29,7 +25,7 @@ body {
 
   /*-webkit-font-smoothing: antialiased;*/
 
-  @media (--screen-sm) {
+  @include media-sm {
     margin: 2em;
     font-size: 16px;
   }
@@ -41,7 +37,7 @@ h3,
 h4 {
   font-weight: 700;
   font-family: var(--font-primary);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 }
 
 h1 {
@@ -102,7 +98,7 @@ blockquote {
   font-style: italic;
   border-left: 2px dashed var(--colour-white);
 
-  @media (--screen-sm) {
+  @include media-sm {
     padding-left: calc(1rem - 1px);
     border-width: 1px;
   }
@@ -122,7 +118,7 @@ label {
   display: block;
   margin-bottom: var(--font-size-xs);
   font-size: var(--font-size-sm);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 }
 
 input[type='text'],
@@ -131,6 +127,7 @@ textarea {
   width: 100%;
   padding: var(--spacing-sm);
   color: var(--colour-white);
+  font-size: var(--font-size-md);
   font-family: var(--font-primary);
   background-color: var(--colour-grey-darker);
   border-top: none;
@@ -159,7 +156,7 @@ button[type='submit'],
 input[type='submit'] {
   padding: var(--spacing-md);
   font-size: var(--font-size-sm);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   border: 1px solid var(--colour-white);
   transition: 0.3s;
 

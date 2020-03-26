@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .footer {
   position: relative;
@@ -8,7 +8,7 @@
   min-height: 6.5em;
   margin-top: 5em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     /* flex-direction: row; */
     flex-flow: row wrap;
     align-items: baseline;
@@ -25,9 +25,9 @@
   line-height: 1;
   transform: rotate(-90deg);
   transform-origin: top left;
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 
-  @media (--screen-sm) {
+  @include media-sm {
     top: 3.5em;
   }
 
@@ -45,7 +45,7 @@
   font-size: var(--font-size-xlg);
 
   /* Line decoration */
-  @media (--screen-md) {
+  @include media-md {
     &::before {
       position: absolute;
       bottom: -0.9em;
@@ -84,10 +84,10 @@ ul.footer-menu {
   margin-bottom: var(--spacing-sm);
   padding-left: 0;
   font-size: var(--font-size-sm);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   text-align: right;
 
-  @media (--screen-sm) {
+  @include media-sm {
     flex-direction: row;
     order: 3;
     width: 100%;
@@ -99,7 +99,7 @@ ul.footer-menu {
     line-height: 1.7;
     list-style: none;
 
-    @media (--screen-sm) {
+    @include media-sm {
       margin-right: 1em;
 
       &::after {
@@ -128,7 +128,7 @@ ul.footer-menu {
     border-top: 1px solid var(--colour-white);
     content: '';
 
-    @media (--screen-sm) {
+    @include media-sm {
       top: -1em;
       bottom: auto;
     }
@@ -139,7 +139,7 @@ ul.footer-menu {
   position: relative;
   height: auto;
 
-  @media (--screen-sm) {
+  @include media-sm {
     margin-left: 2em;
   }
 
@@ -148,7 +148,7 @@ ul.footer-menu {
     width: 2.5em;
     margin-bottom: 0;
 
-    @media (--screen-sm) {
+    @include media-sm {
       width: 4em;
       margin-right: -0.3em;
     }
@@ -163,14 +163,14 @@ ul.footer-menu {
     border-right: 1px solid var(--colour-white);
     content: '';
 
-    @media (--screen-sm) {
+    @include media-sm {
       bottom: -2.2em;
       width: var(--spacing-lg);
       border-right: none;
       border-bottom: 1px solid var(--colour-white);
     }
 
-    @media (--screen-md) {
+    @include media-md {
       border-bottom: none;
     }
   }

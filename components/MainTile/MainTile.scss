@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .main-tile {
   position: relative;
@@ -7,7 +7,7 @@
   height: 20em;
   margin-bottom: var(--spacing-xxlg);
 
-  @media (--screen-sm) {
+  @include media-sm {
     flex-direction: row;
     height: 18em;
     margin-bottom: var(--spacing-xxxxlg);
@@ -17,11 +17,11 @@
 .main-tile--1x2 {
   height: 30em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     height: 30em;
   }
 
-  @media (--screen-md) {
+  @include media-md {
     height: 36em;
   }
 }
@@ -39,7 +39,7 @@
     text-decoration: none;
   }
 
-  @media (--screen-sm) {
+  @include media-sm {
     width: 55%;
     margin-left: 0;
   }
@@ -49,7 +49,7 @@
     width: calc(100% + 2em);
     margin-left: -1em;
 
-    @media (--screen-sm) {
+    @include media-sm {
       width: 100%;
       margin-left: 0;
     }
@@ -59,7 +59,7 @@
   .main-tile:nth-of-type(2n) & {
     margin-left: 0;
 
-    @media (--screen-sm) {
+    @include media-sm {
       order: 2;
     }
   }
@@ -71,7 +71,7 @@
   flex-direction: column;
   min-height: 3em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -81,7 +81,7 @@
 
   /* Switch side of image for every 2nd tile */
   .main-tile:nth-of-type(2n) & {
-    @media (--screen-sm) {
+    @include media-sm {
       padding-right: var(--spacing-md);
       padding-left: 0;
     }
@@ -118,7 +118,7 @@
   width: 100%;
   /* padding-top: -0.25em; */
 
-  @media (--screen-sm) {
+  @include media-sm {
     align-self: flex-start;
     margin-top: 3em;
 
@@ -139,11 +139,11 @@
   color: var(--colour-white);
   font-weight: 700;
   font-size: var(--font-size-lg);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   line-height: 1;
   background-color: var(--colour-black);
 
-  @media (--screen-sm) {
+  @include media-sm {
     margin-top: 0;
     margin-left: 0;
     padding-left: 0;
@@ -155,7 +155,7 @@
     padding-left: var(--spacing-xs);
     font-size: var(--font-size-xxlg);
 
-    @media (--screen-md) {
+    @include media-md {
       margin-left: -0.04em;
       padding-left: 0;
       font-size: var(--font-size-xxxlg);
@@ -182,13 +182,13 @@
   position: absolute;
   top: var(--spacing-sm);
   right: 1em;
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   font-size: var(--font-size-xs);
   transform: rotate(-90deg);
   transform-origin: top right;
   opacity: 0.6;
 
-  @media (--screen-sm) {
+  @include media-sm {
     position: relative;
     top: 0;
     right: 0;
@@ -205,7 +205,7 @@
   font-family: var(--font-secondary);
   opacity: 0.7;
 
-  @media (--screen-md) {
+  @include media-md {
     flex: 4;
     margin-bottom: -0.2em;
     padding-left: 0;
@@ -224,12 +224,12 @@
 .main-tile__cta {
   width: 66%;
 
-  @media (--screen-sm) {
+  @include media-sm {
     align-self: flex-end;
     width: 60%;
   }
 
-  @media (--screen-md) {
+  @include media-md {
     width: 30%;
   }
 }

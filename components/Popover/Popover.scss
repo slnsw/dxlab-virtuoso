@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .popover {
   position: relative;
@@ -17,7 +17,7 @@
   margin-bottom: var(--spacing-xs);
   font-weight: 700;
   font-size: var(--font-size-sm);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 
   &:hover {
     cursor: pointer;
@@ -35,7 +35,7 @@
   background-color: var(--colour-black);
   border: 1px solid var(--colour-grey-darkest);
   /* font-weight: 700; */
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 
   & li {
     padding: var(--spacing-xxxs) 0;

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 /*@lost gutter 1em;*/
 
@@ -10,7 +10,7 @@
   margin-bottom: 2em;
   lost-masonry-column: 2/2 var(--gutter-masonry);
 
-  @media (--screen-sm) {
+  @include media-sm {
     lost-masonry-column: 1/2 var(--gutter-masonry);
     height: 18em;
   }
@@ -25,19 +25,19 @@
     width: var(--spacing-xs);
     height: 1px;
 
-    @media (--screen-sm) {
+    @include media-sm {
       display: none;
     }
   }*/
 }
 
 .tile--1x2 {
-  /*@media (--screen-sm) {
+  /*@include media-sm {
     lost-masonry-column: 2/2 var(--gutter-masonry);
   }*/
   height: 30em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     lost-masonry-column: 1/2 var(--gutter-masonry);
     height: 38em;
   }
@@ -53,7 +53,7 @@
   width: calc(100%);
   /*margin-right: -1em;*/
 
-  @media (--screen-sm) {
+  @include media-sm {
     width: 100%;
   }
 
@@ -62,7 +62,7 @@
     width: calc(100% + 2em);
     margin-left: -1em;
 
-    @media (--screen-sm) {
+    @include media-sm {
       width: 100%;
       margin-left: 0;
     }
@@ -75,7 +75,7 @@
   flex-direction: column;
   min-height: 3em;
 
-  @media (--screen-md) {
+  @include media-md {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -96,16 +96,16 @@
   color: var(--colour-white);
   font-weight: 700;
   font-size: var(--font-size-lg);
-  @apply --font-uppercase;
-  @apply --font-antialiased;
+  @extend .font-uppercase;
+  @extend .font-antialiased;
   line-height: 1.2;
   background-color: var(--colour-black);
 
-  @media (--screen-sm) {
+  @include media-sm {
     /*padding-left: var(--spacing-xxs);*/
   }
 
-  @media (--screen-md) {
+  @include media-md {
     /*position: absolute;*/
     /*top: 0;*/
   }
@@ -115,7 +115,7 @@
     padding-left: var(--spacing-xs);
     font-size: var(--font-size-xlg);
 
-    @media (--screen-md) {
+    @include media-md {
       /* font-size: var(--font-size-xxlg); */
       /*line-height: 1.3;*/
       margin-left: 0;
@@ -130,7 +130,7 @@
 }
 
 .tile__subtitle {
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   font-size: var(--font-size-xs);
   opacity: 0.6;
 }
@@ -142,7 +142,7 @@
   /* padding-left: var(--spacing-sm); */
   opacity: 0.9;
 
-  @media (--screen-md) {
+  @include media-md {
     flex: 4;
     margin-bottom: -0.2em;
     /*padding-top: 2.5em;*/
@@ -160,12 +160,12 @@
   /* margin-left: var(--spacing-xs); */
   width: 66%;
 
-  @media (--screen-sm) {
+  @include media-sm {
     align-self: flex-end;
     width: 50%;
   }
 
-  @media (--screen-md) {
+  @include media-md {
     width: 30%;
     /*margin-top: 2em;*/
   }
@@ -178,7 +178,7 @@
     padding-left: var(--spacing-sm);
     height: 3em;
 
-    @media (--screen-md) {
+    @include media-md {
       flex: 2;
       flex-direction: column;
       justify-content: flex-end;
@@ -190,7 +190,7 @@
       flex: 2;
       height: auto;
 
-      @media (--screen-md) {
+      @include media-md {
         height: 3em;
         max-height: 3em;
       }
@@ -202,7 +202,7 @@
       flex: 1;
       flex-direction: column;
 
-      @media (--screen-md) {
+      @include media-md {
         lost-utility: clearfix;
 
         flex: none;
@@ -213,7 +213,7 @@
 /*& .button--sm:first-child {
         margin-bottom: 0.3em;
 
-        @media (--screen-md) {
+        @include media-md {
           margin-top: 0.3em;
           margin-bottom: 0;
         }
@@ -223,7 +223,7 @@
 /*& .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
         margin-left: 0.3em;
 
-        @media (--screen-md) {
+        @include media-md {
           lost-column: 1/2 0 0.3em;
 
           margin-top: 0.3em;

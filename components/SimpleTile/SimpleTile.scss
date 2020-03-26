@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 @lost gutter 1em;
 
@@ -8,7 +8,7 @@
   align-items: flex-start;
   margin-bottom: 1em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     lost-column: 1/2;
   }
 
@@ -30,7 +30,7 @@
     width: var(--spacing-xs);
     height: 1px;
 
-    @media (--screen-sm) {
+    @include media-sm {
       display: none;
     }
   }*/
@@ -45,7 +45,7 @@
   background-size: cover;
   /*height: 8em;*/
 
-  @media (--screen-sm) {
+  @include media-sm {
     width: 100%;
   }
 
@@ -68,7 +68,7 @@
   /*min-height: 3em;*/
   background-color: var(--colour-black);
 
-  @media (--screen-md) {
+  @include media-md {
     flex-direction: row;
   }
 }
@@ -83,11 +83,11 @@
   color: var(--colour-white);
   font-weight: 700;
   font-size: var(--spacing-md);
-  @apply --font-uppercase;
-  @apply --font-antialiased;
+  @extend .font-uppercase;
+  @extend .font-antialiased;
   line-height: 1.2;
 
-  @media (--screen-sm) {
+  @include media-sm {
     font-size: var(--spacing-lg);
   }
 }
@@ -106,7 +106,7 @@
   /*padding-left: var(--spacing-sm);*/
   font-size: var(--font-size-sm);
 
-  @media (--screen-md) {
+  @include media-md {
     flex: 4;
     padding-top: 2.5em;
     padding-right: 4em;

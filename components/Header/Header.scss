@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 .header {
   position: relative;
@@ -11,7 +11,7 @@
   align-items: center;
   padding-top: 1em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     position: inherit;
     position: sticky;
     position: -webkit-sticky;
@@ -21,7 +21,7 @@
     padding-top: 0;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     top: 1em;
     /* flex-direction: row; */
     flex-flow: row nowrap;
@@ -34,7 +34,7 @@
   z-index: 110;
   height: 1em;
 
-  @media (--screen-sm) {
+  @include media-sm {
     height: 1.4em;
   }
 
@@ -46,12 +46,12 @@
 }
 
 .logo--dxlab {
-  @media (--screen-sm) {
+  @include media-sm {
     flex: 1;
     order: 1;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     flex: none;
     padding-right: 1.5em; /* Makes logo same width as SL logo */
   }
@@ -61,7 +61,7 @@
   margin-left: var(--spacing-sm);
   padding-left: var(--spacing-sm);
 
-  @media (--screen-sm) {
+  @include media-sm {
     position: relative;
     order: 2;
     /* position: absolute;
@@ -71,11 +71,11 @@
     padding-left: 0; */
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     order: 3;
   }
 
-  /* @media (--screen-lg) {
+  /* @include media-lg {
     position: relative;
   } */
 
@@ -89,7 +89,7 @@
     border-left: 1px solid var(--colour-white);
     content: '';
 
-    @media (--screen-sm) {
+    @include media-sm {
       display: none;
     }
   }
@@ -110,7 +110,7 @@
   transition: 0.3s background-color;
   pointer-events: none;
 
-  @media (--screen-sm) {
+  @include media-sm {
     position: relative;
     top: 0;
     display: block;
@@ -122,7 +122,7 @@
     pointer-events: auto;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     order: 2;
   }
 
@@ -130,7 +130,7 @@
     background-color: var(--colour-black);
     pointer-events: auto;
 
-    @media (--screen-sm) {
+    @include media-sm {
       background-color: transparent;
     }
   }
@@ -144,9 +144,9 @@ ul.primary-menu {
   margin-bottom: 0;
   padding: 0;
   text-align: left;
-  transition: 0.5s var(--ease-in-out-quint);
+  transition: 0.5s $ease-in-out-quint;
 
-  @media (--screen-sm) {
+  @include media-sm {
     right: auto;
     margin-top: var(--spacing-xlg);
     transition: none;
@@ -162,7 +162,7 @@ ul.primary-menu {
     }*/
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     margin-top: 0.2em;
     line-height: 1;
     text-align: center;
@@ -180,7 +180,7 @@ ul.primary-menu {
 .primary-menu__item {
   position: relative;
   font-size: var(--font-size-lg);
-  @apply --font-uppercase;
+  @extend .font-uppercase;
   text-align: left;
   background-color: var(--colour-black);
   transition: 0.3s ease-out;
@@ -215,7 +215,7 @@ ul.primary-menu {
     left: 0;
   }
 
-  @media (--screen-sm) {
+  @include media-sm {
     left: 0 !important; /* Sorry! KC */
     display: inline-block;
     margin-right: var(--spacing-lg);
@@ -234,7 +234,7 @@ ul.primary-menu {
     display: block;
     padding: 1em 1em 1em var(--spacing-xlg);
 
-    @media (--screen-sm) {
+    @include media-sm {
       padding: 0;
     }
 
@@ -256,7 +256,7 @@ ul.primary-menu {
         background-color: var(--colour-highlight);
         content: '';
 
-        @media (--screen-sm) {
+        @include media-sm {
           display: none;
         }
       }
@@ -265,7 +265,7 @@ ul.primary-menu {
 
   /* Search icon */
   &:last-child {
-    @media (--screen-sm) {
+    @include media-sm {
       margin-right: 0;
 
       & .slnsw-icon-ZoomOL2 {
@@ -284,7 +284,7 @@ ul.primary-menu {
     & .primary-menu__divider {
       display: none;
 
-      @media (--screen-sm) {
+      @include media-sm {
         display: inline;
       }
     }
@@ -299,7 +299,7 @@ ul.primary-menu {
     height: 1px;
     border-top: 1px solid var(--colour-white);
 
-    @media (--screen-sm) {
+    @include media-sm {
       display: none;
     }
   }*/
@@ -313,7 +313,7 @@ ul.primary-menu {
     border-top: 1px solid var(--colour-white);
     content: '';
 
-    @media (--screen-sm) {
+    @include media-sm {
       display: none;
     }
   }
@@ -325,14 +325,14 @@ ul.primary-menu {
   top: 0;
   right: 0;
   z-index: 110;
-  /* margin-top: -1em; */
   width: 3em;
   height: 3em;
   margin-right: -1em;
   padding: 0;
+  font-size: var(--font-size-md);
   cursor: pointer;
 
-  @media (--screen-sm) {
+  @include media-sm {
     display: none;
   }
 

@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 @lost gutter 1em;
 
@@ -33,7 +33,7 @@
     flex-direction: column;
   }
 
-  @media (--screen-lg) {
+  @include media-lg {
     lost-column: 1/3 3 var(--spacing-lg);
   }
 }
@@ -52,7 +52,7 @@
   -webkit-box-orient: vertical;
   opacity: 0.9;
 
-  @media (--screen-sm) {
+  @include media-sm {
     /* font-size: var(--font-size-lg); */
   }
 
@@ -73,7 +73,7 @@
   justify-content: flex-start;
   margin-right: var(--spacing-sm);
 
-  @media (--screen-sm) {
+  @include media-sm {
     margin-right: var(--spacing-xlg);
   }
 
@@ -92,7 +92,7 @@
   width: 100%;
   margin-top: var(--spacing-xs);
   color: var(--colour-grey);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
   font-size: var(--font-size-xs);
 
   .collection-item--grid & {
@@ -107,7 +107,7 @@
   color: var(--colour-grey-light);
   font-size: var(--font-size-sm);
 
-  @media (--screen-sm) {
+  @include media-sm {
     flex: 3;
     font-size: var(--font-size-md);
   }
@@ -115,7 +115,7 @@
 
 .collection-item__type {
   margin-bottom: var(--spacing-xxs);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
   color: var(--colour-grey);
   font-weight: 700;
   font-size: var(--font-size-sm);
@@ -136,13 +136,13 @@
 
 .collection-item__id {
   align-self: flex-start;
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
   margin-top: auto;
   margin-bottom: 0;
   color: var(--colour-grey);
   font-size: var(--font-size-sm);
 
-  @media (--screen-sm) {
+  @include media-sm {
     align-self: flex-end;
   }
 

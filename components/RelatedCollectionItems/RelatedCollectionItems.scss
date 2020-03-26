@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/globals.scss';
 
 /* .related-collection-items {
 } */
@@ -10,7 +10,7 @@
 .related-collection-items__card {
   margin-bottom: var(--spacing-md);
 
-  @media (--screen-sm) {
+  @include media-sm {
     lost-column: 1/2;
   }
 
@@ -37,7 +37,7 @@
   margin-bottom: 0;
   color: var(--colour-grey);
   font-size: var(--font-size-sm);
-  @apply (--font-uppercase);
+  @extend .font-uppercase;
 }
 
 .related-collection-items__card__content {
