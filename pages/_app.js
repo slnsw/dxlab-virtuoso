@@ -48,8 +48,8 @@ import '../components/TileButtonGroup/TileButtonGroup.scss';
 import '../components/TileImage/TileImage.scss';
 import '../components/WebsiteApp/WebsiteApp.scss';
 
-import '../styles/base.css';
-import '../styles/globals.css';
+// Sheet Music App
+import '@slnsw/react-sheet-music/dist/SheetMusic.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

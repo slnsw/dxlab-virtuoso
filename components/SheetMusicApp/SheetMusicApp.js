@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
-import '@slnsw/react-sheet-music/dist/SheetMusic.css';
 
 // import SheetMusic from '../SheetMusic';
 
 import songs from './songs';
 
-import './SheetMusicApp.css';
+import css from './SheetMusicApp.module.scss';
 
 const AUDIO_BASE_URL = 'https://dxlab.sl.nsw.gov.au/files/audio/vsco-2-ce';
 
@@ -100,23 +99,23 @@ const SheetMusicApp = ({ className }) => {
   };
 
   return (
-    <div className={['sheet-music-app', className || ''].join(' ')}>
-      <div className="sheet-music-app__page">
+    <div className={[css['sheet-music-app'], className || ''].join(' ')}>
+      <div className={css.page}>
         <header>
           <a href={song.url}>
             <img
-              className="sheet-music-app__thumbnail"
+              className={css.thumbnail}
               src={song.imageUrl}
               alt={song.title}
             />
           </a>
 
-          <h1 className={'sheet-music-app__title'}>{song.title}</h1>
-          <p className="sheet-music-app__creator">{song.creator}</p>
+          <h1 className={css.title}>{song.title}</h1>
+          <p className={css.creator}>{song.creator}</p>
 
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="button--light"
+            className={css['button--light']}
             disabled={!isSamplesLoaded}
           >
             {!isSamplesLoaded ? 'Loading' : <>{isPlaying ? 'Stop' : 'Play'}</>}
@@ -130,7 +129,7 @@ const SheetMusicApp = ({ className }) => {
           notation={song.notation}
           // staffWidth={width}
           oneSvgPerLine={true}
-          className="sheet-music-app__sheet-music"
+          className={css['sheet-music']}
           // onClick={(element) => {
           // This is undocumented
           // console.log(element.abselem);

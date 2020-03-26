@@ -1,4 +1,4 @@
-@import '../../styles/variables.css';
+@import '../../styles/globals.scss';
 
 .sheet-music-app {
   display: flex;
@@ -18,12 +18,12 @@
     text-align: center;
   }
 
-  & .sheet-music-app__sheet-music {
+  & .sheet-music {
     background-color: var(--colour-white);
   }
 }
 
-.sheet-music-app__page {
+.page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,12 +32,12 @@
   background-color: var(--colour-white);
 }
 
-.sheet-music-app__thumbnail {
+.thumbnail {
   max-width: 8rem;
   margin-bottom: var(--spacing-md);
 }
 
-.sheet-music-app__title {
+.title {
   margin-top: 0;
   color: var(--colour-black);
   font-weight: 600;
@@ -48,12 +48,12 @@
   text-transform: none;
 }
 
-.sheet-music-app__creator {
-  @apply --font-uppercase;
+.creator {
+  @extend .font-uppercase;
 }
 
 .button--light {
-  @apply --font-uppercase;
+  @extend .font-uppercase;
 
   width: fit-content;
   padding-top: var(--spacing-xxs);
