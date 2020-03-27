@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Header from '../Header';
 import SocialMetaHead from '../SocialMetaHead';
 import Footer from '../Footer';
-import NProgress from '../NProgress/NProgress';
+import Progress from '../Progress/Progress';
 
 import { buildHeadTitle } from '../../lib';
 import { initGA } from '../../lib/analytics'; // logPageView
@@ -145,7 +145,7 @@ class App extends Component {
           ].join(' ')}
         />
 
-        <NProgress />
+        <Progress />
 
         <div
           className={`app__loading-screen ${isLoading &&

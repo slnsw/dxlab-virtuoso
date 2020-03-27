@@ -3,9 +3,9 @@ import Router from 'next/router';
 import PropTypes from 'prop-types';
 import { NProgress } from '@tanem/react-nprogress';
 
-import css from './NProgress.module.scss';
+import css from './Progress.module.scss';
 
-const NProgressComponent = ({ className, loadingKey = 'n-progress' }) => {
+const Progress = ({ className, loadingKey = 'n-progress' }) => {
   const [isRouteChanging, setIsRouteChanging] = React.useState(false);
 
   React.useEffect(() => {
@@ -54,8 +54,8 @@ const NProgressComponent = ({ className, loadingKey = 'n-progress' }) => {
   );
 };
 
-NProgressComponent.propTypes = {
+Progress.propTypes = {
   className: PropTypes.string,
 };
 
-export default NProgressComponent;
+export default Progress;
