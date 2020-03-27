@@ -4,10 +4,10 @@ to: components/<%= name %>/<%= name %>.js
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './<%= name %>.css';
+import css from './<%= name %>.scss';
 
 const <%= name %> = ({ className }) => {
-  return <div className={['<%= h.inflection.underscore(name).replace(/_/g, '-') %>', className || ''].join(' ')}></div>;
+  return <div className={[css.<%= h.changeCase.camel(name) %>, className || ''].join(' ')}></div>;
 };
 
 <%= name %>.propTypes = {
