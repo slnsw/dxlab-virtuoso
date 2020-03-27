@@ -70,8 +70,6 @@ const SheetMusicApp = ({ className }) => {
   const isSamplesLoaded = isVocalLoaded && isPianoLoaded;
 
   const handleBeat = (beatNumber, totalBeats) => {
-    // console.log(beatNumber, totalBeats);
-
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
     }
@@ -80,21 +78,6 @@ const SheetMusicApp = ({ className }) => {
   const handleEvent = (event) => {
     if (event && event.notes) {
       setNotes(event.notes);
-
-      // const newVocalNotes = event.notes.filter((note) => note.line === 0);
-      // const newPianoNotes = event.notes.filter((note) => note.line === 1);
-
-      // if (newVocalNotes.length > 0) {
-      //   setVocalNotes(newVocalNotes);
-      // } else {
-      //   setVocalNotes([]);
-      // }
-
-      // if (newPianoNotes.length > 0) {
-      //   setPianoNotes(newPianoNotes);
-      // } else {
-      //   setPianoNotes([]);
-      // }
     }
   };
 
