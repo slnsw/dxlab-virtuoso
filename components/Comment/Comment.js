@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './Comment.css';
+// import './Comment.css';
 import { formatDate } from '../../lib';
 
 class Comment extends Component {

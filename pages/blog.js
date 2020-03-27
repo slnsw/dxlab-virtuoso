@@ -15,7 +15,7 @@ import SectionTitle from '../components/SectionTitle';
 import { mapPostToTile } from '../lib';
 import config from '../lib/config';
 
-import './blog.css';
+// import './blog.css';
 
 const client = initApolloClient();
 

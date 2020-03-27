@@ -1,8 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './LoaderText.css';
-
 class LoaderText extends Component {
   static propTypes = {
     text: PropTypes.string,

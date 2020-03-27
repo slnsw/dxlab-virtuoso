@@ -7,7 +7,7 @@ import WebsiteApp from '../components/WebsiteApp';
 import Masthead from '../components/Masthead';
 import config from '../lib/config';
 
-import './post.css';
+// import './post.css';
 
 class Page extends Component {
   render() {

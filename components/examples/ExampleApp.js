@@ -1,8 +1,5 @@
 import Head from 'next/head';
 
-import baseStyles from '../../styles/base.css';
-import globalStyles from '../../styles/globals.css';
-
 export default ({ children }) => (
   <main>
     <Head>
@@ -19,10 +16,5 @@ export default ({ children }) => (
     </Head>
 
     {children}
-
-    {/* prettier-ignore */}
-    <style jsx global>{baseStyles}</style>
-    {/* prettier-ignore */}
-    <style jsx global>{globalStyles}</style>
   </main>
 );

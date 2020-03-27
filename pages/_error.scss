@@ -1,0 +1,29 @@
+@import '../styles/global.scss';
+
+#dxmaze {
+  margin-top: 0;
+}
+
+.error-page {
+  & h1,
+  & h2 {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  & h1 {
+    font-size: var(--font-size-md);
+
+    @include media-sm {
+      font-size: var(--font-size-lg);
+    }
+
+    @include media-md {
+      font-size: var(--font-size-xlg);
+    }
+  }
+
+  & h2 {
+    margin-top: 0;
+  }
+}

@@ -12,7 +12,7 @@ import ShareBox from '../../../components/ShareBox';
 import LoaderText from '../../../components/LoaderText';
 import RelatedCollectionItems from '../../../components/RelatedCollectionItems';
 import CollectionParts from '../../../components/CollectionParts';
-import './item.css';
+// import './item.css';
 
 const NUMBER_OF_THUMBNAILS = 5;
 

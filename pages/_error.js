@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 import App from '../components/App';
 import initMaze from '../lib/dxmaze';
-import './_error.css';
+// import './_error.css';
 
 class Four04 extends Component {
   componentDidMount() {

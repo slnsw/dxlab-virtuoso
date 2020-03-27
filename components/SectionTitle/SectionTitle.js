@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import './SectionTitle.css';
+// import './SectionTitle.css';
 
 class SectionTitle extends Component {
   render() {

@@ -29,7 +29,7 @@ class ExamplePage extends Component {
   }
 
   render() {
-    const { id, router, objects } = this.props;
+    const { id, router, posts } = this.props;
     const { pathname } = router;
 
     // console.log(objects);
@@ -39,62 +39,64 @@ class ExamplePage extends Component {
 
     return (
       <ExampleApp>
-        <Header pathname={pathname} />
+        <div className="example-page">
+          <Header pathname={pathname} />
 
-        <h1 className="title">
-          Page <span>{id}</span>
-        </h1>
+          <h1 className="title">
+            Page <span>{id}</span>
+          </h1>
 
-        <h2>Style Guide</h2>
-        <h3>Type Scale</h3>
-        {sizes.map((size) => (
-          <p
-            className={`font-size-${size}`}
-            key={`font-size-${size}`}
-          >{`font-size-${size}`}</p>
-        ))}
+          <h2>Style Guide</h2>
+          <h3>Type Scale</h3>
+          {sizes.map((size) => (
+            <p
+              className={`font-size-${size}`}
+              key={`font-size-${size}`}
+            >{`font-size-${size}`}</p>
+          ))}
 
-        <h3>Colours</h3>
-        {colours.map((colour) => (
-          <div className="boxes" key={`boxes-${colour}`}>
-            <h4>{colour}</h4>
+          <h3>Colours</h3>
+          {colours.map((colour) => (
+            <div className="boxes" key={`boxes-${colour}`}>
+              <h4>{colour}</h4>
 
-            <div>
-              {[...Array(7)].map((shade, i) => {
-                return (
-                  <div
-                    className={`box box--colour-${colour}`}
-                    key={`box--colour-${colour}-${i}`}
-                  />
-                );
-              })}
+              <div>
+                {[...Array(7)].map((shade, i) => {
+                  return (
+                    <div
+                      className={`box box--colour-${colour}`}
+                      key={`box--colour-${colour}-${i}`}
+                    />
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
 
-        <h2>Example Component</h2>
-        <ExampleComponent title="Title" />
+          <h2>Example Component</h2>
+          <ExampleComponent title="Title" />
 
-        <h2>dotenv Test</h2>
-        <p>{process.env.DXLAB_WEBSITE_TEST}</p>
+          <h2>dotenv Test</h2>
+          <p>{process.env.DXLAB_WEBSITE_TEST}</p>
 
-        <h2>GraphQL Test</h2>
-        <p>{process.env.DXLAB_WEBSITE_GRAPHQL_URL}</p>
-        <ul>
-          {objects &&
-            objects.map(({ displayTitle }, i) => {
-              return <li key={i}>{displayTitle}</li>;
-            })}
-        </ul>
+          <h2>GraphQL Test</h2>
+          <p>{process.env.DXLAB_WEBSITE_GRAPHQL_URL}</p>
+          <ul>
+            {posts &&
+              posts.map(({ title }, i) => {
+                return <li key={i}>{title}</li>;
+              })}
+          </ul>
+        </div>
       </ExampleApp>
     );
   }
 }
 
-const allObjects = gql`
+const postsQuery = gql`
   query {
-    objects(limit: 10) {
-      displayTitle
+    posts(limit: 10) {
+      title
     }
   }
 `;
@@ -102,7 +104,7 @@ const allObjects = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withApollo(
-  graphql(allObjects, {
+  graphql(postsQuery, {
     props: ({ data }) => {
       return {
         ...data,

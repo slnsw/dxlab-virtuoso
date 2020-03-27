@@ -1,0 +1,235 @@
+@import '../../styles/global.scss';
+
+.main-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 20em;
+  margin-bottom: var(--spacing-xxlg);
+
+  @include media-sm {
+    flex-direction: row;
+    height: 18em;
+    margin-bottom: var(--spacing-xxxxlg);
+  }
+}
+
+.main-tile--1x2 {
+  height: 30em;
+
+  @include media-sm {
+    height: 30em;
+  }
+
+  @include media-md {
+    height: 36em;
+  }
+}
+
+.main-tile--2x1 {
+  height: 30em;
+}
+
+.main-tile__image {
+  flex: 1;
+  width: calc(100% + 1em);
+  margin-left: -1em;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @include media-sm {
+    width: 55%;
+    margin-left: 0;
+  }
+
+  .main-tile--1x2 &,
+  .main-tile--2x1 & {
+    width: calc(100% + 2em);
+    margin-left: -1em;
+
+    @include media-sm {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Switch side of image for every 2nd tile */
+  .main-tile:nth-of-type(2n) & {
+    margin-left: 0;
+
+    @include media-sm {
+      order: 2;
+    }
+  }
+}
+
+.main-tile__info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 3em;
+
+  @include media-sm {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: 45%;
+    padding-left: var(--spacing-md);
+  }
+
+  /* Switch side of image for every 2nd tile */
+  .main-tile:nth-of-type(2n) & {
+    @include media-sm {
+      padding-right: var(--spacing-md);
+      padding-left: 0;
+    }
+
+    &::before {
+      left: 0;
+      width: var(--spacing-xxxlg);
+      border-right: none;
+      border-left: 1px solid var(--colour-white);
+    }
+
+    /* &::after {
+      position: absolute;
+      top: 0;
+      right: 3em;
+      content: '';
+      border-right: 1px solid var(--colour-white);
+    } */
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    width: var(--spacing-xlg);
+    height: 1em;
+    border-top: 1px dashed var(--colour-white);
+    border-right: 1px solid var(--colour-white);
+    content: '';
+  }
+}
+
+.main-tile__header {
+  position: relative;
+  width: 100%;
+  /* padding-top: -0.25em; */
+
+  @include media-sm {
+    align-self: flex-start;
+    margin-top: 3em;
+
+    .main-tile--1x2 & {
+      margin-top: 5em;
+    }
+  }
+}
+
+.main-tile__title {
+  display: inline-table;
+  margin-top: calc(-1 * var(--spacing-xxxs));
+  margin-bottom: 0;
+  margin-left: calc(-1 * var(--spacing-sm));
+  padding-top: var(--spacing-xxxs);
+  padding-right: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  color: var(--colour-white);
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  @extend .font-uppercase;
+  line-height: 1;
+  background-color: var(--colour-black);
+
+  @include media-sm {
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: var(--font-size-xlg);
+  }
+
+  .main-tile--1x2 & {
+    margin-left: calc(-1 * var(--spacing-xs));
+    padding-left: var(--spacing-xs);
+    font-size: var(--font-size-xxlg);
+
+    @include media-md {
+      margin-left: -0.04em;
+      padding-left: 0;
+      font-size: var(--font-size-xxxlg);
+    }
+  }
+
+  a:link,
+  a:visited {
+    color: var(--colour-white);
+  }
+
+  a:hover {
+    color: var(--colour-primary);
+  }
+}
+
+.main-tile__title-button {
+  max-width: 16em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.main-tile__subtitle {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: 1em;
+  @extend .font-uppercase;
+  font-size: var(--font-size-xs);
+  transform: rotate(-90deg);
+  transform-origin: top right;
+  opacity: 0.6;
+
+  @include media-sm {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: inherit;
+  }
+}
+
+.main-tile__content {
+  margin-bottom: 1em;
+  padding-top: var(--spacing-md);
+  padding-right: var(--spacing-xlg);
+  font-weight: 300;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-secondary);
+  opacity: 0.7;
+
+  @include media-md {
+    flex: 4;
+    margin-bottom: -0.2em;
+    padding-left: 0;
+  }
+
+  & p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .main-tile--1x2 & {
+    font-size: var(--font-size-md);
+  }
+}
+
+.main-tile__cta {
+  width: 66%;
+
+  @include media-sm {
+    align-self: flex-end;
+    width: 60%;
+  }
+
+  @include media-md {
+    width: 30%;
+  }
+}

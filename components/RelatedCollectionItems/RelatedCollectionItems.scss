@@ -1,0 +1,60 @@
+@import '../../styles/global.scss';
+
+/* .related-collection-items {
+} */
+
+/* Card */
+/* .related-collection-items__cards {
+} */
+
+.related-collection-items__card {
+  margin-bottom: var(--spacing-md);
+
+  @include media-sm {
+    lost-column: 1/2;
+  }
+
+  & h1 {
+    margin-top: var(--spacing-xxxs);
+    color: var(--colour-white);
+    font-size: var(--font-size-md);
+    font-family: var(--font-secondary);
+    line-height: var(--line-height-xs);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  & a:hover {
+    text-decoration: none;
+
+    & h1 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.related-collection-items__card__type {
+  margin-bottom: 0;
+  color: var(--colour-grey);
+  font-size: var(--font-size-sm);
+  @extend .font-uppercase;
+}
+
+.related-collection-items__card__content {
+  display: flex;
+}
+
+.related-collection-items__card__image-holder {
+  flex: 1;
+  margin-top: var(--spacing-xxxs);
+  margin-right: var(--spacing-md);
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.related-collection-items__card__title {
+  flex: 2;
+}

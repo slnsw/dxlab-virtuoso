@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import './NoImage.css';
+// import './NoImage.css';
 
 class NoImage extends Component {
   // static propTypes = {};
