@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Header from '../Header';
 import SocialMetaHead from '../SocialMetaHead';
 import Footer from '../Footer';
+import NProgress from '../NProgress/NProgress';
 
 import { buildHeadTitle } from '../../lib';
 import { initGA } from '../../lib/analytics'; // logPageView
@@ -143,6 +144,8 @@ class App extends Component {
             this.state.isHeaderBackgroundActive ? 'is-active' : '',
           ].join(' ')}
         />
+
+        <NProgress />
 
         <div
           className={`app__loading-screen ${isLoading &&
