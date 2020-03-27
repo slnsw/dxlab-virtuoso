@@ -30,7 +30,6 @@ import '../components/ExampleComponent/ExampleComponent.scss';
 import '../components/FeaturedTile/FeaturedTile.scss';
 import '../components/Footer/Footer.scss';
 import '../components/Header/Header.scss';
-import '../components/ImageOld/Image.scss';
 import '../components/LoaderText/LoaderText.scss';
 import '../components/MainTile/MainTile.scss';
 import '../components/Masthead/Masthead.scss';
