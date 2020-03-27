@@ -62,7 +62,7 @@ const SheetMusicApp = ({ className }) => {
   const vocalNotes = notes.filter((note) => note.line === 0);
   const pianoNotes = notes.filter((note) => note.line === 1 || note.line === 2);
 
-  console.log(pianoNotes);
+  // console.log(pianoNotes);
 
   // const [vocalNotes, setVocalNotes] = React.useState([]);
   // const [pianoNotes, setPianoNotes] = React.useState([]);
