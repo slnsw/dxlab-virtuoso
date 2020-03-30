@@ -6,7 +6,6 @@
   align-items: center;
   max-width: var(--container-width-xlg);
   margin: 0 auto;
-  color: var(--colour-black);
 
   & header {
     display: flex;
@@ -29,6 +28,7 @@
   align-items: center;
   width: 100%;
   padding: var(--spacing-md);
+  color: var(--colour-black);
   background-color: var(--colour-white);
 }
 

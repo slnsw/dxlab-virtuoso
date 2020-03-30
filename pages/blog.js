@@ -57,6 +57,8 @@ class Blog extends Component {
                 url={`/blog/${post.slug}`}
                 imageUrl={post.smallImageUrl}
                 imageAltText={post.imageAltText}
+                imageWidth={post.smallImageWidth}
+                imageHeight={post.smallImageHeight}
                 content={post.content}
                 key={`tile-${i}`}
               />
@@ -108,6 +110,8 @@ const postsQuery = gql`
         sizes {
           smallTile {
             sourceUrl
+            width
+            height
           }
         }
       }

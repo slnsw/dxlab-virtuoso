@@ -6,7 +6,7 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1em;
+  margin-bottom: var(--spacing-xlg);
 
   @include media-sm {
     lost-column: 1/2;
@@ -21,7 +21,7 @@
     color: var(--colour-primary);
   }
 
-  /*&:not(:first-child)::before {
+  /* &:not(:first-child)::before {
     position: absolute;
     top: -1em;
     left: -1em;
@@ -33,31 +33,31 @@
     @include media-sm {
       display: none;
     }
-  }*/
+  } */
 }
 
 .simple-tile__image {
   flex: 1;
   width: calc(100% + 1em);
 
-  /*margin-right: -1em;*/
-  background-position: center;
-  background-size: cover;
-  /*height: 8em;*/
-
   @include media-sm {
     width: 100%;
   }
 
-  /*.simple-tile--tall & {
+  /* .simple-tile--tall & {
       height: 16em;
-    }*/
+  } */
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .simple-tile__info {
   position: relative;
 
-  /*display: flex;*/
+  /* display: flex; */
   flex: 1;
   flex-direction: column;
   margin-top: 0.2em;
@@ -77,15 +77,15 @@
   margin-top: 0;
   margin-bottom: 0;
   margin-left: -0.05em;
-
-  /*display: inline-table;*/
   padding-right: 0.1em;
   color: var(--colour-white);
   font-weight: 700;
   font-size: var(--spacing-md);
-  @extend .font-uppercase;
-  @extend .font-antialiased;
   line-height: 1.2;
+
+  @extend .font-uppercase;
+
+  @extend .font-antialiased;
 
   @include media-sm {
     font-size: var(--spacing-lg);
@@ -103,7 +103,6 @@
 
 .simple-tile__content {
   padding-top: var(--spacing-md);
-  /*padding-left: var(--spacing-sm);*/
   font-size: var(--font-size-sm);
 
   @include media-md {
