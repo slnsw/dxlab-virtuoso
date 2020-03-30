@@ -4,7 +4,7 @@ const songs = [
     creator: 'Bull, Josie L.',
     url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
     imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/unknown.jpg',
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
     header: 'X:1\nM:2/4\nK:F\nL:1/8\n%%score 1 | 2\n',
     lines: [
       'V:1 clef=treble',
@@ -52,7 +52,7 @@ const songs = [
       '|c e/ E/ !fermata!c3/2 B/|A2 z2|z4|z4|',
       'w:|And count less herds of|kine.|||',
       'w:|We still re~- vere the|Queen.|||',
-    
+
       'V:2 clef=treble name="PIANO-"',
       "|[Ee] [Aa] [cc'] [B/b][A/a]|[Bb] [ee'] [c2c'2]|[Aa] [F/f][B/b] [cc'] [Bb]|",
       '|[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]',
@@ -61,7 +61,7 @@ const songs = [
       '|z [C/E/A/] z/ [B,/E/B/] z/ [C/E/A/] z/| z [A,^DA] [B,=DA] G/F/|E [A,DF] [A,DA] [DFB]|',
       '|[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [B,^DA]|',
       '|[CEA] [A,EA] !fermata![B,^DA] [B,=DG]|[CA] ((3E/A/c/) e E|[EF] A/>d/ [Ec] ((3e/d/c/)|[EA] [CE] [CA] z|',
-    
+
       'V:3 clef=bass name="FORTE"',
       '|A,, [E,A,C] A,, [E,A,C]|G,, [E,G,D] A,, [E,A,C]|[C,,C,] [D,F,B,] [E,,E,] [E,G,D]|',
       '|[A,,A,] z [A,,E,A,] z |[A,,A,] z [E,,E,] z|[G,,G,] z [A,,A,] z|',
@@ -70,7 +70,7 @@ const songs = [
       '|[A,,A,] z [G,,/G,/] z/ [A,,/A,/] z/ |[F,,2F,2] [E,,3/2E,3/2] [D,,/D,/]|[C,,C,] [D,,D,] [F,,F,] [D,,D,]|',
       '|[E,,E,] E,2 E,|[A,,A,] z [=G,,=G,] z|[F,,F,] z [=F,,=F,] z|',
       '|[E,,E,] [C,,C,] !fermata![B,,,B,,] [E,,E,]|[A,,A,] [C,2A,2E2] [C,A,]|[D,A,] [F,A,D] [E,A,] [E,B,DEG]|[A,,C,] [A,,E,A,] [A,,E,A,] z|',
-    
+
       'W:THIRD VERSE',
       'W:',
       'W:Though we have left the dear old land, | We’ll ne’er forget that to these shores',
