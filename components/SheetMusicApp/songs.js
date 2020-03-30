@@ -1,6 +1,7 @@
 const songs = [
   {
     title: 'The Glebe Rowing Club Polka',
+    slug: 'the-glebe-rowing-club-polka',
     creator: 'Bull, Josie L.',
     url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
     imageUrl:
@@ -25,6 +26,7 @@ const songs = [
   },
   {
     title: 'National Song: Our Sailor Prince',
+    slug: 'national-song-our-sailor-prince',
     creator: 'Neild, J. C',
     url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
     imageUrl:
