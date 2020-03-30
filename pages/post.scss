@@ -11,6 +11,7 @@
 .post__featured-image {
   display: inherit;
   width: calc(100% + 1em);
+  height: auto;
   margin-left: -1em;
 
   @include media-sm {

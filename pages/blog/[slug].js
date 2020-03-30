@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import WebsiteApp from '../../components/WebsiteApp';
+import Image from '../../components/Image';
 import ShareBox from '../../components/ShareBox';
 import Button from '../../components/Button';
 import Comments from '../../components/Comments';
@@ -101,8 +102,13 @@ class Post extends Component {
 
     // console.log(router);
 
-    const featuredImageUrl = featuredMedia && featuredMedia.sourceUrl;
+    const featuredImageUrl =
+      featuredMedia && featuredMedia.sizes?.full?.sourceUrl;
     const featuredImageDescription = featuredMedia && featuredMedia.description;
+    const featuredImageWidth =
+      featuredMedia && featuredMedia.sizes?.full?.width;
+    const featuredImageHeight =
+      featuredMedia && featuredMedia.sizes?.full?.height;
     const authorName = author && author.name;
     const experimentUrl = experiments && experiments[0] && experiments[0].url;
     const githubUrl = experiments && experiments[0] && experiments[0].githubUrl;
@@ -125,10 +131,17 @@ class Post extends Component {
           <article className="post container container--md">
             <div>
               <div className="post__featured-image-holder">
-                <img
+                {/* <img
                   className="post__featured-image"
                   src={featuredImageUrl}
                   alt={featuredImageDescription}
+                /> */}
+                <Image
+                  className="post__featured-image"
+                  src={featuredImageUrl}
+                  alt={featuredImageDescription}
+                  width={featuredImageWidth}
+                  height={featuredImageHeight}
                 />
                 <div className="post__date">{dateString}</div>
               </div>
@@ -185,8 +198,14 @@ const postQuery = gql`
       content
       excerpt
       featuredMedia {
-        sourceUrl
         description
+        sizes {
+          full {
+            sourceUrl
+            width
+            height
+          }
+        }
       }
       author {
         name
