@@ -13,13 +13,21 @@ const songs = [
       '|^cd e>d|dc Ac|dB d>e|fc fg|ec ga|f2 cf|',
       '|e2 d>c|A2 G>F|E2 B2|A2 AA|dB GB|A2 GF|',
       '|E2 DC|A2 cf|e2 d>c|A2 G>F|E2 B2|A2 AA|',
-
+      // page 2
+      "|Gd/c/ BA/G/|FF/G/ AG/F/|ED/C/ DE|FFF||d/f/|a2 bd'|",
+      "|e2 dc|BG e>d|ca g>g|ad ab|c'gec|Bf e>d|",
+      "|(c/e/g/e/) c(d/f/)|a2 bd'|e2 dc|z4|z4|z4|",
+      // bass clef
       'V:2 clef=bass',
       '|z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,EA] [F,,F,][A,CF]|[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|',
       '|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] F,[A,CF]|G,[CE] G,[=B,F]|[CE][CE][CE] z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] [F,,F,][A,CF]|',
       '|[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|F,[B,DF] F,[B,DF]|F,[A,CF] F,[A,CF]|G,[B,CE] E,[B,CE]|F,[A,CF][A,CF] z|',
       '|G,[B,CE][B,CE] z|F,[A,CF][A,C] z|G,[B,C] C,[B,CE]|F,[A,CE][A,CE] z|B,,[D,G,] B,,[D,G,]|C,[F,A,C] C,[F,A,C]|',
       '|C,[G,B,] C,[G,B,]|F,[A,CF] F,[A,CF]|G,[B,CE][B,CE] z|F,[A,CF][A,C] z|G,[B,C] C,[B,CE]|F,[A,CE][A,CE] z|',
+      // page 2
+      '|z4|z4|z4|z4|z4|z4|',
+      '|z4|z4|z4|z4|z4|z4|',
+      '|z4|z4|z4|z4|z4|z4|',
     ],
     bpm: 110,
   },
