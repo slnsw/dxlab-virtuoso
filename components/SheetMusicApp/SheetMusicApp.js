@@ -13,7 +13,9 @@ import css from './SheetMusicApp.module.scss';
 
 const SheetMusicApp = ({ slug, className }) => {
   const currentSong = songs.find((s) => s.slug === slug);
-  const notation = currentSong.header + currentSong.lines.join('\n');
+  const notation = `${currentSong.header}K:${
+    currentSong.key
+  }\n${currentSong.lines.join('\n')}`;
 
   const [isPlaying, setIsPlaying] = React.useState(false);
 

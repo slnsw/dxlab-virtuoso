@@ -6,7 +6,8 @@ const songs = [
     url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
-    header: 'X:1\nM:2/4\nK:F\nL:1/8\n%%score 1 | 2\n',
+    key: 'F',
+    header: 'X:1\nM:2/4\nL:1/8\n%%score 1 | 2\n',
     lines: [
       'V:1 clef=treble',
       '|((3f/g/f/)|eb de|dc Ac|^cd e>d|dcA ((3f/g/f/)|',
@@ -45,8 +46,9 @@ const songs = [
     url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
+    key: 'A',
     // NOTE: '%%score 1 {2 | 3}' groups 1 and 2 together, seems to be a bug in ABCJS
-    header: 'X:1\nM:4/4\nK:A\nL:1/4\n%%score 1 2 | 3\n',
+    header: 'X:1\nM:4/4\nL:1/4\n%%score 1 2 | 3\n',
     lines: [
       'V:1 name="VOICE"',
       '|"_Con Spirito alla Marcia." z4|z4|z4|',
