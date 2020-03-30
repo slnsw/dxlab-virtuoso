@@ -1,6 +1,20 @@
+const header = [];
+const lines = [];
+
+header[0] = 'X:1\nM:2/4\nK:F\nL:1/8\n%%score 1 | 2\n';
+lines[0] = [
+  'V:1 clef=treble',
+  '|((3f/g/f/)|eb de|dc Ac|^cd e>d|dcA ((3f/g/f/)|',
+  '|eb de|dc Ac|Gc dg|ccc ((3f/g/f/)|eb de|dc Ac|',
+
+  'V:2 clef=bass',
+  '|z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,EA] [F,,F,][A,CF]|[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|',
+  '|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] F,[A,CF]|G,[CE] G,[=B,F]|[CE][CE][CE] z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] [F,,F,][A,CF]|',
+];
+
 // NOTE: '%%score 1 {2 | 3}' groups 1 and 2 together, seems to be a bug in ABCJS
-const header = 'X:1\nM:4/4\nK:A\nL:1/4\n%%score 1 2 | 3\n';
-const lines = [
+header[1] = 'X:1\nM:4/4\nK:A\nL:1/4\n%%score 1 2 | 3\n';
+lines[1] = [
   'V:1 name="VOICE"',
   '|"_Con Spirito alla Marcia." z4|z4|z4|',
   '|z4|E A/ c/ B G/F/|E e c2|',
@@ -43,12 +57,21 @@ const lines = [
 
 const songs = [
   {
+    title: 'The Glebe Rowing Club Polka',
+    creator: 'Bull, Josie L.',
+    url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/unknown.jpg',
+    notation: header[0] + lines[0].join('\n'),
+    bpm: 110,
+  },
+  {
     title: 'National Song: Our Sailor Prince',
     creator: 'Neild, J. C',
     url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
-    notation: header + lines.join('\n'),
+    notation: header[1] + lines[1].join('\n'),
     bpm: 80,
   },
 ];
