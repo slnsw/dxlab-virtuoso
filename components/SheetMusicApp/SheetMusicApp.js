@@ -51,6 +51,7 @@ const clariSamples = {
 const SheetMusicApp = ({ className }) => {
   const [songIndex] = React.useState(0);
   const song = songs[songIndex];
+  const notation = song.header + song.lines.join('\n');
 
   const [isPlaying, setIsPlaying] = React.useState(false);
 
@@ -109,7 +110,7 @@ const SheetMusicApp = ({ className }) => {
           isPlaying={isPlaying}
           bpm={song.bpm}
           scale={1}
-          notation={song.notation}
+          notation={notation}
           // staffWidth={width}
           oneSvgPerLine={true}
           className={css['sheet-music']}
