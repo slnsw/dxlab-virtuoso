@@ -92,8 +92,9 @@
   width: 100%;
   margin-top: var(--spacing-xs);
   color: var(--colour-grey);
-  @extend .font-uppercase;
   font-size: var(--font-size-xs);
+
+  @extend .font-uppercase;
 
   .collection-item--grid & {
     display: none;
@@ -136,11 +137,12 @@
 
 .collection-item__id {
   align-self: flex-start;
-  @extend .font-uppercase;
   margin-top: auto;
   margin-bottom: 0;
   color: var(--colour-grey);
   font-size: var(--font-size-sm);
+
+  @extend .font-uppercase;
 
   @include media-sm {
     align-self: flex-end;
