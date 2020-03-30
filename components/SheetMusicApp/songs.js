@@ -52,7 +52,19 @@ lines[1] = [
   '|[G,,G,] z [A,,A,] z|[C,,/C,/] z/ [D,,/D,/] z/ [E,,/E,/] z/ [E,,/E,/] z/|[A,,/A,/] z/ ([A,C] [A,/C/]) z/ z|',
   '|[A,,A,] z [G,,/G,/] z/ [A,,/A,/] z/ |[F,,2F,2] [E,,3/2E,3/2] [D,,/D,/]|[C,,C,] [D,,D,] [F,,F,] [D,,D,]|',
   '|[E,,E,] E,2 E,|[A,,A,] z [=G,,=G,] z|[F,,F,] z [=F,,=F,] z|',
-  '|[E,,E,] [C,,C,] !fermata![B,,,B,,] [E,,E,]|[A,,A,] [C,2A,2] [C,A,]|[D,A,] [F,A,] [E,A,] [E,B,D]|[A,C] [A,EA] [A,EA] z|',
+  '|[E,,E,] [C,,C,] !fermata![B,,,B,,] [E,,E,]|[A,,A,] [C,2A,2E2] [C,A,]|[D,A,] [F,A,D] [E,A,] [E,B,DEG]|[A,,C,] [A,,E,A,] [A,,E,A,] z|',
+
+  'W:THIRD VERSE',
+  'W:',
+  'W:Though we have left the dear old land, | We’ll ne’er forget that to these shores',
+  'W:We love it e’en the same, | Our Soiler Prince has been:',
+  'W:And glory we the Britons still | But in our prayers we’ll link the names',
+  'W:In heart, if not in name. | Of Alfred and our Queen.',
+  'W:',
+  'W:We’ll ne’er forget that to these shores',
+  'W:Our Soiler Prince has been:',
+  'W:But in our prayers we’ll link the names',
+  'W:Of Alfred and our Queen.',
 ];
 
 const songs = [
@@ -63,7 +75,7 @@ const songs = [
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/unknown.jpg',
     notation: header[0] + lines[0].join('\n'),
-    bpm: 110,
+    bpm: 100,
   },
   {
     title: 'National Song: Our Sailor Prince',
