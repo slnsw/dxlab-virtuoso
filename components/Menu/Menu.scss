@@ -1,10 +1,8 @@
 @import '../../styles/global.scss';
 
 .menu {
-  & ul {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
 
   & li {
     list-style: none;
@@ -13,5 +11,10 @@
   & a:link,
   & a:visited {
     color: var(--colour-white);
+  }
+
+  a.is-active:link,
+  a.is-active:visited {
+    color: var(--colour-primary);
   }
 }

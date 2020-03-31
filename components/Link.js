@@ -8,6 +8,8 @@ export default (props) => {
       href = '/blog/[slug]';
     } else if (props.as.indexOf('/collection/item/') >= 0) {
       href = '/collection/item/[item]';
+    } else if (props.as.indexOf('/sheet-music/song/') >= 0) {
+      href = '/sheet-music/song/[slug]';
     } else {
       href = props.as;
     }
