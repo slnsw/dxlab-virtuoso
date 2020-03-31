@@ -75,15 +75,15 @@ const songs = [
     // instruments: ['clarinet', 'piano', 'piano'],
     instruments: [
       {
-        volume: -6,
+        volume: 0,
         sampleType: 'clarinet',
       },
       {
-        volume: 0,
+        volume: -6,
         sampleType: 'piano',
       },
       {
-        volume: 0,
+        volume: -6,
         sampleType: 'piano',
       },
     ],
