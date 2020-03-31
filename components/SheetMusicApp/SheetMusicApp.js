@@ -31,6 +31,11 @@ const SheetMusicApp = ({ slug, className }) => {
 
   const isSamplesLoaded = isVocalLoaded && isPianoLoaded;
 
+  const instruments = {
+    'piano': pianoSamples,
+    'clarinet': clariSamples
+  };
+
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
@@ -108,7 +113,7 @@ const SheetMusicApp = ({ slug, className }) => {
           <Instrument
             type="sampler"
             notes={vocalNotes}
-            samples={clariSamples}
+            samples={instruments[currentSong.instruments[0]]}
             options={{
               release: '2n',
             }}
@@ -120,7 +125,7 @@ const SheetMusicApp = ({ slug, className }) => {
           <Instrument
             type="sampler"
             notes={pianoNotes}
-            samples={pianoSamples}
+            samples={instruments[currentSong.instruments[1]]}
             onLoad={() => setIsPianoLoaded(true)}
             options={{
               release: '2n',
