@@ -38,7 +38,6 @@ const songs = [
       'eb de|dc Ac|Gc dg|ddd "8vo" ((3f/g/f/)|eb de|dc Ac|',
       '^cd e>d|dc Ac|dB d>e|fc fg|ec ga|fd/c/ eg|',
       '[A2f2] [A2c2f2]|[Acf][Acf][Acf][Acf]|[A2c2f2] [G2c2e2]|([A4c4f4]|!fermata![A4c4f4])]|x4|',
-
       // bass clef
       'V:2 clef=bass',
       '[K:F]z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,EA] [F,,F,][A,CF]|[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|',
@@ -58,7 +57,6 @@ const songs = [
       '[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] F,[A,CF]|G,[CE] G,[^B,F]|[CE][CE][CE] z|[G,,G,][B,CE] [C,,C,][A,CF]|[F,,F,][A,CF] [F,,F,][A,CF]|',
       '[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|F,[B,DF] F,[B,DF]|G,[A,CF] G,[A,CF]|G,[B,CE] C,[B,CE]|F,[A,CF] C,[B,CE]|',
       '[FF,]C,A,,F,,|[F,,F,][F,,F,][F,,F,][F,,F,]|[F,,2F,2] [C,2C2]|(F,,4 "_tremolo"|!fermata![F,,4F,4])]|x4|',
-
     ],
     bpm: 90,
   },
