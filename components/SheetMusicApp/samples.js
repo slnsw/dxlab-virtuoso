@@ -36,3 +36,10 @@ export const clariSamples = {
   F4: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_F4_v3_rr1_sum.mp3`,
   'A#4': `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_A%234_v3_rr1_sum.mp3`,
 };
+
+const samples = {
+  piano: pianoSamples,
+  clarinet: clariSamples,
+};
+
+export default samples;

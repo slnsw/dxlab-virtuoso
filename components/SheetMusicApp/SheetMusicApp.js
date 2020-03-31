@@ -5,10 +5,9 @@ import SheetMusic from '@slnsw/react-sheet-music';
 
 // import SheetMusic from '../SheetMusic';
 import Sidebar from '../Sidebar/Sidebar';
-import Link from '../Link';
 
 import songs from './songs';
-import { pianoSamples, clariSamples } from './samples';
+import samples from './samples';
 
 import css from './SheetMusicApp.module.scss';
 import Menu from '../Menu/Menu';
@@ -21,20 +20,15 @@ const SheetMusicApp = ({ slug, className }) => {
 
   const [isPlaying, setIsPlaying] = React.useState(false);
 
-  const [isVocalLoaded, setIsVocalLoaded] = React.useState(false);
-  const [isPianoLoaded, setIsPianoLoaded] = React.useState(false);
+  // Set up an array of sample statuses
+  const [samplesStatus, setSamplesStatus] = React.useState(
+    currentSong.instruments.map(() => 'loading'),
+  );
+  // const [notes, setNotes] = React.useState([]);
+  const [allNotes, setAllNotes] = React.useState([]);
 
-  const [notes, setNotes] = React.useState([]);
-
-  const vocalNotes = notes.filter((note) => note.line === 0);
-  const pianoNotes = notes.filter((note) => note.line === 1 || note.line === 2);
-
-  const isSamplesLoaded = isVocalLoaded && isPianoLoaded;
-
-  const instruments = {
-    'piano': pianoSamples,
-    'clarinet': clariSamples
-  };
+  // Check if all samples have been loaded
+  const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {
@@ -44,7 +38,14 @@ const SheetMusicApp = ({ slug, className }) => {
 
   const handleEvent = (event) => {
     if (event && event.notes) {
-      setNotes(event.notes);
+      const allEventNotes = currentSong.instruments.map(
+        (_, instrumentIndex) => {
+          return event.notes.filter((note) => note.line === instrumentIndex);
+        },
+      );
+
+      // setNotes(event.notes);
+      setAllNotes(allEventNotes);
     }
   };
 
@@ -109,29 +110,41 @@ const SheetMusicApp = ({ slug, className }) => {
       </div>
 
       <Song bpm={currentSong.bpm}>
-        <Track volume={0}>
-          <Instrument
-            type="sampler"
-            notes={vocalNotes}
-            samples={instruments[currentSong.instruments[0]]}
-            options={{
-              release: '2n',
-            }}
-            onLoad={() => setIsVocalLoaded(true)}
-          />
-        </Track>
+        {currentSong.instruments.map((instrument, instrumentIndex) => {
+          // const instrumentNotes = notes.filter(
+          //   (note) => note.line === instrumentIndex,
+          // );
 
-        <Track volume={-6}>
-          <Instrument
-            type="sampler"
-            notes={pianoNotes}
-            samples={instruments[currentSong.instruments[1]]}
-            onLoad={() => setIsPianoLoaded(true)}
-            options={{
-              release: '2n',
-            }}
-          />
-        </Track>
+          return (
+            <Track
+              volume={instrument.volume}
+              key={`${instrument.sampleType}${instrumentIndex}`}
+            >
+              <Instrument
+                type="sampler"
+                // notes={vocalNotes}
+                // notes={instrumentNotes}
+                notes={allNotes[instrumentIndex]}
+                samples={samples[instrument.sampleType]}
+                options={{
+                  release: '4n',
+                }}
+                // onLoad={() => setIsVocalLoaded(true)}
+                onLoad={() =>
+                  setSamplesStatus((prevSamplesStatus) => {
+                    return prevSamplesStatus.map((status, i) => {
+                      if (i === instrumentIndex) {
+                        return 'loaded';
+                      }
+
+                      return status;
+                    });
+                  })
+                }
+              />
+            </Track>
+          );
+        })}
       </Song>
     </div>
   );

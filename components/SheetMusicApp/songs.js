@@ -8,7 +8,17 @@ const songs = [
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
     key: 'F',
     header: 'X:1\nM:2/4\nL:1/8\n%%score 1 | 2\n',
-    instruments: ['piano', 'piano'],
+    // instruments: ['piano', 'piano'],
+    instruments: [
+      {
+        volume: 0,
+        sampleType: 'piano',
+      },
+      {
+        volume: 0,
+        sampleType: 'piano',
+      },
+    ],
     lines: [
       'V:1 clef=treble',
       '|((3f/g/f/)|eb de|dc Ac|^cd e>d|dcA ((3f/g/f/)|',
@@ -17,7 +27,7 @@ const songs = [
       '|e2 d>c|A2 G>F|E2 B2|A2 AA|dB GB|+>+A2 GF|',
       '|E2 DC|A2 cf|e2 d>c|A2 G>F|E2 B2|A2 AA|',
       // page 2
-      "|+>+Gd/c/ +>+BA/G/|+>+FF/G/ +>+AG/F/|+>+ED/C/ DE|FFF+segno+||[K:Amin] \"3rd Strain\" x d/f/|a2 bd'|",
+      '|+>+Gd/c/ +>+BA/G/|+>+FF/G/ +>+AG/F/|+>+ED/C/ DE|FFF+segno+||[K:Amin] "3rd Strain" x d/f/|a2 bd\'|',
       "|e2 +coda+dc|BG e>d|ca g>g|+>+ad ab|c'gec|Bf e>d|",
       "|(c/e/g/e/) c(d/f/)|a2 bd'|e2 dc|BG e>d|ca g>g|+>+ad ab|",
       "|c'gec|Bf e>d|c[EGc][EGc] z||c'/g/e/c/ ab|bb c'2|[fa][fa] [fa][eg]|",
@@ -50,7 +60,21 @@ const songs = [
     key: 'A',
     // NOTE: '%%score 1 {2 | 3}' groups 1 and 2 together, seems to be a bug in ABCJS
     header: 'X:1\nM:4/4\nL:1/4\n%%score 1 2 | 3\n',
-    instruments: ['clarinet', 'piano', 'piano'],
+    // instruments: ['clarinet', 'piano', 'piano'],
+    instruments: [
+      {
+        volume: -6,
+        sampleType: 'clarinet',
+      },
+      {
+        volume: 0,
+        sampleType: 'piano',
+      },
+      {
+        volume: 0,
+        sampleType: 'piano',
+      },
+    ],
     lines: [
       'V:1 name="VOICE"',
       '|"_Con Spirito alla Marcia." z4|z4|z4|',
