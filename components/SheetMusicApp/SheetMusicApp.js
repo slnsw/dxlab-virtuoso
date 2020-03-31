@@ -4,12 +4,14 @@ import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
 
 // import SheetMusic from '../SheetMusic';
-// import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
+import Link from '../Link';
 
 import songs from './songs';
 import { pianoSamples, clariSamples } from './samples';
 
 import css from './SheetMusicApp.module.scss';
+import Menu from '../Menu/Menu';
 
 const SheetMusicApp = ({ slug, className }) => {
   const currentSong = songs.find((s) => s.slug === slug);
@@ -43,13 +45,20 @@ const SheetMusicApp = ({ slug, className }) => {
 
   return (
     <div className={[css['sheet-music-app'], className || ''].join(' ')}>
-      {/* <Sidebar>
-        <ul>
-          {songs.map((song) => (
-            <li>{song.title}</li>
-          ))}
-        </ul>
-      </Sidebar> */}
+      <Sidebar className={css.sidebar}>
+        <h1>Songs</h1>
+
+        <Menu
+          menuItems={songs.map((song) => {
+            return {
+              name: song.title,
+              url: `/sheet-music/song/${song.slug}`,
+              isActive: song.slug === currentSong.slug,
+            };
+          })}
+        />
+      </Sidebar>
+
       <div className={css.page}>
         <header>
           <a href={currentSong.url}>

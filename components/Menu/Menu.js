@@ -41,7 +41,7 @@ class Menu extends Component {
     return (
       <ul
         id={id}
-        className={`menu ${className || undefined}`}
+        className={`menu ${className || ''}`}
         role="menu"
         aria-labelledby={labelledby}
       >
@@ -49,7 +49,7 @@ class Menu extends Component {
           return (
             <li
               key={`menu__item-${i}`}
-              className={`menu__item ${menuItemClassName || undefined}`}
+              className={`menu__item ${menuItemClassName || ''}`}
               role="menuitem"
               onClick={onMenuItemClick}
             >
