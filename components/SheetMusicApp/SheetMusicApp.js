@@ -127,7 +127,7 @@ const SheetMusicApp = ({ slug, className }) => {
                 notes={allNotes[instrumentIndex]}
                 samples={samples[instrument.sampleType]}
                 options={{
-                  release: '4n',
+                  release: 1,
                 }}
                 // onLoad={() => setIsVocalLoaded(true)}
                 onLoad={() =>
