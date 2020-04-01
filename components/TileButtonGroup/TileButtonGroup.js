@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../Button';
-// import './TileButtonGroup.css';
+import CTAButton from '../CTAButton';
+
+import css from './TileButtonGroup.module.scss';
 
 class TileButtonGroup extends Component {
   static propTypes = {
@@ -31,23 +32,37 @@ class TileButtonGroup extends Component {
     } = this.props;
 
     return (
-      <div className="tile-button-group tile-button-group--alt">
+      <div className={css.tileButtonGroup}>
         {primaryUrl && (
-          <Button href={primaryUrl} target={primaryTarget}>
+          <CTAButton
+            href={primaryUrl}
+            target={primaryTarget}
+            className={css.primaryButton}
+          >
             {primaryText}
-          </Button>
+          </CTAButton>
         )}
 
         {secondaryUrl && (
-          <Button href={secondaryUrl} target={secondaryTarget} size="sm">
+          <CTAButton
+            href={secondaryUrl}
+            target={secondaryTarget}
+            size="sm"
+            className={css.secondaryButton}
+          >
             {secondaryText}
-          </Button>
+          </CTAButton>
         )}
 
         {tertiaryUrl && (
-          <Button href={tertiaryUrl} target={tertiaryTarget} size="sm">
+          <CTAButton
+            href={tertiaryUrl}
+            target={tertiaryTarget}
+            size="sm"
+            className={css.secondaryButton}
+          >
             {tertiaryText}
-          </Button>
+          </CTAButton>
         )}
       </div>
     );

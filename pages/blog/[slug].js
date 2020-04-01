@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import WebsiteApp from '../../components/WebsiteApp';
 import Image from '../../components/Image';
 import ShareBox from '../../components/ShareBox';
-import Button from '../../components/Button';
+import CTAButton from '../../components/CTAButton';
 import Comments from '../../components/Comments';
 import Four04 from '../_error';
 
@@ -16,9 +16,6 @@ import {
   initApolloClient,
 } from '../../lib/apollo';
 import { formatDate } from '../../lib';
-
-// import '../post.css';
-// import '../../styles/gallery.css';
 
 const client = initApolloClient();
 
@@ -127,6 +124,8 @@ class Post extends Component {
           metaDescription={excerpt}
           metaImageUrl={featuredImageUrl}
           metaImageAlt={featuredImageDescription}
+          metaImageWidth={featuredImageWidth}
+          metaImageHeight={featuredImageHeight}
         >
           <article className="post container container--md">
             <div>
@@ -154,14 +153,14 @@ class Post extends Component {
 
                 <div className="post__cta">
                   {experimentUrl && (
-                    <Button href={experimentUrl} target="_blank">
+                    <CTAButton href={experimentUrl} target="_blank">
                       LAUNCH EXPERIMENT
-                    </Button>
+                    </CTAButton>
                   )}
                   {githubUrl && (
-                    <Button href={githubUrl} target="_blank">
+                    <CTAButton href={githubUrl} target="_blank">
                       CODE
-                    </Button>
+                    </CTAButton>
                   )}
                 </div>
               </header>

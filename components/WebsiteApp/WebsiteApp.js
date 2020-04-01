@@ -28,6 +28,8 @@ class WebsiteApp extends Component {
     title: PropTypes.string,
     metaDescription: PropTypes.string,
     metaImageUrl: PropTypes.string,
+    metaImageWidth: PropTypes.number,
+    metaImageHeight: PropTypes.number,
     pathname: PropTypes.string,
     isLoading: PropTypes.bool,
     // children: PropTypes.Component,
@@ -38,6 +40,8 @@ class WebsiteApp extends Component {
       title,
       metaDescription,
       metaImageUrl,
+      metaImageWidth,
+      metaImageHeight,
       pathname,
       isLoading,
       children,
@@ -50,6 +54,8 @@ class WebsiteApp extends Component {
         title={title}
         metaDescription={metaDescription}
         metaImageUrl={metaImageUrl}
+        metaImageWidth={metaImageWidth}
+        metaImageHeight={metaImageHeight}
         headerMenuItems={HEADER_MENU_ITEMS}
       >
         {children}
