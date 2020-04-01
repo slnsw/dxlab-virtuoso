@@ -5,6 +5,7 @@ import Menu from '../Menu';
 // import Link from '../Link';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
+import MenuIconButton from '../MenuIconButton/MenuIconButton';
 
 // const menuItems = [
 //   { name: 'Home', url: '/' },
@@ -73,24 +74,15 @@ class Header extends Component {
 
         <SLNSWLogo className="logo logo--slnsw" />
 
-        <button
+        <MenuIconButton
+          isOpen={this.state.isMenuOpen}
           id="primary-menu-button"
-          className={`primary-menu-button ${
-            this.state.isMenuOpen ? 'is-open' : ''
-          }`}
           aria-haspopup="true"
           aria-controls="primary-menu"
-          aria-expanded="false"
+          aria-expanded={this.state.isMenuOpen}
           aria-label="primary menu"
           onClick={this.handleMenuToggle}
-        >
-          <div>
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-        </button>
+        />
       </header>
     );
   }

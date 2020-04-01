@@ -5,7 +5,6 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  /* top: 1em; */
   z-index: 10;
   display: flex;
   align-items: center;
@@ -23,7 +22,6 @@
 
   @include media-lg {
     top: 1em;
-    /* flex-direction: row; */
     flex-flow: row nowrap;
     align-items: center;
   }
@@ -87,7 +85,6 @@
 .header__nav {
   position: absolute;
   top: 0;
-  /* top: -1.2em; */
   z-index: 100;
   display: block;
   width: calc(100% + 2.6em);
@@ -142,13 +139,13 @@ ul.primary-menu {
 
     /* Line decoration */
 
-    /*&::before {
+    /* &::before {
       display: block;
       content: "";
       border-top: 1px solid var(--colour-white);
       height: var(--spacing-xxs);
       width: 1em;
-    }*/
+    } */
   }
 
   @include media-lg {
@@ -169,7 +166,9 @@ ul.primary-menu {
 .primary-menu__item {
   position: relative;
   font-size: var(--font-size-lg);
+
   @extend .font-uppercase;
+
   text-align: left;
   background-color: var(--colour-black);
   transition: 0.3s ease-out;
@@ -280,7 +279,7 @@ ul.primary-menu {
   }
 
   /* Menu item decorations */
-  /*&::before {
+  /* &::before {
     position: absolute;
     content: "";
     left: 1em;
@@ -291,7 +290,7 @@ ul.primary-menu {
     @include media-sm {
       display: none;
     }
-  }*/
+  } */
 
   /* Menu item decorations */
   &::after {
@@ -305,75 +304,5 @@ ul.primary-menu {
     @include media-sm {
       display: none;
     }
-  }
-}
-
-/* Mobile only Hamburger */
-.primary-menu-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 110;
-  width: 3em;
-  height: 3em;
-  margin-right: -1em;
-  padding: 0;
-  font-size: var(--font-size-md);
-  cursor: pointer;
-
-  @include media-sm {
-    display: none;
-  }
-
-  & div {
-    position: absolute;
-    top: 1.2em;
-    left: 1em;
-  }
-
-  /* Hamburger Icon Animation */
-  & span {
-    position: absolute;
-    display: block;
-    width: 1em;
-    height: 1px;
-    background: var(--colour-white);
-    border-radius: 2px;
-    transform: rotate(0deg);
-    opacity: 1;
-    transition: 0.25s ease-in-out;
-  }
-
-  & span:nth-child(1) {
-    top: 0;
-  }
-
-  & span:nth-child(2),
-  & span:nth-child(3) {
-    top: 4px;
-  }
-
-  & span:nth-child(4) {
-    top: 8px;
-  }
-
-  &.is-open span:nth-child(1) {
-    top: 8px;
-    left: 50%;
-    width: 0%;
-  }
-
-  &.is-open span:nth-child(2) {
-    transform: rotate(45deg);
-  }
-
-  &.is-open span:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-
-  &.is-open span:nth-child(4) {
-    top: 8px;
-    left: 50%;
-    width: 0%;
   }
 }
