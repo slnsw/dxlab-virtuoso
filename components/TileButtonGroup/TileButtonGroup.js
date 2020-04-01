@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../Button';
+import CTAButton from '../CTAButton';
 // import './TileButtonGroup.css';
 
 class TileButtonGroup extends Component {
@@ -33,21 +33,21 @@ class TileButtonGroup extends Component {
     return (
       <div className="tile-button-group tile-button-group--alt">
         {primaryUrl && (
-          <Button href={primaryUrl} target={primaryTarget}>
+          <CTAButton href={primaryUrl} target={primaryTarget}>
             {primaryText}
-          </Button>
+          </CTAButton>
         )}
 
         {secondaryUrl && (
-          <Button href={secondaryUrl} target={secondaryTarget} size="sm">
+          <CTAButton href={secondaryUrl} target={secondaryTarget} size="sm">
             {secondaryText}
-          </Button>
+          </CTAButton>
         )}
 
         {tertiaryUrl && (
-          <Button href={tertiaryUrl} target={tertiaryTarget} size="sm">
+          <CTAButton href={tertiaryUrl} target={tertiaryTarget} size="sm">
             {tertiaryText}
-          </Button>
+          </CTAButton>
         )}
       </div>
     );

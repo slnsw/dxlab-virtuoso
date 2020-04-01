@@ -17,7 +17,7 @@ import './post.scss';
 
 // Components CSS
 import '../components/App/App.scss';
-import '../components/Button/Button.scss';
+import '../components/CTAButton/CTAButton.scss';
 import '../components/CollectionApp/CollectionApp.scss';
 import '../components/CollectionItem/CollectionItem.scss';
 import '../components/CollectionPart/CollectionPart.scss';

@@ -2,10 +2,9 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Menu from '../Menu';
-import Link from '../Link';
-import DXLabLogo from '../DXLabLogo/DXLabLogo';
-import SLNSWLogo from '../SLNSWLogo/SLNSWLogo';
-// import './Header.css';
+// import Link from '../Link';
+import DXLabLogo from '../DXLabLogo';
+import SLNSWLogo from '../SLNSWLogo';
 
 // const menuItems = [
 //   { name: 'Home', url: '/' },

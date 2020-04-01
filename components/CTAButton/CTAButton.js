@@ -1,10 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import './Button.css';
 import Link from '../Link';
 
-class Button extends Component {
+class CTAButton extends Component {
   static propTypes = {
     href: PropTypes.string.isRequired,
     size: PropTypes.string,
@@ -37,4 +36,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default CTAButton;
