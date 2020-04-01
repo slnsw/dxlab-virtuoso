@@ -136,7 +136,7 @@ const SheetMusicApp = ({ slug, className }) => {
         </Sidebar>
 
         <div className={css.page}>
-          <header>
+          <header className={css.pageHeader}>
             <a href={currentSong.url}>
               <img
                 className={css.thumbnail}
