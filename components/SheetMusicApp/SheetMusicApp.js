@@ -28,9 +28,7 @@ const SheetMusicApp = ({ slug, className }) => {
   const [allNotes, setAllNotes] = React.useState([]);
 
   // Check if all samples have been loaded
-  console.log(samplesStatus);
-  console.log(currentSong.instruments);
-  const isSamplesLoaded = samplesStatus.every((status, i) => { console.log(i, status); return status === 'loaded'});
+  const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {

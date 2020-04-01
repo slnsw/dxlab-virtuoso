@@ -1,5 +1,5 @@
 const songs = [
-  {
+   {
     title: 'The Glebe Rowing Club Polka',
     slug: 'the-glebe-rowing-club-polka',
     creator: 'Bull, Josie L.',
@@ -27,14 +27,14 @@ const songs = [
       'e2 d>c|A2 G>F|E2 B2|A2 AA|dB GB|+>+A2 GF|',
       'E2 DC|A2 cf|e2 d>c|A2 G>F|E2 B2|A2 AA|',
       // page 2
-      "+>+Gd/c/ +>+BA/G/|+>+FF/G/ +>+AG/F/|+>+ED/C/ DE|FFF+segno+||[K:Amin] \"3rd Strain\" x d/f/|a2 bd'|",
+      '+>+Gd/c/ +>+BA/G/|+>+FF/G/ +>+AG/F/|+>+ED/C/ DE|FFF+segno+||[K:Amin] "3rd Strain" x d/f/|a2 bd\'|',
       "e2 +coda+dc|BG e>d|ca g>g|+>+ad ab|c'gec|Bf e>d|",
       "(c/e/g/e/) c(d/f/)|a2 bd'|e2 dc|BG e>d|ca g>g|+>+ad ab|",
       "c'gec|Bf e>d|c[EGc][EGc] z||c'/g/e/c/ ab|bb c'2|[fa][fa] [fa][eg]|",
       "(d/a/) (d/a/ d2)|c'/g/e/c/ ab|bb c'2|[fa][fa] [fa][eg]|(d/a/) (d/g/ c)e/g/|c'/g/e/c/ ab|",
       "bb c'2|[fa][fa] [fa][ge]|(d/a/) (d/a/ d2)|c'/g/e/c/ ab|bb c'2|[fa][fa] [fa][ge]|",
       // page 3
-      "(d/a/) (a/g/) c||[K:F] (3(f/g/f/)|eb de|dc Ac|^cd e>d|dc A (3(f/g/f/)|",
+      '(d/a/) (a/g/) c||[K:F] (3(f/g/f/)|eb de|dc Ac|^cd e>d|dc A (3(f/g/f/)|',
       'eb de|dc Ac|Gc dg|ddd "8vo" ((3f/g/f/)|eb de|dc Ac|',
       '^cd e>d|dc Ac|dB d>e|fc fg|ec ga|fd/c/ eg|',
       '[A2f2] [A2c2f2]|[Acf][Acf][Acf][Acf]|[A2c2f2] [G2c2e2]|([A4c4f4]|!fermata![A4c4f4])]|x4|',
