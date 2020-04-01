@@ -4,7 +4,8 @@ import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
 
 // import SheetMusic from '../SheetMusic';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar';
+import DXLabLogo from '../DXLabLogo';
 
 import songs from './songs';
 import samples from './samples';
@@ -51,62 +52,72 @@ const SheetMusicApp = ({ slug, className }) => {
 
   return (
     <div className={[css['sheet-music-app'], className || ''].join(' ')}>
-      <Sidebar className={css.sidebar}>
-        <h1>Songs</h1>
+      <header className={css.header}>
+        <DXLabLogo />
+      </header>
 
-        <Menu
-          menuItems={songs.map((song) => {
-            return {
-              name: song.title,
-              url: `/sheet-music/song/${song.slug}`,
-              isActive: song.slug === currentSong.slug,
-            };
-          })}
-        />
-      </Sidebar>
+      <div className={css.content}>
+        <Sidebar className={css.sidebar}>
+          <h1>Songs</h1>
 
-      <div className={css.page}>
-        <header>
-          <a href={currentSong.url}>
-            <img
-              className={css.thumbnail}
-              src={currentSong.imageUrl}
-              alt={currentSong.title}
-            />
-          </a>
+          <Menu
+            menuItems={songs.map((song) => {
+              return {
+                name: song.title,
+                url: `/sheet-music/song/${song.slug}`,
+                isActive: song.slug === currentSong.slug,
+              };
+            })}
+          />
+        </Sidebar>
 
-          <h1 className={css.title}>{currentSong.title}</h1>
-          <p className={css.creator}>{currentSong.creator}</p>
+        <div className={css.page}>
+          <header className={css.pageHeader}>
+            <a href={currentSong.url}>
+              <img
+                className={css.thumbnail}
+                src={currentSong.imageUrl}
+                alt={currentSong.title}
+              />
+            </a>
 
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className={css['button--light']}
-            disabled={!isSamplesLoaded}
-          >
-            {!isSamplesLoaded ? 'Loading' : <>{isPlaying ? 'Stop' : 'Play'}</>}
-          </button>
-        </header>
+            <h1 className={css.title}>{currentSong.title}</h1>
+            <p className={css.creator}>{currentSong.creator}</p>
 
-        <SheetMusic
-          isPlaying={isPlaying}
-          bpm={currentSong.bpm}
-          scale={1}
-          notation={notation}
-          // staffWidth={width}
-          oneSvgPerLine={true}
-          className={css['sheet-music']}
-          // onClick={(element) => {
-          // This is undocumented
-          // console.log(element.abselem);
-          // element.abselem.highlight('test', 'blue');
-          // }}
-          onBeat={handleBeat}
-          onEvent={handleEvent}
-          onLineEnd={() => {
-            // setVocalNotes([]);
-            // setPianoNotes([]);
-          }}
-        />
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className={css['button--light']}
+              disabled={!isSamplesLoaded}
+            >
+              {!isSamplesLoaded ? (
+                'Loading'
+              ) : (
+                <>{isPlaying ? 'Stop' : 'Play'}</>
+              )}
+            </button>
+          </header>
+
+          <SheetMusic
+            isPlaying={isPlaying}
+            bpm={currentSong.bpm}
+            scale={1}
+            notation={notation}
+            // staffWidth={width}
+            oneSvgPerLine={true}
+            className={css['sheet-music']}
+            // onClick={(element) => {
+            // This is undocumented
+            // console.log(element.abselem);
+            // element.abselem.highlight('test', 'blue');
+            // }}
+            onBeat={handleBeat}
+            onEvent={handleEvent}
+            onLineEnd={() => {
+              // setVocalNotes([]);
+              // setPianoNotes([]);
+            }}
+          />
+        </div>
       </div>
 
       <Song bpm={currentSong.bpm}>
