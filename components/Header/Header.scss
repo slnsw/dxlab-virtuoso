@@ -37,12 +37,6 @@
   @include media-sm {
     height: 1.4em;
   }
-
-  & img {
-    width: auto;
-    height: 100%;
-    margin-bottom: 0;
-  }
 }
 
 .logo--dxlab {
@@ -64,11 +58,6 @@
   @include media-sm {
     position: relative;
     order: 2;
-    /* position: absolute;
-    top: 0;
-    right: 0;
-    margin-left: 0;
-    padding-left: 0; */
   }
 
   @include media-lg {

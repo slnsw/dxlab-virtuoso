@@ -1,5 +1,5 @@
 ---
-to: components/<%= name %>/<%= name %>.scss
+to: components/<%= name %>/<%= name %>.module.scss
 ---
 @import '../../styles/global.scss';
 

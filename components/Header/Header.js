@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Menu from '../Menu';
 import Link from '../Link';
+import DXLabLogo from '../DXLabLogo/DXLabLogo';
+import SLNSWLogo from '../SLNSWLogo/SLNSWLogo';
 // import './Header.css';
 
 // const menuItems = [
@@ -49,13 +51,7 @@ class Header extends Component {
 
     return (
       <header className="header">
-        <div className="logo logo--dxlab">
-          <Link href="/">
-            <a href="/">
-              <img src="/images/logo-dxlab.png" alt="DX Lab Logo." />
-            </a>
-          </Link>
-        </div>
+        <DXLabLogo className="logo logo--dxlab" />
 
         <nav
           className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}
@@ -76,19 +72,7 @@ class Header extends Component {
           />
         </nav>
 
-        <div className="logo logo--slnsw">
-          <a
-            href="http://sl.nsw.gov.au"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              // className="logo logo--slnsw"
-              src="/images/logo-slnsw-white.png"
-              alt="State Library Logo."
-            />
-          </a>
-        </div>
+        <SLNSWLogo className="logo logo--slnsw" />
 
         <button
           id="primary-menu-button"
