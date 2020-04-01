@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Link from '../Link';
 import TileImage from '../TileImage';
-import Button from '../Button';
+import CTAButton from '../CTAButton';
 import TileButtonGroup from '../TileButtonGroup';
 
 // import './MainTile.css';
@@ -97,7 +97,7 @@ class MainTile extends Component {
             <div className="main-tile__subtitle">{subtitle}</div>
             {showTitleButton && (
               <div className="main-tile__title-button">
-                <Button>Launch Experiment</Button>
+                <CTAButton>Launch Experiment</CTAButton>
               </div>
             )}
           </header>

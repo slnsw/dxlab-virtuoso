@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.2] - 2020-04-XX
+
+- Add `DXLabLogo`, `SLNSWLogo` components
+- Refactor `Button` to `CTAButton`
+- Recreate `Button` component to be more generic
+- Add `MenuIconButton`
+
+## [1.8.1] - 2020-04-01
+
+- Update blog post social meta tags with image height and width
+- Add `baseUrl` of `https://dxlab.sl.nsw.gov.au` to `SocialMetaHead`
+
 ## [1.8.0] - 2020-03-27
 
 - Remove `next-css` and use inbuilt Next JS's inbuilt CSS and SCSS support

@@ -2,7 +2,7 @@
 
 @lost gutter 0.3em;
 
-.button {
+.ctaButton {
   position: relative;
   z-index: 1;
   display: flex;
@@ -19,6 +19,7 @@
   border: 1px solid var(--colour-white);
   /* border: 1px solid var(--colour-grey-darkest); */
   @extend .font-uppercase;
+
   transition: 0.3s;
 
   &:link,
@@ -33,7 +34,7 @@
   }
 }
 
-.button--sm {
+.ctaButtonSm {
   height: 2em;
   background-color: var(--colour-grey-darkest);
   border: 1px solid var(--colour-grey-darkest);

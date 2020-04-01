@@ -1,7 +1,7 @@
 ---
-to: components/<%= name %>/<%= name %>.scss
+to: components/<%= name %>/<%= name %>.module.scss
 ---
 @import '../../styles/global.scss';
 
-/* .<%= h.inflection.underscore(name).replace(/_/g, '-') %> {
-} */
+// .<%= h.changeCase.camel(name) %> {
+// }

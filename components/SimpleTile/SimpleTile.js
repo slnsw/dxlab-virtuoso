@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import Link from '../Link';
 import Image from '../Image';
 
-// import TileImage from '../TileImage';
-// import Button from '../Button';
-// import './SimpleTile.css';
-
 class SimpleTile extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,

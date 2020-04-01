@@ -1,6 +1,6 @@
 @import '../../styles/global.scss';
 
-.tile-button-group {
+.tileButtonGroup {
   display: flex;
   height: 3em;
   font-size: var(--font-size-sm);
@@ -12,7 +12,7 @@
   }
 
   /* First big button */
-  & > .button:first-child {
+  & .primaryButton:first-child {
     flex: 5;
     height: auto;
 
@@ -24,7 +24,7 @@
     }
   }
 
-  & > .button--sm {
+  & > .secondaryButton {
     flex: 1;
     height: auto;
     margin-left: 3px;
@@ -34,7 +34,7 @@
     }
   }
 
-  & > .button--sm:nth-child(2) {
+  & > .secondaryButton:nth-child(2) {
     @include media-sm {
       margin-left: 0;
     }

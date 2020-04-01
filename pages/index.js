@@ -7,7 +7,7 @@ import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
-import Button from '../components/Button';
+import CTAButton from '../components/CTAButton';
 
 import { initApolloClient } from '../lib/apollo';
 import { formatDate } from '../lib';
@@ -97,7 +97,7 @@ class HomePage extends Component {
           </div>
 
           <div className="home-page__button-holder">
-            <Button href="/blog">Read All Posts</Button>
+            <CTAButton href="/blog">Read All Posts</CTAButton>
           </div>
         </div>
 
@@ -125,7 +125,7 @@ class HomePage extends Component {
                 title={experiment.title}
                 subtitle={experiment.date}
                 url={experiment.url}
-                // showTitleButton={true}
+                // showTitleCTAButton={true}
                 target="_blank"
                 primaryText="Launch"
                 secondaryText="Read"
@@ -147,7 +147,7 @@ class HomePage extends Component {
             ))}
 
           <div className="home-page__button-holder">
-            <Button href="/experiments">All Experiments</Button>
+            <CTAButton href="/experiments">All Experiments</CTAButton>
           </div>
         </div>
 
@@ -168,7 +168,7 @@ class HomePage extends Component {
 
         <div className="container container--lg">
           <div className="home-page__button-holder">
-            <Button href="/grants">Read about our grants</Button>
+            <CTAButton href="/grants">Read about our grants</CTAButton>
           </div>
         </div>
       </WebsiteApp>

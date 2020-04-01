@@ -1,0 +1,9 @@
+@import '../../styles/global.scss';
+
+.dxLabLogo {
+  & img {
+    width: auto;
+    height: 100%;
+    margin-bottom: 0;
+  }
+}

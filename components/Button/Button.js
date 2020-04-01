@@ -1,42 +1,29 @@
-import { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './Button.css';
-import Link from '../Link';
+import css from './Button.module.scss';
 
-class Button extends Component {
-  static propTypes = {
-    href: PropTypes.string,
-    size: PropTypes.string,
-    target: PropTypes.string,
-    onClick: PropTypes.func,
-  };
-
-  render() {
-    const { children, href, size, target, onClick } = this.props;
-
-    // TODO: Make this DRY
-    return href && href.match('^http') ? (
-      <a
-        href={href}
-        className={`button ${size ? `button--${size}` : ''}`}
-        target={target}
-        onClick={onClick}
+// React.forwardRef added because of:
+// Warning: Function components cannot be given refs. Attempts to access
+// this ref will fail. Did you mean to use React.forwardRef()? Check the
+// render method of `Link`.
+// https://github.com/zeit/next.js/issues/7915
+const Button = React.forwardRef(
+  ({ children, className, ...restProps }, ref) => {
+    return (
+      <button
+        className={[css.button, className || ''].join(' ')}
+        {...restProps}
+        ref={ref}
       >
         {children}
-      </a>
-    ) : (
-      <Link as={href}>
-        <a
-          className={`button ${size ? `button--${size}` : ''}`}
-          target={target}
-          onClick={onClick}
-        >
-          {children}
-        </a>
-      </Link>
+      </button>
     );
-  }
-}
+  },
+);
+
+Button.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Button;
