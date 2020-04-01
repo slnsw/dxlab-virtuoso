@@ -17,7 +17,7 @@ import './post.scss';
 
 // Components CSS
 import '../components/App/App.scss';
-import '../components/CTAButton/CTAButton.scss';
+// import '../components/CTAButton/CTAButton.scss';
 import '../components/CollectionApp/CollectionApp.scss';
 import '../components/CollectionItem/CollectionItem.scss';
 import '../components/CollectionPart/CollectionPart.scss';
@@ -43,7 +43,7 @@ import '../components/ShareBox/ShareBox.scss';
 import '../components/SimpleTile/SimpleTile.scss';
 import '../components/Table/Table.scss';
 import '../components/Tile/Tile.scss';
-import '../components/TileButtonGroup/TileButtonGroup.scss';
+// import '../components/TileButtonGroup/TileButtonGroup.scss';
 import '../components/TileImage/TileImage.scss';
 import '../components/WebsiteApp/WebsiteApp.scss';
 
