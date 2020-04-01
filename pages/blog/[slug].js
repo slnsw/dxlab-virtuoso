@@ -127,6 +127,8 @@ class Post extends Component {
           metaDescription={excerpt}
           metaImageUrl={featuredImageUrl}
           metaImageAlt={featuredImageDescription}
+          metaImageWidth={featuredImageWidth}
+          metaImageHeight={featuredImageHeight}
         >
           <article className="post container container--md">
             <div>

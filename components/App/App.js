@@ -85,6 +85,8 @@ class App extends Component {
       metaDescription,
       metaImageUrl,
       metaImageAlt,
+      metaImageWidth,
+      metaImageHeight,
       headerMenuItems,
       // metaUrl,
     } = this.props;
@@ -125,9 +127,9 @@ class App extends Component {
           description={metaDescription}
           imageUrl={metaImageUrl}
           imageAlt={metaImageAlt}
-          // Add these when ready
-          // imageWidth={metaImageWidth}
-          // imageHeight={metaImageHeight}
+          imageWidth={metaImageWidth}
+          imageHeight={metaImageHeight}
+          baseUrl="https://dxlab.sl.nsw.gov.au"
           siteName="DX Lab | State Library of NSW"
           fbAppId={process.env.DXLAB_WEBSITE_FB_APP_ID}
           twitterUsername="@statelibrarynsw"
