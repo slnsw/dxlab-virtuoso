@@ -1,5 +1,5 @@
 const songs = [
-   {
+  {
     title: 'The Glebe Rowing Club Polka',
     slug: 'the-glebe-rowing-club-polka',
     creator: 'Bull, Josie L.',
@@ -11,10 +11,12 @@ const songs = [
     // instruments: ['piano', 'piano'],
     instruments: [
       {
+        name: 'treble clef',
         volume: 0,
         sampleType: 'piano',
       },
       {
+        name: 'bass clef',
         volume: 0,
         sampleType: 'piano',
       },
@@ -73,14 +75,17 @@ const songs = [
     // instruments: ['clarinet', 'piano', 'piano'],
     instruments: [
       {
+        name: 'voice',
         volume: 0,
         sampleType: 'clarinet',
       },
       {
+        name: 'pianoforte treble clef',
         volume: -6,
         sampleType: 'piano',
       },
       {
+        name: 'pianoforte bass clef',
         volume: -6,
         sampleType: 'piano',
       },

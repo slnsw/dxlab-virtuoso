@@ -79,3 +79,23 @@
   line-height: 1;
   border: 1px solid var(--colour-black);
 }
+
+.song-controls {
+  margin-top: var(--spacing-xlg);
+}
+
+.button--tempo {
+  @extend .font-uppercase;
+
+  width: fit-content;
+  padding-top: var(--spacing-xxs);
+  padding-right: var(--spacing-xs);
+  padding-bottom: var(--spacing-xxxs);
+  padding-left: var(--spacing-xs);
+  margin-left: var(--spacing-xxs);
+  margin-right: var(--spacing-xxs);
+  color: var(--colour-white);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  border: 1px solid var(--colour-white);
+}

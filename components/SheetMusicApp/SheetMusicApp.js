@@ -20,10 +20,18 @@ const SheetMusicApp = ({ slug, className }) => {
 
   const [isPlaying, setIsPlaying] = React.useState(false);
 
+  const [tempo, setTempo] = React.useState(currentSong.bpm);
+
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
     currentSong.instruments.map(() => 'loading'),
   );
+
+  // Set up an array of instrument volumes
+  const [instrumentVolume, setInstrumentVolume] = React.useState(
+    currentSong.instruments.map((instrument) => instrument.volume),
+  );
+
   // const [notes, setNotes] = React.useState([]);
   const [allNotes, setAllNotes] = React.useState([]);
 
@@ -49,6 +57,26 @@ const SheetMusicApp = ({ slug, className }) => {
     }
   };
 
+  const handleVolumeChange = (event) => {
+    setInstrumentVolume(
+      instrumentVolume.map((v, i) => {
+        return i === parseInt(event.target.name, 10)
+          ? parseFloat(event.target.value)
+          : v;
+      }),
+    );
+  };
+
+  const handleTempoChangeUp = () => {
+    const newTempo = tempo < 500 ? tempo + 1 : tempo;
+    setTempo(newTempo);
+  };
+
+  const handleTempoChangeDown = () => {
+    const newTempo = tempo > 9 ? tempo - 1 : tempo;
+    setTempo(newTempo);
+  };
+
   return (
     <div className={[css['sheet-music-app'], className || ''].join(' ')}>
       <Sidebar className={css.sidebar}>
@@ -63,6 +91,42 @@ const SheetMusicApp = ({ slug, className }) => {
             };
           })}
         />
+
+        <div className={css['song-controls']}>
+          <h1>Song Controls</h1>
+          <button
+            className={css['button--tempo']}
+            onClick={handleTempoChangeDown}
+          >
+            -
+          </button>
+          <span>{tempo}</span>
+          <button
+            className={css['button--tempo']}
+            onClick={handleTempoChangeUp}
+          >
+            +
+          </button>
+          {currentSong.instruments.map((instrument, i) => {
+            return (
+              <div key={i}>
+                <label htmlFor="volume">{instrument.name} volume</label>
+                <input
+                  type="range"
+                  id={`volume${i}`}
+                  key={i}
+                  name={i}
+                  min="-96"
+                  max="3"
+                  value={instrumentVolume[i]}
+                  step="0.5"
+                  onChange={handleVolumeChange}
+                />
+                <span>{instrumentVolume[i]} dB</span>
+              </div>
+            );
+          })}
+        </div>
       </Sidebar>
 
       <div className={css.page}>
@@ -89,7 +153,7 @@ const SheetMusicApp = ({ slug, className }) => {
 
         <SheetMusic
           isPlaying={isPlaying}
-          bpm={currentSong.bpm}
+          bpm={tempo}
           scale={1}
           notation={notation}
           // staffWidth={width}
@@ -109,7 +173,7 @@ const SheetMusicApp = ({ slug, className }) => {
         />
       </div>
 
-      <Song bpm={currentSong.bpm}>
+      <Song bpm={tempo}>
         {currentSong.instruments.map((instrument, instrumentIndex) => {
           // const instrumentNotes = notes.filter(
           //   (note) => note.line === instrumentIndex,
@@ -117,7 +181,7 @@ const SheetMusicApp = ({ slug, className }) => {
 
           return (
             <Track
-              volume={instrument.volume}
+              volume={instrumentVolume[instrumentIndex]}
               key={`${instrument.sampleType}${instrumentIndex}`}
             >
               <Instrument
