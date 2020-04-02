@@ -46,6 +46,8 @@ const SheetMusicApp = ({ slug, className }) => {
           rchestra
         </p>
 
+        {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
+
         <MenuIconButton
           isOpen={isMobileMenuOpen}
           className={css.menuIconButton}
