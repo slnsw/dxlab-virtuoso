@@ -91,7 +91,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
           <button
             className={css['button--tempo']}
             onClick={handleTempoChangeDown}
-            disabled={isPlaying}
+            // disabled={isPlaying}
           >
             -
           </button>
@@ -99,7 +99,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
           <button
             className={css['button--tempo']}
             onClick={handleTempoChangeUp}
-            disabled={isPlaying}
+            // disabled={isPlaying}
           >
             +
           </button>
@@ -117,7 +117,8 @@ const SheetMusicContent = ({ song: currentSong }) => {
             {currentSong.instruments.map((instrument, i) => {
               return (
                 <div key={i}>
-                  <label htmlFor="volume">{instrument.name} volume</label>
+                  <p>{instrument.name}</p>
+                  <label htmlFor="volume${i}">volume</label>
                   <input
                     type="range"
                     id={`volume${i}`}
@@ -128,18 +129,18 @@ const SheetMusicContent = ({ song: currentSong }) => {
                     value={instrumentVolume[i]}
                     step="0.5"
                     onChange={handleVolumeChange}
-                    disabled={isPlaying}
+                    // disabled={isPlaying}
                   />
-                  <span>{instrumentVolume[i]} dB</span>
-                </div>
+                  <span className={css['dB-level']}>{instrumentVolume[i]} dB</span>
+                {/* </div>
               );
             })}
 
             {currentSong.instruments.map((instrument, i) => {
               return (
-                <div key={i}>
+                <div key={i}> */}
                   <label htmlFor={`instrument${i}`}>
-                    {instrument.name} instrument
+                    instrument
                   </label>
                   {Object.entries(samples).map(([key]) => {
                     return (
