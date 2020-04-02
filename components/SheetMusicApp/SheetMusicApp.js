@@ -39,6 +39,40 @@ const SheetMusicApp = ({ slug, className }) => {
 
         <h1 className={css.virtuosoLogo}>
           Virtu<strong>OSO</strong>
+          <svg width="2em" height="1.5em">
+            <ellipse
+              cx="0.15em"
+              cy="0.9em"
+              rx="0.2em"
+              ry="0.3em"
+              style={{ fill: 'var(--colour-primary)' }}
+            />
+            <ellipse
+              cx="1.5em"
+              cy="0.9em"
+              rx="0.2em"
+              ry="0.3em"
+              style={{ fill: 'var(--colour-primary)' }}
+            />
+            <rect
+              x="0.3em"
+              width={1}
+              height="0.9em"
+              style={{ fill: 'var(--colour-primary)' }}
+            />
+            <rect
+              x="1.7em"
+              width={1}
+              height="0.9em"
+              style={{ fill: 'var(--colour-primary)' }}
+            />
+            <rect
+              x="0.3em"
+              width="1.4em"
+              height={3}
+              style={{ fill: 'var(--colour-primary)' }}
+            />
+          </svg>
         </h1>
 
         <p className={css.virtuosoLogoSub}>
