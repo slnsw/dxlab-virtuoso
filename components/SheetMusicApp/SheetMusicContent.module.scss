@@ -11,13 +11,73 @@
   background-color: var(--colour-white);
 }
 
+// ----------------------------------------------------------------------------
+// SONG CONTROLS
+// ----------------------------------------------------------------------------
+
+.songControls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--colour-black);
+}
+
+.instrumentControls {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  z-index: 10;
+  display: block;
+  padding: var(--spacing-lg);
+  background-color: var(--colour-white);
+  border: 1px solid var(--colour-black);
+}
+
+.tempoControls {
+  margin-left: auto;
+}
+
+.button--light {
+  @extend .font-uppercase;
+
+  width: fit-content;
+  padding-top: var(--spacing-xxs);
+  padding-right: var(--spacing-xxxs);
+  padding-bottom: var(--spacing-xxxs);
+  padding-left: var(--spacing-xxs);
+  color: var(--colour-black);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  border: 1px solid var(--colour-black);
+}
+
+.button--tempo {
+  @extend .font-uppercase;
+
+  width: fit-content;
+  margin-right: var(--spacing-xxs);
+  margin-left: var(--spacing-xxs);
+  padding-top: var(--spacing-xxs);
+  padding-right: var(--spacing-xs);
+  padding-bottom: var(--spacing-xxxs);
+  padding-left: var(--spacing-xs);
+  color: var(--colour-black);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  border: 1px solid var(--colour-black);
+}
+
+// ----------------------------------------------------------------------------
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: var(--container-width-sm);
   margin-top: var(--spacing-xlg);
-  margin-bottom: var(--spacing-md);
+  // margin-bottom: var(--spacing-md);
   text-align: center;
 }
 
@@ -39,42 +99,11 @@
 
 .creator {
   @extend .font-uppercase;
-}
 
-.button--light {
-  @extend .font-uppercase;
-
-  width: fit-content;
-  padding-top: var(--spacing-xxs);
-  padding-right: var(--spacing-xxxs);
-  padding-bottom: var(--spacing-xxxs);
-  padding-left: var(--spacing-xxs);
-  color: var(--colour-black);
-  font-size: var(--font-size-lg);
-  line-height: 1;
-  border: 1px solid var(--colour-black);
-}
-
-.song-controls {
-  margin-top: var(--spacing-xlg);
-}
-
-.button--tempo {
-  @extend .font-uppercase;
-
-  width: fit-content;
-  padding-top: var(--spacing-xxs);
-  padding-right: var(--spacing-xs);
-  padding-bottom: var(--spacing-xxxs);
-  padding-left: var(--spacing-xs);
-  margin-left: var(--spacing-xxs);
-  margin-right: var(--spacing-xxs);
-  color: var(--colour-black);
-  font-size: var(--font-size-lg);
-  line-height: 1;
-  border: 1px solid var(--colour-black);
+  margin-bottom: 0;
 }
 
 .sheetMusic {
+  max-width: var(--container-width-lg);
   background-color: var(--colour-white);
 }

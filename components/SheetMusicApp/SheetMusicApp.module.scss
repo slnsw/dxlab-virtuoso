@@ -47,7 +47,8 @@
   // margin-bottom: var(--spacing-md);
 
   @include media-lg {
-    height: 1.4em;
+    display: block;
+    // height: 1.4em;
   }
 }
 

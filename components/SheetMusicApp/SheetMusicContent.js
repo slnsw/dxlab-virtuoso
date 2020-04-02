@@ -24,6 +24,8 @@ const SheetMusicContent = ({ song: currentSong }) => {
     currentSong.instruments.map((instrument) => instrument.volume),
   );
 
+  const [showMoreControls, setShowMoreControls] = React.useState(false);
+
   // const [notes, setNotes] = React.useState([]);
   const [allNotes, setAllNotes] = React.useState([]);
 
@@ -75,21 +77,17 @@ const SheetMusicContent = ({ song: currentSong }) => {
 
   return (
     <div className={css.sheetMusicContent}>
-      <header className={css.header}>
-        <a href={currentSong.url}>
-          <img
-            className={css.thumbnail}
-            src={currentSong.imageUrl}
-            alt={currentSong.title}
-          />
-        </a>
+      <div className={css.songControls}>
+        <button
+          onClick={() => setIsPlaying(!isPlaying)}
+          className={css['button--light']}
+          disabled={!isSamplesLoaded}
+        >
+          {!isSamplesLoaded ? 'Loading' : <>{isPlaying ? 'Stop' : 'Play'}</>}
+        </button>
 
-        <h1 className={css.title}>{currentSong.title}</h1>
-        <p className={css.creator}>{currentSong.creator}</p>
-
-        <div className={css['song-controls']}>
-          <h2>Song Controls</h2>
-          <span>tempo:</span>
+        <div className={css.tempoControls}>
+          <span>Tempo:</span>
           <button
             className={css['button--tempo']}
             onClick={handleTempoChangeDown}
@@ -105,58 +103,77 @@ const SheetMusicContent = ({ song: currentSong }) => {
           >
             +
           </button>
-          {currentSong.instruments.map((instrument, i) => {
-            return (
-              <div key={i}>
-                <label htmlFor="volume">{instrument.name} volume</label>
-                <input
-                  type="range"
-                  id={`volume${i}`}
-                  key={i}
-                  name={i}
-                  min="-96"
-                  max="3"
-                  value={instrumentVolume[i]}
-                  step="0.5"
-                  onChange={handleVolumeChange}
-                  disabled={isPlaying}
-                />
-                <span>{instrumentVolume[i]} dB</span>
-              </div>
-            );
-          })}
-          {currentSong.instruments.map((instrument, i) => {
-            return (
-              <div key={i}>
-                <label htmlFor={`instrument${i}`}>
-                  {instrument.name} instrument
-                </label>
-                {Object.entries(samples).map(([key]) => {
-                  return (
-                    <div key={`${i}${key}`}>
-                      <input
-                        type="radio"
-                        id={`instrument${i}${key}`}
-                        name={`instrument${i}`}
-                        value={key}
-                        checked={false}
-                        onChange={handleInstrumentChange}
-                      />
-                      <label htmlFor={key}>{key}</label>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className={css['button--light']}
-            disabled={!isSamplesLoaded}
-          >
-            {!isSamplesLoaded ? 'Loading' : <>{isPlaying ? 'Stop' : 'Play'}</>}
-          </button>
         </div>
+
+        <button
+          onClick={() => setShowMoreControls(!showMoreControls)}
+          className={css['button--light']}
+        >
+          {showMoreControls ? 'Hide' : 'More'}
+        </button>
+
+        {showMoreControls && (
+          <div className={css.instrumentControls}>
+            {currentSong.instruments.map((instrument, i) => {
+              return (
+                <div key={i}>
+                  <label htmlFor="volume">{instrument.name} volume</label>
+                  <input
+                    type="range"
+                    id={`volume${i}`}
+                    key={i}
+                    name={i}
+                    min="-96"
+                    max="3"
+                    value={instrumentVolume[i]}
+                    step="0.5"
+                    onChange={handleVolumeChange}
+                    disabled={isPlaying}
+                  />
+                  <span>{instrumentVolume[i]} dB</span>
+                </div>
+              );
+            })}
+
+            {currentSong.instruments.map((instrument, i) => {
+              return (
+                <div key={i}>
+                  <label htmlFor={`instrument${i}`}>
+                    {instrument.name} instrument
+                  </label>
+                  {Object.entries(samples).map(([key]) => {
+                    return (
+                      <div key={`${i}${key}`}>
+                        <input
+                          type="radio"
+                          id={`instrument${i}${key}`}
+                          name={`instrument${i}`}
+                          value={key}
+                          checked={false}
+                          onChange={handleInstrumentChange}
+                        />
+                        <label htmlFor={key}>{key}</label>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <header className={css.header}>
+        <a href={currentSong.url}>
+          <img
+            className={css.thumbnail}
+            src={currentSong.imageUrl}
+            alt={currentSong.title}
+          />
+        </a>
+
+        <h1 className={css.title}>{currentSong.title}</h1>
+        <p className={css.creator}>{currentSong.creator}</p>
       </header>
 
       <SheetMusic
