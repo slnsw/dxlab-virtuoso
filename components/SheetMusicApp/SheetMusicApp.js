@@ -40,6 +40,19 @@ const SheetMusicApp = ({ slug, className }) => {
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
+  // Override default body styles
+  React.useEffect(() => {
+    document
+      .getElementsByTagName('body')[0]
+      .classList.add(css.sheetMusicAppBody);
+
+    return () => {
+      document
+        .getElementsByTagName('body')[0]
+        .classList.remove(css.sheetMusicAppBody);
+    };
+  });
+
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {
       setIsPlaying(false);

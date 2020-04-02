@@ -1,5 +1,9 @@
 @import '../../styles/global.scss';
 
+.sheetMusicAppBody {
+  margin: 0;
+}
+
 .sheet-music-app {
   display: flex;
   flex-direction: column;
@@ -13,10 +17,16 @@
 
 .header {
   display: flex;
-  margin-bottom: var(--spacing-xlg);
+  align-items: center;
+  padding-left: var(--spacing-md);
+
+  @include media-lg {
+    height: 5rem;
+    padding-left: 0;
+  }
 
   h1 {
-    margin: 0;
+    margin: 0 0 -0.2em 0;
     font-weight: normal;
     font-size: var(--font-size-lg);
     // font-family: var(--font-secondary);
@@ -36,6 +46,8 @@
 }
 
 .menuIconButton {
+  margin-left: auto;
+
   @include media-sm {
     display: block;
   }
