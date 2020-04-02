@@ -6,6 +6,7 @@ import SheetMusic from '@slnsw/react-sheet-music';
 // import SheetMusic from '../SheetMusic';
 import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
+import MenuIconButton from '../MenuIconButton';
 
 import songs from './songs';
 import samples from './samples';
@@ -82,6 +83,11 @@ const SheetMusicApp = ({ slug, className }) => {
     <div className={[css['sheet-music-app'], className || ''].join(' ')}>
       <header className={css.header}>
         <DXLabLogo />
+        <span className={css.headerDivider}></span>
+        <h1>
+          Virtu<strong>OSO</strong>
+        </h1>
+        <MenuIconButton className={css.menuIconButton} />
       </header>
 
       <div className={css.content}>

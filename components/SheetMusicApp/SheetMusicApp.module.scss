@@ -12,7 +12,37 @@
 }
 
 .header {
-  height: 3em;
+  display: flex;
+  margin-bottom: var(--spacing-xlg);
+
+  h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: var(--font-size-lg);
+    // font-family: var(--font-secondary);
+    line-height: 1;
+
+    strong {
+      margin-left: 0.05em;
+      font-weight: 700;
+    }
+  }
+}
+
+.headerDivider {
+  height: 0.5rem;
+  margin: auto var(--spacing-md);
+  border-left: 1px solid var(--colour-white);
+}
+
+.menuIconButton {
+  @include media-sm {
+    display: block;
+  }
+
+  @include media-lg {
+    display: none;
+  }
 }
 
 .content {
