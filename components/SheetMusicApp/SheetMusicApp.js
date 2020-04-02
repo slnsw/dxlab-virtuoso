@@ -84,6 +84,10 @@ const SheetMusicApp = ({ slug, className }) => {
     );
   };
 
+  const handleInstrumentChange = () => {
+    return true;
+  };
+
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 500 ? tempo + 1 : tempo;
     setTempo(newTempo);
@@ -132,42 +136,6 @@ const SheetMusicApp = ({ slug, className }) => {
               };
             })}
           />
-
-          <div className={css['song-controls']}>
-            <h1>Song Controls</h1>
-            <button
-              className={css['button--tempo']}
-              onClick={handleTempoChangeDown}
-            >
-              -
-            </button>
-            <span>{tempo}</span>
-            <button
-              className={css['button--tempo']}
-              onClick={handleTempoChangeUp}
-            >
-              +
-            </button>
-            {currentSong.instruments.map((instrument, i) => {
-              return (
-                <div key={i}>
-                  <label htmlFor="volume">{instrument.name} volume</label>
-                  <input
-                    type="range"
-                    id={`volume${i}`}
-                    key={i}
-                    name={i}
-                    min="-96"
-                    max="3"
-                    value={instrumentVolume[i]}
-                    step="0.5"
-                    onChange={handleVolumeChange}
-                  />
-                  <span>{instrumentVolume[i]} dB</span>
-                </div>
-              );
-            })}
-          </div>
         </Sidebar>
 
         <div className={css.page}>
@@ -183,17 +151,80 @@ const SheetMusicApp = ({ slug, className }) => {
             <h1 className={css.title}>{currentSong.title}</h1>
             <p className={css.creator}>{currentSong.creator}</p>
 
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              className={css['button--light']}
-              disabled={!isSamplesLoaded}
-            >
-              {!isSamplesLoaded ? (
-                'Loading'
-              ) : (
-                <>{isPlaying ? 'Stop' : 'Play'}</>
-              )}
-            </button>
+            <div className={css['song-controls']}>
+              <h2>Song Controls</h2>
+              <span>tempo:</span>
+              <button
+                className={css['button--tempo']}
+                onClick={handleTempoChangeDown}
+                disabled={isPlaying}
+              >
+                -
+              </button>
+              <span>{tempo}</span>
+              <button
+                className={css['button--tempo']}
+                onClick={handleTempoChangeUp}
+                disabled={isPlaying}
+              >
+                +
+              </button>
+              {currentSong.instruments.map((instrument, i) => {
+                return (
+                  <div key={i}>
+                    <label htmlFor="volume">{instrument.name} volume</label>
+                    <input
+                      type="range"
+                      id={`volume${i}`}
+                      key={i}
+                      name={i}
+                      min="-96"
+                      max="3"
+                      value={instrumentVolume[i]}
+                      step="0.5"
+                      onChange={handleVolumeChange}
+                      disabled={isPlaying}
+                    />
+                    <span>{instrumentVolume[i]} dB</span>
+                  </div>
+                );
+              })}
+              {currentSong.instruments.map((instrument, i) => {
+                return (
+                  <div key={i}>
+                    <label htmlFor={`instrument${i}`}>
+                      {instrument.name} instrument
+                    </label>
+                    {Object.entries(samples).map(([key]) => {
+                      return (
+                        <div key={`${i}${key}`}>
+                          <input
+                            type="radio"
+                            id={`instrument${i}${key}`}
+                            name={`instrument${i}`}
+                            value={key}
+                            checked={false}
+                            onChange={handleInstrumentChange}
+                          />
+                          <label htmlFor={key}>{key}</label>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className={css['button--light']}
+                disabled={!isSamplesLoaded}
+              >
+                {!isSamplesLoaded ? (
+                  'Loading'
+                ) : (
+                  <>{isPlaying ? 'Stop' : 'Play'}</>
+                )}
+              </button>
+            </div>
           </header>
 
           <SheetMusic
