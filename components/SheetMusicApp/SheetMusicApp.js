@@ -20,6 +20,8 @@ const SheetMusicApp = ({ slug, className }) => {
     currentSong.key
   }\n${currentSong.lines.join('\n')}`;
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
   const [isPlaying, setIsPlaying] = React.useState(false);
 
   const [tempo, setTempo] = React.useState(currentSong.bpm);
@@ -96,15 +98,29 @@ const SheetMusicApp = ({ slug, className }) => {
     <div className={[css['sheet-music-app'], className || ''].join(' ')}>
       <header className={css.header}>
         <DXLabLogo />
+
         <span className={css.headerDivider}></span>
+
         <h1>
           Virtu<strong>OSO</strong>
         </h1>
-        <MenuIconButton className={css.menuIconButton} />
+
+        <MenuIconButton
+          isOpen={isMobileMenuOpen}
+          className={css.menuIconButton}
+          onClick={() => {
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }}
+        />
       </header>
 
       <div className={css.content}>
-        <Sidebar className={css.sidebar}>
+        <Sidebar
+          className={[
+            css.sidebar,
+            isMobileMenuOpen ? css.isMobileSidebarOpen : '',
+          ].join(' ')}
+        >
           <h1>Songs</h1>
 
           <Menu

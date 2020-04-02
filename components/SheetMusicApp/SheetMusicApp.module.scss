@@ -70,6 +70,12 @@
     display: block;
   }
 
+  &.isMobileSidebarOpen {
+    position: absolute;
+    display: block;
+    background-color: var(--colour-black);
+  }
+
   h1 {
     margin-top: 0;
     font-size: var(--font-size-md);
