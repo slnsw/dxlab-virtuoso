@@ -1,16 +1,8 @@
 @import '../../styles/global.scss';
 
-/* .menu-icon-button {
-} */
-
 .menuIconButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 110;
   width: 3em;
   height: 3em;
-  margin-right: -1em;
   padding: 0;
   font-size: var(--font-size-md);
   cursor: pointer;
