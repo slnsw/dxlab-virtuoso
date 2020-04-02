@@ -1,4 +1,10 @@
 @import '../../styles/global.scss';
 
-/* .website-app {
-} */
+body {
+  margin: 0 1em 1em;
+
+  @include media-sm {
+    margin: 2em;
+    font-size: 16px;
+  }
+}
