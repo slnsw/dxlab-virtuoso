@@ -33,13 +33,18 @@ const SheetMusicApp = ({ slug, className }) => {
   return (
     <div className={[css.sheetMusicApp, className || ''].join(' ')}>
       <header className={css.header}>
-        <DXLabLogo />
+        <DXLabLogo className={css.dxlabLogo} />
 
         <span className={css.headerDivider}></span>
 
-        <h1>
+        <h1 className={css.virtuosoLogo}>
           Virtu<strong>OSO</strong>
         </h1>
+
+        <p className={css.virtuosoLogoSub}>
+          <strong>O</strong>nline <strong>S</strong>heet <strong>O</strong>
+          rchestra
+        </p>
 
         <MenuIconButton
           isOpen={isMobileMenuOpen}
@@ -48,9 +53,7 @@ const SheetMusicApp = ({ slug, className }) => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }}
         />
-      </header>
 
-      <div className={css.content}>
         <Sidebar
           className={[
             css.sidebar,
@@ -69,7 +72,9 @@ const SheetMusicApp = ({ slug, className }) => {
             })}
           />
         </Sidebar>
+      </header>
 
+      <div className={css.content}>
         <SheetMusicContent song={currentSong} />
       </div>
     </div>

@@ -1,14 +1,19 @@
 @import '../../styles/global.scss';
 
 .sheetMusicAppBody {
+  height: 100%;
   margin: 0;
 }
 
 .sheetMusicApp {
   display: flex;
   flex-direction: column;
-  max-width: var(--container-width-xlg);
+  // max-width: var(--container-width-xlg);
   margin: 0 auto;
+
+  @include media-lg {
+    flex-direction: row;
+  }
 }
 
 .header {
@@ -17,28 +22,64 @@
   padding-left: var(--spacing-md);
 
   @include media-lg {
-    height: 5rem;
-    padding-left: 0;
-  }
-
-  h1 {
-    margin: 0 0 -0.2em 0;
-    font-weight: normal;
-    font-size: var(--font-size-lg);
-    // font-family: var(--font-secondary);
-    line-height: 1;
-
-    strong {
-      margin-left: 0.05em;
-      font-weight: 700;
-    }
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-xlg);
   }
 }
 
 .headerDivider {
+  width: 1px;
   height: 0.5rem;
   margin: auto var(--spacing-md);
-  border-left: 1px solid var(--colour-white);
+  background-color: var(--colour-white);
+
+  @include media-lg {
+    width: 0.5rem;
+    height: 1px;
+    margin: var(--spacing-md) 0;
+  }
+}
+
+.dxlabLogo {
+  // margin-bottom: var(--spacing-md);
+
+  @include media-lg {
+    height: 1.4em;
+  }
+}
+
+.virtuosoLogo {
+  margin: 0 0 -0.2em 0;
+  font-weight: normal;
+  font-size: var(--font-size-lg);
+  line-height: 1;
+
+  @include media-lg {
+    margin-bottom: 0.1rem;
+  }
+
+  strong {
+    margin-left: 0.05em;
+    color: var(--colour-primary);
+    font-weight: 700;
+  }
+}
+
+.virtuosoLogoSub {
+  @extend .font-uppercase;
+
+  display: none;
+  font-size: var(--font-size-xs);
+
+  @include media-lg {
+    display: block;
+  }
+
+  strong {
+    color: var(--colour-primary);
+  }
 }
 
 .menuIconButton {
@@ -55,21 +96,30 @@
 
 .content {
   display: flex;
+  flex: 3;
 }
 
 .sidebar {
+  position: absolute;
+  top: 3em;
+  left: 0;
   display: none;
   flex: 1;
-  padding-right: var(--spacing-md);
+  width: 100vw;
+  padding: 1em;
+  background-color: var(--colour-black);
 
   @include media-lg {
+    position: relative;
+    top: initial;
     display: block;
+    width: auto;
+    margin-top: var(--spacing-lg);
+    padding: initial;
   }
 
   &.isMobileSidebarOpen {
-    position: absolute;
     display: block;
-    background-color: var(--colour-black);
   }
 
   h1 {
