@@ -1,5 +1,9 @@
 @import '../../styles/global.scss';
 
+.sheetMusicAppBody {
+  margin: 0;
+}
+
 .sheet-music-app {
   display: flex;
   flex-direction: column;
@@ -12,7 +16,45 @@
 }
 
 .header {
-  height: 3em;
+  display: flex;
+  align-items: center;
+  padding-left: var(--spacing-md);
+
+  @include media-lg {
+    height: 5rem;
+    padding-left: 0;
+  }
+
+  h1 {
+    margin: 0 0 -0.2em 0;
+    font-weight: normal;
+    font-size: var(--font-size-lg);
+    // font-family: var(--font-secondary);
+    line-height: 1;
+
+    strong {
+      margin-left: 0.05em;
+      font-weight: 700;
+    }
+  }
+}
+
+.headerDivider {
+  height: 0.5rem;
+  margin: auto var(--spacing-md);
+  border-left: 1px solid var(--colour-white);
+}
+
+.menuIconButton {
+  margin-left: auto;
+
+  @include media-sm {
+    display: block;
+  }
+
+  @include media-lg {
+    display: none;
+  }
 }
 
 .content {

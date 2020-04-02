@@ -1,15 +1,17 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['react-app', '@slnsw/dxlab', 'prettier/react'],
+  extends: [
+    'react-app',
+    '@slnsw/dxlab',
+    'prettier/react',
+    'plugin:css-modules/recommended',
+  ],
   globals: {
     document: true,
     window: true,
     process: true,
   },
-  plugins: [
-    // ...
-    'react-hooks',
-  ],
+  plugins: ['react-hooks', 'css-modules'],
   rules: {
     // Next JS has a Link component that wraps around <a></a>, inserting the href during compilation. Disable for now.
     'jsx-a11y/anchor-is-valid': 0,

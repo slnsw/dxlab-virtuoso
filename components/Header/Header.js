@@ -77,6 +77,7 @@ class Header extends Component {
         <MenuIconButton
           isOpen={this.state.isMenuOpen}
           id="primary-menu-button"
+          className="header__menu-button"
           aria-haspopup="true"
           aria-controls="primary-menu"
           aria-expanded={this.state.isMenuOpen}
