@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  margin: 0 1em 1em;
+  // margin: 0 1em 1em;
   color: var(--colour-white);
   font-weight: 400;
   font-size: 17px;
@@ -25,10 +25,10 @@ body {
 
   /*-webkit-font-smoothing: antialiased;*/
 
-  @include media-sm {
-    margin: 2em;
-    font-size: 16px;
-  }
+  // @include media-sm {
+  //   margin: 2em;
+  //   font-size: 16px;
+  // }
 }
 
 h1,
