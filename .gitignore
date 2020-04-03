@@ -7,3 +7,5 @@ __tests__/__snapshots__/
 .eslintcache
 
 .now
+
+*.code-workspace
