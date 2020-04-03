@@ -5,6 +5,7 @@ import SheetMusic from '@slnsw/react-sheet-music';
 import samples from './samples';
 
 import css from './SheetMusicContent.module.scss';
+import Select from '../Select/Select';
 
 const SheetMusicContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -175,6 +176,21 @@ const SheetMusicContent = ({ song: currentSong }) => {
 
         <h1 className={css.title}>{currentSong.title}</h1>
         <p className={css.creator}>{currentSong.creator}</p>
+
+        <Select
+          variant="light"
+          menuIsOpen={true}
+          options={[
+            {
+              value: 'test',
+              label: 'Testing 123',
+            },
+            {
+              value: 'test1',
+              label: 'Tes2',
+            },
+          ]}
+        />
       </header>
 
       <SheetMusic

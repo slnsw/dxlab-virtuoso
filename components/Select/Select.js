@@ -7,10 +7,14 @@ import ReactSelect from 'react-select';
 const Select = ({
   options,
   // defaultOption,
-  // variant = 'light',
+  variant = 'dark',
   className,
+  menuIsOpen,
   onChange,
 }) => {
+  const variantColour =
+    variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
+
   return (
     <ReactSelect
       options={options}
@@ -19,18 +23,24 @@ const Select = ({
         placeholder: (provider) => {
           return {
             ...provider,
-            color: 'var(--colour-white)',
+            color: variantColour,
           };
         },
-        control: (provided) => {
+        control: (provided, state) => {
+          // console.log(provided, state);
+
           return {
             ...provided,
-            borderColor: 'var(--colour-white)',
-            // '&:hover': {
-            //   outlineWidth: '2px !important',
-            //   outlineStyle: 'solid !important',
-            //   outlineColor: 'Highlight !important',
-            // },
+            borderColor: variantColour,
+            '&:hover': {
+              borderColor: variantColour,
+              // outlineWidth: '2px !important',
+              // outlineStyle: 'solid !important',
+              // outlineColor: 'red !important',
+            },
+            boxShadow: state.isFocused
+              ? '0 0 0 3px var(--colour-primary)'
+              : null,
           };
         },
         option: (provided) => {
@@ -40,15 +50,15 @@ const Select = ({
             ...provided,
             borderWidth: 1,
             borderStyle: 'solid',
-            borderColor: 'var(--colour-white)',
+            borderColor: variantColour,
             borderTop: 'none',
-            // color: cssVariables['colour-grey-800'],
           };
         },
         menu: (provided) => {
           return {
             ...provided,
-            borderTop: '1px solid var(--colour-white)',
+            borderTop: `1px solid ${variantColour}`,
+            boxShadow: 'none',
             // margin: 0,
           };
         },
@@ -62,13 +72,14 @@ const Select = ({
         singleValue: (provided) => {
           return {
             ...provided,
-            color: 'var(--colour-white)',
+            color: variantColour,
           };
         },
         dropdownIndicator: (provided) => {
           return {
             ...provided,
-            color: 'var(--colour-white)',
+            color: variantColour,
+
             ':hover': 'var(--colour-primary)',
           };
         },
@@ -83,15 +94,26 @@ const Select = ({
             ...theme.colors,
             primary: 'var(--colour-primary)',
             // Hover option background-color
-            primary25: 'var(--colour-grey-darkest)',
-            primary50: 'var(--colour-grey-darker)',
+            primary25:
+              variant === 'light'
+                ? 'var(--colour-grey-lightest)'
+                : 'var(--colour-grey-darkest)',
+            primary50:
+              variant === 'light'
+                ? 'var(--colour-grey-lighter)'
+                : 'var(--colour-grey-darker)',
             // primary75: 'var(--colour-primary)',
-            neutral0: 'var(--colour-black)',
+            neutral0:
+              variant === 'light'
+                ? 'var(--colour-white)'
+                : 'var(--colour-black)',
+            neutral20: variantColour,
             // neutral80: 'var(--colour-white)',
             // neutral90: 'var(--colour-white)',
           },
         };
       }}
+      menuIsOpen={menuIsOpen}
       onChange={onChange}
     />
   );
@@ -104,7 +126,8 @@ Select.propTypes = {
       label: PropTypes.string,
     }),
   ),
-
+  variant: PropTypes.oneOf(['dark', 'light']),
+  isMenuOpen: PropTypes.bool,
   className: PropTypes.string,
 };
 
