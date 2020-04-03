@@ -2,18 +2,18 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import Header from '../Header';
+// import Header from '../Header';
 import SocialMetaHead from '../SocialMetaHead';
-import Footer from '../Footer';
-import Progress from '../Progress/Progress';
+// import Footer from '../Footer';
+// import Progress from '../Progress/Progress';
 
 import { buildHeadTitle } from '../../lib';
-import { initGA } from '../../lib/analytics'; // logPageView
+// import { initGA } from '../../lib/analytics'; // logPageView
 
 // import './App.css';
 // import '../../styles/loader.css';
 
-const SCROLLTOP_THRESHOLD = 100;
+// const SCROLLTOP_THRESHOLD = 100;
 
 class App extends Component {
   static propTypes = {
@@ -25,69 +25,22 @@ class App extends Component {
     metaImageUrl: PropTypes.string,
     metaImageAlt: PropTypes.string,
     headerMenuItems: PropTypes.array,
-  };
-
-  static defaultProps = {
-    headerMenuItems: [],
-  };
-
-  constructor() {
-    super();
-
-    this.state = {
-      // isLoading: false,
-      isHeaderBackgroundActive: false,
-    };
-  }
-
-  componentDidMount() {
-    document.addEventListener('scroll', this.handleOnScroll);
-
-    if (!window.GA_INITIALIZED) {
-      initGA();
-      window.GA_INITIALIZED = true;
-    }
-
-    // logPageView();
-  }
-
-  // componentDidUpdate() {
-  //   // console.log('componentDidUpdate', this.props.isLoading);
-  //
-  //   Router.onRouteChangeStart = () => {
-  //     console.log('isLoading');
-  //     this.setState({
-  //       isLoading: true,
-  //     });
-  //   };
-  // }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleOnScroll);
-  }
-
-  handleOnScroll = (event) => {
-    if (event && event.srcElement && event.srcElement.scrollingElement) {
-      const { scrollTop } = event.srcElement.scrollingElement;
-
-      this.setState({
-        isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,
-      });
-    }
+    className: PropTypes.string,
   };
 
   render() {
     const {
       title,
       children,
-      pathname,
-      isLoading,
+      // pathname,
+      // isLoading,
       metaDescription,
       metaImageUrl,
       metaImageAlt,
       metaImageWidth,
       metaImageHeight,
-      headerMenuItems,
+      // headerMenuItems,
+      className,
       // metaUrl,
     } = this.props;
 
@@ -96,7 +49,10 @@ class App extends Component {
     // const metaUrl = `${baseUrl}${pathname}`;
 
     return (
-      <div className="app" onScroll={this.handleOnScroll}>
+      <div
+        className={['app', className || ''].join(' ')}
+        onScroll={this.handleOnScroll}
+      >
         <Head>
           {/* <meta httpEquiv="X-UA-Compatible" content="IE=edge" /> */}
           <title>{buildHeadTitle(title)}</title>
@@ -135,34 +91,7 @@ class App extends Component {
           twitterUsername="@statelibrarynsw"
         />
 
-        <Header pathname={pathname} menuItems={headerMenuItems} />
-        {/*
-          .header-bg is needed for tricky position: sticky css
-          Includes line decoration for .primary-menu
-        */}
-        <div
-          className={[
-            'header-bg',
-            this.state.isHeaderBackgroundActive ? 'is-active' : '',
-          ].join(' ')}
-        />
-
-        <Progress />
-
-        <div
-          className={`app__loading-screen ${isLoading &&
-            'app__loading-screen--is-active'}`}
-        >
-          <div className="loader-wrapper">
-            <div className="loader">
-              <div className="ball" />
-            </div>
-          </div>
-        </div>
-
-        <main>{!isLoading && children}</main>
-
-        <Footer pathname={pathname} />
+        {children}
       </div>
     );
   }

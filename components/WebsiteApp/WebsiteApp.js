@@ -2,6 +2,11 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import App from '../App';
+import Header from '../Header';
+import Footer from '../Footer';
+import Progress from '../Progress/Progress';
+
+import { initGA } from '../../lib/analytics'; // logPageView
 
 const HEADER_MENU_ITEMS = [
   { name: 'Home', url: '/' },
@@ -22,6 +27,8 @@ const HEADER_MENU_ITEMS = [
   },
 ];
 
+const SCROLLTOP_THRESHOLD = 100;
+
 class WebsiteApp extends Component {
   static propTypes = {
     title: PropTypes.string,
@@ -31,7 +38,55 @@ class WebsiteApp extends Component {
     metaImageHeight: PropTypes.number,
     pathname: PropTypes.string,
     isLoading: PropTypes.bool,
-    // children: PropTypes.Component,
+    children: PropTypes.node,
+  };
+
+  static defaultProps = {
+    headerMenuItems: [],
+  };
+
+  constructor() {
+    super();
+
+    this.state = {
+      isHeaderBackgroundActive: false,
+    };
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleOnScroll);
+
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+
+    // logPageView();
+  }
+
+  // componentDidUpdate() {
+  //   // console.log('componentDidUpdate', this.props.isLoading);
+  //
+  //   Router.onRouteChangeStart = () => {
+  //     console.log('isLoading');
+  //     this.setState({
+  //       isLoading: true,
+  //     });
+  //   };
+  // }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleOnScroll);
+  }
+
+  handleOnScroll = (event) => {
+    if (event && event.srcElement && event.srcElement.scrollingElement) {
+      const { scrollTop } = event.srcElement.scrollingElement;
+
+      this.setState({
+        isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,
+      });
+    }
   };
 
   render() {
@@ -57,7 +112,34 @@ class WebsiteApp extends Component {
         metaImageHeight={metaImageHeight}
         headerMenuItems={HEADER_MENU_ITEMS}
       >
-        {children}
+        <Header pathname={pathname} menuItems={HEADER_MENU_ITEMS} />
+        {/*
+          .header-bg is needed for tricky position: sticky css
+          Includes line decoration for .primary-menu
+        */}
+        <div
+          className={[
+            'header-bg',
+            this.state.isHeaderBackgroundActive ? 'is-active' : '',
+          ].join(' ')}
+        />
+
+        <Progress />
+
+        <div
+          className={`app__loading-screen ${isLoading &&
+            'app__loading-screen--is-active'}`}
+        >
+          <div className="loader-wrapper">
+            <div className="loader">
+              <div className="ball" />
+            </div>
+          </div>
+        </div>
+
+        <main>{!isLoading && children}</main>
+
+        <Footer pathname={pathname} />
       </App>
     );
   }
