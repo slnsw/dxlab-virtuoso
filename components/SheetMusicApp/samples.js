@@ -13,17 +13,17 @@ export const pianoSamples = {
   A4: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_030.mp3`,
 };
 
-// const fluteSamples = {
-//   A3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A3_v1_1.mp3`,
-//   C3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C3_v1_1.mp3`,
-//   E3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_E3_v1_1.mp3`,
-//   A4: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A4_v1_1.mp3`,
-//   C4: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C4_v1_1.mp3`,
-//   E4: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_E4_v1_1.mp3`,
-//   A5: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A5_v1_1.mp3`,
-//   C5: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C5_v1_1.mp3`,
-//   E5: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_E5_v1_1.mp3`,
-// };
+export const fluteSamples = {
+  A3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A3_v1_1.mp3`,
+  C3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C3_v1_1.mp3`,
+  E3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_E3_v1_1.mp3`,
+  A4: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A4_v1_1.mp3`,
+  C4: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C4_v1_1.mp3`,
+  E4: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_E4_v1_1.mp3`,
+  A5: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A5_v1_1.mp3`,
+  C5: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C5_v1_1.mp3`,
+  E5: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_E5_v1_1.mp3`,
+};
 
 export const clariSamples = {
   D2: `${AUDIO_BASE_URL}/Woodwinds/Clarinet/susLong/DCClar_susLong_D2_v3_rr1_sum.mp3`,
@@ -39,6 +39,7 @@ export const clariSamples = {
 
 const samples = {
   piano: pianoSamples,
+  flute: fluteSamples,
   clarinet: clariSamples,
 };
 

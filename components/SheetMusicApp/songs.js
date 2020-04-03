@@ -13,12 +13,12 @@ const songs = [
       {
         name: 'Treble clef',
         volume: 0,
-        sampleType: 'piano',
+        type: 'piano',
       },
       {
         name: 'Bass clef',
         volume: 0,
-        sampleType: 'piano',
+        type: 'piano',
       },
     ],
     lines: [
@@ -77,17 +77,17 @@ const songs = [
       {
         name: 'Voice',
         volume: 0,
-        sampleType: 'clarinet',
+        type: 'clarinet',
       },
       {
         name: 'Piano treble clef',
         volume: -6,
-        sampleType: 'piano',
+        type: 'piano',
       },
       {
         name: 'Piano bass clef',
         volume: -6,
-        sampleType: 'piano',
+        type: 'piano',
       },
     ],
     lines: [
