@@ -52,6 +52,7 @@
     "react-infinite-scroller": "^1.2.4",
     "react-photoswipe": "^1.3.0",
     "react-redux": "^7.1.3",
+    "react-select": "^3.1.0",
     "reactronica": "^0.4.1",
     "redux": "^4.0.5",
     "stylelint-webpack-plugin": "^1.2.3",
