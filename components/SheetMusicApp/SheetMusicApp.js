@@ -12,6 +12,7 @@ import SheetMusicContent from './SheetMusicContent';
 import songs from './songs';
 
 import css from './SheetMusicApp.module.scss';
+import Select from '../Select/Select';
 
 const SheetMusicApp = ({ slug, className }) => {
   const currentSong = songs.find((s) => s.slug === slug);
@@ -107,6 +108,19 @@ const SheetMusicApp = ({ slug, className }) => {
                 isActive: song.slug === currentSong.slug,
               };
             })}
+          />
+
+          <Select
+            options={[
+              {
+                value: 'test-1',
+                label: 'Test 1',
+              },
+              {
+                value: 'test-2',
+                label: 'Test 2',
+              },
+            ]}
           />
         </Sidebar>
       </header>
