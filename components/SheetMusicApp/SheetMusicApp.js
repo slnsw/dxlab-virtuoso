@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import SheetMusic from '../SheetMusic';
+import App from '../App';
+import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
 import MenuIconButton from '../MenuIconButton';
 import SheetMusicContent from './SheetMusicContent';
+// import SheetMusic from '../SheetMusic';
 
 import songs from './songs';
 
 import css from './SheetMusicApp.module.scss';
-import Menu from '../Menu/Menu';
 
 const SheetMusicApp = ({ slug, className }) => {
   const currentSong = songs.find((s) => s.slug === slug);
@@ -31,7 +32,7 @@ const SheetMusicApp = ({ slug, className }) => {
   });
 
   return (
-    <div className={[css.sheetMusicApp, className || ''].join(' ')}>
+    <App className={[css.sheetMusicApp, className || ''].join(' ')}>
       <header className={css.header}>
         <DXLabLogo className={css.dxlabLogo} />
 
@@ -113,7 +114,7 @@ const SheetMusicApp = ({ slug, className }) => {
       <div className={css.content}>
         <SheetMusicContent song={currentSong} />
       </div>
-    </div>
+    </App>
   );
 };
 

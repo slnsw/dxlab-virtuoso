@@ -118,7 +118,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
               return (
                 <div key={i}>
                   <p>{instrument.name}</p>
-                  <label htmlFor="volume${i}">volume</label>
+                  <label htmlFor={`volume${i}`}>volume</label>
                   <input
                     type="range"
                     id={`volume${i}`}
@@ -131,17 +131,17 @@ const SheetMusicContent = ({ song: currentSong }) => {
                     onChange={handleVolumeChange}
                     // disabled={isPlaying}
                   />
-                  <span className={css['dB-level']}>{instrumentVolume[i]} dB</span>
-                {/* </div>
+                  <span className={css['dB-level']}>
+                    {instrumentVolume[i]} dB
+                  </span>
+                  {/* </div>
               );
             })}
 
             {currentSong.instruments.map((instrument, i) => {
               return (
                 <div key={i}> */}
-                  <label htmlFor={`instrument${i}`}>
-                    instrument
-                  </label>
+                  <label htmlFor={`instrument${i}`}>instrument</label>
                   {Object.entries(samples).map(([key]) => {
                     return (
                       <div key={`${i}${key}`}>
