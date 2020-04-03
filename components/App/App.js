@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div
         className={['app', className || ''].join(' ')}
-        onScroll={this.handleOnScroll}
+        // onScroll={this.handleOnScroll}
       >
         <Head>
           {/* <meta httpEquiv="X-UA-Compatible" content="IE=edge" /> */}

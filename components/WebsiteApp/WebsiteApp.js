@@ -111,6 +111,7 @@ class WebsiteApp extends Component {
         metaImageWidth={metaImageWidth}
         metaImageHeight={metaImageHeight}
         headerMenuItems={HEADER_MENU_ITEMS}
+        className="website-app"
       >
         <Header pathname={pathname} menuItems={HEADER_MENU_ITEMS} />
         {/*
