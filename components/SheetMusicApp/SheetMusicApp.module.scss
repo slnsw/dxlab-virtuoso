@@ -31,19 +31,22 @@
 }
 
 .headerDivider {
+  display: none;
   width: 1px;
   height: 0.5rem;
   margin: auto var(--spacing-md);
   background-color: var(--colour-white);
 
   @include media-lg {
+    display: block;
     width: 0.5rem;
     height: 1px;
-    margin: var(--spacing-md) 0;
+    margin: var(--spacing-xlg) 0;
   }
 }
 
 .dxlabLogo {
+  display: none;
   // margin-bottom: var(--spacing-md);
 
   @include media-lg {
@@ -56,7 +59,7 @@
   position: relative;
   margin: 0 0 -0.2em 0;
   font-weight: normal;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xlg);
   line-height: 1;
 
   @include media-lg {
@@ -80,6 +83,7 @@
   @extend .font-uppercase;
 
   display: none;
+  margin-bottom: 0;
   font-size: var(--font-size-xs);
 
   @include media-lg {
@@ -115,6 +119,7 @@
   position: absolute;
   top: 3em;
   left: 0;
+  z-index: 30;
   display: none;
   flex: 1;
   width: 100vw;

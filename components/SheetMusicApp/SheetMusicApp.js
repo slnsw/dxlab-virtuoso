@@ -12,7 +12,6 @@ import SheetMusicContent from './SheetMusicContent';
 import songs from './songs';
 
 import css from './SheetMusicApp.module.scss';
-import Select from '../Select/Select';
 
 const SheetMusicApp = ({ slug, className }) => {
   const currentSong = songs.find((s) => s.slug === slug);
@@ -35,23 +34,23 @@ const SheetMusicApp = ({ slug, className }) => {
   return (
     <App className={[css.sheetMusicApp, className || ''].join(' ')}>
       <header className={css.header}>
-        <DXLabLogo className={css.dxlabLogo} />
+        {/* <DXLabLogo className={css.dxlabLogo} /> */}
 
-        <span className={css.headerDivider}></span>
+        {/* <span className={css.headerDivider}></span> */}
 
         <h1 className={css.virtuosoLogo}>
           Virtu<strong>OSO</strong>
-          <svg width="2em" height="1.5em">
+          <svg width="2em" height="1.3em">
             <ellipse
               cx="0.15em"
-              cy="0.9em"
+              cy="0.7em"
               rx="0.2em"
               ry="0.3em"
               style={{ fill: 'var(--colour-primary)' }}
             />
             <ellipse
               cx="1.5em"
-              cy="0.9em"
+              cy="0.7em"
               rx="0.2em"
               ry="0.3em"
               style={{ fill: 'var(--colour-primary)' }}
@@ -82,6 +81,8 @@ const SheetMusicApp = ({ slug, className }) => {
           rchestra
         </p>
 
+        <span className={css.headerDivider}></span>
+
         {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
 
         <MenuIconButton
@@ -109,20 +110,9 @@ const SheetMusicApp = ({ slug, className }) => {
               };
             })}
           />
-
-          <Select
-            options={[
-              {
-                value: 'test-1',
-                label: 'Test 1',
-              },
-              {
-                value: 'test-2',
-                label: 'Test 2',
-              },
-            ]}
-          />
         </Sidebar>
+
+        <DXLabLogo className={css.dxlabLogo} />
       </header>
 
       <div className={css.content}>

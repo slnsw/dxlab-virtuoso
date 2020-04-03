@@ -2,10 +2,10 @@ import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
 
+import Select from '../Select/Select';
 import samples from './samples';
 
 import css from './SheetMusicContent.module.scss';
-import Select from '../Select/Select';
 
 const SheetMusicContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -62,9 +62,9 @@ const SheetMusicContent = ({ song: currentSong }) => {
     );
   };
 
-  const handleInstrumentChange = () => {
-    return true;
-  };
+  // const handleInstrumentChange = () => {
+  //   return true;
+  // };
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 500 ? tempo + 1 : tempo;
@@ -116,8 +116,15 @@ const SheetMusicContent = ({ song: currentSong }) => {
         {showMoreControls && (
           <div className={css.instrumentControls}>
             {currentSong.instruments.map((instrument, i) => {
+              const sampleOptions = Object.entries(samples).map(([key]) => {
+                return {
+                  label: key,
+                  value: key,
+                };
+              });
+
               return (
-                <div key={i}>
+                <div className={css.instrumentControlGroup} key={i}>
                   <p>{instrument.name}</p>
                   <label htmlFor={`volume${i}`}>volume</label>
                   <input
@@ -135,15 +142,19 @@ const SheetMusicContent = ({ song: currentSong }) => {
                   <span className={css['dB-level']}>
                     {instrumentVolume[i]} dB
                   </span>
-                  {/* </div>
-              );
-            })}
 
-            {currentSong.instruments.map((instrument, i) => {
-              return (
-                <div key={i}> */}
                   <label htmlFor={`instrument${i}`}>instrument</label>
-                  {Object.entries(samples).map(([key]) => {
+                  <Select
+                    variant="light"
+                    value={{
+                      value: instrument.sampleType,
+                      label: instrument.sampleType,
+                    }}
+                    // menuIsOpen={true}
+                    options={sampleOptions}
+                  />
+
+                  {/* {Object.entries(samples).map(([key]) => {
                     return (
                       <div key={`${i}${key}`}>
                         <input
@@ -157,7 +168,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
                         <label htmlFor={key}>{key}</label>
                       </div>
                     );
-                  })}
+                  })} */}
                 </div>
               );
             })}
@@ -176,21 +187,6 @@ const SheetMusicContent = ({ song: currentSong }) => {
 
         <h1 className={css.title}>{currentSong.title}</h1>
         <p className={css.creator}>{currentSong.creator}</p>
-
-        <Select
-          variant="light"
-          menuIsOpen={true}
-          options={[
-            {
-              value: 'test',
-              label: 'Testing 123',
-            },
-            {
-              value: 'test1',
-              label: 'Tes2',
-            },
-          ]}
-        />
       </header>
 
       <SheetMusic

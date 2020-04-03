@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 
-// import css from './Select.module.scss';
+import css from './Select.module.scss';
 
 const Select = ({
   options,
-  // defaultOption,
+  defaultValue,
+  value,
+  isSearchable = false,
+  menuIsOpen,
   variant = 'dark',
   className,
-  menuIsOpen,
   onChange,
 }) => {
   const variantColour =
@@ -18,7 +20,10 @@ const Select = ({
   return (
     <ReactSelect
       options={options}
-      className={className}
+      defaultValue={defaultValue}
+      value={value}
+      isSearchable={isSearchable}
+      className={[css.select, className || ''].join(' ')}
       styles={{
         placeholder: (provider) => {
           return {
