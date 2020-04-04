@@ -53,7 +53,18 @@ const SheetMusicContent = ({ song: currentSong }) => {
     if (event && event.notes) {
       const allEventNotes = currentSong.instruments.map(
         (_, instrumentIndex) => {
-          return event.notes.filter((note) => note.line === instrumentIndex);
+          return (
+            event.notes
+              // Filter out other instruments/lines
+              .filter((note) => note.line === instrumentIndex)
+              // Add a key to enable same note retriggers
+              .map((note) => {
+                return {
+                  ...note,
+                  key: Date.now(),
+                };
+              })
+          );
         },
       );
 
@@ -245,6 +256,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
       <Song bpm={tempo}>
         {currentSong.instruments.map((instrument, instrumentIndex) => {
           const instrumentType = instrumentTypes[instrumentIndex];
+          const notes = allNotes[instrumentIndex] || [];
 
           return (
             <Track
@@ -255,7 +267,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
                 type="sampler"
                 // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
                 key={instrumentType}
-                notes={allNotes[instrumentIndex]}
+                notes={notes}
                 samples={samples[instrumentType]}
                 options={{
                   release: 1,
