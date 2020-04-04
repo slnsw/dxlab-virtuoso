@@ -244,12 +244,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
 
       <Song bpm={tempo}>
         {currentSong.instruments.map((instrument, instrumentIndex) => {
-          // const instrumentNotes = notes.filter(
-          //   (note) => note.line === instrumentIndex,
-          // );
-
           const instrumentType = instrumentTypes[instrumentIndex];
-          // console.log(instrumentType);
 
           return (
             <Track
@@ -258,10 +253,9 @@ const SheetMusicContent = ({ song: currentSong }) => {
             >
               <Instrument
                 type="sampler"
-                // notes={vocalNotes}
-                // notes={instrumentNotes}
+                // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
+                key={instrumentType}
                 notes={allNotes[instrumentIndex]}
-                // samples={samples[instrument.type]}
                 samples={samples[instrumentType]}
                 options={{
                   release: 1,
