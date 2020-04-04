@@ -2,6 +2,7 @@ import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
 
+import Select from '../Select/Select';
 import samples from './samples';
 
 import css from './SheetMusicContent.module.scss';
@@ -20,9 +21,18 @@ const SheetMusicContent = ({ song: currentSong }) => {
   );
 
   // Set up an array of instrument volumes
-  const [instrumentVolume, setInstrumentVolume] = React.useState(
+  const [instrumentVolumes, setInstrumentVolumes] = React.useState(
     currentSong.instruments.map((instrument) => instrument.volume),
   );
+  const [instrumentTypes, setInstrumentTypes] = React.useState(
+    currentSong.instruments.map((instrument) => instrument.type),
+  );
+
+  React.useEffect(() => {
+    setInstrumentTypes(
+      currentSong.instruments.map((instrument) => instrument.type),
+    );
+  }, [currentSong]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
 
@@ -52,17 +62,13 @@ const SheetMusicContent = ({ song: currentSong }) => {
   };
 
   const handleVolumeChange = (event) => {
-    setInstrumentVolume(
-      instrumentVolume.map((v, i) => {
+    setInstrumentVolumes(
+      instrumentVolumes.map((v, i) => {
         return i === parseInt(event.target.name, 10)
           ? parseFloat(event.target.value)
           : v;
       }),
     );
-  };
-
-  const handleInstrumentChange = () => {
-    return true;
   };
 
   const handleTempoChangeUp = () => {
@@ -73,6 +79,15 @@ const SheetMusicContent = ({ song: currentSong }) => {
   const handleTempoChangeDown = () => {
     const newTempo = tempo > 9 ? tempo - 1 : tempo;
     setTempo(newTempo);
+  };
+
+  const handleInstrumentChange = (option, i) => {
+    // console.log(option, i);
+    setInstrumentTypes(
+      instrumentTypes.map((type, instrumentIndex) => {
+        return instrumentIndex === i ? option.value : type;
+      }),
+    );
   };
 
   return (
@@ -115,8 +130,15 @@ const SheetMusicContent = ({ song: currentSong }) => {
         {showMoreControls && (
           <div className={css.instrumentControls}>
             {currentSong.instruments.map((instrument, i) => {
+              const sampleOptions = Object.entries(samples).map(([key]) => {
+                return {
+                  label: key,
+                  value: key,
+                };
+              });
+
               return (
-                <div key={i}>
+                <div className={css.instrumentControlGroup} key={i}>
                   <p>{instrument.name}</p>
                   <label htmlFor={`volume${i}`}>volume</label>
                   <input
@@ -126,23 +148,30 @@ const SheetMusicContent = ({ song: currentSong }) => {
                     name={i}
                     min="-96"
                     max="3"
-                    value={instrumentVolume[i]}
+                    value={instrumentVolumes[i]}
                     step="0.5"
                     onChange={handleVolumeChange}
                     // disabled={isPlaying}
                   />
                   <span className={css['dB-level']}>
-                    {instrumentVolume[i]} dB
+                    {instrumentVolumes[i]} dB
                   </span>
-                  {/* </div>
-              );
-            })}
 
-            {currentSong.instruments.map((instrument, i) => {
-              return (
-                <div key={i}> */}
                   <label htmlFor={`instrument${i}`}>instrument</label>
-                  {Object.entries(samples).map(([key]) => {
+                  <Select
+                    variant="light"
+                    value={{
+                      value: instrumentTypes[i],
+                      label: instrumentTypes[i],
+                      // value: instrument.type,
+                      // label: instrument.type,
+                    }}
+                    // menuIsOpen={true}
+                    options={sampleOptions}
+                    onChange={(option) => handleInstrumentChange(option, i)}
+                  />
+
+                  {/* {Object.entries(samples).map(([key]) => {
                     return (
                       <div key={`${i}${key}`}>
                         <input
@@ -156,7 +185,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
                         <label htmlFor={key}>{key}</label>
                       </div>
                     );
-                  })}
+                  })} */}
                 </div>
               );
             })}
@@ -204,17 +233,21 @@ const SheetMusicContent = ({ song: currentSong }) => {
           //   (note) => note.line === instrumentIndex,
           // );
 
+          const instrumentType = instrumentTypes[instrumentIndex];
+          // console.log(instrumentType);
+
           return (
             <Track
-              volume={instrumentVolume[instrumentIndex]}
-              key={`${instrument.sampleType}${instrumentIndex}`}
+              volume={instrumentVolumes[instrumentIndex]}
+              key={`${instrument.type}${instrumentIndex}`}
             >
               <Instrument
                 type="sampler"
                 // notes={vocalNotes}
                 // notes={instrumentNotes}
                 notes={allNotes[instrumentIndex]}
-                samples={samples[instrument.sampleType]}
+                // samples={samples[instrument.type]}
+                samples={samples[instrumentType]}
                 options={{
                   release: 1,
                 }}

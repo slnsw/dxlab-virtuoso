@@ -11,14 +11,14 @@ const songs = [
     // instruments: ['piano', 'piano'],
     instruments: [
       {
-        name: 'treble clef',
+        name: 'Treble clef',
         volume: 0,
-        sampleType: 'piano',
+        type: 'piano',
       },
       {
-        name: 'bass clef',
+        name: 'Bass clef',
         volume: 0,
-        sampleType: 'piano',
+        type: 'piano',
       },
     ],
     lines: [
@@ -75,19 +75,19 @@ const songs = [
     // instruments: ['clarinet', 'piano', 'piano'],
     instruments: [
       {
-        name: 'voice',
+        name: 'Voice',
         volume: 0,
-        sampleType: 'clarinet',
+        type: 'clarinet',
       },
       {
-        name: 'pianoforte treble clef',
+        name: 'Piano treble clef',
         volume: -6,
-        sampleType: 'piano',
+        type: 'piano',
       },
       {
-        name: 'pianoforte bass clef',
+        name: 'Piano bass clef',
         volume: -6,
-        sampleType: 'piano',
+        type: 'piano',
       },
     ],
     lines: [

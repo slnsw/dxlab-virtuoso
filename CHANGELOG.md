@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `MenuIconButton`
 - Add `eslint-plugin-css-modules`
 - Refactor `App` to be more generic and make `WebsiteApp` more customised
+- Add `react-select` and create `Select` component
 
 ## [1.8.1] - 2020-04-01
 
