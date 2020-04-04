@@ -6,6 +6,7 @@ import Select from '../Select/Select';
 import samples from './samples';
 
 import css from './SheetMusicContent.module.scss';
+import Icon from '../Icon/Icon';
 
 const SheetMusicContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -98,7 +99,21 @@ const SheetMusicContent = ({ song: currentSong }) => {
           className={css['button--light']}
           disabled={!isSamplesLoaded}
         >
-          {!isSamplesLoaded ? 'Loading' : <>{isPlaying ? 'Stop' : 'Play'}</>}
+          {!isSamplesLoaded ? (
+            'Loading'
+          ) : (
+            <>
+              {isPlaying ? (
+                <>
+                  <Icon name="stop" /> Stop
+                </>
+              ) : (
+                <>
+                  <Icon name="play" /> Play
+                </>
+              )}
+            </>
+          )}
         </button>
 
         <div className={css.tempoControls}>

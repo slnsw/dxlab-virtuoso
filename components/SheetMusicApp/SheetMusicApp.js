@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
 import App from '../App';
 import Menu from '../Menu/Menu';
@@ -33,6 +34,10 @@ const SheetMusicApp = ({ slug, className }) => {
 
   return (
     <App className={[css.sheetMusicApp, className || ''].join(' ')}>
+      <Head>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+      </Head>
+
       <header className={css.header}>
         {/* <DXLabLogo className={css.dxlabLogo} /> */}
 
