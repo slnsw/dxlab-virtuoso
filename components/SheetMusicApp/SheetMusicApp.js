@@ -41,14 +41,12 @@ const SheetMusicApp = ({ slug, className }) => {
       </Head>
 
       <header className={css.header}>
-        <div className={css.headerLogos}>
-          <DXLabLogo className={css.dxlabLogo} />
-        </div>
+        <DXLabLogo className={css.dxlabLogo} />
+
+        <span className={css.headerDivider}></span>
 
         <VirtuosoLogo />
         {/* <span className={css.headerDivider}></span> */}
-
-        <span className={css.headerDivider}></span>
 
         {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
 
@@ -79,7 +77,7 @@ const SheetMusicApp = ({ slug, className }) => {
           />
         </Sidebar>
 
-        <SLNSWLogo />
+        <SLNSWLogo className={css.slnswLogo} />
 
         {/* <DXLabLogo className={css.dxlabLogo} /> */}
       </header>
