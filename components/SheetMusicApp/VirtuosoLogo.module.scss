@@ -1,0 +1,41 @@
+@import '../../styles/global.scss';
+
+.virtuosoLogo {
+  position: relative;
+  margin: 0 0 -0.2em 0;
+  font-weight: normal;
+  font-size: var(--font-size-xxlg);
+  line-height: 1;
+
+  @include media-lg {
+    margin-bottom: 0.1rem;
+  }
+
+  strong {
+    margin-left: 0.05em;
+    color: var(--colour-primary);
+    font-weight: 700;
+  }
+
+  svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.virtuosoLogoSub {
+  @extend .font-uppercase;
+
+  display: none;
+  margin-bottom: 0;
+  font-size: var(--font-size-xs);
+
+  @include media-lg {
+    display: block;
+  }
+
+  strong {
+    color: var(--colour-primary);
+  }
+}

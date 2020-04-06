@@ -6,6 +6,7 @@ import App from '../App';
 import Menu from '../Menu/Menu';
 import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
+import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 import SheetMusicContent from './SheetMusicContent';
 // import SheetMusic from '../SheetMusic';
@@ -13,6 +14,7 @@ import SheetMusicContent from './SheetMusicContent';
 import songs from './songs';
 
 import css from './SheetMusicApp.module.scss';
+import VirtuosoLogo from './VirtuosoLogo';
 
 const SheetMusicApp = ({ slug, className }) => {
   const currentSong = songs.find((s) => s.slug === slug);
@@ -39,63 +41,12 @@ const SheetMusicApp = ({ slug, className }) => {
       </Head>
 
       <header className={css.header}>
-        {/* <DXLabLogo className={css.dxlabLogo} /> */}
+        <div className={css.headerLogos}>
+          <DXLabLogo className={css.dxlabLogo} />
+        </div>
 
+        <VirtuosoLogo />
         {/* <span className={css.headerDivider}></span> */}
-
-        <h1 className={css.virtuosoLogo}>
-          Virtu<strong>OSO</strong>
-          <svg width="2em" height="1.4em">
-            <ellipse
-              cx="0.15em"
-              cy="0.8em"
-              rx="0.2em"
-              ry="0.3em"
-              style={{ fill: 'var(--colour-primary)' }}
-            />
-            <ellipse
-              cx="1.5em"
-              cy="0.8em"
-              rx="0.2em"
-              ry="0.3em"
-              style={{ fill: 'var(--colour-primary)' }}
-            />
-            <rect
-              x="0.3em"
-              width={1}
-              height="0.9em"
-              style={{ fill: 'var(--colour-primary)' }}
-            />
-            <rect
-              x="1.7em"
-              width={1}
-              height="0.9em"
-              style={{ fill: 'var(--colour-primary)' }}
-            />
-            <rect
-              x="0.3em"
-              width="1.4em"
-              height={3}
-              style={{ fill: 'var(--colour-primary)' }}
-            />
-            <rect
-              x="0.3em"
-              y={5}
-              width="1.4em"
-              height={1}
-              style={{ fill: 'var(--colour-primary)' }}
-            />
-          </svg>
-        </h1>
-
-        <p className={css.virtuosoLogoSub}>
-          <strong>O</strong>nline
-          <br />
-          <strong>S</strong>heet
-          <br />
-          <strong>O</strong>
-          rchestra
-        </p>
 
         <span className={css.headerDivider}></span>
 
@@ -128,7 +79,9 @@ const SheetMusicApp = ({ slug, className }) => {
           />
         </Sidebar>
 
-        <DXLabLogo className={css.dxlabLogo} />
+        <SLNSWLogo />
+
+        {/* <DXLabLogo className={css.dxlabLogo} /> */}
       </header>
 
       <div className={css.content}>

@@ -20,14 +20,23 @@
 .header {
   display: flex;
   align-items: center;
+  width: 100%;
   padding-left: var(--spacing-md);
 
   @include media-lg {
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 17rem;
     padding: var(--spacing-xlg);
   }
+}
+
+.headerLogos {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
 }
 
 .headerDivider {
@@ -52,46 +61,6 @@
   @include media-lg {
     display: block;
     // height: 1.4em;
-  }
-}
-
-.virtuosoLogo {
-  position: relative;
-  margin: 0 0 -0.2em 0;
-  font-weight: normal;
-  font-size: var(--font-size-xlg);
-  line-height: 1;
-
-  @include media-lg {
-    margin-bottom: 0.1rem;
-  }
-
-  strong {
-    margin-left: 0.05em;
-    color: var(--colour-primary);
-    font-weight: 700;
-  }
-
-  svg {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-}
-
-.virtuosoLogoSub {
-  @extend .font-uppercase;
-
-  display: none;
-  margin-bottom: 0;
-  font-size: var(--font-size-xs);
-
-  @include media-lg {
-    display: block;
-  }
-
-  strong {
-    color: var(--colour-primary);
   }
 }
 
