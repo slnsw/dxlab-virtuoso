@@ -13,6 +13,7 @@ const Select = ({
   variant = 'dark',
   className,
   onChange,
+  isDisabled,
 }) => {
   const variantColour =
     variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
@@ -120,6 +121,7 @@ const Select = ({
       }}
       menuIsOpen={menuIsOpen}
       onChange={onChange}
+      isDisabled={isDisabled}
     />
   );
 };
@@ -134,6 +136,7 @@ Select.propTypes = {
   variant: PropTypes.oneOf(['dark', 'light']),
   isMenuOpen: PropTypes.bool,
   className: PropTypes.string,
+  isDisabled: PropTypes.bool,
 };
 
 export default Select;

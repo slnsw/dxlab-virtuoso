@@ -99,6 +99,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
     // console.log(option, i);
     setInstrumentTypes(
       instrumentTypes.map((type, instrumentIndex) => {
+        console.log(samplesStatus);
         return instrumentIndex === i ? option.value : type;
       }),
     );
@@ -176,7 +177,9 @@ const SheetMusicContent = ({ song: currentSong }) => {
               return (
                 <div className={css.instrumentControlGroup} key={i}>
                   <p>{instrument.name}</p>
-                  <label htmlFor={`volume${i}`}>volume</label>
+                  <label htmlFor={`volume${i}`}>
+                    volume {instrumentVolumes[i].toFixed(1)} <span>d</span>B
+                  </label>
                   <Range
                     className={css.volumeSlider}
                     id={`volume${i}`}
@@ -196,6 +199,8 @@ const SheetMusicContent = ({ song: currentSong }) => {
                           height: '6px',
                           width: '100%',
                           backgroundColor: '#ccc',
+                          marginTop: '1.2rem',
+                          marginBottom: '1.6rem',
                         }}
                       >
                         {children}
@@ -214,9 +219,9 @@ const SheetMusicContent = ({ song: currentSong }) => {
                       />
                     )}
                   />
-                  <span className={css['dB-level']}>
+                  {/* <span className={css['dB-level']}>
                     {instrumentVolumes[i]} dB
-                  </span>
+                  </span> */}
 
                   <label htmlFor={`instrument${i}`}>instrument</label>
                   <Select
