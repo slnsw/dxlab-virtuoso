@@ -138,7 +138,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
             theme="light"
             className={css['button--tempo']}
             onClick={handleTempoChangeDown}
-            // disabled={isPlaying}
+            disabled={isPlaying}
           >
             <Icon name="remove" />
           </CTAButtonV2>
@@ -147,7 +147,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
             theme="light"
             className={css['button--tempo']}
             onClick={handleTempoChangeUp}
-            // disabled={isPlaying}
+            disabled={isPlaying}
           >
             <Icon name="add" />
           </CTAButtonV2>
@@ -230,6 +230,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
                     // menuIsOpen={true}
                     options={sampleOptions}
                     onChange={(option) => handleInstrumentChange(option, i)}
+                    isDisabled={isPlaying} // why u no work?
                   />
 
                   {/* {Object.entries(samples).map(([key]) => {
