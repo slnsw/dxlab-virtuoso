@@ -133,7 +133,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
           <button
             className={css['button--tempo']}
             onClick={handleTempoChangeDown}
-            // disabled={isPlaying}
+            disabled={isPlaying}
           >
             -
           </button>
@@ -141,7 +141,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
           <button
             className={css['button--tempo']}
             onClick={handleTempoChangeUp}
-            // disabled={isPlaying}
+            disabled={isPlaying}
           >
             +
           </button>
@@ -223,6 +223,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
                     // menuIsOpen={true}
                     options={sampleOptions}
                     onChange={(option) => handleInstrumentChange(option, i)}
+                    isDisabled={isPlaying} // why u no work?
                   />
 
                   {/* {Object.entries(samples).map(([key]) => {
