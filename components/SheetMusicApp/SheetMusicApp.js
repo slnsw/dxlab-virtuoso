@@ -8,8 +8,6 @@ import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
-import CTAButton from '../CTAButton';
-import CTAButtonV2 from '../CTAButtonV2';
 import SheetMusicContent from './SheetMusicContent';
 // import SheetMusic from '../SheetMusic';
 
@@ -66,9 +64,6 @@ const SheetMusicApp = ({ slug, className }) => {
           ].join(' ')}
         >
           <h1>Songs</h1>
-
-          {/* <CTAButton href="/test">Test</CTAButton> */}
-          <CTAButtonV2>Test</CTAButtonV2>
 
           <Menu
             menuItems={songs.map((song) => {
