@@ -67,9 +67,6 @@ const SheetMusicApp = ({ slug, className }) => {
         >
           <h1>Songs</h1>
 
-          {/* <CTAButton href="/test">Test</CTAButton> */}
-          <CTAButtonV2>Test</CTAButtonV2>
-
           <Menu
             menuItems={songs.map((song) => {
               return {
