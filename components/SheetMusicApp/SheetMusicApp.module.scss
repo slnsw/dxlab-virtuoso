@@ -32,12 +32,12 @@
   }
 }
 
-.headerLogos {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: var(--spacing-lg);
-}
+// .headerLogos {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   margin-bottom: var(--spacing-lg);
+// }
 
 .headerDivider {
   display: none;
@@ -50,7 +50,7 @@
     display: block;
     width: 0.5rem;
     height: 1px;
-    margin: var(--spacing-xlg) 0;
+    margin: var(--spacing-sm) 0 var(--spacing-lg);
   }
 }
 
@@ -61,6 +61,15 @@
   @include media-lg {
     display: block;
     // height: 1.4em;
+  }
+}
+
+.slnswLogo {
+  display: none;
+
+  @include media-sm {
+    display: inherit;
+    height: 1.4em;
   }
 }
 
@@ -100,7 +109,7 @@
     top: initial;
     display: block;
     width: auto;
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-xxxlg);
     padding: initial;
   }
 

@@ -4,11 +4,12 @@
   position: relative;
   margin: 0 0 -0.2em 0;
   font-weight: normal;
-  font-size: var(--font-size-xxlg);
+  font-size: var(--font-size-lg);
   line-height: 1;
 
   @include media-lg {
     margin-bottom: 0.1rem;
+    font-size: var(--font-size-xxlg);
   }
 
   strong {

@@ -8,6 +8,7 @@ import samples from './samples';
 
 import css from './SheetMusicContent.module.scss';
 import Icon from '../Icon/Icon';
+import CTAButtonV2 from '../CTAButtonV2';
 
 const SheetMusicContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -106,9 +107,10 @@ const SheetMusicContent = ({ song: currentSong }) => {
   return (
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
-        <button
+        <CTAButtonV2
           onClick={() => setIsPlaying(!isPlaying)}
-          className={css['button--light']}
+          // className={css['button--light']}
+          theme="light"
           disabled={!isSamplesLoaded}
         >
           {!isSamplesLoaded ? (
@@ -126,33 +128,38 @@ const SheetMusicContent = ({ song: currentSong }) => {
               )}
             </>
           )}
-        </button>
+        </CTAButtonV2>
+
+        {/* <CTAButtonV2>Play</CTAButtonV2> */}
 
         <div className={css.tempoControls}>
           <span>Tempo:</span>
-          <button
+          <CTAButtonV2
+            theme="light"
             className={css['button--tempo']}
             onClick={handleTempoChangeDown}
             disabled={isPlaying}
           >
-            -
-          </button>
+            <Icon name="remove" />
+          </CTAButtonV2>
           <span>{tempo}</span>
-          <button
+          <CTAButtonV2
+            theme="light"
             className={css['button--tempo']}
             onClick={handleTempoChangeUp}
             disabled={isPlaying}
           >
-            +
-          </button>
+            <Icon name="add" />
+          </CTAButtonV2>
         </div>
 
-        <button
+        <CTAButtonV2
           onClick={() => setShowMoreControls(!showMoreControls)}
+          theme="light"
           className={css['button--light']}
         >
           {showMoreControls ? 'Hide' : 'More'}
-        </button>
+        </CTAButtonV2>
 
         {showMoreControls && (
           <div className={css.instrumentControls}>

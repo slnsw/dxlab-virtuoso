@@ -61,31 +61,20 @@
 .button--light {
   @extend .font-uppercase;
 
-  width: fit-content;
-  padding-top: var(--spacing-xxs);
-  padding-right: var(--spacing-xxxs);
-  padding-bottom: var(--spacing-xxxs);
-  padding-left: var(--spacing-xxs);
-  color: var(--colour-black);
-  font-size: var(--font-size-lg);
-  line-height: 1;
-  border: 1px solid var(--colour-black);
+  // width: fit-content;
+  // padding-top: var(--spacing-xxs);
+  // padding-right: var(--spacing-xxxs);
+  // padding-bottom: var(--spacing-xxxs);
+  // padding-left: var(--spacing-xxs);
+  // color: var(--colour-black);
+  // font-size: var(--font-size-lg);
+  // line-height: 1;
+  // border: 1px solid var(--colour-black);
 }
 
 .button--tempo {
-  @extend .font-uppercase;
-
-  width: fit-content;
   margin-right: var(--spacing-xxs);
   margin-left: var(--spacing-xxs);
-  padding-top: var(--spacing-xxs);
-  padding-right: var(--spacing-xs);
-  padding-bottom: var(--spacing-xxxs);
-  padding-left: var(--spacing-xs);
-  color: var(--colour-black);
-  font-size: var(--font-size-lg);
-  line-height: 1;
-  border: 1px solid var(--colour-black);
 }
 
 .button--tempo:disabled,
