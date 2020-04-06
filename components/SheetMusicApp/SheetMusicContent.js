@@ -164,6 +164,8 @@ const SheetMusicContent = ({ song: currentSong }) => {
                 };
               });
 
+              // console.log(instrumentVolumes[i]);
+
               return (
                 <div className={css.instrumentControlGroup} key={i}>
                   <p>{instrument.name}</p>
@@ -173,10 +175,10 @@ const SheetMusicContent = ({ song: currentSong }) => {
                     id={`volume${i}`}
                     key={i}
                     name={i}
-                    min="-48"
-                    max="3"
+                    min={-48}
+                    max={3}
                     values={[instrumentVolumes[i]]}
-                    step="0.5"
+                    step={0.5}
                     onChange={(vol) => handleVolumeChange(vol, i)}
                     // disabled={isPlaying}
                     renderTrack={({ props, children }) => (
