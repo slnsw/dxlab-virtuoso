@@ -9,7 +9,7 @@ import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 // import CTAButton from '../CTAButton';
-import CTAButtonV2 from '../CTAButtonV2';
+// import CTAButtonV2 from '../CTAButtonV2';
 import SheetMusicContent from './SheetMusicContent';
 // import SheetMusic from '../SheetMusic';
 
