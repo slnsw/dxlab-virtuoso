@@ -32,12 +32,12 @@
   }
 }
 
-.headerLogos {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: var(--spacing-lg);
-}
+// .headerLogos {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   margin-bottom: var(--spacing-lg);
+// }
 
 .headerDivider {
   display: none;
@@ -68,6 +68,7 @@
   display: none;
 
   @include media-sm {
+    display: inherit;
     height: 1.4em;
   }
 }
