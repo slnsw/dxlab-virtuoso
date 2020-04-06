@@ -2,6 +2,7 @@ import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
 
+import { Range } from 'react-range';
 import Select from '../Select/Select';
 import samples from './samples';
 
@@ -73,11 +74,11 @@ const SheetMusicContent = ({ song: currentSong }) => {
     }
   };
 
-  const handleVolumeChange = (event) => {
+  const handleVolumeChange = (vol, i) => {
     setInstrumentVolumes(
-      instrumentVolumes.map((v, i) => {
-        return i === parseInt(event.target.name, 10)
-          ? parseFloat(event.target.value)
+      instrumentVolumes.map((v, index) => {
+        return i === index // parseInt(event.target.name, 10)
+          ? parseFloat(vol)
           : v;
       }),
     );
@@ -167,17 +168,42 @@ const SheetMusicContent = ({ song: currentSong }) => {
                 <div className={css.instrumentControlGroup} key={i}>
                   <p>{instrument.name}</p>
                   <label htmlFor={`volume${i}`}>volume</label>
-                  <input
-                    type="range"
+                  <Range
+                    className={css.volumeSlider}
                     id={`volume${i}`}
                     key={i}
                     name={i}
-                    min="-96"
+                    min="-48"
                     max="3"
-                    value={instrumentVolumes[i]}
+                    values={[instrumentVolumes[i]]}
                     step="0.5"
-                    onChange={handleVolumeChange}
+                    onChange={(vol) => handleVolumeChange(vol, i)}
                     // disabled={isPlaying}
+                    renderTrack={({ props, children }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: '6px',
+                          width: '100%',
+                          backgroundColor: '#ccc',
+                        }}
+                      >
+                        {children}
+                      </div>
+                    )}
+                    renderThumb={({ props }) => (
+                      <div
+                        {...props}
+                        style={{
+                          ...props.style,
+                          height: '40px',
+                          width: '16px',
+                          backgroundColor: 'white',
+                          border: '1px solid black',
+                        }}
+                      />
+                    )}
                   />
                   <span className={css['dB-level']}>
                     {instrumentVolumes[i]} dB
