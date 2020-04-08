@@ -118,7 +118,7 @@
       "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/80hz/$1"
     },
     {
-      "source": "/aerial(.*)",
+      "source": "/aereo(.*)",
       "destination": "http://dxlab-fellowship-2019.s3-website-ap-southeast-2.amazonaws.com/viewer$1"
     },
     {
