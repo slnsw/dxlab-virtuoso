@@ -53,7 +53,8 @@
     "react-select": "^3.1.0",
     "redux": "^4.0.5",
     "stylelint-webpack-plugin": "^1.2.3",
-    "ua-compatible": "0.0.0"
+    "ua-compatible": "0.0.0",
+    "wpapi": "^1.2.1"
   },
   "license": "ISC",
   "devDependencies": {
