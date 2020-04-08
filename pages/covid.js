@@ -37,17 +37,19 @@ async function test() {
     //     // handle error
     // });
 
-    const newPost = await wp.posts().create({
-      title: postName,
-      slug: postName,
-      content: 'Not quite 300 words but I am only testing.',
-      status: 'publish',
-      meta: {
+    const createObj = {
+        title: postName,
+        slug: postName,
+        content: 'Not quite 300 words but I am only testing.',
+        status: 'publish',
+        meta: {
         name: 'test name',
         email: 'test@email.com',
         date_text: 'test date text',
-      },
-    });
+        },
+    };
+    console.log(createObj);
+    const newPost = await wp.posts().create(createObj);
     console.log(newPost);
   } catch (e) {
     console.log(e);
