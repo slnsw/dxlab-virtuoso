@@ -45,6 +45,7 @@ async function test() {
       meta: {
         name: 'test name',
         email: 'test@email.com',
+        date_text: 'test date text',
       },
     });
     console.log(newPost);
