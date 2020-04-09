@@ -1,6 +1,6 @@
-import React from 'react';
-
-import WPAPI from 'wpapi';
+import { React } from 'react';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 function yyyymmdd() {
   const date = new Date();
@@ -13,56 +13,165 @@ function yyyymmdd() {
   return `${date.getFullYear()}-${mm}-${dd}-${hh}-${mins}-${ss}`;
 }
 
-const postName = yyyymmdd();
-console.log(postName);
-console.log(process.env.WP_API_ENDPOINT);
+const CovidForm = ({ props }) => {
+  const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
+  const [showWarning, setShowWarning] = React.useState(false);
+  const [showSubmitError, setShowSubmitError] = React.useState(false);
 
-const wp = new WPAPI({
-  endpoint: process.env.WP_API_ENDPOINT,
-  username: process.env.WP_USERNAME,
-  password: process.env.WP_PASSWORD,
-});
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-// wp.storyPost = wp.registerRoute(
-//     'acf/v3',
-//     '/posts/(?P<id>\\d+)',
-// );
+    const { email, name, content, date } = e.target.elements;
 
-// const postType = wp.instagramSelfies();
-async function test() {
-  try {
-    // wp.posts().then(function( data ) {
-    //     // do something with the returned posts
-    // }).catch(function( err ) {
-    //     // handle error
-    // });
+    const postName = yyyymmdd();
 
-    const createObj = {
-        title: postName,
-        slug: postName,
-        content: 'Not quite 300 words but I am only testing.',
-        status: 'publish',
-        meta: {
-        name: 'test name',
-        email: 'test@email.com',
-        date_text: 'test date text',
-        },
-    };
-    console.log(createObj);
-    const newPost = await wp.posts().create(createObj);
-    console.log(newPost);
-  } catch (e) {
-    console.log(e);
-  }
-}
+    // Check all fields are not empty
+    if (email.value && name.value && content.value && date.value) {
+      //   const parentId = 0;
 
-const CovidPage = () => {
-//   test();
+      props
+        .createCovidExperimentPost({
+          authorEmail: email.value,
+          authorName: name.value,
+          content: content.value,
+          dateText: content.date,
+          title: postName,
+          //   postId: this.props.postId,
+          //   parentId,
+        })
+        .then(() => {
+          setIsFormSubmitted(true);
+        })
+        .catch(() => {
+          setShowSubmitError(true);
+        });
+    } else {
+      setShowWarning(true);
+    }
+
+    // reset form
+    // e.target.elements.content.value = '';
+  };
+
   return (
-    <div>
-      <h1 onClick={()=>{test()}}>Covid</h1>
+    <div className="comment-form">
+      {!isFormSubmitted ? (
+        <div>
+          <p className="comment-form__intro">
+            Your email address will not be published. Required fields are marked{' '}
+            <span>*</span>.
+          </p>
+
+          <form onSubmit={handleSubmit()}>
+            <div className="comment-form__section">
+              <label htmlFor="date">
+                Date<span>*</span>
+              </label>
+              <input
+                name="dateText"
+                aria-label="dateText"
+                type="text"
+                aria-required="true"
+                placeholder="Date"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="name">
+                Name<span>*</span>
+              </label>
+              <input
+                name="name"
+                aria-label="name"
+                type="text"
+                aria-required="true"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="email">
+                Email<span>*</span>
+              </label>
+              <input
+                name="email"
+                aria-label="email"
+                type="email"
+                aria-required="true"
+                placeholder="Your email"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="content">
+                Comment<span>*</span>
+              </label>
+              <textarea
+                placeholder="Write a comment"
+                name="content"
+                aria-label="content"
+                aria-required="true"
+                rows="6"
+              />
+            </div>
+
+            {/* TODO: Try input type submit */}
+            <button
+              className="button"
+              type="submit"
+              aria-label="Comment Submit Button."
+            >
+              Submit
+            </button>
+
+            {showWarning && (
+              <div className="warning">Please fill in all fields.</div>
+            )}
+
+            {showSubmitError && (
+              <div className="warning">
+                There seems to be a problem, please refresh the page and try
+                again.
+              </div>
+            )}
+          </form>
+        </div>
+      ) : (
+        <div>
+          <p>Thanks for your submission. Your entry is awaiting approval.</p>
+        </div>
+      )}
     </div>
   );
 };
 
-export default CovidPage;
+const query = gql`
+  mutation createComment(
+    $authorEmail: String
+    $authorName: String!
+    $content: String!
+    $title: String!
+    $dateText: String!
+  ) {
+    createComment(
+      authorEmail: $authorEmail
+      authorName: $authorName
+      content: $content
+      title: $postTitle
+      dateText: $dateText
+    ) {
+      id
+      content
+      authorName
+    }
+  }
+`;
+
+export default graphql(query, {
+  props: ({ mutate }) => ({
+    createCovidExperimentPost: (args) =>
+      mutate({
+        variables: args,
+      }),
+  }),
+})(CovidForm);
