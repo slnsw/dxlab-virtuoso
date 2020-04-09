@@ -13,28 +13,26 @@ function yyyymmdd() {
   return `${date.getFullYear()}-${mm}-${dd}-${hh}-${mins}-${ss}`;
 }
 
-const CovidForm = ({ props }) => {
+const CovidForm = (props) => {
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
   const [showWarning, setShowWarning] = React.useState(false);
   const [showSubmitError, setShowSubmitError] = React.useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const { email, name, content, date } = e.target.elements;
+    console.log(props);
+    const { email, name, content, dateText } = e.target.elements;
 
     const postName = yyyymmdd();
 
-    // Check all fields are not empty
-    if (email.value && name.value && content.value && date.value) {
-      //   const parentId = 0;
-
+    // Check some fields are not empty
+    if (content.value && dateText.value) {
       props
         .createCovidExperimentPost({
           authorEmail: email.value,
           authorName: name.value,
           content: content.value,
-          dateText: content.date,
+          dateText: content.dateText,
           title: postName,
           //   postId: this.props.postId,
           //   parentId,
@@ -42,7 +40,8 @@ const CovidForm = ({ props }) => {
         .then(() => {
           setIsFormSubmitted(true);
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log(err);
           setShowSubmitError(true);
         });
     } else {
@@ -61,8 +60,18 @@ const CovidForm = ({ props }) => {
             Your email address will not be published. Required fields are marked{' '}
             <span>*</span>.
           </p>
-
           <form onSubmit={handleSubmit}>
+            <div className="comment-form__section">
+              <label htmlFor="name">Name</label>
+              <input
+                name="name"
+                aria-label="name"
+                type="text"
+                aria-required="true"
+                placeholder="Your name"
+              />
+            </div>
+
             <div className="comment-form__section">
               <label htmlFor="date">
                 Date<span>*</span>
@@ -77,22 +86,7 @@ const CovidForm = ({ props }) => {
             </div>
 
             <div className="comment-form__section">
-              <label htmlFor="name">
-                Name<span>*</span>
-              </label>
-              <input
-                name="name"
-                aria-label="name"
-                type="text"
-                aria-required="true"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div className="comment-form__section">
-              <label htmlFor="email">
-                Email<span>*</span>
-              </label>
+              <label htmlFor="email">Email</label>
               <input
                 name="email"
                 aria-label="email"
@@ -107,7 +101,7 @@ const CovidForm = ({ props }) => {
                 Comment<span>*</span>
               </label>
               <textarea
-                placeholder="Write a comment"
+                placeholder="Write in here..."
                 name="content"
                 aria-label="content"
                 aria-required="true"
@@ -119,7 +113,7 @@ const CovidForm = ({ props }) => {
             <button
               className="button"
               type="submit"
-              aria-label="Comment Submit Button."
+              aria-label="Submit Button."
             >
               Submit
             </button>
