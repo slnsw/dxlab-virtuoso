@@ -18,11 +18,29 @@ const CovidForm = (props) => {
   const [showWarning, setShowWarning] = React.useState(false);
   const [showSubmitError, setShowSubmitError] = React.useState(false);
 
+  const [wordCount, setWordCount] = React.useState(0);
+
+  const wordCountLimit = 30;
+
+  const updateWordCount = (event) => {
+    const arr = event.target.value.split(/\S+/g) || [];
+    const wc = arr.length - 1;
+    setWordCount(wc);
+  };
+
+  const monitorTyping = (keypress) => {
+    const validKeys = [8, 46, 37, 38, 39, 40]; // backspace and delete and cursor keys
+    if (
+      wordCount > wordCountLimit &&
+      validKeys.indexOf(keypress.keyCode) === -1
+    ) {
+      keypress.preventDefault();
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const { email, name, content, dateText } = e.target.elements;
-
     const postName = yyyymmdd();
 
     // Check some fields are not empty
@@ -99,12 +117,21 @@ const CovidForm = (props) => {
                 Comment<span>*</span>
               </label>
               <textarea
+                id="story"
                 placeholder="Write in here..."
                 name="content"
                 aria-label="content"
                 aria-required="true"
-                rows="6"
+                rows="20"
+                onChange={updateWordCount}
+                onKeyDown={monitorTyping}
               />
+            </div>
+            <div>
+              {wordCount}
+              {'/'}
+              {wordCountLimit}{' '}
+              {wordCount > wordCountLimit && <span>Wordcount exceeded!</span>}
             </div>
 
             {/* TODO: Try input type submit */}
@@ -112,6 +139,7 @@ const CovidForm = (props) => {
               className="button"
               type="submit"
               aria-label="Submit Button."
+              disabled={wordCount > wordCountLimit}
             >
               Submit
             </button>
