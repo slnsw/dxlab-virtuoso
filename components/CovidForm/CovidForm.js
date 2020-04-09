@@ -20,7 +20,7 @@ const CovidForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(props);
+
     const { email, name, content, dateText } = e.target.elements;
 
     const postName = yyyymmdd();
@@ -32,10 +32,8 @@ const CovidForm = (props) => {
           authorEmail: email.value,
           authorName: name.value,
           content: content.value,
-          dateText: content.dateText,
           title: postName,
-          //   postId: this.props.postId,
-          //   parentId,
+          dateText: dateText.value,
         })
         .then(() => {
           setIsFormSubmitted(true);
@@ -73,7 +71,7 @@ const CovidForm = (props) => {
             </div>
 
             <div className="comment-form__section">
-              <label htmlFor="date">
+              <label htmlFor="dateText">
                 Date<span>*</span>
               </label>
               <input
@@ -142,7 +140,7 @@ const CovidForm = (props) => {
 const query = gql`
   mutation createCovidExperimentPost(
     $authorEmail: String
-    $authorName: String!
+    $authorName: String
     $content: String!
     $title: String!
     $dateText: String!
@@ -151,7 +149,7 @@ const query = gql`
       authorEmail: $authorEmail
       authorName: $authorName
       content: $content
-      title: $postTitle
+      title: $title
       dateText: $dateText
     ) {
       id
