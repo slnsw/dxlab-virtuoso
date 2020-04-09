@@ -39,6 +39,9 @@ const DesignSystemPage = () => {
       <CTAButtonV2>Example Button</CTAButtonV2>
 
       <h2>Icons</h2>
+      <p>
+        <a href="https://ionicons.com/">Ionicons</a>
+      </p>
       <Icon name="flask" />
     </WebsiteApp>
   );
