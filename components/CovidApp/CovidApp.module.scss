@@ -1,6 +1,8 @@
 @import '../../styles/global.scss';
 
 .covidApp {
+  --font-covid: 'Special Elite', cursive;
+
   display: block;
 }
 
@@ -11,8 +13,14 @@
 
 .headerTitle {
   margin: 0;
-  font-family: 'Special Elite', cursive;
+  font-family: var(--font-covid);
   line-height: 1;
   letter-spacing: 0;
   text-transform: none;
+}
+
+.main {
+  max-width: var(--container-width-md);
+  margin: 0 auto;
+  padding-top: var(--spacing-xxxlg);
 }

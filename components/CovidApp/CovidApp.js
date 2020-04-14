@@ -24,7 +24,7 @@ const CovidApp = ({ children, className }) => {
         <SLNSWLogo />
       </header>
 
-      {children}
+      <main className={css.main}>{children}</main>
     </div>
   );
 };

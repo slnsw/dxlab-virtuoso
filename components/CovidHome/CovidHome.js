@@ -21,11 +21,20 @@ const CovidHome = ({ className }) => {
 
   const { covidExperiment } = data;
   const { posts } = covidExperiment;
+  console.log(posts);
 
   return (
     <div className={[css.covidHome, className || ''].join(' ')}>
       {posts.map((post) => {
-        return <CovidPost key={post.id} title={post.title} />;
+        return (
+          <CovidPost
+            key={post.id}
+            title={post.title}
+            content={post.content}
+            dateText={post.dateText}
+            authorName={post.authorName}
+          />
+        );
       })}
     </div>
   );
@@ -37,7 +46,9 @@ const postsQuery = gql`
       posts {
         id
         title
-        # content
+        content
+        dateText
+        authorName
       }
     }
   }
