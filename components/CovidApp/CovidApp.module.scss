@@ -3,3 +3,16 @@
 .covidApp {
   display: block;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  margin: 0;
+  font-family: 'Special Elite', cursive;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
