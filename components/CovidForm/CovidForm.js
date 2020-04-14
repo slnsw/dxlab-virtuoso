@@ -64,7 +64,7 @@ const CovidForm = (props) => {
           city: city.value,
           state: state.value,
           postcode: postcode.value,
-          outsideAustralia: outsideAustralia.value,
+          outsideAustralia: outsideAustralia.checked ? '1' : '',
         })
         .then(() => {
           setIsFormSubmitted(true);
