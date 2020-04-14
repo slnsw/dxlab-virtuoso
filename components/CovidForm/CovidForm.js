@@ -40,7 +40,16 @@ const CovidForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, name, content, dateText } = e.target.elements;
+    const {
+      email,
+      name,
+      content,
+      dateText,
+      city,
+      state,
+      postcode,
+      outsideAustralia,
+    } = e.target.elements;
     const postName = yyyymmdd();
 
     // Check some fields are not empty
@@ -52,6 +61,10 @@ const CovidForm = (props) => {
           content: content.value,
           title: postName,
           dateText: dateText.value,
+          city: city.value,
+          state: state.value,
+          postcode: postcode.value,
+          outsideAustralia: outsideAustralia.value,
         })
         .then(() => {
           setIsFormSubmitted(true);
@@ -83,8 +96,8 @@ const CovidForm = (props) => {
                 name="name"
                 aria-label="name"
                 type="text"
-                aria-required="true"
-                placeholder="Your name"
+                aria-required="false"
+                placeholder="Your name (optional)"
               />
             </div>
 
@@ -107,8 +120,50 @@ const CovidForm = (props) => {
                 name="email"
                 aria-label="email"
                 type="email"
-                aria-required="true"
-                placeholder="Your email"
+                aria-required="false"
+                placeholder="Your email (optional)"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="city">City</label>
+              <input
+                name="city"
+                aria-label="city"
+                type="text"
+                aria-required="false"
+                placeholder="City, town or suburb (optional)"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="state">State</label>
+              <input
+                name="state"
+                aria-label="state"
+                type="text"
+                aria-required="false"
+                placeholder="State (optional)"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="postcode">Postcode</label>
+              <input
+                name="postcode"
+                aria-label="postcode"
+                type="text"
+                aria-required="false"
+                placeholder="Your postcode (optional)"
+              />
+            </div>
+
+            <div className="comment-form__section">
+              <label htmlFor="outsideAustralia">Outside Australia</label>
+              <input
+                name="outsideAustralia"
+                aria-label="outsideAustralia"
+                type="checkbox"
               />
             </div>
 
@@ -172,6 +227,10 @@ const query = gql`
     $content: String!
     $title: String!
     $dateText: String!
+    $city: String
+    $state: String
+    $postcode: String
+    $outsideAustralia: String!
   ) {
     createCovidExperimentPost(
       authorEmail: $authorEmail
@@ -179,6 +238,10 @@ const query = gql`
       content: $content
       title: $title
       dateText: $dateText
+      city: $city
+      state: $state
+      postcode: $postcode
+      outsideAustralia: $outsideAustralia
     ) {
       id
       # content
