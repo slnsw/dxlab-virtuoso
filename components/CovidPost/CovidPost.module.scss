@@ -1,5 +1,32 @@
 @import '../../styles/global.scss';
 
+.covidTextUppercase {
+  font-family: var(--font-covid);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .covidPost {
   display: block;
+  margin-bottom: var(--spacing-xxxxlg);
+}
+
+.date {
+  @extend .covidTextUppercase;
+
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+
+.content {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-secondary);
+  opacity: 0.8;
+}
+
+.authorName {
+  @extend .covidTextUppercase;
+
+  text-align: right;
+  opacity: 0.8;
 }
