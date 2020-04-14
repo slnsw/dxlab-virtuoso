@@ -2,6 +2,10 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import Select from '../Select/Select';
+
+// import './CovidForm.scss';
+
 function yyyymmdd() {
   const date = new Date();
   const mm = `${date.getMonth() + 1 > 9 ? '' : '0'}${date.getMonth() + 1}`; // getMonth() is zero-based
@@ -13,10 +17,22 @@ function yyyymmdd() {
   return `${date.getFullYear()}-${mm}-${dd}-${hh}-${mins}-${ss}`;
 }
 
+const stateOptions = [
+  { value: 'NSW', label: 'New South Wales' },
+  { value: 'VIC', label: 'Victoria' },
+  { value: 'QLD', label: 'Queensland' },
+  { value: 'TAS', label: 'Tasmania' },
+  { value: 'NT', label: 'Northern Territory' },
+  { value: 'ACT', label: 'Australian Capital Territory' },
+  { value: 'SA', label: 'South Australia' },
+  { value: 'WA', label: 'Western Australai' },
+];
+
 const CovidForm = (props) => {
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
   const [showWarning, setShowWarning] = React.useState(false);
   const [showSubmitError, setShowSubmitError] = React.useState(false);
+  const [formState, setFormState] = React.useState(null);
 
   const [wordCount, setWordCount] = React.useState(0);
 
@@ -46,7 +62,6 @@ const CovidForm = (props) => {
       content,
       dateText,
       city,
-      state,
       postcode,
       outsideAustralia,
     } = e.target.elements;
@@ -62,7 +77,7 @@ const CovidForm = (props) => {
           title: postName,
           dateText: dateText.value,
           city: city.value,
-          state: state.value,
+          state: formState.value,
           postcode: postcode.value,
           outsideAustralia: outsideAustralia.checked ? '1' : '',
         })
@@ -138,12 +153,19 @@ const CovidForm = (props) => {
 
             <div className="comment-form__section">
               <label htmlFor="state">State</label>
-              <input
+              {/* <input
                 name="state"
                 aria-label="state"
                 type="text"
                 aria-required="false"
                 placeholder="State (optional)"
+              /> */}
+
+              <Select
+                variant="dark"
+                name="state"
+                options={stateOptions}
+                onChange={(option) => setFormState(option)}
               />
             </div>
 
@@ -159,12 +181,17 @@ const CovidForm = (props) => {
             </div>
 
             <div className="comment-form__section">
-              <label htmlFor="outsideAustralia">Outside Australia</label>
               <input
                 name="outsideAustralia"
                 aria-label="outsideAustralia"
                 type="checkbox"
               />
+              <label
+                style={{ display: 'inline', marginLeft: '6px' }}
+                htmlFor="outsideAustralia"
+              >
+                I am outside Australia
+              </label>
             </div>
 
             <div className="comment-form__section">

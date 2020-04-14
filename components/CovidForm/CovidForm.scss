@@ -1,0 +1,28 @@
+@import '../../styles/global.scss';
+
+.comment-form {
+  & span {
+    color: var(--colour-highlight);
+  }
+
+  & button {
+    @include media-sm {
+      width: auto;
+    }
+  }
+}
+
+.comment-form__intro {
+  font-size: var(--font-size-sm);
+}
+
+.comment-form__section {
+  margin-bottom: var(--spacing-lg);
+
+  @include media-md {
+    &:nth-child(1),
+    &:nth-child(2) {
+      lost-column: 1/2;
+    }
+  }
+}
