@@ -11,6 +11,7 @@ const Select = ({
   className,
   menuIsOpen,
   onChange,
+  isDisabled,
 }) => {
   const variantColour =
     variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
@@ -115,6 +116,7 @@ const Select = ({
       }}
       menuIsOpen={menuIsOpen}
       onChange={onChange}
+      isDisabled={isDisabled}
     />
   );
 };

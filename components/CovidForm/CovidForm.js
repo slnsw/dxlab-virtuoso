@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 
 import Select from '../Select/Select';
 
-// import './CovidForm.scss';
+import css from './CovidForm.module.scss';
 
 function yyyymmdd() {
   const date = new Date();
@@ -30,13 +30,13 @@ const stateOptions = [
 
 const CovidForm = (props) => {
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
-  const [showWarning, setShowWarning] = React.useState(false);
+  const [showWarning, setShowWarning] = React.useState('');
   const [showSubmitError, setShowSubmitError] = React.useState(false);
   const [formState, setFormState] = React.useState(null);
-
+  const [isOutsideAustralia, setIsOutsideAustralia] = React.useState(false);
   const [wordCount, setWordCount] = React.useState(0);
 
-  const wordCountLimit = 30;
+  const wordCountLimit = 300;
 
   const updateWordCount = (event) => {
     const arr = event.target.value.split(/\S+/g) || [];
@@ -67,8 +67,18 @@ const CovidForm = (props) => {
     } = e.target.elements;
     const postName = yyyymmdd();
 
-    // Check some fields are not empty
-    if (content.value && dateText.value) {
+    // Let's do a little basic validation
+    if (postcode.value && (postcode.value > 9999 || postcode.value < 200)) {
+      setShowWarning(
+        'Please ensure postcode is a number between 200 and 9999.',
+      );
+    } else if (
+      email.value &&
+      (email.value.indexOf('@') === -1 || email.value.indexOf('.') === -1)
+    ) {
+      setShowWarning('Please use a valid email address.');
+    } else if (content.value && dateText.value) {
+      console.log(parseInt(postcode.value, 10));
       props
         .createCovidExperimentPost({
           authorEmail: email.value,
@@ -77,9 +87,9 @@ const CovidForm = (props) => {
           title: postName,
           dateText: dateText.value,
           city: city.value,
-          state: formState.value,
-          postcode: postcode.value,
-          outsideAustralia: outsideAustralia.checked ? '1' : '',
+          state: (formState && formState.value) || '',
+          postcode: postcode.value ? parseInt(postcode.value, 10) : null,
+          outsideAustralia: outsideAustralia.checked,
         })
         .then(() => {
           setIsFormSubmitted(true);
@@ -89,7 +99,7 @@ const CovidForm = (props) => {
           setShowSubmitError(true);
         });
     } else {
-      setShowWarning(true);
+      setShowWarning('Please ensure you have entered a story and a date.');
     }
 
     // reset form
@@ -97,26 +107,14 @@ const CovidForm = (props) => {
   };
 
   return (
-    <div className="comment-form">
+    <div className={css['covidForm']}>
       {!isFormSubmitted ? (
         <div>
-          <p className="comment-form__intro">
-            Your email address will not be published. Required fields are marked{' '}
-            <span>*</span>.
-          </p>
+          <p className={css['covidForm__intro']}>Tell us a story...</p>
           <form onSubmit={handleSubmit}>
-            <div className="comment-form__section">
-              <label htmlFor="name">Name</label>
-              <input
-                name="name"
-                aria-label="name"
-                type="text"
-                aria-required="false"
-                placeholder="Your name (optional)"
-              />
-            </div>
-
-            <div className="comment-form__section">
+            <div
+              className={`${css['covidForm__section']} ${css['covidForm__date']}`}
+            >
               <label htmlFor="dateText">
                 Date<span>*</span>
               </label>
@@ -129,75 +127,7 @@ const CovidForm = (props) => {
               />
             </div>
 
-            <div className="comment-form__section">
-              <label htmlFor="email">Email</label>
-              <input
-                name="email"
-                aria-label="email"
-                type="email"
-                aria-required="false"
-                placeholder="Your email (optional)"
-              />
-            </div>
-
-            <div className="comment-form__section">
-              <label htmlFor="city">City</label>
-              <input
-                name="city"
-                aria-label="city"
-                type="text"
-                aria-required="false"
-                placeholder="City, town or suburb (optional)"
-              />
-            </div>
-
-            <div className="comment-form__section">
-              <label htmlFor="state">State</label>
-              {/* <input
-                name="state"
-                aria-label="state"
-                type="text"
-                aria-required="false"
-                placeholder="State (optional)"
-              /> */}
-
-              <Select
-                variant="dark"
-                name="state"
-                options={stateOptions}
-                onChange={(option) => setFormState(option)}
-              />
-            </div>
-
-            <div className="comment-form__section">
-              <label htmlFor="postcode">Postcode</label>
-              <input
-                name="postcode"
-                aria-label="postcode"
-                type="text"
-                aria-required="false"
-                placeholder="Your postcode (optional)"
-              />
-            </div>
-
-            <div className="comment-form__section">
-              <input
-                name="outsideAustralia"
-                aria-label="outsideAustralia"
-                type="checkbox"
-              />
-              <label
-                style={{ display: 'inline', marginLeft: '6px' }}
-                htmlFor="outsideAustralia"
-              >
-                I am outside Australia
-              </label>
-            </div>
-
-            <div className="comment-form__section">
-              <label htmlFor="content">
-                Comment<span>*</span>
-              </label>
+            <div className={css['covidForm__section']}>
               <textarea
                 id="story"
                 placeholder="Write in here..."
@@ -208,14 +138,111 @@ const CovidForm = (props) => {
                 onChange={updateWordCount}
                 onKeyDown={monitorTyping}
               />
-            </div>
-            <div>
-              {wordCount}
+              <span>*</span> Word count: {wordCount}
               {'/'}
               {wordCountLimit}{' '}
               {wordCount > wordCountLimit && <span>Wordcount exceeded!</span>}
             </div>
 
+            <div
+              className={`${css['covidForm__section']} ${css['covidForm__name']}`}
+            >
+              <label htmlFor="name">Name</label>
+              <input
+                name="name"
+                aria-label="name"
+                type="text"
+                aria-required="false"
+                placeholder="Your name (optional)"
+              />
+            </div>
+            <div
+              className={`${css['covidForm__section']} ${css['covidForm__email']}`}
+            >
+              <label htmlFor="email">Email</label>
+              <input
+                name="email"
+                aria-label="email"
+                type="text"
+                aria-required="false"
+                placeholder="Your email (optional)"
+              />
+            </div>
+            <p className={css['covidForm__info']}>
+              Your email address will not be published and is optional. It is,
+              however, used ‘under the hood’ to denote entries as being by the
+              same author. Required fields are marked <span>*</span>
+            </p>
+            <div
+              className={`${
+                isOutsideAustralia ? css['covidForm__location'] : ''
+              }`}
+            >
+              <div
+                className={`${css['covidForm__section']} ${css['covidForm__city']}`}
+              >
+                <label htmlFor="city">City</label>
+                <input
+                  name="city"
+                  aria-label="city"
+                  type="text"
+                  aria-required="false"
+                  placeholder="City, town or suburb (optional)"
+                  disabled={isOutsideAustralia}
+                />
+              </div>
+
+              <div
+                className={`${css['covidForm__section']} ${css['covidForm__state']}`}
+              >
+                <label htmlFor="state">State</label>
+                {/* <input
+                name="state"
+                aria-label="state"
+                type="text"
+                aria-required="false"
+                placeholder="State (optional)"
+              /> */}
+
+                <Select
+                  variant="dark"
+                  name="state"
+                  options={stateOptions}
+                  onChange={(option) => setFormState(option)}
+                  isDisabled={isOutsideAustralia}
+                />
+              </div>
+
+              <div
+                className={`${css['covidForm__section']} ${css['covidForm__postcode']}`}
+              >
+                <label htmlFor="postcode">Postcode</label>
+                <input
+                  name="postcode"
+                  aria-label="postcode"
+                  type="text"
+                  aria-required="false"
+                  placeholder="Postcode"
+                  disabled={isOutsideAustralia}
+                />
+              </div>
+            </div>
+            <div className={css['covidForm__section']}>
+              <input
+                name="outsideAustralia"
+                aria-label="outsideAustralia"
+                type="checkbox"
+                onChange={(event) =>
+                  setIsOutsideAustralia(event.target.checked)
+                }
+              />
+              <label
+                className={css['covidForm__outsideAustraliaLabel']}
+                htmlFor="outsideAustralia"
+              >
+                I am outside Australia
+              </label>
+            </div>
             {/* TODO: Try input type submit */}
             <button
               className="button"
@@ -226,9 +253,7 @@ const CovidForm = (props) => {
               Submit
             </button>
 
-            {showWarning && (
-              <div className="warning">Please fill in all fields.</div>
-            )}
+            {showWarning && <div className="warning">{showWarning}</div>}
 
             {showSubmitError && (
               <div className="warning">
@@ -256,8 +281,8 @@ const query = gql`
     $dateText: String!
     $city: String
     $state: String
-    $postcode: String
-    $outsideAustralia: String!
+    $postcode: Int
+    $outsideAustralia: Boolean
   ) {
     createCovidExperimentPost(
       authorEmail: $authorEmail

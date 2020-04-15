@@ -1,0 +1,93 @@
+@import '../../styles/global.scss';
+
+.covidForm {
+  display: flex;
+  flex-direction: row;
+
+  & span {
+    color: var(--colour-highlight);
+  }
+
+  & button {
+    @include media-sm {
+      width: auto;
+    }
+  }
+}
+
+.covidForm__intro {
+  font-size: var(--font-size-sm);
+}
+
+.covidForm__info {
+  font-size: var(--font-size-md);
+}
+
+.covidForm__section {
+  // flex: none;
+  margin-bottom: var(--spacing-lg);
+
+  // @include media-md {
+  //   &:nth-child(3),
+  //   &:nth-child(4) {
+  //     // flex: auto;
+  //   }
+  // }
+}
+
+.covidForm__location {
+  opacity: 50%;
+}
+
+.covidForm__date {
+  // direction: rtl;
+  // flex: auto;
+  // align-self: flex-end;
+  @include media-md {
+    float: right;
+    width: 30%;
+  }
+}
+
+.covidForm__name {
+  @include media-md {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+  }
+}
+
+.covidForm__email {
+  @include media-md {
+    float: left;
+    width: 48%;
+  }
+}
+
+.covidForm__city {
+  @include media-md {
+    float: left;
+    width: 28%;
+    margin-right: 4%;
+  }
+}
+
+.covidForm__state {
+  @include media-md {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+  }
+}
+
+.covidForm__postcode {
+  @include media-md {
+    float: left;
+    width: 16%;
+  }
+}
+
+.covidForm__outsideAustraliaLabel {
+  display: inline;
+  margin-left: var(--spacing-lg);
+}
