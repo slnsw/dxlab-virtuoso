@@ -25,7 +25,7 @@ const stateOptions = [
   { value: 'NT', label: 'Northern Territory' },
   { value: 'ACT', label: 'Australian Capital Territory' },
   { value: 'SA', label: 'South Australia' },
-  { value: 'WA', label: 'Western Australai' },
+  { value: 'WA', label: 'Western Australia' },
 ];
 
 const CovidForm = (props) => {
@@ -78,19 +78,22 @@ const CovidForm = (props) => {
     ) {
       setShowWarning('Please use a valid email address.');
     } else if (content.value && dateText.value) {
-      console.log(parseInt(postcode.value, 10));
+      const args = {
+        authorEmail: email.value,
+        authorName: name.value,
+        content: content.value,
+        title: postName,
+        dateText: dateText.value,
+        city: city.value,
+        state: (formState && formState.value) || '',
+        outsideAustralia: outsideAustralia.checked,
+      };
+      // only add postcode if we have one, otherwise things break.
+      if (postcode.value !== '') {
+        args['postcode'] = parseInt(postcode.value, 10);
+      }
       props
-        .createCovidExperimentPost({
-          authorEmail: email.value,
-          authorName: name.value,
-          content: content.value,
-          title: postName,
-          dateText: dateText.value,
-          city: city.value,
-          state: (formState && formState.value) || '',
-          postcode: postcode.value ? parseInt(postcode.value, 10) : null,
-          outsideAustralia: outsideAustralia.checked,
-        })
+        .createCovidExperimentPost(args)
         .then(() => {
           setIsFormSubmitted(true);
         })
