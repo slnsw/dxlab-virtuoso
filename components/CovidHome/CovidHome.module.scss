@@ -3,3 +3,21 @@
 .covidHome {
   display: block;
 }
+
+.masthead {
+  max-width: var(--container-width-md);
+  margin-bottom: var(--spacing-xxxlg);
+  padding: 0 var(--spacing-xxxlg);
+  text-align: center;
+
+  p {
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-covid);
+  }
+}
+
+.mastheadButton {
+  max-width: 20em;
+  margin: 0 auto;
+}

@@ -4,10 +4,11 @@ import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import LoaderText from '../LoaderText';
-import CovidPost from '../CovidPost/CovidPost';
+import CTAButton from '../CTAButton';
+import CovidPost from '../CovidPost';
+import Typewriter from './Typewriter';
 
 import css from './CovidHome.module.scss';
-import Typewriter from './Typewriter';
 
 const CovidHome = ({ className }) => {
   const { loading, error, data } = useQuery(postsQuery);
@@ -26,7 +27,14 @@ const CovidHome = ({ className }) => {
 
   return (
     <div className={[css.covidHome, className || ''].join(' ')}>
-      <Typewriter />
+      <div className={css.masthead}>
+        <Typewriter />
+        <p>Everyone has a story to tell</p>
+
+        <CTAButton href="/covid/write" className={css.mastheadButton}>
+          Start writing
+        </CTAButton>
+      </div>
 
       {posts.map((post) => {
         return (
