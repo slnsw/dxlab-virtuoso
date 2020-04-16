@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import css from './CovidAbout.module.scss';
 
 const CovidAbout = ({ className }) => {
-  const { loading, error, data } = useQuery(aboutQuery);
+  const { data } = useQuery(aboutQuery); // loading, error,
   const page =
     data &&
     data.covidExperiment &&
@@ -16,7 +16,7 @@ const CovidAbout = ({ className }) => {
   return (
     <div className={[css.covidAbout, className || ''].join(' ')}>
       <h1>{page && page.title}</h1>
-      {page && page.content}
+      <div dangerouslySetInnerHTML={{ __html: page && page.content }} />
     </div>
   );
 };

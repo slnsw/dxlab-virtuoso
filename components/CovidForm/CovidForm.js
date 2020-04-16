@@ -182,7 +182,7 @@ const CovidForm = (props) => {
                 aria-label="age"
                 type="text"
                 aria-required="false"
-                placeholder="Your age (optional)"
+                placeholder="Age"
               />
             </div>
             <p className={css['covidForm__info']}>

@@ -52,7 +52,7 @@
 .covidForm__name {
   @include media-md {
     float: left;
-    width: 48%;
+    width: 41%;
     margin-right: 4%;
   }
 }
@@ -60,7 +60,15 @@
 .covidForm__email {
   @include media-md {
     float: left;
-    width: 48%;
+    width: 41%;
+    margin-right: 4%;
+  }
+}
+
+.covidForm__age {
+  @include media-md {
+    float: left;
+    width: 10%;
   }
 }
 
