@@ -64,6 +64,7 @@ const CovidForm = (props) => {
       city,
       postcode,
       outsideAustralia,
+      age,
     } = e.target.elements;
     const postName = yyyymmdd();
 
@@ -87,6 +88,7 @@ const CovidForm = (props) => {
         city: city.value,
         state: (formState && formState.value) || '',
         outsideAustralia: outsideAustralia.checked,
+        age: age.value,
       };
       // only add postcode if we have one, otherwise things break.
       if (postcode.value !== '') {
@@ -169,6 +171,18 @@ const CovidForm = (props) => {
                 type="text"
                 aria-required="false"
                 placeholder="Your email (optional)"
+              />
+            </div>
+            <div
+              className={`${css['covidForm__section']} ${css['covidForm__age']}`}
+            >
+              <label htmlFor="age">Age</label>
+              <input
+                name="age"
+                aria-label="age"
+                type="text"
+                aria-required="false"
+                placeholder="Your age (optional)"
               />
             </div>
             <p className={css['covidForm__info']}>
@@ -286,6 +300,7 @@ const query = gql`
     $state: String
     $postcode: Int
     $outsideAustralia: Boolean
+    $age: String
   ) {
     createCovidExperimentPost(
       authorEmail: $authorEmail
@@ -297,6 +312,7 @@ const query = gql`
       state: $state
       postcode: $postcode
       outsideAustralia: $outsideAustralia
+      age: $age
     ) {
       id
       # content

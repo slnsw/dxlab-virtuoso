@@ -7,14 +7,28 @@ import css from './CovidAbout.module.scss';
 
 const CovidAbout = ({ className }) => {
   const { loading, error, data } = useQuery(aboutQuery);
+  const page =
+    data &&
+    data.covidExperiment &&
+    data.covidExperiment.pages &&
+    data.covidExperiment.pages[0];
 
-  return <div className={[css.covidAbout, className || ''].join(' ')}></div>;
+  return (
+    <div className={[css.covidAbout, className || ''].join(' ')}>
+      <h1>{page && page.title}</h1>
+      {page && page.content}
+    </div>
+  );
 };
 
 const aboutQuery = gql`
   {
     covidExperiment {
-      pages(slug: "about")
+      pages(slug: "about") {
+        id
+        title
+        content
+      }
     }
   }
 `;
