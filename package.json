@@ -54,6 +54,7 @@
     "redux": "^4.0.5",
     "stylelint-webpack-plugin": "^1.2.3",
     "ua-compatible": "0.0.0",
+    "vivus": "^0.4.5",
     "wpapi": "^1.2.1"
   },
   "license": "ISC",

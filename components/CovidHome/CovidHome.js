@@ -7,6 +7,7 @@ import LoaderText from '../LoaderText';
 import CovidPost from '../CovidPost/CovidPost';
 
 import css from './CovidHome.module.scss';
+import Typewriter from './Typewriter';
 
 const CovidHome = ({ className }) => {
   const { loading, error, data } = useQuery(postsQuery);
@@ -25,6 +26,8 @@ const CovidHome = ({ className }) => {
 
   return (
     <div className={[css.covidHome, className || ''].join(' ')}>
+      <Typewriter />
+
       {posts.map((post) => {
         return (
           <CovidPost
