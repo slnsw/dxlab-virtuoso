@@ -116,7 +116,7 @@ const CovidForm = (props) => {
       {!isFormSubmitted ? (
         <div>
           <p className={css['covidForm__intro']}>Tell us a story...</p>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={css.form}>
             <div
               className={`${css['covidForm__section']} ${css['covidForm__date']}`}
             >

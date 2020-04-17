@@ -24,7 +24,10 @@ const Select = ({
         placeholder: (provider) => {
           return {
             ...provider,
+            // Adjustment due to Barlow font
+            top: '48%',
             color: variantColour,
+            fontFamily: 'var(--font-secondary)',
           };
         },
         control: (provided, state) => {
@@ -67,6 +70,7 @@ const Select = ({
           return {
             ...provided,
             padding: 0,
+            fontFamily: 'var(--font-secondary)',
           };
         },
         // Value in 'control'
@@ -80,6 +84,7 @@ const Select = ({
           return {
             ...provided,
             color: variantColour,
+            padding: '10px 10px 11px 10px',
 
             ':hover': 'var(--colour-primary)',
           };

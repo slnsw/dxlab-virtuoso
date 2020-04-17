@@ -15,6 +15,20 @@
   }
 }
 
+// Blueprint for v2 form styles
+.form {
+  input[type='text'],
+  textarea {
+    font-family: var(--font-secondary);
+    background-color: transparent;
+    border: 1px solid var(--colour-white);
+  }
+
+  input[type='text'] {
+    padding-top: var(--spacing-xs);
+  }
+}
+
 .covidForm__intro {
   font-size: var(--font-size-sm);
 }

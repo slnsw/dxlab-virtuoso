@@ -20,8 +20,7 @@ const CovidApp = ({ children, className }) => {
 
       <header className={css.header}>
         <DXLabLogo className={css.headerLogo} />
-        {/* <h1 className={css.headerTitle}>Storylogue</h1> */}
-        <h1 className={css.headerTitle}>The P.S. Files</h1>
+        <h1 className={css.headerTitle}>The Diary Files</h1>
         <SLNSWLogo className={css.headerLogo} />
       </header>
 

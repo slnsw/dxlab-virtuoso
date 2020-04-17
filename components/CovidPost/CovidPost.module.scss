@@ -9,6 +9,8 @@
 .covidPost {
   display: block;
   margin-bottom: var(--spacing-xxxxlg);
+  padding: var(--spacing-xxlg);
+  border: 1px solid var(--colour-white);
 }
 
 .date {
@@ -19,8 +21,10 @@
 }
 
 .content {
+  // margin-left: var(--spacing-sm);
   font-size: var(--font-size-lg);
   font-family: var(--font-secondary);
+  // font-family: var(--font-covid);
   opacity: 0.8;
 }
 
@@ -29,4 +33,12 @@
 
   text-align: right;
   opacity: 0.8;
+}
+
+.hole {
+  width: 2em;
+  height: 2em;
+  margin: 0 auto;
+  border: 1px solid var(--colour-white);
+  border-radius: 1em;
 }
