@@ -35,6 +35,17 @@
   opacity: 0.8;
 }
 
+.authorName span {
+  text-transform: none;
+}
+
+.authorLocation {
+  // @extend .covidTextUppercase;
+  font-family: var(--font-covid);
+  text-align: right;
+  opacity: 0.8;
+}
+
 .hole {
   width: 2em;
   height: 2em;

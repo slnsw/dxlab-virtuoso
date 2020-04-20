@@ -148,7 +148,11 @@ const CovidForm = (props) => {
               {wordCountLimit}{' '}
               {wordCount > wordCountLimit && <span>Wordcount exceeded!</span>}
             </div>
-
+            <p className={css['covidForm__info']}>
+              Your email address will not be published and is optional. It is,
+              however, used ‘under the hood’ to denote entries as being by the
+              same author. Required fields are marked <span>*</span>
+            </p>
             <div
               className={`${css['covidForm__section']} ${css['covidForm__name']}`}
             >
@@ -158,7 +162,7 @@ const CovidForm = (props) => {
                 aria-label="name"
                 type="text"
                 aria-required="false"
-                placeholder="Your name (optional)"
+                placeholder="Your name"
               />
             </div>
             <div
@@ -170,7 +174,7 @@ const CovidForm = (props) => {
                 aria-label="email"
                 type="text"
                 aria-required="false"
-                placeholder="Your email (optional)"
+                placeholder="Your email"
               />
             </div>
             <div
@@ -185,11 +189,6 @@ const CovidForm = (props) => {
                 placeholder="Age"
               />
             </div>
-            <p className={css['covidForm__info']}>
-              Your email address will not be published and is optional. It is,
-              however, used ‘under the hood’ to denote entries as being by the
-              same author. Required fields are marked <span>*</span>
-            </p>
             <div
               className={`${
                 isOutsideAustralia ? css['covidForm__location'] : ''
@@ -204,7 +203,7 @@ const CovidForm = (props) => {
                   aria-label="city"
                   type="text"
                   aria-required="false"
-                  placeholder="City, town or suburb (optional)"
+                  placeholder="City, town or suburb"
                   disabled={isOutsideAustralia}
                 />
               </div>
@@ -213,14 +212,6 @@ const CovidForm = (props) => {
                 className={`${css['covidForm__section']} ${css['covidForm__state']}`}
               >
                 <label htmlFor="state">State</label>
-                {/* <input
-                name="state"
-                aria-label="state"
-                type="text"
-                aria-required="false"
-                placeholder="State (optional)"
-              /> */}
-
                 <Select
                   variant="dark"
                   name="state"
@@ -244,7 +235,9 @@ const CovidForm = (props) => {
                 />
               </div>
             </div>
-            <div className={css['covidForm__section']}>
+            <div
+              className={`${css['covidForm__section']} ${css['covidForm__outsideAustralia']}`}
+            >
               <input
                 name="outsideAustralia"
                 aria-label="outsideAustralia"

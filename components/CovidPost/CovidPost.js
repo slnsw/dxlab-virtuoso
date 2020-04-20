@@ -9,6 +9,11 @@ const CovidPost = ({
   dateText,
   authorName,
   className,
+  city,
+  state,
+  age,
+  postcode,
+  outsideAustralia,
 }) => {
   return (
     <article className={[css.covidPost, className || ''].join(' ')}>
@@ -19,7 +24,23 @@ const CovidPost = ({
         dangerouslySetInnerHTML={{ __html: content }}
       ></div>
 
-      {authorName && <p className={css.authorName}>{authorName}</p>}
+      {
+        <p className={css.authorName}>
+          {authorName || 'anonymous'}
+          {age && <span>{`, ${age}`}</span>}
+        </p>
+      }
+
+      {!outsideAustralia && (city || state || postcode) && (
+        <p className={css.authorLocation}>
+          {'of '}
+          {city}
+          {city && (state || postcode) && ', '}
+          {state}
+          {postcode && state && `, `}
+          {postcode}
+        </p>
+      )}
 
       <div className={css.hole}></div>
     </article>

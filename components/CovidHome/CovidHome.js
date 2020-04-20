@@ -44,6 +44,11 @@ const CovidHome = ({ className }) => {
             content={post.content}
             dateText={post.dateText}
             authorName={post.authorName}
+            city={post.city}
+            state={post.state}
+            postcode={post.postcode}
+            outsideAustralia={post.outsideAustralia}
+            age={post.age}
           />
         );
       })}
@@ -60,6 +65,11 @@ const postsQuery = gql`
         content
         dateText
         authorName
+        city
+        state
+        postcode
+        outsideAustralia
+        age
       }
     }
   }

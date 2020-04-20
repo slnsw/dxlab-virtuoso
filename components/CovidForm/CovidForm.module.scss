@@ -109,6 +109,13 @@
   }
 }
 
+.covidForm__outsideAustralia {
+  @include media-md {
+    float: left;
+    width: 100%;
+  }
+}
+
 .covidForm__outsideAustraliaLabel {
   display: inline;
   margin-left: var(--spacing-lg);
