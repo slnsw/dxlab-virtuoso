@@ -19,8 +19,7 @@ const DiaryFilesStory = ({ className, id }) => {
     variables: { id: idAsInt },
   });
 
-  const post =
-    data && data.diaryFilesExperiment && data.diaryFilesExperiment.post;
+  const post = data && data.diaryFiles && data.diaryFiles.post;
 
   const {
     title,
@@ -58,8 +57,8 @@ const DiaryFilesStory = ({ className, id }) => {
 };
 
 const storyQuery = gql`
-  query diaryFilesExperiment($id: Int!) {
-    diaryFilesExperiment {
+  query diaryFiles($id: Int!) {
+    diaryFiles {
       post(id: $id) {
         id
         title

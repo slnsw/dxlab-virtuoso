@@ -9,9 +9,9 @@ const DiaryFilesAbout = ({ className }) => {
   const { data } = useQuery(aboutQuery); // loading, error,
   const page =
     data &&
-    data.diaryFilesExperiment &&
-    data.diaryFilesExperiment.pages &&
-    data.diaryFilesExperiment.pages[0];
+    data.diaryFiles &&
+    data.diaryFiles.pages &&
+    data.diaryFiles.pages[0];
 
   return (
     <div className={[css.diaryFilesAbout, className || ''].join(' ')}>
@@ -23,7 +23,7 @@ const DiaryFilesAbout = ({ className }) => {
 
 const aboutQuery = gql`
   {
-    diaryFilesExperiment {
+    diaryFiles {
       pages(slug: "about") {
         id
         title

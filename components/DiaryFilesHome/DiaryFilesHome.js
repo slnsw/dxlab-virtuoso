@@ -21,8 +21,8 @@ const DiaryFilesHome = ({ className }) => {
     return error.message;
   }
 
-  const { diaryFilesExperiment } = data;
-  const { posts } = diaryFilesExperiment;
+  const { diaryFiles } = data;
+  const { posts } = diaryFiles;
   console.log(posts);
 
   return (
@@ -31,7 +31,7 @@ const DiaryFilesHome = ({ className }) => {
         <Typewriter />
         <p>Everyone has a story to tell</p>
 
-        <CTAButton href="/diaryFiles/write" className={css.mastheadButton}>
+        <CTAButton href="/diary-files/write" className={css.mastheadButton}>
           Start writing
         </CTAButton>
       </div>
@@ -58,7 +58,7 @@ const DiaryFilesHome = ({ className }) => {
 
 const postsQuery = gql`
   {
-    diaryFilesExperiment {
+    diaryFiles {
       posts {
         id
         title

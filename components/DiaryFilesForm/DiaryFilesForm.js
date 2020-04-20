@@ -95,7 +95,7 @@ const DiaryFilesForm = (props) => {
         args['postcode'] = parseInt(postcode.value, 10);
       }
       props
-        .createDiaryFilesExperimentPost(args)
+        .createDiaryFilesPost(args)
         .then(() => {
           setIsFormSubmitted(true);
         })
@@ -289,7 +289,7 @@ const DiaryFilesForm = (props) => {
 };
 
 const query = gql`
-  mutation createDiaryFilesExperimentPost(
+  mutation createDiaryFilesPost(
     $authorEmail: String
     $authorName: String
     $content: String!
@@ -301,7 +301,7 @@ const query = gql`
     $outsideAustralia: Boolean
     $age: String
   ) {
-    createDiaryFilesExperimentPost(
+    createDiaryFilesPost(
       authorEmail: $authorEmail
       authorName: $authorName
       content: $content
@@ -322,7 +322,7 @@ const query = gql`
 
 export default graphql(query, {
   props: ({ mutate }) => ({
-    createDiaryFilesExperimentPost: (args) =>
+    createDiaryFilesPost: (args) =>
       mutate({
         variables: args,
       }),
