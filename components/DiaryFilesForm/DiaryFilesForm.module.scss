@@ -1,6 +1,6 @@
 @import '../../styles/global.scss';
 
-.covidForm {
+.diaryFilesForm {
   display: flex;
   flex-direction: row;
 
@@ -29,15 +29,15 @@
   }
 }
 
-.covidForm__intro {
+.diaryFilesForm__intro {
   font-size: var(--font-size-sm);
 }
 
-.covidForm__info {
+.diaryFilesForm__info {
   font-size: var(--font-size-md);
 }
 
-.covidForm__section {
+.diaryFilesForm__section {
   // flex: none;
   margin-bottom: var(--spacing-lg);
 
@@ -49,11 +49,11 @@
   // }
 }
 
-.covidForm__location {
+.diaryFilesForm__location {
   opacity: 50%;
 }
 
-.covidForm__date {
+.diaryFilesForm__date {
   // direction: rtl;
   // flex: auto;
   // align-self: flex-end;
@@ -63,7 +63,7 @@
   }
 }
 
-.covidForm__name {
+.diaryFilesForm__name {
   @include media-md {
     float: left;
     width: 41%;
@@ -71,7 +71,7 @@
   }
 }
 
-.covidForm__email {
+.diaryFilesForm__email {
   @include media-md {
     float: left;
     width: 41%;
@@ -79,14 +79,14 @@
   }
 }
 
-.covidForm__age {
+.diaryFilesForm__age {
   @include media-md {
     float: left;
     width: 10%;
   }
 }
 
-.covidForm__city {
+.diaryFilesForm__city {
   @include media-md {
     float: left;
     width: 28%;
@@ -94,7 +94,7 @@
   }
 }
 
-.covidForm__state {
+.diaryFilesForm__state {
   @include media-md {
     float: left;
     width: 48%;
@@ -102,21 +102,21 @@
   }
 }
 
-.covidForm__postcode {
+.diaryFilesForm__postcode {
   @include media-md {
     float: left;
     width: 16%;
   }
 }
 
-.covidForm__outsideAustralia {
+.diaryFilesForm__outsideAustralia {
   @include media-md {
     float: left;
     width: 100%;
   }
 }
 
-.covidForm__outsideAustraliaLabel {
+.diaryFilesForm__outsideAustraliaLabel {
   display: inline;
   margin-left: var(--spacing-lg);
 }

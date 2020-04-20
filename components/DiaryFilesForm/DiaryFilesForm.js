@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 
 import Select from '../Select/Select';
 
-import css from './CovidForm.module.scss';
+import css from './DiaryFilesForm.module.scss';
 
 function yyyymmdd() {
   const date = new Date();
@@ -28,7 +28,7 @@ const stateOptions = [
   { value: 'WA', label: 'Western Australia' },
 ];
 
-const CovidForm = (props) => {
+const DiaryFilesForm = (props) => {
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
   const [showWarning, setShowWarning] = React.useState('');
   const [showSubmitError, setShowSubmitError] = React.useState(false);
@@ -95,7 +95,7 @@ const CovidForm = (props) => {
         args['postcode'] = parseInt(postcode.value, 10);
       }
       props
-        .createCovidExperimentPost(args)
+        .createDiaryFilesExperimentPost(args)
         .then(() => {
           setIsFormSubmitted(true);
         })
@@ -112,13 +112,13 @@ const CovidForm = (props) => {
   };
 
   return (
-    <div className={css['covidForm']}>
+    <div className={css['diaryFilesForm']}>
       {!isFormSubmitted ? (
         <div>
-          <p className={css['covidForm__intro']}>Tell us a story...</p>
+          <p className={css['diaryFilesForm__intro']}>Tell us a story...</p>
           <form onSubmit={handleSubmit} className={css.form}>
             <div
-              className={`${css['covidForm__section']} ${css['covidForm__date']}`}
+              className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__date']}`}
             >
               <label htmlFor="dateText">
                 Date<span>*</span>
@@ -132,7 +132,7 @@ const CovidForm = (props) => {
               />
             </div>
 
-            <div className={css['covidForm__section']}>
+            <div className={css['diaryFilesForm__section']}>
               <textarea
                 id="story"
                 placeholder="Write in here..."
@@ -148,7 +148,7 @@ const CovidForm = (props) => {
               {wordCountLimit}{' '}
               {wordCount > wordCountLimit && <span>Wordcount exceeded!</span>}
             </div>
-            <p className={css['covidForm__info']}>
+            <p className={css['diaryFilesForm__info']}>
               Please note all the fields below are optional. If you fill in
               these fields we will publish them with your entry, except for your
               email address, which we will only use to contact you in relation
@@ -160,7 +160,7 @@ const CovidForm = (props) => {
               same author. Required fields are marked <span>*</span> */}
             </p>
             <div
-              className={`${css['covidForm__section']} ${css['covidForm__name']}`}
+              className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__name']}`}
             >
               <label htmlFor="name">Name</label>
               <input
@@ -172,7 +172,7 @@ const CovidForm = (props) => {
               />
             </div>
             <div
-              className={`${css['covidForm__section']} ${css['covidForm__email']}`}
+              className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__email']}`}
             >
               <label htmlFor="email">Email</label>
               <input
@@ -184,7 +184,7 @@ const CovidForm = (props) => {
               />
             </div>
             <div
-              className={`${css['covidForm__section']} ${css['covidForm__age']}`}
+              className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__age']}`}
             >
               <label htmlFor="age">Age</label>
               <input
@@ -197,11 +197,11 @@ const CovidForm = (props) => {
             </div>
             <div
               className={`${
-                isOutsideAustralia ? css['covidForm__location'] : ''
+                isOutsideAustralia ? css['diaryFilesForm__location'] : ''
               }`}
             >
               <div
-                className={`${css['covidForm__section']} ${css['covidForm__city']}`}
+                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__city']}`}
               >
                 <label htmlFor="city">City</label>
                 <input
@@ -215,7 +215,7 @@ const CovidForm = (props) => {
               </div>
 
               <div
-                className={`${css['covidForm__section']} ${css['covidForm__state']}`}
+                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__state']}`}
               >
                 <label htmlFor="state">State</label>
                 <Select
@@ -228,7 +228,7 @@ const CovidForm = (props) => {
               </div>
 
               <div
-                className={`${css['covidForm__section']} ${css['covidForm__postcode']}`}
+                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__postcode']}`}
               >
                 <label htmlFor="postcode">Postcode</label>
                 <input
@@ -242,7 +242,7 @@ const CovidForm = (props) => {
               </div>
             </div>
             <div
-              className={`${css['covidForm__section']} ${css['covidForm__outsideAustralia']}`}
+              className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__outsideAustralia']}`}
             >
               <input
                 name="outsideAustralia"
@@ -253,7 +253,7 @@ const CovidForm = (props) => {
                 }
               />
               <label
-                className={css['covidForm__outsideAustraliaLabel']}
+                className={css['diaryFilesForm__outsideAustraliaLabel']}
                 htmlFor="outsideAustralia"
               >
                 I am outside Australia
@@ -289,7 +289,7 @@ const CovidForm = (props) => {
 };
 
 const query = gql`
-  mutation createCovidExperimentPost(
+  mutation createDiaryFilesExperimentPost(
     $authorEmail: String
     $authorName: String
     $content: String!
@@ -301,7 +301,7 @@ const query = gql`
     $outsideAustralia: Boolean
     $age: String
   ) {
-    createCovidExperimentPost(
+    createDiaryFilesExperimentPost(
       authorEmail: $authorEmail
       authorName: $authorName
       content: $content
@@ -322,9 +322,9 @@ const query = gql`
 
 export default graphql(query, {
   props: ({ mutate }) => ({
-    createCovidExperimentPost: (args) =>
+    createDiaryFilesExperimentPost: (args) =>
       mutate({
         variables: args,
       }),
   }),
-})(CovidForm);
+})(DiaryFilesForm);

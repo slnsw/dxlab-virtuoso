@@ -1,7 +1,7 @@
 @import '../../styles/global.scss';
 
-.covidApp {
-  --font-covid: 'Special Elite', cursive;
+.diaryFilesApp {
+  --font-diaryFiles: 'Special Elite', cursive;
 
   display: block;
 }
@@ -17,7 +17,7 @@
 
 .headerTitle {
   margin: 0;
-  font-family: var(--font-covid);
+  font-family: var(--font-diaryFiles);
   line-height: 1;
   letter-spacing: 0;
   text-transform: none;

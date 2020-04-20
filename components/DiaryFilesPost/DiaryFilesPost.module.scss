@@ -1,12 +1,12 @@
 @import '../../styles/global.scss';
 
-.covidTextUppercase {
-  font-family: var(--font-covid);
+.diaryFilesTextUppercase {
+  font-family: var(--font-diaryFiles);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.covidPost {
+.diaryFilesPost {
   display: block;
   margin-bottom: var(--spacing-xxxxlg);
   padding: var(--spacing-xxlg);
@@ -20,7 +20,7 @@
 }
 
 .date {
-  @extend .covidTextUppercase;
+  @extend .diaryFilesTextUppercase;
 
   font-size: var(--font-size-sm);
   opacity: 0.8;
@@ -30,12 +30,12 @@
   // margin-left: var(--spacing-sm);
   font-size: var(--font-size-lg);
   // font-family: var(--font-secondary);
-  font-family: var(--font-covid);
+  font-family: var(--font-diaryFiles);
   opacity: 0.8;
 }
 
 .authorName {
-  @extend .covidTextUppercase;
+  @extend .diaryFilesTextUppercase;
 
   text-align: right;
   opacity: 0.8;
@@ -46,8 +46,8 @@
 }
 
 .authorLocation {
-  // @extend .covidTextUppercase;
-  font-family: var(--font-covid);
+  // @extend .diaryFilesTextUppercase;
+  font-family: var(--font-diaryFiles);
   text-align: right;
   opacity: 0.8;
 }

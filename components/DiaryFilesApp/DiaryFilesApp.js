@@ -7,11 +7,11 @@ import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import Footer from '../Footer';
 
-import css from './CovidApp.module.scss';
+import css from './DiaryFilesApp.module.scss';
 
-const CovidApp = ({ children, className }) => {
+const DiaryFilesApp = ({ children, className }) => {
   return (
-    <div className={[css.covidApp, className || ''].join(' ')}>
+    <div className={[css.diaryFilesApp, className || ''].join(' ')}>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
@@ -22,7 +22,7 @@ const CovidApp = ({ children, className }) => {
       <header className={css.header}>
         <DXLabLogo className={css.headerLogo} />
         <h1 className={css.headerTitle}>
-          <Link href="/covid">
+          <Link href="/diary-files">
             <a>The Diary Files</a>
           </Link>
         </h1>
@@ -36,8 +36,8 @@ const CovidApp = ({ children, className }) => {
   );
 };
 
-CovidApp.propTypes = {
+DiaryFilesApp.propTypes = {
   className: PropTypes.string,
 };
 
-export default CovidApp;
+export default DiaryFilesApp;

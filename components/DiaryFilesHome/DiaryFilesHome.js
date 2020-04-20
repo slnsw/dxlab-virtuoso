@@ -5,12 +5,12 @@ import gql from 'graphql-tag';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
-import CovidPost from '../CovidPost';
+import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
 
-import css from './CovidHome.module.scss';
+import css from './DiaryFilesHome.module.scss';
 
-const CovidHome = ({ className }) => {
+const DiaryFilesHome = ({ className }) => {
   const { loading, error, data } = useQuery(postsQuery);
 
   if (loading) {
@@ -21,24 +21,24 @@ const CovidHome = ({ className }) => {
     return error.message;
   }
 
-  const { covidExperiment } = data;
-  const { posts } = covidExperiment;
+  const { diaryFilesExperiment } = data;
+  const { posts } = diaryFilesExperiment;
   console.log(posts);
 
   return (
-    <div className={[css.covidHome, className || ''].join(' ')}>
+    <div className={[css.diaryFilesHome, className || ''].join(' ')}>
       <div className={css.masthead}>
         <Typewriter />
         <p>Everyone has a story to tell</p>
 
-        <CTAButton href="/covid/write" className={css.mastheadButton}>
+        <CTAButton href="/diaryFiles/write" className={css.mastheadButton}>
           Start writing
         </CTAButton>
       </div>
 
       {posts.map((post) => {
         return (
-          <CovidPost
+          <DiaryFilesPost
             key={post.id}
             title={post.title}
             content={post.content}
@@ -58,7 +58,7 @@ const CovidHome = ({ className }) => {
 
 const postsQuery = gql`
   {
-    covidExperiment {
+    diaryFilesExperiment {
       posts {
         id
         title
@@ -75,8 +75,8 @@ const postsQuery = gql`
   }
 `;
 
-CovidHome.propTypes = {
+DiaryFilesHome.propTypes = {
   className: PropTypes.string,
 };
 
-export default CovidHome;
+export default DiaryFilesHome;

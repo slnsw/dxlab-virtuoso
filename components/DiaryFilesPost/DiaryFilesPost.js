@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './CovidPost.module.scss';
+import css from './DiaryFilesPost.module.scss';
 
-const CovidPost = ({
+const DiaryFilesPost = ({
   // title,
   content,
   dateText,
@@ -16,7 +16,7 @@ const CovidPost = ({
   outsideAustralia,
 }) => {
   return (
-    <article className={[css.covidPost, className || ''].join(' ')}>
+    <article className={[css.diaryFilesPost, className || ''].join(' ')}>
       {/* <h1>{title}</h1> */}
       <p className={css.date}>{dateText}</p>
       <div
@@ -47,8 +47,8 @@ const CovidPost = ({
   );
 };
 
-CovidPost.propTypes = {
+DiaryFilesPost.propTypes = {
   className: PropTypes.string,
 };
 
-export default CovidPost;
+export default DiaryFilesPost;

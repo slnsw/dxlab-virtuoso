@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import CovidPost from '../CovidPost';
+import DiaryFilesPost from '../DiaryFilesPost';
 
 /* eslint-disable */
-import css from '../CovidPost/CovidPost.module.scss';
+import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
 /* eslint-enable */
 
-const CovidStory = ({ className, id }) => {
+const DiaryFilesStory = ({ className, id }) => {
   const idAsInt = parseInt(id, 10);
   const {
     // loading,
@@ -19,7 +19,8 @@ const CovidStory = ({ className, id }) => {
     variables: { id: idAsInt },
   });
 
-  const post = data && data.covidExperiment && data.covidExperiment.post;
+  const post =
+    data && data.diaryFilesExperiment && data.diaryFilesExperiment.post;
 
   const {
     title,
@@ -35,14 +36,14 @@ const CovidStory = ({ className, id }) => {
 
   if (title === 'Hello World' || error) {
     return (
-      <div className={[css.covidPost, className || ''].join(' ')}>
+      <div className={[css.diaryFilesPost, className || ''].join(' ')}>
         <h1>No story found</h1>
       </div>
     );
   }
 
   return (
-    <CovidPost
+    <DiaryFilesPost
       content={content}
       dateText={dateText}
       authorName={authorName}
@@ -51,14 +52,14 @@ const CovidStory = ({ className, id }) => {
       age={age}
       postcode={postcode}
       outsideAustralia={outsideAustralia}
-      className={[css.covidPost, className || ''].join(' ')}
+      className={[css.diaryFilesPost, className || ''].join(' ')}
     />
   );
 };
 
 const storyQuery = gql`
-  query covidExperiment($id: Int!) {
-    covidExperiment {
+  query diaryFilesExperiment($id: Int!) {
+    diaryFilesExperiment {
       post(id: $id) {
         id
         title
@@ -76,9 +77,9 @@ const storyQuery = gql`
   }
 `;
 
-CovidStory.propTypes = {
+DiaryFilesStory.propTypes = {
   className: PropTypes.string,
   id: PropTypes.number,
 };
 
-export default CovidStory;
+export default DiaryFilesStory;
