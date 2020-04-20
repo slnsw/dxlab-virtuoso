@@ -21,7 +21,7 @@ const CovidPost = ({
 
       {authorName && <p className={css.authorName}>{authorName}</p>}
 
-      <div className={css.hole}></div>
+      {/* <div className={css.hole}></div> */}
     </article>
   );
 };

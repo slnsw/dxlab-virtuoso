@@ -10,7 +10,13 @@
   display: block;
   margin-bottom: var(--spacing-xxxxlg);
   padding: var(--spacing-xxlg);
+  color: var(--colour-black);
+  background-color: var(--colour-white);
   border: 1px solid var(--colour-white);
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .date {
@@ -23,8 +29,8 @@
 .content {
   // margin-left: var(--spacing-sm);
   font-size: var(--font-size-lg);
-  font-family: var(--font-secondary);
-  // font-family: var(--font-covid);
+  // font-family: var(--font-secondary);
+  font-family: var(--font-covid);
   opacity: 0.8;
 }
 
@@ -35,10 +41,10 @@
   opacity: 0.8;
 }
 
-.hole {
-  width: 2em;
-  height: 2em;
-  margin: 0 auto;
-  border: 1px solid var(--colour-white);
-  border-radius: 1em;
-}
+// .hole {
+//   width: 2em;
+//   height: 2em;
+//   margin: 0 auto;
+//   border: 1px solid var(--colour-white);
+//   border-radius: 1em;
+// }
