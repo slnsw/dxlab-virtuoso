@@ -42,7 +42,7 @@ const CovidPost = ({
         </p>
       )}
 
-      <div className={css.hole}></div>
+      {/* <div className={css.hole}></div> */}
     </article>
   );
 };
