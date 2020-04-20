@@ -149,9 +149,15 @@ const CovidForm = (props) => {
               {wordCount > wordCountLimit && <span>Wordcount exceeded!</span>}
             </div>
             <p className={css['covidForm__info']}>
-              Your email address will not be published and is optional. It is,
+              Please note all the fields below are optional. If you fill in
+              these fields we will publish them with your entry, except for your
+              email address, which we will only use to contact you in relation
+              to The Diary Files.
+              <br />
+              Thank you for your contribution.
+              {/* Your email address will not be published and is optional. It is,
               however, used ‘under the hood’ to denote entries as being by the
-              same author. Required fields are marked <span>*</span>
+              same author. Required fields are marked <span>*</span> */}
             </p>
             <div
               className={`${css['covidForm__section']} ${css['covidForm__name']}`}
