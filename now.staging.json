@@ -122,7 +122,7 @@
       "destination": "http://dxlab-fellowship-2019.s3-website-ap-southeast-2.amazonaws.com/aereo$1"
     },
     {
-      "source": "/aereo/data/(.*)",
+      "source": "^/aereo/data/(.*)$",
       "destination": "http://dxlab-fellowship-2019.s3-website-ap-southeast-2.amazonaws.com/$1"
     },
     {
