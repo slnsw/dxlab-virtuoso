@@ -23,7 +23,7 @@ const DiaryFilesHome = ({ className }) => {
 
   const { diaryFiles } = data;
   const { posts } = diaryFiles;
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
@@ -34,11 +34,15 @@ const DiaryFilesHome = ({ className }) => {
         <CTAButton href="/diary-files/write" className={css.mastheadButton}>
           Start writing
         </CTAButton>
+        <CTAButton href="/diary-files/about" className={css.mastheadButton}>
+          About
+        </CTAButton>
       </div>
 
       {posts.map((post) => {
         return (
           <DiaryFilesPost
+            id={post.id}
             key={post.id}
             title={post.title}
             content={post.content}
@@ -49,6 +53,7 @@ const DiaryFilesHome = ({ className }) => {
             postcode={post.postcode}
             outsideAustralia={post.outsideAustralia}
             age={post.age}
+            singleView={false}
           />
         );
       })}

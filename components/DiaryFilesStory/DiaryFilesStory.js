@@ -9,7 +9,7 @@ import DiaryFilesPost from '../DiaryFilesPost';
 import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
 /* eslint-enable */
 
-const DiaryFilesStory = ({ className, id }) => {
+const DiaryFilesStory = ({ className, id, singleView }) => {
   const idAsInt = parseInt(id, 10);
   const {
     // loading,
@@ -31,6 +31,7 @@ const DiaryFilesStory = ({ className, id }) => {
     postcode,
     outsideAustralia,
     age,
+    relatedPosts,
   } = post || {};
 
   if (title === 'Hello World' || error) {
@@ -43,6 +44,7 @@ const DiaryFilesStory = ({ className, id }) => {
 
   return (
     <DiaryFilesPost
+      id={id}
       content={content}
       dateText={dateText}
       authorName={authorName}
@@ -52,6 +54,8 @@ const DiaryFilesStory = ({ className, id }) => {
       postcode={postcode}
       outsideAustralia={outsideAustralia}
       className={[css.diaryFilesPost, className || ''].join(' ')}
+      relatedPosts={relatedPosts}
+      singleView={singleView}
     />
   );
 };
@@ -71,6 +75,7 @@ const storyQuery = gql`
         postcode
         outsideAustralia
         age
+        # relatedPosts
       }
     }
   }

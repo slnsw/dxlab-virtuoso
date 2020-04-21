@@ -35,6 +35,7 @@ const DiaryFilesForm = (props) => {
   const [formState, setFormState] = React.useState(null);
   const [isOutsideAustralia, setIsOutsideAustralia] = React.useState(false);
   const [wordCount, setWordCount] = React.useState(0);
+  const [newId, setNewId] = React.useState(null);
 
   const wordCountLimit = 300;
 
@@ -96,7 +97,14 @@ const DiaryFilesForm = (props) => {
       }
       props
         .createDiaryFilesPost(args)
-        .then(() => {
+        .then((result) => {
+          const newIdValue =
+            result &&
+            result.data &&
+            result.data.createDiaryFilesPost &&
+            result.data.createDiaryFilesPost.id;
+          console.log(newIdValue);
+          setNewId(newIdValue);
           setIsFormSubmitted(true);
         })
         .catch((err) => {
@@ -268,7 +276,12 @@ const DiaryFilesForm = (props) => {
             >
               Submit
             </button>
-
+            <div className="termsAndConditions">
+              By submitting your diary entry in this platform you are allowing
+              The State Library of NSW to collect, store and publish your text
+              as part of this online experience, for exhibition and promotional
+              purposes.
+            </div>
             {showWarning && <div className="warning">{showWarning}</div>}
 
             {showSubmitError && (
@@ -281,7 +294,14 @@ const DiaryFilesForm = (props) => {
         </div>
       ) : (
         <div>
-          <p>Thanks for your submission. Your entry is awaiting approval.</p>
+          <p>
+            Thank you for your diary entry, we will approve this as soon as we
+            can. Please{' '}
+            <a href={`/diary-files/${newId}`}>
+              check back later to see your entry
+            </a>{' '}
+            and you can share it with your friends and family.
+          </p>
         </div>
       )}
     </div>

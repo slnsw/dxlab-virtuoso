@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CTAButton from '../CTAButton';
 
 import css from './DiaryFilesPost.module.scss';
 
 const DiaryFilesPost = ({
+  id,
   // title,
   content,
   dateText,
@@ -14,10 +16,21 @@ const DiaryFilesPost = ({
   age,
   postcode,
   outsideAustralia,
+  relatedPosts,
+  singleView = true,
 }) => {
   return (
     <article className={[css.diaryFilesPost, className || ''].join(' ')}>
       {/* <h1>{title}</h1> */}
+      {singleView ? (
+        <CTAButton href={`/diary-files`} className={css.backButton}>
+          back
+        </CTAButton>
+      ) : (
+        <CTAButton href={`/diary-files/${id}`} className={css.viewButton}>
+          view
+        </CTAButton>
+      )}
       <p className={css.date}>{dateText}</p>
       <div
         className={css.content}
@@ -28,6 +41,7 @@ const DiaryFilesPost = ({
         <p className={css.authorName}>
           {authorName || 'anonymous'}
           {age && <span>{`, ${age}`}</span>}
+          {/* more by this author link if relatedPosts.length > 0 */}
         </p>
       }
 
