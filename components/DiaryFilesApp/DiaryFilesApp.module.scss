@@ -8,19 +8,44 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  // justify-content: space-between;
+  padding-top: 1em;
+
+  @include media-sm {
+    justify-content: space-between;
+    padding-top: 0;
+  }
 }
 
 .headerLogo {
-  height: 1.4em;
+  height: 1em;
+
+  @include media-sm {
+    height: 1.4em;
+  }
+}
+
+.slnswLogo {
+  display: none;
+
+  @include media-sm {
+    display: block;
+  }
 }
 
 .headerTitle {
-  margin: 0;
+  margin: var(--spacing-xxxs) 0 0 var(--spacing-md);
+  font-size: var(--font-size-sm);
   font-family: var(--font-diaryFiles);
   line-height: 1;
   letter-spacing: 0;
   text-transform: none;
+
+  @include media-sm {
+    margin: 0;
+    font-size: var(--font-size-xxlg);
+  }
 }
 
 .main {

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Link from '../Link';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
+// import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 
 import css from './DiaryFilesApp.module.scss';
@@ -26,7 +27,18 @@ const DiaryFilesApp = ({ children, className }) => {
             <a>The Diary Files</a>
           </Link>
         </h1>
-        <SLNSWLogo className={css.headerLogo} />
+        <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
+
+        {/* <MenuIconButton
+          isOpen={isMenuOpen}
+          id="primary-menu-button"
+          className="header__menu-button"
+          aria-haspopup="true"
+          aria-controls="primary-menu"
+          aria-expanded={isMenuOpen}
+          aria-label="primary menu"
+          // onClick={this.handleMenuToggle}
+        /> */}
       </header>
 
       <main className={css.main}>{children}</main>
