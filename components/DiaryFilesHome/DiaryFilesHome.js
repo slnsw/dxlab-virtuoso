@@ -53,6 +53,7 @@ const DiaryFilesHome = ({ className }) => {
             postcode={post.postcode}
             outsideAustralia={post.outsideAustralia}
             age={post.age}
+            relatedPosts={post.relatedPosts}
             singleView={false}
           />
         );
@@ -75,6 +76,9 @@ const postsQuery = gql`
         postcode
         outsideAustralia
         age
+        relatedPosts {
+          id
+        }
       }
     }
   }

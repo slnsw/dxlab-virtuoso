@@ -41,7 +41,16 @@ const DiaryFilesPost = ({
         <p className={css.authorName}>
           {authorName || 'anonymous'}
           {age && <span>{`, ${age}`}</span>}
-          {/* more by this author link if relatedPosts.length > 0 */}
+          {relatedPosts && relatedPosts.length > 0 && (
+            <>
+              <br />
+              <span>
+                <a href={`/diary-files/related/${id}`}>
+                  see all by this author
+                </a>
+              </span>
+            </>
+          )}
         </p>
       }
 
