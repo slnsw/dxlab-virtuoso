@@ -4,9 +4,14 @@ import Head from 'next/head';
 import WebsiteApp from '../components/WebsiteApp';
 import Select from '../components/Select';
 import CTAButtonV2 from '../components/CTAButtonV2';
+import Modal from '../components/Modal';
+import Overlay from '../components/Overlay';
 import Icon from '../components/Icon';
 
 const DesignSystemPage = () => {
+  const [isOverlayActive, setIsOverlayActive] = React.useState(false);
+  const [isModalActive, setIsModalActive] = React.useState(true);
+
   return (
     <WebsiteApp>
       <Head>
@@ -37,6 +42,25 @@ const DesignSystemPage = () => {
 
       <h3>CTAButtonV2</h3>
       <CTAButtonV2>Example Button</CTAButtonV2>
+
+      <h3>Modal</h3>
+      <CTAButtonV2 onClick={() => setIsModalActive(true)}>
+        Show modal
+      </CTAButtonV2>
+
+      <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
+        Modal Content
+      </Modal>
+
+      <h3>Overlay</h3>
+      <CTAButtonV2 onClick={() => setIsOverlayActive(true)}>
+        Show overlay
+      </CTAButtonV2>
+
+      <Overlay
+        isActive={isOverlayActive}
+        onClick={() => setIsOverlayActive(false)}
+      />
 
       <h2>Icons</h2>
       <p>

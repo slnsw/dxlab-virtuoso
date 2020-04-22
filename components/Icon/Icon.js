@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // import css from './Icon.module.scss';
 
-const Icon = ({ name, className }) => {
+const Icon = ({ name, size = 'md', className }) => {
   return (
     <ion-icon
       // name={`${name}-sharp`}  // this breaks the ones starting with 'logo-'
@@ -13,13 +13,14 @@ const Icon = ({ name, className }) => {
         className || '',
       ].join(' ')}
       style={{
-        fontSize: 'var(--font-size-sm)',
+        fontSize: `var(--font-size-${size})`,
       }}
     />
   );
 };
 
 Icon.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   className: PropTypes.string,
 };
 
