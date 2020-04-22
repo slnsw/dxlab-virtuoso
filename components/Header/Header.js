@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import HeaderNav from '../HeaderNav/HeaderNav';
 import Menu from '../Menu';
 // import Link from '../Link';
 import DXLabLogo from '../DXLabLogo';
@@ -48,17 +49,18 @@ class Header extends Component {
 
   render() {
     const { pathname = '', menuItems = [] } = this.props;
+    const { isMenuOpen } = this.state;
 
     return (
       <header className="header">
         <DXLabLogo className="logo logo--dxlab" />
 
-        <nav
-          className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}
-        >
+        <HeaderNav isOpen={isMenuOpen}>
           <Menu
             id="primary-menu"
-            className="primary-menu"
+            className={['primary-menu', isMenuOpen ? 'is-active' : ''].join(
+              ' ',
+            )}
             menuItemClassName="primary-menu__item"
             labelledby="primary-menu-button"
             menuItems={menuItems.map((item) => ({
@@ -70,17 +72,17 @@ class Header extends Component {
             pathname={pathname}
             onMenuItemClick={this.handleMenuToggle}
           />
-        </nav>
+        </HeaderNav>
 
         <SLNSWLogo className="logo logo--slnsw" />
 
         <MenuIconButton
-          isOpen={this.state.isMenuOpen}
+          isOpen={isMenuOpen}
           id="primary-menu-button"
           className="header__menu-button"
           aria-haspopup="true"
           aria-controls="primary-menu"
-          aria-expanded={this.state.isMenuOpen}
+          aria-expanded={isMenuOpen}
           aria-label="primary menu"
           onClick={this.handleMenuToggle}
         />
