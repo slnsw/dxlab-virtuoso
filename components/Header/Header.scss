@@ -82,46 +82,6 @@
   }
 }
 
-.header__nav {
-  position: absolute;
-  top: 0;
-  z-index: 100;
-  display: block;
-  width: calc(100% + 2.6em);
-  height: 100vh;
-  margin: 0 -1.3em;
-  overflow: hidden;
-  font-size: var(--font-size-sm);
-  text-align: center;
-  transition: 0.3s background-color;
-  pointer-events: none;
-
-  @include media-sm {
-    position: relative;
-    top: 0;
-    display: block;
-    order: 3;
-    height: auto;
-    margin: 0 auto;
-    background-color: transparent;
-    transition: none;
-    pointer-events: auto;
-  }
-
-  @include media-lg {
-    order: 2;
-  }
-
-  &.is-active {
-    background-color: var(--colour-black);
-    pointer-events: auto;
-
-    @include media-sm {
-      background-color: transparent;
-    }
-  }
-}
-
 ul.primary-menu {
   position: relative;
   right: -100%;
@@ -158,12 +118,12 @@ ul.primary-menu {
     }
   }
 
-  .is-active & {
+  &.is-active {
     right: 0;
   }
 }
 
-.header__menu-button {
+.header .header__menu-button {
   position: absolute;
   top: 0;
   right: 0;

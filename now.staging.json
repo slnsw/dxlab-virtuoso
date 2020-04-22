@@ -118,6 +118,14 @@
       "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/80hz/$1"
     },
     {
+      "source": "/aereo(.*)",
+      "destination": "http://dxlab-fellowship-2019.s3-website-ap-southeast-2.amazonaws.com/aereo$1"
+    },
+    {
+      "source": "(/aereo/data/+)(.*)",
+      "destination": "http://dxlab-fellowship-2019.s3-website-ap-southeast-2.amazonaws.com/$2"
+    },
+    {
       "source": "/api/graphql(.*)",
       "destination": "https://staging-api.dxlab.sl.nsw.gov.au/graphql$1"
     },

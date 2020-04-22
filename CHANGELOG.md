@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `eslint-plugin-css-modules`
 - Refactor `App` to be more generic and make `WebsiteApp` more customised
 - Add `react-select` and create `Select` component
+- Add `Icon`
+- Add `CTAButtonV2`
+- Add `design-system` page
+- Add `aereo` rewrite to Mauricio's Fellowship project in now.json
+- Add `HeaderNav` component
 
 ## [1.8.1] - 2020-04-01
 
