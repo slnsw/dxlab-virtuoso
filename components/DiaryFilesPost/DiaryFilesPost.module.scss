@@ -55,15 +55,27 @@
 .backButton {
   float: right;
   width: 20%;
+  margin-bottom: var(--spacing-lg);
   color: var(--colour-black);
   border-color: var(--colour-black);
+
+  &:link,
+  &:visited {
+    color: var(--colour-black);
+  }
 }
 
 .viewButton {
   float: right;
   width: 20%;
+  margin-bottom: var(--spacing-lg);
   color: var(--colour-black);
   border-color: var(--colour-black);
+
+  &:link,
+  &:visited {
+    color: var(--colour-black);
+  }
 }
 
 // .hole {
@@ -73,3 +85,19 @@
 //   border: 1px solid var(--colour-white);
 //   border-radius: 1em;
 // }
+
+.sharingIcons {
+  // height: auto;
+}
+
+.sharingIcon {
+  width: 64px;
+  margin-right: var(--spacing-xxs);
+  color: var(--colour-black);
+  font-size: var(--font-size-xxlg);
+
+  &:link,
+  &:visited {
+    color: var(--colour-black);
+  }
+}

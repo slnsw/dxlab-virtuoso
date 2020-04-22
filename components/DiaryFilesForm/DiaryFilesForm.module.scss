@@ -27,6 +27,13 @@
   input[type='text'] {
     padding-top: var(--spacing-xs);
   }
+
+  textarea {
+    color: var(--colour-black);
+    font-family: var(--font-diaryFiles);
+    letter-spacing: 0.1em;
+    background-color: var(--colour-white);
+  }
 }
 
 .diaryFilesForm__intro {

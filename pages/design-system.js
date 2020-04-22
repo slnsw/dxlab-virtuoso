@@ -42,7 +42,7 @@ const DesignSystemPage = () => {
       <p>
         <a href="https://ionicons.com/">Ionicons</a>
       </p>
-      <Icon name="flask" />
+      <Icon name="logo-facebook" />
     </WebsiteApp>
   );
 };
