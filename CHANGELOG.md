@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `design-system` page
 - Add `aereo` rewrite to Mauricio's Fellowship project in now.json
 - Add `HeaderNav` component
+- Add `Overlay` component
 
 ## [1.8.1] - 2020-04-01
 
