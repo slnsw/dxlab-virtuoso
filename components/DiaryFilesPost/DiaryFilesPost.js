@@ -92,7 +92,6 @@ const DiaryFilesPost = ({
         )}
 
         {/* <div className={css.hole}></div> */}
-
         <div className={css.sharingIcons}>
           <a
             href={fbLink}
