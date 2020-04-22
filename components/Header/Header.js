@@ -80,9 +80,7 @@ class Header extends Component {
           isOpen={isMenuOpen}
           id="primary-menu-button"
           className="header__menu-button"
-          aria-haspopup="true"
           aria-controls="primary-menu"
-          aria-expanded={isMenuOpen}
           aria-label="primary menu"
           onClick={this.handleMenuToggle}
         />
