@@ -48,6 +48,11 @@
   }
 }
 
+.menuButton {
+  position: absolute;
+  right: 0;
+}
+
 .main {
   max-width: var(--container-width-md);
   margin: 0 auto;
