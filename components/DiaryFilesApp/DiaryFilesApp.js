@@ -9,6 +9,7 @@ import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 
 import css from './DiaryFilesApp.module.scss';
+import HeaderNav from '../HeaderNav/HeaderNav';
 
 const DiaryFilesApp = ({ children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -35,6 +36,8 @@ const DiaryFilesApp = ({ children, className }) => {
         </h1>
         <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
 
+        <HeaderNav isOpen={isMenuOpen}></HeaderNav>
+
         <MenuIconButton
           isOpen={isMenuOpen}
           className={css.menuButton}
@@ -49,6 +52,13 @@ const DiaryFilesApp = ({ children, className }) => {
       <main className={css.main}>{children}</main>
 
       <Footer />
+
+      {/* Override body styles here if needed */}
+      {/* <style>{`
+        body {
+          
+        }
+      `}</style> */}
     </div>
   );
 };
