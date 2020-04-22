@@ -1,0 +1,35 @@
+@import '../../styles/global.scss';
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 110;
+  display: none;
+  width: calc(100% - var(--spacing-md));
+  height: calc(100% - var(--spacing-md));
+  padding: var(--spacing-lg);
+  background-color: var(--colour-black);
+  border: 1px solid var(--colour-grey-darkest);
+  transform: translate3d(-50%, -50%, 0);
+
+  &.isActive {
+    display: block;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: var(--spacing-xxxs);
+  font-size: 1em;
+
+  &:hover {
+    color: var(--colour-highlight);
+  }
+}
+
+.closeIcon {
+  font-size: var(--font-size-lg);
+}
