@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import Link from '../Link';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
+import HeaderNavV2 from '../HeaderNavV2';
 import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 
 import css from './DiaryFilesApp.module.scss';
-import HeaderNav from '../HeaderNav/HeaderNav';
 
 const DiaryFilesApp = ({ children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -34,16 +34,17 @@ const DiaryFilesApp = ({ children, className }) => {
             <a>The Diary Files</a>
           </Link>
         </h1>
-        <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
 
-        <HeaderNav isOpen={isMenuOpen}></HeaderNav>
+        <HeaderNavV2 isOpen={isMenuOpen} className={css.headerNav}>
+          test
+        </HeaderNavV2>
+
+        <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
 
         <MenuIconButton
           isOpen={isMenuOpen}
           className={css.menuButton}
-          aria-haspopup="true"
           aria-controls="primary-menu"
-          aria-expanded={isMenuOpen}
           aria-label="primary menu"
           onClick={handleMenuToggle}
         />

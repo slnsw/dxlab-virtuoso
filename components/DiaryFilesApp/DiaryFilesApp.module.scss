@@ -48,9 +48,16 @@
   }
 }
 
+.headerNav {
+  @include media-sm {
+    display: none;
+  }
+}
+
 .menuButton {
   position: absolute;
   right: 0;
+  z-index: 110;
 }
 
 .main {
