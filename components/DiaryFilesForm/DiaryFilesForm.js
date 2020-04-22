@@ -267,16 +267,19 @@ const DiaryFilesForm = (props) => {
                 I am outside Australia
               </label>
             </div>
+
             {/* TODO: Try input type submit */}
-            <button
-              className="button"
-              type="submit"
-              aria-label="Submit Button."
-              disabled={wordCount > wordCountLimit}
-            >
-              Submit
-            </button>
-            <div className="termsAndConditions">
+            <div className={css['diaryFilesForm__submitWrapper']}>
+              <button
+                className="button"
+                type="submit"
+                aria-label="Submit Button."
+                disabled={wordCount > wordCountLimit}
+              >
+                Submit
+              </button>
+            </div>
+            <div className={css['diaryFilesForm__termsAndConditions']}>
               By submitting your diary entry in this platform you are allowing
               The State Library of NSW to collect, store and publish your text
               as part of this online experience, for exhibition and promotional
