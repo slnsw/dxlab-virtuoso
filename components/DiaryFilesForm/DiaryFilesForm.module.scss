@@ -120,3 +120,21 @@
   display: inline;
   margin-left: var(--spacing-lg);
 }
+
+.diaryFilesForm__submitWrapper {
+  @include media-md {
+    float: left;
+    width: 15%;
+  }
+
+  margin-bottom: var(--spacing-lg);
+}
+
+.diaryFilesForm__termsAndConditions {
+  @include media-md {
+    float: left;
+    width: 84%;
+  }
+
+  font-size: smaller;
+}
