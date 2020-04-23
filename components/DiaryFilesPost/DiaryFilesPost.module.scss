@@ -23,39 +23,46 @@
 .date {
   @extend .diaryFilesTextUppercase;
 
-  font-size: var(--font-size-sm);
+  font-weight: 700;
+  font-size: var(--font-size-md);
   opacity: 0.8;
+
+  // @include media-sm {
+  //   font-size: var(--font-size-md);
+  // }
 }
 
 .content {
+  margin-bottom: var(--spacing-xxxlg);
   font-size: var(--font-size-md);
   font-family: var(--font-diaryFiles);
   line-height: 1.55;
   opacity: 0.8;
 
   @include media-sm {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
   }
 }
 
 .authorName {
-  @extend .diaryFilesTextUppercase;
+  // @extend .diaryFilesTextUppercase;
 
+  font-family: var(--font-diaryFiles);
   text-align: right;
   opacity: 0.8;
 }
 
-.authorName span {
-  font-size: smaller;
-  text-transform: none;
-}
+// .authorName span {
+//   // font-size: smaller;
+//   // text-transform: none;
+// }
 
 .authorLocation {
   // @extend .diaryFilesTextUppercase;
   font-family: var(--font-diaryFiles);
   text-align: right;
   text-transform: none;
-  opacity: 0.8;
+  // opacity: 0.8;
 }
 
 .backButton {

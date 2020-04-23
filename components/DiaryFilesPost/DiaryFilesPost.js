@@ -45,7 +45,7 @@ const DiaryFilesPost = ({
     <>
       <article className={[css.diaryFilesPost, className || ''].join(' ')}>
         {/* <h1>{title}</h1> */}
-        {singleView ? (
+        {/* {singleView ? (
           <CTAButton href={`/diary-files`} className={css.backButton}>
             back
           </CTAButton>
@@ -53,40 +53,39 @@ const DiaryFilesPost = ({
           <CTAButton href={`/diary-files/${id}`} className={css.viewButton}>
             view
           </CTAButton>
-        )}
+        )} */}
         <p className={css.date}>{dateText}</p>
         <div
           className={css.content}
           dangerouslySetInnerHTML={{ __html: content }}
         ></div>
 
-        {
-          <div className={css.authorName}>
+        <div className={css.authorName}>
+          <p>
             {authorName || 'anonymous'}
             {age && <span>{`, ${age}`}</span>}
+            {!outsideAustralia && (city || state || postcode) && (
+              <div className={css.authorLocation}>
+                {'of '}
+                {city}
+                {city && (state || postcode) && ', '}
+                {state}
+                {postcode && state && `, `}
+                {postcode}
+                <br />
+              </div>
+            )}
+
             {relatedPosts && relatedPosts.length > 0 && (
               <>
                 <br />
-                {!outsideAustralia && (city || state || postcode) && (
-                  <div className={css.authorLocation}>
-                    {'of '}
-                    {city}
-                    {city && (state || postcode) && ', '}
-                    {state}
-                    {postcode && state && `, `}
-                    {postcode}
-                    <br />
-                  </div>
-                )}
-                <span>
-                  <a href={`/diary-files/related/${id}`}>
-                    See all by this author
-                  </a>
-                </span>
+                <a href={`/diary-files/related/${id}`}>
+                  See all by this author
+                </a>
               </>
             )}
-          </div>
-        }
+          </p>
+        </div>
 
         {/* <div className={css.hole}></div> */}
         <div className={css.sharingIcons}>
