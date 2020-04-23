@@ -16,7 +16,10 @@ const DiaryFilesAbout = ({ className }) => {
   return (
     <div className={[css.diaryFilesAbout, className || ''].join(' ')}>
       <h1>{page && page.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: page && page.content }} />
+      <div
+        className={css.diaryFilesAboutBody}
+        dangerouslySetInnerHTML={{ __html: page && page.content }}
+      />
     </div>
   );
 };

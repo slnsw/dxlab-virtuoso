@@ -25,7 +25,7 @@
 
 .diaryFilesAllowHover {
   &:hover {
-    outline: 4px solid var(--colour-grey-darker);
+    outline: 4px solid var(--colour-highlight);
     cursor: pointer;
   }
 }
@@ -55,56 +55,30 @@
   }
 }
 
-.authorName {
-  // @extend .diaryFilesTextUppercase;
-
+.authorInfo {
   font-size: 1.1em;
   font-family: var(--font-diaryFiles);
   text-align: right;
+}
+
+.authorName {
+  // font-size: 1.1em;
+  // font-family: var(--font-diaryFiles);
+  // text-align: right;
   opacity: 0.8;
 }
 
-// .authorName span {
-//   // font-size: smaller;
+// .authorLocation {
+//   font-family: var(--font-diaryFiles);
+//   text-align: right;
 //   // text-transform: none;
+//   // opacity: 0.8;
 // }
-
-.authorLocation {
-  // @extend .diaryFilesTextUppercase;
-  font-family: var(--font-diaryFiles);
-  text-align: right;
-  text-transform: none;
-  // opacity: 0.8;
-}
 
 .backButton {
-  // float: right;
   max-width: 7em;
   margin-bottom: var(--spacing-lg);
-  // color: var(--colour-black);
-  // border-color: var(--colour-black);
-
-  // &:link,
-  // &:visited {
-  //   color: var(--colour-black);
-  // }
-
-  // &:hover {
-  //   color: var(--colour-highlight);
-  // }
 }
-
-// .hole {
-//   width: 2em;
-//   height: 2em;
-//   margin: 0 auto;
-//   border: 1px solid var(--colour-white);
-//   border-radius: 1em;
-// }
-
-// .sharingIcons {
-// height: auto;
-// }
 
 .sharingIcon {
   margin-right: var(--spacing-xxs);

@@ -63,42 +63,35 @@ const DiaryFilesPost = ({
           }
         }}
       >
-        {/* <h1>{title}</h1> */}
         <p className={css.date}>{dateText}</p>
         <div
           className={css.content}
           dangerouslySetInnerHTML={{ __html: content }}
         ></div>
 
-        <div className={css.authorName}>
-          <p>
-            {authorName || 'anonymous'}
-            {age && <span>{`, ${age}`}</span>}
-            {!outsideAustralia && (city || state || postcode) && (
-              <div className={css.authorLocation}>
-                {'of '}
-                {city}
-                {city && (state || postcode) && ', '}
-                {state}
-                {postcode && state && `, `}
-                {postcode}
-                <br />
-              </div>
-            )}
+        <p className={css.authorInfo}>
+          <span className={css.authorName}>{authorName || 'anonymous'}</span>
+          {age && `, ${age}`}
+          {!outsideAustralia && (city || state || postcode) && (
+            <>
+              <br />
+              {'of '}
+              {city}
+              {city && (state || postcode) && ', '}
+              {state}
+              {postcode && state && `, `}
+              {postcode}
+            </>
+          )}
+          {relatedPosts && relatedPosts.length > 0 && (
+            <>
+              <br />
+              <a href={`/diary-files/related/${id}`}>See all by this author</a>
+            </>
+          )}
+        </p>
 
-            {relatedPosts && relatedPosts.length > 0 && (
-              <>
-                <br />
-                <a href={`/diary-files/related/${id}`}>
-                  See all by this author
-                </a>
-              </>
-            )}
-          </p>
-        </div>
-
-        {/* <div className={css.hole}></div> */}
-        <div className={css.sharingIcons}>
+        <div>
           <a
             href={fbLink}
             aria-label="Share this entry on Facebook"
@@ -119,14 +112,16 @@ const DiaryFilesPost = ({
             <Icon name="twitter" />
           </a>
 
-          <a
-            href={`/diary-files/${id}`}
-            aria-label="View this entry"
-            rel="noopener noreferrer"
-            className={css.sharingIcon}
-          >
-            <Icon name="enter" />
-          </a>
+          {!singleView && (
+            <a
+              href={`/diary-files/${id}`}
+              aria-label="View this entry"
+              rel="noopener noreferrer"
+              className={css.sharingIcon}
+            >
+              <Icon name="enter" />
+            </a>
+          )}
         </div>
       </article>
     </>
