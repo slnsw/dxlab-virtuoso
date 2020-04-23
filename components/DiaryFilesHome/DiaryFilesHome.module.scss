@@ -25,17 +25,19 @@
   margin-bottom: var(--spacing-md);
   font-size: var(--font-size-xlg);
   font-family: var(--font-diaryFiles);
+  line-height: 1.2;
 }
 
 .smallText {
   @extend .font-uppercase;
 
+  margin-bottom: var(--spacing-md);
   font-size: var(--font-size-sm);
 }
 
 .mastheadButton {
   max-width: 20em;
-  margin: 0 auto var(--spacing-md);
+  margin: 0 auto var(--spacing-lg);
 }
 
 .divider {
