@@ -66,8 +66,8 @@ const DesignSystemPage = () => {
       <p>
         <a href="https://ionicons.com/">Ionicons</a>
       </p>
-      <Icon name="logo-facebook" size="xlg" />
-      <Icon name="logo-twitter" size="xlg" />
+      <Icon name="facebook" size="xlg" />
+      <Icon name="twitter" size="xlg" />
       <Icon name="close" size="xlg" />
     </WebsiteApp>
   );

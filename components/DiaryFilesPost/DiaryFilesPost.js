@@ -100,7 +100,7 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="logo-facebook" />
+            <Icon name="facebook" />
           </a>
 
           <a
@@ -110,7 +110,7 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="logo-twitter" />
+            <Icon name="twitter" />
           </a>
         </div>
       </article>

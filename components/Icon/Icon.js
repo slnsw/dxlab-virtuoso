@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 // import css from './Icon.module.scss';
 
 const Icon = ({ name, size = 'md', className }) => {
-  const isSharp = ['close'].includes(name);
+  const isLogo = ['facebook', 'twitter'].includes(name);
 
   return (
     <ion-icon
-      name={`${name}${isSharp ? '-sharp' : ''}`}
+      name={`${isLogo ? 'logo-' : ''}${name}${isLogo ? '' : '-sharp'}`}
       // name={name}
       className={[
         // css.icon,
