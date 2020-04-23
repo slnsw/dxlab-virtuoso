@@ -5,9 +5,20 @@ import css from './Typewriter.module.scss';
 
 const Typewriter = () => {
   const vivus = React.useRef();
+  const [isBright, setIsBright] = React.useState(false);
 
   React.useEffect(() => {
-    vivus.current = new Vivus('Layer_1', { duration: 300 });
+    vivus.current = new Vivus(
+      'Layer_1',
+      {
+        duration: 200,
+        type: 'sync',
+        animTimingFunction: Vivus.EASE,
+      },
+      () => {
+        setIsBright(true);
+      },
+    );
 
     return () => {
       vivus.current.destroy();
@@ -20,7 +31,7 @@ const Typewriter = () => {
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 592 440"
-      className={css.typewriter}
+      className={[css.typewriter, isBright ? css.bright : ''].join(' ')}
     >
       <defs>
         <style>{`.st0{fill:none;stroke:#fff;stroke-miterlimit:10;}`}</style>

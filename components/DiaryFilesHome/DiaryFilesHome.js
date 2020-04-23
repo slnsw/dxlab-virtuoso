@@ -6,18 +6,13 @@ import gql from 'graphql-tag';
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
 import Link from '../Link';
-// import CTAButtonV2 from '../CTAButtonV2';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
-// import Icon from '../Icon';
-// import Modal from '../Modal';
-// import DiaryFilesForm from '../DiaryFilesForm';
 
 import css from './DiaryFilesHome.module.scss';
 
 const DiaryFilesHome = ({ className }) => {
   const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery);
-  // const [isFormModalActive, setIsFormModalActive] = React.useState(false);
 
   let status;
 

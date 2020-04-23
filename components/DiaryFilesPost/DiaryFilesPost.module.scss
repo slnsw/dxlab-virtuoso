@@ -114,4 +114,8 @@
   &:visited {
     color: var(--colour-black);
   }
+
+  &:hover {
+    color: var(--colour-highlight);
+  }
 }

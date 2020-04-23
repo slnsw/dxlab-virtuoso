@@ -128,7 +128,9 @@ const DiaryFilesForm = (props) => {
       <div className={css['diaryFilesForm']}>
         {!isFormSubmitted ? (
           <div>
-            <p className={css['diaryFilesForm__intro']}>Tell us a story...</p>
+            <p className={css['diaryFilesForm__intro']}>
+              Write your diary entry...
+            </p>
             <form onSubmit={handleSubmit} className={css.form}>
               <div
                 className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__date']}`}
