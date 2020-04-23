@@ -10,7 +10,7 @@ const Icon = ({ name, size = 'md', className }) => {
     <ion-icon
       name={`${isLogo ? 'logo-' : ''}${name}${isLogo ? '' : '-sharp'}`}
       // name={name}
-      className={[
+      class={[
         // css.icon,
         className || '',
       ].join(' ')}

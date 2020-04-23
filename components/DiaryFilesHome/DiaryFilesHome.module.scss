@@ -29,10 +29,11 @@
 }
 
 .smallText {
-  @extend .font-uppercase;
+  // @extend .font-uppercase;
 
   margin-bottom: var(--spacing-md);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
+  font-family: var(--font-diaryFiles);
 }
 
 .mastheadButton {
