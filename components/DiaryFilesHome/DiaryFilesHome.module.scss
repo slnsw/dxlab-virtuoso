@@ -7,8 +7,13 @@
 .masthead {
   max-width: var(--container-width-md);
   margin-bottom: var(--spacing-xxxlg);
-  padding: 0 var(--spacing-xxxlg);
+  padding: 0 0;
   text-align: center;
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxxlg);
+    padding: 0 var(--spacing-xxxlg);
+  }
 
   p {
     margin-bottom: var(--spacing-lg);

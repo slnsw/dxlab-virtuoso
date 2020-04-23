@@ -1,6 +1,8 @@
 import React from 'react';
 import Vivus from 'vivus';
 
+import css from './Typewriter.module.scss';
+
 const Typewriter = () => {
   const vivus = React.useRef();
 
@@ -18,9 +20,7 @@ const Typewriter = () => {
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 592 440"
-      style={{
-        marginBottom: 'var(--spacing-xxxlg)',
-      }}
+      className={css.typewriter}
     >
       <defs>
         <style>{`.st0{fill:none;stroke:#fff;stroke-miterlimit:10;}`}</style>
