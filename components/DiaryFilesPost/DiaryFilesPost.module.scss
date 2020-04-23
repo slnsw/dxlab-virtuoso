@@ -11,7 +11,7 @@
   padding: var(--spacing-md);
   color: var(--colour-black);
   background-color: var(--colour-white);
-  border: 1px solid var(--colour-white);
+  // border: 1px solid var(--colour-white);
 
   @include media-sm {
     margin-bottom: var(--spacing-xxxxlg);
@@ -25,8 +25,8 @@
 
 .diaryFilesAllowHover {
   &:hover {
-    // background-color: var(--colour-grey-light);
-    opacity: 0.8;
+    outline: 4px solid var(--colour-grey-darker);
+    cursor: pointer;
   }
 }
 
