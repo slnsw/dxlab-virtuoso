@@ -13,6 +13,8 @@ const MenuIconButton = ({ isOpen, className, ...restProps }) => {
         isOpen ? css.isOpen : '',
         className || '',
       ].join(' ')}
+      aria-haspopup="true"
+      aria-expanded={isOpen}
       {...restProps}
     >
       <div>
