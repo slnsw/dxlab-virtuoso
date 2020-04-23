@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 // import css from './Icon.module.scss';
 
 const Icon = ({ name, size = 'md', className }) => {
+  const isSharp = ['close'].includes(name);
+
   return (
     <ion-icon
-      // name={`${name}-sharp`}  // this breaks the ones starting with 'logo-'
-      name={name}
+      name={`${name}${isSharp ? '-sharp' : ''}`}
+      // name={name}
       className={[
         // css.icon,
         className || '',
@@ -20,7 +22,7 @@ const Icon = ({ name, size = 'md', className }) => {
 };
 
 Icon.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xlg', 'xxlg']),
   className: PropTypes.string,
 };
 

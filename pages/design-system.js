@@ -10,7 +10,7 @@ import Icon from '../components/Icon';
 
 const DesignSystemPage = () => {
   const [isOverlayActive, setIsOverlayActive] = React.useState(false);
-  const [isModalActive, setIsModalActive] = React.useState(true);
+  const [isModalActive, setIsModalActive] = React.useState(false);
 
   return (
     <WebsiteApp>
@@ -66,7 +66,9 @@ const DesignSystemPage = () => {
       <p>
         <a href="https://ionicons.com/">Ionicons</a>
       </p>
-      <Icon name="logo-facebook" />
+      <Icon name="logo-facebook" size="xlg" />
+      <Icon name="logo-twitter" size="xlg" />
+      <Icon name="close" size="xlg" />
     </WebsiteApp>
   );
 };
