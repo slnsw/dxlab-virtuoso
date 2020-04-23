@@ -18,7 +18,7 @@
   }
 }
 
-.headerLogo {
+.diaryFilesApp .headerLogo {
   height: 1em;
 
   @include media-sm {
@@ -46,7 +46,7 @@
 
   @include media-sm {
     margin: 0;
-    font-size: var(--font-size-xxlg);
+    font-size: var(--font-size-xxxlg);
   }
 }
 
@@ -65,5 +65,9 @@
 .main {
   max-width: var(--container-width-md);
   margin: 0 auto;
-  padding-top: var(--spacing-xxxlg);
+  padding-top: var(--spacing-xlg);
+
+  @include media-sm {
+    padding-top: var(--spacing-xxxlg);
+  }
 }

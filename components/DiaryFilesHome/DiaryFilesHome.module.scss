@@ -15,24 +15,27 @@
     padding: 0 var(--spacing-xxlg);
   }
 
-  p {
-    // margin-bottom: var(--spacing-md);
-    font-family: var(--font-diaryFiles);
-  }
+  // p {
+  //   // margin-bottom: var(--spacing-md);
+  //   // font-family: var(--font-diaryFiles);
+  // }
 }
 
 .kicker {
   margin-bottom: var(--spacing-md);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xlg);
+  font-family: var(--font-diaryFiles);
 }
 
 .smallText {
+  @extend .font-uppercase;
+
   font-size: var(--font-size-sm);
 }
 
 .mastheadButton {
   max-width: 20em;
-  margin: 0 auto var(--spacing-lg);
+  margin: 0 auto var(--spacing-md);
 }
 
 .divider {
@@ -42,10 +45,10 @@
 }
 
 .sectionTitle {
-  margin-bottom: var(--spacing-xlg);
-  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  // font-weight: 500;
   font-size: var(--font-size-md);
-  font-family: var(--font-diaryFiles);
+  // font-family: var(--font-diaryFiles);
   text-align: center;
 }
 
