@@ -21,3 +21,12 @@
   max-width: 20em;
   margin: 0 auto;
 }
+
+.diaryFilesModalWrapper {
+  display: flex;
+  max-width: var(--container-width-lg);
+  margin-right: auto;
+  margin-bottom: var(--spacing-xxxlg);
+  margin-left: auto;
+  padding: 0 var(--spacing-xxxlg);
+}
