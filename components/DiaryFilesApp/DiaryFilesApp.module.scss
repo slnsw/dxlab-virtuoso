@@ -36,11 +36,13 @@
 
 .headerTitle {
   margin: var(--spacing-xxxs) 0 0 var(--spacing-md);
+  font-weight: 500;
   font-size: var(--font-size-sm);
   font-family: var(--font-diaryFiles);
   line-height: 1;
   letter-spacing: 0;
   text-transform: none;
+  transform: translate(0, 0.15em);
 
   @include media-sm {
     margin: 0;

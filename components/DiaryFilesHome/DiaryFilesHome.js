@@ -5,9 +5,11 @@ import gql from 'graphql-tag';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
+import Link from '../Link';
 // import CTAButtonV2 from '../CTAButtonV2';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
+// import Icon from '../Icon';
 // import Modal from '../Modal';
 // import DiaryFilesForm from '../DiaryFilesForm';
 
@@ -34,7 +36,8 @@ const DiaryFilesHome = ({ className }) => {
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
       <div className={css.masthead}>
         <Typewriter />
-        <p>Everyone has a story to tell</p>
+
+        <p className={css.kicker}>Everyone has a story to tell</p>
 
         <CTAButton
           // onClick={() => setIsFormModalActive(true)}
@@ -43,10 +46,22 @@ const DiaryFilesHome = ({ className }) => {
         >
           Start writing
         </CTAButton>
-        <CTAButton href="/diary-files/about" className={css.mastheadButton}>
+
+        <br />
+
+        <p className={css.smallText}>
+          <Link href="/diary-files/about">
+            <a>About this project</a>
+          </Link>
+        </p>
+        {/* <CTAButton href="/diary-files/about" className={css.mastheadButton}>
           About
-        </CTAButton>
+        </CTAButton> */}
+
+        <div className={css.divider}></div>
       </div>
+
+      <h2 className={css.sectionTitle}>Recent Entries</h2>
 
       {status === 'error' && error.message}
 
