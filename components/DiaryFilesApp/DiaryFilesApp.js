@@ -25,6 +25,7 @@ const DiaryFilesApp = ({ children, className }) => {
           href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
           rel="stylesheet"
         />
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </Head>
 
       <header className={css.header}>

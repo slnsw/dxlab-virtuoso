@@ -43,9 +43,6 @@ const DiaryFilesPost = ({
 
   return (
     <>
-      <Head>
-        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-      </Head>
       <article className={[css.diaryFilesPost, className || ''].join(' ')}>
         {/* <h1>{title}</h1> */}
         {singleView ? (

@@ -8,6 +8,7 @@ import CTAButton from '../CTAButton';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
+import Icon from '../Icon';
 
 import css from './DiaryFilesHome.module.scss';
 
