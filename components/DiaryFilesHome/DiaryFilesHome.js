@@ -11,19 +11,20 @@ import Typewriter from './Typewriter';
 import css from './DiaryFilesHome.module.scss';
 
 const DiaryFilesHome = ({ className }) => {
-  const { loading, error, data } = useQuery(postsQuery);
+  const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery);
 
-  if (loading) {
-    return <LoaderText />;
-  }
+  let status;
 
   if (error) {
-    return error.message;
+    status = 'error';
+  } else if (loading) {
+    status = 'loading';
+  } else {
+    status = 'loaded';
   }
 
   const { diaryFiles } = data;
   const { posts } = diaryFiles;
-  // console.log(posts);
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
@@ -39,25 +40,30 @@ const DiaryFilesHome = ({ className }) => {
         </CTAButton>
       </div>
 
-      {posts.map((post) => {
-        return (
-          <DiaryFilesPost
-            id={post.id}
-            key={post.id}
-            title={post.title}
-            content={post.content}
-            dateText={post.dateText}
-            authorName={post.authorName}
-            city={post.city}
-            state={post.state}
-            postcode={post.postcode}
-            outsideAustralia={post.outsideAustralia}
-            age={post.age}
-            relatedPosts={post.relatedPosts}
-            singleView={false}
-          />
-        );
-      })}
+      {status === 'error' && error.message}
+
+      {status === 'loading' && <LoaderText />}
+
+      {status === 'loaded' &&
+        posts.map((post) => {
+          return (
+            <DiaryFilesPost
+              id={post.id}
+              key={post.id}
+              title={post.title}
+              content={post.content}
+              dateText={post.dateText}
+              authorName={post.authorName}
+              city={post.city}
+              state={post.state}
+              postcode={post.postcode}
+              outsideAustralia={post.outsideAustralia}
+              age={post.age}
+              relatedPosts={post.relatedPosts}
+              singleView={false}
+            />
+          );
+        })}
     </div>
   );
 };
