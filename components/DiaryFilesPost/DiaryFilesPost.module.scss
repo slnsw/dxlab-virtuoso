@@ -4,7 +4,7 @@
 
 .diaryFilesPost {
   display: block;
-  max-width: 40em;
+  // max-width: 40em;
   margin-right: auto;
   margin-bottom: var(--spacing-xlg);
   margin-left: auto;
@@ -20,6 +20,13 @@
 
   & > *:last-child {
     margin-bottom: 0;
+  }
+}
+
+.diaryFilesAllowHover {
+  &:hover {
+    // background-color: var(--colour-grey-light);
+    opacity: 0.8;
   }
 }
 
@@ -71,37 +78,20 @@
 }
 
 .backButton {
-  float: right;
-  width: 20%;
+  // float: right;
+  max-width: 7em;
   margin-bottom: var(--spacing-lg);
-  color: var(--colour-black);
-  border-color: var(--colour-black);
+  // color: var(--colour-black);
+  // border-color: var(--colour-black);
 
-  &:link,
-  &:visited {
-    color: var(--colour-black);
-  }
+  // &:link,
+  // &:visited {
+  //   color: var(--colour-black);
+  // }
 
-  &:hover {
-    color: var(--colour-highlight);
-  }
-}
-
-.viewButton {
-  float: right;
-  width: 20%;
-  margin-bottom: var(--spacing-lg);
-  color: var(--colour-black);
-  border-color: var(--colour-black);
-
-  &:link,
-  &:visited {
-    color: var(--colour-black);
-  }
-
-  &:hover {
-    color: var(--colour-highlight);
-  }
+  // &:hover {
+  //   color: var(--colour-highlight);
+  // }
 }
 
 // .hole {
@@ -112,15 +102,15 @@
 //   border-radius: 1em;
 // }
 
-.sharingIcons {
-  // height: auto;
-}
+// .sharingIcons {
+// height: auto;
+// }
 
 .sharingIcon {
-  // width: 64px;
   margin-right: var(--spacing-xxs);
+  // margin-bottom: 0;
   color: var(--colour-black);
-  font-size: var(--font-size-xxlg);
+  font-size: var(--font-size-xlg);
 
   &:link,
   &:visited {

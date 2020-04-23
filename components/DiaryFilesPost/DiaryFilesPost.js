@@ -1,5 +1,9 @@
 import React from 'react';
+// import Head from 'next/head';
 import PropTypes from 'prop-types';
+import Router from 'next/router';
+
+import CTAButton from '../CTAButton';
 import Icon from '../Icon';
 
 import css from './DiaryFilesPost.module.scss';
@@ -17,7 +21,7 @@ const DiaryFilesPost = ({
   postcode,
   outsideAustralia,
   relatedPosts,
-  // singleView = true,
+  singleView = true,
 }) => {
   // REPLACE WITH REAL CONTENT!!! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   const text = 'Check out this Diary Files entry. #dxlab @statelibrarynsw';
@@ -41,17 +45,25 @@ const DiaryFilesPost = ({
 
   return (
     <>
-      <article className={[css.diaryFilesPost, className || ''].join(' ')}>
+      {singleView && (
+        <CTAButton href={`/diary-files`} className={css.backButton}>
+          back
+        </CTAButton>
+      )}
+
+      <article
+        className={[
+          singleView ? '' : css.diaryFilesAllowHover,
+          css.diaryFilesPost,
+          className || '',
+        ].join(' ')}
+        onClick={() => {
+          if (!singleView) {
+            Router.push(`/diary-files/${id}`);
+          }
+        }}
+      >
         {/* <h1>{title}</h1> */}
-        {/* {singleView ? (
-          <CTAButton href={`/diary-files`} className={css.backButton}>
-            back
-          </CTAButton>
-        ) : (
-          <CTAButton href={`/diary-files/${id}`} className={css.viewButton}>
-            view
-          </CTAButton>
-        )} */}
         <p className={css.date}>{dateText}</p>
         <div
           className={css.content}
@@ -89,7 +101,7 @@ const DiaryFilesPost = ({
         <div className={css.sharingIcons}>
           <a
             href={fbLink}
-            aria-label="Share this post on Facebook"
+            aria-label="Share this entry on Facebook"
             target="_blank"
             rel="noopener noreferrer"
             className={css.sharingIcon}
@@ -99,12 +111,21 @@ const DiaryFilesPost = ({
 
           <a
             href={twitterLink}
-            aria-label="Share this post on Twitter"
+            aria-label="Share this entry on Twitter"
             target="_blank"
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
             <Icon name="twitter" />
+          </a>
+
+          <a
+            href={`/diary-files/${id}`}
+            aria-label="View this entry"
+            rel="noopener noreferrer"
+            className={css.sharingIcon}
+          >
+            <Icon name="enter" />
           </a>
         </div>
       </article>
