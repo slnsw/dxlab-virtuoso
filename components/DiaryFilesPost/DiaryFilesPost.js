@@ -64,7 +64,7 @@ const DiaryFilesPost = ({
         ></div>
 
         {
-          <p className={css.authorName}>
+          <div className={css.authorName}>
             {authorName || 'anonymous'}
             {age && <span>{`, ${age}`}</span>}
             {relatedPosts && relatedPosts.length > 0 && (
@@ -88,7 +88,7 @@ const DiaryFilesPost = ({
                 </span>
               </>
             )}
-          </p>
+          </div>
         }
 
         {/* <div className={css.hole}></div> */}
