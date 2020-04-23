@@ -27,8 +27,8 @@ const DiaryFilesPost = ({
     `Check out this Diary Files entry. #dxlab @statelibrarynsw`,
   );
   const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
-  // WHAT IMAGE TO USE???? XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  const imageUrl = '';
+
+  const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.png';
   // TODO: Use baseUrl variable
   const url = encodeURIComponent(
     `http://dxlab.sl.nsw.gov.au/diary-files/${id}`,
@@ -64,12 +64,23 @@ const DiaryFilesPost = ({
         ></div>
 
         {
-          <p className={css.authorName}>
+          <div className={css.authorName}>
             {authorName || 'anonymous'}
             {age && <span>{`, ${age}`}</span>}
             {relatedPosts && relatedPosts.length > 0 && (
               <>
                 <br />
+                {!outsideAustralia && (city || state || postcode) && (
+                  <div className={css.authorLocation}>
+                    {'of '}
+                    {city}
+                    {city && (state || postcode) && ', '}
+                    {state}
+                    {postcode && state && `, `}
+                    {postcode}
+                    <br />
+                  </div>
+                )}
                 <span>
                   <a href={`/diary-files/related/${id}`}>
                     See all by this author
@@ -77,19 +88,8 @@ const DiaryFilesPost = ({
                 </span>
               </>
             )}
-          </p>
+          </div>
         }
-
-        {!outsideAustralia && (city || state || postcode) && (
-          <p className={css.authorLocation}>
-            {'of '}
-            {city}
-            {city && (state || postcode) && ', '}
-            {state}
-            {postcode && state && `, `}
-            {postcode}
-          </p>
-        )}
 
         {/* <div className={css.hole}></div> */}
         <div className={css.sharingIcons}>
