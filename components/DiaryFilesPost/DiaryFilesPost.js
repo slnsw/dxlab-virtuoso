@@ -1,7 +1,5 @@
 import React from 'react';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
-import CTAButton from '../CTAButton';
 import Icon from '../Icon';
 
 import css from './DiaryFilesPost.module.scss';
@@ -19,7 +17,7 @@ const DiaryFilesPost = ({
   postcode,
   outsideAustralia,
   relatedPosts,
-  singleView = true,
+  // singleView = true,
 }) => {
   // REPLACE WITH REAL CONTENT!!! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   const text = 'Check out this Diary Files entry. #dxlab @statelibrarynsw';

@@ -1,10 +1,13 @@
 @import '../../styles/global.scss';
 
-@import '../DiaryFilesApp/text.scss';
+@import '../../styles/diary-files/text.scss';
 
 .diaryFilesPost {
   display: block;
+  max-width: 40em;
+  margin-right: auto;
   margin-bottom: var(--spacing-xlg);
+  margin-left: auto;
   padding: var(--spacing-md);
   color: var(--colour-black);
   background-color: var(--colour-white);
@@ -40,13 +43,15 @@
   opacity: 0.8;
 
   @include media-sm {
-    font-size: var(--font-size-md);
+    // font-size: var(--font-size-md);
+    font-size: 1.1em;
   }
 }
 
 .authorName {
   // @extend .diaryFilesTextUppercase;
 
+  font-size: 1.1em;
   font-family: var(--font-diaryFiles);
   text-align: right;
   opacity: 0.8;
