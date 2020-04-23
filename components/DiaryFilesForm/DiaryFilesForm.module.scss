@@ -145,3 +145,9 @@
 
   font-size: smaller;
 }
+
+.continueButton {
+  @include media-md {
+    width: 20%;
+  }
+}

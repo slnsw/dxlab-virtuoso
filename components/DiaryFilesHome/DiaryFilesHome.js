@@ -5,17 +5,17 @@ import gql from 'graphql-tag';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
-import CTAButtonV2 from '../CTAButtonV2';
+// import CTAButtonV2 from '../CTAButtonV2';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
-import Modal from '../Modal';
-import DiaryFilesForm from '../DiaryFilesForm';
+// import Modal from '../Modal';
+// import DiaryFilesForm from '../DiaryFilesForm';
 
 import css from './DiaryFilesHome.module.scss';
 
 const DiaryFilesHome = ({ className }) => {
   const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery);
-  const [isFormModalActive, setIsFormModalActive] = React.useState(false);
+  // const [isFormModalActive, setIsFormModalActive] = React.useState(false);
 
   let status;
 
@@ -36,13 +36,13 @@ const DiaryFilesHome = ({ className }) => {
         <Typewriter />
         <p>Everyone has a story to tell</p>
 
-        <CTAButtonV2
-          onClick={() => setIsFormModalActive(true)}
-          // href="/diary-files/write"
+        <CTAButton
+          // onClick={() => setIsFormModalActive(true)}
+          href="/diary-files/write"
           className={css.mastheadButton}
         >
           Start writing
-        </CTAButtonV2>
+        </CTAButton>
         <CTAButton href="/diary-files/about" className={css.mastheadButton}>
           About
         </CTAButton>
@@ -72,14 +72,14 @@ const DiaryFilesHome = ({ className }) => {
             />
           );
         })}
-      <Modal
+      {/* <Modal
         isActive={isFormModalActive}
         onClose={() => setIsFormModalActive(false)}
       >
         <div className={css.diaryFilesModalWrapper}>
-          <DiaryFilesForm />
+          <DiaryFilesForm onClose={() => setIsFormModalActive(false)} />
         </div>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import Select from '../Select/Select';
 
 import css from './DiaryFilesForm.module.scss';
+import CTAButton from '../CTAButton';
 
 function yyyymmdd() {
   const date = new Date();
@@ -309,6 +310,21 @@ const DiaryFilesForm = (props) => {
               </a>{' '}
               and you can share it with your friends and family.
             </p>
+            <CTAButton href="/diary-files" className={css.continueButton}>
+              Continue
+            </CTAButton>
+            {/* <CTAButtonV2
+              onClick={() => {
+                if (typeof props.onClose === 'function') {
+                  // setShowWarning(false);
+                  // setShowSubmitError(false);
+                  // setIsFormSubmitted(false);
+                  props.onClose();
+                }
+              }}
+            >
+              continue
+            </CTAButtonV2> */}
           </div>
         )}
       </div>
