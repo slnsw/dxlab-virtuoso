@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 
-import CTAButton from '../CTAButton';
+// import CTAButton from '../CTAButton';
+import CTAButtonV2 from '../CTAButtonV2';
 // import Icon from '../Icon';
+import setupSocials from '../../lib/social';
 
 import css from './DiaryFilesPost.module.scss';
-import setupSocials from '../../lib/social';
 
 const DiaryFilesPost = ({
   id,
@@ -51,9 +52,13 @@ const DiaryFilesPost = ({
   return (
     <>
       {singleView && (
-        <CTAButton href={`/diary-files`} className={css.backButton}>
+        <CTAButtonV2
+          onClick={() => Router.back()}
+          // href={`/diary-files`}
+          className={css.backButton}
+        >
           back
-        </CTAButton>
+        </CTAButtonV2>
       )}
 
       <article
