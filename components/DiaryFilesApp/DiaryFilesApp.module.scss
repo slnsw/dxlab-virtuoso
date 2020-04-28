@@ -1,7 +1,8 @@
 @import '../../styles/global.scss';
 
 .diaryFilesApp {
-  --font-diaryFiles: 'Special Elite', cursive;
+  --font-diary-files: 'Special Elite', cursive;
+  --font-diary-files-line-height-md: 1.55;
 
   display: block;
 }
@@ -38,7 +39,7 @@
   margin: var(--spacing-xxxs) 0 0 var(--spacing-md);
   font-weight: 500;
   font-size: var(--font-size-sm);
-  font-family: var(--font-diaryFiles);
+  font-family: var(--font-diary-files);
   line-height: 1;
   letter-spacing: 0;
   text-transform: none;

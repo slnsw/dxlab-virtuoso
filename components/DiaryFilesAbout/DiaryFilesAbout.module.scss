@@ -4,17 +4,20 @@
   display: block;
 }
 
-.diaryFilesAboutBody {
+.content {
   margin-right: auto;
   margin-bottom: var(--spacing-xlg);
   margin-left: auto;
   padding: var(--spacing-md);
   color: var(--colour-black);
+  font-family: var(--font-diary-files);
+  line-height: var(--font-diary-files-line-height-md);
   background-color: var(--colour-white);
 
   @include media-sm {
-    margin-bottom: var(--spacing-xxxxlg);
+    margin-bottom: var(--spacing-xlg);
     padding: var(--spacing-xxlg);
+    font-size: 1.1em;
   }
 
   & > *:last-child {
@@ -26,7 +29,14 @@
   margin-right: auto;
   margin-bottom: var(--spacing-xlg);
   margin-left: auto;
-  padding: var(--spacing-md);
-  // color: var(--colour-white);
-  // background-color: var(--colour-black);
+  // padding: var(--spacing-md);
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxlg);
+    padding: 0 var(--spacing-xxlg);
+  }
+
+  p {
+    font-family: var(--font-secondary);
+  }
 }

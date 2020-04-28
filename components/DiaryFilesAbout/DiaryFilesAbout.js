@@ -20,14 +20,14 @@ const DiaryFilesAbout = ({ className }) => {
     extraData.data.diaryFiles &&
     extraData.data.diaryFiles.pages &&
     extraData.data.diaryFiles.pages[0];
-  console.log(pageExtra);
+  // console.log(pageExtra);
 
   return (
-    <div className={[css.diaryFilesAbout, className || ''].join(' ')}>
+    <article className={[css.diaryFilesAbout, className || ''].join(' ')}>
       <h1>{page && page.title}</h1>
       <>
         <div
-          className={css.diaryFilesAboutBody}
+          className={css.content}
           dangerouslySetInnerHTML={{ __html: page && page.content }}
         />
         <div
@@ -35,7 +35,7 @@ const DiaryFilesAbout = ({ className }) => {
           dangerouslySetInnerHTML={{ __html: pageExtra && pageExtra.content }}
         />
       </>
-    </div>
+    </article>
   );
 };
 

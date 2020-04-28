@@ -1,6 +1,6 @@
 @import '../../styles/global.scss';
 
-@import '../../styles/diary-files/text.scss';
+@import '../../styles/diary-files/global.scss';
 
 .diaryFilesPost {
   display: block;
@@ -45,8 +45,8 @@
 .content {
   margin-bottom: var(--spacing-xxxlg);
   font-size: var(--font-size-md);
-  font-family: var(--font-diaryFiles);
-  line-height: 1.55;
+  font-family: var(--font-diary-files);
+  line-height: var(--font-diary-files-line-height-md);
   opacity: 0.8;
 
   @include media-sm {
@@ -57,19 +57,19 @@
 
 .authorInfo {
   font-size: 1.1em;
-  font-family: var(--font-diaryFiles);
+  font-family: var(--font-diary-files);
   text-align: right;
 }
 
 .authorName {
   // font-size: 1.1em;
-  // font-family: var(--font-diaryFiles);
+  // font-family: var(--font-diary-files);
   // text-align: right;
   opacity: 0.8;
 }
 
 // .authorLocation {
-//   font-family: var(--font-diaryFiles);
+//   font-family: var(--font-diary-files);
 //   text-align: right;
 //   // text-transform: none;
 //   // opacity: 0.8;
