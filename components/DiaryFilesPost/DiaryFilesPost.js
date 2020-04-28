@@ -1,5 +1,4 @@
 import React from 'react';
-// import Head from 'next/head';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 
@@ -7,6 +6,7 @@ import CTAButton from '../CTAButton';
 import Icon from '../Icon';
 
 import css from './DiaryFilesPost.module.scss';
+import setupSocials from '../../lib/social';
 
 const DiaryFilesPost = ({
   id,
@@ -23,26 +23,30 @@ const DiaryFilesPost = ({
   relatedPosts,
   singleView = true,
 }) => {
-  // REPLACE WITH REAL CONTENT!!! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
-  const tweetText = encodeURIComponent(
-    `Check out this Diary Files entry. #dxlab @statelibrarynsw`,
-  );
-  const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
+  // const tweetText = encodeURIComponent(
+  //   `Check out this Diary Files entry. #dxlab @statelibrarynsw`,
+  // );
+  // // const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
 
   const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.png';
+  const pathname = `/diary-files/${id}`;
+  const title = 'Diary Files';
   // TODO: Use baseUrl variable
-  const url = encodeURIComponent(
-    `http://dxlab.sl.nsw.gov.au/diary-files/${id}`,
-  );
-  const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
-    'Diary Files',
-  )}&description=${encodeURIComponent(text)}${
-    imageUrl ? `&picture=${imageUrl}` : ''
-  }`;
+  // const url = encodeURIComponent(
+  //   `http://dxlab.sl.nsw.gov.au/diary-files/${id}`,
+  // );
 
-  const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
+  const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
+
+  // const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
+  //   'Diary Files',
+  // )}&description=${encodeURIComponent(text)}${
+  //   imageUrl ? `&picture=${imageUrl}` : ''
+  // }`;
+
+  // const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
 
   return (
     <>

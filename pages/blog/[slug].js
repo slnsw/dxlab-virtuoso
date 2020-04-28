@@ -172,7 +172,7 @@ class Post extends Component {
 
               <ShareBox
                 title={title}
-                text={excerpt}
+                text={`${excerpt} #dxlab @statelibrarynsw`}
                 pathname={`/blog/${router.query.slug}`}
               />
 
