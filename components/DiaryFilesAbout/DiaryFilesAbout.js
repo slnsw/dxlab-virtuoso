@@ -6,20 +6,35 @@ import gql from 'graphql-tag';
 import css from './DiaryFilesAbout.module.scss';
 
 const DiaryFilesAbout = ({ className }) => {
-  const { data } = useQuery(aboutQuery); // loading, error,
+  const { data } = useQuery(aboutQuery);
   const page =
     data &&
     data.diaryFiles &&
     data.diaryFiles.pages &&
     data.diaryFiles.pages[0];
 
+  const extraData = useQuery(aboutExtraQuery); // loading, error,
+  const pageExtra =
+    extraData &&
+    extraData.data &&
+    extraData.data.diaryFiles &&
+    extraData.data.diaryFiles.pages &&
+    extraData.data.diaryFiles.pages[0];
+  console.log(pageExtra);
+
   return (
     <div className={[css.diaryFilesAbout, className || ''].join(' ')}>
       <h1>{page && page.title}</h1>
-      <div
-        className={css.diaryFilesAboutBody}
-        dangerouslySetInnerHTML={{ __html: page && page.content }}
-      />
+      <>
+        <div
+          className={css.diaryFilesAboutBody}
+          dangerouslySetInnerHTML={{ __html: page && page.content }}
+        />
+        <div
+          className={css.diaryFilesAboutExtra}
+          dangerouslySetInnerHTML={{ __html: pageExtra && pageExtra.content }}
+        />
+      </>
     </div>
   );
 };
@@ -28,6 +43,18 @@ const aboutQuery = gql`
   {
     diaryFiles {
       pages(slug: "about") {
+        id
+        title
+        content
+      }
+    }
+  }
+`;
+
+const aboutExtraQuery = gql`
+  {
+    diaryFiles {
+      pages(slug: "about-extra") {
         id
         title
         content

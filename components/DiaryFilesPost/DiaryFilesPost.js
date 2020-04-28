@@ -24,7 +24,8 @@ const DiaryFilesPost = ({
   singleView = true,
 }) => {
   // REPLACE WITH REAL CONTENT!!! XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  const text = 'Check out this Diary Files entry. #dxlab @statelibrarynsw';
+  const text =
+    'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
   const tweetText = encodeURIComponent(
     `Check out this Diary Files entry. #dxlab @statelibrarynsw`,
   );
