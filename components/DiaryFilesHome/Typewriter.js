@@ -9,7 +9,7 @@ const Typewriter = () => {
 
   React.useEffect(() => {
     vivus.current = new Vivus(
-      'Layer_1',
+      'Typewriter',
       {
         duration: 200,
         type: 'sync',
@@ -27,7 +27,7 @@ const Typewriter = () => {
 
   return (
     <svg
-      id="Layer_1"
+      id="Typewriter"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 592 440"
@@ -36,7 +36,7 @@ const Typewriter = () => {
       <defs>
         <style>{`.st0{fill:none;stroke:#fff;stroke-miterlimit:10;}`}</style>
       </defs>
-      <title>remington-01</title>
+      <title>Typewriter</title>
       <path
         className="st0"
         d="M57.7,95.7c0,0,2.7-3.7,3-6.3c0.3-2.7,0.7-5-1.5-8.7C57,77,52.7,71,46.3,72.3c-6.3,1.3-11,6-11.7,9.7
