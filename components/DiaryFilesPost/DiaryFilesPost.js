@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 
-import CTAButton from '../CTAButton';
-import Icon from '../Icon';
+// import CTAButton from '../CTAButton';
+import CTAButtonV2 from '../CTAButtonV2';
+// import Icon from '../Icon';
+import setupSocials from '../../lib/social';
 
 import css from './DiaryFilesPost.module.scss';
-import setupSocials from '../../lib/social';
 
 const DiaryFilesPost = ({
   id,
@@ -51,9 +52,13 @@ const DiaryFilesPost = ({
   return (
     <>
       {singleView && (
-        <CTAButton href={`/diary-files`} className={css.backButton}>
+        <CTAButtonV2
+          onClick={() => Router.back()}
+          // href={`/diary-files`}
+          className={css.backButton}
+        >
           back
-        </CTAButton>
+        </CTAButtonV2>
       )}
 
       <article
@@ -104,7 +109,11 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="facebook" />
+            {/* <Icon name="facebook" /> */}
+            <img
+              src="/images/icons/logo-facebook.svg"
+              alt="Share this entry on Facebook"
+            />
           </a>
 
           <a
@@ -114,7 +123,11 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="twitter" />
+            {/* <Icon name="twitter" /> */}
+            <img
+              src="/images/icons/logo-twitter.svg"
+              alt="Share this entry on Twitter"
+            />
           </a>
 
           {!singleView && (
@@ -124,7 +137,8 @@ const DiaryFilesPost = ({
               rel="noopener noreferrer"
               className={css.sharingIcon}
             >
-              <Icon name="enter" />
+              {/* <Icon name="enter" /> */}
+              <img src="/images/icons/enter-sharp.svg" alt="View this entry" />
             </a>
           )}
         </div>

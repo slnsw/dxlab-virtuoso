@@ -30,7 +30,13 @@ const DiaryFilesHome = ({ className }) => {
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
       <div className={css.masthead}>
-        <Typewriter />
+        <a
+          href="https://collection.sl.nsw.gov.au/digital/Rao2vze3g6okP"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Typewriter />
+        </a>
 
         <p className={css.kicker}>Everyone has a story to tell</p>
 
@@ -97,7 +103,7 @@ const DiaryFilesHome = ({ className }) => {
 const postsQuery = gql`
   {
     diaryFiles {
-      posts {
+      posts(limit: 100) {
         id
         title
         content
