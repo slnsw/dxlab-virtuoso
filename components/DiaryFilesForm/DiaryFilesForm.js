@@ -128,9 +128,7 @@ const DiaryFilesForm = (props) => {
       <div className={css['diaryFilesForm']}>
         {!isFormSubmitted ? (
           <div>
-            <p className={css['diaryFilesForm__intro']}>
-              Write your diary entry...
-            </p>
+            <h1>Write your diary entry</h1>
             <form onSubmit={handleSubmit} className={css.form}>
               <div
                 className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__date']}`}
@@ -158,22 +156,29 @@ const DiaryFilesForm = (props) => {
                   onChange={updateWordCount}
                   onKeyDown={monitorTyping}
                 />
-                <span>*</span> Word count: {wordCount}
-                {'/'}
-                {wordCountLimit}{' '}
-                {wordCount > wordCountLimit && <span>Wordcount exceeded!</span>}
+                <p>
+                  <span>*</span> Word count: {wordCount}
+                  {'/'}
+                  {wordCountLimit}{' '}
+                  {wordCount > wordCountLimit && (
+                    <span>Wordcount exceeded!</span>
+                  )}
+                </p>
               </div>
+
+              <h2>Optional Fields</h2>
+
               <p className={css['diaryFilesForm__info']}>
-                Please note all the fields below are optional. If you fill in
-                these fields we will publish them with your entry, except for
-                your email address, which we will only use to contact you in
-                relation to The Diary Files.
-                <br />
-                Thank you for your contribution.
+                Please note all the fields below are <strong>optional</strong>.
+                If you fill in these fields we will publish them with your
+                entry, except for your email address, which we will only use to
+                contact you in relation to <strong>The Diary Files</strong>.
                 {/* Your email address will not be published and is optional. It is,
               however, used ‘under the hood’ to denote entries as being by the
               same author. Required fields are marked <span>*</span> */}
               </p>
+              <p> Thank you for your contribution.</p>
+
               <div
                 className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__name']}`}
               >
@@ -286,12 +291,13 @@ const DiaryFilesForm = (props) => {
                   Submit
                 </button>
               </div>
-              <div className={css['diaryFilesForm__termsAndConditions']}>
+
+              <p className={css['diaryFilesForm__termsAndConditions']}>
                 By submitting your diary entry in this platform you are allowing
                 The State Library of NSW to collect, store and publish your text
                 as part of this online experience, for exhibition and
                 promotional purposes.
-              </div>
+              </p>
               {showWarning && <div className="warning">{showWarning}</div>}
 
               {showSubmitError && (
