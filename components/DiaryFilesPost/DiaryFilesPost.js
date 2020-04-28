@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Router from 'next/router';
 
 import CTAButton from '../CTAButton';
-import Icon from '../Icon';
+// import Icon from '../Icon';
 
 import css from './DiaryFilesPost.module.scss';
 import setupSocials from '../../lib/social';
@@ -105,7 +105,10 @@ const DiaryFilesPost = ({
             className={css.sharingIcon}
           >
             {/* <Icon name="facebook" /> */}
-            <img src="/images/icons/logo-facebook.svg" />
+            <img
+              src="/images/icons/logo-facebook.svg"
+              alt="Share this entry on Facebook"
+            />
           </a>
 
           <a
@@ -116,7 +119,10 @@ const DiaryFilesPost = ({
             className={css.sharingIcon}
           >
             {/* <Icon name="twitter" /> */}
-            <img src="/images/icons/logo-twitter.svg" />
+            <img
+              src="/images/icons/logo-twitter.svg"
+              alt="Share this entry on Twitter"
+            />
           </a>
 
           {!singleView && (
@@ -127,7 +133,7 @@ const DiaryFilesPost = ({
               className={css.sharingIcon}
             >
               {/* <Icon name="enter" /> */}
-              <img src="/images/icons/enter-sharp.svg" />
+              <img src="/images/icons/enter-sharp.svg" alt="View this entry" />
             </a>
           )}
         </div>
