@@ -47,6 +47,14 @@
 
   @include media-sm {
     margin: 0;
+    font-size: var(--font-size-xlg);
+  }
+
+  @include media-md {
+    font-size: var(--font-size-xxlg);
+  }
+
+  @include media-lg {
     font-size: var(--font-size-xxxlg);
   }
 }
