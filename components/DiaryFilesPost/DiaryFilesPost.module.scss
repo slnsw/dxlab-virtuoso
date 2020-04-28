@@ -31,7 +31,7 @@
 }
 
 .date {
-  @extend .diaryFilesTextUppercase;
+  @extend .diary-files-font-uppercase;
 
   font-weight: 700;
   font-size: var(--font-size-md);

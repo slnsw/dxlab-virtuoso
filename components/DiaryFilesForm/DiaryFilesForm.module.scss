@@ -4,6 +4,20 @@
   display: flex;
   flex-direction: row;
 
+  h1 {
+    margin-bottom: var(--spacing-xxlg);
+    font-size: var(--font-size-md);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: var(--font-size-md);
+  }
+
+  p {
+    font-family: var(--font-secondary);
+  }
+
   & span {
     color: var(--colour-highlight);
   }
@@ -36,10 +50,6 @@
   }
 }
 
-.diaryFilesForm__intro {
-  font-size: var(--font-size-sm);
-}
-
 .diaryFilesForm__info {
   font-size: var(--font-size-md);
 }
@@ -65,7 +75,7 @@
   // flex: auto;
   // align-self: flex-end;
   @include media-md {
-    float: right;
+    // float: right;
     width: 30%;
   }
 }
@@ -125,7 +135,7 @@
 
 .diaryFilesForm__outsideAustraliaLabel {
   display: inline;
-  margin-left: var(--spacing-lg);
+  margin-left: var(--spacing-sm);
 }
 
 .diaryFilesForm__submitWrapper {

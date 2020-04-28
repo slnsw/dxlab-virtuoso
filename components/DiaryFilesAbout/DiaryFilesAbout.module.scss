@@ -1,7 +1,17 @@
 @import '../../styles/global.scss';
 
+@import '../../styles/diary-files/global.scss';
+
 .diaryFilesAbout {
   display: block;
+
+  h1 {
+    @extend .font-uppercase;
+
+    margin-top: 0;
+    font-size: var(--font-size-md);
+    text-align: center;
+  }
 }
 
 .content {
