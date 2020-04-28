@@ -25,16 +25,14 @@ const DiaryFilesAbout = ({ className }) => {
   return (
     <article className={[css.diaryFilesAbout, className || ''].join(' ')}>
       <h1>{page && page.title}</h1>
-      <>
-        <div
-          className={css.content}
-          dangerouslySetInnerHTML={{ __html: page && page.content }}
-        />
-        <div
-          className={css.diaryFilesAboutExtra}
-          dangerouslySetInnerHTML={{ __html: pageExtra && pageExtra.content }}
-        />
-      </>
+      <div
+        className={css.content}
+        dangerouslySetInnerHTML={{ __html: page && page.content }}
+      />
+      <div
+        className={css.diaryFilesAboutExtra}
+        dangerouslySetInnerHTML={{ __html: pageExtra && pageExtra.content }}
+      />
     </article>
   );
 };
