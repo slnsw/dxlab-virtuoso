@@ -30,16 +30,17 @@
   }
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.8;
+}
+
 .date {
   @extend .diary-files-font-uppercase;
 
   font-weight: 700;
-  font-size: var(--font-size-md);
-  opacity: 0.8;
-
-  // @include media-sm {
-  //   font-size: var(--font-size-md);
-  // }
+  font-size: var(--font-size-sm);
 }
 
 .content {
@@ -56,16 +57,16 @@
 }
 
 .authorInfo {
-  font-size: 1.1em;
+  // font-size: 1.1em;
   font-family: var(--font-diary-files);
   text-align: right;
 }
 
 .authorName {
-  // font-size: 1.1em;
+  font-weight: 700;
+  font-size: 1.2em;
   // font-family: var(--font-diary-files);
   // text-align: right;
-  opacity: 0.8;
 }
 
 // .authorLocation {

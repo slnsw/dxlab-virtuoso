@@ -36,9 +36,10 @@
 }
 
 .diaryFilesAboutExtra {
+  max-width: 30em;
   margin-right: auto;
   margin-bottom: var(--spacing-xlg);
-  margin-left: auto;
+  // margin-left: auto;
   // padding: var(--spacing-md);
 
   @include media-sm {

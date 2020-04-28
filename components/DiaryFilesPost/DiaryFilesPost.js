@@ -73,33 +73,43 @@ const DiaryFilesPost = ({
           }
         }}
       >
-        <p className={css.date}>{dateText}</p>
+        <header className={css.header}>
+          <p className={css.date}>{dateText}</p>
+
+          <p className={css.authorInfo}>
+            <span className={css.authorName}>{authorName || 'anonymous'}</span>
+            {age && (
+              <>
+                <br />
+                {age}
+              </>
+            )}
+            {!outsideAustralia && (city || state || postcode) && (
+              <>
+                <br />
+                {/* {'of '} */}
+                {city}
+                {city && (state || postcode) && ', '}
+                {state}
+                {postcode && state && `, `}
+                {postcode}
+              </>
+            )}
+            {relatedPosts && relatedPosts.length > 0 && (
+              <>
+                <br />
+                <a href={`/diary-files/related/${id}`}>
+                  See all by this author
+                </a>
+              </>
+            )}
+          </p>
+        </header>
+
         <div
           className={css.content}
           dangerouslySetInnerHTML={{ __html: content }}
-        ></div>
-
-        <p className={css.authorInfo}>
-          <span className={css.authorName}>{authorName || 'anonymous'}</span>
-          {age && `, ${age}`}
-          {!outsideAustralia && (city || state || postcode) && (
-            <>
-              <br />
-              {'of '}
-              {city}
-              {city && (state || postcode) && ', '}
-              {state}
-              {postcode && state && `, `}
-              {postcode}
-            </>
-          )}
-          {relatedPosts && relatedPosts.length > 0 && (
-            <>
-              <br />
-              <a href={`/diary-files/related/${id}`}>See all by this author</a>
-            </>
-          )}
-        </p>
+        />
 
         <div>
           <a

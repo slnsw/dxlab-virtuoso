@@ -30,6 +30,9 @@ const DiaryFilesApp = ({ children, className }) => {
 
       <header className={css.header}>
         <DXLabLogo className={css.headerLogo} />
+
+        <div className={css.headerDivider} />
+
         <h1 className={css.headerTitle}>
           <Link href="/diary-files">
             <a>The Diary Files</a>
@@ -37,14 +40,37 @@ const DiaryFilesApp = ({ children, className }) => {
         </h1>
 
         <HeaderNavV2 isOpen={isMenuOpen} className={css.headerNav}>
-          test
+          <ul className={css.headerMenu}>
+            <li>
+              <div className={css.headerMenuDivider}></div>
+              <Link as="/diary-files">
+                <a>Home</a>
+              </Link>
+              <div className={css.headerMenuDivider}></div>
+            </li>
+            <li>
+              <Link as="/diary-files/write">
+                <a>Write</a>
+              </Link>
+              <div className={css.headerMenuDivider}></div>
+            </li>
+            <li>
+              <Link as="/diary-files/about">
+                <a>About</a>
+              </Link>
+              <div className={css.headerMenuDivider}></div>
+            </li>
+          </ul>
         </HeaderNavV2>
 
         <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
 
         <MenuIconButton
           isOpen={isMenuOpen}
-          className={css.menuButton}
+          className={[
+            css.menuButton,
+            isMenuOpen ? css.menuButtonIsOpen : '',
+          ].join(' ')}
           aria-controls="primary-menu"
           aria-label="primary menu"
           onClick={handleMenuToggle}
