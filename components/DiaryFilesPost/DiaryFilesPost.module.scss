@@ -81,15 +81,23 @@
 }
 
 .sharingIcon {
-  margin-right: var(--spacing-xxs);
-  // margin-bottom: 0;
-  color: var(--colour-black);
-  font-size: var(--font-size-xlg);
-
   &:link,
   &:visited {
     color: var(--colour-black);
   }
+
+  &:hover {
+    color: var(--colour-highlight);
+  }
+}
+
+.sharingIcon img {
+  width: var(--spacing-xlg);
+  height: var(--spacing-xlg);
+  margin-right: var(--spacing-xxs);
+  // margin-bottom: 0;
+  color: var(--colour-black);
+  // font-size: var(--font-size-xlg);
 
   &:hover {
     color: var(--colour-highlight);

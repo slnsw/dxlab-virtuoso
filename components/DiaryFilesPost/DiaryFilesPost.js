@@ -104,7 +104,8 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="facebook" />
+            {/* <Icon name="facebook" /> */}
+            <img src="/images/icons/logo-facebook.svg" />
           </a>
 
           <a
@@ -114,7 +115,8 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="twitter" />
+            {/* <Icon name="twitter" /> */}
+            <img src="/images/icons/logo-twitter.svg" />
           </a>
 
           {!singleView && (
@@ -124,7 +126,8 @@ const DiaryFilesPost = ({
               rel="noopener noreferrer"
               className={css.sharingIcon}
             >
-              <Icon name="enter" />
+              {/* <Icon name="enter" /> */}
+              <img src="/images/icons/enter-sharp.svg" />
             </a>
           )}
         </div>
