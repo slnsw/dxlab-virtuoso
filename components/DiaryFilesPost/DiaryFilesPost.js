@@ -78,7 +78,12 @@ const DiaryFilesPost = ({
 
           <p className={css.authorInfo}>
             <span className={css.authorName}>{authorName || 'anonymous'}</span>
-            {age && `, ${age}`}
+            {age && (
+              <>
+                <br />
+                {age}
+              </>
+            )}
             {!outsideAustralia && (city || state || postcode) && (
               <>
                 <br />
