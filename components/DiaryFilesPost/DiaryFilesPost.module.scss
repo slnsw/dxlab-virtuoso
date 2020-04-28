@@ -81,25 +81,18 @@
 }
 
 .sharingIcon {
-  &:link,
-  &:visited {
-    color: var(--colour-black);
-  }
-
-  &:hover {
-    color: var(--colour-highlight);
-  }
-}
-
-.sharingIcon img {
-  width: var(--spacing-xlg);
-  height: var(--spacing-xlg);
+  // width: var(--spacing-xlg);
+  // height: var(--spacing-xlg);
   margin-right: var(--spacing-xxs);
   // margin-bottom: 0;
-  color: var(--colour-black);
-  // font-size: var(--font-size-xlg);
+  // color: var(--colour-black);
 
-  &:hover {
-    color: var(--colour-highlight);
-  }
+  // &:link,
+  // &:visited {
+  //   color: var(--colour-black);
+  // }
+
+  // &:hover {
+  //   color: var(--colour-highlight);
+  // }
 }

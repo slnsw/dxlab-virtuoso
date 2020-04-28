@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import css from './Icon.module.scss';
+import { getSVG } from './getSVG';
+import css from './Icon.module.scss';
 
 const Icon = ({ name, size = 'md', className }) => {
   const isLogo = ['facebook', 'twitter'].includes(name);
 
   return (
-    <ion-icon
-      name={`${isLogo ? 'logo-' : ''}${name}${isLogo ? '' : '-sharp'}`}
-      // name={name}
-      class={[
-        // css.icon,
-        className || '',
-      ].join(' ')}
-      style={{
-        fontSize: `var(--font-size-${size})`,
-      }}
-    />
+    <span className={[css.svgIcon, css[size], className || ''].join(' ')}>
+      <svg
+        className={[css.svg, className].join(' ')}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        {getSVG(`${isLogo ? 'logo-' : ''}${name}${isLogo ? '' : '-sharp'}`)}
+      </svg>
+    </span>
   );
 };
 

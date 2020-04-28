@@ -314,7 +314,7 @@ const DiaryFilesForm = (props) => {
               Thank you for your diary entry, we will approve this as soon as we
               can. Please{' '}
               <a href={`/diary-files/${newId}`}>
-                check back later to see your entry
+                check back later to see your entry published
               </a>{' '}
               and you can share it with your friends and family.
             </p>

@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 // import CTAButton from '../CTAButton';
 import CTAButtonV2 from '../CTAButtonV2';
-// import Icon from '../Icon';
+import Icon from '../Icon';
 import setupSocials from '../../lib/social';
 
 import css from './DiaryFilesPost.module.scss';
@@ -109,11 +109,7 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            {/* <Icon name="facebook" /> */}
-            <img
-              src="/images/icons/logo-facebook.svg"
-              alt="Share this entry on Facebook"
-            />
+            <Icon name="facebook" />
           </a>
 
           <a
@@ -123,13 +119,13 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            {/* <Icon name="twitter" /> */}
-            <img
+            <Icon name="twitter" />
+            {/* <img
               src="/images/icons/logo-twitter.svg"
               alt="Share this entry on Twitter"
-            />
+            /> */}
           </a>
-
+          {/* 
           {!singleView && (
             <a
               href={`/diary-files/${id}`}
@@ -137,10 +133,10 @@ const DiaryFilesPost = ({
               rel="noopener noreferrer"
               className={css.sharingIcon}
             >
-              {/* <Icon name="enter" /> */}
-              <img src="/images/icons/enter-sharp.svg" alt="View this entry" />
+              <Icon name="enter" />
+              
             </a>
-          )}
+          )} */}
         </div>
       </article>
     </>

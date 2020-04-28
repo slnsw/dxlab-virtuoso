@@ -1,5 +1,58 @@
 @import '../../styles/global.scss';
 
-.icon {
-  font-size: var(--font-size-md);
+.svgIcon {
+  display: inline-block;
+  width: var(--spacing-xlg);
+
+  .svg {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+
+    > * {
+      fill: var(--colour-black);
+    }
+  }
+
+  .svg:hover {
+    > * {
+      fill: var(--colour-primary);
+    }
+  }
 }
+
+// .white {
+//   .svg {
+//     > * {
+//       fill: var(--colour-white);
+//     }
+//   }
+// }
+
+// .grey {
+//   .svg {
+//     > * {
+//       fill: var(--colour-grey-200);
+//     }
+//   }
+// }
+
+// .xs {
+//   width: var(--spacing-md);
+//   min-width: var(--spacing-md);
+// }
+
+// .sm {
+//   width: var(--spacing-lg);
+//   min-width: var(--spacing-lg);
+// }
+
+// .md {
+//   width: var(--spacing-xlg);
+//   min-width: var(--spacing-xlg);
+// }
+
+// .lg {
+//   width: var(--spacing-xxlg);
+//   min-width: var(--spacing-xxlg);
+// }
