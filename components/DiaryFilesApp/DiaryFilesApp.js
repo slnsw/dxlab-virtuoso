@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
+import App from '../App';
 import Link from '../Link';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
@@ -13,7 +14,7 @@ import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
 
 import css from './DiaryFilesApp.module.scss';
 
-const DiaryFilesApp = ({ children, className }) => {
+const DiaryFilesApp = ({ title, children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [hasVisitedHomePage, setHasVisitedHomePage] = React.useState(false);
 
@@ -25,7 +26,10 @@ const DiaryFilesApp = ({ children, className }) => {
     <DiaryFilesContext.Provider
       value={{ hasVisitedHomePage, setHasVisitedHomePage }}
     >
-      <div className={[css.diaryFilesApp, className || ''].join(' ')}>
+      <App
+        title={title}
+        className={[css.diaryFilesApp, className || ''].join(' ')}
+      >
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
@@ -93,7 +97,7 @@ const DiaryFilesApp = ({ children, className }) => {
           
         }
       `}</style> */}
-      </div>
+      </App>
     </DiaryFilesContext.Provider>
   );
 };

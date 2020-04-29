@@ -15,11 +15,30 @@ const client = initApolloClient();
 const DiaryFilesPage = ({ router }) => {
   const { pathname, query } = router;
 
-  // console.log(pathname);
+  const config = {
+    '/diary-files': {
+      title: 'Home',
+    },
+    '/diary-files/write': {
+      title: 'Write',
+    },
+    '/diary-files/about': {
+      title: 'About',
+    },
+    '/diary-files/entry/[id]': {
+      title: 'Entry',
+    },
+    '/diary-files/related/[id]': {
+      title: 'Related',
+    },
+  };
+
+  const title = `${config[pathname].title} - The Diary Files`;
   const integerId = query && query.id && parseInt(query.id, 10);
+
   return (
     <ApolloProvider client={client}>
-      <DiaryFilesApp>
+      <DiaryFilesApp title={title}>
         {pathname === '/diary-files' && <DiaryFilesHome />}
         {pathname === '/diary-files/write' && <DiaryFilesForm />}
         {pathname === '/diary-files/about' && <DiaryFilesAbout />}
