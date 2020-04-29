@@ -63,19 +63,19 @@ const DiaryFilesApp = ({ title, children, className }) => {
               <li>
                 <div className={css.headerMenuDivider}></div>
                 <Link as="/diary-files">
-                  <a>Home</a>
+                  <a onClick={handleMenuToggle}>Home</a>
                 </Link>
                 <div className={css.headerMenuDivider}></div>
               </li>
               <li>
                 <Link as="/diary-files/write">
-                  <a>Write</a>
+                  <a onClick={handleMenuToggle}>Write</a>
                 </Link>
                 <div className={css.headerMenuDivider}></div>
               </li>
               <li>
                 <Link as="/diary-files/about">
-                  <a>About</a>
+                  <a onClick={handleMenuToggle}>About</a>
                 </Link>
                 <div className={css.headerMenuDivider}></div>
               </li>

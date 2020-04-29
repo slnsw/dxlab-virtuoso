@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 
 /* eslint-disable */
@@ -11,28 +12,17 @@ import css from '../DiaryFilesRelatedStories/DiaryFilesRelatedStories.module.scs
 
 const DiaryFilesRelatedStories = ({ className, id }) => {
   const idAsInt = parseInt(id, 10);
-  const {
-    // loading,
-    error,
-    data,
-  } = useQuery(storyQuery, {
+  const { loading, error, data } = useQuery(storyQuery, {
     variables: { id: idAsInt },
   });
 
   const post = data && data.diaryFiles && data.diaryFiles.post;
 
-  const {
-    title,
-    // content,
-    // city,
-    // state,
-    // dateText,
-    authorName,
-    // postcode,
-    // outsideAustralia,
-    // age,
-    relatedPosts,
-  } = post || {};
+  const { title, authorName, relatedPosts } = post || {};
+
+  if (loading) {
+    return <LoaderText />;
+  }
 
   if (title === 'Hello World' || error) {
     return (
@@ -47,23 +37,9 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
   return (
     <>
       <h2 className={css.sectionTitle}>All entries by {authorName}</h2>
-      {/* <DiaryFilesPost
-        key={id}
-        id={id}
-        content={content}
-        dateText={dateText}
-        authorName={authorName}
-        city={city}
-        state={state}
-        age={age}
-        postcode={postcode}
-        outsideAustralia={outsideAustralia}
-        className={[css.diaryFilesRelatedStories, className || ''].join(' ')}
-        relatedPosts={null}
-        singleView={true}
-      /> */}
+
       {relatedPosts &&
-        relatedPosts.map((p) => {
+        relatedPosts.map((p, i) => {
           return (
             <DiaryFilesPost
               key={p.id}
@@ -79,7 +55,7 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
               className={[css.diaryFilesRelatedStories, className || ''].join(
                 ' ',
               )}
-              singleView={true}
+              singleView={i === 0}
             />
           );
         })}

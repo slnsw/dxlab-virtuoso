@@ -48,6 +48,7 @@ const DiaryFilesPost = ({
       )}
 
       <article
+        id={id}
         className={[
           singleView ? '' : css.diaryFilesAllowHover,
           css.diaryFilesPost,
@@ -87,7 +88,7 @@ const DiaryFilesPost = ({
             {relatedPosts && relatedPosts.length > 1 && (
               <>
                 <br />
-                <Link as={`/diary-files/related/${id}`}>
+                <Link as={`/diary-files/related/${id}#${id}`}>
                   <a
                     onClick={(event) => {
                       event.stopPropagation();
