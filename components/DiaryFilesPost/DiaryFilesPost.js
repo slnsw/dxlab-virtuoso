@@ -5,6 +5,7 @@ import Router from 'next/router';
 // import CTAButton from '../CTAButton';
 import CTAButtonV2 from '../CTAButtonV2';
 import Icon from '../Icon';
+import Link from '../Link';
 import setupSocials from '../../lib/social';
 
 import css from './DiaryFilesPost.module.scss';
@@ -61,9 +62,10 @@ const DiaryFilesPost = ({
         ].join(' ')}
         onClick={() => {
           if (!singleView) {
-            Router.push(`/diary-files/[id]`, `/diary-files/${id}`).then(() =>
-              window.scrollTo(0, 0),
-            );
+            Router.push(
+              `/diary-files/entry/[id]`,
+              `/diary-files/entry/${id}`,
+            ).then(() => window.scrollTo(0, 0));
           }
         }}
       >
@@ -92,9 +94,15 @@ const DiaryFilesPost = ({
             {relatedPosts && relatedPosts.length > 0 && (
               <>
                 <br />
-                <a href={`/diary-files/related/${id}`}>
-                  See all by this author
-                </a>
+                <Link as={`/diary-files/related/${id}`}>
+                  <a
+                    onClick={(event) => {
+                      event.stopPropagation();
+                    }}
+                  >
+                    See all by this author
+                  </a>
+                </Link>
               </>
             )}
           </p>
@@ -132,7 +140,7 @@ const DiaryFilesPost = ({
           {/* 
           {!singleView && (
             <a
-              href={`/diary-files/${id}`}
+              href={`/diary-files/entry/${id}`}
               aria-label="View this entry"
               rel="noopener noreferrer"
               className={css.sharingIcon}

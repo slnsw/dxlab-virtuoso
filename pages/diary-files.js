@@ -23,7 +23,9 @@ const DiaryFilesPage = ({ router }) => {
         {pathname === '/diary-files' && <DiaryFilesHome />}
         {pathname === '/diary-files/write' && <DiaryFilesForm />}
         {pathname === '/diary-files/about' && <DiaryFilesAbout />}
-        {pathname === '/diary-files/[id]' && <DiaryFilesStory id={integerId} />}
+        {pathname === '/diary-files/entry/[id]' && (
+          <DiaryFilesStory id={integerId} />
+        )}
         {pathname === '/diary-files/related/[id]' && (
           <DiaryFilesRelatedStories id={integerId} />
         )}
