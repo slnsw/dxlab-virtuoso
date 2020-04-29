@@ -21,38 +21,51 @@
   }
 }
 
-// .white {
-//   .svg {
-//     > * {
-//       fill: var(--colour-white);
-//     }
-//   }
-// }
+.white {
+  .svg {
+    > * {
+      fill: var(--colour-white);
+    }
+  }
+}
 
-// .grey {
-//   .svg {
-//     > * {
-//       fill: var(--colour-grey-200);
-//     }
-//   }
-// }
+.grey {
+  .svg {
+    > * {
+      fill: #7b7b7b;
+    }
+  }
+}
 
-// .xs {
-//   width: var(--spacing-md);
-//   min-width: var(--spacing-md);
-// }
+.black {
+  .svg {
+    > * {
+      fill: var(--colour-black);
+    }
+  }
+}
 
-// .sm {
-//   width: var(--spacing-lg);
-//   min-width: var(--spacing-lg);
-// }
+.sm {
+  width: var(--spacing-lg);
+  min-width: var(--spacing-lg);
+}
 
-// .md {
-//   width: var(--spacing-xlg);
-//   min-width: var(--spacing-xlg);
-// }
+.md {
+  width: var(--spacing-xlg);
+  min-width: var(--spacing-xlg);
+}
 
-// .lg {
-//   width: var(--spacing-xxlg);
-//   min-width: var(--spacing-xxlg);
-// }
+.lg {
+  width: var(--spacing-xxlg);
+  min-width: var(--spacing-xxlg);
+}
+
+.xlg {
+  width: var(--spacing-xxlg);
+  min-width: var(--spacing-xxlg);
+}
+
+.xxlg {
+  width: var(--spacing-xxxlg);
+  min-width: var(--spacing-xxxlg);
+}

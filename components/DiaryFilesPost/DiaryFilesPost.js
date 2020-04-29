@@ -24,30 +24,15 @@ const DiaryFilesPost = ({
   relatedPosts,
   singleView = true,
 }) => {
+  // set up social data
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
-  // const tweetText = encodeURIComponent(
-  //   `Check out this Diary Files entry. #dxlab @statelibrarynsw`,
-  // );
-  // // const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
 
   const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.png';
   const pathname = `/diary-files/${id}`;
   const title = 'Diary Files';
-  // TODO: Use baseUrl variable
-  // const url = encodeURIComponent(
-  //   `http://dxlab.sl.nsw.gov.au/diary-files/${id}`,
-  // );
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
-
-  // const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
-  //   'Diary Files',
-  // )}&description=${encodeURIComponent(text)}${
-  //   imageUrl ? `&picture=${imageUrl}` : ''
-  // }`;
-
-  // const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
 
   return (
     <>
@@ -119,7 +104,7 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="facebook" />
+            <Icon name="facebook" size="lg" />
           </a>
 
           <a
@@ -129,24 +114,8 @@ const DiaryFilesPost = ({
             rel="noopener noreferrer"
             className={css.sharingIcon}
           >
-            <Icon name="twitter" />
-            {/* <img
-              src="/images/icons/logo-twitter.svg"
-              alt="Share this entry on Twitter"
-            /> */}
+            <Icon name="twitter" size="lg" />
           </a>
-          {/* 
-          {!singleView && (
-            <a
-              href={`/diary-files/${id}`}
-              aria-label="View this entry"
-              rel="noopener noreferrer"
-              className={css.sharingIcon}
-            >
-              <Icon name="enter" />
-              
-            </a>
-          )} */}
         </div>
       </article>
     </>

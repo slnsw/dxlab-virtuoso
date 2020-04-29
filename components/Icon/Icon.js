@@ -4,11 +4,18 @@ import PropTypes from 'prop-types';
 import { getSVG } from './getSVG';
 import css from './Icon.module.scss';
 
-const Icon = ({ name, size = 'md', className }) => {
+const Icon = ({ name, size = 'md', colour, className }) => {
   const isLogo = ['facebook', 'twitter'].includes(name);
 
   return (
-    <span className={[css.svgIcon, css[size], className || ''].join(' ')}>
+    <span
+      className={[
+        css.svgIcon,
+        css[size],
+        className || '',
+        colour ? css[colour] : '',
+      ].join(' ')}
+    >
       <svg
         className={[css.svg, className].join(' ')}
         xmlns="http://www.w3.org/2000/svg"
@@ -23,6 +30,7 @@ const Icon = ({ name, size = 'md', className }) => {
 
 Icon.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xlg', 'xxlg']),
+  colour: PropTypes.oneOf(['white', 'grey', 'black']),
   className: PropTypes.string,
 };
 
