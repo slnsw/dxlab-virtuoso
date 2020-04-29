@@ -64,11 +64,17 @@ const DesignSystemPage = () => {
 
       <h2>Icons</h2>
       <p>
-        <a href="https://ionicons.com/">Ionicons</a>
+        Not using <a href="https://ionicons.com/">Ionicons</a> any more. But
+        local inline SVGs downloaded from there.
       </p>
-      <Icon name="facebook" size="xlg" />
-      <Icon name="twitter" size="xlg" />
-      <Icon name="close" size="xlg" />
+      <Icon name="facebook" size="sm" colour="white" />
+      <Icon name="facebook" size="md" colour="grey" />
+      <Icon name="facebook" size="lg" colour="white" />
+      <Icon name="facebook" size="xlg" colour="grey" />
+      <Icon name="facebook" size="xxlg" colour="white" />
+      <Icon name="twitter" size="xlg" colour="grey" />
+      <Icon name="close" size="xlg" colour="white" />
+      <Icon name="close" size="xlg" colour="black" />
     </WebsiteApp>
   );
 };

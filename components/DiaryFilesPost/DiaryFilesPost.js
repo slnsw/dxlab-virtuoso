@@ -25,20 +25,13 @@ const DiaryFilesPost = ({
   relatedPosts,
   singleView = true,
 }) => {
+  // set up social data
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
-  // const tweetText = encodeURIComponent(
-  //   `Check out this Diary Files entry. #dxlab @statelibrarynsw`,
-  // );
-  // // const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
 
   const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.png';
   const pathname = `/diary-files/${id}`;
   const title = 'Diary Files';
-  // TODO: Use baseUrl variable
-  // const url = encodeURIComponent(
-  //   `http://dxlab.sl.nsw.gov.au/diary-files/${id}`,
-  // );
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
 
@@ -114,41 +107,33 @@ const DiaryFilesPost = ({
         />
 
         <div>
-          <a
-            href={fbLink}
-            aria-label="Share this entry on Facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.sharingIcon}
-          >
-            <Icon name="facebook" />
-          </a>
-
-          <a
-            href={twitterLink}
-            aria-label="Share this entry on Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.sharingIcon}
-          >
-            <Icon name="twitter" />
-            {/* <img
-              src="/images/icons/logo-twitter.svg"
-              alt="Share this entry on Twitter"
-            /> */}
-          </a>
-          {/* 
-          {!singleView && (
+          <Link as={fbLink}>
             <a
-              href={`/diary-files/entry/${id}`}
-              aria-label="View this entry"
-              rel="noopener noreferrer"
               className={css.sharingIcon}
+              aria-label="Share this entry on Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
             >
-              <Icon name="enter" />
-              
+              <Icon name="facebook" size="lg" />
             </a>
-          )} */}
+          </Link>
+
+          <Link as={twitterLink}>
+            <a
+              className={css.sharingIcon}
+              aria-label="Share this entry on Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
+            >
+              <Icon name="twitter" size="lg" />
+            </a>
+          </Link>
         </div>
       </article>
     </>
