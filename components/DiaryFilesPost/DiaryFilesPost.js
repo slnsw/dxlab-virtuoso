@@ -93,7 +93,7 @@ const DiaryFilesPost = ({
                       event.stopPropagation();
                     }}
                   >
-                    See all by this author
+                    See all by author
                   </a>
                 </Link>
               </>
