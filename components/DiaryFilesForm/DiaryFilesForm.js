@@ -244,6 +244,7 @@ const DiaryFilesForm = (props) => {
                     options={stateOptions}
                     onChange={(option) => setFormState(option)}
                     isDisabled={isOutsideAustralia}
+                    // isDisabled={true}
                   />
                 </div>
 

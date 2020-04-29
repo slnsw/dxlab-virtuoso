@@ -31,7 +31,7 @@ const Select = ({
           };
         },
         control: (provided, state) => {
-          // console.log(provided, state);
+          console.log(provided, state);
 
           return {
             ...provided,
@@ -45,6 +45,11 @@ const Select = ({
             boxShadow: state.isFocused
               ? '0 0 0 3px var(--colour-primary)'
               : null,
+            ...(state.isDisabled
+              ? {
+                  backgroundColor: 'var(--colour-grey-darkest)',
+                }
+              : {}),
           };
         },
         option: (provided) => {
