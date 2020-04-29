@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 
 /* eslint-disable */
@@ -11,11 +12,7 @@ import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
 
 const DiaryFilesStory = ({ className, id, singleView }) => {
   const idAsInt = parseInt(id, 10);
-  const {
-    // loading,
-    error,
-    data,
-  } = useQuery(storyQuery, {
+  const { loading, error, data } = useQuery(storyQuery, {
     variables: { id: idAsInt },
   });
 
@@ -33,6 +30,10 @@ const DiaryFilesStory = ({ className, id, singleView }) => {
     age,
     relatedPosts,
   } = post || {};
+
+  if (loading) {
+    return <LoaderText />;
+  }
 
   if (title === 'Hello World' || error) {
     return (
