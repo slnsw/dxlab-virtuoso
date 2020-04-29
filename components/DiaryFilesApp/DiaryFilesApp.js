@@ -11,6 +11,7 @@ import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 
 import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
+import { initGA } from '../../lib/analytics';
 
 import css from './DiaryFilesApp.module.scss';
 
@@ -21,6 +22,14 @@ const DiaryFilesApp = ({ title, children, className }) => {
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // TODO: Consider moving this into App
+  React.useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+  }, []);
 
   return (
     <DiaryFilesContext.Provider
