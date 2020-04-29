@@ -294,7 +294,7 @@ const DiaryFilesForm = (props) => {
 
               <p className={css['diaryFilesForm__termsAndConditions']}>
                 By submitting your diary entry in this platform you are allowing
-                The State Library of NSW to collect, store and publish your text
+                the State Library of NSW to collect, store and publish your text
                 as part of this online experience, for exhibition and
                 promotional purposes.
               </p>
