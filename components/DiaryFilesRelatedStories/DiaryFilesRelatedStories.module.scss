@@ -3,3 +3,11 @@
 .diaryFilesRelatedStories {
   display: block;
 }
+
+.sectionTitle {
+  margin-bottom: var(--spacing-md);
+  // font-weight: 500;
+  font-size: var(--font-size-md);
+  // font-family: var(--font-diary-files);
+  text-align: center;
+}

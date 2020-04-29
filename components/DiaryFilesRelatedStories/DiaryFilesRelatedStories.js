@@ -23,14 +23,14 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
 
   const {
     title,
-    content,
-    city,
-    state,
-    dateText,
+    // content,
+    // city,
+    // state,
+    // dateText,
     authorName,
-    postcode,
-    outsideAustralia,
-    age,
+    // postcode,
+    // outsideAustralia,
+    // age,
     relatedPosts,
   } = post || {};
 
@@ -46,7 +46,8 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
 
   return (
     <>
-      <DiaryFilesPost
+      <h2 className={css.sectionTitle}>All entries by {authorName}</h2>
+      {/* <DiaryFilesPost
         key={id}
         id={id}
         content={content}
@@ -60,7 +61,7 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
         className={[css.diaryFilesRelatedStories, className || ''].join(' ')}
         relatedPosts={null}
         singleView={true}
-      />
+      /> */}
       {relatedPosts &&
         relatedPosts.map((p) => {
           return (
