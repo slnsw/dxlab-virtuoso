@@ -84,7 +84,7 @@ const DiaryFilesPost = ({
                 {postcode}
               </>
             )}
-            {relatedPosts && relatedPosts.length > 0 && (
+            {relatedPosts && relatedPosts.length > 1 && (
               <>
                 <br />
                 <Link as={`/diary-files/related/${id}`}>
