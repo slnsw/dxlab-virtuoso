@@ -1,29 +1,38 @@
 import React from 'react';
 import Vivus from 'vivus';
 
+import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
+
 import css from './Typewriter.module.scss';
 
 const Typewriter = () => {
   const vivus = React.useRef();
   const [isBright, setIsBright] = React.useState(false);
 
-  React.useEffect(() => {
-    vivus.current = new Vivus(
-      'Typewriter',
-      {
-        duration: 200,
-        type: 'sync',
-        animTimingFunction: Vivus.EASE,
-      },
-      () => {
-        setIsBright(true);
-      },
-    );
+  const { hasVisitedHomePage, setHasVisitedHomePage } = React.useContext(
+    DiaryFilesContext,
+  );
 
-    return () => {
-      vivus.current.destroy();
-    };
-  }, []);
+  React.useEffect(() => {
+    if (!hasVisitedHomePage) {
+      vivus.current = new Vivus(
+        'Typewriter',
+        {
+          duration: 200,
+          type: 'sync',
+          animTimingFunction: Vivus.EASE,
+        },
+        () => {
+          setIsBright(true);
+          setHasVisitedHomePage(true);
+        },
+      );
+
+      return () => {
+        vivus.current.destroy();
+      };
+    }
+  }, [hasVisitedHomePage, setHasVisitedHomePage]);
 
   return (
     <svg
