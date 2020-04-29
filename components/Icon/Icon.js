@@ -1,3 +1,4 @@
+/* eslint css-modules/no-unused-class: [2, { markAsUsed: ['white', 'grey', 'black', 'sm', 'md', 'lg', 'xlg', 'xxlg'] }] */
 import React from 'react';
 import PropTypes from 'prop-types';
 

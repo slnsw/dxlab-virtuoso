@@ -51,13 +51,11 @@
   opacity: 0.8;
 
   @include media-sm {
-    // font-size: var(--font-size-md);
     font-size: 1.1em;
   }
 }
 
 .authorInfo {
-  // font-size: 1.1em;
   font-family: var(--font-diary-files);
   text-align: right;
 }
@@ -65,16 +63,7 @@
 .authorName {
   font-weight: 700;
   font-size: 1.2em;
-  // font-family: var(--font-diary-files);
-  // text-align: right;
 }
-
-// .authorLocation {
-//   font-family: var(--font-diary-files);
-//   text-align: right;
-//   // text-transform: none;
-//   // opacity: 0.8;
-// }
 
 .backButton {
   max-width: 7em;
@@ -82,18 +71,5 @@
 }
 
 .sharingIcon {
-  // width: var(--spacing-xlg);
-  // height: var(--spacing-xlg);
   margin-right: var(--spacing-xxs);
-  // margin-bottom: 0;
-  // color: var(--colour-black);
-
-  // &:link,
-  // &:visited {
-  //   color: var(--colour-black);
-  // }
-
-  // &:hover {
-  //   color: var(--colour-highlight);
-  // }
 }

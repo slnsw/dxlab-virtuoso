@@ -74,6 +74,7 @@ const DesignSystemPage = () => {
       <Icon name="facebook" size="xxlg" colour="white" />
       <Icon name="twitter" size="xlg" colour="grey" />
       <Icon name="close" size="xlg" colour="white" />
+      <Icon name="close" size="xlg" colour="black" />
     </WebsiteApp>
   );
 };

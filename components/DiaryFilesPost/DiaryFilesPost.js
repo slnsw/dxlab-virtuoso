@@ -107,25 +107,33 @@ const DiaryFilesPost = ({
         />
 
         <div>
-          <a
-            href={fbLink}
-            aria-label="Share this entry on Facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.sharingIcon}
-          >
-            <Icon name="facebook" size="lg" />
-          </a>
+          <Link as={fbLink}>
+            <a
+              className={css.sharingIcon}
+              aria-label="Share this entry on Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
+            >
+              <Icon name="facebook" size="lg" />
+            </a>
+          </Link>
 
-          <a
-            href={twitterLink}
-            aria-label="Share this entry on Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.sharingIcon}
-          >
-            <Icon name="twitter" size="lg" />
-          </a>
+          <Link as={twitterLink}>
+            <a
+              className={css.sharingIcon}
+              aria-label="Share this entry on Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
+            >
+              <Icon name="twitter" size="lg" />
+            </a>
+          </Link>
         </div>
       </article>
     </>
