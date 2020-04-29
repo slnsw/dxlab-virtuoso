@@ -41,14 +41,6 @@ const DiaryFilesPost = ({
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
 
-  // const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
-  //   'Diary Files',
-  // )}&description=${encodeURIComponent(text)}${
-  //   imageUrl ? `&picture=${imageUrl}` : ''
-  // }`;
-
-  // const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
-
   return (
     <>
       {singleView && (
@@ -69,7 +61,9 @@ const DiaryFilesPost = ({
         ].join(' ')}
         onClick={() => {
           if (!singleView) {
-            Router.push(`/diary-files/${id}`);
+            Router.push(`/diary-files/[id]`, `/diary-files/${id}`).then(() =>
+              window.scrollTo(0, 0),
+            );
           }
         }}
       >

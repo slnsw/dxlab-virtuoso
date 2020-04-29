@@ -8,7 +8,7 @@ import CTAButton from '../CTAButton';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
-import HenryLawsonPen from './HenryLawsonPen';
+// import HenryLawsonPen from './HenryLawsonPen';
 
 import css from './DiaryFilesHome.module.scss';
 
