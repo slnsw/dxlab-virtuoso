@@ -1,7 +1,7 @@
 @import '../../styles/global.scss';
 
 .diaryFilesApp {
-  --font-diary-files: 'Special Elite', cursive;
+  --font-diary-files: 'Special Elite', courier, serif;
   --font-diary-files-line-height-md: 1.55;
 
   display: block;
@@ -58,6 +58,16 @@
 
   @include media-lg {
     font-size: var(--font-size-xxxlg);
+  }
+
+  a:link,
+  a:visited {
+    color: var(--colour-primary);
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: underline;
   }
 }
 
