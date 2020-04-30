@@ -6,7 +6,7 @@ import LoaderText from '../LoaderText';
 import Icon from '../Icon';
 import Link from '../Link';
 import setupSocials from '../../lib/social';
-import config from '../../lib/config';
+// import config from '../../lib/config';
 
 import css from './DiaryFilesPost.module.scss';
 import TextTruncate from '../TextTruncate/TextTruncate';
