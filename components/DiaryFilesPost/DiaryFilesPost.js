@@ -33,8 +33,8 @@ const DiaryFilesPost = ({
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
 
-  const imageUrl = `${config.baseUrl}/images/typewriter.gif`;
-  const pathname = `${config.baseUrl}/diary-files/entry/${id}`;
+  const imageUrl = `/images/typewriter.gif`;
+  const pathname = `/diary-files/entry/${id}`;
   const title = `${dateText}, ${authorName} - The Diary Files`;
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
