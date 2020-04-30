@@ -126,7 +126,7 @@ const DiaryFilesPost = ({
           </p>
         </header>
 
-        <TextTruncate showButton={true} limit={600}>
+        <TextTruncate showButton={true} limit={singleView ? 100000000 : 600}>
           <div
             className={css.content}
             dangerouslySetInnerHTML={{ __html: content }}
