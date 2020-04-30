@@ -34,7 +34,7 @@ const DiaryFilesPost = ({
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
 
   const imageUrl = `${config.baseUrl}/images/typewriter.gif`;
-  const pathname = `${config.baseUrl}/diary-files/entry/${id}`;
+  const pathname = `/diary-files/entry/${id}`;
   const title = `${dateText}, ${authorName} - The Diary Files`;
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
@@ -126,7 +126,7 @@ const DiaryFilesPost = ({
           </p>
         </header>
 
-        <TextTruncate showButton={true} limit={600}>
+        <TextTruncate showButton={true} limit={singleView ? 100000000 : 600}>
           <div
             className={css.content}
             dangerouslySetInnerHTML={{ __html: content }}

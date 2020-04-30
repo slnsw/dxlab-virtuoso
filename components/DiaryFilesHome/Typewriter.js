@@ -8,6 +8,7 @@ import css from './Typewriter.module.scss';
 const Typewriter = () => {
   const vivus = React.useRef();
   const [isBright, setIsBright] = React.useState(false);
+  const [isReady, setIsReady] = React.useState(false);
 
   const { hasVisitedHomePage, setHasVisitedHomePage } = React.useContext(
     DiaryFilesContext,
@@ -21,6 +22,7 @@ const Typewriter = () => {
           duration: 200,
           type: 'sync',
           animTimingFunction: Vivus.EASE,
+          onReady: setIsReady(true),
         },
         () => {
           setIsBright(true);
@@ -41,7 +43,11 @@ const Typewriter = () => {
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 592 440"
-      className={[css.typewriter, isBright ? css.bright : ''].join(' ')}
+      className={[
+        css.typewriter,
+        isReady || hasVisitedHomePage ? css.ready : '',
+        isBright || hasVisitedHomePage ? css.bright : '',
+      ].join(' ')}
     >
       <defs>
         <style>{`.st0{fill:none;stroke:#fff;stroke-miterlimit:10;}`}</style>
