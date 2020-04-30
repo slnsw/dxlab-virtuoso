@@ -56,6 +56,7 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
                 ' ',
               )}
               singleView={i === 0}
+              isLoading={loading}
             />
           );
         })}

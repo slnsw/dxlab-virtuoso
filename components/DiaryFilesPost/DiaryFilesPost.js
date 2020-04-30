@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
 
-// import CTAButton from '../CTAButton';
-// import CTAButtonV2 from '../CTAButtonV2';
+import LoaderText from '../LoaderText';
 import Icon from '../Icon';
 import Link from '../Link';
 import setupSocials from '../../lib/social';
@@ -25,6 +24,7 @@ const DiaryFilesPost = ({
   outsideAustralia,
   relatedPosts,
   singleView = true,
+  isLoading = true,
 }) => {
   const authorName = rawAuthorName || 'Anonymous';
 
@@ -37,6 +37,20 @@ const DiaryFilesPost = ({
   const title = `${dateText}, ${authorName} - The Diary Files`;
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
+
+  if (isLoading)
+    return (
+      <article
+        id={id}
+        className={[
+          // singleView ? '' : css.diaryFilesAllowHover,
+          css.diaryFilesPost,
+          className || '',
+        ].join(' ')}
+      >
+        <LoaderText className={css.darkLoaderText} />
+      </article>
+    );
 
   return (
     <>

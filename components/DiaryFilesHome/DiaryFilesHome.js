@@ -85,6 +85,7 @@ const DiaryFilesHome = ({ className }) => {
               age={post.age}
               relatedPosts={post.relatedPosts}
               singleView={false}
+              isLoading={loading}
             />
           );
         })}
