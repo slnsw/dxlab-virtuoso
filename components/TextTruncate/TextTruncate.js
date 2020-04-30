@@ -29,7 +29,7 @@ const TextTruncate = ({
   className,
   children,
   limit = 100,
-  ellipsisChars = '...',
+  ellipsisChars = '…',
   showButton = true,
   shouldStripHtml = false,
   // onChange,
@@ -42,11 +42,11 @@ const TextTruncate = ({
 
   // const idScope = React.useRef(useUniqueId(`TextTruncate--`)).current;
 
+  const textTopMarkerEl = React.useRef(null);
+
   if (children === undefined) {
     return null;
   }
-
-  const textTopMarkerEl = React.useRef(null);
 
   // Work in progress
   // if (typeof onChange === 'function') {
