@@ -1,25 +1,37 @@
+/* eslint css-modules/no-unused-class: [2, { markAsUsed: ['white', 'grey', 'black', 'sm', 'md', 'lg', 'xlg', 'xxlg'] }] */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import css from './Icon.module.scss';
+import { getSVG } from './getSVG';
+import css from './Icon.module.scss';
 
-const Icon = ({ name, size = 'md', className }) => {
+const Icon = ({ name, size = 'md', colour, className }) => {
+  const isLogo = ['facebook', 'twitter'].includes(name);
+
   return (
-    <ion-icon
-      name={`${name}-sharp`}
+    <span
       className={[
-        // css.icon,
+        css.svgIcon,
+        css[size],
         className || '',
+        colour ? css[colour] : '',
       ].join(' ')}
-      style={{
-        fontSize: `var(--font-size-${size})`,
-      }}
-    />
+    >
+      <svg
+        className={[css.svg, className].join(' ')}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        {getSVG(`${isLogo ? 'logo-' : ''}${name}${isLogo ? '' : '-sharp'}`)}
+      </svg>
+    </span>
   );
 };
 
 Icon.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xlg', 'xxlg']),
+  colour: PropTypes.oneOf(['white', 'grey', 'black']),
   className: PropTypes.string,
 };
 

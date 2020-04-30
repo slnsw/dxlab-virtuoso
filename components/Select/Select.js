@@ -11,6 +11,7 @@ const Select = ({
   className,
   menuIsOpen,
   onChange,
+  isDisabled,
 }) => {
   const variantColour =
     variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
@@ -23,11 +24,14 @@ const Select = ({
         placeholder: (provider) => {
           return {
             ...provider,
+            // Adjustment due to Barlow font
+            top: '48%',
             color: variantColour,
+            fontFamily: 'var(--font-secondary)',
           };
         },
         control: (provided, state) => {
-          // console.log(provided, state);
+          console.log(provided, state);
 
           return {
             ...provided,
@@ -41,6 +45,11 @@ const Select = ({
             boxShadow: state.isFocused
               ? '0 0 0 3px var(--colour-primary)'
               : null,
+            ...(state.isDisabled
+              ? {
+                  backgroundColor: 'var(--colour-grey-darkest)',
+                }
+              : {}),
           };
         },
         option: (provided) => {
@@ -66,6 +75,7 @@ const Select = ({
           return {
             ...provided,
             padding: 0,
+            fontFamily: 'var(--font-secondary)',
           };
         },
         // Value in 'control'
@@ -79,6 +89,7 @@ const Select = ({
           return {
             ...provided,
             color: variantColour,
+            padding: '10px 10px 11px 10px',
 
             ':hover': 'var(--colour-primary)',
           };
@@ -115,6 +126,7 @@ const Select = ({
       }}
       menuIsOpen={menuIsOpen}
       onChange={onChange}
+      isDisabled={isDisabled}
     />
   );
 };

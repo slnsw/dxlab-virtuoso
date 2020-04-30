@@ -46,7 +46,7 @@ Modal.propTypes = {
   isActive: PropTypes.bool,
   className: PropTypes.string,
   onClose: PropTypes.func,
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
 
 export default Modal;

@@ -1,0 +1,137 @@
+@import '../../styles/global.scss';
+
+.diaryFilesApp {
+  --font-diary-files: 'Special Elite', courier, serif;
+  --font-diary-files-line-height-md: 1.55;
+
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  padding-top: 1em;
+
+  @include media-sm {
+    justify-content: space-between;
+    padding-top: 0;
+  }
+}
+
+.diaryFilesApp .headerLogo {
+  height: 1em;
+
+  @include media-sm {
+    height: 1.4em;
+  }
+}
+
+.slnswLogo {
+  display: none;
+
+  @include media-sm {
+    display: block;
+  }
+}
+
+.headerTitle {
+  margin: 0 0 0 var(--spacing-sm);
+  font-weight: 500;
+  font-size: var(--font-size-md);
+  font-family: var(--font-diary-files);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: translate(0, 0.22em);
+
+  @include media-sm {
+    // Slight adjustment to centre title properly
+    margin: 0 0 0 0.8rem;
+    font-size: var(--font-size-xlg);
+    transform: translate(0, 0.1em);
+  }
+
+  @include media-md {
+    font-size: var(--font-size-xxlg);
+    transform: translate(0, 0.2em);
+  }
+
+  @include media-xlg {
+    font-size: var(--font-size-xxxlg);
+  }
+
+  @include media-sm {
+    a:link,
+    a:visited {
+      color: var(--colour-primary);
+    }
+
+    a:hover,
+    a:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.headerDivider {
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  width: 1px;
+  height: 0.5em;
+  margin-top: auto;
+  margin-left: var(--spacing-sm);
+  border-left: 1px solid var(--colour-white);
+
+  @include media-sm {
+    display: none;
+  }
+}
+
+.diaryFilesApp .headerNav {
+  @include media-sm {
+    display: none;
+  }
+}
+
+.headerMenu {
+  margin-top: var(--spacing-xxlg);
+  padding-left: 0;
+  font-size: var(--font-size-lg);
+  font-family: var(--font-diary-files);
+  text-align: center;
+  list-style: none;
+
+  li a {
+    display: block;
+    padding: var(--spacing-md);
+  }
+}
+
+.headerMenuDivider {
+  width: var(--spacing-lg);
+  height: 1px;
+  margin: 0 auto;
+  background-color: var(--colour-white);
+}
+
+.menuButton {
+  position: absolute;
+  right: 0;
+  z-index: 110;
+}
+
+.menuButtonIsOpen {
+  position: fixed;
+}
+
+.main {
+  max-width: var(--container-width-md);
+  margin: 0 auto;
+  padding-top: var(--spacing-xlg);
+
+  @include media-sm {
+    padding-top: var(--spacing-xxxlg);
+  }
+}
