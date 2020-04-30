@@ -7,17 +7,6 @@ import Select from '../Select/Select';
 import css from './DiaryFilesForm.module.scss';
 import CTAButton from '../CTAButton';
 
-// function yyyymmdd() {
-//   const date = new Date();
-//   const mm = `${date.getMonth() + 1 > 9 ? '' : '0'}${date.getMonth() + 1}`; // getMonth() is zero-based
-//   const dd = `${date.getDate() > 9 ? '' : '0'}${date.getDate()}`;
-//   const hh = `${date.getHours() > 9 ? '' : '0'}${date.getHours()}`;
-//   const mins = `${date.getMinutes() > 9 ? '' : '0'}${date.getMinutes()}`;
-//   const ss = `${date.getSeconds() > 9 ? '' : '0'}${date.getSeconds()}`;
-
-//   return `${date.getFullYear()}-${mm}-${dd}-${hh}-${mins}-${ss}`;
-// }
-
 const stateOptions = [
   { value: 'NSW', label: 'New South Wales' },
   { value: 'VIC', label: 'Victoria' },
@@ -47,7 +36,27 @@ const DiaryFilesForm = (props) => {
   };
 
   const monitorTyping = (keypress) => {
-    const validKeys = [8, 46, 37, 38, 39, 40]; // backspace and delete and cursor keys
+    // backspace and delete and cursor keys, and more
+    const validKeys = [
+      8,
+      46,
+      37,
+      38,
+      39,
+      40,
+      13,
+      46,
+      9,
+      16,
+      17,
+      18,
+      20,
+      32,
+      33,
+      34,
+      35,
+      36,
+    ];
     if (
       wordCount > wordCountLimit &&
       validKeys.indexOf(keypress.keyCode) === -1
