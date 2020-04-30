@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import Router from 'next/router';
 
 // import CTAButton from '../CTAButton';
-import CTAButtonV2 from '../CTAButtonV2';
+// import CTAButtonV2 from '../CTAButtonV2';
 import Icon from '../Icon';
 import Link from '../Link';
 import setupSocials from '../../lib/social';
+import config from '../../lib/config';
 
 import css from './DiaryFilesPost.module.scss';
 
@@ -29,8 +30,8 @@ const DiaryFilesPost = ({
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
 
-  const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.gif';
-  const pathname = `/diary-files/entry/${id}`;
+  const imageUrl = `${config.baseUrl}/images/typewriter.gif`;
+  const pathname = `${config.baseUrl}/diary-files/entry/${id}`;
   const title = `${dateText}, ${authorName} - The Diary Files`;
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
