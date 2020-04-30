@@ -55,7 +55,10 @@ const DiaryFilesStory = ({ className, id, singleView }) => {
       <Head>
         <title>{metaTitle}</title>
       </Head>
-      <SocialMetaHead title={metaTitle} description={content} />
+      <SocialMetaHead
+        title={metaTitle}
+        description={content.replace(/<p>/g, '')}
+      />
 
       <DiaryFilesPost
         id={id}

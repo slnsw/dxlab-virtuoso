@@ -12,6 +12,7 @@ import Footer from '../Footer';
 
 import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
 import { initGA } from '../../lib/analytics';
+import config from '../../lib/config';
 
 import css from './DiaryFilesApp.module.scss';
 
@@ -37,7 +38,7 @@ const DiaryFilesApp = ({ title, children, className }) => {
     >
       <App
         title={title}
-        metaImageUrl="/images/typewriter.gif"
+        metaImageUrl={`${config.baseUrl}/images/typewriter.gif`}
         metaImageWidth={1480}
         metaImageHeight={1091}
         metaImageAlt="Vector line drawing of Remington portable typewriter belonging to Damien Parer, Paramount News"
