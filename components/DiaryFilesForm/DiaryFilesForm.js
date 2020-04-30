@@ -7,16 +7,16 @@ import Select from '../Select/Select';
 import css from './DiaryFilesForm.module.scss';
 import CTAButton from '../CTAButton';
 
-function yyyymmdd() {
-  const date = new Date();
-  const mm = `${date.getMonth() + 1 > 9 ? '' : '0'}${date.getMonth() + 1}`; // getMonth() is zero-based
-  const dd = `${date.getDate() > 9 ? '' : '0'}${date.getDate()}`;
-  const hh = `${date.getHours() > 9 ? '' : '0'}${date.getHours()}`;
-  const mins = `${date.getMinutes() > 9 ? '' : '0'}${date.getMinutes()}`;
-  const ss = `${date.getSeconds() > 9 ? '' : '0'}${date.getSeconds()}`;
+// function yyyymmdd() {
+//   const date = new Date();
+//   const mm = `${date.getMonth() + 1 > 9 ? '' : '0'}${date.getMonth() + 1}`; // getMonth() is zero-based
+//   const dd = `${date.getDate() > 9 ? '' : '0'}${date.getDate()}`;
+//   const hh = `${date.getHours() > 9 ? '' : '0'}${date.getHours()}`;
+//   const mins = `${date.getMinutes() > 9 ? '' : '0'}${date.getMinutes()}`;
+//   const ss = `${date.getSeconds() > 9 ? '' : '0'}${date.getSeconds()}`;
 
-  return `${date.getFullYear()}-${mm}-${dd}-${hh}-${mins}-${ss}`;
-}
+//   return `${date.getFullYear()}-${mm}-${dd}-${hh}-${mins}-${ss}`;
+// }
 
 const stateOptions = [
   { value: 'NSW', label: 'New South Wales' },
@@ -68,7 +68,7 @@ const DiaryFilesForm = (props) => {
       outsideAustralia,
       age,
     } = e.target.elements;
-    const postName = yyyymmdd();
+    const postName = `${dateText.value}, ${name.value || 'anonymous'}`; // yyyymmdd();
 
     // Let's do a little basic validation
     if (postcode.value && (postcode.value > 9999 || postcode.value < 200)) {
