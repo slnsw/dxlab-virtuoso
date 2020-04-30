@@ -15,7 +15,7 @@ const DiaryFilesPost = ({
   // title,
   content,
   dateText,
-  authorName,
+  authorName = 'Anonymous',
   className,
   city,
   state,
@@ -29,9 +29,9 @@ const DiaryFilesPost = ({
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
 
-  const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.png';
-  const pathname = `/diary-files/${id}`;
-  const title = 'Diary Files';
+  const imageUrl = 'http://dxlab.sl.nsw.gov.au/images/typewriter.gif';
+  const pathname = `/diary-files/entry/${id}`;
+  const title = `${dateText}, ${authorName} - The Diary Files`;
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
 
@@ -66,7 +66,7 @@ const DiaryFilesPost = ({
           <p className={css.date}>{dateText}</p>
 
           <p className={css.authorInfo}>
-            <span className={css.authorName}>{authorName || 'anonymous'}</span>
+            <span className={css.authorName}>{authorName}</span>
             {age && (
               <>
                 <br />

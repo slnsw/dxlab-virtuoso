@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import SocialMetaHead from '../SocialMetaHead';
 import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 
 /* eslint-disable */
 import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
+import { buildHeadTitle } from '../../lib';
 /* eslint-enable */
 
 const DiaryFilesStory = ({ className, id, singleView }) => {
@@ -43,21 +46,32 @@ const DiaryFilesStory = ({ className, id, singleView }) => {
     );
   }
 
+  const metaTitle = buildHeadTitle(
+    `${dateText}, ${authorName} - The Diary Files`,
+  );
+
   return (
-    <DiaryFilesPost
-      id={id}
-      content={content}
-      dateText={dateText}
-      authorName={authorName}
-      city={city}
-      state={state}
-      age={age}
-      postcode={postcode}
-      outsideAustralia={outsideAustralia}
-      className={[css.diaryFilesPost, className || ''].join(' ')}
-      relatedPosts={relatedPosts}
-      singleView={singleView}
-    />
+    <>
+      <Head>
+        <title>{metaTitle}</title>
+      </Head>
+      <SocialMetaHead title={metaTitle} description={content} />
+
+      <DiaryFilesPost
+        id={id}
+        content={content}
+        dateText={dateText}
+        authorName={authorName}
+        city={city}
+        state={state}
+        age={age}
+        postcode={postcode}
+        outsideAustralia={outsideAustralia}
+        className={[css.diaryFilesPost, className || ''].join(' ')}
+        relatedPosts={relatedPosts}
+        singleView={singleView}
+      />
+    </>
   );
 };
 

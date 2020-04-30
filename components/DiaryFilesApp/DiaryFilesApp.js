@@ -37,6 +37,10 @@ const DiaryFilesApp = ({ title, children, className }) => {
     >
       <App
         title={title}
+        metaImageUrl="/images/typewriter.gif"
+        metaImageWidth={1480}
+        metaImageHeight={1091}
+        metaImageAlt="Vector line drawing of Remington portable typewriter belonging to Damien Parer, Paramount News"
         className={[css.diaryFilesApp, className || ''].join(' ')}
       >
         <Head>

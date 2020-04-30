@@ -1,5 +1,5 @@
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+// import { ApolloProvider } from '@apollo/react-hooks';
 
 import DiaryFilesApp from '../components/DiaryFilesApp';
 import DiaryFilesHome from '../components/DiaryFilesHome';
@@ -8,9 +8,12 @@ import DiaryFilesAbout from '../components/DiaryFilesAbout';
 import DiaryFilesStory from '../components/DiaryFilesStory';
 import DiaryFilesRelatedStories from '../components/DiaryFilesRelatedStories';
 
-import { initApolloClient } from '../lib/apollo';
+import {
+  // initApolloClient,
+  withApollo,
+} from '../lib/apollo';
 
-const client = initApolloClient();
+// const client = initApolloClient();
 
 const DiaryFilesPage = ({ router }) => {
   const { pathname, query } = router;
@@ -37,20 +40,22 @@ const DiaryFilesPage = ({ router }) => {
   const integerId = query && query.id && parseInt(query.id, 10);
 
   return (
-    <ApolloProvider client={client}>
-      <DiaryFilesApp title={title}>
-        {pathname === '/diary-files' && <DiaryFilesHome />}
-        {pathname === '/diary-files/write' && <DiaryFilesForm />}
-        {pathname === '/diary-files/about' && <DiaryFilesAbout />}
-        {pathname === '/diary-files/entry/[id]' && (
-          <DiaryFilesStory id={integerId} />
-        )}
-        {pathname === '/diary-files/related/[id]' && (
-          <DiaryFilesRelatedStories id={integerId} />
-        )}
-      </DiaryFilesApp>
-    </ApolloProvider>
+    // <ApolloProvider client={client}>
+    <DiaryFilesApp title={title}>
+      {pathname === '/diary-files' && <DiaryFilesHome />}
+      {pathname === '/diary-files/write' && <DiaryFilesForm />}
+      {pathname === '/diary-files/about' && <DiaryFilesAbout />}
+      {pathname === '/diary-files/entry/[id]' && (
+        <DiaryFilesStory id={integerId} />
+      )}
+      {pathname === '/diary-files/related/[id]' && (
+        <DiaryFilesRelatedStories id={integerId} />
+      )}
+    </DiaryFilesApp>
+    // </ApolloProvider>
   );
 };
 
-export default DiaryFilesPage;
+// export default DiaryFilesPage;
+
+export default withApollo(DiaryFilesPage);
