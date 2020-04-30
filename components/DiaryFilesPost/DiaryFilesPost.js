@@ -6,7 +6,7 @@ import LoaderText from '../LoaderText';
 import Icon from '../Icon';
 import Link from '../Link';
 import setupSocials from '../../lib/social';
-// import config from '../../lib/config';
+import config from '../../lib/config';
 
 import css from './DiaryFilesPost.module.scss';
 import TextTruncate from '../TextTruncate/TextTruncate';
@@ -33,7 +33,7 @@ const DiaryFilesPost = ({
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
 
-  const imageUrl = `/images/typewriter.gif`;
+  const imageUrl = `${config.baseUrl}/images/typewriter.gif`;
   const pathname = `/diary-files/entry/${id}`;
   const title = `${dateText}, ${authorName} - The Diary Files`;
 
