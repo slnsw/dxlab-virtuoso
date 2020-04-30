@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
+// import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 
 import css from './DiaryFilesAbout.module.scss';
 
