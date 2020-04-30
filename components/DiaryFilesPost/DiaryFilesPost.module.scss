@@ -4,14 +4,12 @@
 
 .diaryFilesPost {
   display: block;
-  // max-width: 40em;
   margin-right: calc(var(--spacing-xs) * -1);
-  margin-bottom: var(--spacing-xlg);
+  margin-bottom: var(--spacing-xxxlg);
   margin-left: calc(var(--spacing-xs) * -1);
   padding: var(--spacing-md);
   color: var(--colour-black);
   background-color: var(--colour-white);
-  // border: 1px solid var(--colour-white);
 
   @include media-sm {
     margin-right: auto;
