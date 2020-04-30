@@ -57,18 +57,18 @@ const DiaryFilesPost = ({
       <article
         id={id}
         className={[
-          singleView ? '' : css.diaryFilesAllowHover,
+          // singleView ? '' : css.diaryFilesAllowHover,
           css.diaryFilesPost,
           className || '',
         ].join(' ')}
-        onClick={() => {
-          if (!singleView) {
-            Router.push(
-              `/diary-files/entry/[id]`,
-              `/diary-files/entry/${id}`,
-            ).then(() => window.scrollTo(0, 0));
-          }
-        }}
+        // onClick={() => {
+        //   if (!singleView) {
+        //     Router.push(
+        //       `/diary-files/entry/[id]`,
+        //       `/diary-files/entry/${id}`,
+        //     ).then(() => window.scrollTo(0, 0));
+        //   }
+        // }}
       >
         <header className={css.header}>
           <p className={css.date}>{dateText}</p>
@@ -140,6 +140,18 @@ const DiaryFilesPost = ({
           >
             <Icon name="twitter" size="lg" />
           </a>
+
+          {!singleView && (
+            <Link as={`/diary-files/entry/${id}`}>
+              <a
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+              >
+                <Icon name="arrow-redo" size="lg" />
+              </a>
+            </Link>
+          )}
         </div>
       </article>
     </>
