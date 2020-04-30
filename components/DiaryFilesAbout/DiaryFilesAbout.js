@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
+
 import css from './DiaryFilesAbout.module.scss';
 
 const DiaryFilesAbout = ({ className }) => {
@@ -24,6 +26,8 @@ const DiaryFilesAbout = ({ className }) => {
 
   return (
     <article className={[css.diaryFilesAbout, className || ''].join(' ')}>
+      {/* <HenryLawsonPen className={css.henryLawsonPen}></HenryLawsonPen> */}
+
       <h1>{page && page.title}</h1>
       <div
         className={css.content}
