@@ -16,7 +16,7 @@ const DiaryFilesPost = ({
   // title,
   content,
   dateText,
-  authorName = 'Anonymous',
+  authorName: rawAuthorName,
   className,
   city,
   state,
@@ -26,6 +26,8 @@ const DiaryFilesPost = ({
   relatedPosts,
   singleView = true,
 }) => {
+  const authorName = rawAuthorName || 'Anonymous';
+
   // set up social data
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
