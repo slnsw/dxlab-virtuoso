@@ -297,7 +297,8 @@ const DiaryFilesForm = (props) => {
                 By submitting your diary entry in this platform you are allowing
                 the State Library of NSW to collect, store and publish your text
                 as part of this online experience, for exhibition and
-                promotional purposes.
+                promotional purposes. Please note we have allowed social sharing
+                on each entry.
               </p>
               {showWarning && <div className="warning">{showWarning}</div>}
 
