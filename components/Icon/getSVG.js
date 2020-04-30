@@ -27,6 +27,19 @@ export function getSVG(name) {
           <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
         </g>
       );
+    case 'chevron-back-sharp':
+      return (
+        <polyline
+          points="328 112 184 256 328 400"
+          style={{
+            fill: 'none',
+            stroke: '#FFF',
+            strokeLinecap: 'square',
+            strokeMiterlimit: 10,
+            strokeWidth: '48px',
+          }}
+        />
+      );
     default:
       return <path />;
   }

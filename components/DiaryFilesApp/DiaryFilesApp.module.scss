@@ -54,20 +54,23 @@
 
   @include media-md {
     font-size: var(--font-size-xxlg);
+    transform: translate(0, 0.2em);
   }
 
-  @include media-lg {
+  @include media-xlg {
     font-size: var(--font-size-xxxlg);
   }
 
-  a:link,
-  a:visited {
-    color: var(--colour-primary);
-  }
+  @include media-sm {
+    a:link,
+    a:visited {
+      color: var(--colour-primary);
+    }
 
-  a:hover,
-  a:active {
-    text-decoration: underline;
+    a:hover,
+    a:active {
+      text-decoration: underline;
+    }
   }
 }
 

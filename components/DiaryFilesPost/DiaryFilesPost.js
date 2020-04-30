@@ -37,7 +37,7 @@ const DiaryFilesPost = ({
 
   return (
     <>
-      {singleView && (
+      {/* {singleView && (
         <CTAButtonV2
           onClick={() => Router.back()}
           // href={`/diary-files`}
@@ -45,6 +45,12 @@ const DiaryFilesPost = ({
         >
           back
         </CTAButtonV2>
+      )} */}
+
+      {singleView && (
+        <button onClick={() => Router.back()} className={css.backButton}>
+          {'<'} Back
+        </button>
       )}
 
       <article

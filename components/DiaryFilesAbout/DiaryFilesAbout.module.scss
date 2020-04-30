@@ -15,9 +15,9 @@
 }
 
 .content {
-  margin-right: auto;
+  margin-right: calc(var(--spacing-xs) * -1);
   margin-bottom: var(--spacing-xlg);
-  margin-left: auto;
+  margin-left: calc(var(--spacing-xs) * -1);
   padding: var(--spacing-md);
   color: var(--colour-black);
   font-family: var(--font-diary-files);
@@ -25,7 +25,9 @@
   background-color: var(--colour-white);
 
   @include media-sm {
+    margin-right: auto;
     margin-bottom: var(--spacing-xlg);
+    margin-left: auto;
     padding: var(--spacing-xxlg);
     font-size: 1.1em;
   }
