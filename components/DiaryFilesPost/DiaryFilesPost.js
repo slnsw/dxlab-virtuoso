@@ -9,6 +9,7 @@ import setupSocials from '../../lib/social';
 import config from '../../lib/config';
 
 import css from './DiaryFilesPost.module.scss';
+import TextTruncate from '../TextTruncate/TextTruncate';
 
 const DiaryFilesPost = ({
   id,
@@ -125,10 +126,12 @@ const DiaryFilesPost = ({
           </p>
         </header>
 
-        <div
-          className={css.content}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <TextTruncate showButton={true} limit={600}>
+          <div
+            className={css.content}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </TextTruncate>
 
         <div>
           <a
@@ -141,7 +144,7 @@ const DiaryFilesPost = ({
               event.stopPropagation();
             }}
           >
-            <Icon name="facebook" size="lg" />
+            <Icon name="facebook" size="md" />
           </a>
 
           <a
@@ -154,7 +157,7 @@ const DiaryFilesPost = ({
               event.stopPropagation();
             }}
           >
-            <Icon name="twitter" size="lg" />
+            <Icon name="twitter" size="md" />
           </a>
 
           {!singleView && (
@@ -164,7 +167,7 @@ const DiaryFilesPost = ({
                   event.stopPropagation();
                 }}
               >
-                <Icon name="arrow-redo" size="lg" />
+                <Icon name="arrow-redo" size="md" />
               </a>
             </Link>
           )}
