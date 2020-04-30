@@ -24,6 +24,7 @@ import css from './TextTruncate.module.scss';
  * If using multiple tags, the first tag is used to display the truncated text.
  * Copied from CEP
  * TODO: Consider publishing as own component
+ * TODO: Add tests from CEP
  */
 const TextTruncate = ({
   className,
