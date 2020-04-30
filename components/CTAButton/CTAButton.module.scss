@@ -1,0 +1,45 @@
+@import '../../styles/global.scss';
+
+@lost gutter 0.3em;
+
+.ctaButton {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3em;
+  padding-right: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  letter-spacing: 0.4em;
+  text-align: center;
+  border: 1px solid var(--colour-white);
+  /* border: 1px solid var(--colour-grey-darkest); */
+  @extend .font-uppercase;
+
+  transition: 0.3s;
+
+  &:link,
+  &:visited {
+    color: var(--colour-white);
+  }
+
+  &:hover {
+    color: var(--colour-highlight);
+    text-decoration: none;
+    border: 1px solid var(--colour-highlight);
+  }
+}
+
+.ctaButtonSm {
+  height: 2em;
+  background-color: var(--colour-grey-darkest);
+  border: 1px solid var(--colour-grey-darkest);
+
+  &:hover {
+    background-color: var(--colour-black);
+  }
+}

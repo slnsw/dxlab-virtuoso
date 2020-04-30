@@ -1,6 +1,6 @@
-import { Link } from '../routes';
+import { Link as RouteLink } from '../routes';
 
-export default (props) => {
+const Link = (props) => {
   let href;
 
   if (props.as) {
@@ -8,14 +8,20 @@ export default (props) => {
       href = '/blog/[slug]';
     } else if (props.as.indexOf('/collection/item/') >= 0) {
       href = '/collection/item/[item]';
+    } else if (props.as.indexOf('/diary-files/entry') >= 0) {
+      href = '/diary-files/entry/[id]';
+    } else if (props.as.indexOf('/diary-files/related') >= 0) {
+      href = '/diary-files/related/[id]';
     } else {
       href = props.as;
     }
   }
 
   return (
-    <Link {...props} href={href || props.href}>
+    <RouteLink {...props} href={href || props.href}>
       {props.children}
-    </Link>
+    </RouteLink>
   );
 };
+
+export default Link;

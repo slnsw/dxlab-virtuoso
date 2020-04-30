@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import setupSocials from '../../lib/social';
+
 // import './ShareBox.css';
 
 class ShareBox extends Component {
@@ -13,18 +15,26 @@ class ShareBox extends Component {
 
   render() {
     const { title, text, pathname, imageUrl } = this.props;
-    const tweetText = encodeURIComponent(`${text} #dxlab @statelibrarynsw`);
-    const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
 
-    // TODO: Use baseUrl variable
-    const url = encodeURIComponent(`http://dxlab.sl.nsw.gov.au${pathname}`);
-    const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
+    const { fbLink, twitterLink } = setupSocials(
       title,
-    )}&description=${encodeURIComponent(text)}${
-      imageUrl ? `&picture=${imageUrl}` : ''
-    }`;
+      text,
+      pathname,
+      imageUrl,
+    );
 
-    const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
+    // const tweetText = encodeURIComponent(`${text} #dxlab @statelibrarynsw`);
+    // const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
+
+    // // TODO: Use baseUrl variable
+    // const url = encodeURIComponent(`http://dxlab.sl.nsw.gov.au${pathname}`);
+    // const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
+    //   title,
+    // )}&description=${encodeURIComponent(text)}${
+    //   imageUrl ? `&picture=${imageUrl}` : ''
+    // }`;
+
+    // const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
 
     return (
       <div className="share-box">

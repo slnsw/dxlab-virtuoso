@@ -1,9 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import HeaderNav from '../HeaderNav/HeaderNav';
 import Menu from '../Menu';
-import Link from '../Link';
-// import './Header.css';
+// import Link from '../Link';
+import DXLabLogo from '../DXLabLogo';
+import SLNSWLogo from '../SLNSWLogo';
+import MenuIconButton from '../MenuIconButton/MenuIconButton';
 
 // const menuItems = [
 //   { name: 'Home', url: '/' },
@@ -46,23 +49,18 @@ class Header extends Component {
 
   render() {
     const { pathname = '', menuItems = [] } = this.props;
+    const { isMenuOpen } = this.state;
 
     return (
       <header className="header">
-        <div className="logo logo--dxlab">
-          <Link href="/">
-            <a href="/">
-              <img src="/images/logo-dxlab.png" alt="DX Lab Logo." />
-            </a>
-          </Link>
-        </div>
+        <DXLabLogo className="logo logo--dxlab" />
 
-        <nav
-          className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}
-        >
+        <HeaderNav isOpen={isMenuOpen}>
           <Menu
             id="primary-menu"
-            className="primary-menu"
+            className={['primary-menu', isMenuOpen ? 'is-active' : ''].join(
+              ' ',
+            )}
             menuItemClassName="primary-menu__item"
             labelledby="primary-menu-button"
             menuItems={menuItems.map((item) => ({
@@ -74,40 +72,18 @@ class Header extends Component {
             pathname={pathname}
             onMenuItemClick={this.handleMenuToggle}
           />
-        </nav>
+        </HeaderNav>
 
-        <div className="logo logo--slnsw">
-          <a
-            href="http://sl.nsw.gov.au"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              // className="logo logo--slnsw"
-              src="/images/logo-slnsw-white.png"
-              alt="State Library Logo."
-            />
-          </a>
-        </div>
+        <SLNSWLogo className="logo logo--slnsw" />
 
-        <button
+        <MenuIconButton
+          isOpen={isMenuOpen}
           id="primary-menu-button"
-          className={`primary-menu-button ${
-            this.state.isMenuOpen ? 'is-open' : ''
-          }`}
-          aria-haspopup="true"
+          className="header__menu-button"
           aria-controls="primary-menu"
-          aria-expanded="false"
           aria-label="primary menu"
           onClick={this.handleMenuToggle}
-        >
-          <div>
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-        </button>
+        />
       </header>
     );
   }

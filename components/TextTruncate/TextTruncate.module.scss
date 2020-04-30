@@ -1,0 +1,17 @@
+@import '../../styles/global.scss';
+
+// .textTruncate {
+//   display: block;
+// }
+
+// TODO: Fix these temp styles
+.button {
+  display: block;
+  margin-top: -2.6em;
+  margin-bottom: var(--spacing-xxxlg);
+  padding: 0;
+  color: var(--colour-primary);
+  font-size: var(--font-size-md);
+  font-family: var(--font-diary-files);
+  letter-spacing: 0.05em;
+}

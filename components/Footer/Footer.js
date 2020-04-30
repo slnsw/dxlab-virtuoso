@@ -90,7 +90,7 @@ const socialItems = [
   },
   {
     name: 'Flickr',
-    url: 'http://www.sl.nsw.gov.au/about/collections/flickr.html',
+    url: 'https://www.flickr.com/photos/29454428@N08/',
   },
   {
     name: 'Pinterest',

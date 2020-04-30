@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.2] - 2020-04-30
+
+- Add `diary-files` page of new DX Lab experiment
+- Add `DiaryFilesApp` and associated components
+- Add `DXLabLogo`, `SLNSWLogo` components
+- Refactor `Button` to `CTAButton`
+- Recreate `Button` component to be more generic
+- Add `MenuIconButton`
+- Add `eslint-plugin-css-modules`
+- Refactor `App` to be more generic and make `WebsiteApp` more customised
+- Add `react-select` and create `Select` component
+- Add `Icon`
+- Add `CTAButtonV2`
+- Add `design-system` page
+- Add `aereo` rewrite to Mauricio's Fellowship project in now.json
+- Add `HeaderNav` component
+- Add `Overlay` component
+- Add `Modal` component
+- Add `TextTruncate` component
+
 ## [1.8.1] - 2020-04-01
 
 - Update blog post social meta tags with image height and width

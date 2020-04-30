@@ -1,0 +1,17 @@
+@import '../../styles/global.scss';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--colour-black);
+  opacity: 0.8;
+
+  &.isActive {
+    display: block;
+  }
+}

@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import Link from '../Link';
 import TileImage from '../TileImage';
-// import Button from '../Button';
 import TileButtonGroup from '../TileButtonGroup';
-import './Tile.css';
+// import './Tile.css';
 
 class Tile extends Component {
   static propTypes = {
