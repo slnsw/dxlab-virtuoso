@@ -8,6 +8,7 @@ import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import HeaderNavV2 from '../HeaderNavV2';
 import MenuIconButton from '../MenuIconButton';
+import Progress from '../Progress';
 import Footer from '../Footer';
 
 import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
@@ -99,6 +100,8 @@ const DiaryFilesApp = ({ title, children, className }) => {
             onClick={handleMenuToggle}
           />
         </header>
+
+        <Progress />
 
         <main className={css.main}>{children}</main>
 
