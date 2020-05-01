@@ -43,6 +43,14 @@
     padding-top: var(--spacing-xs);
   }
 
+  input[type='text'],
+  button[type='submit'] {
+    &:focus {
+      outline: 3px solid var(--colour-primary);
+      outline-offset: 0;
+    }
+  }
+
   textarea {
     color: var(--colour-black);
     font-family: var(--font-diary-files);

@@ -84,6 +84,8 @@ const Select = ({
           return {
             ...provided,
             color: variantColour,
+            top: '48%',
+            fontFamily: 'var(--font-secondary)',
           };
         },
         dropdownIndicator: (provided) => {
