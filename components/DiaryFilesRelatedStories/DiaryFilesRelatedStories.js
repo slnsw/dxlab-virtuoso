@@ -39,27 +39,30 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
       <h2 className={css.sectionTitle}>All entries by {authorName}</h2>
 
       {relatedPosts &&
-        relatedPosts.map((p, i) => {
-          return (
-            <DiaryFilesPost
-              key={p.id}
-              id={p.id}
-              content={p.content}
-              dateText={p.dateText}
-              authorName={p.authorName}
-              city={p.city}
-              state={p.state}
-              age={p.age}
-              postcode={p.postcode}
-              outsideAustralia={p.outsideAustralia}
-              className={[css.diaryFilesRelatedStories, className || ''].join(
-                ' ',
-              )}
-              singleView={i === 0}
-              isLoading={loading}
-            />
-          );
-        })}
+        relatedPosts
+          .sort((a, b) => a.id - b.id)
+          .map((p, i) => {
+            console.log(p.id);
+            return (
+              <DiaryFilesPost
+                key={p.id}
+                id={p.id}
+                content={p.content}
+                dateText={p.dateText}
+                authorName={p.authorName}
+                city={p.city}
+                state={p.state}
+                age={p.age}
+                postcode={p.postcode}
+                outsideAustralia={p.outsideAustralia}
+                className={[css.diaryFilesRelatedStories, className || ''].join(
+                  ' ',
+                )}
+                singleView={i === 0}
+                isLoading={loading}
+              />
+            );
+          })}
     </>
   );
 };
