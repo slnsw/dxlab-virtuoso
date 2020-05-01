@@ -211,6 +211,10 @@ const DiaryFilesForm = (props) => {
                   aria-required="false"
                   placeholder="Your email"
                 />
+                <p className={css['diaryFilesForm__emailMessage']}>
+                  If you use the same email for multiple entries they will be
+                  linked as being by the same author.
+                </p>
               </div>
               <div
                 className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__age']}`}
