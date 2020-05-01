@@ -12,6 +12,7 @@ const Select = ({
   menuIsOpen,
   onChange,
   isDisabled,
+  isSearchable,
 }) => {
   const variantColour =
     variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
@@ -31,7 +32,7 @@ const Select = ({
           };
         },
         control: (provided, state) => {
-          console.log(provided, state);
+          // console.log(provided, state);
 
           return {
             ...provided,
@@ -127,6 +128,7 @@ const Select = ({
       menuIsOpen={menuIsOpen}
       onChange={onChange}
       isDisabled={isDisabled}
+      isSearchable={isSearchable}
     />
   );
 };
