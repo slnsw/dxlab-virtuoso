@@ -42,7 +42,6 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
         relatedPosts
           .sort((a, b) => a.id - b.id)
           .map((p, i) => {
-            console.log(p.id);
             return (
               <DiaryFilesPost
                 key={p.id}
