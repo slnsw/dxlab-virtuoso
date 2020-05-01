@@ -56,6 +56,4 @@ const DiaryFilesPage = ({ router }) => {
   );
 };
 
-// export default DiaryFilesPage;
-
 export default withApollo(DiaryFilesPage);
