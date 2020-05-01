@@ -97,6 +97,12 @@
   }
 }
 
+.diaryFilesForm__emailMessage {
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
 .diaryFilesForm__age {
   @include media-md {
     float: left;

@@ -13,7 +13,6 @@ import TextTruncate from '../TextTruncate/TextTruncate';
 
 const DiaryFilesPost = ({
   id,
-  // title,
   content,
   dateText,
   authorName: rawAuthorName,
@@ -40,21 +39,14 @@ const DiaryFilesPost = ({
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
   const isSsr = Router?.router?.isSsr;
 
-  if (isLoading)
-    return (
-      <article
-        id={id}
-        className={[css.diaryFilesPost, className || ''].join(' ')}
-      >
-        <LoaderText className={css.darkLoaderText} />
-      </article>
-    );
-
   return (
     <>
-      {singleView && !isSsr && (
-        <button onClick={() => Router.back()} className={css.backButton}>
-          {'<'} Back
+      {singleView && (
+        <button
+          onClick={() => (isSsr ? Router.push('/diary-files') : Router.back())}
+          className={css.backButton}
+        >
+          {`< ${isSsr ? 'Home' : 'Back'}`}
         </button>
       )}
 
@@ -62,91 +54,98 @@ const DiaryFilesPost = ({
         id={id}
         className={[css.diaryFilesPost, className || ''].join(' ')}
       >
-        <header className={css.header}>
-          <p className={css.date}>{dateText}</p>
+        {isLoading ? (
+          <LoaderText className={css.darkLoaderText} />
+        ) : (
+          <>
+            <header className={css.header}>
+              <p className={css.date}>{dateText}</p>
+              <p className={css.authorInfo}>
+                <span className={css.authorName}>{authorName}</span>
+                {age && (
+                  <>
+                    <br />
+                    {age}
+                  </>
+                )}
+                {!outsideAustralia && (city || state || postcode) && (
+                  <>
+                    <br />
+                    {city}
+                    {city && (state || postcode) && ', '}
+                    {state}
+                    {postcode && state && `, `}
+                    {postcode}
+                  </>
+                )}
+                {relatedPosts && relatedPosts.length > 1 && (
+                  <>
+                    <br />
+                    <Link as={`/diary-files/related/${id}#${id}`}>
+                      <a
+                        onClick={(event) => {
+                          event.stopPropagation();
+                        }}
+                      >
+                        See all by author
+                      </a>
+                    </Link>
+                  </>
+                )}
+              </p>
+            </header>
 
-          <p className={css.authorInfo}>
-            <span className={css.authorName}>{authorName}</span>
-            {age && (
-              <>
-                <br />
-                {age}
-              </>
-            )}
-            {!outsideAustralia && (city || state || postcode) && (
-              <>
-                <br />
-                {/* {'of '} */}
-                {city}
-                {city && (state || postcode) && ', '}
-                {state}
-                {postcode && state && `, `}
-                {postcode}
-              </>
-            )}
-            {relatedPosts && relatedPosts.length > 1 && (
-              <>
-                <br />
-                <Link as={`/diary-files/related/${id}#${id}`}>
+            <TextTruncate
+              showButton={true}
+              limit={singleView ? 100000000 : 600}
+            >
+              <div
+                className={css.content}
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+            </TextTruncate>
+
+            <div>
+              <a
+                href={fbLink}
+                className={css.sharingIcon}
+                aria-label="Share this entry on Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+              >
+                <Icon name="facebook" size="md" />
+              </a>
+
+              <a
+                href={twitterLink}
+                className={css.sharingIcon}
+                aria-label="Share this entry on Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+              >
+                <Icon name="twitter" size="md" />
+              </a>
+
+              {!singleView && (
+                <Link as={`/diary-files/entry/${id}`}>
                   <a
                     onClick={(event) => {
                       event.stopPropagation();
                     }}
                   >
-                    See all by author
+                    <Icon name="arrow-redo" size="md" />
                   </a>
                 </Link>
-              </>
-            )}
-          </p>
-        </header>
-
-        <TextTruncate showButton={true} limit={singleView ? 100000000 : 600}>
-          <div
-            className={css.content}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </TextTruncate>
-
-        <div>
-          <a
-            href={fbLink}
-            className={css.sharingIcon}
-            aria-label="Share this entry on Facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
-          >
-            <Icon name="facebook" size="md" />
-          </a>
-
-          <a
-            href={twitterLink}
-            className={css.sharingIcon}
-            aria-label="Share this entry on Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
-          >
-            <Icon name="twitter" size="md" />
-          </a>
-
-          {!singleView && (
-            <Link as={`/diary-files/entry/${id}`}>
-              <a
-                onClick={(event) => {
-                  event.stopPropagation();
-                }}
-              >
-                <Icon name="arrow-redo" size="md" />
-              </a>
-            </Link>
-          )}
-        </div>
+              )}
+            </div>
+          </>
+        )}
       </article>
     </>
   );
