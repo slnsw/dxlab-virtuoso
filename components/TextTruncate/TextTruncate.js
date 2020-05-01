@@ -103,10 +103,13 @@ const TextTruncate = ({
     } else {
       childText = child.props.children;
     }
-
+    // console.log('--------');
+    // console.log(childText);
     return childText;
   }).join(' ');
 
+  // console.log('=====');
+  // console.log(text.length);
   const isTextOverLimit = text.length > limit;
 
   let result;
