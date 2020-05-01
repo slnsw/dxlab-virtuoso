@@ -14,4 +14,9 @@
   font-size: var(--font-size-md);
   font-family: var(--font-diary-files);
   letter-spacing: 0.05em;
+
+  &:focus {
+    outline: 1px solid var(--colour-primary);
+    outline-offset: 4px;
+  }
 }

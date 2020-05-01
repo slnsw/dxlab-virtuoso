@@ -36,7 +36,9 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
 
   return (
     <>
-      <h2 className={css.sectionTitle}>All entries by {authorName}</h2>
+      <h2 className={css.sectionTitle}>
+        <span>All entries by</span> {authorName}
+      </h2>
 
       {relatedPosts &&
         relatedPosts.map((p, i) => {
