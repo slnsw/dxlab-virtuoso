@@ -51,6 +51,8 @@ const DiaryFilesHome = ({ className }) => {
 
         <br />
 
+        <div className={css.divider}></div>
+
         <p className={css.smallText}>
           <Link href="/diary-files/about">
             <a>About this project</a>

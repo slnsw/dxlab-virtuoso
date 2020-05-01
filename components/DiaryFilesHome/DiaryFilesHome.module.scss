@@ -31,7 +31,8 @@
 .smallText {
   // @extend .font-uppercase;
 
-  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
   font-size: var(--font-size-md);
   font-family: var(--font-diary-files);
 }
@@ -42,7 +43,7 @@
 }
 
 .divider {
-  width: 2em;
+  width: var(--spacing-lg);
   margin: 0 auto;
   border-top: 1px solid var(--colour-white);
 }
