@@ -29,7 +29,7 @@ const DiaryFilesPost = ({
 }) => {
   const authorName = rawAuthorName || 'Anonymous';
 
-  // set up social data
+  // Set up social data
   const text =
     'Check out this diary entry from @statelibrarynsw #TheDiaryFiles #dxlab';
 
@@ -38,16 +38,13 @@ const DiaryFilesPost = ({
   const title = `${dateText}, ${authorName} - The Diary Files`;
 
   const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
+  const isSsr = Router?.router?.isSsr;
 
   if (isLoading)
     return (
       <article
         id={id}
-        className={[
-          // singleView ? '' : css.diaryFilesAllowHover,
-          css.diaryFilesPost,
-          className || '',
-        ].join(' ')}
+        className={[css.diaryFilesPost, className || ''].join(' ')}
       >
         <LoaderText className={css.darkLoaderText} />
       </article>
@@ -55,17 +52,7 @@ const DiaryFilesPost = ({
 
   return (
     <>
-      {/* {singleView && (
-        <CTAButtonV2
-          onClick={() => Router.back()}
-          // href={`/diary-files`}
-          className={css.backButton}
-        >
-          back
-        </CTAButtonV2>
-      )} */}
-
-      {singleView && (
+      {singleView && !isSsr && (
         <button onClick={() => Router.back()} className={css.backButton}>
           {'<'} Back
         </button>
@@ -73,19 +60,7 @@ const DiaryFilesPost = ({
 
       <article
         id={id}
-        className={[
-          // singleView ? '' : css.diaryFilesAllowHover,
-          css.diaryFilesPost,
-          className || '',
-        ].join(' ')}
-        // onClick={() => {
-        //   if (!singleView) {
-        //     Router.push(
-        //       `/diary-files/entry/[id]`,
-        //       `/diary-files/entry/${id}`,
-        //     ).then(() => window.scrollTo(0, 0));
-        //   }
-        // }}
+        className={[css.diaryFilesPost, className || ''].join(' ')}
       >
         <header className={css.header}>
           <p className={css.date}>{dateText}</p>
