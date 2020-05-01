@@ -80,7 +80,10 @@ class App extends Component {
 
         <SocialMetaHead
           title={title}
-          description={metaDescription}
+          description={
+            metaDescription ||
+            'The Diary Files is an open platform for you to write a diary entry, of up to 300 words, on whatever subject you like.'
+          }
           imageUrl={metaImageUrl}
           imageAlt={metaImageAlt}
           imageWidth={metaImageWidth}
