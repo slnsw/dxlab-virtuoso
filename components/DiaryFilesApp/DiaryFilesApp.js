@@ -43,6 +43,7 @@ const DiaryFilesApp = ({ title, children, className }) => {
         metaImageWidth={1480}
         metaImageHeight={1091}
         metaImageAlt="Vector line drawing of Remington portable typewriter belonging to Damien Parer, Paramount News"
+        metaDescription="The Diary Files is an open platform for you to write a diary entry, on whatever subject you like."
         className={[css.diaryFilesApp, className || ''].join(' ')}
       >
         <Head>

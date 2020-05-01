@@ -11,6 +11,7 @@ import DiaryFilesPost from '../DiaryFilesPost';
 /* eslint-disable */
 import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
 import { buildHeadTitle } from '../../lib';
+import config from '../../lib/config';
 /* eslint-enable */
 
 const DiaryFilesStory = ({ className, id, singleView }) => {
@@ -55,9 +56,11 @@ const DiaryFilesStory = ({ className, id, singleView }) => {
       <Head>
         <title>{metaTitle}</title>
       </Head>
+
       <SocialMetaHead
         title={metaTitle}
-        description={content.replace(/<p>/g, '')}
+        description={content.replace(/<p>/g, '').replace(/<\/p>/g, '')}
+        baseUrl={config.baseUrl}
       />
 
       <DiaryFilesPost
