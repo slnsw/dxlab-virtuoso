@@ -48,7 +48,7 @@ const DiaryFilesStory = ({ className, id, singleView }) => {
   }
 
   const metaTitle = buildHeadTitle(
-    `${dateText}, ${authorName} - The Diary Files`,
+    `${dateText}, ${authorName || 'Anonymous'} - The Diary Files`,
   );
 
   return (
