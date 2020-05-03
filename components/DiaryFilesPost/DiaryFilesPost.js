@@ -24,6 +24,7 @@ const DiaryFilesPost = ({
   outsideAustralia,
   relatedPosts,
   singleView = true,
+  hasReadMore,
   isLoading = true,
 }) => {
   const authorName = rawAuthorName || 'Anonymous';
@@ -97,7 +98,7 @@ const DiaryFilesPost = ({
 
             <TextTruncate
               showButton={true}
-              limit={singleView ? 100000000 : 600}
+              limit={hasReadMore ? 600 : 100000000}
             >
               <div
                 className={css.content}

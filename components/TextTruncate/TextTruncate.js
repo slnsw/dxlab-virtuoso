@@ -216,15 +216,12 @@ function truncateNicely(text, limit, endChar) {
       textList[i] = splitByTags[i];
     }
   }
-  console.log(textList); // ///////////////////////////////// remove later
-  console.log(tagList); // ///////////////////////////////// remove later
 
   // Now start reassembling, counting length of text parts only
   let lengthSoFar = 0;
   let out = '';
   let overLimit = false;
   for (let i = 0; i < splitByTags.length; i++) {
-    console.log(lengthSoFar, i, stack); // ///////////////////////////////// remove later
     if (!overLimit) {
       // We are still under the character limit.
       // First deal with next bit of text
@@ -236,7 +233,6 @@ function truncateNicely(text, limit, endChar) {
           out += `${truncText}${endChar}`;
           lengthSoFar += truncBitLength;
           overLimit = true;
-          console.log('OVER!!'); // ///////////////////////////////// remove later
         } else {
           out += textList[i];
           lengthSoFar += textBitLength;
@@ -270,8 +266,6 @@ function truncateNicely(text, limit, endChar) {
       out += closing;
     }
   }
-  console.log('in: ', text); // ///////////////////////////////// remove later
-  console.log('out: ', out); // ///////////////////////////////// remove later
   return out;
 }
 

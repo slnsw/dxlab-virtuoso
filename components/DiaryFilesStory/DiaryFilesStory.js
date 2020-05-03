@@ -76,6 +76,7 @@ const DiaryFilesStory = ({ className, id, singleView }) => {
         className={[css.diaryFilesPost, className || ''].join(' ')}
         relatedPosts={relatedPosts}
         singleView={singleView}
+        hasReadMore={false}
         isLoading={loading}
       />
     </>
