@@ -60,6 +60,7 @@ const DiaryFilesRelatedStories = ({ className, id }) => {
                   ' ',
                 )}
                 singleView={i === 0}
+                hasReadMore={false}
                 isLoading={loading}
               />
             );
