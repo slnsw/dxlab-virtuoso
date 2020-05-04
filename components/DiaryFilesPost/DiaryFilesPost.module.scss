@@ -34,7 +34,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: var(--spacing-md);
-  opacity: 0.8;
 }
 
 .date {
@@ -59,10 +58,10 @@
 .authorInfo {
   font-family: var(--font-diary-files);
   text-align: right;
+  opacity: 0.8;
 }
 
 .authorName {
-  font-weight: 700;
   font-size: 1.2em;
 }
 
