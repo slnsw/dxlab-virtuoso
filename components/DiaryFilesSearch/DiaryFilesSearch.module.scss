@@ -1,0 +1,15 @@
+@import '../../styles/global.scss';
+
+.diaryFilesSearch {
+  display: block;
+}
+
+.sectionTitle {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-md);
+  text-align: center;
+
+  span {
+    font-weight: 500;
+  }
+}

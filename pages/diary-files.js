@@ -7,6 +7,7 @@ import DiaryFilesForm from '../components/DiaryFilesForm';
 import DiaryFilesAbout from '../components/DiaryFilesAbout';
 import DiaryFilesStory from '../components/DiaryFilesStory';
 import DiaryFilesRelatedStories from '../components/DiaryFilesRelatedStories';
+import DiaryFilesSearch from '../components/DiaryFilesSearch';
 
 import {
   // initApolloClient,
@@ -34,10 +35,14 @@ const DiaryFilesPage = ({ router }) => {
     '/diary-files/related/[id]': {
       title: 'Related',
     },
+    '/diary-files/search/[term]': {
+      title: 'Search',
+    },
   };
 
   const title = `${config[pathname].title} - The Diary Files`;
   const integerId = query && query.id && parseInt(query.id, 10);
+  const term = query && query.term; // need to sanitise it??
 
   return (
     // <ApolloProvider client={client}>
@@ -50,6 +55,9 @@ const DiaryFilesPage = ({ router }) => {
       )}
       {pathname === '/diary-files/related/[id]' && (
         <DiaryFilesRelatedStories id={integerId} />
+      )}
+      {pathname === '/diary-files/search/[term]' && (
+        <DiaryFilesSearch search={term} />
       )}
     </DiaryFilesApp>
     // </ApolloProvider>
