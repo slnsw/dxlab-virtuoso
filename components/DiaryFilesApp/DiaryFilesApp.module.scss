@@ -10,11 +10,11 @@
 .header {
   display: flex;
   align-items: center;
-  // justify-content: space-between;
   padding-top: 1em;
 
   @include media-sm {
     justify-content: space-between;
+    margin-top: calc(var(--spacing-xs) * -1);
     padding-top: 0;
   }
 }
@@ -49,6 +49,11 @@
 }
 
 .slnswLogo {
+  height: var(--spacing-xlg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.slnswLogoDesktop {
   display: none;
 
   @include media-sm {
@@ -63,6 +68,18 @@
 }
 
 .abcLogoWrapper {
+  margin-top: var(--spacing-xlg);
+  text-align: center;
+
+  p {
+    @extend .font-uppercase;
+
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.abcLogoWrapperDesktop {
   display: none;
   align-items: center;
 
@@ -81,12 +98,7 @@
 }
 
 .abcLogo {
-  display: none;
   height: 3.5em;
-
-  @include media-sm {
-    display: block;
-  }
 }
 
 .headerTitle {
@@ -131,15 +143,16 @@
 }
 
 .diaryFilesApp .headerNav {
+  text-align: center;
+
   @include media-sm {
     display: none;
   }
 }
 
 .headerMenu {
-  margin-top: var(--spacing-xxlg);
+  margin-top: var(--spacing-xxxlg);
   padding-left: 0;
-  font-size: var(--font-size-lg);
   font-family: var(--font-diary-files);
   text-align: center;
   list-style: none;
@@ -147,6 +160,7 @@
   li a {
     display: block;
     padding: var(--spacing-md);
+    font-size: var(--font-size-lg);
   }
 }
 

@@ -18,7 +18,7 @@ import config from '../../lib/config';
 import css from './DiaryFilesApp.module.scss';
 
 const DiaryFilesApp = ({ title, children, className }) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(true);
   const [hasVisitedHomePage, setHasVisitedHomePage] = React.useState(false);
 
   const handleMenuToggle = () => {
@@ -59,7 +59,9 @@ const DiaryFilesApp = ({ title, children, className }) => {
 
             <div className={css.headerDivider} />
 
-            <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
+            <SLNSWLogo
+              className={[css.headerLogo, css.slnswLogoDesktop].join(' ')}
+            />
           </div>
 
           <h1 className={css.headerTitle}>
@@ -90,9 +92,26 @@ const DiaryFilesApp = ({ title, children, className }) => {
                 <div className={css.headerMenuDivider}></div>
               </li>
             </ul>
+
+            <SLNSWLogo className={[css.slnswLogo].join(' ')} />
+
+            <div className={css.headerMenuDivider}></div>
+
+            <div className={css.abcLogoWrapper}>
+              <p>
+                Media
+                <br />
+                Partner
+              </p>
+              <img
+                src="/images/logo-abc-radio-sydney-white.png"
+                alt="ABC Radio Sydney Logo"
+                className={css.abcLogo}
+              />
+            </div>
           </HeaderNavV2>
 
-          <div className={css.abcLogoWrapper}>
+          <div className={css.abcLogoWrapperDesktop}>
             <p>
               Media
               <br />
