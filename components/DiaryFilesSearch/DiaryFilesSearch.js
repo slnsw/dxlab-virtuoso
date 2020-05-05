@@ -22,7 +22,7 @@ const DiaryFilesSearch = ({ className, search }) => {
     return <LoaderText />;
   }
 
-  if (error) {
+  if (error || !search || posts.length === 0) {
     // title === 'Hello World' ||
     return (
       <div className={[css.diaryFilesSearch, className || ''].join(' ')}>

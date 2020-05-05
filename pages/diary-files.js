@@ -35,14 +35,14 @@ const DiaryFilesPage = ({ router }) => {
     '/diary-files/related/[id]': {
       title: 'Related',
     },
-    '/diary-files/search/[term]': {
+    '/diary-files/search': {
       title: 'Search',
     },
   };
 
   const title = `${config[pathname].title} - The Diary Files`;
   const integerId = query && query.id && parseInt(query.id, 10);
-  const term = query && query.term; // need to sanitise it??
+  const term = query && query.q; // need to sanitise it??
 
   return (
     // <ApolloProvider client={client}>
@@ -56,9 +56,7 @@ const DiaryFilesPage = ({ router }) => {
       {pathname === '/diary-files/related/[id]' && (
         <DiaryFilesRelatedStories id={integerId} />
       )}
-      {pathname === '/diary-files/search/[term]' && (
-        <DiaryFilesSearch search={term} />
-      )}
+      {pathname === '/diary-files/search' && <DiaryFilesSearch search={term} />}
     </DiaryFilesApp>
     // </ApolloProvider>
   );
