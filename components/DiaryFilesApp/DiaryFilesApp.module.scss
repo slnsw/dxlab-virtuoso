@@ -14,7 +14,7 @@
 
   @include media-sm {
     justify-content: space-between;
-    margin-top: calc(var(--spacing-xs) * -1);
+    margin-top: calc(var(--spacing-xxs) * -1);
     padding-top: 0;
   }
 }

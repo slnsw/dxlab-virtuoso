@@ -103,11 +103,14 @@ const DiaryFilesApp = ({ title, children, className }) => {
                 <br />
                 Partner
               </p>
-              <img
-                src="/images/logo-abc-radio-sydney-white.png"
-                alt="ABC Radio Sydney Logo"
-                className={css.abcLogo}
-              />
+
+              <a href="https://www.abc.net.au/radio/sydney/">
+                <img
+                  src="/images/logo-abc-radio-sydney-white.png"
+                  alt="ABC Radio Sydney Logo"
+                  className={css.abcLogo}
+                />
+              </a>
             </div>
           </HeaderNavV2>
 
@@ -117,11 +120,14 @@ const DiaryFilesApp = ({ title, children, className }) => {
               <br />
               Partner
             </p>
-            <img
-              src="/images/logo-abc-radio-sydney-white.png"
-              alt="ABC Radio Sydney Logo"
-              className={css.abcLogo}
-            />
+
+            <a href="https://www.abc.net.au/radio/sydney/">
+              <img
+                src="/images/logo-abc-radio-sydney-white.png"
+                alt="ABC Radio Sydney Logo"
+                className={css.abcLogo}
+              />
+            </a>
           </div>
 
           <MenuIconButton
