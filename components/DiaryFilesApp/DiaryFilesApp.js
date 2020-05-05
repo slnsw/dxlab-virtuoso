@@ -93,7 +93,10 @@ const DiaryFilesApp = ({ title, children, className }) => {
               </li>
             </ul>
 
-            <SLNSWLogo className={[css.slnswLogo].join(' ')} />
+            <SLNSWLogo
+              className={[css.slnswLogo].join(' ')}
+              onClick={handleMenuToggle}
+            />
 
             <div className={css.headerMenuDivider}></div>
 
@@ -104,7 +107,10 @@ const DiaryFilesApp = ({ title, children, className }) => {
                 Partner
               </p>
 
-              <a href="https://www.abc.net.au/radio/sydney/">
+              <a
+                href="https://www.abc.net.au/radio/sydney/"
+                onClick={handleMenuToggle}
+              >
                 <img
                   src="/images/logo-abc-radio-sydney-white.png"
                   alt="ABC Radio Sydney Logo"
