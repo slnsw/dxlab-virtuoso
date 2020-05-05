@@ -54,9 +54,13 @@ const DiaryFilesApp = ({ title, children, className }) => {
         </Head>
 
         <header className={css.header}>
-          <DXLabLogo className={css.headerLogo} />
+          <div className={css.libraryLogos}>
+            <DXLabLogo className={[css.headerLogo, css.dxlabLogo].join(' ')} />
 
-          <div className={css.headerDivider} />
+            <div className={css.headerDivider} />
+
+            <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
+          </div>
 
           <h1 className={css.headerTitle}>
             <Link href="/diary-files">
@@ -88,7 +92,18 @@ const DiaryFilesApp = ({ title, children, className }) => {
             </ul>
           </HeaderNavV2>
 
-          <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
+          <div className={css.abcLogoWrapper}>
+            <p>
+              Media
+              <br />
+              Partner
+            </p>
+            <img
+              src="/images/logo-abc-radio-sydney-white.png"
+              alt="ABC Radio Sydney Logo"
+              className={css.abcLogo}
+            />
+          </div>
 
           <MenuIconButton
             isOpen={isMenuOpen}

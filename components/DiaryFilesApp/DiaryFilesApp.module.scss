@@ -19,6 +19,10 @@
   }
 }
 
+.libraryLogos {
+  display: flex;
+}
+
 .diaryFilesApp .headerLogo {
   height: 1em;
 
@@ -27,8 +31,58 @@
   }
 }
 
+.dxlabLogo {
+  margin-right: var(--spacing-sm);
+}
+
+.headerDivider {
+  width: 1px;
+  height: 0.5em;
+  margin-top: auto;
+  // margin-left: var(--spacing-sm);
+  border-left: 1px solid var(--colour-white);
+
+  @include media-sm {
+    height: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+  }
+}
+
 .slnswLogo {
   display: none;
+
+  @include media-sm {
+    display: block;
+    width: 20px;
+    overflow: hidden;
+  }
+
+  @include media-xlg {
+    width: initial;
+  }
+}
+
+.abcLogoWrapper {
+  display: none;
+  align-items: center;
+
+  @include media-sm {
+    display: flex;
+  }
+
+  p {
+    @extend .font-uppercase;
+
+    margin-right: var(--spacing-md);
+    margin-bottom: 0;
+    font-size: var(--font-size-xs);
+    text-align: right;
+  }
+}
+
+.abcLogo {
+  display: none;
+  height: 3.5em;
 
   @include media-sm {
     display: block;
@@ -47,7 +101,7 @@
 
   @include media-sm {
     // Slight adjustment to centre title properly
-    margin: 0 0 0 0.8rem;
+    margin: 0 1em 0 0;
     font-size: var(--font-size-xlg);
     transform: translate(0, 0.1em);
   }
@@ -58,6 +112,7 @@
   }
 
   @include media-xlg {
+    margin-right: 3em;
     font-size: var(--font-size-xxxlg);
   }
 
@@ -72,21 +127,6 @@
       // text-decoration: underline;
       border-bottom: 1px solid;
     }
-  }
-}
-
-.headerDivider {
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
-  width: 1px;
-  height: 0.5em;
-  margin-top: auto;
-  margin-left: var(--spacing-sm);
-  border-left: 1px solid var(--colour-white);
-
-  @include media-sm {
-    display: none;
   }
 }
 
