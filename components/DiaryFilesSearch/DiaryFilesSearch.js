@@ -12,6 +12,12 @@ import css from '../DiaryFilesSearch/DiaryFilesSearch.module.scss';
 /* eslint-enable */
 
 const DiaryFilesSearch = ({ className, search }) => {
+  const [inputValue, setInputValue] = React.useState(search || null);
+
+  const updateInputValue = (event) => {
+    setInputValue(event.target.value);
+  };
+
   const { loading, error, data } = useQuery(searchQuery, {
     variables: { term: search },
   });
@@ -19,9 +25,8 @@ const DiaryFilesSearch = ({ className, search }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { q } = e.target.elements;
-    console.log(q);
-    Router.push(`/diary-files/search?q=${q.value}`);
+    const { q } = e && e.target && e.target.elements;
+    if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
   };
 
   if (loading) {
@@ -51,7 +56,9 @@ const DiaryFilesSearch = ({ className, search }) => {
               aria-label="q"
               type="text"
               aria-required="true"
-              placeholder={search || 'Type something...'}
+              placeholder={'Type something...'}
+              value={inputValue}
+              onChange={updateInputValue}
             />
           </div>
           <div className={css['submitButton']}>

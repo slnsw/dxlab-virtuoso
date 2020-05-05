@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
+import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
@@ -24,6 +25,12 @@ const DiaryFilesHome = ({ className }) => {
   } else {
     status = 'loaded';
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { q } = e && e.target && e.target.elements;
+    if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
+  };
 
   const { diaryFiles } = data;
   const { posts } = diaryFiles;
@@ -49,15 +56,38 @@ const DiaryFilesHome = ({ className }) => {
           Start writing
         </CTAButton>
 
-        <br />
+        <div className={css['formSection']}>
+          <form onSubmit={handleSubmit}>
+            <div className={css['searchInput']}>
+              <input
+                name="q"
+                aria-label="q"
+                type="text"
+                aria-required="true"
+                placeholder={'Type something...'}
+              />
+            </div>
+            <div className={css['submitButton']}>
+              <button
+                className="button"
+                type="submit"
+                aria-label="Submit Button."
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
 
         <div className={css.divider}></div>
 
-        <p className={css.smallText}>
-          <Link href="/diary-files/about">
-            <a>About this project</a>
-          </Link>
-        </p>
+        <div className={css.aboutLink}>
+          <p className={css.smallText}>
+            <Link href="/diary-files/about">
+              <a>About this project</a>
+            </Link>
+          </p>
+        </div>
 
         {/* <HenryLawsonPen className={css.henryLawsonPen} /> */}
 
