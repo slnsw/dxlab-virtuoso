@@ -13,3 +13,39 @@
     font-weight: 500;
   }
 }
+
+.formSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.searchInput {
+  margin-top: var(--spacing-lg);
+
+  @include media-md {
+    float: left;
+    width: 79%;
+    margin-top: var(--spacing-lg);
+    padding-right: 2%;
+  }
+}
+
+.termExists {
+  ::placeholder {
+    color: var(--colour-white);
+  }
+}
+
+.submitButton {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+
+  @include media-md {
+    float: left;
+    width: 18%;
+    margin-top: var(--spacing-lg);
+  }
+
+  button {
+    width: 100%;
+  }
+}

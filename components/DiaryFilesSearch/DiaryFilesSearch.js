@@ -12,12 +12,10 @@ import css from '../DiaryFilesSearch/DiaryFilesSearch.module.scss';
 /* eslint-enable */
 
 const DiaryFilesSearch = ({ className, search }) => {
-  // const idAsInt = parseInt(id, 10);
   const { loading, error, data } = useQuery(searchQuery, {
     variables: { term: search },
   });
-  const posts = data && data.diaryFiles && data.diaryFiles.posts;
-  // const { title, authorName, relatedPosts } = posts[0] || {};
+  const posts = search && data && data.diaryFiles && data.diaryFiles.posts;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +28,7 @@ const DiaryFilesSearch = ({ className, search }) => {
     return <LoaderText />;
   }
 
-  if (search && (error || posts.length === 0)) {
+  if (search && error) {
     // title === 'Hello World' ||
     return (
       <div className={[css.diaryFilesSearch, className || ''].join(' ')}>
@@ -39,37 +37,43 @@ const DiaryFilesSearch = ({ className, search }) => {
     );
   }
 
-  if (!search) {
-    return (
-      <form onSubmit={handleSubmit}>
-        <div
-          className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__date']}`}
-        >
-          <label htmlFor="q">Search</label>
-          <input
-            name="q"
-            aria-label="q"
-            type="text"
-            aria-required="true"
-            placeholder="Type something..."
-          />
-        </div>
-        <div className={css['diaryFilesForm__submitWrapper']}>
-          <button className="button" type="submit" aria-label="Submit Button.">
-            Search
-          </button>
-        </div>
-      </form>
-    );
-  }
-
   return (
     <>
-      <h2 className={css.sectionTitle}>
-        <span>Search results for</span> '{search}'{' '}
-        <span>[{posts.length} found]</span>
-      </h2>
-
+      <form onSubmit={handleSubmit}>
+        <div className={css['formSection']}>
+          <div
+            className={[css['searchInput'], search && css['termExists']].join(
+              ' ',
+            )}
+          >
+            <input
+              name="q"
+              aria-label="q"
+              type="text"
+              aria-required="true"
+              placeholder={search || 'Type something...'}
+            />
+          </div>
+          <div className={css['submitButton']}>
+            <button
+              className="button"
+              type="submit"
+              aria-label="Submit Button."
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+      {search && (
+        <h2 className={css.sectionTitle}>
+          <span>
+            {posts.length === 0 ? 'No entries found' : 'Search results for'}
+          </span>
+          {posts && posts.length > 0 && ` '${search}' `}
+          <span>{posts && posts.length > 0 && `[${posts.length} found]`}</span>
+        </h2>
+      )}
       {posts &&
         posts
           .sort((a, b) => a.id - b.id)
