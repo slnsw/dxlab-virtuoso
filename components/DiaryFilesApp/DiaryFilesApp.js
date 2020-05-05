@@ -18,7 +18,7 @@ import config from '../../lib/config';
 import css from './DiaryFilesApp.module.scss';
 
 const DiaryFilesApp = ({ title, children, className }) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(true);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [hasVisitedHomePage, setHasVisitedHomePage] = React.useState(false);
 
   const handleMenuToggle = () => {
