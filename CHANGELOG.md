@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.4] - 2020-05-06
+
+- Add ABC Radio Sydney logo to Diary Files
+
 ## [1.9.3] - 2020-05-04
 
 - Update `now.json` and `now.stagin.json` to change `index` rewrite/redirect to `index-experiment`. Strange issue where `/index` goes to DX Lab home page, perhaps Now server issue.
