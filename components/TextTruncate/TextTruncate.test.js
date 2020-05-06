@@ -186,4 +186,22 @@ describe('TextTruncate', () => {
     expect(getByText('Testing 123')).toBeDefined();
     expect(getByText('Testing 456')).toBeDefined();
   });
+
+  const tagBreakTest =
+    '<div><p>Lyrics</p><p>There was no apology<br />Where is the humanity<br />It would have been better if it never happened ever</p></div>';
+
+  // Before we added the 'truncateNicely' function the string above (such as we get out of WP) being
+  // truncated to 44 chars would chop the first <br /> tag in half, rendering the resulting HTML
+  // faulty. Not only is the BR tag broken, but the <p> and <div> are left unclosed.
+  it('should truncate text in dangerouslySetInnerHTML without chopping a tag in half', () => {
+    const { getByText } = render(
+      <TextTruncate limit={44} shouldStripHtml={false}>
+        <p dangerouslySetInnerHTML={{ __html: tagBreakTest }} />
+      </TextTruncate>,
+    );
+    console.log(getByText);
+    expect(getByText(/Where is the human/).innerHTML).toEqual(
+      'There was no apology<br>Where is the human…',
+    );
+  });
 });
