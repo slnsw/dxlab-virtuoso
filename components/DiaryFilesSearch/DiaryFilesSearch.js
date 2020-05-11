@@ -127,7 +127,7 @@ const DiaryFilesSearch = ({ className, search }) => {
 const searchQuery = gql`
   query diaryFiles($search: String, $skip: Boolean!) {
     diaryFiles {
-      posts(search: $search, limit: 20) @skip(if: $skip) {
+      posts(search: $search, limit: 50) @skip(if: $skip) {
         id
         title
         content
