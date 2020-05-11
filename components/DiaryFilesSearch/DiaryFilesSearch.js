@@ -7,19 +7,17 @@ import Router from 'next/router';
 import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 
-/* eslint-disable */
-import css from '../DiaryFilesSearch/DiaryFilesSearch.module.scss';
-/* eslint-enable */
+import css from './DiaryFilesSearch.module.scss';
 
 const DiaryFilesSearch = ({ className, search }) => {
-  const [inputValue, setInputValue] = React.useState(search || null);
+  const [inputValue, setInputValue] = React.useState(search || '');
 
   const updateInputValue = (event) => {
     setInputValue(event.target.value);
   };
 
   const { loading, error, data } = useQuery(searchQuery, {
-    variables: { term: search },
+    variables: { search, skip: Boolean(!search) },
   });
   const posts = search && data && data.diaryFiles && data.diaryFiles.posts;
 
@@ -43,9 +41,11 @@ const DiaryFilesSearch = ({ className, search }) => {
   }
 
   return (
-    <>
+    <div className={css.diaryFilesSearch}>
+      <h1>Search</h1>
+
       <form onSubmit={handleSubmit}>
-        <div className={css['formSection']}>
+        <div className={css.formSection}>
           <div
             className={[css['searchInput'], search && css['termExists']].join(
               ' ',
@@ -72,7 +72,8 @@ const DiaryFilesSearch = ({ className, search }) => {
           </div>
         </div>
       </form>
-      {search && (
+
+      {search && posts && (
         <h2 className={css.sectionTitle}>
           <span>
             {posts.length === 0 ? 'No entries found' : 'Search results for'}
@@ -81,6 +82,7 @@ const DiaryFilesSearch = ({ className, search }) => {
           <span>{posts && posts.length > 0 && `[${posts.length} found]`}</span>
         </h2>
       )}
+
       {posts &&
         posts
           .sort((a, b) => a.id - b.id)
@@ -104,14 +106,14 @@ const DiaryFilesSearch = ({ className, search }) => {
               />
             );
           })}
-    </>
+    </div>
   );
 };
 
 const searchQuery = gql`
-  query diaryFiles($term: String!) {
+  query diaryFiles($search: String, $skip: Boolean!) {
     diaryFiles {
-      posts(search: $term) {
+      posts(search: $search) @skip(if: $skip) {
         id
         title
         content
@@ -134,7 +136,7 @@ const searchQuery = gql`
 
 DiaryFilesSearch.propTypes = {
   className: PropTypes.string,
-  term: PropTypes.string,
+  search: PropTypes.string,
 };
 
 export default DiaryFilesSearch;

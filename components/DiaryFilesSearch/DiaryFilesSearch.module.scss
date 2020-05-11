@@ -1,7 +1,17 @@
 @import '../../styles/global.scss';
 
+@import '../../styles/diary-files/global.scss';
+
 .diaryFilesSearch {
   display: block;
+
+  h1 {
+    @extend .font-uppercase;
+
+    margin-top: 0;
+    font-size: var(--font-size-md);
+    text-align: center;
+  }
 }
 
 .sectionTitle {
@@ -15,11 +25,14 @@
 }
 
 .formSection {
+  display: flex;
+  align-items: center;
   margin-bottom: var(--spacing-lg);
 }
 
 .searchInput {
-  margin-top: var(--spacing-lg);
+  flex: 1;
+  margin-right: var(--spacing-sm);
 
   @include media-md {
     float: left;
@@ -36,16 +49,13 @@
 }
 
 .submitButton {
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-
   @include media-md {
     float: left;
     width: 18%;
     margin-top: var(--spacing-lg);
   }
 
-  button {
-    width: 100%;
-  }
+  // button {
+  //   width: 100%;
+  // }
 }

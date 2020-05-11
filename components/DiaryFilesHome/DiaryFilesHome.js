@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
-import Router from 'next/router';
+// import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
