@@ -26,11 +26,11 @@ const DiaryFilesHome = ({ className }) => {
     status = 'loaded';
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { q } = e && e.target && e.target.elements;
-    if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { q } = e && e.target && e.target.elements;
+  //   if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
+  // };
 
   const { diaryFiles } = data;
   const { posts } = diaryFiles;
@@ -48,15 +48,13 @@ const DiaryFilesHome = ({ className }) => {
 
         <p className={css.kicker}>Everyone has a story to tell</p>
 
-        <CTAButton
-          // onClick={() => setIsFormModalActive(true)}
-          href="/diary-files/write"
-          className={css.mastheadButton}
-        >
+        <CTAButton href="/diary-files/write" className={css.mastheadButton}>
           Start writing
         </CTAButton>
 
-        <div className={css['formSection']}>
+        <br />
+
+        {/* <div className={css['formSection']}>
           <form onSubmit={handleSubmit}>
             <div className={css['searchInput']}>
               <input
@@ -77,19 +75,27 @@ const DiaryFilesHome = ({ className }) => {
               </button>
             </div>
           </form>
-        </div>
+        </div> */}
 
         <div className={css.divider}></div>
 
-        <div className={css.aboutLink}>
-          <p className={css.smallText}>
-            <Link href="/diary-files/about">
-              <a>About this project</a>
-            </Link>
-          </p>
-        </div>
+        {/* <div className={css.aboutLink}> */}
+        <p className={css.smallText}>
+          <Link href="/diary-files/about">
+            <a>About this project</a>
+          </Link>
+        </p>
+        {/* </div> */}
 
         {/* <HenryLawsonPen className={css.henryLawsonPen} /> */}
+
+        <div className={css.divider}></div>
+
+        <p className={css.smallText}>
+          <Link href="/diary-files/search">
+            <a>Search</a>
+          </Link>
+        </p>
 
         <div className={css.divider}></div>
       </div>
