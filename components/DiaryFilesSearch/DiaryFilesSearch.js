@@ -12,14 +12,29 @@ import css from './DiaryFilesSearch.module.scss';
 const DiaryFilesSearch = ({ className, search }) => {
   const [inputValue, setInputValue] = React.useState(search || '');
 
-  const updateInputValue = (event) => {
-    setInputValue(event.target.value);
-  };
-
   const { loading, error, data } = useQuery(searchQuery, {
     variables: { search, skip: Boolean(!search) },
   });
-  const posts = search && data && data.diaryFiles && data.diaryFiles.posts;
+  const posts =
+    search && data && data.diaryFiles && data.diaryFiles.posts
+      ? data.diaryFiles.posts
+      : [];
+
+  let status;
+
+  if (error) {
+    status = 'error';
+  } else if (loading) {
+    status = 'loading';
+  } else if (!search) {
+    status = 'initial';
+  } else {
+    status = 'loaded';
+  }
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,32 +42,26 @@ const DiaryFilesSearch = ({ className, search }) => {
     if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
   };
 
-  if (search && error) {
-    // title === 'Hello World' ||
-    return (
-      <div className={[css.diaryFilesSearch, className || ''].join(' ')}>
-        <h1>No stories found</h1>
-      </div>
-    );
-  }
-
   return (
     <div className={css.diaryFilesSearch}>
       <h1>Search</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} role="search">
         <div className={css.formSection}>
           <div
-            className={[css.searchInput, search && css['termExists']].join(' ')}
+            className={[
+              css.searchInput,
+              // search && css['termExists']
+            ].join(' ')}
           >
             <input
               name="q"
-              aria-label="q"
+              aria-label="Search"
               type="text"
               aria-required="true"
               placeholder={'Type something...'}
               value={inputValue}
-              onChange={updateInputValue}
+              onChange={handleInputChange}
             />
           </div>
           <div className={css['submitButton']}>
@@ -67,9 +76,13 @@ const DiaryFilesSearch = ({ className, search }) => {
         </div>
       </form>
 
-      {loading && <LoaderText />}
+      {status === 'error' && (
+        <h2 className={css.sectionTitle}>Sorry there is an error: {error}</h2>
+      )}
 
-      {search && posts && (
+      {status === 'loading' && <LoaderText className={css.loader} />}
+
+      {status === 'loaded' && (
         <h2 className={css.sectionTitle}>
           <span>
             {posts.length === 0
@@ -80,7 +93,11 @@ const DiaryFilesSearch = ({ className, search }) => {
         </h2>
       )}
 
-      {posts &&
+      {/* Good spot for suggested search terms */}
+      {/* {status === 'initial' && <p>Enter a search term</p>} */}
+
+      {status === 'loaded' &&
+        posts &&
         posts
           .sort((a, b) => a.id - b.id)
           .map((p) => {
