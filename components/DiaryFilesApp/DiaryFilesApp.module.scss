@@ -10,13 +10,17 @@
 .header {
   display: flex;
   align-items: center;
-  // justify-content: space-between;
   padding-top: 1em;
 
   @include media-sm {
     justify-content: space-between;
+    margin-top: calc(var(--spacing-xxs) * -1);
     padding-top: 0;
   }
+}
+
+.libraryLogos {
+  display: flex;
 }
 
 .diaryFilesApp .headerLogo {
@@ -27,12 +31,74 @@
   }
 }
 
+.dxlabLogo {
+  margin-right: var(--spacing-sm);
+}
+
+.headerDivider {
+  width: 1px;
+  height: 0.5em;
+  margin-top: auto;
+  // margin-left: var(--spacing-sm);
+  border-left: 1px solid var(--colour-white);
+
+  @include media-sm {
+    height: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+  }
+}
+
 .slnswLogo {
+  height: var(--spacing-xlg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.slnswLogoDesktop {
   display: none;
 
   @include media-sm {
     display: block;
+    width: 20px;
+    overflow: hidden;
   }
+
+  @include media-xlg {
+    width: initial;
+  }
+}
+
+.abcLogoWrapper {
+  margin-top: var(--spacing-xlg);
+  text-align: center;
+
+  p {
+    @extend .font-uppercase;
+
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.abcLogoWrapperDesktop {
+  display: none;
+  align-items: center;
+
+  @include media-sm {
+    display: flex;
+  }
+
+  p {
+    @extend .font-uppercase;
+
+    margin-right: var(--spacing-md);
+    margin-bottom: 0;
+    font-size: var(--font-size-xs);
+    text-align: right;
+  }
+}
+
+.abcLogo {
+  height: 3.5em;
 }
 
 .headerTitle {
@@ -47,7 +113,7 @@
 
   @include media-sm {
     // Slight adjustment to centre title properly
-    margin: 0 0 0 0.8rem;
+    margin: 0 1em 0 0;
     font-size: var(--font-size-xlg);
     transform: translate(0, 0.1em);
   }
@@ -58,6 +124,7 @@
   }
 
   @include media-xlg {
+    margin-right: 3em;
     font-size: var(--font-size-xxxlg);
   }
 
@@ -75,31 +142,17 @@
   }
 }
 
-.headerDivider {
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
-  width: 1px;
-  height: 0.5em;
-  margin-top: auto;
-  margin-left: var(--spacing-sm);
-  border-left: 1px solid var(--colour-white);
-
-  @include media-sm {
-    display: none;
-  }
-}
-
 .diaryFilesApp .headerNav {
+  text-align: center;
+
   @include media-sm {
     display: none;
   }
 }
 
 .headerMenu {
-  margin-top: var(--spacing-xxlg);
+  margin-top: var(--spacing-xxxlg);
   padding-left: 0;
-  font-size: var(--font-size-lg);
   font-family: var(--font-diary-files);
   text-align: center;
   list-style: none;
@@ -107,6 +160,7 @@
   li a {
     display: block;
     padding: var(--spacing-md);
+    font-size: var(--font-size-lg);
   }
 }
 

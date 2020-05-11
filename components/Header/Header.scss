@@ -27,7 +27,8 @@
   }
 }
 
-.logo {
+// Increase specificity otherwise height 1.4em doesn't work
+.header .logo {
   position: relative;
   z-index: 110;
   height: 1em;

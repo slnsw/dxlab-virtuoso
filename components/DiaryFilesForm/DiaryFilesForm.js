@@ -311,17 +311,16 @@ const DiaryFilesForm = (props) => {
                 By submitting your diary entry in this platform you are allowing
                 the State Library of NSW to collect, store and publish your text
                 as part of this online experience, for exhibition and
-                promotional purposes. Please note we have allowed social sharing
-                on each entry.
+                promotional purposes. Your entry may also be used by ABC Radio
+                Sydney for on air and online promotion. Please note we have
+                allowed social sharing on each entry.
                 <br />
-                <em>
-                  Please note: All diary entries will be moderated based on the
-                  State Library website's{' '}
-                  <a href="https://www.sl.nsw.gov.au/website-terms-use">
-                    Terms of Use
-                  </a>
-                  .
-                </em>
+                Please note: All diary entries will be moderated based on the
+                State Library website's{' '}
+                <a href="https://www.sl.nsw.gov.au/website-terms-use">
+                  Terms of Use
+                </a>
+                .
               </p>
               {showWarning && <div className="warning">{showWarning}</div>}
 

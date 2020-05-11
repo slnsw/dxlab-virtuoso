@@ -54,9 +54,15 @@ const DiaryFilesApp = ({ title, children, className }) => {
         </Head>
 
         <header className={css.header}>
-          <DXLabLogo className={css.headerLogo} />
+          <div className={css.libraryLogos}>
+            <DXLabLogo className={[css.headerLogo, css.dxlabLogo].join(' ')} />
 
-          <div className={css.headerDivider} />
+            <div className={css.headerDivider} />
+
+            <SLNSWLogo
+              className={[css.headerLogo, css.slnswLogoDesktop].join(' ')}
+            />
+          </div>
 
           <h1 className={css.headerTitle}>
             <Link href="/diary-files">
@@ -86,9 +92,49 @@ const DiaryFilesApp = ({ title, children, className }) => {
                 <div className={css.headerMenuDivider}></div>
               </li>
             </ul>
+
+            <SLNSWLogo
+              className={[css.slnswLogo].join(' ')}
+              onClick={handleMenuToggle}
+            />
+
+            <div className={css.headerMenuDivider}></div>
+
+            <div className={css.abcLogoWrapper}>
+              <p>
+                Media
+                <br />
+                Partner
+              </p>
+
+              <a
+                href="https://www.abc.net.au/radio/sydney/"
+                onClick={handleMenuToggle}
+              >
+                <img
+                  src="/images/logo-abc-radio-sydney-white.png"
+                  alt="ABC Radio Sydney Logo"
+                  className={css.abcLogo}
+                />
+              </a>
+            </div>
           </HeaderNavV2>
 
-          <SLNSWLogo className={[css.headerLogo, css.slnswLogo].join(' ')} />
+          <div className={css.abcLogoWrapperDesktop}>
+            <p>
+              Media
+              <br />
+              Partner
+            </p>
+
+            <a href="https://www.abc.net.au/radio/sydney/">
+              <img
+                src="/images/logo-abc-radio-sydney-white.png"
+                alt="ABC Radio Sydney Logo"
+                className={css.abcLogo}
+              />
+            </a>
+          </div>
 
           <MenuIconButton
             isOpen={isMenuOpen}

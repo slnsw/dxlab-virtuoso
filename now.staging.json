@@ -52,8 +52,8 @@
       "destination": "/80hz/"
     },
     {
-      "source": "/index",
-      "destination": "/index/"
+      "source": "/index-experiment",
+      "destination": "/index-experiment/"
     },
     {
       "source": "/loom",
@@ -134,7 +134,7 @@
       "destination": "https://dxlab-website.s3-ap-southeast-2.amazonaws.com/audio/$1"
     },
     {
-      "source": "/index/(.*)",
+      "source": "/index-experiment/(.*)",
       "destination": "https://staging-wp.dxlab.sl.nsw.gov.au/index/$1"
     },
     {
