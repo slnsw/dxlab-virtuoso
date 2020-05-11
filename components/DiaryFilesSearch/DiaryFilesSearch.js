@@ -113,6 +113,7 @@ const DiaryFilesSearch = ({ className, search }) => {
                 age={p.age}
                 postcode={p.postcode}
                 outsideAustralia={p.outsideAustralia}
+                relatedPosts={p.relatedPosts}
                 className={[css.diaryFilesSearch, className || ''].join(' ')}
                 singleView={false}
                 hasReadMore={true}

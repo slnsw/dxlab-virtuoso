@@ -138,7 +138,7 @@ const DiaryFilesForm = (props) => {
         {!isFormSubmitted ? (
           <div>
             <h1>Write your diary entry</h1>
-            <form onSubmit={handleSubmit} className={css.form}>
+            <form onSubmit={handleSubmit}>
               <div
                 className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__date']}`}
               >

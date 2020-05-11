@@ -98,7 +98,9 @@ const storyQuery = gql`
         postcode
         outsideAustralia
         age
-        # relatedPosts
+        relatedPosts {
+          id
+        }
       }
     }
   }
