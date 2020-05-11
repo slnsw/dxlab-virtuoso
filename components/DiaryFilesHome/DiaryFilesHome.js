@@ -54,29 +54,6 @@ const DiaryFilesHome = ({ className }) => {
 
         <br />
 
-        {/* <div className={css['formSection']}>
-          <form onSubmit={handleSubmit}>
-            <div className={css['searchInput']}>
-              <input
-                name="q"
-                aria-label="q"
-                type="text"
-                aria-required="true"
-                placeholder={'Type something...'}
-              />
-            </div>
-            <div className={css['submitButton']}>
-              <button
-                className="button"
-                type="submit"
-                aria-label="Submit Button."
-              >
-                Search
-              </button>
-            </div>
-          </form>
-        </div> */}
-
         <div className={css.mastheadMenu}>
           <p className={css.smallText}>
             <Link href="/diary-files/about">

@@ -14,11 +14,6 @@
     margin-bottom: var(--spacing-xxxxlg);
     padding: 0 var(--spacing-xxlg);
   }
-
-  // p {
-  //   // margin-bottom: var(--spacing-md);
-  //   // font-family: var(--font-diary-files);
-  // }
 }
 
 .kicker {
@@ -72,40 +67,6 @@
 
 .sectionTitle {
   margin-bottom: var(--spacing-md);
-  // font-weight: 500;
   font-size: var(--font-size-md);
-  // font-family: var(--font-diary-files);
   text-align: center;
 }
-
-// .formSection {
-//   display: inline-block;
-//   width: 70%;
-//   margin: 0 auto 0;
-// }
-
-// .searchInput {
-//   margin-top: var(--spacing-lg);
-
-//   @include media-md {
-//     float: left;
-//     width: 59%;
-//     margin-top: var(--spacing-lg);
-//     padding-right: 2%;
-//   }
-// }
-
-// .submitButton {
-//   margin-top: var(--spacing-lg);
-//   margin-bottom: var(--spacing-lg);
-
-//   @include media-md {
-//     float: left;
-//     width: 28%;
-//     margin-top: var(--spacing-lg);
-//   }
-
-//   button {
-//     width: 100%;
-//   }
-// }
