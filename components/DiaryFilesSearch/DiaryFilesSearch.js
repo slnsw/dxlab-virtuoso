@@ -75,14 +75,18 @@ const DiaryFilesSearch = ({ className, search }) => {
             {posts.length === 0 ? 'No entries found' : 'Search results for'}
           </span>
           {posts && posts.length > 0 && ` '${search}' `}
-          <span>{posts && posts.length > 0 && `[${posts.length} found]`}</span>
+          <span>
+            {posts &&
+              posts.length > 0 &&
+              `[${data.diaryFiles.postTotal} found]`}
+          </span>
         </h2>
       )}
 
       {posts &&
         posts
           .sort((a, b) => a.id - b.id)
-          .map((p, i) => {
+          .map((p) => {
             return (
               <DiaryFilesPost
                 key={p.id}
@@ -109,7 +113,7 @@ const DiaryFilesSearch = ({ className, search }) => {
 const searchQuery = gql`
   query diaryFiles($search: String, $skip: Boolean!) {
     diaryFiles {
-      posts(search: $search) @skip(if: $skip) {
+      posts(search: $search, limit: 20) @skip(if: $skip) {
         id
         title
         content
@@ -126,6 +130,7 @@ const searchQuery = gql`
           title
         }
       }
+      postTotal
     }
   }
 `;
