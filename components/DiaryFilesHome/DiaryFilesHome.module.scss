@@ -43,11 +43,22 @@
   letter-spacing: 0.3em;
 }
 
-// .aboutLink {
-//   display: block;
-//   // width: 100%;
-//   margin: 0 auto var(--spacing-lg);
-// }
+.mastheadMenu {
+  display: flex;
+  justify-content: center;
+
+  p {
+    margin: 0 var(--spacing-sm);
+  }
+}
+
+.verticalDivider {
+  width: 1px;
+  height: var(--spacing-md);
+  margin: 0;
+  border-top: none;
+  border-left: 1px solid var(--colour-white);
+}
 
 .divider {
   width: var(--spacing-lg);

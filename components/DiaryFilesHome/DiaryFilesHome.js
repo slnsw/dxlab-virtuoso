@@ -77,27 +77,43 @@ const DiaryFilesHome = ({ className }) => {
           </form>
         </div> */}
 
-        <div className={css.divider}></div>
+        <div className={css.mastheadMenu}>
+          <p className={css.smallText}>
+            <Link href="/diary-files/about">
+              <a>About</a>
+            </Link>
+          </p>
+
+          <div className={css.verticalDivider}></div>
+
+          <p className={css.smallText}>
+            <Link href="/diary-files/search">
+              <a>Search</a>
+            </Link>
+          </p>
+        </div>
+
+        {/* <div className={css.divider}></div> */}
 
         {/* <div className={css.aboutLink}> */}
-        <p className={css.smallText}>
+        {/* <p className={css.smallText}>
           <Link href="/diary-files/about">
             <a>About this project</a>
           </Link>
-        </p>
+        </p> */}
         {/* </div> */}
+
+        {/* <div className={css.divider}></div> */}
 
         {/* <HenryLawsonPen className={css.henryLawsonPen} /> */}
 
-        <div className={css.divider}></div>
-
-        <p className={css.smallText}>
+        {/* <p className={css.smallText}>
           <Link href="/diary-files/search">
             <a>Search</a>
           </Link>
-        </p>
+        </p> */}
 
-        <div className={css.divider}></div>
+        {/* <div className={css.divider}></div> */}
       </div>
 
       <h2 className={css.sectionTitle}>Recent Entries</h2>
