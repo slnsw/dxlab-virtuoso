@@ -5,6 +5,34 @@
   --font-diary-files-line-height-md: 1.55;
 
   display: block;
+
+  // Form Styles
+  // TODO: Make these the main dxlab-website styles with some tweaks
+  input[type='text'],
+  textarea {
+    font-family: var(--font-secondary);
+    background-color: transparent;
+    border: 1px solid var(--colour-white);
+  }
+
+  input[type='text'] {
+    padding-top: var(--spacing-xs);
+  }
+
+  input[type='text'],
+  button[type='submit'] {
+    &:focus {
+      outline: 3px solid var(--colour-primary);
+      outline-offset: 0;
+    }
+  }
+
+  textarea {
+    color: var(--colour-black);
+    font-family: var(--font-diary-files);
+    letter-spacing: 0.1em;
+    background-color: var(--colour-white);
+  }
 }
 
 .header {
