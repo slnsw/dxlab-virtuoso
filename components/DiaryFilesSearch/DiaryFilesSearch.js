@@ -27,10 +27,6 @@ const DiaryFilesSearch = ({ className, search }) => {
     if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
   };
 
-  if (loading) {
-    return <LoaderText />;
-  }
-
   if (search && error) {
     // title === 'Hello World' ||
     return (
@@ -47,9 +43,7 @@ const DiaryFilesSearch = ({ className, search }) => {
       <form onSubmit={handleSubmit}>
         <div className={css.formSection}>
           <div
-            className={[css['searchInput'], search && css['termExists']].join(
-              ' ',
-            )}
+            className={[css.searchInput, search && css['termExists']].join(' ')}
           >
             <input
               name="q"
@@ -72,6 +66,8 @@ const DiaryFilesSearch = ({ className, search }) => {
           </div>
         </div>
       </form>
+
+      {loading && <LoaderText />}
 
       {search && posts && (
         <h2 className={css.sectionTitle}>
@@ -100,7 +96,7 @@ const DiaryFilesSearch = ({ className, search }) => {
                 postcode={p.postcode}
                 outsideAustralia={p.outsideAustralia}
                 className={[css.diaryFilesSearch, className || ''].join(' ')}
-                singleView={i === 0}
+                singleView={false}
                 hasReadMore={true}
                 isLoading={loading}
               />
