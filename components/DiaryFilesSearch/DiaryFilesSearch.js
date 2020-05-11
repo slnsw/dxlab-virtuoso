@@ -72,17 +72,18 @@ const DiaryFilesSearch = ({ className, search }) => {
       {search && posts && (
         <h2 className={css.sectionTitle}>
           <span>
-            {posts.length === 0 ? 'No entries found' : 'Search results for'}
+            {posts.length === 0
+              ? 'No entries found'
+              : `${posts.length} results for`}
           </span>
-          {posts && posts.length > 0 && ` '${search}' `}
-          <span>{posts && posts.length > 0 && `[${posts.length} found]`}</span>
+          {posts.length > 0 && ` '${search}' `}
         </h2>
       )}
 
       {posts &&
         posts
           .sort((a, b) => a.id - b.id)
-          .map((p, i) => {
+          .map((p) => {
             return (
               <DiaryFilesPost
                 key={p.id}

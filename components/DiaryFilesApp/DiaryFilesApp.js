@@ -70,53 +70,65 @@ const DiaryFilesApp = ({ title, children, className }) => {
             </Link>
           </h1>
 
-          <HeaderNavV2 isOpen={isMenuOpen} className={css.headerNav}>
-            <ul className={css.headerMenu}>
-              <li>
-                <div className={css.headerMenuDivider}></div>
-                <Link as="/diary-files">
-                  <a onClick={handleMenuToggle}>Home</a>
-                </Link>
-                <div className={css.headerMenuDivider}></div>
-              </li>
-              <li>
-                <Link as="/diary-files/write">
-                  <a onClick={handleMenuToggle}>Write</a>
-                </Link>
-                <div className={css.headerMenuDivider}></div>
-              </li>
-              <li>
-                <Link as="/diary-files/about">
-                  <a onClick={handleMenuToggle}>About</a>
-                </Link>
-                <div className={css.headerMenuDivider}></div>
-              </li>
-            </ul>
+          <HeaderNavV2
+            isOpen={isMenuOpen}
+            className={css.headerNav}
+            insideClassName={css.headerNavInside}
+          >
+            <div className={css.headerMenuWrapper}>
+              <ul className={css.headerMenu}>
+                <li>
+                  <div className={css.headerMenuDivider}></div>
+                  <Link as="/diary-files">
+                    <a onClick={handleMenuToggle}>Home</a>
+                  </Link>
+                  <div className={css.headerMenuDivider}></div>
+                </li>
+                <li>
+                  <Link as="/diary-files/write">
+                    <a onClick={handleMenuToggle}>Write</a>
+                  </Link>
+                  <div className={css.headerMenuDivider}></div>
+                </li>
+                <li>
+                  <Link as="/diary-files/about">
+                    <a onClick={handleMenuToggle}>About</a>
+                  </Link>
+                  <div className={css.headerMenuDivider}></div>
+                </li>
+                <li>
+                  <Link as="/diary-files/search">
+                    <a onClick={handleMenuToggle}>Search</a>
+                  </Link>
+                  <div className={css.headerMenuDivider}></div>
+                </li>
+              </ul>
 
-            <SLNSWLogo
-              className={[css.slnswLogo].join(' ')}
-              onClick={handleMenuToggle}
-            />
-
-            <div className={css.headerMenuDivider}></div>
-
-            <div className={css.abcLogoWrapper}>
-              <p>
-                Media
-                <br />
-                Partner
-              </p>
-
-              <a
-                href="https://www.abc.net.au/radio/sydney/"
+              <SLNSWLogo
+                className={[css.slnswLogo].join(' ')}
                 onClick={handleMenuToggle}
-              >
-                <img
-                  src="/images/logo-abc-radio-sydney-white.png"
-                  alt="ABC Radio Sydney Logo"
-                  className={css.abcLogo}
-                />
-              </a>
+              />
+
+              <div className={css.headerMenuDivider}></div>
+
+              <div className={css.abcLogoWrapper}>
+                <p>
+                  Media
+                  <br />
+                  Partner
+                </p>
+
+                <a
+                  href="https://www.abc.net.au/radio/sydney/"
+                  onClick={handleMenuToggle}
+                >
+                  <img
+                    src="/images/logo-abc-radio-sydney-white.png"
+                    alt="ABC Radio Sydney Logo"
+                    className={css.abcLogo}
+                  />
+                </a>
+              </div>
             </div>
           </HeaderNavV2>
 

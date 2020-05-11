@@ -178,8 +178,18 @@
   }
 }
 
+.diaryFilesApp .headerNavInside {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.headerMenuWrapper {
+  width: 100%;
+}
+
 .headerMenu {
-  margin-top: var(--spacing-xxxlg);
+  // margin-top: var(--spacing-xxxlg);
   padding-left: 0;
   font-family: var(--font-diary-files);
   text-align: center;

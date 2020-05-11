@@ -39,6 +39,7 @@
 .date {
   @extend .diary-files-font-uppercase;
 
+  margin-right: var(--spacing-md);
   font-weight: 700;
   font-size: var(--font-size-sm);
 }
