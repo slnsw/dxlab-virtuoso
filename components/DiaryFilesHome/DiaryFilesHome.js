@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
-// import InfiniteScroll from 'react-infinite-scroller';
-// import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
+import CTAButtonV2 from '../CTAButtonV2';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
@@ -14,16 +13,47 @@ import Typewriter from './Typewriter';
 
 import css from './DiaryFilesHome.module.scss';
 
-const DiaryFilesHome = ({ className, limit = 30 }) => {
-  const { loading, error, data = { diaryFiles: { posts: [] } } } = useQuery(
-    postsQuery,
-    {
-      variables: {
-        offset: 0,
-        limit: limit > 100 ? 100 : limit,
-      },
+const DiaryFilesHome = ({ className }) => {
+  const [offset, setOffset] = React.useState(0);
+  const {
+    loading,
+    error,
+    data = { diaryFiles: { posts: [], postTotal: null } },
+    fetchMore,
+  } = useQuery(postsQuery, {
+    variables: {
+      offset: 0,
+      limit: 20,
     },
-  );
+    fetchPolicy: 'cache-and-network',
+  });
+
+  React.useEffect(() => {
+    if (offset > 0) {
+      fetchMore({
+        variables: {
+          offset,
+          limit: 20,
+        },
+        updateQuery: (prev, { fetchMoreResult }) => {
+          if (!fetchMoreResult) {
+            return prev;
+          }
+
+          // Merge new posts with existing posts
+          return {
+            diaryFiles: {
+              ...fetchMoreResult.diaryFiles,
+              posts: [
+                ...prev.diaryFiles.posts,
+                ...fetchMoreResult.diaryFiles.posts,
+              ],
+            },
+          };
+        },
+      });
+    }
+  }, [offset, fetchMore]);
 
   let status;
 
@@ -36,8 +66,8 @@ const DiaryFilesHome = ({ className, limit = 30 }) => {
   }
 
   const { diaryFiles } = data;
-  const { posts } = diaryFiles;
-  const hasMorePosts = posts.length < 100;
+  const { posts, postTotal } = diaryFiles;
+  const hasMorePosts = posts.length < postTotal;
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
@@ -110,13 +140,14 @@ const DiaryFilesHome = ({ className, limit = 30 }) => {
       )}
 
       {status === 'loaded' && hasMorePosts && (
-        <CTAButton
-          href={`/diary-files?limit=${limit + 20}`}
-          scroll={false}
-          replace={true}
+        <CTAButtonV2
+          className={css.wideButton}
+          onClick={() => {
+            setOffset(posts.length);
+          }}
         >
           Show more
-        </CTAButton>
+        </CTAButtonV2>
       )}
     </div>
   );
@@ -140,6 +171,7 @@ const postsQuery = gql`
           id
         }
       }
+      postTotal
     }
   }
 `;
