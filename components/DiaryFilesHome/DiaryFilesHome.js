@@ -14,7 +14,12 @@ import Typewriter from './Typewriter';
 import css from './DiaryFilesHome.module.scss';
 
 const DiaryFilesHome = ({ className }) => {
-  const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery);
+  const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery, {
+    variables: {
+      offset: 0,
+      limit: 100,
+    },
+  });
 
   let status;
 
@@ -69,7 +74,13 @@ const DiaryFilesHome = ({ className }) => {
 
       {status === 'error' && error.message}
 
-      {status === 'loading' && <LoaderText />}
+      {status === 'loading' && (
+        <LoaderText
+          style={{
+            textAlign: 'center',
+          }}
+        />
+      )}
 
       {status === 'loaded' &&
         posts.map((post) => {
@@ -98,9 +109,9 @@ const DiaryFilesHome = ({ className }) => {
 };
 
 const postsQuery = gql`
-  {
+  query getPosts($limit: Int, $offset: Int) {
     diaryFiles {
-      posts(limit: 100) {
+      posts(limit: $limit, offset: $offset) {
         id
         title
         content
