@@ -187,6 +187,7 @@ function stripHtml(text) {
 }
 
 function truncateNicely(text, limit, endChar) {
+  // console.log(text);
   // Writen by LukeD Apr/May 2020
   // NOTE: uses generateClosingTag() function below.
   // Function is passed a text string to be truncated to 'limit' chars long
