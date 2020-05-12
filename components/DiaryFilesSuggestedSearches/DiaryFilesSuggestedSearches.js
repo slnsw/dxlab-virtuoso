@@ -4,36 +4,36 @@ import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import LoaderText from '../LoaderText';
+import Link from '../Link';
 
 import css from './DiaryFilesSuggestedSearches.module.scss';
 
 const DiaryFilesSuggestedSearches = ({ className }) => {
-  const { data } = useQuery(suggestedSearchesQuery);
+  const [searchArray, setSearchArray] = React.useState([]);
   const numberToShow = 5;
-  const searches =
-    data &&
-    data.diaryFiles &&
-    data.diaryFiles.pages &&
-    data.diaryFiles.pages[0] &&
-    data.diaryFiles.pages[0].content;
-  let searchArray = searches && searches.split(/<[^>]+>(.+)<[^>]+>/i);
-  let tempArray;
-  if (searchArray) {
-    searchArray = searchArray.filter((i) => i !== '\n' && i !== '');
 
-    while (searchArray.length > numberToShow) {
-      const randomIndex = Math.floor(Math.random() * searchArray.length) + 1;
-      tempArray = searchArray
+  const { data } = useQuery(suggestedSearchesQuery);
+
+  React.useEffect(() => {
+    let tempArray;
+    let newSearchArray = data?.diaryFiles?.pages[0]?.content
+      ?.split(/<[^>]+>(.+)<[^>]+>/i)
+      .filter((i) => i !== '\n' && i !== '');
+
+    while (newSearchArray.length > numberToShow) {
+      const randomIndex = Math.floor(Math.random() * newSearchArray.length) + 1;
+      tempArray = newSearchArray
         .slice(0, randomIndex - 1)
-        .concat(searchArray.slice(randomIndex, searchArray.length));
-      searchArray = tempArray;
+        .concat(newSearchArray.slice(randomIndex, newSearchArray.length));
+      newSearchArray = tempArray;
     }
-  }
+    setSearchArray(newSearchArray);
+  }, [data]);
+
   if (!searchArray) {
     return <LoaderText className={css.loader} />;
   }
 
-  console.log(searchArray);
   return (
     <div className={[css.suggestedSearches, className].join(' ')}>
       <h2 className={css.sectionTitle}>Suggested searches</h2>
@@ -42,7 +42,9 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
         searchArray.map((search) => {
           return (
             <p key={search}>
-              <a href={`/diary-files/search?q=${search}`}>{search}</a>
+              <Link href={`/diary-files/search?q=${search}`}>
+                <a>{search}</a>
+              </Link>
             </p>
           );
         })}
