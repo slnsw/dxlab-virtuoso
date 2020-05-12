@@ -26,12 +26,6 @@ const DiaryFilesHome = ({ className }) => {
     status = 'loaded';
   }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { q } = e && e.target && e.target.elements;
-  //   if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
-  // };
-
   const { diaryFiles } = data;
   const { posts } = diaryFiles;
 
@@ -69,28 +63,6 @@ const DiaryFilesHome = ({ className }) => {
             </Link>
           </p>
         </div>
-
-        {/* <div className={css.divider}></div> */}
-
-        {/* <div className={css.aboutLink}> */}
-        {/* <p className={css.smallText}>
-          <Link href="/diary-files/about">
-            <a>About this project</a>
-          </Link>
-        </p> */}
-        {/* </div> */}
-
-        {/* <div className={css.divider}></div> */}
-
-        {/* <HenryLawsonPen className={css.henryLawsonPen} /> */}
-
-        {/* <p className={css.smallText}>
-          <Link href="/diary-files/search">
-            <a>Search</a>
-          </Link>
-        </p> */}
-
-        {/* <div className={css.divider}></div> */}
       </div>
 
       <h2 className={css.sectionTitle}>Recent Entries</h2>
@@ -121,14 +93,6 @@ const DiaryFilesHome = ({ className }) => {
             />
           );
         })}
-      {/* <Modal
-        isActive={isFormModalActive}
-        onClose={() => setIsFormModalActive(false)}
-      >
-        <div className={css.diaryFilesModalWrapper}>
-          <DiaryFilesForm onClose={() => setIsFormModalActive(false)} />
-        </div>
-      </Modal> */}
     </div>
   );
 };
