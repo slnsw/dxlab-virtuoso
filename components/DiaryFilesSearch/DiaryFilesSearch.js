@@ -6,6 +6,7 @@ import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
+import DiaryFilesSuggestedSearches from '../DiaryFilesSuggestedSearches';
 
 import css from './DiaryFilesSearch.module.scss';
 
@@ -95,6 +96,7 @@ const DiaryFilesSearch = ({ className, search }) => {
 
       {/* Good spot for suggested search terms */}
       {/* {status === 'initial' && <p>Enter a search term</p>} */}
+      {status === 'initial' && <DiaryFilesSuggestedSearches />}
 
       {status === 'loaded' &&
         posts &&
