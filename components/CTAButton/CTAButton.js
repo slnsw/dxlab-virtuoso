@@ -10,11 +10,21 @@ class CTAButton extends Component {
     href: PropTypes.string.isRequired,
     size: PropTypes.string,
     target: PropTypes.string,
+    scroll: PropTypes.bool,
+    replace: PropTypes.bool,
     className: PropTypes.string,
   };
 
   render() {
-    const { children, href, size, target, className } = this.props;
+    const {
+      children,
+      href,
+      size,
+      target,
+      scroll,
+      replace,
+      className,
+    } = this.props;
 
     // TODO: Make this DRY
     return href && href.match('^http') ? (
@@ -30,7 +40,7 @@ class CTAButton extends Component {
         {children}
       </a>
     ) : (
-      <Link as={href}>
+      <Link as={href} scroll={scroll} replace={replace}>
         <a
           // href={href}
           className={[

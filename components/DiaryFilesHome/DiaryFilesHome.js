@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
+// import InfiniteScroll from 'react-infinite-scroller';
 // import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
@@ -13,13 +14,16 @@ import Typewriter from './Typewriter';
 
 import css from './DiaryFilesHome.module.scss';
 
-const DiaryFilesHome = ({ className }) => {
-  const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery, {
-    variables: {
-      offset: 0,
-      limit: 100,
+const DiaryFilesHome = ({ className, limit = 30 }) => {
+  const { loading, error, data = { diaryFiles: { posts: [] } } } = useQuery(
+    postsQuery,
+    {
+      variables: {
+        offset: 0,
+        limit: limit > 100 ? 100 : limit,
+      },
     },
-  });
+  );
 
   let status;
 
@@ -33,6 +37,7 @@ const DiaryFilesHome = ({ className }) => {
 
   const { diaryFiles } = data;
   const { posts } = diaryFiles;
+  const hasMorePosts = posts.length < 100;
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
@@ -72,7 +77,29 @@ const DiaryFilesHome = ({ className }) => {
 
       <h2 className={css.sectionTitle}>Recent Entries</h2>
 
-      {status === 'error' && error.message}
+      {status === 'error' && <p>{error.message}</p>}
+
+      {posts.map((post) => {
+        return (
+          <DiaryFilesPost
+            id={post.id}
+            key={post.id}
+            title={post.title}
+            content={post.content}
+            dateText={post.dateText}
+            authorName={post.authorName}
+            city={post.city}
+            state={post.state}
+            postcode={post.postcode}
+            outsideAustralia={post.outsideAustralia}
+            age={post.age}
+            relatedPosts={post.relatedPosts}
+            singleView={false}
+            hasReadMore={true}
+            isLoading={false}
+          />
+        );
+      })}
 
       {status === 'loading' && (
         <LoaderText
@@ -82,28 +109,15 @@ const DiaryFilesHome = ({ className }) => {
         />
       )}
 
-      {status === 'loaded' &&
-        posts.map((post) => {
-          return (
-            <DiaryFilesPost
-              id={post.id}
-              key={post.id}
-              title={post.title}
-              content={post.content}
-              dateText={post.dateText}
-              authorName={post.authorName}
-              city={post.city}
-              state={post.state}
-              postcode={post.postcode}
-              outsideAustralia={post.outsideAustralia}
-              age={post.age}
-              relatedPosts={post.relatedPosts}
-              singleView={false}
-              hasReadMore={true}
-              isLoading={loading}
-            />
-          );
-        })}
+      {status === 'loaded' && hasMorePosts && (
+        <CTAButton
+          href={`/diary-files?limit=${limit + 20}`}
+          scroll={false}
+          replace={true}
+        >
+          Show more
+        </CTAButton>
+      )}
     </div>
   );
 };
