@@ -19,7 +19,6 @@ import css from './DiaryFilesApp.module.scss';
 
 const DiaryFilesApp = ({ title, children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  // const [hasVisitedHomePage, setHasVisitedHomePage] = React.useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,9 +33,7 @@ const DiaryFilesApp = ({ title, children, className }) => {
   }, []);
 
   return (
-    <DiaryFilesProvider
-    // value={{ hasVisitedHomePage, setHasVisitedHomePage }}
-    >
+    <DiaryFilesProvider>
       <App
         title={title}
         metaImageUrl={`${config.baseUrl}/images/typewriter.gif`}

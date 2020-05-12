@@ -27,7 +27,7 @@ const Typewriter = () => {
           setIsBright(true);
           dispatch({
             type: types.HAS_VISITED_HOME_PAGE,
-            value: true,
+            payload: true,
           });
         },
       );
