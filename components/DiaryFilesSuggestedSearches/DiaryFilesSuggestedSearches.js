@@ -22,7 +22,7 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
     searchArray = searchArray.filter((i) => i !== '\n' && i !== '');
 
     while (searchArray.length > numberToShow) {
-      const randomIndex = Math.floor(Math.random() * searchArray.length);
+      const randomIndex = Math.floor(Math.random() * searchArray.length) + 1;
       tempArray = searchArray
         .slice(0, randomIndex - 1)
         .concat(searchArray.slice(randomIndex, searchArray.length));
@@ -40,9 +40,9 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
         searchArray.map((search, i) => {
           return (
             <p key={i}>
-              <a key={i} href={`/diary-files/search?q=${search}`}>
-                {search}
-              </a>{' '}
+              <a key={i} href={`/diary-files/search?q=${searchArray[i]}`}>
+                {searchArray[i]}
+              </a>
             </p>
           );
         })}
