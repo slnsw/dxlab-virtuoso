@@ -32,17 +32,17 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
   if (!searchArray) {
     return <LoaderText className={css.loader} />;
   }
+
+  console.log(searchArray);
   return (
     <div className={[css.suggestedSearches, className].join(' ')}>
       <h2 className={css.sectionTitle}>Suggested searches</h2>
 
       {searchArray &&
-        searchArray.map((search, i) => {
+        searchArray.map((search) => {
           return (
-            <p key={i}>
-              <a key={i} href={`/diary-files/search?q=${searchArray[i]}`}>
-                {searchArray[i]}
-              </a>
+            <p key={search}>
+              <a href={`/diary-files/search?q=${search}`}>{search}</a>
             </p>
           );
         })}
