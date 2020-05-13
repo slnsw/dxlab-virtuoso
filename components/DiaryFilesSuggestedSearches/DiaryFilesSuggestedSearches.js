@@ -20,7 +20,7 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
       ?.split(/<[^>]+>(.+)<[^>]+>/i)
       .filter((i) => i !== '\n' && i !== '');
 
-    while (newSearchArray.length > numberToShow) {
+    while (newSearchArray && newSearchArray.length > numberToShow) {
       const randomIndex = Math.floor(Math.random() * newSearchArray.length) + 1;
       tempArray = newSearchArray
         .slice(0, randomIndex - 1)
