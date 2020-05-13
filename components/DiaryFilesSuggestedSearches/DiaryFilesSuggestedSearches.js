@@ -20,7 +20,7 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
       ?.split(/<[^>]+>(.+)<[^>]+>/i)
       .filter((i) => i !== '\n' && i !== '');
 
-    while (newSearchArray.length > numberToShow) {
+    while (newSearchArray?.length > numberToShow) {
       const randomIndex = Math.floor(Math.random() * newSearchArray.length) + 1;
       tempArray = newSearchArray
         .slice(0, randomIndex - 1)
@@ -36,7 +36,7 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
 
   return (
     <div className={[css.suggestedSearches, className].join(' ')}>
-      <h2 className={css.sectionTitle}>Suggested searches</h2>
+      <h2 className={css.sectionTitle}>Suggestions</h2>
 
       {searchArray &&
         searchArray.map((search) => {

@@ -11,7 +11,11 @@ import DiaryFilesSuggestedSearches from '../DiaryFilesSuggestedSearches';
 import css from './DiaryFilesSearch.module.scss';
 
 const DiaryFilesSearch = ({ className, search }) => {
-  const [inputValue, setInputValue] = React.useState(search || '');
+  const [inputValue, setInputValue] = React.useState(search);
+
+  React.useEffect(() => {
+    setInputValue(search);
+  }, [search]);
 
   const { loading, error, data } = useQuery(searchQuery, {
     variables: { search, skip: Boolean(!search) },
@@ -61,7 +65,7 @@ const DiaryFilesSearch = ({ className, search }) => {
               type="text"
               aria-required="true"
               placeholder={'Type something...'}
-              value={inputValue}
+              value={inputValue || ''}
               onChange={handleInputChange}
             />
           </div>
