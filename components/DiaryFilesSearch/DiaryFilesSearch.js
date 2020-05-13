@@ -151,7 +151,7 @@ const searchQuery = gql`
           title
         }
       }
-      postTotal
+      postTotal(search: $search)
     }
   }
 `;
