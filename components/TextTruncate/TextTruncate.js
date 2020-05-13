@@ -229,12 +229,29 @@ function truncateNicely(text, limit, endChar) {
       if (textList[i] && textList[i] !== '\n') {
         const textBitLength = textList[i].length;
         if (lengthSoFar + textBitLength > limit) {
-          const truncBitLength = limit - lengthSoFar;
+          // OK so adding the current bit of text will take us over the limit.
+          // Work out by how much:
+          let truncBitLength = limit - lengthSoFar;
+          // First, check here that we aren't about to chop an HTML entity in half.
+          const indexOfAmpersand = textList[i].indexOf('&');
+          const indexOfSemicolon = textList[i].indexOf(';');
+          if (
+            indexOfAmpersand > -1 &&
+            indexOfSemicolon > -1 &&
+            indexOfAmpersand < truncBitLength &&
+            truncBitLength < indexOfSemicolon
+          ) {
+            truncBitLength = indexOfSemicolon;
+          }
+          // and now chop the bit of text safely, add it to the output
+          // and signal we have reached the limit
           const truncText = textList[i].slice(0, truncBitLength);
           out += `${truncText}${endChar}`;
           lengthSoFar += truncBitLength;
           overLimit = true;
         } else {
+          // otherwise, we aren't going over the limit by adding this
+          // bit so add it and update the cumulative length:
           out += textList[i];
           lengthSoFar += textBitLength;
         }
