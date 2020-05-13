@@ -9,7 +9,6 @@ import CTAButtonV2 from '../CTAButtonV2';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
-// import HenryLawsonPen from './HenryLawsonPen';
 
 import css from './DiaryFilesHome.module.scss';
 
@@ -27,6 +26,10 @@ const DiaryFilesHome = ({ className }) => {
     },
     fetchPolicy: 'cache-and-network',
   });
+
+  const { diaryFiles } = data;
+  const { posts, postTotal } = diaryFiles;
+  const hasMorePosts = posts.length < postTotal;
 
   React.useEffect(() => {
     if (offset > 0) {
@@ -64,10 +67,6 @@ const DiaryFilesHome = ({ className }) => {
   } else {
     status = 'loaded';
   }
-
-  const { diaryFiles } = data;
-  const { posts, postTotal } = diaryFiles;
-  const hasMorePosts = posts.length < postTotal;
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
