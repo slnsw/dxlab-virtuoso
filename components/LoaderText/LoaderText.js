@@ -5,6 +5,7 @@ class LoaderText extends Component {
   static propTypes = {
     text: PropTypes.string,
     className: PropTypes.string,
+    style: PropTypes.object,
   };
 
   static defaultProps = {
@@ -12,10 +13,10 @@ class LoaderText extends Component {
   };
 
   render() {
-    const { text, className } = this.props;
+    const { text, className, style } = this.props;
 
     return (
-      <div className={['loader-text', className || ''].join(' ')}>
+      <div className={['loader-text', className || ''].join(' ')} style={style}>
         {text} <span>.</span>
         <span>.</span>
         <span>.</span>
