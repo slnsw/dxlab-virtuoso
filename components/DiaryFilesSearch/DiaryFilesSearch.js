@@ -17,13 +17,16 @@ const DiaryFilesSearch = ({ className, search }) => {
     setInputValue(search);
   }, [search]);
 
-  const { loading, error, data } = useQuery(searchQuery, {
+  const {
+    loading,
+    error,
+    data = { diaryFiles: { posts: [], postTotal: null } },
+  } = useQuery(searchQuery, {
     variables: { search, skip: Boolean(!search) },
   });
-  const posts =
-    search && data && data.diaryFiles && data.diaryFiles.posts
-      ? data.diaryFiles.posts
-      : [];
+
+  const { diaryFiles } = data;
+  const { posts } = diaryFiles;
 
   let status;
 
@@ -98,12 +101,9 @@ const DiaryFilesSearch = ({ className, search }) => {
         </h2>
       )}
 
-      {/* Good spot for suggested search terms */}
-      {/* {status === 'initial' && <p>Enter a search term</p>} */}
       {status === 'initial' && <DiaryFilesSuggestedSearches />}
 
       {status === 'loaded' &&
-        posts &&
         posts
           .sort((a, b) => a.id - b.id)
           .map((p) => {

@@ -10,7 +10,7 @@ import css from './DiaryFilesSuggestedSearches.module.scss';
 
 const DiaryFilesSuggestedSearches = ({ className }) => {
   const [searchArray, setSearchArray] = React.useState([]);
-  const numberToShow = 5;
+  const numberToShow = 10;
 
   const { data, loading, error } = useQuery(suggestedSearchesQuery);
 
@@ -42,16 +42,28 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
     <div className={[css.suggestedSearches, className].join(' ')}>
       <h2 className={css.sectionTitle}>Suggestions</h2>
 
-      {searchArray &&
-        searchArray.map((search) => {
+      <div className={css.searchesWrapper}>
+        {[
+          [0, 5],
+          [5, 10],
+        ].map((args) => {
+          const [start, end] = args;
+
           return (
-            <p key={search}>
-              <Link href={`/diary-files/search?q=${search}`}>
-                <a>{search}</a>
-              </Link>
-            </p>
+            <div className={css.searches} key={start}>
+              {searchArray.slice(start, end).map((search) => {
+                return (
+                  <p key={search}>
+                    <Link href={`/diary-files/search?q=${search}`}>
+                      <a>{search}</a>
+                    </Link>
+                  </p>
+                );
+              })}
+            </div>
           );
         })}
+      </div>
     </div>
   );
 };
