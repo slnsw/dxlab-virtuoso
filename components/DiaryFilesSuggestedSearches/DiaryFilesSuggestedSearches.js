@@ -12,7 +12,7 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
   const [searchArray, setSearchArray] = React.useState([]);
   const numberToShow = 5;
 
-  const { data } = useQuery(suggestedSearchesQuery);
+  const { data, loading, error } = useQuery(suggestedSearchesQuery);
 
   React.useEffect(() => {
     let tempArray;
@@ -30,7 +30,11 @@ const DiaryFilesSuggestedSearches = ({ className }) => {
     setSearchArray(newSearchArray);
   }, [data]);
 
-  if (!searchArray) {
+  if (error) {
+    return null;
+  }
+
+  if (!error && (loading || !searchArray)) {
     return <LoaderText className={css.loader} />;
   }
 

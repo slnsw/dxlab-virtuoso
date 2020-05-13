@@ -199,9 +199,22 @@ describe('TextTruncate', () => {
         <p dangerouslySetInnerHTML={{ __html: tagBreakTest }} />
       </TextTruncate>,
     );
-    console.log(getByText);
     expect(getByText(/Where is the human/).innerHTML).toEqual(
       'There was no apology<br>Where is the human…',
+    );
+  });
+
+  const entityBreakTest =
+    '<div><p>Lyrics</p><p>There was no apology<br />Where is the man&#8217;s beard<br />It would have been better if it never happened ever</p></div>';
+
+  it('should truncate text in dangerouslySetInnerHTML without chopping an HTML entity in half', () => {
+    const { getByText } = render(
+      <TextTruncate limit={44} shouldStripHtml={false}>
+        <p dangerouslySetInnerHTML={{ __html: entityBreakTest }} />
+      </TextTruncate>,
+    );
+    expect(getByText(/Where is the man/).innerHTML).toEqual(
+      'There was no apology<br>Where is the man’…',
     );
   });
 });
