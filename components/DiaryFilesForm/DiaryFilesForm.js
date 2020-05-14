@@ -188,149 +188,158 @@ const DiaryFilesForm = (props) => {
               </p>
               <p> Thank you for your contribution.</p>
 
-              <div
-                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__name']}`}
-              >
-                <label htmlFor="name">Name</label>
-                <input
-                  name="name"
-                  aria-label="name"
-                  type="text"
-                  aria-required="false"
-                  placeholder="Your name"
-                />
-              </div>
-              <div
-                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__email']}`}
-              >
-                <label htmlFor="email">Email</label>
-                <input
-                  name="email"
-                  aria-label="email"
-                  type="text"
-                  aria-required="false"
-                  placeholder="Your email"
-                />
-                <p className={css['diaryFilesForm__emailMessage']}>
-                  If you use the same email for multiple entries they will be
-                  linked as being by the same author.
+              <div className={css.optionalFields}>
+                <div
+                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__name']}`}
+                >
+                  <label htmlFor="name">Name</label>
+                  <input
+                    name="name"
+                    aria-label="name"
+                    type="text"
+                    aria-required="false"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div
+                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__email']}`}
+                >
+                  <label htmlFor="email">Email</label>
+                  <input
+                    name="email"
+                    aria-label="email"
+                    type="text"
+                    aria-required="false"
+                    placeholder="Your email"
+                  />
+                  <p className={css['diaryFilesForm__emailMessage']}>
+                    If you use the same email for multiple entries they will be
+                    linked as being by the same author.
+                  </p>
+                </div>
+                <div
+                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__age']}`}
+                >
+                  <label htmlFor="age">Age</label>
+                  <input
+                    name="age"
+                    aria-label="age"
+                    type="text"
+                    aria-required="false"
+                    placeholder="Age"
+                  />
+                </div>
+
+                {!isOutsideAustralia && (
+                  <div className={`${css['diaryFilesForm__location']}`}>
+                    <div
+                      className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__city']}`}
+                    >
+                      <label htmlFor="city">City</label>
+                      <input
+                        name="city"
+                        aria-label="city"
+                        type="text"
+                        aria-required="false"
+                        placeholder="City, town or suburb"
+                        disabled={isOutsideAustralia}
+                      />
+                    </div>
+
+                    <div
+                      className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__state']}`}
+                    >
+                      <label htmlFor="state">State</label>
+                      <Select
+                        variant="dark"
+                        name="state"
+                        options={stateOptions}
+                        onChange={(option) => setFormState(option)}
+                        isDisabled={isOutsideAustralia}
+                        isSearchable={false}
+                        // isDisabled={true}
+                      />
+                    </div>
+
+                    <div
+                      className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__postcode']}`}
+                    >
+                      <label htmlFor="postcode">Postcode</label>
+                      <input
+                        name="postcode"
+                        aria-label="postcode"
+                        type="text"
+                        aria-required="false"
+                        placeholder="Postcode"
+                        disabled={isOutsideAustralia}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <div
+                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__outsideAustralia']}`}
+                >
+                  <input
+                    name="outsideAustralia"
+                    aria-label="outsideAustralia"
+                    type="checkbox"
+                    onChange={(event) =>
+                      setIsOutsideAustralia(event.target.checked)
+                    }
+                  />
+                  <label
+                    className={css['diaryFilesForm__outsideAustraliaLabel']}
+                    htmlFor="outsideAustralia"
+                  >
+                    I am outside Australia
+                  </label>
+                </div>
+
+                {/* TODO: Try input type submit */}
+                <div className={css['diaryFilesForm__submitWrapper']}>
+                  <button
+                    className="button"
+                    type="submit"
+                    aria-label="Submit Button."
+                    disabled={wordCount > wordCountLimit}
+                  >
+                    Submit
+                  </button>
+                </div>
+
+                {showWarning && (
+                  <div className="warning">
+                    <p>{showWarning}</p>
+                  </div>
+                )}
+
+                {showSubmitError && (
+                  <div className="warning">
+                    <p>
+                      There seems to be a problem, please refresh the page and
+                      try again.
+                    </p>
+                  </div>
+                )}
+
+                <p className={css['diaryFilesForm__termsAndConditions']}>
+                  By submitting your diary entry in this platform you are
+                  allowing the State Library of NSW to collect, store and
+                  publish your text as part of this online experience, for
+                  exhibition and promotional purposes. Your entry may also be
+                  used by ABC Radio Sydney for on air and online promotion.
+                  Please note we have allowed social sharing on each entry.
+                  <br />
+                  <br />
+                  Please note: All diary entries will be moderated based on the
+                  State Library website's{' '}
+                  <a href="https://www.sl.nsw.gov.au/website-terms-use">
+                    Terms of Use
+                  </a>
+                  .
                 </p>
               </div>
-              <div
-                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__age']}`}
-              >
-                <label htmlFor="age">Age</label>
-                <input
-                  name="age"
-                  aria-label="age"
-                  type="text"
-                  aria-required="false"
-                  placeholder="Age"
-                />
-              </div>
-              <div
-                className={`${
-                  isOutsideAustralia ? css['diaryFilesForm__location'] : ''
-                }`}
-              >
-                <div
-                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__city']}`}
-                >
-                  <label htmlFor="city">City</label>
-                  <input
-                    name="city"
-                    aria-label="city"
-                    type="text"
-                    aria-required="false"
-                    placeholder="City, town or suburb"
-                    disabled={isOutsideAustralia}
-                  />
-                </div>
-
-                <div
-                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__state']}`}
-                >
-                  <label htmlFor="state">State</label>
-                  <Select
-                    variant="dark"
-                    name="state"
-                    options={stateOptions}
-                    onChange={(option) => setFormState(option)}
-                    isDisabled={isOutsideAustralia}
-                    isSearchable={false}
-                    // isDisabled={true}
-                  />
-                </div>
-
-                <div
-                  className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__postcode']}`}
-                >
-                  <label htmlFor="postcode">Postcode</label>
-                  <input
-                    name="postcode"
-                    aria-label="postcode"
-                    type="text"
-                    aria-required="false"
-                    placeholder="Postcode"
-                    disabled={isOutsideAustralia}
-                  />
-                </div>
-              </div>
-              <div
-                className={`${css['diaryFilesForm__section']} ${css['diaryFilesForm__outsideAustralia']}`}
-              >
-                <input
-                  name="outsideAustralia"
-                  aria-label="outsideAustralia"
-                  type="checkbox"
-                  onChange={(event) =>
-                    setIsOutsideAustralia(event.target.checked)
-                  }
-                />
-                <label
-                  className={css['diaryFilesForm__outsideAustraliaLabel']}
-                  htmlFor="outsideAustralia"
-                >
-                  I am outside Australia
-                </label>
-              </div>
-
-              {/* TODO: Try input type submit */}
-              <div className={css['diaryFilesForm__submitWrapper']}>
-                <button
-                  className="button"
-                  type="submit"
-                  aria-label="Submit Button."
-                  disabled={wordCount > wordCountLimit}
-                >
-                  Submit
-                </button>
-              </div>
-
-              <p className={css['diaryFilesForm__termsAndConditions']}>
-                By submitting your diary entry in this platform you are allowing
-                the State Library of NSW to collect, store and publish your text
-                as part of this online experience, for exhibition and
-                promotional purposes. Your entry may also be used by ABC Radio
-                Sydney for on air and online promotion. Please note we have
-                allowed social sharing on each entry.
-                <br />
-                <br />
-                Please note: All diary entries will be moderated based on the
-                State Library website's{' '}
-                <a href="https://www.sl.nsw.gov.au/website-terms-use">
-                  Terms of Use
-                </a>
-                .
-              </p>
-              {showWarning && <div className="warning">{showWarning}</div>}
-
-              {showSubmitError && (
-                <div className="warning">
-                  There seems to be a problem, please refresh the page and try
-                  again.
-                </div>
-              )}
             </form>
           </div>
         ) : (
@@ -344,18 +353,6 @@ const DiaryFilesForm = (props) => {
             <CTAButton href="/diary-files" className={css.continueButton}>
               Continue
             </CTAButton>
-            {/* <CTAButtonV2
-              onClick={() => {
-                if (typeof props.onClose === 'function') {
-                  // setShowWarning(false);
-                  // setShowSubmitError(false);
-                  // setIsFormSubmitted(false);
-                  props.onClose();
-                }
-              }}
-            >
-              continue
-            </CTAButtonV2> */}
           </div>
         )}
       </div>
