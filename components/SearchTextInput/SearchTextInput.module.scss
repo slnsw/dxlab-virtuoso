@@ -1,0 +1,14 @@
+@import '../../styles/global.scss';
+
+.searchTextInput {
+  position: relative;
+  // display: flex;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-xxxs);
+  height: var(--spacing-xlg);
+  transform: translateY(-50%);
+}
