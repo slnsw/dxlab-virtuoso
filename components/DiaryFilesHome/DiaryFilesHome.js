@@ -15,7 +15,13 @@ import css from './DiaryFilesHome.module.scss';
 const DiaryFilesHome = ({ className }) => {
   const [offset, setOffset] = React.useState(0);
 
-  const { status, posts, hasMorePosts, error } = useDiaryFilesPostsQuery({
+  const {
+    status,
+    posts,
+    postTotal,
+    hasMorePosts,
+    error,
+  } = useDiaryFilesPostsQuery({
     offset,
   });
 
@@ -55,6 +61,10 @@ const DiaryFilesHome = ({ className }) => {
         </div>
       </div>
 
+      <p className={css.totalEntries}>
+        <strong>{postTotal}</strong> entries collected
+      </p>
+      <div className={css.divider}></div>
       <h2 className={css.sectionTitle}>Recent Entries</h2>
 
       {status === 'error' && <p>{error.message}</p>}

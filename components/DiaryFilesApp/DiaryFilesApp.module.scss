@@ -230,11 +230,10 @@
   flex: 1;
   width: 100%;
   max-width: var(--container-width-md);
-  // min-height: 30rem;
   margin: 0 auto;
   padding-top: var(--spacing-xlg);
 
   @include media-sm {
-    padding-top: var(--spacing-xxxlg);
+    padding-top: var(--spacing-lg);
   }
 }
