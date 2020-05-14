@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import fetch from 'isomorphic-unfetch';
+import Link from '../Link';
 
 import LoaderText from '../LoaderText';
 import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
@@ -9,14 +10,14 @@ import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import css from './DiaryFilesDashboard.module.scss';
 
 const DiaryFilesDashboard = ({ className }) => {
-  const [text, setText] = React.useState([]);
+  const [data, setData] = React.useState({});
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch('/data/ages.json')
+    fetch('/data/data.json')
       .then((r) => r.json())
-      .then((data) => {
-        setText(processText(data));
+      .then((d) => {
+        setData(d);
         setLoading(false);
       })
       .catch((error) => {
@@ -25,16 +26,9 @@ const DiaryFilesDashboard = ({ className }) => {
   }, []);
 
   React.useEffect(() => {
-    console.log(`${text.length} items retrieved from data.json`);
-  }, [text]);
-
-  //   return { text, loading };
-  // };
-
-  function processText(t) {
-    // return JSON.parse(t);
-    return t;
-  }
+    // console.log(`${data.length} items retrieved from data.json`);
+    // console.log(data?.postcodes);
+  }, [data]);
 
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
@@ -47,7 +41,106 @@ const DiaryFilesDashboard = ({ className }) => {
           }}
         />
       )}
-      <div>{text}</div>
+      <div>
+        <p>
+          {data.uniqueWordsCount} unique words used in {data.entriesCount}{' '}
+          entries.
+        </p>
+        <p>Most commonly used words</p>
+        <ul>
+          {data?.wordsAndCounts
+            ?.sort((a, b) => b.count - a.count)
+            .slice(0, 25)
+            .map((p) => {
+              return (
+                p.word.length > 1 && (
+                  <li key={p.word}>
+                    <Link href={`/diary-files/search?q=${p.word}`}>
+                      <a>{p.word}</a>
+                    </Link>
+                    <span> ({p.count})</span>
+                  </li>
+                )
+              );
+            })}
+        </ul>
+      </div>
+
+      <div>
+        <p>Ages</p>
+        <ul>
+          {data?.ages
+            ?.sort((a, b) => b.count - a.count)
+            .slice(0, 25)
+            ?.map((p) => {
+              return (
+                <li key={p.item}>
+                  {p.item === '' ? 'Not supplied' : p.item}{' '}
+                  <span>({p.count})</span>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+
+      <div>
+        <p>Cities</p>
+        <ul>
+          {data?.cities
+            ?.sort((a, b) => b.count - a.count)
+            .slice(0, 25)
+            ?.map((p) => {
+              return (
+                <li key={p.item}>
+                  {p.item === '' ? 'Not supplied' : p.item}{' '}
+                  <span>({p.count})</span>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+
+      <div>
+        <p>Postcodes</p>
+        <ul>
+          {data?.postcodes
+            ?.sort((a, b) => b.count - a.count)
+            .slice(0, 25)
+            ?.map((p) => {
+              return (
+                <li key={p.item}>
+                  {p.item === '0' ? 'Not supplied' : p.item}{' '}
+                  <span>({p.count})</span>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+
+      <div>
+        <p>States</p>
+        <ul>
+          {data?.states
+            ?.sort((a, b) => b.count - a.count)
+            .slice(0, 25)
+            ?.map((p) => {
+              return (
+                <li key={p.item}>
+                  {p.item === '' ? 'Not supplied' : p.item}{' '}
+                  <span>({p.count})</span>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+
+      <div>
+        <p>
+          {data?.overseasEntriesCount} entr
+          {data?.overseasEntriesCount === 1 ? 'y' : 'ies'} from outside
+          Australia
+        </p>
+      </div>
     </article>
   );
 };
