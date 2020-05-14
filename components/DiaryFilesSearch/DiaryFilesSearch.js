@@ -7,8 +7,9 @@ import DiaryFilesPost from '../DiaryFilesPost';
 import DiaryFilesSuggestedSearches from '../DiaryFilesSuggestedSearches';
 import CTAButtonV2 from '../CTAButtonV2';
 
-import css from './DiaryFilesSearch.module.scss';
 import useDiaryFilesPostsQuery from '../../lib/hooks/use-diary-files-posts-query';
+
+import css from './DiaryFilesSearch.module.scss';
 
 const DiaryFilesSearch = ({ className, search }) => {
   const [offset, setOffset] = React.useState(0);
