@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useQuery } from 'react-apollo';
-import gql from 'graphql-tag';
 import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 import DiaryFilesSuggestedSearches from '../DiaryFilesSuggestedSearches';
+import CTAButtonV2 from '../CTAButtonV2';
 
 import css from './DiaryFilesSearch.module.scss';
+import useDiaryFilesPostsQuery from '../../lib/hooks/use-diary-files-posts-query';
 
 const DiaryFilesSearch = ({ className, search }) => {
+  const [offset, setOffset] = React.useState(0);
   const [inputValue, setInputValue] = React.useState(search);
 
   React.useEffect(() => {
@@ -18,29 +19,21 @@ const DiaryFilesSearch = ({ className, search }) => {
   }, [search]);
 
   const {
-    loading,
+    status,
+    posts,
+    postTotal,
+    hasMorePosts,
     error,
-    data = { diaryFiles: { posts: [], postTotal: null } },
-  } = useQuery(searchQuery, {
-    variables: { search, skip: Boolean(!search) },
+  } = useDiaryFilesPostsQuery({
+    search,
+    offset,
+    skip: Boolean(!search),
   });
 
-  const { diaryFiles } = data;
-  const { posts } = diaryFiles;
-
-  let status;
-
-  if (error) {
-    status = 'error';
-  } else if (loading) {
-    status = 'loading';
-  } else if (!search) {
-    status = 'initial';
-  } else {
-    status = 'loaded';
-  }
+  const showPosts = status !== 'loading' || offset > 0;
 
   const handleInputChange = (event) => {
+    setOffset(0);
     setInputValue(event.target.value);
   };
 
@@ -88,14 +81,12 @@ const DiaryFilesSearch = ({ className, search }) => {
         <h2 className={css.sectionTitle}>Sorry there is an error: {error}</h2>
       )}
 
-      {status === 'loading' && <LoaderText className={css.loader} />}
-
       {status === 'loaded' && (
         <h2 className={css.sectionTitle}>
           <span>
             {posts.length === 0
               ? 'No entries found'
-              : `${posts.length} results for`}
+              : `${postTotal} results for`}
           </span>
           {posts.length > 0 && ` '${search}' `}
         </h2>
@@ -103,9 +94,9 @@ const DiaryFilesSearch = ({ className, search }) => {
 
       {status === 'initial' && <DiaryFilesSuggestedSearches />}
 
-      {status === 'loaded' &&
+      {showPosts &&
         posts
-          .sort((a, b) => a.id - b.id)
+          // .sort((a, b) => a.id - b.id)
           .map((p) => {
             return (
               <DiaryFilesPost
@@ -123,38 +114,29 @@ const DiaryFilesSearch = ({ className, search }) => {
                 className={[css.diaryFilesSearch, className || ''].join(' ')}
                 singleView={false}
                 hasReadMore={true}
-                isLoading={loading}
+                isLoading={false}
               />
             );
           })}
+
+      {status === 'loading' && <LoaderText className={css.loader} />}
+
+      {status === 'loaded' && hasMorePosts && (
+        <CTAButtonV2
+          style={{
+            width: '100%',
+          }}
+          // className={css.wideButton}
+          onClick={() => {
+            setOffset(posts.length);
+          }}
+        >
+          Show more
+        </CTAButtonV2>
+      )}
     </div>
   );
 };
-
-const searchQuery = gql`
-  query diaryFiles($search: String, $skip: Boolean!) {
-    diaryFiles {
-      posts(search: $search, limit: 50) @skip(if: $skip) {
-        id
-        title
-        content
-        city
-        state
-        dateText
-        authorName
-        state
-        postcode
-        outsideAustralia
-        age
-        relatedPosts {
-          id
-          title
-        }
-      }
-      postTotal(search: $search)
-    }
-  }
-`;
 
 DiaryFilesSearch.propTypes = {
   className: PropTypes.string,
