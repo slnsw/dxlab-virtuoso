@@ -315,6 +315,7 @@ const DiaryFilesForm = (props) => {
                 Sydney for on air and online promotion. Please note we have
                 allowed social sharing on each entry.
                 <br />
+                <br />
                 Please note: All diary entries will be moderated based on the
                 State Library website's{' '}
                 <a href="https://www.sl.nsw.gov.au/website-terms-use">
