@@ -25,3 +25,20 @@
 .loader {
   text-align: center;
 }
+
+.searchesWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.searches {
+  margin: 0 var(--spacing-lg);
+
+  &:last-child {
+    display: none;
+
+    @include media-sm {
+      display: block;
+    }
+  }
+}

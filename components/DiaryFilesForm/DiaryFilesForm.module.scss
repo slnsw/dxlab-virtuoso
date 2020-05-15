@@ -34,6 +34,13 @@
   font-size: var(--font-size-md);
 }
 
+.optionalFields {
+  @include media-sm {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
 .diaryFilesForm__section {
   // flex: none;
   margin-bottom: var(--spacing-lg);
@@ -47,7 +54,12 @@
 }
 
 .diaryFilesForm__location {
-  opacity: 50%;
+  width: 100%;
+
+  @include media-sm {
+    display: flex;
+  }
+  // opacity: 50%;
 }
 
 .diaryFilesForm__date {
@@ -62,7 +74,7 @@
 
 .diaryFilesForm__name {
   @include media-md {
-    float: left;
+    // float: left;
     width: 41%;
     margin-right: 4%;
   }
@@ -70,7 +82,7 @@
 
 .diaryFilesForm__email {
   @include media-md {
-    float: left;
+    // float: left;
     width: 41%;
     margin-right: 4%;
   }
@@ -84,14 +96,14 @@
 
 .diaryFilesForm__age {
   @include media-md {
-    float: left;
+    // float: left;
     width: 10%;
   }
 }
 
 .diaryFilesForm__city {
   @include media-md {
-    float: left;
+    // float: left;
     width: 28%;
     margin-right: 4%;
   }
@@ -99,7 +111,7 @@
 
 .diaryFilesForm__state {
   @include media-md {
-    float: left;
+    // float: left;
     width: 48%;
     margin-right: 4%;
   }
@@ -107,7 +119,7 @@
 
 .diaryFilesForm__postcode {
   @include media-md {
-    float: left;
+    // float: left;
     width: 16%;
   }
 }

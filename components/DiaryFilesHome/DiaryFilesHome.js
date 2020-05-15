@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useQuery } from 'react-apollo';
-import gql from 'graphql-tag';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
@@ -10,63 +8,22 @@ import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
 
+import useDiaryFilesPostsQuery from '../../lib/hooks/use-diary-files-posts-query';
+
 import css from './DiaryFilesHome.module.scss';
 
 const DiaryFilesHome = ({ className }) => {
   const [offset, setOffset] = React.useState(0);
+
   const {
-    loading,
+    status,
+    posts,
+    postTotal,
+    hasMorePosts,
     error,
-    data = { diaryFiles: { posts: [], postTotal: null } },
-    fetchMore,
-  } = useQuery(postsQuery, {
-    variables: {
-      offset: 0,
-      limit: 20,
-    },
-    fetchPolicy: 'cache-and-network',
+  } = useDiaryFilesPostsQuery({
+    offset,
   });
-
-  const { diaryFiles } = data;
-  const { posts, postTotal } = diaryFiles;
-  const hasMorePosts = posts.length < postTotal;
-
-  React.useEffect(() => {
-    if (offset > 0) {
-      fetchMore({
-        variables: {
-          offset,
-          limit: 20,
-        },
-        updateQuery: (prev, { fetchMoreResult }) => {
-          if (!fetchMoreResult) {
-            return prev;
-          }
-
-          // Merge new posts with existing posts
-          return {
-            diaryFiles: {
-              ...fetchMoreResult.diaryFiles,
-              posts: [
-                ...prev.diaryFiles.posts,
-                ...fetchMoreResult.diaryFiles.posts,
-              ],
-            },
-          };
-        },
-      });
-    }
-  }, [offset, fetchMore]);
-
-  let status;
-
-  if (error) {
-    status = 'error';
-  } else if (loading) {
-    status = 'loading';
-  } else {
-    status = 'loaded';
-  }
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
@@ -104,6 +61,10 @@ const DiaryFilesHome = ({ className }) => {
         </div>
       </div>
 
+      <p className={css.totalEntries}>
+        <strong>{postTotal}</strong> entries collected
+      </p>
+      <div className={css.divider}></div>
       <h2 className={css.sectionTitle}>Recent Entries</h2>
 
       {status === 'error' && <p>{error.message}</p>}
@@ -138,7 +99,7 @@ const DiaryFilesHome = ({ className }) => {
         />
       )}
 
-      {status === 'loaded' && hasMorePosts && (
+      {(status === 'loaded' || status === 'initial') && hasMorePosts && (
         <CTAButtonV2
           className={css.wideButton}
           onClick={() => {
@@ -151,29 +112,6 @@ const DiaryFilesHome = ({ className }) => {
     </div>
   );
 };
-
-const postsQuery = gql`
-  query getPosts($limit: Int, $offset: Int) {
-    diaryFiles {
-      posts(limit: $limit, offset: $offset) {
-        id
-        title
-        content
-        dateText
-        authorName
-        city
-        state
-        postcode
-        outsideAustralia
-        age
-        relatedPosts {
-          id
-        }
-      }
-      postTotal
-    }
-  }
-`;
 
 DiaryFilesHome.propTypes = {
   className: PropTypes.string,

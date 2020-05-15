@@ -7,6 +7,7 @@ import CTAButtonV2 from '../components/CTAButtonV2';
 import Modal from '../components/Modal';
 import Overlay from '../components/Overlay';
 import Icon from '../components/Icon';
+import SearchTextInput from '../components/SearchTextInput/SearchTextInput';
 
 const DesignSystemPage = () => {
   const [isOverlayActive, setIsOverlayActive] = React.useState(false);
@@ -21,6 +22,9 @@ const DesignSystemPage = () => {
       <h1>Design System</h1>
 
       <h2>Components</h2>
+
+      <h3>Search Text Input</h3>
+      <SearchTextInput />
 
       <h3>Select</h3>
       <Select
