@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import * as d3 from 'd3';
 import render from 'd3-render';
+import dynamic from 'next/dynamic';
 
 import Link from '../Link';
 import LoaderText from '../LoaderText';
 import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
+// import BarChart from '../BarChart/BarChart';
 
 import css from './DiaryFilesDashboard.module.scss';
+
+const BarChart = dynamic(() => import('../BarChart'));
 
 const DiaryFilesDashboard = ({ className }) => {
   const [data, setData] = React.useState({});
@@ -37,7 +41,7 @@ const DiaryFilesDashboard = ({ className }) => {
         const height = 200;
         const margin = {
           top: 10,
-          left: 10,
+          left: 40,
           right: 10,
           bottom: 10,
         };
@@ -59,6 +63,21 @@ const DiaryFilesDashboard = ({ className }) => {
           .tickFormat((i) => wordsData[i].word)
           .tickSizeOuter(0);
 
+        const yAxis = (g) =>
+          g
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y).ticks(null, 's'))
+            .call((selection) => selection.select('.domain').remove())
+            .call((selection) =>
+              selection
+                .append('text')
+                .attr('x', -margin.left)
+                .attr('y', 10)
+                .attr('fill', 'currentColor')
+                .attr('text-anchor', 'start')
+                .text(data.y),
+            );
+
         render(wordsRef.current, [
           {
             append: 'g',
@@ -73,17 +92,6 @@ const DiaryFilesDashboard = ({ className }) => {
               };
             }),
           },
-          // {
-          //   append: 'g',
-          //   transform: `translate(0, ${height - margin.bottom})`,
-          // call: xAxis,
-          // call: function() {
-          //   return d3
-          //     .axisBottom(x)
-          //     .tickFormat((i) => wordsAndCounts[i].word)
-          //     .tickSizeOuter(0);
-          // },
-          // },
         ]);
 
         const chart = d3.select(wordsRef.current);
@@ -91,12 +99,17 @@ const DiaryFilesDashboard = ({ className }) => {
           .append('g')
           .attr('transform', `translate(0, ${height - margin.bottom})`)
           .call(xAxis);
+        chart.append('g').call(yAxis);
       }
     }
 
     // console.log(`${data.length} items retrieved from data.json`);
     // console.log(data?.postcodes);
   }, [data]);
+
+  const wordsData = data && data.wordsAndCounts ? data.wordsAndCounts : [];
+
+  // console.log({wordsData});
 
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
@@ -113,7 +126,10 @@ const DiaryFilesDashboard = ({ className }) => {
       )}
 
       <div>
-        <svg width="500" height="300" ref={wordsRef}></svg>
+        <BarChart data={wordsData.slice(0, 10)} />
+
+        {/* <svg width="500" height="300" ref={wordsRef}></svg> */}
+
         <p>
           {data.uniqueWordsCount} unique words used in {data.entriesCount}{' '}
           entries.
