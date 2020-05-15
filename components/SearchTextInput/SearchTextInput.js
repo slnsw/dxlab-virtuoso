@@ -15,13 +15,17 @@ const SearchTextInput = ({
 }) => {
   const [inputValue, setInputValue] = React.useState(value);
 
-  const handleInputChange = (e) => {
-    const newValue = e?.target?.value;
+  const handleInputChange = (event) => {
+    const newValue = event?.target?.value;
     setInputValue(newValue);
 
     if (typeof onChange === 'function') {
-      onChange(e);
+      onChange(event);
     }
+  };
+
+  const handleCloseClick = () => {
+    setInputValue('');
   };
 
   return (
@@ -36,7 +40,7 @@ const SearchTextInput = ({
       />
 
       {inputValue && inputValue.length > 0 && (
-        <button className={css.icon}>
+        <button type="button" className={css.icon} onClick={handleCloseClick}>
           <Icon name="close" colour="white" size={'lg'} />
         </button>
       )}

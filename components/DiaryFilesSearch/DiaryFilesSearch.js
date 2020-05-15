@@ -10,6 +10,7 @@ import CTAButtonV2 from '../CTAButtonV2';
 import useDiaryFilesPostsQuery from '../../lib/hooks/use-diary-files-posts-query';
 
 import css from './DiaryFilesSearch.module.scss';
+import SearchTextInput from '../SearchTextInput/SearchTextInput';
 
 const DiaryFilesSearch = ({ className, search }) => {
   const [offset, setOffset] = React.useState(0);
@@ -56,7 +57,16 @@ const DiaryFilesSearch = ({ className, search }) => {
               // search && css['termExists']
             ].join(' ')}
           >
-            <input
+            {/* <input
+              name="q"
+              aria-label="Search"
+              type="text"
+              aria-required="true"
+              placeholder={'Type something...'}
+              value={inputValue || ''}
+              onChange={handleInputChange}
+            /> */}
+            <SearchTextInput
               name="q"
               aria-label="Search"
               type="text"
