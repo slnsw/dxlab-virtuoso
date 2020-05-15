@@ -22,6 +22,8 @@ const Icon = ({ name, size = 'md', colour, className }) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512"
         xmlnsXlink="http://www.w3.org/1999/xlink"
+        aria-hidden={true}
+        focusable={false}
       >
         {getSVG(`${isLogo ? 'logo-' : ''}${name}${isLogo ? '' : '-sharp'}`)}
       </svg>

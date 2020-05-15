@@ -1,39 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useQuery } from 'react-apollo';
-import gql from 'graphql-tag';
-// import Router from 'next/router';
 
 import LoaderText from '../LoaderText';
 import CTAButton from '../CTAButton';
+import CTAButtonV2 from '../CTAButtonV2';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
-// import HenryLawsonPen from './HenryLawsonPen';
+
+import useDiaryFilesPostsQuery from '../../lib/hooks/use-diary-files-posts-query';
 
 import css from './DiaryFilesHome.module.scss';
 
 const DiaryFilesHome = ({ className }) => {
-  const { loading, error, data = { diaryFiles: {} } } = useQuery(postsQuery);
+  const [offset, setOffset] = React.useState(0);
 
-  let status;
-
-  if (error) {
-    status = 'error';
-  } else if (loading) {
-    status = 'loading';
-  } else {
-    status = 'loaded';
-  }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { q } = e && e.target && e.target.elements;
-  //   if (q && q.value) Router.push(`/diary-files/search?q=${q.value}`);
-  // };
-
-  const { diaryFiles } = data;
-  const { posts } = diaryFiles;
+  const {
+    status,
+    posts,
+    postTotal,
+    hasMorePosts,
+    error,
+  } = useDiaryFilesPostsQuery({
+    offset,
+  });
 
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
@@ -69,91 +59,59 @@ const DiaryFilesHome = ({ className }) => {
             </Link>
           </p>
         </div>
-
-        {/* <div className={css.divider}></div> */}
-
-        {/* <div className={css.aboutLink}> */}
-        {/* <p className={css.smallText}>
-          <Link href="/diary-files/about">
-            <a>About this project</a>
-          </Link>
-        </p> */}
-        {/* </div> */}
-
-        {/* <div className={css.divider}></div> */}
-
-        {/* <HenryLawsonPen className={css.henryLawsonPen} /> */}
-
-        {/* <p className={css.smallText}>
-          <Link href="/diary-files/search">
-            <a>Search</a>
-          </Link>
-        </p> */}
-
-        {/* <div className={css.divider}></div> */}
       </div>
 
+      <p className={css.totalEntries}>
+        <strong>{postTotal}</strong> entries collected
+      </p>
+      <div className={css.divider}></div>
       <h2 className={css.sectionTitle}>Recent Entries</h2>
 
-      {status === 'error' && error.message}
+      {status === 'error' && <p>{error.message}</p>}
 
-      {status === 'loading' && <LoaderText />}
+      {posts.map((post) => {
+        return (
+          <DiaryFilesPost
+            id={post.id}
+            key={post.id}
+            title={post.title}
+            content={post.content}
+            dateText={post.dateText}
+            authorName={post.authorName}
+            city={post.city}
+            state={post.state}
+            postcode={post.postcode}
+            outsideAustralia={post.outsideAustralia}
+            age={post.age}
+            relatedPosts={post.relatedPosts}
+            singleView={false}
+            hasReadMore={true}
+            isLoading={false}
+          />
+        );
+      })}
 
-      {status === 'loaded' &&
-        posts.map((post) => {
-          return (
-            <DiaryFilesPost
-              id={post.id}
-              key={post.id}
-              title={post.title}
-              content={post.content}
-              dateText={post.dateText}
-              authorName={post.authorName}
-              city={post.city}
-              state={post.state}
-              postcode={post.postcode}
-              outsideAustralia={post.outsideAustralia}
-              age={post.age}
-              relatedPosts={post.relatedPosts}
-              singleView={false}
-              hasReadMore={true}
-              isLoading={loading}
-            />
-          );
-        })}
-      {/* <Modal
-        isActive={isFormModalActive}
-        onClose={() => setIsFormModalActive(false)}
-      >
-        <div className={css.diaryFilesModalWrapper}>
-          <DiaryFilesForm onClose={() => setIsFormModalActive(false)} />
-        </div>
-      </Modal> */}
+      {status === 'loading' && (
+        <LoaderText
+          style={{
+            textAlign: 'center',
+          }}
+        />
+      )}
+
+      {(status === 'loaded' || status === 'initial') && hasMorePosts && (
+        <CTAButtonV2
+          className={css.wideButton}
+          onClick={() => {
+            setOffset(posts.length);
+          }}
+        >
+          Show more
+        </CTAButtonV2>
+      )}
     </div>
   );
 };
-
-const postsQuery = gql`
-  {
-    diaryFiles {
-      posts(limit: 100) {
-        id
-        title
-        content
-        dateText
-        authorName
-        city
-        state
-        postcode
-        outsideAustralia
-        age
-        relatedPosts {
-          id
-        }
-      }
-    }
-  }
-`;
 
 DiaryFilesHome.propTypes = {
   className: PropTypes.string,

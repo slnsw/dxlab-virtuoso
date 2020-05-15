@@ -29,8 +29,9 @@
 }
 
 .warning {
-  margin-top: var(--spacing-md);
   @extend .font-uppercase;
+
+  margin-top: var(--spacing-md);
   color: var(--colour-highlight);
 }
 

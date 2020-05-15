@@ -1,0 +1,15 @@
+@import '../../styles/global.scss';
+
+.searchTextInput {
+  position: relative;
+  // display: flex;
+}
+
+.clearButton {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin: 0;
+  padding: var(--spacing-sm);
+  transform: translateY(-50%);
+}

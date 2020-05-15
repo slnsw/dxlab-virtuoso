@@ -4,7 +4,13 @@
   --font-diary-files: 'Special Elite', courier, serif;
   --font-diary-files-line-height-md: 1.55;
 
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 2em);
+
+  @include media-sm {
+    min-height: calc(100vh - 4em);
+  }
 
   // Form Styles
   // TODO: Make these the main dxlab-website styles with some tweaks
@@ -127,6 +133,7 @@
 
 .abcLogo {
   height: 3.5em;
+  vertical-align: middle;
 }
 
 .headerTitle {
@@ -220,12 +227,13 @@
 }
 
 .main {
+  flex: 1;
+  width: 100%;
   max-width: var(--container-width-md);
-  min-height: 30rem;
   margin: 0 auto;
   padding-top: var(--spacing-xlg);
 
   @include media-sm {
-    padding-top: var(--spacing-xxxlg);
+    padding-top: var(--spacing-lg);
   }
 }

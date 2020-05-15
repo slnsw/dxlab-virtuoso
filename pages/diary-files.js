@@ -43,11 +43,11 @@ const DiaryFilesPage = ({ router }) => {
   const title = `${config[pathname].title} - The Diary Files`;
   const integerId = query && query.id && parseInt(query.id, 10);
   const search = query && query.q; // need to sanitise it??
+  const limit = query && query.limit && parseInt(query.limit, 10);
 
   return (
-    // <ApolloProvider client={client}>
     <DiaryFilesApp title={title}>
-      {pathname === '/diary-files' && <DiaryFilesHome />}
+      {pathname === '/diary-files' && <DiaryFilesHome limit={limit} />}
       {pathname === '/diary-files/write' && <DiaryFilesForm />}
       {pathname === '/diary-files/about' && <DiaryFilesAbout />}
       {pathname === '/diary-files/entry/[id]' && (
@@ -60,7 +60,6 @@ const DiaryFilesPage = ({ router }) => {
         <DiaryFilesSearch search={search} />
       )}
     </DiaryFilesApp>
-    // </ApolloProvider>
   );
 };
 

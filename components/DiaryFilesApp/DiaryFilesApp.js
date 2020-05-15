@@ -11,7 +11,7 @@ import MenuIconButton from '../MenuIconButton';
 import Progress from '../Progress';
 import Footer from '../Footer';
 
-import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
+import { DiaryFilesProvider } from '../../lib/contexts/diary-files-context';
 import { initGA } from '../../lib/analytics';
 import config from '../../lib/config';
 
@@ -19,7 +19,6 @@ import css from './DiaryFilesApp.module.scss';
 
 const DiaryFilesApp = ({ title, children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [hasVisitedHomePage, setHasVisitedHomePage] = React.useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,9 +33,7 @@ const DiaryFilesApp = ({ title, children, className }) => {
   }, []);
 
   return (
-    <DiaryFilesContext.Provider
-      value={{ hasVisitedHomePage, setHasVisitedHomePage }}
-    >
+    <DiaryFilesProvider>
       <App
         title={title}
         metaImageUrl={`${config.baseUrl}/images/typewriter.gif`}
@@ -173,7 +170,7 @@ const DiaryFilesApp = ({ title, children, className }) => {
         }
       `}</style> */}
       </App>
-    </DiaryFilesContext.Provider>
+    </DiaryFilesProvider>
   );
 };
 

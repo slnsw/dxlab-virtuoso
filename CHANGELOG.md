@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.9.5] - 2020-05-12
+## [1.9.6] - 2020-05-15
+
+- Add total entries to Diary Files home page
+- Add search suggestions to Diary Files search
+- Add `SearchTextInput` component
+
+## [1.9.5] - 2020-05-13
 
 - Add search feature to Diary Files
 

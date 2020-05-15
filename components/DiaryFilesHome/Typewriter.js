@@ -1,7 +1,7 @@
 import React from 'react';
 import Vivus from 'vivus';
 
-import { DiaryFilesContext } from '../../lib/contexts/diary-files-context';
+import { useDiaryFiles, types } from '../../lib/contexts/diary-files-context';
 
 import css from './Typewriter.module.scss';
 
@@ -10,9 +10,8 @@ const Typewriter = () => {
   const [isBright, setIsBright] = React.useState(false);
   const [isReady, setIsReady] = React.useState(false);
 
-  const { hasVisitedHomePage, setHasVisitedHomePage } = React.useContext(
-    DiaryFilesContext,
-  );
+  const { state, dispatch } = useDiaryFiles();
+  const { hasVisitedHomePage } = state;
 
   React.useEffect(() => {
     if (!hasVisitedHomePage) {
@@ -26,7 +25,10 @@ const Typewriter = () => {
         },
         () => {
           setIsBright(true);
-          setHasVisitedHomePage(true);
+          dispatch({
+            type: types.HAS_VISITED_HOME_PAGE,
+            payload: true,
+          });
         },
       );
 
@@ -34,7 +36,7 @@ const Typewriter = () => {
         vivus.current.destroy();
       };
     }
-  }, [hasVisitedHomePage, setHasVisitedHomePage]);
+  }, [hasVisitedHomePage, dispatch]);
 
   return (
     <svg

@@ -32,6 +32,16 @@
   font-family: var(--font-diary-files);
 }
 
+.totalEntries {
+  @extend .font-uppercase;
+
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  // font-family: var(--font-diary-files);
+  text-align: center;
+}
+
 .mastheadButton {
   max-width: 20em;
   margin: 0 auto var(--spacing-lg);
@@ -55,18 +65,23 @@
   border-left: 1px solid var(--colour-white);
 }
 
-// .divider {
-//   width: var(--spacing-lg);
-//   margin: 0 auto;
-//   border-top: 1px solid var(--colour-white);
-// }
+.divider {
+  width: var(--spacing-md);
+  margin: 0 auto;
+  border-top: 1px solid var(--colour-white);
+}
 
 // .henryLawsonPen {
 //   width: 6em;
 // }
 
 .sectionTitle {
+  margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   font-size: var(--font-size-md);
   text-align: center;
+}
+
+.wideButton {
+  width: 100%;
 }
