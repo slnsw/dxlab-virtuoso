@@ -28,6 +28,8 @@
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
     "apollo-link-http": "^1.5.16",
+    "d3": "^5.16.0",
+    "d3-render": "^0.2.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^14.6.0",
