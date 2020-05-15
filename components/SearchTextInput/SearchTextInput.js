@@ -15,6 +15,10 @@ const SearchTextInput = ({
 }) => {
   const [inputValue, setInputValue] = React.useState(value);
 
+  React.useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
   const handleInputChange = (event) => {
     const newValue = event?.target?.value;
     setInputValue(newValue);
