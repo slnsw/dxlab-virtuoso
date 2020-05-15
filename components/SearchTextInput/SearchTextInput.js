@@ -46,7 +46,7 @@ const SearchTextInput = ({
       {inputValue && inputValue.length > 0 && (
         <button
           type="button"
-          className={css.icon}
+          className={css.clearButton}
           aria-label="Clear text"
           onClick={handleCloseClick}
         >

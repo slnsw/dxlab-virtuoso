@@ -5,9 +5,11 @@
   // display: flex;
 }
 
-.icon {
+.clearButton {
   position: absolute;
   top: 50%;
-  right: var(--spacing-xxxs);
+  right: 0;
+  margin: 0;
+  padding: var(--spacing-sm);
   transform: translateY(-50%);
 }
