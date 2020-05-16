@@ -76,28 +76,14 @@ const BarChart = ({
         },
         {
           append: 'g',
-          // TODO: Make this unique
-          id: 'x-axis',
           transform: `translate(0, ${height - margin.bottom})`,
-          // Not working, need to update d3-render
-          // call: function() {
-          //   d3.select(this).call(xAxis);
-          // },
+          call: xAxis,
         },
         {
           append: 'g',
-          // TODO: Make this unique
-          id: 'y-axis',
-          // Not working, need to update d3-render
-          // call: function() {
-          //   d3.select(this).call(xAxis);
-          // },
+          call: yAxis,
         },
       ]);
-
-      d3.select('#x-axis').call(xAxis);
-
-      d3.select('#y-axis').call(yAxis);
     }
   }, [svgNode, data, width, height, margin]);
 
