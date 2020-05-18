@@ -4,10 +4,11 @@ import fetch from 'isomorphic-unfetch';
 import * as d3 from 'd3';
 import render from 'd3-render';
 import dynamic from 'next/dynamic';
+import Router from 'next/router';
 
 import Link from '../Link';
 import LoaderText from '../LoaderText';
-import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
+// import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import BubbleChart from '../BubbleChart';
 
 import css from './DiaryFilesDashboard.module.scss';
@@ -115,7 +116,7 @@ const DiaryFilesDashboard = ({ className }) => {
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
       <h1>Dashboard</h1>
 
-      <HenryLawsonPen className={css.henryLawsonPen}></HenryLawsonPen>
+      {/* <HenryLawsonPen className={css.henryLawsonPen}></HenryLawsonPen> */}
 
       {loading && (
         <LoaderText
@@ -126,15 +127,22 @@ const DiaryFilesDashboard = ({ className }) => {
       )}
 
       <div>
+        <h2>Popular words</h2>
+
         <BubbleChart
-          data={wordsData.slice(0, 30).map((d) => {
+          data={wordsData.slice(0, 20).map((d) => {
             return {
               name: d.word,
               value: d.count,
             };
           })}
           height={400}
+          className={css.popularWordsChart}
+          onBubbleClick={(_, d) => {
+            Router.push(`/diary-files/search?q=${d.data.name}`);
+          }}
         />
+
         <BarChart data={wordsData.slice(0, 10)} />
 
         {/* <svg width="500" height="300" ref={wordsRef}></svg> */}

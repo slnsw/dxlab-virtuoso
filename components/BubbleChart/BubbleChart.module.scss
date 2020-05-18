@@ -1,9 +1,12 @@
 @import '../../styles/global.scss';
 
 .bubbleChart {
+  @extend .font-uppercase;
+
   display: block;
   width: 100%;
   text-anchor: middle;
-  font-size: var(--spacing-sm);
-  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: var(--spacing-xs);
+  // font-family: var(--font-secondary);
 }
