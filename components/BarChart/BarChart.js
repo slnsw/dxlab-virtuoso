@@ -39,7 +39,7 @@ const BarChart = ({
 
       const xAxis = d3
         .axisBottom(x)
-        .tickFormat((i) => data[i].word)
+        .tickFormat((i) => data[i].item || data[i].word)
         .tickSizeOuter(0);
 
       const yAxis = (g) =>
