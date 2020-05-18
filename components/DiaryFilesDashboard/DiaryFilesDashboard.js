@@ -18,7 +18,6 @@ const BarChart = dynamic(() => import('../BarChart'));
 const DiaryFilesDashboard = ({ className }) => {
   const [data, setData] = React.useState({});
   const [loading, setLoading] = React.useState(true);
-  const wordsRef = React.useRef();
 
   React.useEffect(() => {
     fetch('/data/diaryFilesDashboardData.json')
@@ -32,85 +31,7 @@ const DiaryFilesDashboard = ({ className }) => {
       });
   }, []);
 
-  React.useEffect(() => {
-    if (wordsRef?.current) {
-      if (data.wordsAndCounts) {
-        const { wordsAndCounts } = data;
-
-        const wordsData = wordsAndCounts.slice(0, 10);
-        const width = 500;
-        const height = 200;
-        const margin = {
-          top: 10,
-          left: 40,
-          right: 10,
-          bottom: 10,
-        };
-
-        const x = d3
-          .scaleBand()
-          .domain(d3.range(wordsData.length))
-          .range([margin.left, width - margin.right])
-          .padding(0.1);
-
-        const y = d3
-          .scaleLinear()
-          .domain([0, d3.max(wordsData, (d) => d.count)])
-          .nice()
-          .range([height - margin.bottom, margin.top]);
-
-        const xAxis = d3
-          .axisBottom(x)
-          .tickFormat((i) => wordsData[i].word)
-          .tickSizeOuter(0);
-
-        const yAxis = (g) =>
-          g
-            .attr('transform', `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y).ticks(null, 's'))
-            .call((selection) => selection.select('.domain').remove())
-            .call((selection) =>
-              selection
-                .append('text')
-                .attr('x', -margin.left)
-                .attr('y', 10)
-                .attr('fill', 'currentColor')
-                .attr('text-anchor', 'start')
-                .text(data.y),
-            );
-
-        render(wordsRef.current, [
-          {
-            append: 'g',
-            fill: 'var(--colour-primary)',
-            children: wordsData.map((d, i) => {
-              return {
-                append: 'rect',
-                x: x(i),
-                y: y(d.count),
-                width: x.bandwidth(),
-                height: y(0) - y(d.count),
-              };
-            }),
-          },
-        ]);
-
-        const chart = d3.select(wordsRef.current);
-        chart
-          .append('g')
-          .attr('transform', `translate(0, ${height - margin.bottom})`)
-          .call(xAxis);
-        chart.append('g').call(yAxis);
-      }
-    }
-
-    // console.log(`${data.length} items retrieved from data.json`);
-    // console.log(data?.postcodes);
-  }, [data]);
-
   const wordsData = data && data.wordsAndCounts ? data.wordsAndCounts : [];
-
-  // console.log({wordsData});
 
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
@@ -144,8 +65,6 @@ const DiaryFilesDashboard = ({ className }) => {
         />
 
         <BarChart data={wordsData.slice(0, 10)} />
-
-        {/* <svg width="500" height="300" ref={wordsRef}></svg> */}
 
         <p>
           {data.uniqueWordsCount} unique words used in {data.entriesCount}{' '}
