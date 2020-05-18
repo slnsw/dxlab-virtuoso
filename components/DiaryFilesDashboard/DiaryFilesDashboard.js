@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
-import * as d3 from 'd3';
-import render from 'd3-render';
+// import * as d3 from 'd3';
+// import render from 'd3-render';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
 
@@ -32,6 +32,8 @@ const DiaryFilesDashboard = ({ className }) => {
   }, []);
 
   const wordsData = data && data.wordsAndCounts ? data.wordsAndCounts : [];
+  const agesData =
+    data && data.ages ? data.ages.sort((a, b) => b.item - a.item) : [];
 
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
@@ -90,8 +92,9 @@ const DiaryFilesDashboard = ({ className }) => {
         </ul>
       </div>
 
+      <BarChart data={agesData.slice(0, 100)} />
       <div>
-        <p>Ages</p>
+        <p>Entries by age</p>
         <ul>
           {data?.ages
             ?.sort((a, b) => b.count - a.count)

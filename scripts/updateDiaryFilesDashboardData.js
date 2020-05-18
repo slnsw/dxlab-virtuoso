@@ -152,7 +152,18 @@ const suburbToPostcode = (suburb) => {
   if (result.length > 0) {
     out = Number.parseInt(result[0].postcode, 10);
   }
+  return out;
+};
 
+const postcodeToSuburb = (postcode) => {
+  if (!postcode) return null;
+  let out = null;
+  const result = postcodes.filter((entry) => {
+    return entry.type === 'Delivery Area' && entry.postcode === postcode;
+  });
+  if (result.length > 0) {
+    out = result[0].locality.toLowerCase();
+  }
   return out;
 };
 
@@ -166,7 +177,6 @@ const arrayToCounts = (a) => {
   Object.keys(counts).forEach((count) => {
     out.push({ item: count, count: counts[count] });
   });
-  //  console.log(out);
   return out;
 };
 
@@ -204,9 +214,12 @@ const processData = (posts) => {
   const cities = arrayToCounts(posts.map((p) => p.city.toLowerCase()));
   const states = arrayToCounts(posts.map((p) => p.state));
   // use postcode if supplied, otherwise use function to convert city to postcode:
-  const postcodes = arrayToCounts(
+  const postcodesOnly = arrayToCounts(
     posts.map((p) => p.postcode || suburbToPostcode(p.city) || 0),
   );
+  const postcodes = postcodesOnly.map((p) => {
+    return { item: p.item, count: p.count, name: postcodeToSuburb(p.item) };
+  });
 
   const overseasEntriesCount = posts
     .map((p) => p.outsideAustralia)
