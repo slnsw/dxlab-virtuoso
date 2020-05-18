@@ -21,7 +21,7 @@ const DiaryFilesDashboard = ({ className }) => {
   const wordsRef = React.useRef();
 
   React.useEffect(() => {
-    fetch('/data/data.json')
+    fetch('/data/diaryFilesDashboardData.json')
       .then((r) => r.json())
       .then((d) => {
         setData(d);

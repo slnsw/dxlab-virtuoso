@@ -9,5 +9,3 @@ __tests__/__snapshots__/
 .now
 
 *.code-workspace
-
-scripts/data.json
