@@ -75,6 +75,7 @@ const BarChart = ({
         },
         {
           append: 'g',
+          key: width,
           transform: `translate(0, ${height - margin.bottom})`,
           call: xAxis,
         },
