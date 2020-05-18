@@ -21,7 +21,6 @@ const BarChart = ({
   ...restProps
 }) => {
   const [svgRef, dimensions, svgNode] = useDimensions();
-
   const { width } = dimensions;
 
   React.useEffect(() => {

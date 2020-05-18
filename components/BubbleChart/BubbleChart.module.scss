@@ -1,0 +1,9 @@
+@import '../../styles/global.scss';
+
+.bubbleChart {
+  display: block;
+  width: 100%;
+  text-anchor: middle;
+  font-size: var(--spacing-sm);
+  font-family: var(--font-secondary);
+}
