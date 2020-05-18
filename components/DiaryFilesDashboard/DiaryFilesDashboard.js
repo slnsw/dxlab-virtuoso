@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 import Link from '../Link';
 import LoaderText from '../LoaderText';
 import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
-// import BarChart from '../BarChart/BarChart';
+import BubbleChart from '../BubbleChart';
 
 import css from './DiaryFilesDashboard.module.scss';
 
@@ -126,6 +126,15 @@ const DiaryFilesDashboard = ({ className }) => {
       )}
 
       <div>
+        <BubbleChart
+          data={wordsData.slice(0, 30).map((d) => {
+            return {
+              name: d.word,
+              value: d.count,
+            };
+          })}
+          height={400}
+        />
         <BarChart data={wordsData.slice(0, 10)} />
 
         {/* <svg width="500" height="300" ref={wordsRef}></svg> */}
