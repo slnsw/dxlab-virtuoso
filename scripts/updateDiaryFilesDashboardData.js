@@ -11,10 +11,26 @@ const fs = require('fs');
 // require('dotenv').config();
 
 const postcodes = require('./australianPostcodes');
-
-// import postcodes from './australianPostcodes';
-
-console.log(postcodes.length);
+/*
+  From here: https://www.matthewproctor.com/australian_postcodes
+  Is an array of objects like this:
+  {
+    id: 2902,
+    postcode: '2204',
+    locality: 'MARRICKVILLE',
+    state: 'NSW',
+    long: 151.155539,
+    lat: -33.912288,
+    dc: 'MARRICKVILLE SOUTH LPO',
+    type: 'Delivery Area',
+    status: 'Updated 6-Feb-2020',
+    sa3: '12003',
+    sa3name: 'Strathfield - Burwood - Ashfield',
+    sa4: '120',
+    sa4name: 'Sydney - Inner West',
+    region: 'R1',
+  },
+*/
 
 const Entities = require('html-entities').XmlEntities;
 
@@ -125,6 +141,21 @@ const getData = async (limit, offset) => {
   }
 };
 
+const suburbToPostcode = (suburb) => {
+  if (!suburb) return null;
+  let out = null;
+  const result = postcodes.filter((entry) => {
+    return (
+      entry.type === 'Delivery Area' && entry.locality === suburb.toUpperCase()
+    );
+  });
+  if (result.length > 0) {
+    out = Number.parseInt(result[0].postcode, 10);
+  }
+
+  return out;
+};
+
 const arrayToCounts = (a) => {
   if (!a) return null;
   const counts = Object.create(null);
@@ -140,10 +171,7 @@ const arrayToCounts = (a) => {
 };
 
 const processData = (posts) => {
-  // const posts = JSON.parse(data);
-  console.log(`Loading data... ${posts.length} posts found.`);
   const blob = posts.map((p) => p.content).join(' ');
-
   const cleaner = entities.decode(blob);
   const corpus = new tm.Corpus(cleaner.replace(/<(.|\n)*?>/g, ''));
   const terms = new tm.DocumentTermMatrix(
@@ -162,16 +190,24 @@ const processData = (posts) => {
   );
   const wordsAndCounts = terms
     .findFreqTerms(20)
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => b.count - a.count)
+    .filter((e) => {
+      // filter out hypens, brackets, etc
+      return e.word.length > 1;
+    });
+
   const uniqueWordsCount = terms.nTerms;
   const entriesCount = posts.length;
 
   const ages = arrayToCounts(posts.map((p) => p.age));
-  // p.age === '' ? 0 : Number.parseInt(p.age, 10),
-  //   );
+
   const cities = arrayToCounts(posts.map((p) => p.city.toLowerCase()));
   const states = arrayToCounts(posts.map((p) => p.state));
-  const postcodes = arrayToCounts(posts.map((p) => p.postcode || 0));
+  // use postcode if supplied, otherwise use function to convert city to postcode:
+  const postcodes = arrayToCounts(
+    posts.map((p) => p.postcode || suburbToPostcode(p.city) || 0),
+  );
+
   const overseasEntriesCount = posts
     .map((p) => p.outsideAustralia)
     .filter((v) => v).length;
@@ -194,7 +230,9 @@ const processData = (posts) => {
       if (saveErr) {
         return console.log(saveErr);
       }
-      console.log('All processed data saved to data.json');
+      console.log(
+        'All processed data saved to public/data/diaryFilesDashboardData.json',
+      );
     },
   );
 };
@@ -222,7 +260,7 @@ const createDataCache = async () => {
     count = posts.length;
     offset += numPerQuery;
   }
-
+  console.log('Beginning processing data for use by Dashboard...');
   processData(posts);
 
   // fs.writeFile(__dirname + '/data.json', JSON.stringify(posts), function(err) {
