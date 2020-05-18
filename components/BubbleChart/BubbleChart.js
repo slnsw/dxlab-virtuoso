@@ -11,7 +11,13 @@ import css from './BubbleChart.module.scss';
 //   return d3.format(",d")
 // }
 
-const BubbleChart = ({ data = [], height = 200, className, ...restProps }) => {
+const BubbleChart = ({
+  data = [],
+  height = 200,
+  className,
+  onBubbleClick,
+  ...restProps
+}) => {
   const [svgRef, dimensions, svgNode] = useDimensions();
   const { width } = dimensions;
 
@@ -19,14 +25,11 @@ const BubbleChart = ({ data = [], height = 200, className, ...restProps }) => {
     if (svgNode && data.length > 0 && width) {
       const root = pack(data, width, height);
 
-      // const svg = d3
-      //   .create('svg')
-      //   .attr('viewBox', [0, 0, width, height])
-      //   .attr('font-size', 10)
-      //   .attr('font-family', 'sans-serif')
-      //   .attr('text-anchor', 'middle');
-
       const renderData = root.leaves().map((d) => {
+        // const clipUid = DOM.uid('clip');
+        // console.log(clipUid);
+        const text = d.data.name.split(/(?=[A-Z][a-z])|\s+/g);
+
         return {
           append: 'g',
           transform: `translate(${d.x + 1},${d.y + 1})`,
@@ -34,8 +37,10 @@ const BubbleChart = ({ data = [], height = 200, className, ...restProps }) => {
             {
               append: 'circle',
               // id: (d.clipUid = DOM.uid('clip')).id,
+              data: d.data,
               r: d.r,
               fill: 'var(--colour-primary)',
+              onClick: onBubbleClick,
             },
             {
               append: 'clipPath',
@@ -49,13 +54,14 @@ const BubbleChart = ({ data = [], height = 200, className, ...restProps }) => {
             },
             {
               append: 'text',
-              clipPath: d.clipUid,
+              fill: 'var(--colour-white)',
+              // clipPath: d.clipUid,
               children: [
                 {
                   append: 'tspan',
                   x: 0,
-                  text: d.data.name,
-                  // y:
+                  text,
+                  y: (_, i, node) => `${i - node.length / 2 + 0.8}em`,
                 },
               ],
             },
