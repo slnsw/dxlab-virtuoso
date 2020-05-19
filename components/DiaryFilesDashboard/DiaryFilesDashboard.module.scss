@@ -33,6 +33,8 @@
 }
 
 .popularWordsChart {
+  margin-bottom: var(--spacing-xlg);
+
   circle {
     cursor: pointer;
     transition: 0.2s opacity;

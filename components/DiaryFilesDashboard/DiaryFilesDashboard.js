@@ -64,6 +64,7 @@ const DiaryFilesDashboard = ({ className }) => {
           height={400}
           className={css.popularWordsChart}
           renderBubble={(d) => {
+            // TODO: Consider `provider` API like React Select
             return {
               append: 'g',
               transform: `translate(${d.x},${d.y})`,
