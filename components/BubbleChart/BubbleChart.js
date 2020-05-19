@@ -10,7 +10,9 @@ import css from './BubbleChart.module.scss';
 const BubbleChart = ({
   data = [],
   height = 200,
+  bubblePadding = 3,
   className,
+  renderBubble,
   onBubbleClick,
   ...restProps
 }) => {
@@ -19,47 +21,29 @@ const BubbleChart = ({
 
   React.useEffect(() => {
     if (svgNode && data.length > 0 && width) {
-      const root = pack(data, width, height);
+      const root = pack(data, { width, height, padding: bubblePadding });
 
-      const renderData = root.leaves().map((d) => {
-        // const clipUid = DOM.uid('clip');
-        // console.log(clipUid);
-        const text = d.data.name.split(/(?=[A-Z][a-z])|\s+/g);
+      const renderData = root.leaves().map((d, i) => {
+        if (typeof renderBubble === 'function') {
+          return renderBubble(d, i);
+        }
 
         return {
           append: 'g',
-          transform: `translate(${d.x + 1},${d.y + 1})`,
+          transform: `translate(${d.x},${d.y})`,
           children: [
             {
               append: 'circle',
-              // id: (d.clipUid = DOM.uid('clip')).id,
               data: d.data,
               r: d.r,
               fill: 'var(--colour-primary)',
               onClick: onBubbleClick,
             },
             {
-              append: 'clipPath',
-              // id: (d.clipUid = DOM.uid('clip')).id,
-              children: [
-                {
-                  append: 'use',
-                  // 'xlink:href':
-                },
-              ],
-            },
-            {
               append: 'text',
               fill: 'var(--colour-white)',
-              // clipPath: d.clipUid,
-              children: [
-                {
-                  append: 'tspan',
-                  x: 0,
-                  text,
-                  y: (_, i, node) => `${i - node.length / 2 + 0.8}em`,
-                },
-              ],
+              text: d.data.name,
+              y: (_, index, node) => `${index - node.length / 2 + 0.8}em`,
             },
           ],
         };
@@ -67,7 +51,15 @@ const BubbleChart = ({
 
       render(svgNode, renderData);
     }
-  }, [svgNode, data, width, height, onBubbleClick]);
+  }, [
+    svgNode,
+    data,
+    width,
+    height,
+    bubblePadding,
+    renderBubble,
+    onBubbleClick,
+  ]);
 
   return (
     <svg
@@ -80,11 +72,11 @@ const BubbleChart = ({
   );
 };
 
-function pack(data, width, height) {
+function pack(data, { width, height, padding }) {
   return d3
     .pack()
     .size([width - 2, height - 2])
-    .padding(3)(d3.hierarchy({ children: data }).sum((d) => d.value));
+    .padding(padding)(d3.hierarchy({ children: data }).sum((d) => d.value));
 }
 
 BubbleChart.propTypes = {

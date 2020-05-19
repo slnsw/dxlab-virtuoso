@@ -6,7 +6,7 @@ import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
 
-import Link from '../Link';
+// import Link from '../Link';
 import LoaderText from '../LoaderText';
 // import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import BubbleChart from '../BubbleChart';
@@ -53,7 +53,7 @@ const DiaryFilesDashboard = ({ className }) => {
         <h2>Popular words</h2>
 
         <BubbleChart
-          data={wordsData.slice(0, 20).map((d) => {
+          data={wordsData.slice(0, 16).map((d) => {
             return {
               name: d.word,
               value: d.count,
@@ -61,14 +61,46 @@ const DiaryFilesDashboard = ({ className }) => {
           })}
           height={400}
           className={css.popularWordsChart}
-          onBubbleClick={(_, d) => {
-            Router.push(`/diary-files/search?q=${d.data.name}`);
+          renderBubble={(d) => {
+            return {
+              append: 'g',
+              transform: `translate(${d.x},${d.y})`,
+              children: [
+                {
+                  append: 'circle',
+                  data: d.data,
+                  r: d.r,
+                  fill: 'var(--colour-primary)',
+                  onClick: (_, circleData) =>
+                    Router.push(
+                      `/diary-files/search?q=${circleData.data.name}`,
+                    ),
+                },
+                {
+                  append: 'text',
+                  fill: 'var(--colour-white)',
+                  fontWeight: 600,
+                  text: d.data.name,
+                  y: '-0.2em',
+                },
+                {
+                  append: 'text',
+                  fill: 'var(--colour-white)',
+                  text: d.data.value,
+                  opacity: 0.8,
+                  y: '0.9em',
+                },
+              ],
+            };
           }}
+          // onBubbleClick={(_, d) => {
+          //   Router.push(`/diary-files/search?q=${d.data.name}`);
+          // }}
         />
 
         <p>
-          {data.uniqueWordsCount} unique words used in {data.entriesCount}{' '}
-          entries.
+          <strong>{data.uniqueWordsCount}</strong> unique words used in{' '}
+          <strong>{data.entriesCount}</strong> entries.
         </p>
       </section>
 
