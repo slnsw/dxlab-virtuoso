@@ -3,7 +3,7 @@ import Router from 'next/router';
 
 import Error from './_error';
 
-import redirectRoutes from '../routes/redirectRoutes';
+import redirectRoutes from '../routes/redirect-routes';
 
 const RedirectsPage = () => {
   return <Error />;
