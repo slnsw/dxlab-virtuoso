@@ -5,9 +5,24 @@ import TileImage from '../TileImage';
 import TileButtonGroup from '../TileButtonGroup';
 import Link from '../Link';
 
-// import './DisplayTile.css';
+type Props = {
+  title: string;
+  primaryUrl: string;
+  primaryTarget: string;
+  primaryText: string;
+  imageUrl: string;
+  content: string;
+  date: string;
+  size?: 'lg';
+  secondaryUrl: string;
+  secondaryTarget: string;
+  secondaryText: string;
+  tertiaryUrl: string;
+  tertiaryTarget: string;
+  tertiaryText: string;
+};
 
-class DisplayTile extends Component {
+class DisplayTile extends Component<Props> {
   static propTypes = {
     title: PropTypes.string,
     primaryUrl: PropTypes.string,

@@ -3,7 +3,17 @@ import { Component } from 'react';
 import Link from '../Link';
 // import './TileImage.css';
 
-class TileImage extends Component {
+type Props = {
+  url?: string;
+  target?: string;
+  imageUrl?: string;
+  className?: string;
+  ariaLabel?: string;
+  onMouseOver?: Function;
+  onMouseOut?: Function;
+};
+
+class TileImage extends Component<Props> {
   handleMouseOver = () => {
     if (typeof this.props.onMouseOver === 'function') {
       this.props.onMouseOver();

@@ -1,7 +1,13 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class LoaderText extends Component {
+type Props = {
+  text: string;
+  className: string;
+  style: object;
+};
+
+class LoaderText extends Component<Props> {
   static propTypes = {
     text: PropTypes.string,
     className: PropTypes.string,
