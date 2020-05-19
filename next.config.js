@@ -15,18 +15,18 @@ module.exports = {
     // Environment variables
     // customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
-    if (dev) {
-      // Next 9 introduced some pretty strict type checking
-      // that breaks dev builds. It is now more relaxed,
-      // however we may want to introduce again once all types
-      // issues fixed
-      // https://github.com/zeit/next.js/issues/7687#issuecomment-506440999
-      customConfig.plugins = config.plugins.filter((plugin) => {
-        if (plugin.constructor.name === 'ForkTsCheckerWebpackPlugin')
-          return false;
-        return true;
-      });
+    // Next 9 introduced some pretty strict type checking
+    // that breaks dev builds. It is now more relaxed,
+    // however we may want to introduce again once all types
+    // issues fixed
+    // https://github.com/zeit/next.js/issues/7687#issuecomment-506440999
+    customConfig.plugins = config.plugins.filter((plugin) => {
+      if (plugin.constructor.name === 'ForkTsCheckerWebpackPlugin')
+        return false;
+      return true;
+    });
 
+    if (dev) {
       customConfig.plugins.push(
         new StyleLintPlugin({
           configFile: './.stylelintrc.js',
