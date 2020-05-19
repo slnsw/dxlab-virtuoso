@@ -1,6 +1,5 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  // parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -13,6 +12,7 @@ module.exports = {
     '@slnsw/dxlab',
     'prettier/react',
     'plugin:css-modules/recommended',
+    'plugin:import/typescript',
   ],
   globals: {
     document: true,
@@ -38,14 +38,5 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    // Enable Typescript imports to be recognised
-    // https://github.com/benmosher/eslint-plugin-import/issues/1615#issuecomment-621968935
-    settings: {
-      'import/resolver': {
-        node: {
-          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-        },
-      },
-    },
   },
 };
