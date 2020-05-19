@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
-// import * as d3 from 'd3';
-// import render from 'd3-render';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
 
@@ -10,6 +8,7 @@ import Router from 'next/router';
 import LoaderText from '../LoaderText';
 // import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import BubbleChart from '../BubbleChart';
+import CTAButtonV2 from '../CTAButtonV2';
 
 import css from './DiaryFilesDashboard.module.scss';
 
@@ -18,6 +17,7 @@ const BarChart = dynamic(() => import('../BarChart'));
 const DiaryFilesDashboard = ({ className }) => {
   const [data, setData] = React.useState({});
   const [loading, setLoading] = React.useState(true);
+  const [popularWordsOffset, setPopularWordsOffset] = React.useState(16);
 
   React.useEffect(() => {
     fetch('/data/diaryFilesDashboardData.json')
@@ -53,24 +53,28 @@ const DiaryFilesDashboard = ({ className }) => {
         <h2>Popular words</h2>
 
         <BubbleChart
-          data={wordsData.slice(0, 16).map((d) => {
-            return {
-              name: d.word,
-              value: d.count,
-            };
-          })}
+          data={wordsData
+            .slice(popularWordsOffset - 16, popularWordsOffset)
+            .map((d) => {
+              return {
+                name: d.word,
+                value: d.count,
+              };
+            })}
           height={400}
           className={css.popularWordsChart}
           renderBubble={(d) => {
             return {
               append: 'g',
               transform: `translate(${d.x},${d.y})`,
+              duration: 1000,
               children: [
                 {
                   append: 'circle',
                   data: d.data,
-                  r: d.r,
+                  r: { enter: d.r, exit: 0 },
                   fill: 'var(--colour-primary)',
+                  duration: 1000,
                   onClick: (_, circleData) =>
                     Router.push(
                       `/diary-files/search?q=${circleData.data.name}`,
@@ -78,9 +82,12 @@ const DiaryFilesDashboard = ({ className }) => {
                 },
                 {
                   append: 'text',
+                  key: d.data.name,
                   fill: 'var(--colour-white)',
                   fontWeight: 600,
                   text: d.data.name,
+                  opacity: { enter: 1, exit: 0 },
+                  duration: 1000,
                   y: '-0.2em',
                 },
                 {
@@ -98,6 +105,21 @@ const DiaryFilesDashboard = ({ className }) => {
           // }}
         />
 
+        <p>
+          <CTAButtonV2
+            disabled={popularWordsOffset - 16 <= 0}
+            onClick={() => setPopularWordsOffset(popularWordsOffset - 16)}
+          >
+            Prev
+          </CTAButtonV2>
+          &#160; &#160;
+          <CTAButtonV2
+            disabled={popularWordsOffset + 16 >= wordsData.length}
+            onClick={() => setPopularWordsOffset(popularWordsOffset + 16)}
+          >
+            Next
+          </CTAButtonV2>
+        </p>
         <p>
           <strong>{data.uniqueWordsCount}</strong> unique words used in{' '}
           <strong>{data.entriesCount}</strong> entries.
