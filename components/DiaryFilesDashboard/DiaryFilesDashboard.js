@@ -38,6 +38,9 @@ const DiaryFilesDashboard = ({ className }) => {
       : [];
   const agesData2 = data && data.agesGrouped ? data.agesGrouped : [];
 
+  const statesData = data?.states?.map((p) => {
+    return { item: p.item === '' ? 'Not supplied' : p.item, count: p.count };
+  });
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
       <h1>Dashboard</h1>
@@ -199,6 +202,7 @@ const DiaryFilesDashboard = ({ className }) => {
 
       <section>
         <h2>States</h2>
+        <BarChart data={statesData} direction={'vertical'} showValues={true} />
         <ul>
           {data?.states
             ?.sort((a, b) => b.count - a.count)

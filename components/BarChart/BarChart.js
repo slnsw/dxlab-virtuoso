@@ -18,6 +18,7 @@ const BarChart = ({
     bottom: 20,
   },
   direction = 'vertical',
+  showValues = false,
   className,
   ...restProps
 }) => {
@@ -63,11 +64,23 @@ const BarChart = ({
             fill: 'var(--colour-primary)',
             children: data.map((d, i) => {
               return {
-                append: 'rect',
-                x: x(i),
-                y: y(d.count),
-                width: x.bandwidth(),
-                height: y(0) - y(d.count),
+                append: 'g',
+                children: [
+                  {
+                    append: 'rect',
+                    x: x(i),
+                    y: y(d.count),
+                    width: x.bandwidth(),
+                    height: y(0) - y(d.count),
+                  },
+                  {
+                    append: 'text',
+                    text: showValues && `(${d.count})`,
+                    x: x(i) + x.bandwidth() / 2,
+                    y: y(d.count) - 3,
+                    style: { color: 'white' }, // ????
+                  },
+                ],
               };
             }),
           },
