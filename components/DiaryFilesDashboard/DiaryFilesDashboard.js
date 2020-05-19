@@ -49,7 +49,7 @@ const DiaryFilesDashboard = ({ className }) => {
         />
       )}
 
-      <div>
+      <section>
         <h2>Popular words</h2>
 
         <BubbleChart
@@ -66,34 +66,19 @@ const DiaryFilesDashboard = ({ className }) => {
           }}
         />
 
-        <BarChart data={wordsData.slice(0, 10)} />
-
         <p>
           {data.uniqueWordsCount} unique words used in {data.entriesCount}{' '}
           entries.
         </p>
-        <p>Most commonly used words</p>
-        <ul>
-          {data?.wordsAndCounts
-            ?.sort((a, b) => b.count - a.count)
-            .slice(0, 25)
-            .map((p) => {
-              return (
-                p.word.length > 1 && (
-                  <li key={p.word}>
-                    <Link href={`/diary-files/search?q=${p.word}`}>
-                      <a>{p.word}</a>
-                    </Link>
-                    <span> ({p.count})</span>
-                  </li>
-                )
-              );
-            })}
-        </ul>
-      </div>
+      </section>
 
-      <BarChart data={agesData.slice(0, 100)} />
-      <div>
+      <section>
+        <h2>Entries by age</h2>
+
+        <BarChart data={agesData.slice(0, 100)} />
+      </section>
+
+      {/* <div>
         <p>Entries by age</p>
         <ul>
           {data?.ages
@@ -108,10 +93,10 @@ const DiaryFilesDashboard = ({ className }) => {
               );
             })}
         </ul>
-      </div>
+      </div> */}
 
-      <div>
-        <p>Cities</p>
+      <section>
+        <h2>Cities</h2>
         <ul>
           {data?.cities
             ?.sort((a, b) => b.count - a.count)
@@ -125,10 +110,10 @@ const DiaryFilesDashboard = ({ className }) => {
               );
             })}
         </ul>
-      </div>
+      </section>
 
-      <div>
-        <p>Postcodes</p>
+      <section>
+        <h2>Postcodes</h2>
         <ul>
           {data?.postcodes
             ?.sort((a, b) => b.count - a.count)
@@ -142,10 +127,10 @@ const DiaryFilesDashboard = ({ className }) => {
               );
             })}
         </ul>
-      </div>
+      </section>
 
-      <div>
-        <p>States</p>
+      <section>
+        <h2>States</h2>
         <ul>
           {data?.states
             ?.sort((a, b) => b.count - a.count)
@@ -159,7 +144,7 @@ const DiaryFilesDashboard = ({ className }) => {
               );
             })}
         </ul>
-      </div>
+      </section>
 
       <div>
         <p>

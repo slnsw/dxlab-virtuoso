@@ -7,10 +7,6 @@ import useDimensions from '../../lib/hooks/use-dimensions';
 
 import css from './BubbleChart.module.scss';
 
-// function format() {
-//   return d3.format(",d")
-// }
-
 const BubbleChart = ({
   data = [],
   height = 200,
@@ -71,7 +67,7 @@ const BubbleChart = ({
 
       render(svgNode, renderData);
     }
-  }, [svgNode, data, width, height]);
+  }, [svgNode, data, width, height, onBubbleClick]);
 
   return (
     <svg

@@ -2,6 +2,7 @@
 
 .diaryFilesDashboard {
   display: block;
+  font-family: var(--font-secondary);
   text-align: center;
 
   h1 {
@@ -14,6 +15,15 @@
 
   h2 {
     font-weight: 500;
+  }
+
+  section {
+    margin-top: var(--spacing-xxxlg);
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
   }
 }
 
