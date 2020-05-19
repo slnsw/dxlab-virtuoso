@@ -11,6 +11,7 @@ import config from '../lib/config';
 
 class Page extends Component {
   render() {
+    // @ts-ignore
     const { title, router, content, excerpt, loading: isLoading } = this.props;
     const { pathname } = router;
 

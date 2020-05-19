@@ -14,9 +14,12 @@ import config from '../lib/config';
 class Experiments extends Component {
   render() {
     const {
+      // @ts-ignore
       router,
+      // @ts-ignore
       loading: isLoading,
       // loadMore,
+      // @ts-ignore
       experiments,
     } = this.props;
     const { pathname } = router;

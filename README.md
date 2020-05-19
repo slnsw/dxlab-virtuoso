@@ -25,9 +25,6 @@ DXLAB_WEBSITE_DXLAB_WP_URL=https://wp.dxlab.sl.nsw.gov.au
 
 DXLAB_WEBSITE_GTM_ID=GTM-XXXXXXX
 DXLAB_WEBSITE_FB_APP_ID=XXXXXXXXXXXXX
-
-DXLAB_WEBSITE_NEWSELFWALES_URL=https://xxxxxxxxxxxxxxxx
-DXLAB_WEBSITE_OFF_THE_SHELF_URL=https://xxxxxxxxxxxxxxxx
 ```
 
 ## Deployment
