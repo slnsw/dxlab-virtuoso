@@ -2,6 +2,7 @@
 
 .diaryFilesDashboard {
   display: block;
+  font-family: var(--font-secondary);
   text-align: center;
 
   h1 {
@@ -15,9 +16,25 @@
   h2 {
     font-weight: 500;
   }
+
+  section {
+    margin-top: var(--spacing-xlg);
+    margin-bottom: var(--spacing-xxxlg);
+
+    @include media-sm {
+      margin-top: var(--spacing-xxxlg);
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
 }
 
 .popularWordsChart {
+  margin-bottom: var(--spacing-xlg);
+
   circle {
     cursor: pointer;
     transition: 0.2s opacity;
@@ -25,6 +42,10 @@
     &:hover {
       opacity: 0.7;
     }
+  }
+
+  text {
+    font-size: var(--font-size-md);
   }
 }
 

@@ -113,7 +113,7 @@ const BarChart = ({
             children: data.map((d, i) => {
               return {
                 append: 'rect',
-                x: margin.left,
+                x: margin.left + 1,
                 y:
                   ((height - margin.top - margin.bottom) / data.length) * i +
                   margin.top / 2,

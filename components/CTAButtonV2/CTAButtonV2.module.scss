@@ -32,6 +32,15 @@
   }
 }
 
+.ctaButtonV2:disabled {
+  opacity: 0.5;
+
+  &:hover {
+    color: inherit;
+    border: 1px solid var(--colour-white);
+  }
+}
+
 .light {
   --colour-white: var(--colour-black);
 }
