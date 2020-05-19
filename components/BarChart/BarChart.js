@@ -17,6 +17,7 @@ const BarChart = ({
     right: 10,
     bottom: 20,
   },
+  direction = 'vertical',
   className,
   ...restProps
 }) => {
@@ -25,67 +26,117 @@ const BarChart = ({
 
   React.useEffect(() => {
     if (svgNode && data.length > 0 && width) {
-      const x = d3
-        .scaleBand()
-        .domain(d3.range(data.length))
-        .range([margin.left, width - margin.right])
-        .padding(0.1);
-
-      const y = d3
-        .scaleLinear()
-        .domain([0, d3.max(data, (d) => d.count)])
-        .nice()
-        .range([height - margin.bottom, margin.top]);
-
-      const xAxis = d3
-        .axisBottom(x)
-        .tickFormat((i) => data[i].item || data[i].word)
-        .tickSizeOuter(0);
-
-      const yAxis = (g) =>
-        g
-          .attr('transform', `translate(${margin.left},0)`)
-          .call(d3.axisLeft(y).ticks(null, 's'))
-          .call((selection) => selection.select('.domain').remove());
-      // .call((selection) =>
-      //   selection
-      //     .append('text')
-      //     .attr('x', -margin.left)
-      //     .attr('y', 10)
-      //     .attr('fill', 'currentColor')
-      //     .attr('text-anchor', 'start')
-      //     .text(data.y),
-      // );
-
+      let x;
+      let y;
+      let xAxis;
+      let yAxis;
+      const maximum = d3.max(data, (d) => d.count);
       const svg = d3.select(svgNode);
 
-      render(svg, [
-        {
-          append: 'g',
-          fill: 'var(--colour-primary)',
-          children: data.map((d, i) => {
-            return {
-              append: 'rect',
-              x: x(i),
-              y: y(d.count),
-              width: x.bandwidth(),
-              height: y(0) - y(d.count),
-            };
-          }),
-        },
-        {
-          append: 'g',
-          key: width,
-          transform: `translate(0, ${height - margin.bottom})`,
-          call: xAxis,
-        },
-        {
-          append: 'g',
-          call: yAxis,
-        },
-      ]);
+      if (direction === 'vertical') {
+        x = d3
+          .scaleBand()
+          .domain(d3.range(data.length))
+          .range([margin.left, width - margin.right])
+          .padding(0.1);
+
+        y = d3
+          .scaleLinear()
+          .domain([0, d3.max(data, (d) => d.count)])
+          .nice()
+          .range([height - margin.bottom, margin.top]);
+
+        xAxis = d3
+          .axisBottom(x)
+          .tickFormat((i) => data[i].item || data[i].word)
+          .tickSizeOuter(0);
+
+        yAxis = (g) =>
+          g
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y).ticks(null, 's'))
+            .call((selection) => selection.select('.domain').remove());
+
+        render(svg, [
+          {
+            append: 'g',
+            fill: 'var(--colour-primary)',
+            children: data.map((d, i) => {
+              return {
+                append: 'rect',
+                x: x(i),
+                y: y(d.count),
+                width: x.bandwidth(),
+                height: y(0) - y(d.count),
+              };
+            }),
+          },
+          {
+            append: 'g',
+            key: width,
+            transform: `translate(0, ${height - margin.bottom})`,
+            call: xAxis,
+          },
+          {
+            append: 'g',
+            call: yAxis,
+          },
+        ]);
+      } else {
+        y = d3
+          .scaleOrdinal()
+          .domain(data.map((d) => d.item))
+          .range(
+            data.map(
+              (_, i) =>
+                ((height - margin.top - margin.bottom) / data.length) * i +
+                margin.top,
+            ),
+          );
+
+        x = d3
+          .scaleLinear()
+          .domain([0, d3.max(data, (d) => d.count)])
+          .range([margin.left, width - margin.right]);
+
+        xAxis = d3.axisBottom(x);
+
+        yAxis = (g) =>
+          g
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y).ticks(null, 's'));
+
+        render(svg, [
+          {
+            append: 'g',
+            fill: 'var(--colour-primary)',
+            children: data.map((d, i) => {
+              return {
+                append: 'rect',
+                x: margin.left,
+                y:
+                  ((height - margin.top - margin.bottom) / data.length) * i +
+                  margin.top / 2,
+                width:
+                  (d.count / maximum) * (width - margin.left - margin.right),
+                height: (height - margin.top - margin.bottom) / data.length - 1,
+              };
+            }),
+          },
+          {
+            append: 'g',
+            key: width,
+            transform: `translate(0, ${height - margin.bottom})`,
+            call: xAxis,
+          },
+          {
+            append: 'g',
+            call: yAxis,
+          },
+        ]);
+      }
     }
-  }, [svgNode, data, width, height, margin]);
+  }, [svgNode, data, width, height, margin, direction]);
 
   return (
     <svg

@@ -167,6 +167,30 @@ const postcodeToSuburb = (postcode) => {
   return out;
 };
 
+const postcodeToLat = (postcode) => {
+  if (!postcode) return null;
+  let out = null;
+  const result = postcodes.filter((entry) => {
+    return entry.type === 'Delivery Area' && entry.postcode === postcode;
+  });
+  if (result.length > 0) {
+    out = result[0].lat;
+  }
+  return out;
+};
+
+const postcodeToLong = (postcode) => {
+  if (!postcode) return null;
+  let out = null;
+  const result = postcodes.filter((entry) => {
+    return entry.type === 'Delivery Area' && entry.postcode === postcode;
+  });
+  if (result.length > 0) {
+    out = result[0].long;
+  }
+  return out;
+};
+
 const arrayToCounts = (a) => {
   if (!a) return null;
   const counts = Object.create(null);
@@ -210,6 +234,27 @@ const processData = (posts) => {
   const entriesCount = posts.length;
 
   const ages = arrayToCounts(posts.map((p) => p.age));
+  const regExp = new RegExp(/^\d+$/); // is it a number?
+  const agesNumeric = ages.filter(
+    (a) => regExp.test(a.item) && Number.parseInt(a.item, 10),
+  );
+
+  let agesGroupedTemp = [];
+  agesNumeric.forEach((a) => {
+    const key = `${Math.floor(Number.parseInt(a.item, 10) / 5) *
+      5}-${Math.floor(Number.parseInt(a.item, 10) / 5) * 5 + 5}`;
+    if (agesGroupedTemp.hasOwnProperty(key)) {
+      agesGroupedTemp[key] += a.count;
+    } else {
+      agesGroupedTemp[key] = a.count;
+    }
+  });
+
+  agesGrouped = [];
+
+  Object.keys(agesGroupedTemp).forEach((range) => {
+    agesGrouped.push({ item: range, count: agesGroupedTemp[range] });
+  });
 
   const cities = arrayToCounts(posts.map((p) => p.city.toLowerCase()));
   const states = arrayToCounts(posts.map((p) => p.state));
@@ -218,7 +263,13 @@ const processData = (posts) => {
     posts.map((p) => p.postcode || suburbToPostcode(p.city) || 0),
   );
   const postcodes = postcodesOnly.map((p) => {
-    return { item: p.item, count: p.count, name: postcodeToSuburb(p.item) };
+    return {
+      item: p.item,
+      count: p.count,
+      name: postcodeToSuburb(p.item),
+      lat: postcodeToLat(p.item),
+      long: postcodeToLong(p.item),
+    };
   });
 
   const overseasEntriesCount = posts
@@ -230,6 +281,8 @@ const processData = (posts) => {
     uniqueWordsCount,
     wordsAndCounts,
     ages,
+    agesNumeric,
+    agesGrouped,
     cities,
     states,
     postcodes,

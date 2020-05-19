@@ -33,7 +33,10 @@ const DiaryFilesDashboard = ({ className }) => {
 
   const wordsData = data && data.wordsAndCounts ? data.wordsAndCounts : [];
   const agesData =
-    data && data.ages ? data.ages.sort((a, b) => b.item - a.item) : [];
+    data && data.agesNumeric
+      ? data.agesNumeric.sort((a, b) => b.item - a.item)
+      : [];
+  const agesData2 = data && data.agesGrouped ? data.agesGrouped : [];
 
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
@@ -66,7 +69,7 @@ const DiaryFilesDashboard = ({ className }) => {
           }}
         />
 
-        <BarChart data={wordsData.slice(0, 10)} />
+        <BarChart data={wordsData.slice(0, 10)} direction={'vertical'} />
 
         <p>
           {data.uniqueWordsCount} unique words used in {data.entriesCount}{' '}
@@ -92,7 +95,20 @@ const DiaryFilesDashboard = ({ className }) => {
         </ul>
       </div>
 
-      <BarChart data={agesData.slice(0, 100)} />
+      <BarChart
+        data={agesData}
+        direction={'horizontal'}
+        height={agesData.length * 12}
+        margin={{ top: 10, left: 100, right: 10, bottom: 20 }}
+      />
+
+      <BarChart
+        data={agesData2}
+        direction={'horizontal'}
+        height={agesData2.length * 20}
+        margin={{ top: 10, left: 100, right: 10, bottom: 20 }}
+      />
+
       <div>
         <p>Entries by age</p>
         <ul>
