@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove `babel-eslint`
 - Remove old deployment scripts
 - Remove `proxyRoutes` and `redirectRoutes`
-- Remove `server.js`
+- Remove `server.js`, `helmet` and `http-proxy-middle` and `express`
 
 ## [1.9.6] - 2020-05-15
 
