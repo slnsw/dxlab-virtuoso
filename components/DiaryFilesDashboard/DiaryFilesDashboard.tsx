@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
-// import Link from '../Link';
 import LoaderText from '../LoaderText';
 import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import BubbleChart from '../BubbleChart';
-// import CTAButtonV2 from '../CTAButtonV2';
 
 import css from './DiaryFilesDashboard.module.scss';
 
@@ -19,10 +18,16 @@ const DiaryFilesDashboard = ({ className }) => {
     wordsAndCounts: [],
     agesGrouped: [],
     states: [],
+    postcodes: [],
     overseasEntriesCount: [],
   });
   const [loading, setLoading] = React.useState(true);
   const [popularWordsOffset] = React.useState(16);
+  const [mapData, setMapData] = React.useState({
+    lat: -33.90441,
+    lng: 151.138999,
+    zoom: 11,
+  });
 
   React.useEffect(() => {
     fetch('/data/diaryFilesDashboardData.json')
@@ -43,6 +48,11 @@ const DiaryFilesDashboard = ({ className }) => {
   const statesData = data?.states?.map((p) => {
     return { item: p.item === '' ? 'Not supplied' : p.item, count: p.count };
   });
+
+  const postcodesData = data?.postcodes ? data?.postcodes : [];
+
+  const position = [mapData.lat, mapData.lng];
+
   return (
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
       <h1>Dashboard</h1>
@@ -150,9 +160,26 @@ const DiaryFilesDashboard = ({ className }) => {
       </section>
       <section>
         <h2>location</h2>
-        <div style={{ border: '1px solid white', height: '400px' }}>
-          MAP placeholder
-        </div>
+
+        <Map center={position} zoom={mapData.zoom} id={css.mapid}>
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {postcodesData.map((s) => {
+            return (
+              s.lat &&
+              s.long && (
+                <Marker position={[s.lat, s.long]} key={`${s.name} ${s.item}`}>
+                  <Popup>
+                    {`${s.name} ${s.item}`} <br /> {s.count} entr
+                    {s.count === 1 ? 'y' : 'ies'}
+                  </Popup>
+                </Marker>
+              )
+            );
+          })}
+        </Map>
       </section>
     </article>
   );
