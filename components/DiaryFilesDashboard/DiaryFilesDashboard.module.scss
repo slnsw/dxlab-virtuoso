@@ -49,12 +49,12 @@
   }
 }
 
-// .henryLawsonPen {
-//   display: block;
-//   width: 9em;
-//   margin: var(--spacing-md) auto var(--spacing-xxxlg);
+.henryLawsonPen {
+  display: block;
+  width: 9em;
+  margin: var(--spacing-md) auto var(--spacing-xxxlg);
 
-//   @include media-sm {
-//     margin-top: 0;
-//   }
-// }
+  @include media-sm {
+    margin-top: 0;
+  }
+}
