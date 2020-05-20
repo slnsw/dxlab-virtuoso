@@ -202,7 +202,7 @@ const DiaryFilesDashboard = ({ className }) => {
                   color="var(--colour-primary)"
                   key={`${s.name} ${s.item}`}
                 >
-                  <Circle center={[s.lat, s.long]} radius={s.count * 40 + 60}>
+                  <Circle center={[s.lat, s.long]} radius={s.count * 80 + 60}>
                     <Popup>
                       {`${s.name} ${s.item}`} <br /> {s.count} entr
                       {s.count === 1 ? 'y' : 'ies'}
