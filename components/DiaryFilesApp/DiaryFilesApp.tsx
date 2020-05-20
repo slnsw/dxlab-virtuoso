@@ -105,6 +105,12 @@ const DiaryFilesApp = ({ title, children, className }) => {
                   </Link>
                   <div className={css.headerMenuDivider}></div>
                 </li>
+                <li>
+                  <Link as="/diary-files/dashboard">
+                    <a onClick={handleMenuToggle}>Dashboard</a>
+                  </Link>
+                  <div className={css.headerMenuDivider}></div>
+                </li>
               </ul>
 
               <SLNSWLogo
