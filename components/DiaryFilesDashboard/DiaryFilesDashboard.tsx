@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import {
+  Map,
+  TileLayer,
+  Marker,
+  Popup,
+  Circle,
+  FeatureGroup,
+} from 'react-leaflet';
 
 import LoaderText from '../LoaderText';
 import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
@@ -180,19 +187,29 @@ const DiaryFilesDashboard = ({ className }) => {
 
         <Map center={position} zoom={mapData.zoom} id={css.mapid}>
           <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url="http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png"
+            attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+            // attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {postcodesData.map((s) => {
             return (
               s.lat &&
               s.long && (
-                <Marker position={[s.lat, s.long]} key={`${s.name} ${s.item}`}>
-                  <Popup>
-                    {`${s.name} ${s.item}`} <br /> {s.count} entr
-                    {s.count === 1 ? 'y' : 'ies'}
-                  </Popup>
-                </Marker>
+                // <Marker position={[s.lat, s.long]} key={`${s.name} ${s.item}`}>
+                <FeatureGroup
+                  color="var(--colour-primary)"
+                  key={`${s.name} ${s.item}`}
+                >
+                  <Circle center={[s.lat, s.long]} radius={s.count * 40 + 60}>
+                    <Popup>
+                      {`${s.name} ${s.item}`} <br /> {s.count} entr
+                      {s.count === 1 ? 'y' : 'ies'}
+                    </Popup>
+                  </Circle>
+                </FeatureGroup>
+                // </Marker>
               )
             );
           })}
