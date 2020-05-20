@@ -18,7 +18,9 @@ const BarChart = ({
     bottom: 20,
   },
   direction = 'vertical',
+  rotateXAxis = false,
   showValues = false,
+  id = 'bar-chart',
   className,
   ...restProps
 }) => {
@@ -86,6 +88,7 @@ const BarChart = ({
           },
           {
             append: 'g',
+            class: 'x-axis',
             key: width,
             transform: `translate(0, ${height - margin.bottom})`,
             call: xAxis,
@@ -95,6 +98,14 @@ const BarChart = ({
             call: yAxis,
           },
         ]);
+
+        if (rotateXAxis) {
+          d3.selectAll(`#${id} .x-axis text`)
+            .style('text-anchor', 'end')
+            .attr('dx', '-1em')
+            .attr('dy', '-.5em')
+            .attr('transform', 'rotate(-90)');
+        }
       } else {
         y = d3
           .scaleOrdinal()
@@ -149,13 +160,14 @@ const BarChart = ({
         ]);
       }
     }
-  }, [svgNode, data, width, height, margin, direction]);
+  }, [svgNode, data, width, height, margin, id, showValues, direction]);
 
   return (
     <svg
       ref={svgRef}
       width={width}
       height={height}
+      id={id}
       className={[css.barChart, className || ''].join(' ')}
       {...restProps}
     />

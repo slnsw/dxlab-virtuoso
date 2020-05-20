@@ -15,9 +15,14 @@ import css from './DiaryFilesDashboard.module.scss';
 const BarChart = dynamic(() => import('../BarChart'));
 
 const DiaryFilesDashboard = ({ className }) => {
-  const [data, setData] = React.useState({});
+  const [data, setData] = React.useState({
+    wordsAndCounts: [],
+    agesGrouped: [],
+    states: [],
+    overseasEntriesCount: [],
+  });
   const [loading, setLoading] = React.useState(true);
-  const [popularWordsOffset, setPopularWordsOffset] = React.useState(16);
+  const [popularWordsOffset] = React.useState(16);
 
   React.useEffect(() => {
     fetch('/data/diaryFilesDashboardData.json')
@@ -125,9 +130,10 @@ const DiaryFilesDashboard = ({ className }) => {
         <BarChart
           data={agesData}
           direction={'vertical'}
-          showValues={true}
+          // showValues={true}
+          rotateXAxis={true}
           height={agesData.length * 20}
-          margin={{ top: 10, left: 40, right: 10, bottom: 20 }}
+          margin={{ top: 10, left: 40, right: 10, bottom: 50 }}
         />
       </section>
 
