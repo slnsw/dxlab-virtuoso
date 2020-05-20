@@ -75,10 +75,10 @@ const BarChart = ({
                   },
                   {
                     append: 'text',
-                    text: showValues && `(${d.count})`,
+                    text: showValues && d.count,
                     x: x(i) + x.bandwidth() / 2,
-                    y: y(d.count) - 3,
-                    style: { color: 'white' }, // ????
+                    y: y(d.count) - 6,
+                    style: { fill: 'white', textAnchor: 'middle' },
                   },
                 ],
               };

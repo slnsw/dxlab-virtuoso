@@ -57,6 +57,10 @@ const DiaryFilesDashboard = ({ className }) => {
 
       <section>
         <h2>Popular words</h2>
+        <p>
+          <strong>{data.uniqueWordsCount}</strong> unique words used in{' '}
+          <strong>{data.entriesCount}</strong> entries.
+        </p>
 
         <BubbleChart
           data={wordsData
@@ -114,7 +118,7 @@ const DiaryFilesDashboard = ({ className }) => {
 
         {/* <BarChart data={wordsData.slice(0, 10)} direction={'vertical'} /> */}
 
-        <p>
+        {/* <p>
           <CTAButtonV2
             disabled={popularWordsOffset - 16 <= 0}
             onClick={() => setPopularWordsOffset(popularWordsOffset - 16)}
@@ -128,28 +132,26 @@ const DiaryFilesDashboard = ({ className }) => {
           >
             Next
           </CTAButtonV2>
-        </p>
-        <p>
-          <strong>{data.uniqueWordsCount}</strong> unique words used in{' '}
-          <strong>{data.entriesCount}</strong> entries.
-        </p>
+        </p> */}
       </section>
 
-      <BarChart
+      {/* <BarChart
         data={agesData}
         direction={'horizontal'}
         height={agesData.length * 12}
         margin={{ top: 10, left: 100, right: 10, bottom: 20 }}
-      />
-
-      <BarChart
-        data={agesData2}
-        direction={'horizontal'}
-        height={agesData2.length * 20}
-        margin={{ top: 10, left: 100, right: 10, bottom: 20 }}
-      />
-
-      <p>Entries by age</p>
+      /> */}
+      <section>
+        <h2>Ages of contributors</h2>
+        <p>Number of entries by age group</p>
+        <BarChart
+          data={agesData2}
+          direction={'vertical'}
+          showValues={true}
+          height={agesData2.length * 20}
+          margin={{ top: 10, left: 40, right: 10, bottom: 20 }}
+        />
+      </section>
       {/* <div>
         <ul>
           {data?.ages
@@ -166,7 +168,7 @@ const DiaryFilesDashboard = ({ className }) => {
         </ul>
       </div> */}
 
-      <section>
+      {/* <section>
         <h2>Cities</h2>
         <ul>
           {data?.cities
@@ -181,9 +183,9 @@ const DiaryFilesDashboard = ({ className }) => {
               );
             })}
         </ul>
-      </section>
+      </section> */}
 
-      <section>
+      {/* <section>
         <h2>Postcodes</h2>
         <ul>
           {data?.postcodes
@@ -198,12 +200,13 @@ const DiaryFilesDashboard = ({ className }) => {
               );
             })}
         </ul>
-      </section>
+      </section> */}
 
       <section>
         <h2>States</h2>
+        <p>Number of entries by state</p>
         <BarChart data={statesData} direction={'vertical'} showValues={true} />
-        <ul>
+        {/* <ul>
           {data?.states
             ?.sort((a, b) => b.count - a.count)
             .slice(0, 25)
@@ -215,16 +218,20 @@ const DiaryFilesDashboard = ({ className }) => {
                 </li>
               );
             })}
-        </ul>
-      </section>
+        </ul> */}
 
-      <div>
         <p>
           {data?.overseasEntriesCount} entr
           {data?.overseasEntriesCount === 1 ? 'y' : 'ies'} from outside
           Australia
         </p>
-      </div>
+      </section>
+      <section>
+        <h2>location</h2>
+        <div style={{ border: '1px solid white', height: '300px' }}>
+          MAP placeholder
+        </div>
+      </section>
     </article>
   );
 };
