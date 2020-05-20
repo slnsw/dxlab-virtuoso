@@ -11,7 +11,7 @@ type Props = {
   data: {
     name: string;
     value: number;
-  };
+  }[];
   height?: number;
   margin?: {
     top: number;
@@ -43,6 +43,7 @@ const BarChart: React.FC<Props> = ({
   className,
   ...restProps
 }) => {
+  const [hoverIndex, setHoverIndex] = React.useState(null);
   const [svgRef, dimensions, svgNode] = useDimensions();
   const { width } = dimensions;
 
@@ -52,7 +53,7 @@ const BarChart: React.FC<Props> = ({
       let y;
       let xAxis;
       let yAxis;
-      const maximum = d3.max(data, (d) => d.count);
+      const maximum = d3.max(data, (d) => d.value);
       const svg = d3.select(svgNode);
 
       if (direction === 'vertical') {
@@ -64,13 +65,13 @@ const BarChart: React.FC<Props> = ({
 
         y = d3
           .scaleLinear()
-          .domain([0, d3.max(data, (d) => d.count)])
+          .domain([0, d3.max(data, (d) => d.value)])
           .nice()
           .range([height - margin.bottom, margin.top]);
 
         xAxis = d3
           .axisBottom(x)
-          .tickFormat((i) => data[i].item || data[i].word)
+          .tickFormat((i) => data[i].name)
           .tickSizeOuter(0);
 
         yAxis = (g) =>
@@ -84,21 +85,30 @@ const BarChart: React.FC<Props> = ({
             append: 'g',
             fill: 'var(--colour-primary)',
             children: data.map((d, i) => {
+              const isHovered = i === hoverIndex;
+
               return {
                 append: 'g',
                 children: [
                   {
                     append: 'rect',
                     x: x(i),
-                    y: y(d.count),
+                    y: y(d.value),
                     width: x.bandwidth(),
-                    height: y(0) - y(d.count),
+                    height: y(0) - y(d.value),
+                    onMouseOver: () => {
+                      setHoverIndex(i);
+                    },
+                    onMouseOut: () => {
+                      setHoverIndex(null);
+                    },
                   },
                   {
                     append: 'text',
-                    text: showValues && d.count,
+                    key: `${isHovered}`,
+                    text: showValues || isHovered ? d.value : '',
                     x: x(i) + x.bandwidth() / 2,
-                    y: y(d.count) - 6,
+                    y: y(d.value) - 6,
                     style: { fill: 'white', textAnchor: 'middle' },
                   },
                 ],
@@ -128,7 +138,7 @@ const BarChart: React.FC<Props> = ({
       } else {
         y = d3
           .scaleOrdinal()
-          .domain(data.map((d) => d.item))
+          .domain(data.map((d) => d.name))
           .range(
             data.map(
               (_, i) =>
@@ -139,7 +149,7 @@ const BarChart: React.FC<Props> = ({
 
         x = d3
           .scaleLinear()
-          .domain([0, d3.max(data, (d) => d.count)])
+          .domain([0, d3.max(data, (d) => d.value)])
           .range([margin.left, width - margin.right]);
 
         xAxis = d3.axisBottom(x);
@@ -161,7 +171,7 @@ const BarChart: React.FC<Props> = ({
                   ((height - margin.top - margin.bottom) / data.length) * i +
                   margin.top / 2,
                 width:
-                  (d.count / maximum) * (width - margin.left - margin.right),
+                  (d.value / maximum) * (width - margin.left - margin.right),
                 height: (height - margin.top - margin.bottom) / data.length - 1,
               };
             }),
@@ -179,7 +189,18 @@ const BarChart: React.FC<Props> = ({
         ]);
       }
     }
-  }, [svgNode, data, width, height, margin, id, showValues, direction]);
+  }, [
+    svgNode,
+    data,
+    width,
+    height,
+    margin,
+    id,
+    showValues,
+    direction,
+    rotateXAxis,
+    hoverIndex,
+  ]);
 
   return (
     <svg

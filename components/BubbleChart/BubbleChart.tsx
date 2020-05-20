@@ -7,7 +7,19 @@ import useDimensions from '../../lib/hooks/use-dimensions';
 
 import css from './BubbleChart.module.scss';
 
-const BubbleChart = ({
+type Props = {
+  data: {
+    name: string;
+    value: number;
+  }[];
+  height?: number;
+  bubblePadding?: number;
+  className?: string;
+  renderBubble?: Function;
+  onBubbleClick?: Function;
+};
+
+const BubbleChart: React.FC<Props> = ({
   data = [],
   height = 200,
   bubblePadding = 3,

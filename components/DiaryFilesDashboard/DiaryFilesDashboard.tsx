@@ -130,20 +130,34 @@ const DiaryFilesDashboard = ({ className }) => {
         <h2>Ages of contributors</h2>
         <p>Number of entries by age group</p>
         <BarChart
-          data={agesData}
+          data={agesData.map((d) => {
+            return {
+              name: d.item,
+              value: d.count,
+            };
+          })}
           direction={'vertical'}
           // showValues={true}
           rotateXAxis={true}
           height={agesData.length * 20}
           margin={{ top: 10, left: 40, right: 10, bottom: 50 }}
-          id={'popular-words-chart'}
+          id={'age-chart'}
         />
       </section>
 
       <section>
         <h2>States</h2>
         <p>Number of entries by state</p>
-        <BarChart data={statesData} direction={'vertical'} showValues={true} />
+        <BarChart
+          data={statesData.map((d) => {
+            return {
+              name: d.item,
+              value: d.count,
+            };
+          })}
+          direction={'vertical'}
+          showValues={true}
+        />
 
         <p>
           {data?.overseasEntriesCount} entr
