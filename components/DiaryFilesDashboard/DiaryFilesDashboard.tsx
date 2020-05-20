@@ -19,7 +19,9 @@ const DiaryFilesDashboard = ({ className }) => {
     wordsAndCounts: [],
     agesGrouped: [],
     states: [],
-    overseasEntriesCount: [],
+    overseasEntriesCount: null,
+    uniqueWordsCount: null,
+    entriesCount: null,
   });
   const [loading, setLoading] = React.useState(true);
   const [popularWordsOffset] = React.useState(16);
@@ -134,6 +136,7 @@ const DiaryFilesDashboard = ({ className }) => {
           rotateXAxis={true}
           height={agesData.length * 20}
           margin={{ top: 10, left: 40, right: 10, bottom: 50 }}
+          id={'popular-words-chart'}
         />
       </section>
 

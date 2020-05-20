@@ -7,7 +7,26 @@ import useDimensions from '../../lib/hooks/use-dimensions';
 
 import css from './BarChart.module.scss';
 
-const BarChart = ({
+type Props = {
+  data: {
+    name: string;
+    value: number;
+  };
+  height?: number;
+  margin?: {
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+  };
+  direction?: 'vertical' | 'horizontal';
+  rotateXAxis?: boolean;
+  showValues?: boolean;
+  id?: string;
+  className?: string;
+};
+
+const BarChart: React.FC<Props> = ({
   data = [],
   // width: propWidth,
   height = 200,
