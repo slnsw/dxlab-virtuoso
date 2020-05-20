@@ -2,8 +2,6 @@ require('dotenv').config();
 const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-// const withCSS = require('@zeit/next-css');
-
 module.exports = {
   webpack: (config, { dev }) => {
     const customConfig = {
@@ -15,7 +13,18 @@ module.exports = {
     );
 
     // Environment variables
-    customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
+    // customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
+
+    // Next 9 introduced some pretty strict type checking
+    // that breaks dev builds. It is now more relaxed,
+    // however we may want to introduce again once all types
+    // issues fixed
+    // https://github.com/zeit/next.js/issues/7687#issuecomment-506440999
+    customConfig.plugins = config.plugins.filter((plugin) => {
+      if (plugin.constructor.name === 'ForkTsCheckerWebpackPlugin')
+        return false;
+      return true;
+    });
 
     if (dev) {
       customConfig.plugins.push(
@@ -35,5 +44,12 @@ module.exports = {
     }
 
     return customConfig;
+  },
+  // EnvironmentPlugin stopped working for some reason
+  env: {
+    DXLAB_WEBSITE_BASE_URL: process.env.DXLAB_WEBSITE_BASE_URL,
+    DXLAB_WEBSITE_GRAPHQL_URL: process.env.DXLAB_WEBSITE_GRAPHQL_URL,
+    DXLAB_WEBSITE_FB_APP_ID: process.env.DXLAB_WEBSITE_FB_APP_ID,
+    DXLAB_WEBSITE_GTM_ID: process.env.DXLAB_WEBSITE_GTM_ID,
   },
 };

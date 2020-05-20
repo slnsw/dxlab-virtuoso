@@ -20,6 +20,7 @@ class HomePage extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { router, posts, experiments, loading: isLoading } = this.props;
     const { pathname } = router;
 

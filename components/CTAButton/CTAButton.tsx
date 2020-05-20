@@ -5,7 +5,16 @@ import Link from '../Link';
 
 import css from './CTAButton.module.scss';
 
-class CTAButton extends Component {
+type Props = {
+  href: string;
+  size: string;
+  target: string;
+  scroll: boolean;
+  replace: boolean;
+  className: string;
+};
+
+class CTAButton extends Component<Props> {
   static propTypes = {
     href: PropTypes.string.isRequired,
     size: PropTypes.string,

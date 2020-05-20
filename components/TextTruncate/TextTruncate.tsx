@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // import Button from '../Button';
 
-import { isInViewport } from '../../lib/isInViewport';
+import { isInViewport } from '../../lib/is-in-viewport';
 // import { useUniqueId } from '../../lib/hooks';
 
 import css from './TextTruncate.module.scss';
@@ -163,7 +163,6 @@ const TextTruncate = ({
       {showButton && isTextOverLimit ? (
         <button
           className={[css.button, className].join(' ')}
-          size="sm"
           data-testid="showMoreButton"
           aria-expanded={!isActive}
           // aria-controls={idScope}

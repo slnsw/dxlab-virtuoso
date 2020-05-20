@@ -1,4 +1,4 @@
-module.exports = [
+const redirectRoutes = [
   '/making-meridian/',
   '/making-meridian',
   '/building-painting-by-numbers-2/',
@@ -92,3 +92,5 @@ module.exports = [
   '/digitised-collections/',
   '/digitised-collections',
 ];
+
+export default redirectRoutes;
