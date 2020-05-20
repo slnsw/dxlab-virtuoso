@@ -1,0 +1,44 @@
+@import '../../styles/global.scss';
+
+.suggestedSearches {
+  margin-top: var(--spacing-xxlg);
+  text-align: center;
+
+  @include media-sm {
+    margin-top: var(--spacing-xxxxlg);
+  }
+
+  p {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-diary-files);
+  }
+}
+
+.sectionTitle {
+  margin-top: 0;
+  margin-bottom: var(--spacing-xxlg);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.loader {
+  text-align: center;
+}
+
+.searchesWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.searches {
+  margin: 0 var(--spacing-lg);
+
+  &:last-child {
+    display: none;
+
+    @include media-sm {
+      display: block;
+    }
+  }
+}

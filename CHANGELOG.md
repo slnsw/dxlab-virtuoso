@@ -5,8 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.8.2] - 2020-04-XX
+## [1.10.0] - 2020-5-19
 
+- Migrate to Typescript
+- Remove `babel-eslint`
+- Remove old deployment scripts
+- Remove `proxyRoutes` and `redirectRoutes`
+- Remove `server.js`, `helmet` and `http-proxy-middle` and `express`
+
+## [1.9.6] - 2020-05-15
+
+- Add total entries to Diary Files home page
+- Add search suggestions to Diary Files search
+- Add `SearchTextInput` component
+
+## [1.9.5] - 2020-05-13
+
+- Add search feature to Diary Files
+
+## [1.9.4] - 2020-05-06
+
+- Add ABC Radio Sydney logo to Diary Files
+
+## [1.9.3] - 2020-05-04
+
+- Update `now.json` and `now.stagin.json` to change `index` rewrite/redirect to `index-experiment`. Strange issue where `/index` goes to DX Lab home page, perhaps Now server issue.
+- Remove `CTAButton` width: 100%
+- Update `Header.css` so logos are larger on desktop
+
+## [1.9.2] - 2020-05-04
+
+- Change image size of social meta image in `diary-files`
+- Fix Read More showing on related entries in `diary-files`
+- Fix `TextTruncate` html stripping bug
+
+## [1.9.1] - 2020-05-01
+
+- Update `diary-files` social meta descriptions, design, minor fixes
+
+## [1.9.0] - 2020-04-30
+
+- Add `diary-files` page of new DX Lab experiment
+- Add `DiaryFilesApp` and associated components
 - Add `DXLabLogo`, `SLNSWLogo` components
 - Refactor `Button` to `CTAButton`
 - Recreate `Button` component to be more generic
@@ -14,6 +54,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `eslint-plugin-css-modules`
 - Refactor `App` to be more generic and make `WebsiteApp` more customised
 - Add `react-select` and create `Select` component
+- Add `Icon`
+- Add `CTAButtonV2`
+- Add `design-system` page
+- Add `aereo` rewrite to Mauricio's Fellowship project in now.json
+- Add `HeaderNav` component
+- Add `Overlay` component
+- Add `Modal` component
+- Add `TextTruncate` component
 
 ## [1.8.1] - 2020-04-01
 

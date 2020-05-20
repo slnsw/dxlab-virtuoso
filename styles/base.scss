@@ -124,6 +124,7 @@ label {
   display: block;
   margin-bottom: var(--font-size-xs);
   font-size: var(--font-size-sm);
+
   @extend .font-uppercase;
 }
 
@@ -162,7 +163,9 @@ button[type='submit'],
 input[type='submit'] {
   padding: var(--spacing-md);
   font-size: var(--font-size-sm);
+
   @extend .font-uppercase;
+
   border: 1px solid var(--colour-white);
   transition: 0.3s;
 

@@ -1,0 +1,87 @@
+@import '../../styles/global.scss';
+
+.diaryFilesHome {
+  display: block;
+}
+
+.masthead {
+  max-width: var(--container-width-md);
+  margin-bottom: var(--spacing-xxxlg);
+  padding: 0 var(--spacing-md);
+  text-align: center;
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxxxlg);
+    padding: 0 var(--spacing-xxlg);
+  }
+}
+
+.kicker {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-xlg);
+  font-family: var(--font-diary-files);
+  line-height: 1.2;
+}
+
+.smallText {
+  // @extend .font-uppercase;
+
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-md);
+  font-family: var(--font-diary-files);
+}
+
+.totalEntries {
+  @extend .font-uppercase;
+
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  // font-family: var(--font-diary-files);
+  text-align: center;
+}
+
+.mastheadButton {
+  max-width: 20em;
+  margin: 0 auto var(--spacing-lg);
+  letter-spacing: 0.3em;
+}
+
+.mastheadMenu {
+  display: flex;
+  justify-content: center;
+
+  p {
+    margin: 0 var(--spacing-sm);
+  }
+}
+
+.verticalDivider {
+  width: 1px;
+  height: var(--spacing-md);
+  margin: 0;
+  border-top: none;
+  border-left: 1px solid var(--colour-white);
+}
+
+.divider {
+  width: var(--spacing-md);
+  margin: 0 auto;
+  border-top: 1px solid var(--colour-white);
+}
+
+// .henryLawsonPen {
+//   width: 6em;
+// }
+
+.sectionTitle {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-md);
+  text-align: center;
+}
+
+.wideButton {
+  width: 100%;
+}

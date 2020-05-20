@@ -1,0 +1,71 @@
+@import '../../styles/global.scss';
+
+@import '../../styles/diary-files/global.scss';
+
+.diaryFilesAbout {
+  display: block;
+
+  h1 {
+    @extend .font-uppercase;
+
+    margin-top: 0;
+    font-size: var(--font-size-md);
+    text-align: center;
+  }
+}
+
+// .henryLawsonPen {
+//   display: block;
+//   width: 9em;
+//   margin: var(--spacing-md) auto var(--spacing-xxxlg);
+
+//   @include media-sm {
+//     margin-top: 0;
+//   }
+// }
+
+.content {
+  margin-right: calc(var(--spacing-xs) * -1);
+  margin-bottom: var(--spacing-xxlg);
+  margin-left: calc(var(--spacing-xs) * -1);
+  padding: var(--spacing-md);
+  color: var(--colour-black);
+  font-family: var(--font-diary-files);
+  line-height: var(--font-diary-files-line-height-md);
+  background-color: var(--colour-white);
+
+  @include media-sm {
+    margin-right: auto;
+    margin-bottom: var(--spacing-xxxlg);
+    margin-left: auto;
+    padding: var(--spacing-xxlg);
+    font-size: 1.1em;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.diaryFilesAboutExtra {
+  max-width: 40em;
+  margin: auto;
+  margin-bottom: var(--spacing-xlg);
+  // margin-left: auto;
+  // padding: var(--spacing-md);
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxlg);
+    padding: 0 var(--spacing-xxlg);
+  }
+
+  h2 {
+    margin-bottom: var(--spacing-xlg);
+    font-size: var(--font-size-md);
+    text-align: center;
+  }
+
+  p {
+    font-family: var(--font-secondary);
+  }
+}

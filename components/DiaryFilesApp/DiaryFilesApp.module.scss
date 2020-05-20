@@ -1,0 +1,239 @@
+@import '../../styles/global.scss';
+
+.diaryFilesApp {
+  --font-diary-files: 'Special Elite', courier, serif;
+  --font-diary-files-line-height-md: 1.55;
+
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 2em);
+
+  @include media-sm {
+    min-height: calc(100vh - 4em);
+  }
+
+  // Form Styles
+  // TODO: Make these the main dxlab-website styles with some tweaks
+  input[type='text'],
+  textarea {
+    font-family: var(--font-secondary);
+    background-color: transparent;
+    border: 1px solid var(--colour-white);
+  }
+
+  input[type='text'] {
+    padding-top: var(--spacing-xs);
+  }
+
+  input[type='text'],
+  button[type='submit'] {
+    &:focus {
+      outline: 3px solid var(--colour-primary);
+      outline-offset: 0;
+    }
+  }
+
+  textarea {
+    color: var(--colour-black);
+    font-family: var(--font-diary-files);
+    letter-spacing: 0.1em;
+    background-color: var(--colour-white);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding-top: 1em;
+
+  @include media-sm {
+    justify-content: space-between;
+    margin-top: calc(var(--spacing-xxs) * -1);
+    padding-top: 0;
+  }
+}
+
+.libraryLogos {
+  display: flex;
+}
+
+.diaryFilesApp .headerLogo {
+  height: 1em;
+
+  @include media-sm {
+    height: 1.4em;
+  }
+}
+
+.dxlabLogo {
+  margin-right: var(--spacing-sm);
+}
+
+.headerDivider {
+  width: 1px;
+  height: 0.5em;
+  margin-top: auto;
+  // margin-left: var(--spacing-sm);
+  border-left: 1px solid var(--colour-white);
+
+  @include media-sm {
+    height: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+  }
+}
+
+.slnswLogo {
+  height: var(--spacing-xlg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.slnswLogoDesktop {
+  display: none;
+
+  @include media-sm {
+    display: block;
+    width: 20px;
+    overflow: hidden;
+  }
+
+  @include media-xlg {
+    width: initial;
+  }
+}
+
+.abcLogoWrapper {
+  margin-top: var(--spacing-xlg);
+  text-align: center;
+
+  p {
+    @extend .font-uppercase;
+
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.abcLogoWrapperDesktop {
+  display: none;
+  align-items: center;
+
+  @include media-sm {
+    display: flex;
+  }
+
+  p {
+    @extend .font-uppercase;
+
+    margin-right: var(--spacing-md);
+    margin-bottom: 0;
+    font-size: var(--font-size-xs);
+    text-align: right;
+  }
+}
+
+.abcLogo {
+  height: 3.5em;
+  vertical-align: middle;
+}
+
+.headerTitle {
+  margin: 0 0 0 var(--spacing-sm);
+  font-weight: 500;
+  font-size: var(--font-size-md);
+  font-family: var(--font-diary-files);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  transform: translate(0, 0.22em);
+
+  @include media-sm {
+    // Slight adjustment to centre title properly
+    margin: 0 1em 0 0;
+    font-size: var(--font-size-xlg);
+    transform: translate(0, 0.1em);
+  }
+
+  @include media-md {
+    font-size: var(--font-size-xxlg);
+    transform: translate(0, 0.2em);
+  }
+
+  @include media-xlg {
+    margin-right: 3em;
+    font-size: var(--font-size-xxxlg);
+  }
+
+  @include media-sm {
+    a:link,
+    a:visited {
+      color: var(--colour-primary);
+    }
+
+    a:hover,
+    a:active {
+      // text-decoration: underline;
+      border-bottom: 1px solid;
+    }
+  }
+}
+
+.diaryFilesApp .headerNav {
+  text-align: center;
+
+  @include media-sm {
+    display: none;
+  }
+}
+
+.diaryFilesApp .headerNavInside {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.headerMenuWrapper {
+  width: 100%;
+}
+
+.headerMenu {
+  // margin-top: var(--spacing-xxxlg);
+  padding-left: 0;
+  font-family: var(--font-diary-files);
+  text-align: center;
+  list-style: none;
+
+  li a {
+    display: block;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-lg);
+  }
+}
+
+.headerMenuDivider {
+  width: var(--spacing-lg);
+  height: 1px;
+  margin: 0 auto;
+  background-color: var(--colour-white);
+}
+
+.menuButton {
+  position: absolute;
+  right: 0;
+  z-index: 110;
+}
+
+.menuButtonIsOpen {
+  position: fixed;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-width-md);
+  margin: 0 auto;
+  padding-top: var(--spacing-xlg);
+
+  @include media-sm {
+    padding-top: var(--spacing-lg);
+  }
+}
