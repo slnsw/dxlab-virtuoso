@@ -115,8 +115,9 @@
 }
 
 .collection-item__type {
-  margin-bottom: var(--spacing-xxs);
   @extend .font-uppercase;
+
+  margin-bottom: var(--spacing-xxs);
   color: var(--colour-grey);
   font-weight: 700;
   font-size: var(--font-size-sm);
@@ -136,8 +137,9 @@
 }
 
 .collection-item__id {
-  align-self: flex-start;
   @extend .font-uppercase;
+
+  align-self: flex-start;
   margin-top: auto;
   margin-bottom: 0;
   color: var(--colour-grey);
