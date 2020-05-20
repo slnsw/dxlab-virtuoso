@@ -37,7 +37,7 @@ module.exports = {
 
       customConfig.module.rules.push({
         enforce: 'pre',
-        test: /\.js$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
       });

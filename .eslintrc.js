@@ -13,6 +13,8 @@ module.exports = {
     'prettier/react',
     'plugin:css-modules/recommended',
     'plugin:import/typescript',
+    // Very aggressive linting, turn on when ready
+    // 'plugin:@typescript-eslint/recommended',
   ],
   globals: {
     document: true,
@@ -38,5 +40,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    // Disable JS no-unused-vars otherwise it doubles up with TS no-unused-vars
+    'no-unused-vars': 0,
   },
 };
