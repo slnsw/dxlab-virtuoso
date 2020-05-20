@@ -7,11 +7,11 @@ import css from './CTAButton.module.scss';
 
 type Props = {
   href: string;
-  size: string;
-  target: string;
-  scroll: boolean;
-  replace: boolean;
-  className: string;
+  size?: string;
+  target?: string;
+  scroll?: boolean;
+  replace?: boolean;
+  className?: string;
 };
 
 class CTAButton extends Component<Props> {

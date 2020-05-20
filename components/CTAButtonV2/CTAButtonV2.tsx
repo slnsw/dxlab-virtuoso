@@ -5,7 +5,19 @@ import Button from '../Button';
 
 import css from './CTAButtonV2.module.scss';
 
-const CTAButtonV2 = ({ theme, className, children, ...restProps }) => {
+type Props = {
+  theme?: string;
+  className?: string;
+  children?: React.ReactNode;
+  onClick?: Function;
+};
+
+const CTAButtonV2: React.FC<Props> = ({
+  theme,
+  className,
+  children,
+  ...restProps
+}) => {
   return (
     <Button
       className={[

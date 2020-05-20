@@ -25,8 +25,6 @@ const DiaryFilesHome = ({ className }) => {
     offset,
   });
 
-  const test = 'test';
-
   return (
     <div className={[css.diaryFilesHome, className || ''].join(' ')}>
       <div className={css.masthead}>
@@ -76,7 +74,7 @@ const DiaryFilesHome = ({ className }) => {
           <DiaryFilesPost
             id={post.id}
             key={post.id}
-            title={post.title}
+            // title={post.title}
             content={post.content}
             dateText={post.dateText}
             authorName={post.authorName}

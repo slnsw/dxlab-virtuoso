@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 type Props = {
   text: string;
-  className: string;
-  style: object;
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 class LoaderText extends Component<Props> {
