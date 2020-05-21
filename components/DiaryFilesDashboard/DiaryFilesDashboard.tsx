@@ -6,7 +6,7 @@ import Router from 'next/router';
 import {
   Map,
   TileLayer,
-  Marker,
+  // Marker,
   Popup,
   Circle,
   FeatureGroup,
@@ -187,7 +187,7 @@ const DiaryFilesDashboard = ({ className }) => {
 
         <Map center={position} zoom={mapData.zoom} id={css.mapid}>
           <TileLayer
-            url="http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png"
+            url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png"
             attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 
             // attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -204,7 +204,10 @@ const DiaryFilesDashboard = ({ className }) => {
                 >
                   <Circle center={[s.lat, s.long]} radius={s.count * 80 + 60}>
                     <Popup>
-                      {`${s.name} ${s.item}`} <br /> {s.count} entr
+                      <a href={`/diary-files/search?q=${s.item}`}>
+                        {`${s.name} ${s.item}`}
+                      </a>{' '}
+                      <br /> {s.count} entr
                       {s.count === 1 ? 'y' : 'ies'}
                     </Popup>
                   </Circle>
