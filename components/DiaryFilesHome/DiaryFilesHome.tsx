@@ -58,6 +58,14 @@ const DiaryFilesHome = ({ className }) => {
               <a>Search</a>
             </Link>
           </p>
+
+          <div className={css.verticalDivider}></div>
+
+          <p className={css.smallText}>
+            <Link href="/diary-files/dashboard">
+              <a>Dashboard</a>
+            </Link>
+          </p>
         </div>
       </div>
 
