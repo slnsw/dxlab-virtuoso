@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
-// import {
-//   TileLayer,
-//   Map, // Marker,
-//   Popup,
-//   Circle,
-//   FeatureGroup,
-// } from 'react-leaflet';
-// import FullscreenControl from 'react-leaflet-fullscreen';
 import DiaryFilesMap from '../DiaryFilesMap';
 
 import LoaderText from '../LoaderText';
@@ -67,13 +59,6 @@ const DiaryFilesDashboard = ({ className }) => {
     <article className={[css.diaryFilesDashboard, className || ''].join(' ')}>
       <h1>Dashboard</h1>
 
-      <a
-        href="https://collection.sl.nsw.gov.au/record/YezdP8A9#26x6POGQkAdo0"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <HenryLawsonPen className={css.henryLawsonPen}></HenryLawsonPen>
-      </a>
       {loading && (
         <LoaderText
           style={{
@@ -145,6 +130,16 @@ const DiaryFilesDashboard = ({ className }) => {
       </section>
 
       <section>
+        <h2>location</h2>
+
+        <DiaryFilesMap
+          center={position}
+          zoom={mapData.zoom}
+          data={postcodesData}
+        ></DiaryFilesMap>
+      </section>
+
+      <section>
         <h2>Ages of contributors</h2>
         <p>Number of entries by age group</p>
         <BarChart
@@ -183,49 +178,14 @@ const DiaryFilesDashboard = ({ className }) => {
           Australia
         </p>
       </section>
-      <section>
-        <h2>location</h2>
 
-        <DiaryFilesMap
-          center={position}
-          zoom={mapData.zoom}
-          data={postcodesData}
-        ></DiaryFilesMap>
-
-        {/* <Map center={position} zoom={mapData.zoom} id={css.mapid}>
-          <FullscreenControl position="topleft" />
-          <TileLayer
-            url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png"
-            attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-
-            // attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {postcodesData.map((s) => {
-            return (
-              s.lat &&
-              s.long && (
-                // <Marker position={[s.lat, s.long]} key={`${s.name} ${s.item}`}>
-                <FeatureGroup
-                  color="var(--colour-primary)"
-                  key={`${s.name} ${s.item}`}
-                >
-                  <Circle center={[s.lat, s.long]} radius={s.count * 80 + 60}>
-                    <Popup>
-                      <a href={`/diary-files/search?q=${s.item}`}>
-                        {`${s.name} ${s.item}`}
-                      </a>{' '}
-                      <br /> {s.count} entr
-                      {s.count === 1 ? 'y' : 'ies'}
-                    </Popup>
-                  </Circle>
-                </FeatureGroup>
-                // </Marker>
-              )
-            );
-          })}
-        </Map> */}
-      </section>
+      <a
+        href="https://collection.sl.nsw.gov.au/record/YezdP8A9#26x6POGQkAdo0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <HenryLawsonPen className={css.henryLawsonPen}></HenryLawsonPen>
+      </a>
     </article>
   );
 };
