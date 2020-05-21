@@ -40,12 +40,16 @@ const DiaryFilesMap: React.FC<Props> = ({
               key={`${s.name} ${s.item}`}
             >
               <Circle center={[s.lat, s.long]} radius={s.count * 80 + 60}>
-                <Popup>
-                  <a href={`/diary-files/search?q=${s.item}`}>
-                    {`${s.name} ${s.item}`}
-                  </a>{' '}
-                  <br /> {s.count} entr
-                  {s.count === 1 ? 'y' : 'ies'}
+                <Popup className={css.popup}>
+                  <p>
+                    <a href={`/diary-files/search?q=${s.item}`}>
+                      {`${s.name} ${s.item}`}
+                    </a>
+                  </p>
+                  <p>
+                    {s.count} entr
+                    {s.count === 1 ? 'y' : 'ies'}
+                  </p>
                 </Popup>
               </Circle>
             </FeatureGroup>
