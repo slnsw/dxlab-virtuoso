@@ -13,10 +13,14 @@ type Props = {
 };
 
 function getCircleWeight(zoom) {
-  if (zoom <= 5) {
-    return 7;
+  console.log(zoom);
+
+  // Zoomed out
+  if (zoom <= 8) {
+    return 6;
   }
 
+  // Zoomed in
   if (zoom >= 15) {
     return 4;
   }
