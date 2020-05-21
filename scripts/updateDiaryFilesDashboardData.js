@@ -146,7 +146,8 @@ const suburbToPostcode = (suburb) => {
   let out = null;
   const result = postcodes.filter((entry) => {
     return (
-      entry.type === 'Delivery Area' && entry.locality === suburb.toUpperCase()
+      (entry.type === 'Delivery Area' || entry.type === 'Delivery Area2') &&
+      entry.locality === suburb.toUpperCase()
     );
   });
   if (result.length > 0) {
