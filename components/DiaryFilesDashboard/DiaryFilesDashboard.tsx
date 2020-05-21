@@ -32,7 +32,7 @@ const DiaryFilesDashboard = ({ className }) => {
   });
 
   React.useEffect(() => {
-    fetch('/data/diaryFilesDashboardData.json')
+    fetch('/data/diary-files-dashboard-data.json')
       .then((r) => r.json())
       .then((d) => {
         setData(d);

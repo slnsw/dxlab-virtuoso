@@ -10,7 +10,7 @@ const fs = require('fs');
 
 // require('dotenv').config();
 
-const postcodes = require('./australianPostcodes');
+const postcodes = require('./australian-postcodes');
 /*
   From here: https://www.matthewproctor.com/australian_postcodes
   Is an array of objects like this:
@@ -291,14 +291,14 @@ const processData = (posts) => {
   };
 
   fs.writeFile(
-    'public/data/diaryFilesDashboardData.json',
+    'public/data/diary-files-dashboard-data.json',
     JSON.stringify(output),
     (saveErr) => {
       if (saveErr) {
         return console.log(saveErr);
       }
       console.log(
-        'All processed data saved to public/data/diaryFilesDashboardData.json',
+        'All processed data saved to public/data/diary-files-dashboard-data.json',
       );
     },
   );
