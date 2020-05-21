@@ -12,17 +12,35 @@ type Props = {
   // children?: React.ReactNode;
 };
 
+function getCircleWeight(zoom) {
+  if (zoom <= 5) {
+    return 7;
+  }
+
+  if (zoom >= 15) {
+    return 4;
+  }
+
+  return (19 - zoom) / 3;
+}
+
 const DiaryFilesMap: React.FC<Props> = ({
   center,
-  zoom,
+  zoom = 11,
   data = [],
   className,
 }) => {
+  const [viewportZoom, setViewportZoom] = React.useState(zoom);
+  const circleWeight = getCircleWeight(viewportZoom);
+
   return (
     <Map
       center={center}
       zoom={zoom}
       className={[css.diaryFilesMap, className || ''].join(' ')}
+      onViewportChange={({ zoom: z }) => {
+        setViewportZoom(z);
+      }}
     >
       <FullscreenControl position="topleft" />
       <TileLayer
@@ -39,7 +57,11 @@ const DiaryFilesMap: React.FC<Props> = ({
               color="var(--colour-primary)"
               key={`${s.name} ${s.item}`}
             >
-              <Circle center={[s.lat, s.long]} radius={s.count * 80 + 60}>
+              <Circle
+                center={[s.lat, s.long]}
+                radius={s.count * 80 + 60}
+                weight={circleWeight}
+              >
                 <Popup className={css.popup}>
                   <p>
                     <a href={`/diary-files/search?q=${s.item}`}>
