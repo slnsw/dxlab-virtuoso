@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
-import {
-  TileLayer,
-  Map, // Marker,
-  Popup,
-  Circle,
-  FeatureGroup,
-} from 'react-leaflet';
-import FullscreenControl from 'react-leaflet-fullscreen';
+// import {
+//   TileLayer,
+//   Map, // Marker,
+//   Popup,
+//   Circle,
+//   FeatureGroup,
+// } from 'react-leaflet';
+// import FullscreenControl from 'react-leaflet-fullscreen';
+import DiaryFilesMap from '../DiaryFilesMap';
 
 import LoaderText from '../LoaderText';
 import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import BubbleChart from '../BubbleChart';
 
 import css from './DiaryFilesDashboard.module.scss';
-// import InteractiveMap, { Circle, Popup, FeatureGroup } from '../InteractiveMap';
 
 const BarChart = dynamic(() => import('../BarChart'));
 
@@ -186,13 +186,13 @@ const DiaryFilesDashboard = ({ className }) => {
       <section>
         <h2>location</h2>
 
-        {/* <InteractiveMap
+        <DiaryFilesMap
           center={position}
           zoom={mapData.zoom}
           data={postcodesData}
-        ></InteractiveMap> */}
+        ></DiaryFilesMap>
 
-        <Map center={position} zoom={mapData.zoom} id={css.mapid}>
+        {/* <Map center={position} zoom={mapData.zoom} id={css.mapid}>
           <FullscreenControl position="topleft" />
           <TileLayer
             url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png"
@@ -224,7 +224,7 @@ const DiaryFilesDashboard = ({ className }) => {
               )
             );
           })}
-        </Map>
+        </Map> */}
       </section>
     </article>
   );
