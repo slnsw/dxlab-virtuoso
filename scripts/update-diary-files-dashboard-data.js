@@ -243,7 +243,7 @@ const processData = (posts) => {
   let agesGroupedTemp = [];
   agesNumeric.forEach((a) => {
     const key = `${Math.floor(Number.parseInt(a.item, 10) / 5) *
-      5}-${Math.floor(Number.parseInt(a.item, 10) / 5) * 5 + 5}`;
+      5}–${Math.floor(Number.parseInt(a.item, 10) / 5) * 5 + 5}`;
     if (agesGroupedTemp.hasOwnProperty(key)) {
       agesGroupedTemp[key] += a.count;
     } else {
