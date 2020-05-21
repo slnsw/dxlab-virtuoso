@@ -76,7 +76,7 @@ const BarChart: React.FC<Props> = ({
 
         yAxis = (g) =>
           g
-            .attr('transform', `translate(${margin.left},0)`)
+            .attr('transform', `translate(${margin.left + 1},0)`)
             .call(d3.axisLeft(y).ticks(null, 's'))
             .call((selection) => selection.select('.domain').remove());
 

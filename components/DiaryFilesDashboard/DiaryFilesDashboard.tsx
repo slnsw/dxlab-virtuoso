@@ -131,6 +131,7 @@ const DiaryFilesDashboard = ({ className }) => {
 
       <section>
         <h2>location</h2>
+        <p>Number of entries by location</p>
 
         <DiaryFilesMap
           center={position}
@@ -153,7 +154,7 @@ const DiaryFilesDashboard = ({ className }) => {
           // showValues={true}
           rotateXAxis={true}
           height={agesData.length * 20}
-          margin={{ top: 10, left: 40, right: 10, bottom: 50 }}
+          margin={{ top: 20, left: 40, right: 10, bottom: 50 }}
           id={'age-chart'}
         />
       </section>
@@ -168,8 +169,11 @@ const DiaryFilesDashboard = ({ className }) => {
               value: d.count,
             };
           })}
+          height={300}
           direction={'vertical'}
           showValues={true}
+          rotateXAxis={true}
+          margin={{ top: 20, left: 40, right: 10, bottom: 80 }}
         />
 
         <p>
