@@ -4,9 +4,8 @@ import fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
 import {
-  Map,
   TileLayer,
-  // Marker,
+  Map, // Marker,
   Popup,
   Circle,
   FeatureGroup,
@@ -17,6 +16,7 @@ import HenryLawsonPen from '../DiaryFilesHome/HenryLawsonPen';
 import BubbleChart from '../BubbleChart';
 
 import css from './DiaryFilesDashboard.module.scss';
+// import InteractiveMap, { Circle, Popup, FeatureGroup } from '../InteractiveMap';
 
 const BarChart = dynamic(() => import('../BarChart'));
 
@@ -32,7 +32,7 @@ const DiaryFilesDashboard = ({ className }) => {
   });
   const [loading, setLoading] = React.useState(true);
   const [popularWordsOffset] = React.useState(16);
-  const [mapData, setMapData] = React.useState({
+  const [mapData] = React.useState({
     lat: -33.90441,
     lng: 151.138999,
     zoom: 11,
@@ -184,6 +184,12 @@ const DiaryFilesDashboard = ({ className }) => {
       </section>
       <section>
         <h2>location</h2>
+
+        {/* <InteractiveMap
+          center={position}
+          zoom={mapData.zoom}
+          data={postcodesData}
+        ></InteractiveMap> */}
 
         <Map center={position} zoom={mapData.zoom} id={css.mapid}>
           <TileLayer
