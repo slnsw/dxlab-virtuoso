@@ -14,14 +14,6 @@ type Props = {
   className?: string;
 };
 
-type AProps = {
-  href?: string;
-  size?: 'sm' | 'md';
-  variant?: 'primary' | 'secondary';
-  target?: string;
-  className?: string;
-};
-
 const CTALink: React.FC<Props> = ({
   href,
   size = 'md',
