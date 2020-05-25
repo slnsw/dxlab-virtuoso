@@ -14,8 +14,15 @@ type Props = {
   className?: string;
 };
 
+type AProps = {
+  href?: string;
+  size?: 'sm' | 'md';
+  variant?: 'primary' | 'secondary';
+  target?: string;
+  className?: string;
+};
+
 const CTALink: React.FC<Props> = ({
-  children,
   href,
   size = 'md',
   variant = 'primary',
@@ -23,18 +30,26 @@ const CTALink: React.FC<Props> = ({
   scroll,
   replace,
   className,
+  children,
 }) => {
+  const newClassName = [
+    css.ctaLink,
+    className || '',
+    size === 'sm' ? css.sm : '',
+    variant === 'secondary' ? css.secondary : '',
+  ].join(' ');
+
+  if (href && href.match('^http')) {
+    return (
+      <a href={href} className={newClassName} target={target}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link as={href} scroll={scroll} replace={replace}>
-      <a
-        className={[
-          css.ctaLink,
-          size === 'sm' ? css.sm : '',
-          variant === 'secondary' ? css.secondary : '',
-          className || '',
-        ].join(' ')}
-        target={target}
-      >
+      <a className={newClassName} target={target}>
         {children}
       </a>
     </Link>

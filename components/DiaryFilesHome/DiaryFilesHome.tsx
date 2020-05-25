@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LoaderText from '../LoaderText';
-import CTAButton from '../CTAButton';
+import CTALink from '../CTALink';
 import CTAButtonV2 from '../CTAButtonV2';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
@@ -38,9 +38,9 @@ const DiaryFilesHome = ({ className }) => {
 
         <p className={css.kicker}>Everyone has a story to tell</p>
 
-        <CTAButton href="/diary-files/write" className={css.mastheadButton}>
+        <CTALink href="/diary-files/write" className={css.mastheadButton}>
           Start writing
-        </CTAButton>
+        </CTALink>
 
         <br />
 
