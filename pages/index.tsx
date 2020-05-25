@@ -157,6 +157,7 @@ class HomePage extends Component {
         <br />
         <br />
         <br />
+        <br />
 
         <Masthead
           className="home-page__masthead--grants"
