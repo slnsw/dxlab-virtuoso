@@ -4,6 +4,7 @@ import Head from 'next/head';
 import WebsiteApp from '../components/WebsiteApp';
 import Select from '../components/Select';
 import CTAButtonV2 from '../components/CTAButtonV2';
+import CTALink from '../components/CTALink';
 import Modal from '../components/Modal';
 import Overlay from '../components/Overlay';
 import Icon from '../components/Icon';
@@ -43,6 +44,31 @@ const DesignSystemPage = () => {
           },
         ]}
       />
+
+      <h3>CTALink</h3>
+      <p>
+        <CTALink href="/">Home Page</CTALink>
+        <CTALink href="https://sl.nsw.gov.au">SL Home Page</CTALink>
+      </p>
+      <p>
+        <CTALink href="/">Home Page</CTALink>
+      </p>
+
+      <p>
+        <CTALink href="/" size="sm">
+          Small CTALink
+        </CTALink>
+
+        <CTALink href="/" variant="secondary" size="sm">
+          Secondary Small CTALink
+        </CTALink>
+      </p>
+
+      <p>
+        <CTALink href="/" variant="secondary">
+          Secondary CTALink
+        </CTALink>
+      </p>
 
       <h3>CTAButtonV2</h3>
       <CTAButtonV2>Example Button</CTAButtonV2>

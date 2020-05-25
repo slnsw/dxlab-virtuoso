@@ -5,7 +5,15 @@ import Icon from '../Icon';
 
 import css from './SearchTextInput.module.scss';
 
-const SearchTextInput = ({
+type Props = {
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  className?: string;
+  onChange?: Function;
+};
+
+const SearchTextInput: React.FC<Props> = ({
   name,
   value,
   placeholder,

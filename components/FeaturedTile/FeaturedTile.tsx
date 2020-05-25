@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TileImage from '../TileImage';
-import CTAButton from '../CTAButton';
+import CTALink from '../CTALink';
 
 class FeaturedTile extends Component {
   static propTypes = {
@@ -31,9 +31,9 @@ class FeaturedTile extends Component {
             dangerouslySetInnerHTML={{ __html: content }}
           />
 
-          <div className="featured-tile__cta">
-            <CTAButton>Read</CTAButton>
-          </div>
+          {/* <div className="featured-tile__cta">
+            <CTALink>Read</CTALink>
+          </div> */}
         </div>
       </article>
     );
