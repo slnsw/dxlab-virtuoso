@@ -36,7 +36,9 @@ const Header: React.FC<Props> = ({ menuItems = [], pathname }) => {
             ...item,
             isActive:
               // Enable 'blog' to be highlighted on blog posts
-              pathname.split('/')[1] === 'blog' && item.url === '/blog',
+              pathname &&
+              pathname.split('/')[1] === 'blog' &&
+              item.url === '/blog',
           }))}
           pathname={pathname}
           onMenuItemClick={handleMenuToggle}
