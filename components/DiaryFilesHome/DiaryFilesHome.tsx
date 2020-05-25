@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import LoaderText from '../LoaderText';
 import CTALink from '../CTALink';
-import CTAButtonV2 from '../CTAButtonV2';
+import CTAButton from '../CTAButton';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
@@ -108,14 +108,14 @@ const DiaryFilesHome = ({ className }) => {
       )}
 
       {(status === 'loaded' || status === 'initial') && hasMorePosts && (
-        <CTAButtonV2
+        <CTAButton
           className={css.wideButton}
           onClick={() => {
             setOffset(posts.length);
           }}
         >
           Show more
-        </CTAButtonV2>
+        </CTAButton>
       )}
     </div>
   );
