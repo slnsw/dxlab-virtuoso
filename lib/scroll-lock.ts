@@ -8,11 +8,13 @@ export const useLockBodyScroll = (isActive = true) => {
 
       if (isActive) {
         console.log('locked');
+        alert('locked');
         // Prevent scrolling on mount
         document.body.style.overflow = 'hidden';
         // Re-enable scrolling when component unmounts
       } else {
         console.log('unlocked');
+        alert('unlocked');
         document.body.style.overflow = originalStyle;
       }
 
