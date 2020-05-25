@@ -14,15 +14,35 @@ import Footer from '../Footer';
 import { DiaryFilesProvider } from '../../lib/contexts/diary-files-context';
 import { initGA } from '../../lib/analytics';
 import config from '../../lib/config';
+import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './DiaryFilesApp.module.scss';
 
 const DiaryFilesApp = ({ title, children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  // const [isScrollLocked, setIsScrollLocked] = React.useState(false);
 
   const handleMenuToggle = () => {
+    // if (isScrollLocked) {
+    //   scrollLockDisable();
+    //   setIsScrollLocked(false);
+    // } else {
+    //   scrollLockEnable();
+    //   setIsScrollLocked(true);
+    // }
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // function useLockBodyScroll() {
+  //   React.useLayoutEffect(() => {
+  //     // Get original body overflow
+  //     const originalStyle = window.getComputedStyle(document.body).overflow;
+  //     // Prevent scrolling on mount
+  //     document.body.style.overflow = 'hidden';
+  //     // Re-enable scrolling when component unmounts
+  //     return () => (document.body.style.overflow = originalStyle);
+  //   }, []); // Empty array ensures effect is only run on mount and unmount
+  // }
 
   // TODO: Consider moving this into App
   React.useEffect(() => {
@@ -31,6 +51,8 @@ const DiaryFilesApp = ({ title, children, className }) => {
       window.GA_INITIALIZED = true;
     }
   }, []);
+
+  useLockBodyScroll(isMenuOpen);
 
   return (
     <DiaryFilesProvider>
@@ -52,7 +74,7 @@ const DiaryFilesApp = ({ title, children, className }) => {
             rel="stylesheet"
             href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
             integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-            crossorigin=""
+            crossOrigin=""
           />
         </Head>
 

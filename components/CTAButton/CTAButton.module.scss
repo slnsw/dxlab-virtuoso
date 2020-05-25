@@ -1,24 +1,21 @@
 @import '../../styles/global.scss';
 
-@lost gutter 0.3em;
-
 .ctaButton {
+  @extend .font-uppercase;
+
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   height: 3em;
-  padding-right: var(--spacing-xs);
+  padding-right: var(--spacing-sm);
+  padding-bottom: 0;
   padding-left: var(--spacing-md);
   font-size: var(--font-size-sm);
   line-height: 1;
-  letter-spacing: 0.4em;
   text-align: center;
   border: 1px solid var(--colour-white);
-  /* border: 1px solid var(--colour-grey-darkest); */
-  @extend .font-uppercase;
-
   transition: 0.3s;
 
   &:link,
@@ -33,12 +30,15 @@
   }
 }
 
-.ctaButtonSm {
-  height: 2em;
-  background-color: var(--colour-grey-darkest);
-  border: 1px solid var(--colour-grey-darkest);
+.ctaButton:disabled {
+  opacity: 0.5;
 
   &:hover {
-    background-color: var(--colour-black);
+    color: inherit;
+    border: 1px solid var(--colour-white);
   }
+}
+
+.light {
+  --colour-white: var(--colour-black);
 }

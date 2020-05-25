@@ -189,6 +189,10 @@
   display: flex;
   align-items: center;
   justify-self: center;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
 }
 
 .headerMenuWrapper {
