@@ -187,7 +187,7 @@
 
 .diaryFilesApp .headerNavInside {
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-self: center;
   overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
