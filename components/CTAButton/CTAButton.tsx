@@ -1,69 +1,41 @@
-import { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '../Link';
+import Button from '../Button';
 
 import css from './CTAButton.module.scss';
 
 type Props = {
-  href: string;
-  size?: string;
-  target?: string;
-  scroll?: boolean;
-  replace?: boolean;
+  theme?: string;
   className?: string;
+  children?: React.ReactNode;
+  onClick?: Function;
 };
 
-class CTAButton extends Component<Props> {
-  static propTypes = {
-    href: PropTypes.string.isRequired,
-    size: PropTypes.string,
-    target: PropTypes.string,
-    scroll: PropTypes.bool,
-    replace: PropTypes.bool,
-    className: PropTypes.string,
-  };
+const CTAButton: React.FC<Props> = ({
+  theme,
+  className,
+  children,
+  ...restProps
+}) => {
+  return (
+    <Button
+      className={[
+        css.ctaButton,
+        theme === 'light' ? css.light : '',
+        className || '',
+      ].join(' ')}
+      {...restProps}
+    >
+      {children}
+    </Button>
+  );
+};
 
-  render() {
-    const {
-      children,
-      href,
-      size,
-      target,
-      scroll,
-      replace,
-      className,
-    } = this.props;
-
-    // TODO: Make this DRY
-    return href && href.match('^http') ? (
-      <a
-        href={href}
-        className={[
-          css.ctaButton,
-          size ? css.ctaButtonSm : '',
-          className || '',
-        ].join(' ')}
-        target={target}
-      >
-        {children}
-      </a>
-    ) : (
-      <Link as={href} scroll={scroll} replace={replace}>
-        <a
-          // href={href}
-          className={[
-            css.ctaButton,
-            size ? css.ctaButtonSm : '',
-            className || '',
-          ].join(' ')}
-          target={target}
-        >
-          {children}
-        </a>
-      </Link>
-    );
-  }
-}
+CTAButton.propTypes = {
+  theme: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
 
 export default CTAButton;
