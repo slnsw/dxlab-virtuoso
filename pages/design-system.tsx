@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import WebsiteApp from '../components/WebsiteApp';
 import Select from '../components/Select';
-import CTAButtonV2 from '../components/CTAButtonV2';
+import CTAButton from '../components/CTAButton';
 import CTALink from '../components/CTALink';
 import Modal from '../components/Modal';
 import Overlay from '../components/Overlay';
@@ -70,22 +70,20 @@ const DesignSystemPage = () => {
         </CTALink>
       </p>
 
-      <h3>CTAButtonV2</h3>
-      <CTAButtonV2>Example Button</CTAButtonV2>
+      <h3>CTAButton</h3>
+      <CTAButton>Example Button</CTAButton>
 
       <h3>Modal</h3>
-      <CTAButtonV2 onClick={() => setIsModalActive(true)}>
-        Show modal
-      </CTAButtonV2>
+      <CTAButton onClick={() => setIsModalActive(true)}>Show modal</CTAButton>
 
       <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
         Modal Content
       </Modal>
 
       <h3>Overlay</h3>
-      <CTAButtonV2 onClick={() => setIsOverlayActive(true)}>
+      <CTAButton onClick={() => setIsOverlayActive(true)}>
         Show overlay
-      </CTAButtonV2>
+      </CTAButton>
 
       <Overlay
         isActive={isOverlayActive}

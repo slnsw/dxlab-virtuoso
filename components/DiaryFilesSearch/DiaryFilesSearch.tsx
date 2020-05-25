@@ -5,7 +5,7 @@ import Router from 'next/router';
 import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 import DiaryFilesSuggestedSearches from '../DiaryFilesSuggestedSearches';
-import CTAButtonV2 from '../CTAButtonV2';
+import CTAButton from '../CTAButton';
 
 import useDiaryFilesPostsQuery from '../../lib/hooks/use-diary-files-posts-query';
 
@@ -133,7 +133,7 @@ const DiaryFilesSearch = ({ className, search }) => {
       {status === 'loading' && <LoaderText className={css.loader} />}
 
       {status === 'loaded' && hasMorePosts && (
-        <CTAButtonV2
+        <CTAButton
           style={{
             width: '100%',
           }}
@@ -143,7 +143,7 @@ const DiaryFilesSearch = ({ className, search }) => {
           }}
         >
           Show more
-        </CTAButtonV2>
+        </CTAButton>
       )}
     </div>
   );
