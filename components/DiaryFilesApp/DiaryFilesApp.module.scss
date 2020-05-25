@@ -189,6 +189,8 @@
   display: flex;
   align-items: center;
   justify-self: center;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .headerMenuWrapper {
