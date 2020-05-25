@@ -14,7 +14,7 @@ import Footer from '../Footer';
 import { DiaryFilesProvider } from '../../lib/contexts/diary-files-context';
 import { initGA } from '../../lib/analytics';
 import config from '../../lib/config';
-import { useLockBodyScroll } from '../../lib/scroll-lock';
+import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './DiaryFilesApp.module.scss';
 

@@ -6,7 +6,7 @@ import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton/MenuIconButton';
-import { useLockBodyScroll } from '../../lib/scroll-lock';
+import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 type Props = {
   menuItems?: any[];

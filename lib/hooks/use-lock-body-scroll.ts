@@ -7,10 +7,10 @@ export const useLockBodyScroll = (isActive = true) => {
       const originalStyle = window.getComputedStyle(document.body).overflow;
 
       if (isActive) {
-        // Prevent scrolling on mount
+        // Prevent scrolling
         document.body.style.overflow = 'hidden';
-        // Re-enable scrolling when component unmounts
       } else {
+        // Re-enable scrolling
         document.body.style.overflow = originalStyle;
       }
 
@@ -18,7 +18,7 @@ export const useLockBodyScroll = (isActive = true) => {
         document.body.style.overflow = originalStyle;
       };
     }
-  }, [isActive]); // Empty array ensures effect is only run on mount and unmount
+  }, [isActive]);
 };
 
 // const $body = document.querySelector('body');
