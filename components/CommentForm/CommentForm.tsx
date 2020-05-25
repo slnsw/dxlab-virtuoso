@@ -1,17 +1,28 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 // import './CommentForm.css';
 
-class CommentForm extends Component {
-  static propTypes = {
-    postId: PropTypes.number,
-  };
+type Props = {
+  postId: number;
+  submitComment: Function;
+};
 
-  constructor() {
-    super();
+type State = {
+  isFormSubmitted: boolean;
+  showSubmitError: boolean;
+  showWarning: boolean;
+};
+
+class CommentForm extends Component<Props, State> {
+  // static propTypes = {
+  //   postId: PropTypes.number,
+  // };
+
+  constructor(props) {
+    super(props);
 
     this.state = {
       isFormSubmitted: false,
@@ -103,7 +114,7 @@ class CommentForm extends Component {
                   name="content"
                   aria-label="content"
                   aria-required="true"
-                  rows="6"
+                  rows={6}
                 />
               </div>
 
