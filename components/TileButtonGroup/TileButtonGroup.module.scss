@@ -3,7 +3,7 @@
 .tileButtonGroup {
   display: flex;
   height: 3em;
-  font-size: var(--font-size-sm);
+  // font-size: var(--font-size-sm);
 
   @include media-sm {
     flex-wrap: wrap;
