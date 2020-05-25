@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import HeaderNav from '../HeaderNav/HeaderNav';
 import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton/MenuIconButton';
+import { useLockBodyScroll } from '../../lib/scroll-lock';
 
 type Props = {
   menuItems?: any[];
@@ -14,6 +15,8 @@ type Props = {
 
 const Header: React.FC<Props> = ({ menuItems = [], pathname }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  useLockBodyScroll(isMenuOpen);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
