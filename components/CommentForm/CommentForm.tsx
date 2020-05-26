@@ -179,4 +179,5 @@ export default graphql(query, {
         variables: args,
       }),
   }),
+  // @ts-ignore
 })(CommentForm);
