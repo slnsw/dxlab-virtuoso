@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LoaderText from '../LoaderText';
+import CTALink from '../CTALink';
 import CTAButton from '../CTAButton';
-import CTAButtonV2 from '../CTAButtonV2';
 import Link from '../Link';
 import DiaryFilesPost from '../DiaryFilesPost';
 import Typewriter from './Typewriter';
@@ -38,9 +38,9 @@ const DiaryFilesHome = ({ className }) => {
 
         <p className={css.kicker}>Everyone has a story to tell</p>
 
-        <CTAButton href="/diary-files/write" className={css.mastheadButton}>
+        <CTALink href="/diary-files/write" className={css.mastheadButton}>
           Start writing
-        </CTAButton>
+        </CTALink>
 
         <br />
 
@@ -56,6 +56,14 @@ const DiaryFilesHome = ({ className }) => {
           <p className={css.smallText}>
             <Link href="/diary-files/search">
               <a>Search</a>
+            </Link>
+          </p>
+
+          <div className={css.verticalDivider}></div>
+
+          <p className={css.smallText}>
+            <Link href="/diary-files/dashboard">
+              <a>Dashboard</a>
             </Link>
           </p>
         </div>
@@ -100,14 +108,14 @@ const DiaryFilesHome = ({ className }) => {
       )}
 
       {(status === 'loaded' || status === 'initial') && hasMorePosts && (
-        <CTAButtonV2
+        <CTAButton
           className={css.wideButton}
           onClick={() => {
             setOffset(posts.length);
           }}
         >
           Show more
-        </CTAButtonV2>
+        </CTAButton>
       )}
     </div>
   );

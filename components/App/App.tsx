@@ -2,29 +2,33 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-// import Header from '../Header';
 import SocialMetaHead from '../SocialMetaHead';
-// import Footer from '../Footer';
-// import Progress from '../Progress/Progress';
 
 import { buildHeadTitle } from '../../lib';
-// import { initGA } from '../../lib/analytics'; // logPageView
 
-// import './App.css';
-// import '../../styles/loader.css';
+type Props = {
+  title: string;
+  children?: React.ReactNode;
+  metaDescription?: string;
+  metaImageUrl?: string;
+  metaImageAlt?: string;
+  metaImageWidth?: number;
+  metaImageHeight?: number;
+  className?: string;
+};
 
-// const SCROLLTOP_THRESHOLD = 100;
-
-class App extends Component {
+class App extends Component<Props> {
   static propTypes = {
     title: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    pathname: PropTypes.string,
-    isLoading: PropTypes.bool,
+    // pathname: PropTypes.string,
+    // isLoading: PropTypes.bool,
     metaDescription: PropTypes.string,
     metaImageUrl: PropTypes.string,
     metaImageAlt: PropTypes.string,
-    headerMenuItems: PropTypes.array,
+    metaImageWidth: PropTypes.number,
+    metaImageHeight: PropTypes.number,
+    // headerMenuItems: PropTypes.array,
     className: PropTypes.string,
   };
 

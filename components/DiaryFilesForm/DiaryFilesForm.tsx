@@ -2,10 +2,10 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import Select from '../Select/Select';
+import Select from '../Select';
+import CTALink from '../CTALink';
 
 import css from './DiaryFilesForm.module.scss';
-import CTAButton from '../CTAButton';
 
 const stateOptions = [
   { value: 'NSW', label: 'New South Wales' },
@@ -350,9 +350,9 @@ const DiaryFilesForm = (props) => {
               can share it with your friends and family using{' '}
               <a href={`/diary-files/entry/${newId}`}>this link</a>.
             </p>
-            <CTAButton href="/diary-files" className={css.continueButton}>
+            <CTALink href="/diary-files" className={css.continueButton}>
               Continue
-            </CTAButton>
+            </CTALink>
           </div>
         )}
       </div>

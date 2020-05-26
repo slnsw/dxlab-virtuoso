@@ -1,0 +1,49 @@
+@import '../../styles/global.scss';
+
+.ctaLink {
+  @extend .font-uppercase;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  padding-right: var(--spacing-sm);
+  padding-bottom: 0;
+  padding-left: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  // text-align: center;
+  letter-spacing: 0.3em;
+  border: 1px solid var(--colour-white);
+  transition: 0.3s;
+
+  &:link,
+  &:visited {
+    color: var(--colour-white);
+  }
+
+  &:hover {
+    color: var(--colour-highlight);
+    text-decoration: none;
+    border: 1px solid var(--colour-highlight);
+  }
+
+  &:focus {
+    @extend .outline;
+  }
+}
+
+.sm {
+  height: 2em;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.4em;
+}
+
+.secondary {
+  background-color: var(--colour-grey-darkest);
+  border: 1px solid var(--colour-grey-darkest);
+
+  &:hover {
+    background-color: var(--colour-black);
+  }
+}

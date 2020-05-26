@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.2] - 2020-5-25
+
+- Add `CTALink` component
+- Refactor `CTAButtonV2` to `CTAButton`
+- Add `use-lock-body-scroll` hook and apply to `dxlab-website` and `diary-files`
+
+## [1.10.1] - 2020-5-21
+
+- Add dashboard to Diary Files
+- Add `d3`, `d3-render` and `react-leaflet` for data viz
+
 ## [1.10.0] - 2020-5-19
 
 - Migrate to Typescript

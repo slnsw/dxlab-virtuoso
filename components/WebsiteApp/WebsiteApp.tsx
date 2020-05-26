@@ -8,6 +8,27 @@ import Progress from '../Progress/Progress';
 
 import { initGA } from '../../lib/analytics'; // logPageView
 
+type Props = {
+  title?: string;
+  metaDescription?: string;
+  metaImageUrl?: string;
+  metaImageWidth?: number;
+  metaImageHeight?: number;
+  pathname?: string;
+  isLoading?: boolean;
+  children?: React.ReactNode;
+};
+
+type State = {
+  isHeaderBackgroundActive: boolean;
+};
+
+declare global {
+  interface Window {
+    GA_INITIALIZED: boolean;
+  }
+}
+
 const HEADER_MENU_ITEMS = [
   { name: 'Home', url: '/' },
   { name: 'About', url: '/about' },
@@ -29,7 +50,7 @@ const HEADER_MENU_ITEMS = [
 
 const SCROLLTOP_THRESHOLD = 100;
 
-class WebsiteApp extends Component {
+class WebsiteApp extends Component<Props, State> {
   static propTypes = {
     title: PropTypes.string,
     metaDescription: PropTypes.string,
@@ -45,8 +66,8 @@ class WebsiteApp extends Component {
     headerMenuItems: [],
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isHeaderBackgroundActive: false,
@@ -103,14 +124,14 @@ class WebsiteApp extends Component {
 
     return (
       <App
-        pathname={pathname}
-        isLoading={isLoading}
+        // pathname={pathname}
+        // isLoading={isLoading}
         title={title}
         metaDescription={metaDescription}
         metaImageUrl={metaImageUrl}
         metaImageWidth={metaImageWidth}
         metaImageHeight={metaImageHeight}
-        headerMenuItems={HEADER_MENU_ITEMS}
+        // headerMenuItems={HEADER_MENU_ITEMS}
         className="website-app"
       >
         <Header pathname={pathname} menuItems={HEADER_MENU_ITEMS} />
@@ -140,7 +161,7 @@ class WebsiteApp extends Component {
 
         <main>{!isLoading && children}</main>
 
-        <Footer pathname={pathname} />
+        <Footer />
       </App>
     );
   }

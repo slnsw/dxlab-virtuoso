@@ -1,4 +1,5 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 // import { ApolloProvider } from '@apollo/react-hooks';
 
 import DiaryFilesApp from '../components/DiaryFilesApp';
@@ -13,8 +14,11 @@ import {
   // initApolloClient,
   withApollo,
 } from '../lib/apollo';
-
 // const client = initApolloClient();
+
+const DiaryFilesDashboard = dynamic(() =>
+  import('../components/DiaryFilesDashboard'),
+);
 
 const DiaryFilesPage = ({ router }) => {
   const { pathname, query } = router;
@@ -38,6 +42,9 @@ const DiaryFilesPage = ({ router }) => {
     '/diary-files/search': {
       title: 'Search',
     },
+    '/diary-files/dashboard': {
+      title: 'Dashboard',
+    },
   };
 
   const title = `${config[pathname].title} - The Diary Files`;
@@ -59,6 +66,7 @@ const DiaryFilesPage = ({ router }) => {
       {pathname === '/diary-files/search' && (
         <DiaryFilesSearch search={search} />
       )}
+      {pathname === '/diary-files/dashboard' && <DiaryFilesDashboard />}
     </DiaryFilesApp>
   );
 };

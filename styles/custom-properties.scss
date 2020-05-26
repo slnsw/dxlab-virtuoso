@@ -7,13 +7,16 @@
    * Colours
    * ------------------------------------------------------------------------ */
 
-  --colour-primary: #e6007e;
+  --colour-primary: #e6007e; // rgb(230,0,126)
   --colour-secondary: green;
   --colour-tertiary: yellow;
   --colour-highlight: #e6007e;
 
   --colour-black: #060606;
   --colour-white: #f6f6f6;
+
+  /* Colours With Opacity */
+  --colour-primary-opacity: rgb(230, 0, 126, 0.7);
 
   /* Named colours */
   --colour-pink: #e6007e;

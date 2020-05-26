@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import WebsiteApp from '../../components/WebsiteApp';
 import Image from '../../components/Image';
 import ShareBox from '../../components/ShareBox';
-import CTAButton from '../../components/CTAButton';
+import CTALink from '../../components/CTALink';
 import Comments from '../../components/Comments';
 import Four04 from '../_error';
 
@@ -153,14 +153,17 @@ class Post extends Component {
 
                 <div className="post__cta">
                   {experimentUrl && (
-                    <CTAButton href={experimentUrl} target="_blank">
-                      LAUNCH EXPERIMENT
-                    </CTAButton>
+                    <CTALink href={experimentUrl} target="_blank">
+                      Launch experiment
+                    </CTALink>
                   )}
                   {githubUrl && (
-                    <CTAButton href={githubUrl} target="_blank">
-                      CODE
-                    </CTAButton>
+                    <>
+                      &#160;
+                      <CTALink href={githubUrl} target="_blank">
+                        Code
+                      </CTALink>
+                    </>
                   )}
                 </div>
               </header>

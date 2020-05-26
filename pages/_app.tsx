@@ -5,6 +5,8 @@ import '../styles/base.scss';
 import '../styles/fonts.scss'; // Icons
 import '../styles/loader.scss';
 
+import 'react-leaflet-fullscreen/dist/styles.css';
+
 // Pages CSS
 import './collection/item/item.scss';
 import './collection/index.scss';

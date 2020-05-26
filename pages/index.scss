@@ -41,5 +41,9 @@
 .home-page__button-holder {
   @include media-md {
     max-width: 35%;
+
+    a {
+      width: 100%;
+    }
   }
 }

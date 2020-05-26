@@ -184,8 +184,9 @@ input[type='submit'] {
   -webkit-appearance: none;
 
   &:focus {
-    outline: 1;
-    outline-color: var(--colour-highlight);
+    // outline: 1;
+    // outline-color: var(--colour-highlight);
+    @extend .outline;
   }
 }
 /* stylelint-enable */
