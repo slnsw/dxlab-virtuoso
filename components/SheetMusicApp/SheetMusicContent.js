@@ -1,14 +1,15 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 import SheetMusic from '@slnsw/react-sheet-music';
-
 import { Range } from 'react-range';
+
 import Select from '../Select/Select';
+import CTAButton from '../CTAButton';
+import Icon from '../Icon/Icon';
+
 import samples from './samples';
 
 import css from './SheetMusicContent.module.scss';
-import Icon from '../Icon/Icon';
-import CTAButtonV2 from '../CTAButtonV2';
 
 const SheetMusicContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -108,7 +109,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
   return (
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
-        <CTAButtonV2
+        <CTAButton
           onClick={() => setIsPlaying(!isPlaying)}
           // className={css['button--light']}
           theme="light"
@@ -129,38 +130,38 @@ const SheetMusicContent = ({ song: currentSong }) => {
               )}
             </>
           )}
-        </CTAButtonV2>
+        </CTAButton>
 
-        {/* <CTAButtonV2>Play</CTAButtonV2> */}
+        {/* <CTAButton>Play</CTAButton> */}
 
         <div className={css.tempoControls}>
           <span>Tempo:</span>
-          <CTAButtonV2
+          <CTAButton
             theme="light"
             className={css['button--tempo']}
             onClick={handleTempoChangeDown}
             disabled={isPlaying}
           >
             <Icon name="remove" />
-          </CTAButtonV2>
+          </CTAButton>
           <span>{tempo}</span>
-          <CTAButtonV2
+          <CTAButton
             theme="light"
             className={css['button--tempo']}
             onClick={handleTempoChangeUp}
             disabled={isPlaying}
           >
             <Icon name="add" />
-          </CTAButtonV2>
+          </CTAButton>
         </div>
 
-        <CTAButtonV2
+        <CTAButton
           onClick={() => setShowMoreControls(!showMoreControls)}
           theme="light"
           className={css['button--light']}
         >
           {showMoreControls ? 'Hide' : 'More'}
-        </CTAButtonV2>
+        </CTAButton>
 
         {showMoreControls && (
           <div className={css.instrumentControls}>
