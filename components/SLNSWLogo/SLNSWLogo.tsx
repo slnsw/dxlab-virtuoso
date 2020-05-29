@@ -20,6 +20,7 @@ const SLNSWLogo = ({ className, onClick }) => {
 
 SLNSWLogo.propTypes = {
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default SLNSWLogo;

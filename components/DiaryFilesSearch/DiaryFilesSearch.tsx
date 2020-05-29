@@ -69,7 +69,7 @@ const DiaryFilesSearch = ({ className, search }) => {
             <SearchTextInput
               name="q"
               aria-label="Search"
-              type="text"
+              // type="text"
               aria-required="true"
               placeholder={'Type something...'}
               value={inputValue || ''}
@@ -134,9 +134,6 @@ const DiaryFilesSearch = ({ className, search }) => {
 
       {status === 'loaded' && hasMorePosts && (
         <CTAButton
-          style={{
-            width: '100%',
-          }}
           // className={css.wideButton}
           onClick={() => {
             setOffset(posts.length);

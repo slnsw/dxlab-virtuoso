@@ -8,15 +8,15 @@ import { isInViewport } from '../../lib/is-in-viewport';
 
 import css from './TextTruncate.module.scss';
 
-// type Props = {
-//   limit?: number;
-//   children?: string | React.ReactNode;
-//   className?: string;
-//   ellipsisChars?: string;
-//   showButton?: boolean;
-//   shouldStripHtml?: boolean;
-//   // onChange?: Function;
-// };
+type Props = {
+  limit?: number;
+  children?: string | React.ReactNode;
+  className?: string;
+  ellipsisChars?: string;
+  showButton?: boolean;
+  shouldStripHtml?: boolean;
+  // onChange?: Function;
+};
 
 /**
  * Truncates text within props.children

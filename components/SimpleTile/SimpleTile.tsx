@@ -4,15 +4,25 @@ import PropTypes from 'prop-types';
 import Link from '../Link';
 import Image from '../Image';
 
-class SimpleTile extends Component {
+type Props = {
+  title: string;
+  subtitle?: string;
+  url: string;
+  imageUrl?: string;
+  imageAltText?: string;
+  // imageWidth?: number;
+  // imageHeight?: number;
+};
+
+class SimpleTile extends Component<Props> {
   static propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     url: PropTypes.string.isRequired,
     imageUrl: PropTypes.string,
     imageAltText: PropTypes.string,
-    imageWidth: PropTypes.number,
-    imageHeight: PropTypes.number,
+    // imageWidth: PropTypes.number,
+    // imageHeight: PropTypes.number,
   };
 
   render() {
@@ -22,8 +32,8 @@ class SimpleTile extends Component {
       url,
       imageUrl,
       imageAltText,
-      imageWidth,
-      imageHeight,
+      // imageWidth,
+      // imageHeight,
     } = this.props;
 
     return (
@@ -40,8 +50,8 @@ class SimpleTile extends Component {
               src={imageUrl}
               alt={imageAltText || title}
               loading="lazy"
-              width={imageWidth}
-              height={imageHeight}
+              // width={imageWidth}
+              // height={imageHeight}
             />
           </a>
         </Link>

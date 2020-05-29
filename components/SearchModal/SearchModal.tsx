@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
@@ -8,7 +10,17 @@ import { mapPostToTile } from '../../lib';
 
 // import './SearchModal.css';
 
-class SearchModal extends Component {
+type Props = {
+  posts: any[];
+  q: string;
+  isLoading: boolean;
+};
+
+type State = {
+  q: string;
+};
+
+class SearchModal extends Component<Props, State> {
   static propTypes = {
     posts: PropTypes.array,
     q: PropTypes.string,

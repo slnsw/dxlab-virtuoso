@@ -8,7 +8,30 @@ import TileButtonGroup from '../TileButtonGroup';
 
 // import './MainTile.css';
 
-class MainTile extends Component {
+type Props = {
+  title: string;
+  subtitle?: string;
+  showTitleButton?: boolean;
+  url: string;
+  target?: string;
+  primaryText?: string;
+  secondaryText?: string;
+  secondaryUrl?: string;
+  secondaryTarget?: string;
+  tertiaryText?: string;
+  tertiaryUrl?: string;
+  tertiaryTarget?: string;
+  imageUrl: string;
+  imageAltText: string;
+  content?: string;
+  size?: string;
+};
+
+type State = {
+  isMouseOver: boolean;
+};
+
+class MainTile extends Component<Props, State> {
   static propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -28,8 +51,8 @@ class MainTile extends Component {
     size: PropTypes.string,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { isMouseOver: false };
   }
 

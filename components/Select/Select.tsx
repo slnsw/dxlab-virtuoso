@@ -143,7 +143,7 @@ Select.propTypes = {
     }),
   ),
   variant: PropTypes.oneOf(['dark', 'light']),
-  isMenuOpen: PropTypes.bool,
+  menuIsOpen: PropTypes.bool,
   className: PropTypes.string,
 };
 
