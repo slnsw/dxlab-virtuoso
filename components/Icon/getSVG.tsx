@@ -52,6 +52,68 @@ export function getSVG(name) {
           <path d="M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z" />
         </g>
       );
+    case 'remove-sharp':
+      return (
+        <g>
+          <line
+            x1="400"
+            y1="256"
+            x2="112"
+            y2="256"
+            style={{
+              fill: 'none',
+              stroke: '#000',
+              'stroke-linecap': 'square',
+              'stroke-linejoin': 'round',
+              'stroke-width': '32px',
+            }}
+          />
+        </g>
+      );
+    case 'add-sharp':
+      return (
+        <g>
+          <line
+            x1="256"
+            y1="112"
+            x2="256"
+            y2="400"
+            style={{
+              fill: 'none',
+              stroke: '#000',
+              'stroke-linecap': 'square',
+              'stroke-linejoin': 'round',
+              'stroke-width': '32px',
+            }}
+          />
+          <line
+            x1="400"
+            y1="256"
+            x2="112"
+            y2="256"
+            style={{
+              fill: 'none',
+              stroke: '#000',
+              'stroke-linecap': 'square',
+              'stroke-linejoin': 'round',
+              'stroke-width': '32px',
+            }}
+          />
+        </g>
+      );
+    case 'play-sharp':
+      return (
+        <g>
+          <polygon points="96 448 416 256 96 64 96 448" />
+        </g>
+      );
+    case 'stop-sharp':
+      return (
+        <g>
+          <rect x="80" y="80" width="352" height="352" />
+        </g>
+      );
+
     default:
       return <path />;
   }
