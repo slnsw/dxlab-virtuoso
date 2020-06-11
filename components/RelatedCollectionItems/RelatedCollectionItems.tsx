@@ -4,13 +4,17 @@ import PropTypes from 'prop-types';
 // import './RelatedCollectionItems.css';
 import Link from '../Link';
 
-class RelatedCollectionItems extends Component {
+type Props = {
+  items: any[];
+};
+
+class RelatedCollectionItems extends Component<Props> {
   static propTypes = {
     item: PropTypes.array,
   };
 
   render() {
-    const { items } = this.props;
+    const { items = [] } = this.props;
 
     return (
       <div className="related-collection-items">

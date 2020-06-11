@@ -6,7 +6,18 @@ import Comment from '../Comment';
 import CommentForm from '../CommentForm';
 // import './Comments.css';
 
-class Comments extends Component {
+type Props = {
+  postId: number;
+  comments: {
+    id: number;
+    parentId: number;
+    authorName: string;
+    date: string;
+    content: string;
+  }[];
+};
+
+class Comments extends Component<Props> {
   static propTypes = {
     comments: PropTypes.array,
     postId: PropTypes.number.isRequired,

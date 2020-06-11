@@ -5,7 +5,22 @@ import Link from '../Link';
 
 // import './Menu.module.css';
 
-class Menu extends Component {
+type Props = {
+  id: string;
+  className?: string;
+  menuItemClassName?: string;
+  labelledby: string;
+  menuItems: {
+    name: string;
+    url: string;
+    isActive: boolean;
+    ariaLabel: string;
+  }[];
+  pathname: string;
+  onMenuItemClick(event): void;
+};
+
+class Menu extends Component<Props> {
   static propTypes = {
     id: PropTypes.string,
     className: PropTypes.string,
@@ -15,7 +30,7 @@ class Menu extends Component {
     menuItems: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-        url: PropTypes.url,
+        url: PropTypes.string,
         isActive: PropTypes.bool,
         ariaLabel: PropTypes.string,
       }),

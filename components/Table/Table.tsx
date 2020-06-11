@@ -4,7 +4,12 @@ import Link from '../Link';
 
 // import './Table.css';
 
-class Table extends Component {
+type Props = {
+  items: any[];
+  className?: string;
+};
+
+class Table extends Component<Props> {
   static propTypes = {
     items: PropTypes.array,
     className: PropTypes.string,

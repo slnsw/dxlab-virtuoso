@@ -22,7 +22,7 @@ const DiaryFilesPost = ({
   age,
   postcode,
   outsideAustralia,
-  relatedPosts,
+  relatedPosts = [],
   singleView = true,
   hasReadMore,
   isLoading = true,

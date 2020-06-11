@@ -3,7 +3,11 @@ import Head from 'next/head';
 
 import { buildHeadTitle } from '../../lib';
 
-class HeadMeta extends Component {
+type Props = {
+  title: string;
+};
+
+class HeadMeta extends Component<Props> {
   render() {
     const { title } = this.props;
 

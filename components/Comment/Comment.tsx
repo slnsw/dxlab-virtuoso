@@ -4,7 +4,19 @@ import PropTypes from 'prop-types';
 // import './Comment.css';
 import { formatDate } from '../../lib';
 
-class Comment extends Component {
+type Props = {
+  authorName: string;
+  date: string;
+  content: string;
+  childComments?: {
+    id: number;
+    authorName: string;
+    date: string;
+    content: string;
+  }[];
+};
+
+class Comment extends Component<Props> {
   static propTypes = {
     id: PropTypes.number.isRequired,
     authorName: PropTypes.string.isRequired,

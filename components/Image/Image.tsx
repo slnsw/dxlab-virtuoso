@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 
 import css from './Image.module.scss';
 
-// type Props = {
-//   src: string;
-//   alt: string;
-//   loading?: 'lazy' | 'eager';
-//   className?: string;
-// };
+type Props = {
+  src: string;
+  alt: string;
+  loading?: 'auto' | 'lazy' | 'eager';
+  className?: string;
+};
 
-const Image = ({ src, alt, className, loading = 'auto', ...restProps }) => {
+const Image: React.FC<Props> = ({
+  src,
+  alt,
+  className,
+  loading = 'auto',
+  ...restProps
+}) => {
   const imageRef = React.useRef(null);
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -35,6 +41,8 @@ const Image = ({ src, alt, className, loading = 'auto', ...restProps }) => {
         className || '',
       ].join(' ')}
       ref={imageRef}
+      // https://css-tricks.com/native-lazy-loading/
+      // @ts-ignore
       loading={loading}
       onLoad={() => {
         setIsLoaded(true);

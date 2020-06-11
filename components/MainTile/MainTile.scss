@@ -179,11 +179,13 @@
 }
 
 .main-tile__subtitle {
+  @extend .font-uppercase;
+
   position: absolute;
   top: var(--spacing-sm);
   right: 1em;
-  @extend .font-uppercase;
   font-size: var(--font-size-xs);
+  font-family: var(--font-secondary);
   transform: rotate(-90deg);
   transform-origin: top right;
   opacity: 0.6;
@@ -202,7 +204,6 @@
   padding-right: var(--spacing-xlg);
   font-weight: 300;
   font-size: var(--font-size-sm);
-  font-family: var(--font-secondary);
   opacity: 0.7;
 
   @include media-md {

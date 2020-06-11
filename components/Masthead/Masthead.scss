@@ -138,7 +138,7 @@
   padding: 0 var(--spacing-md) 0 0;
   font-weight: 300;
   font-size: var(--font-size-sm);
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   line-height: 1.4em;
   letter-spacing: 0.05em;
 
@@ -206,12 +206,14 @@
 }
 
 .masthead__caption {
+  @extend .font-uppercase;
+
   position: absolute;
   right: 0;
   bottom: var(--spacing-xxxlg);
   padding-right: var(--spacing-xlg);
   font-size: var(--font-size-xs);
-  @extend .font-uppercase;
+  font-family: var(--font-secondary);
 
   /* @include media-sm {
     bottom: 10%;

@@ -5,7 +5,21 @@ import shuffle from '../../lib/shuffle';
 // import './Masthead.css';
 // import '../../styles/glitch.css';
 
-class Masthead extends Component {
+type Props = {
+  className: string;
+  title: string | object;
+  titleSmall: string;
+  titleHighlight: string;
+  subtitle: string;
+  text: string;
+  sideText?: string;
+  backgroundImageUrl: string;
+  size?: string;
+  slug?: string;
+  caption?: string;
+};
+
+class Masthead extends Component<Props> {
   static propTypes = {
     className: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,

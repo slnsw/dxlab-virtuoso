@@ -2,28 +2,28 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-// type Props = {
-//   title: string;
-//   description: string;
-//   imageUrl: string;
-//   imageAlt?: string;
-//   /** Providing width speeds up shares of new URLs on Facebook */
-//   imageWidth?: number;
-//   /** Providing height speeds up shares of new URLs on Facebook */
-//   imageHeight?: number;
-//   baseUrl?: string;
-//   siteName?: string;
-//   type?: string;
-//   fbAppId?: string;
-//   twitterUsername?: string;
-// };
+type Props = {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  /** Providing width speeds up shares of new URLs on Facebook */
+  imageWidth?: number;
+  /** Providing height speeds up shares of new URLs on Facebook */
+  imageHeight?: number;
+  baseUrl?: string;
+  siteName?: string;
+  type?: string;
+  fbAppId?: string;
+  twitterUsername?: string;
+};
 
 /**
  * Social meta tags for Next JS's Head component.
  * To use, place adjacent to (not inside) other Head components.
  * https://css-tricks.com/essential-meta-tags-social-media/#article-header-id-2
  */
-const SocialMetaHead = ({
+const SocialMetaHead: React.FC<Props> = ({
   title,
   description = '',
   imageUrl,
