@@ -175,16 +175,25 @@ const songs = [
       "d/g/b/c'/|b>b|b/a/a/g/|a/g/g/d/|g/f/e/f/|1g/ z/ g/ d/:|2g/ z/ g/ z/||",
       // page 2
       "|:[d/fad'] z/ d/e/|f/g/ a|[d/gbd'] z/ b/a/|g/a/ d|d A/B/|",
-      "|c/e/ d|d G/A/|B/e/ d|[d/fad'] z/ d/e/|f/g/ a|",
+      "c/e/ d|d G/A/|B/e/ d|[d/fad'] z/ d/e/|f/g/ a|",
+      "[d/gbd'] z/ b/a/|g/a/ d|d A/B/|c/e/d/g/|f/b/a/d/|g/ z/ g/ z/:|",
+      "[K:Amin][Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|[dd']>c'|b>a|g>a|",
+      "|g/a/d/f/|{ef}e/^d/e/ z/|[Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|",
+      "|[dd']>c'|b>a|g>a|g/a/B/d/|{cd}c/B/c/ z/||",
+      // annnd
       // bass clef data
       'V:2 clef=bass',
-      '[D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]:|',
+      '[K:Gmaj][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]:|',
       ':|"p" G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F/,[C/D] F/,[C/D]|',
       'D,/[C/D] D,/[C/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|',
       'G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|C,/[E,/A,] C,/[E,/A,]|D,/[G,/B,] D,/[G,/B,]|D,/[A,/C] D,/[A,/C]|1[G,/B,] z/ [G,/B,] x/:|2[G,/B,] z/ [G,/B,] z/||',
       // page 2
       '|:"ff"F,/"p"[C/D] F,/[C/D]|F,/[C/D] F,/[C/D]|"ff"G,/"p"[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|F,/[C/D] D,/[C/D]|',
-      '|F,/[C/D] D,/[C/D]|G,/[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|"ff"F,/"p"[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|',
+      'F,/[C/D] D,/[C/D]|G,/[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|"ff"F,/"p"[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|',
+      '"ff"G,/"p"[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|F,/[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|[G,/B,D] z/ [G,/B,/D] z/:|',
+      '[K:Amin]C,/"dolce"[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|',
+      '|B,,/[F,/G,] G,,/[F,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|',
+      '|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|[C,/E,G,][C,/E,G,][C,/E,G,] z/||',
     ],
     bpm: 130,
   },
