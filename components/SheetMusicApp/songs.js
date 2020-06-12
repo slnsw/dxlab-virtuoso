@@ -146,6 +146,42 @@ const songs = [
     ],
     bpm: 90,
   },
+  {
+    title: 'Overland mail galop',
+    slug: 'overland-mail-galop',
+    creator: "D'Albert, Charles",
+    url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3535/35357061.jpg',
+    key: 'Gmaj',
+    header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
+    instruments: [
+      {
+        name: 'Piano',
+        volume: 0,
+        type: 'piano',
+      },
+      {
+        name: 'Piano bass clef',
+        volume: -5,
+        type: 'piano',
+      },
+    ],
+    lines: [
+      'V:1 clef=treble name=VIVACE.',
+      'd>e|A>B|c/A/E/F/|G/ z/ z/ d/:|',
+      "+segno+:|B/d/g/a/|g>g|d/g/b/c'/|b>b|b/a/a/d/|",
+      'a>a|a/g/g/B/|d>d|B/d/g/a/|g>g|',
+      "d/g/b/c'/|b>b|b/a/a/g/|a/g/g/d/|g/f/e/f/|1g/ z/ g/ d/:|2g/ z/ g/ z/||",
+      // bass clef data
+      'V:2 clef=bass',
+      '[D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]:|',
+      ':|"p" G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F/,[C/D] F/,[C/D]|',
+      'D,/[C/D] D,/[C/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|',
+      'G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|C,/[E,/A,] C,/[E,/A,]|D,/[G,/B,] D,/[G,/B,]|D,/[A,/C] D,/[A,/C]|1[G,/B,] z/ [G,/B,] x/:|2[G,/B,] z/ [G,/B,] z/||',
+    ],
+    bpm: 130,
+  },
 ];
 
 export default songs;
