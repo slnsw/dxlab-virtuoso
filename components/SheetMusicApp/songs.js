@@ -180,6 +180,10 @@ const songs = [
       "[K:Amin][Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|[dd']>c'|b>a|g>a|",
       "|g/a/d/f/|{ef}e/^d/e/ z/|[Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|",
       "|[dd']>c'|b>a|g>a|g/a/B/d/|{cd}c/B/c/ z/||",
+      // page 3
+      "[Ee]>[^D^d]|[Ee]>[^D^d]|[E/e]=d'/c'/b/|{ab}a/^g/ a|[Gg]>[^F^f]|[Gg]>[^F^f]|",
+      "[G/g]=f'/e'/d'/|{c'd'}c'/b/ c'|d'/f'/e'/d'/|c'/g/{b}a/g/|f/a/g/a/|e/f/ g|d'/f'/e'/d'/|",
+      'x2|x2|x2|x2|x2|x2|',
       // annnd
       // bass clef data
       'V:2 clef=bass',
@@ -194,6 +198,10 @@ const songs = [
       '[K:Amin]C,/"dolce"[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|',
       '|B,,/[F,/G,] G,,/[F,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|',
       '|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|[C,/E,G,][C,/E,G,][C,/E,G,] z/||',
+      // page 3
+      '^G,,/"Cres:"[B,,/D,E,] G,,/[B,,/D,E,]|A,,/[C,/E,] A,,/[C,/E,]|"f"B,,/[D,/E,^G,] B,,/[D,/E,G,]|C,/[E,/A,] C,/[E,/A,]|B,,/"Cres:"[D,/F,G,] B,,/[D,/F,G,]|C,/[E,/G,] C,/[E,/G,]|',
+      '"f"D,/[F,/G,B,] D,/[F,/G,B,]|E,/[G,/C] E,/[G,/C]|"p"F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,,/[F,/G,B,][F,/G,B,][F,/G,B,]|C,/[E,/G,C][E,/G,C][E,/G,C]|F,/[A,/D] F,/[A,/D]|',
+      'x2|x2|x2|x2|x2|x2|',
     ],
     bpm: 130,
   },
