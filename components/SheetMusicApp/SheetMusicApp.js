@@ -18,7 +18,11 @@ import css from './SheetMusicApp.module.scss';
 import VirtuosoLogo from './VirtuosoLogo';
 
 const SheetMusicApp = ({ slug, className }) => {
-  const currentSong = songs.find((s) => s.slug === slug);
+  let currentSong = songs.find((s) => s.slug === slug);
+  // need to handle if slug doesn't exist - for now just go to first song
+  if (!currentSong) {
+    [currentSong] = songs;
+  }
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 

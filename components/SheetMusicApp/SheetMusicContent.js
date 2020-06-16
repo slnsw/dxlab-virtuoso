@@ -36,6 +36,10 @@ const SheetMusicContent = ({ song: currentSong }) => {
     setInstrumentTypes(
       currentSong.instruments.map((instrument) => instrument.type),
     );
+    setInstrumentVolumes(
+      currentSong.instruments.map((instrument) => instrument.volume),
+    );
+    setTempo(currentSong.bpm);
   }, [currentSong]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
