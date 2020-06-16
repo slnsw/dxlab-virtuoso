@@ -4,13 +4,14 @@ import Head from 'next/head';
 
 import App from '../App';
 import Menu from '../Menu/Menu';
+import Link from '../Link';
 import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 // import CTAButton from '../CTAButton';
 import SheetMusicContent from './SheetMusicContent';
-// import SheetMusic from '../SheetMusic';
+import SheetMusicAbout from '../SheetMusicAbout';
 
 import songs from './songs';
 
@@ -75,10 +76,20 @@ const SheetMusicApp = ({ slug, className }) => {
               return {
                 name: song.title,
                 url: `/sheet-music/song/${song.slug}`,
-                isActive: song.slug === currentSong.slug,
+                isActive: slug !== 'about' && song.slug === currentSong.slug,
               };
             })}
           />
+          <br />
+          <Link to={'about'} key={'about'}>
+            <a
+              href="/sheet-music/about"
+              // className={slug === 'about' ? 'is-active' : undefined}
+              aria-label="about-page"
+            >
+              About
+            </a>
+          </Link>
         </Sidebar>
 
         <SLNSWLogo className={css.slnswLogo} />
@@ -87,7 +98,11 @@ const SheetMusicApp = ({ slug, className }) => {
       </header>
 
       <div className={css.content}>
-        <SheetMusicContent song={currentSong} />
+        {slug === 'about' ? (
+          <SheetMusicAbout />
+        ) : (
+          <SheetMusicContent song={currentSong} />
+        )}
       </div>
     </App>
   );
