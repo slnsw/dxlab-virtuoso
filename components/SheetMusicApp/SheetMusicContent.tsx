@@ -100,6 +100,18 @@ const SheetMusicContent = ({ song: currentSong }) => {
     setTempo(newTempo);
   };
 
+  const handleTempoChange = (e) => {
+    // console.log(e.target.value);
+    let newTempo = Number.parseInt(e.target.value, 10) || 1;
+    // console.log('newTempo: ', newTempo);
+    if (newTempo > 500) {
+      newTempo = 500;
+    }
+    if (newTempo < 1) {
+      newTempo = 1;
+    }
+    setTempo(newTempo);
+  };
   const handleInstrumentChange = (option, i) => {
     // console.log(option, i);
     setInstrumentTypes(
@@ -148,7 +160,10 @@ const SheetMusicContent = ({ song: currentSong }) => {
           >
             <Icon name="remove" />
           </CTAButton>
-          <span>{tempo}</span>
+          <span>
+            {/* {tempo}</span> */}
+            <input type="text" value={tempo} onChange={handleTempoChange} />
+          </span>
           <CTAButton
             theme="light"
             className={css['button--tempo']}

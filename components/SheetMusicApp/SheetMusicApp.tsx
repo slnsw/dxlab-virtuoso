@@ -81,14 +81,8 @@ const SheetMusicApp = ({ slug, className }) => {
             })}
           />
           <br />
-          <Link to={'about'} key={'about'}>
-            <a
-              href="/sheet-music/about"
-              // className={slug === 'about' ? 'is-active' : undefined}
-              aria-label="about-page"
-            >
-              About
-            </a>
+          <Link key={'about'} href="/sheet-music/about">
+            <a aria-label="about-page">About</a>
           </Link>
         </Sidebar>
 

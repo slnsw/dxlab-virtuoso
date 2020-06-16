@@ -32,9 +32,9 @@
   position: absolute;
   top: 4rem;
   right: 0;
-  width: var(--container-width-xs);
   z-index: 10;
   display: block;
+  width: var(--container-width-xs);
   padding: var(--spacing-lg);
   background-color: var(--colour-white);
   border: 1px solid var(--colour-black);
@@ -57,6 +57,11 @@
 .tempoControls {
   display: none;
   margin-left: auto;
+
+  input {
+    width: 50px;
+    border: none;
+  }
 
   @include media-lg {
     display: block;
