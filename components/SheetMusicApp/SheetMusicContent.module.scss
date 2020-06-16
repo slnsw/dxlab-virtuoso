@@ -40,7 +40,7 @@
   border: 1px solid var(--colour-black);
 
   span {
-    text-transform: lowercase; 
+    text-transform: lowercase;
   }
 
   p {
@@ -55,7 +55,7 @@
 }
 
 .tempoControls {
-  display: none;
+  // display: none;
   margin-left: auto;
 
   @include media-lg {
@@ -83,7 +83,7 @@
 }
 
 .button--tempo:disabled,
-.button--tempo[disabled]{
+.button--tempo[disabled] {
   color: #999;
   border-color: #999;
 }
