@@ -108,7 +108,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
     setTempoFieldValue(e.target.value);
   };
 
-  const handleTempoExit = () => {
+  const handleTempoExit = (event) => {
     let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
     if (newTempo > 500) {
       newTempo = 500;
@@ -118,6 +118,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
     }
     setTempo(newTempo);
     setTempoFieldValue(newTempo);
+    event.preventDefault();
   };
 
   const handleInstrumentChange = (option, i) => {
@@ -167,16 +168,18 @@ const SheetMusicContent = ({ song: currentSong }) => {
           >
             <Icon name="remove" />
           </CTAButton>
-          <span>
-            {/* {tempo}</span> */}
-            <input
-              type="text"
-              value={tempoFieldValue}
-              className={css['tempoInput']}
-              onChange={handleTempoChange}
-              onBlur={handleTempoExit}
-            />
-          </span>
+          <form onSubmit={handleTempoExit}>
+            <span>
+              {/* {tempo}</span> */}
+              <input
+                type="text"
+                value={tempoFieldValue}
+                className={css['tempoInput']}
+                onChange={handleTempoChange}
+                onBlur={handleTempoExit}
+              />
+            </span>
+          </form>
           <CTAButton
             theme="light"
             className={css['button--tempo']}

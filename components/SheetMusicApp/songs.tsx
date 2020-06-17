@@ -211,6 +211,38 @@ const songs = [
     ],
     bpm: 130,
   },
+  {
+    title: 'The Sutherland Waltz',
+    slug: 'the-sutherland-waltz',
+    creator: 'Katie Linton',
+    url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3747/37479310.jpg',
+    key: 'Ebmaj',
+    header: 'X:1\nM:3/4\nL:1/4\n%%score {1 2}\n',
+    instruments: [
+      {
+        name: 'Piano',
+        volume: 0,
+        type: 'piano',
+      },
+      {
+        name: 'Piano bass clef',
+        volume: -5,
+        type: 'piano',
+      },
+    ],
+    lines: [
+      'V:1 clef=treble name=INTRO-',
+      '"_Con Bravara"([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [B^c]|[Bd] z z|z3|([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [Bd]|[Be] z z|z3|',
+      '(B,2 B,/) [B/b]|[Bb] z [^c=e]|[df] z z|z3|B,3|[D2FAB] z|"8va"[Bdfa] z z|',
+      // bass in your face
+      'V:2 clef=bass name=DUCTION',
+      '"ff"(B,2 B,/) B,/|B,2 =E|F z z|z3|(B,2 B,/) B,/|B,2 [K: clef=treble]F|[B,G] z z|z3|', // A,,|[D,,B,,] z z|z3|',
+      '(B,,2 B,,/) B,,/|B,, z [K: clef=treble] G|[B,A] z z|z3[K: clef=bass]|[B,,,3B,,]|[B,,2F,B,] z|[D,A,C] "rit"[C,,C,] [D,,D,]|',
+    ],
+    bpm: 120,
+  },
 ];
 
 export default songs;

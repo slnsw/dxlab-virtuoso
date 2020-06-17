@@ -58,10 +58,14 @@
   display: none;
   margin-left: auto;
 
+  form {
+    display: inline;
+  }
+
   .tempoInput {
     width: 50px;
     color: var(--colour-black);
-    background-color: var(--colour-white);
+    background-color: var(--colour-grey-lighter);
     border: none;
   }
 
