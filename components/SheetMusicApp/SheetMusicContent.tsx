@@ -18,6 +18,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
+  const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
 
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
@@ -40,6 +41,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
       currentSong.instruments.map((instrument) => instrument.volume),
     );
     setTempo(currentSong.bpm);
+    setTempoFieldValue(currentSong.bpm);
   }, [currentSong]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
@@ -93,17 +95,21 @@ const SheetMusicContent = ({ song: currentSong }) => {
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 500 ? tempo + 1 : tempo;
     setTempo(newTempo);
+    setTempoFieldValue(newTempo);
   };
 
   const handleTempoChangeDown = () => {
     const newTempo = tempo > 9 ? tempo - 1 : tempo;
     setTempo(newTempo);
+    setTempoFieldValue(newTempo);
   };
 
   const handleTempoChange = (e) => {
-    // console.log(e.target.value);
-    let newTempo = Number.parseInt(e.target.value, 10) || 1;
-    // console.log('newTempo: ', newTempo);
+    setTempoFieldValue(e.target.value);
+  };
+
+  const handleTempoExit = () => {
+    let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
     if (newTempo > 500) {
       newTempo = 500;
     }
@@ -111,9 +117,10 @@ const SheetMusicContent = ({ song: currentSong }) => {
       newTempo = 1;
     }
     setTempo(newTempo);
+    setTempoFieldValue(newTempo);
   };
+
   const handleInstrumentChange = (option, i) => {
-    // console.log(option, i);
     setInstrumentTypes(
       instrumentTypes.map((type, instrumentIndex) => {
         console.log(samplesStatus);
@@ -162,7 +169,13 @@ const SheetMusicContent = ({ song: currentSong }) => {
           </CTAButton>
           <span>
             {/* {tempo}</span> */}
-            <input type="text" value={tempo} onChange={handleTempoChange} />
+            <input
+              type="text"
+              value={tempoFieldValue}
+              className={css['tempoInput']}
+              onChange={handleTempoChange}
+              onBlur={handleTempoExit}
+            />
           </span>
           <CTAButton
             theme="light"

@@ -58,8 +58,10 @@
   display: none;
   margin-left: auto;
 
-  input {
+  .tempoInput {
     width: 50px;
+    color: var(--colour-black);
+    background-color: var(--colour-white);
     border: none;
   }
 
