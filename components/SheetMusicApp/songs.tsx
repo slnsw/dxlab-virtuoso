@@ -235,13 +235,21 @@ const songs = [
     lines: [
       'V:1 clef=treble name=INTRO-',
       '"_Con Bravara"([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [B^c]|[Bd] z z|z3|([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [Bd]|[Be] z z|z3|',
-      '(B,2 B,/) [B/b]|[Bb] z [^c=e]|[df] z z|z3|B,3|[D2FAB] z|"8va"[Bdfa] z z|',
+      '(B,2 B,/) [B/b]|[Bb] z [^c=e]|[df] z z|Z|B,3|!arpeggio![D2FAB] z|"8va"!arpeggio![Bdfa] z z||',
+      "!arpeggio![GBeg] z !arpeggio![Begb]|!arpeggio![egbe'] z !arpeggio![gbe'g']|([f3bd'f']|[fbd'f']) z !arpeggio![egbe']|[dbd'] z [cac']|[Bfb] z [Afa]|([G3Bg]|[GBg]) [Ff] [Gg]|",
+      "[A3/2ca] [A/fa] ([Afa]|[Aa]) [Gg] [Aa]|[B3/2b] [B/b] ([Bb]|[Bb]) [=A=a] [Bb]|[c3/2c'] [c/c'] [cc']|!<(![cc'] [dbd'] [e=ae']|[dbd']!<)! z z|z [cc'] [Bb]|",
+      "!arpeggio![GBeg] z !arpeggio![Begb]|!arpeggio![egbe'] z !arpeggio![gbe'g']|(!arpeggio![f3bd'f']|[fbd'f']) z [ee']|[dbd'] z [cac']|[Bfb] z [Afa]|([G3eg]|[Geg]) [Ff] [Gg]|",
+      "[A3/2a] [A/a] ([Aa]|[Aa]) [Gg] [Aa]|[B3/2b] [B/b] ([Bb]|[Bb]) [=A=a] [Bb]|[c3/2c'] [c/c'] [cc']|[cc'] [gg'] [ff']|e/g/b/e'/g/b/|e' z f||",
       // bass in your face
       'V:2 clef=bass name=DUCTION',
       '"ff"(B,2 B,/) B,/|B,2 =E|F z z|z3|(B,2 B,/) B,/|B,2 [K: clef=treble]F|[B,G] z z|z3|', // A,,|[D,,B,,] z z|z3|',
-      '(B,,2 B,,/) B,,/|B,, z [K: clef=treble] G|[B,A] z z|z3[K: clef=bass]|[B,,,3B,,]|[B,,2F,B,] z|[D,A,C] "rit"[C,,C,] [D,,D,]|',
+      '(B,,2 B,,/) B,,/|B,, z [K: clef=treble] G|[B,A] z z|Z[K: clef=bass]|[B,,,3B,,]|!arpeggio![B,,2F,B,] z|!arpeggio![D,A,C] "rit"[C,,C,] [D,,D,]||',
+      '[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [G,B,E]|[B,,B,] [F,A,B,D] [F,A,B,D]|[F,,F,] [F,B,D] [G,B,E]|[B,,,B,,] [A,B,D] [A,B,D]|[D,,D,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [=E,,=E,]|',
+      '[F,,F,] [A,CF] [A,CF]|[B,,,B,,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[G,,G,] [=A,CE] [_G,,_G,]|[F,,F,] [F,A,E] [F,A,E]|[G,,G,] [D,,D,] [C,,C,]|[B,,,B,,] [F,B,D] [F,B,D]|[B,,,B,,] [F,A,B,D] [F,A,B,D]|',
+      '[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [G,B,E]|[B,,B,] [F,A,B,D] [F,A,B,D]|[F,,F,] [F,B,D] [G,B,E]|[B,,,B,,] [F,A,B,D] [F,A,B,D]|[D,,D,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[B,,,B,,] [G,B,E] [=E,,=E,]|',
+      '[F,,F,] [A,CF] [A,CF]|[B,,,B,,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[G,,G,] [F,=A,CE] [_G,,_G,]|[F,,F,] [F,A,E] [F,A,E]|F, [A,B,D] [A,B,D]|E, B,, G,,|E,, F,,, z||',
     ],
-    bpm: 120,
+    bpm: 160,
   },
 ];
 
