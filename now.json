@@ -111,7 +111,7 @@
       "destination": "https://wp.dxlab.sl.nsw.gov.au/80hz/$1"
     },
     {
-      "source": "/aereo(.*)",
+      "source": "/aereo-temp(.*)",
       "destination": "http://dxlab-fellowship-2019.s3-website-ap-southeast-2.amazonaws.com/aereo$1"
     },
     {
