@@ -8,8 +8,8 @@
   line-height: 1;
 
   @include media-lg {
-    margin-bottom: 0.1rem;
-    font-size: var(--font-size-xxlg);
+    // margin-bottom: 0.1rem;
+    font-size: var(--font-size-xlg);
   }
 
   strong {
@@ -20,8 +20,8 @@
 
   svg {
     position: absolute;
-    right: 0;
     bottom: 0;
+    left: 3.6em;
   }
 }
 
@@ -29,12 +29,13 @@
   @extend .font-uppercase;
 
   display: none;
+  margin-top: var(--spacing-xxs);
   margin-bottom: 0;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-xxs);
 
-  @include media-lg {
-    display: block;
-  }
+  // @include media-md {
+  //   display: block;
+  // }
 
   strong {
     color: var(--colour-primary);

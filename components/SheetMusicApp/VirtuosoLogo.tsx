@@ -2,9 +2,9 @@ import React from 'react';
 
 import css from './VirtuosoLogo.module.scss';
 
-const VirtuosoLogo = () => {
+const VirtuosoLogo = ({ className }) => {
   return (
-    <>
+    <div className={[className].join(' ')}>
       <h1 className={css.virtuosoLogo}>
         Virtu<strong>OSO</strong>
         <svg width="2em" height="1.4em">
@@ -16,7 +16,7 @@ const VirtuosoLogo = () => {
             style={{ fill: 'var(--colour-primary)' }}
           />
           <ellipse
-            cx="1.5em"
+            cx="1.6em"
             cy="0.8em"
             rx="0.2em"
             ry="0.3em"
@@ -56,7 +56,7 @@ const VirtuosoLogo = () => {
         <strong>O</strong>
         rchestra
       </p>
-    </>
+    </div>
   );
 };
 
