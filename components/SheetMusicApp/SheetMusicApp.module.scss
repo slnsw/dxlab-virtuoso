@@ -26,7 +26,7 @@
   padding: var(--spacing-md);
 
   @include media-md {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-xlg) var(--spacing-md);
   }
 
   // @include media-lg {
@@ -65,9 +65,9 @@
   margin-right: var(--spacing-md);
   margin-left: auto;
 
-  // @include media-sm {
-  //   height: 1.4em;
-  // }
+  @include media-sm {
+    height: 1.4em;
+  }
 }
 
 .virtuosoLogo {
