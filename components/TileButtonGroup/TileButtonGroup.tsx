@@ -5,7 +5,19 @@ import CTALink from '../CTALink';
 
 import css from './TileButtonGroup.module.scss';
 
-class TileButtonGroup extends Component {
+type Props = {
+  primaryUrl: string;
+  primaryText: string;
+  primaryTarget: string;
+  secondaryUrl: string;
+  secondaryText: string;
+  secondaryTarget: string;
+  tertiaryUrl: string;
+  tertiaryText: string;
+  tertiaryTarget: string;
+};
+
+class TileButtonGroup extends Component<Props> {
   static propTypes = {
     primaryUrl: PropTypes.string,
     primaryText: PropTypes.string,

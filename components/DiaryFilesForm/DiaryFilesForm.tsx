@@ -161,7 +161,7 @@ const DiaryFilesForm = (props) => {
                   name="content"
                   aria-label="content"
                   aria-required="true"
-                  rows="20"
+                  rows={20}
                   onChange={updateWordCount}
                   onKeyDown={monitorTyping}
                 />
@@ -252,12 +252,11 @@ const DiaryFilesForm = (props) => {
                       <label htmlFor="state">State</label>
                       <Select
                         variant="dark"
-                        name="state"
+                        // name="state"
                         options={stateOptions}
                         onChange={(option) => setFormState(option)}
                         isDisabled={isOutsideAustralia}
                         isSearchable={false}
-                        // isDisabled={true}
                       />
                     </div>
 

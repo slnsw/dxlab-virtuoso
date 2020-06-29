@@ -41,7 +41,7 @@ h2,
 h3,
 h4 {
   font-weight: 700;
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
 
   @extend .font-uppercase;
 }
@@ -121,11 +121,12 @@ figure {
 }
 
 label {
+  @extend .font-uppercase;
+
   display: block;
   margin-bottom: var(--font-size-xs);
   font-size: var(--font-size-sm);
-
-  @extend .font-uppercase;
+  font-family: var(--font-secondary);
 }
 
 input[type='text'],
@@ -151,7 +152,7 @@ textarea {
 button,
 input[type='submit'] {
   color: var(--colour-white);
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   text-transform: uppercase;
   background: none;
   border: none;
