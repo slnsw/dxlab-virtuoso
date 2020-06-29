@@ -251,6 +251,61 @@ const songs = [
     ],
     bpm: 160,
   },
+  {
+    title: 'The Sutherland Waltz2',
+    slug: 'the-sutherland-waltz2',
+    creator: 'Katie Linton',
+    url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3747/37479310.jpg',
+    key: 'Ebmaj',
+    header: 'X:1\nM:3/4\nL:1/4\n%%score { 1 2 }\n',
+    instruments: [
+      {
+        name: 'Piano',
+        volume: 0,
+        type: 'piano',
+      },
+      {
+        name: 'Piano bass clef',
+        volume: -5,
+        type: 'piano',
+      },
+    ],
+    lines: [
+      'V:1 treble',
+      'V:2 bass',
+      'V:1',
+      '"@-70,-42Con Bravara"[Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [^cB] | [Bd] z z | z3 | [Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [Bd] | [Be] z z | z3 |',
+      'B,2- B,/ [Bb]/ | [Bb] z [^c=e] | [df] z z | Z | B,3 |!arpeggio![DFAB]2 z |!arpeggio![dfab]2 z |!arpeggio![Bdfa] z z ||',
+      "!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [fbd'f']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [gGB]3- | [GBg] [Ff] [Gg] |",
+      "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z | z [cc'] [Bb] |",
+      "[GBeg] z [Begb] | [egbe'] z [gbe'g'] | [fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
+      "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cb] [gg'] [ff'] |e/g/b/e'/f/b/ | e' z f ||[K:Bbmaj]",
+      // page 2
+      '"@-45,-45 p"z {gf}e z | z {fe}c z | z {fd}B G | F z F | "_cres"^F z [FAcd] | [Ace] z [Ace^f] | [Bdg] z [Bdg] | "_f"[Acea] [Aceg] [Acd^f] |"_p"z {gf}e z |',
+      'z {fe}c z | z {fd}B g | "_f"[Acfa] z [Acfa] | [Adfa] z [Adfa] | [cefa] [cefg] [cefa] | [Bdfb] [Bdfb] [Bdfb] |[1 [Bdfb] z f :|[2 x z2 ||',
+      "[K:Eb] !arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [ff'bd']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [GBeg]3- |[GBeg] [Ff] [Gg] |",
+      "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [fbd']!<)! z z |z [cc'] [Bb] |",
+      "!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | !arpeggio![fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Geg]3- |[Geg] [Ff] [Gg] |",
+      '"@-50,-45cres"[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc\']3/2 [dc\']/ [dc\'] | [cc\'] "@0,32 8ve ---|"[Gg] [Ff] | "@65,32 8ve ------|"e/g/b/e\'/g/b/ |e\' z z |',
+      'V:2',
+      '"@-10,-3ff"B,2- B,/ B,/ | B,2 =E | F z z | z3 | B,2- B,/ B,/ | B,2[K:treble] F | [B,G] z z | z3 | %8',
+      'B,,2- B,,/ B,,/ | B,, z[K:treble] G | [B,A] z z | Z[K:bass]| [B,,,B,,]3 |!arpeggio![B,,F,A,]2 z |[K:treble]!arpeggio![B,FA]2 z |!arpeggio![Bfa][K:bass] [C,,C,] [D,,D,] ||',
+      '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [A,B,D] [A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [=E,,=E,] |',
+      '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] |',
+      '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,F,B,D] [A,F,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [B,,,B,,] [G,B,E] [=E,,=E,] |',
+      '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [F,=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, B,, G,, | E,, E,,, z ||[K:Bbmaj]',
+      // page 2
+      '[F,,F,] [A,CE] [A,CE] | A,, [F,A,CE] [CE] | [B,,B,] [B,D] [B,D] | B,, [B,D] [B,D] | D, [A,CD] [A,CD] | A, [CE] [CE] | D, [B,D] [B,D] | [=F,,=F,] [A,CE] [A,CE] |[F,,F,] [A,CE] [A,CE] |',
+      'C, [F,A,E] [F,A,E] | B,, [F,B,D] [F,B,D] | F, [A,C] [A,C] | [D,,D,] [A,DF] [A,DF] | C, [A,CE] [F,,F,] | [B,,,B,,] [F,B,D] [F,B,D] |[1 [B,,,B,,] [F,B,D] z :|[2 [B,,,B,,] [C,,C,] [D,,D,] ||',
+      '[K:Eb] [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,B,D] [A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [DF,A,B,] [DF,A,B,] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] |[E,,E,] [G,B,E] [=E,,=E,] |',
+      '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] |[B,,,B,,] [F,A,B,D] [F,A,B,D] |',
+      '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] |[B,,,B,,] [G,B,E] [=E,,=E,] |',
+      '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, B,, G,, |E,, E,,, z |',
+    ],
+    bpm: 160,
+  },
 ];
 
 export default songs;
