@@ -1,30 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
+// import Head from 'next/head';
 
 import App from '../App';
 import Menu from '../Menu/Menu';
-import Link from '../Link';
-import Sidebar from '../Sidebar';
+// import Link from '../Link';
+// import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 // import CTAButton from '../CTAButton';
-import SheetMusicContent from './SheetMusicContent';
-import SheetMusicAbout from '../SheetMusicAbout';
-
-import songs from './songs';
+// import SheetMusicContent from './SheetMusicContent';
+// import SheetMusicAbout from '../SheetMusicAbout';
 
 import css from './SheetMusicApp.module.scss';
 import VirtuosoLogo from './VirtuosoLogo';
 
-const SheetMusicApp = ({ slug, className }) => {
-  let currentSong = songs.find((s) => s.slug === slug);
-  // need to handle if slug doesn't exist - for now just go to first song
-  if (!currentSong) {
-    [currentSong] = songs;
-  }
-
+const SheetMusicApp = ({ className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   // Override default body styles
@@ -42,18 +34,35 @@ const SheetMusicApp = ({ slug, className }) => {
 
   return (
     <App className={[css.sheetMusicApp, className || ''].join(' ')}>
-      <Head>
+      {/* <Head>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-      </Head>
+      </Head> */}
 
       <header className={css.header}>
-        <DXLabLogo className={css.dxlabLogo} />
+        <VirtuosoLogo className={css.virtuosoLogo} />
 
-        <span className={css.headerDivider}></span>
-
-        <VirtuosoLogo />
+        {/* <span className={css.headerDivider}></span> */}
 
         {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
+
+        <Menu
+          className={css.menu}
+          menuItemClassName={css.menuItem}
+          menuItems={[
+            {
+              name: 'Home',
+              url: '/sheet-music',
+              isActive: false,
+              ariaLabel: 'Home',
+            },
+            {
+              name: 'About',
+              url: '/sheet-music/about',
+              isActive: false,
+              ariaLabel: 'About',
+            },
+          ]}
+        />
 
         <MenuIconButton
           isOpen={isMobileMenuOpen}
@@ -63,7 +72,7 @@ const SheetMusicApp = ({ slug, className }) => {
           }}
         />
 
-        <Sidebar
+        {/* <Sidebar
           className={[
             css.sidebar,
             isMobileMenuOpen ? css.isMobileSidebarOpen : '',
@@ -84,19 +93,18 @@ const SheetMusicApp = ({ slug, className }) => {
           <Link key={'about'} href="/sheet-music/about">
             <a aria-label="about-page">About</a>
           </Link>
-        </Sidebar>
+        </Sidebar> */}
+
+        <DXLabLogo className={css.dxlabLogo} />
 
         <SLNSWLogo className={css.slnswLogo} />
-
-        {/* <DXLabLogo className={css.dxlabLogo} /> */}
       </header>
 
       <div className={css.content}>
-        {slug === 'about' ? (
-          <SheetMusicAbout />
-        ) : (
-          <SheetMusicContent song={currentSong} />
-        )}
+        {children}
+        {/* {slug === 'about' && <SheetMusicAbout />}
+
+        <SheetMusicContent song={currentSong} /> */}
       </div>
     </App>
   );
