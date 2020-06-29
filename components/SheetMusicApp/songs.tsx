@@ -152,7 +152,7 @@ const songs = [
     creator: "D'Albert, Charles",
     url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
     imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3535/35357061.jpg',
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
     key: 'Gmaj',
     header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
     instruments: [
@@ -217,7 +217,7 @@ const songs = [
     creator: 'Katie Linton',
     url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
     imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3747/37479310.jpg',
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
     key: 'Ebmaj',
     header: 'X:1\nM:3/4\nL:1/4\n%%score {1 2}\n',
     instruments: [
@@ -257,7 +257,7 @@ const songs = [
     creator: 'Katie Linton',
     url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
     imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3747/37479310.jpg',
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
     key: 'Ebmaj',
     header: 'X:1\nM:3/4\nL:1/4\n%%score { 1 2 }\n',
     instruments: [

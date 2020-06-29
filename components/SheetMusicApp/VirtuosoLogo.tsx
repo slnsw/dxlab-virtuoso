@@ -23,25 +23,25 @@ const VirtuosoLogo = ({ className }) => {
             style={{ fill: 'var(--colour-primary)' }}
           />
           <rect
-            x="0.3em"
+            x="0.4em"
             width={1}
             height="0.9em"
             style={{ fill: 'var(--colour-primary)' }}
           />
           <rect
-            x="1.7em"
+            x="1.8em"
             width={1}
             height="0.9em"
             style={{ fill: 'var(--colour-primary)' }}
           />
           <rect
-            x="0.3em"
+            x="0.4em"
             width="1.4em"
             height={3}
             style={{ fill: 'var(--colour-primary)' }}
           />
           <rect
-            x="0.3em"
+            x="0.4em"
             y={5}
             width="1.4em"
             height={1}

@@ -1,9 +1,9 @@
 @import '../../styles/global.scss';
 
-.sheetMusicAppBody {
-  height: 100%;
-  margin: 0;
-}
+// .sheetMusicAppBody {
+//   height: 100%;
+//   margin: 0;
+// }
 
 .sheetMusicApp {
   display: flex;
@@ -20,7 +20,9 @@
 .header {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: calc(100% + 4em);
+  margin-top: -2em;
+  margin-left: -2em;
   padding: var(--spacing-md);
 
   @include media-md {
@@ -109,11 +111,11 @@
 }
 
 .content {
-  display: flex;
-  flex: 3;
-  height: 100%;
+  display: block;
+  // flex: 3;
+  // height: 100%;
   // overflow: auto;
-  background-color: var(--colour-white);
+  // background-color: var(--colour-white);
 }
 
 // .sidebar {

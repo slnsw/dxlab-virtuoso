@@ -13,15 +13,25 @@ type Props = {
 const SheetMusicHome: React.FC<Props> = ({ className }) => {
   return (
     <div className={[css.sheetMusicHome, className || ''].join(' ')}>
-      {songs.map((song) => {
-        return (
-          <article>
-            <Link href={`/sheet-music/song/${song.slug}`} key={song.slug}>
-              <a>{song.title}</a>
-            </Link>
-          </article>
-        );
-      })}
+      <section className={css.songList}>
+        {songs.map((song) => {
+          return (
+            <article className={css.song} key={song.slug}>
+              <Link href={`/sheet-music/song/${song.slug}`}>
+                <a>
+                  <img src={song.imageUrl} alt={song.title} />
+                </a>
+              </Link>
+
+              <h1>
+                <Link href={`/sheet-music/song/${song.slug}`}>
+                  <a>{song.title}</a>
+                </Link>
+              </h1>
+            </article>
+          );
+        })}
+      </section>
     </div>
   );
 };
