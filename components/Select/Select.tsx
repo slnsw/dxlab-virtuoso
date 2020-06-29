@@ -33,7 +33,7 @@ const Select = ({
             // Adjustment due to Barlow font
             top: '48%',
             color: variantColour,
-            fontFamily: 'var(--font-secondary)',
+            fontFamily: 'var(--font-primary)',
           };
         },
         control: (provided, state) => {
@@ -81,7 +81,7 @@ const Select = ({
           return {
             ...provided,
             padding: 0,
-            fontFamily: 'var(--font-secondary)',
+            fontFamily: 'var(--font-)',
           };
         },
         // Value in 'control'
@@ -90,7 +90,7 @@ const Select = ({
             ...provided,
             color: variantColour,
             top: '48%',
-            fontFamily: 'var(--font-secondary)',
+            // fontFamily: 'var(--font-primary)',
           };
         },
         dropdownIndicator: (provided) => {
@@ -148,7 +148,7 @@ Select.propTypes = {
     }),
   ),
   variant: PropTypes.oneOf(['dark', 'light']),
-  isMenuOpen: PropTypes.bool,
+  menuIsOpen: PropTypes.bool,
   className: PropTypes.string,
   isDisabled: PropTypes.bool,
 };

@@ -6,7 +6,25 @@ import TileImage from '../TileImage';
 import TileButtonGroup from '../TileButtonGroup';
 // import './Tile.css';
 
-class Tile extends Component {
+type Props = {
+  title: string;
+  subtitle: string;
+  url: string;
+  target: string;
+  primaryText: string;
+  secondaryText: string;
+  secondaryUrl: string;
+  secondaryTarget: string;
+  tertiaryText: string;
+  tertiaryUrl: string;
+  tertiaryTarget: string;
+  imageUrl: string;
+  // imageAltText: string;
+  content: string;
+  size: string;
+};
+
+class Tile extends Component<Props> {
   static propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -20,7 +38,7 @@ class Tile extends Component {
     tertiaryUrl: PropTypes.string,
     tertiaryTarget: PropTypes.string,
     imageUrl: PropTypes.string,
-    imageAltText: PropTypes.string,
+    // imageAltText: PropTypes.string,
     content: PropTypes.string,
     size: PropTypes.string,
   };

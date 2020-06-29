@@ -8,10 +8,11 @@ import SocialMetaHead from '../SocialMetaHead';
 import LoaderText from '../LoaderText';
 import DiaryFilesPost from '../DiaryFilesPost';
 
-/* eslint-disable */
-import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
 import { buildHeadTitle } from '../../lib';
 import config from '../../lib/config';
+
+/* eslint-disable */
+import css from '../DiaryFilesPost/DiaryFilesPost.module.scss';
 /* eslint-enable */
 
 const DiaryFilesStory = ({ className, id, singleView }) => {

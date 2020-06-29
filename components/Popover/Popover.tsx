@@ -5,21 +5,29 @@ import Router from 'next/router';
 // import './Popover.css';
 // import Link from '../Link';
 
-class Popover extends Component {
+type Props = {
+  items: any[];
+};
+
+type State = {
+  isOpen: boolean;
+};
+
+class Popover extends Component<Props, State> {
   static propTypes = {
     items: PropTypes.array,
     // selectedItemIndex: PropTypes.number,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isOpen: false,
     };
   }
 
-  handleTitleClick = (event, i) => {
+  handleTitleClick = (event, i = null) => {
     event.preventDefault();
 
     this.setState({
@@ -45,7 +53,10 @@ class Popover extends Component {
 
     return (
       <div className="popover">
-        <div className="popover__title" onClick={this.handleTitleClick}>
+        <div
+          className="popover__title"
+          onClick={(event) => this.handleTitleClick(event)}
+        >
           {selectedItem.name}{' '}
           {isOpen ? (
             <span

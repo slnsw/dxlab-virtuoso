@@ -5,7 +5,14 @@ import setupSocials from '../../lib/social';
 
 // import './ShareBox.css';
 
-class ShareBox extends Component {
+type Props = {
+  pathname: string;
+  title: string;
+  text: string;
+  imageUrl: string;
+};
+
+class ShareBox extends Component<Props> {
   static propTypes = {
     pathname: PropTypes.string,
     title: PropTypes.string,

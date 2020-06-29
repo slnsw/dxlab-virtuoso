@@ -49,8 +49,11 @@
 }
 
 .post__author {
+  @extend .font-uppercase;
+
   margin-left: 1rem;
   font-size: var(--font-size-sm);
+  font-family: var(--font-secondary);
 
   @include media-sm {
     margin-left: 0;
@@ -73,6 +76,7 @@
   padding: var(--spacing-xxs);
   color: var(--colour-grey-lighter);
   font-size: var(--font-size-xs);
+  font-family: var(--font-secondary);
   line-height: 1;
   letter-spacing: 0.2em;
   background-color: var(--colour-black);
@@ -169,11 +173,11 @@
 
 /* TODO: Put these in global.css */
 .post__content {
+  @extend .font-antialiased;
+
   position: relative;
   font-size: var(--font-size-md);
-  font-family: 'Barlow', sans-serif;
   letter-spacing: -0.01em;
-  @extend .font-antialiased;
 
   /* @include media-sm {
     line-height: inherit;
@@ -187,12 +191,6 @@
   & img {
     max-width: calc(100%);
     height: auto;
-
-    @include media-sm {
-      /*max-width: calc(100% + 4rem);*/
-
-      /*margin-left: -4rem;*/
-    }
   }
 
   &::before {

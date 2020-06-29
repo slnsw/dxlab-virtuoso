@@ -2,9 +2,17 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TileImage from '../TileImage';
-import CTALink from '../CTALink';
+// import CTALink from '../CTALink';
 
-class FeaturedTile extends Component {
+type Props = {
+  title: string;
+  url: string;
+  imageUrl: string;
+  content: string;
+  size?: '2x1' | '1x2';
+};
+
+class FeaturedTile extends Component<Props> {
   static propTypes = {
     title: PropTypes.string,
     url: PropTypes.string,

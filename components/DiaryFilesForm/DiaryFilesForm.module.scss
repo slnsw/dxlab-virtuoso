@@ -16,7 +16,7 @@
   }
 
   p {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
   }
 
   & span {
@@ -66,14 +66,14 @@
   // direction: rtl;
   // flex: auto;
   // align-self: flex-end;
-  @include media-md {
+  @include media-sm {
     // float: right;
     width: 30%;
   }
 }
 
 .diaryFilesForm__name {
-  @include media-md {
+  @include media-sm {
     // float: left;
     width: 41%;
     margin-right: 4%;
@@ -81,7 +81,7 @@
 }
 
 .diaryFilesForm__email {
-  @include media-md {
+  @include media-sm {
     // float: left;
     width: 41%;
     margin-right: 4%;
@@ -95,14 +95,14 @@
 }
 
 .diaryFilesForm__age {
-  @include media-md {
+  @include media-sm {
     // float: left;
     width: 10%;
   }
 }
 
 .diaryFilesForm__city {
-  @include media-md {
+  @include media-sm {
     // float: left;
     width: 28%;
     margin-right: 4%;
@@ -110,7 +110,7 @@
 }
 
 .diaryFilesForm__state {
-  @include media-md {
+  @include media-sm {
     // float: left;
     width: 48%;
     margin-right: 4%;
@@ -118,14 +118,14 @@
 }
 
 .diaryFilesForm__postcode {
-  @include media-md {
+  @include media-sm {
     // float: left;
     width: 16%;
   }
 }
 
 .diaryFilesForm__outsideAustralia {
-  @include media-md {
+  @include media-sm {
     float: left;
     width: 100%;
   }
@@ -140,7 +140,7 @@
   margin-top: var(--spacing-xxlg);
   margin-bottom: var(--spacing-lg);
 
-  @include media-md {
+  @include media-sm {
     float: left;
     width: 20%;
     margin-top: var(--spacing-lg);
@@ -153,7 +153,7 @@
 }
 
 .diaryFilesForm__termsAndConditions {
-  @include media-md {
+  @include media-sm {
     float: left;
     width: 80%;
   }
@@ -162,7 +162,7 @@
 }
 
 .continueButton {
-  @include media-md {
+  @include media-sm {
     width: 20%;
   }
 }
