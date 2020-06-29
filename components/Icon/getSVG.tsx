@@ -63,9 +63,9 @@ export function getSVG(name) {
             style={{
               fill: 'none',
               stroke: '#000',
-              'stroke-linecap': 'square',
-              'stroke-linejoin': 'round',
-              'stroke-width': '32px',
+              strokeLinecap: 'square',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
             }}
           />
         </g>
@@ -81,9 +81,9 @@ export function getSVG(name) {
             style={{
               fill: 'none',
               stroke: '#000',
-              'stroke-linecap': 'square',
-              'stroke-linejoin': 'round',
-              'stroke-width': '32px',
+              strokeLinecap: 'square',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
             }}
           />
           <line
@@ -94,9 +94,9 @@ export function getSVG(name) {
             style={{
               fill: 'none',
               stroke: '#000',
-              'stroke-linecap': 'square',
-              'stroke-linejoin': 'round',
-              'stroke-width': '32px',
+              strokeLinecap: 'square',
+              strokeLinejoin: 'round',
+              strokeWidth: '32px',
             }}
           />
         </g>
