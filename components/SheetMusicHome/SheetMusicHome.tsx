@@ -23,17 +23,27 @@ const SheetMusicHome: React.FC<Props> = ({ className }) => {
         {songs.map((song) => {
           return (
             <article className={css.song} key={song.slug}>
-              <Link href={`/sheet-music/song/${song.slug}`}>
-                <a>
-                  <img src={song.imageUrl} alt={song.title} />
-                </a>
-              </Link>
-
-              <h1>
+              <div className={css.songImageWrapper}>
                 <Link href={`/sheet-music/song/${song.slug}`}>
-                  <a>{song.title}</a>
+                  <a>
+                    <img src={song.imageUrl} alt={song.title} />
+                  </a>
                 </Link>
-              </h1>
+              </div>
+
+              <div className={css.songContent}>
+                <h1>
+                  <Link href={`/sheet-music/song/${song.slug}`}>
+                    <a>{song.title}</a>
+                  </Link>
+                </h1>
+
+                <div className={css.songBase}>
+                  <p>{song.creator}</p>
+
+                  <p>Key: {song.key}</p>
+                </div>
+              </div>
             </article>
           );
         })}

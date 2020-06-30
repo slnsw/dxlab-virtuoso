@@ -20,16 +20,42 @@
 }
 
 .song {
+  display: flex;
+  flex-direction: column;
+  color: var(--colour-black);
+  background-color: var(--colour-white);
+
   h1 {
-    margin-top: var(--spacing-xxxs);
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-xxxs);
     font-weight: 500;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     font-family: var(--font-primary);
     letter-spacing: 0;
     text-transform: none;
   }
 
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.songImageWrapper {
+  // display: flex;
+
   img {
     width: 100%;
   }
+}
+
+.songContent {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.songBase {
+  @extend .font-uppercase;
+
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
 }

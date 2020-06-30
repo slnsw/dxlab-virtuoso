@@ -152,7 +152,9 @@ const songs = [
     creator: "D'Albert, Charles",
     url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
     imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357060.jpg',
+    // imageUrl:
+    //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
     key: 'Gmaj',
     header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
     instruments: [

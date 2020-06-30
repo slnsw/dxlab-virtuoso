@@ -33,11 +33,10 @@ const SheetMusicApp = ({ className, children }) => {
   // });
 
   return (
-    <App className={[css.sheetMusicApp, className || ''].join(' ')}>
-      {/* <Head>
-        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-      </Head> */}
-
+    <App
+      title="Virtuoso"
+      className={[css.sheetMusicApp, className || ''].join(' ')}
+    >
       <header className={css.header}>
         <DXLabLogo className={css.dxlabLogo} />
 
