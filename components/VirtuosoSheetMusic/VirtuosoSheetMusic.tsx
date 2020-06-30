@@ -1,6 +1,6 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
-import Virtuoso from '@slnsw/react-sheet-music';
+import SheetMusic from '@slnsw/react-sheet-music';
 import { Range } from 'react-range';
 
 import Select from '../Select/Select';
@@ -309,7 +309,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         <p className={css.creator}>{currentSong.creator}</p>
       </header>
 
-      <Virtuoso
+      <SheetMusic
         isPlaying={isPlaying}
         bpm={tempo}
         scale={1}

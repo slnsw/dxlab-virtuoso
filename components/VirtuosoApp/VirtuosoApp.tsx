@@ -9,6 +9,7 @@ import App from '../App';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
+import Footer from '../Footer';
 // import CTAButton from '../CTAButton';
 // import VirtuosoContent from './VirtuosoContent';
 // import VirtuosoAbout from '../VirtuosoAbout';
@@ -75,6 +76,8 @@ const VirtuosoApp = ({ className, children }) => {
       </header>
 
       <div className={css.content}>{children}</div>
+
+      <Footer />
     </App>
   );
 };

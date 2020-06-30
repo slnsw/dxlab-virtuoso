@@ -1,25 +1,53 @@
 import React from 'react';
-
-import Link from '../Link';
+import SheetMusic from '@slnsw/react-sheet-music';
 
 import css from './VirtuosoHomeMasthead.module.scss';
+import VirtuosoLogo from '../VirtuosoApp/VirtuosoLogo';
+
+import songs from '../VirtuosoApp/songs';
+import CTALink from '../CTALink';
 
 type Props = {
   className?: string;
 };
 
 const VirtuosoHomeMasthead: React.FC<Props> = ({ className }) => {
+  const currentSong = songs[0];
+  const notation2 = `${currentSong.header}K:${
+    currentSong.key
+  }\n${currentSong.lines.join('\n')}`;
+
+  console.log(notation2);
+  const notation = `X:1
+M:4/4
+L:1/4
+K:A
+V:1
+|A G/ B/ E F|E A/ c/ B G/F/|`;
+
   return (
     <div className={[css.virtuosoHomeMasthead, className || ''].join(' ')}>
       <p className={css.aboutLink}>
-        <Link href="/virtuoso/about">
-          <a>About</a>
-        </Link>
+        <CTALink href="/virtuoso/about">About</CTALink>
       </p>
 
-      <div className={css.staff}></div>
+      <SheetMusic
+        id="masthead"
+        notation={notation}
+        responsive={true}
+        // staffWidth={800}
+        className={css.staff}
+      />
 
-      <div className={css.virtuosoLogo}>VIRTUOSO</div>
+      <p className={css.description}>
+        Play sheet music
+        <br />
+        from the Library's
+        <br />
+        collection
+      </p>
+
+      <VirtuosoLogo className={css.virtuosoLogo} />
 
       <div className={css.oso}>Online sheet orchestra</div>
 
