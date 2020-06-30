@@ -296,6 +296,13 @@ const songs = [
       "[ge'g']2 f' | (e'/=d'/f'/e'/c'/a/) |(e/c/e/a/c'/a/) | [egb] z [e=a] | [egb] z/ b/=a/b/ | [dgb] z [dg=a] | [dgb] z [dgc'] |",
       "([e/gd']c'/b/=a/c'/b/) | (b/g/e/d/B/G/) | (A/c/e/a/c'/e'/) |a' z z ||:[K:Eb] ",
       "(3b/c'/b/ g e | d z c | (3a/b/a/ f d | c z B | (d/f/a/c'/) b | (f/a/b/c'/) b | (e/g/b/c'/) b |",
+      // page 4
+      "(=e/g/b/c'/) b | ((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/b/a/) |",
+      '(g/f/e/d/c/B/) | c z d |[GBe]3 ||[K:Bb] (B,/C/D/E/F/G/) | (A/B/c/d/e/f/) |',
+      "[K:Eb] e z c | A z z | f z c | A z z | [c/ec']b/=e/f/g/f/ | ^c/d/e/d/=c/B/ |",
+      "[K:Bb] (B,/C/D/E/F/G/) | (A/B/c/d/e/f/) | e z c | A z z | a/a/ [dd'] [dd'] |b/b/ [dd'] [dd'] | c'/c'/ [dd'] [dd'] |",
+      "[1 [eac'e']3/2 [eac'e']/ [eac'e'] :|[2 [d/gbd']g/_a/=a/c'/b/ || [K:Eb] ((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/) b |",
+      "(f/a/b/c'/) b | (e/g/b/c'/) b | (=e/g/b/c'/) b | (b/c'/b/g/) e | d z c | ((3a/b/a/) f d | c z B | ",
 
       // bass clef:
       'V:2',
@@ -319,6 +326,13 @@ const songs = [
       'E,, [G,B,D] [G,B,D] | A,, [A,C] [A,C] | A,, [A,C] [A,C] | E,, [G,B,D] [G,B,D] | E, [G,B,D] [G,B,D] | _F, [G,B,D] [G,B,D] | _F, [G,B,D] [G,B,D] |',
       'E, [G,B,D] [G,B,D] | E, [G,B,D] [G,B,D] | [A,,,A,,] E,, C,, | A,,, A,, z ||:[K:Eb]',
       'E,, [G,B,E] [G,B,E] |B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | G,, [B,EG] [B,EG] |',
+      // page 4
+      'C, [G,B,C=F] [G,B,CF] | E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
+      'F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,F] | [E,,E,] [G,,,G,,] [=A,,,=A,,] ||[K:Bb] B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] |',
+      '[K:Eb] F,, [A,CE] [A,CE] | F,, [A,CE] [A,CE] | C, [F,A,C] [F,A,C] | F,, [A,CE] [A,CE] | B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] |',
+      '[K:Bb] B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] | F,, [A,CE] [A,CE] | F, [A,CE] [A,CE] | ^F, [A,D] [A,D] | G, [B,D] [B,D] | D, [^F,A,D] [F,A,D] |',
+      '=F, [A,CE] [EA,C] :| [G,,G,] z z ||[K:Eb] E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
+      'B,, [A,B,D] [A,B,D] |G,, [B,EG] [B,EG] | C, [G,B,C=E] [G,B,CE] | E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] |',
     ],
     bpm: 160,
   },
