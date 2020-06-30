@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import Head from 'next/head';
 
 import App from '../App';
-import Menu from '../Menu/Menu';
+// import Menu from '../Menu/Menu';
 // import Link from '../Link';
 // import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
@@ -20,17 +20,17 @@ const SheetMusicApp = ({ className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   // Override default body styles
-  React.useEffect(() => {
-    document
-      .getElementsByTagName('body')[0]
-      .classList.add(css.sheetMusicAppBody);
+  // React.useEffect(() => {
+  //   document
+  //     .getElementsByTagName('body')[0]
+  //     .classList.add(css.sheetMusicAppBody);
 
-    return () => {
-      document
-        .getElementsByTagName('body')[0]
-        .classList.remove(css.sheetMusicAppBody);
-    };
-  });
+  //   return () => {
+  //     document
+  //       .getElementsByTagName('body')[0]
+  //       .classList.remove(css.sheetMusicAppBody);
+  //   };
+  // });
 
   return (
     <App className={[css.sheetMusicApp, className || ''].join(' ')}>
@@ -39,13 +39,15 @@ const SheetMusicApp = ({ className, children }) => {
       </Head> */}
 
       <header className={css.header}>
-        <VirtuosoLogo className={css.virtuosoLogo} />
+        <DXLabLogo className={css.dxlabLogo} />
 
-        {/* <span className={css.headerDivider}></span> */}
+        <span className={css.headerDivider}></span>
+
+        <VirtuosoLogo className={css.virtuosoLogo} />
 
         {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
 
-        <Menu
+        {/* <Menu
           className={css.menu}
           menuItemClassName={css.menuItem}
           menuItems={[
@@ -62,7 +64,7 @@ const SheetMusicApp = ({ className, children }) => {
               ariaLabel: 'About',
             },
           ]}
-        />
+        /> */}
 
         <MenuIconButton
           isOpen={isMobileMenuOpen}
@@ -72,40 +74,10 @@ const SheetMusicApp = ({ className, children }) => {
           }}
         />
 
-        {/* <Sidebar
-          className={[
-            css.sidebar,
-            isMobileMenuOpen ? css.isMobileSidebarOpen : '',
-          ].join(' ')}
-        >
-          <h1>Songs</h1>
-
-          <Menu
-            menuItems={songs.map((song) => {
-              return {
-                name: song.title,
-                url: `/sheet-music/song/${song.slug}`,
-                isActive: slug !== 'about' && song.slug === currentSong.slug,
-              };
-            })}
-          />
-          <br />
-          <Link key={'about'} href="/sheet-music/about">
-            <a aria-label="about-page">About</a>
-          </Link>
-        </Sidebar> */}
-
-        <DXLabLogo className={css.dxlabLogo} />
-
         <SLNSWLogo className={css.slnswLogo} />
       </header>
 
-      <div className={css.content}>
-        {children}
-        {/* {slug === 'about' && <SheetMusicAbout />}
-
-        <SheetMusicContent song={currentSong} /> */}
-      </div>
+      <div className={css.content}>{children}</div>
     </App>
   );
 };

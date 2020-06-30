@@ -1,10 +1,5 @@
 @import '../../styles/global.scss';
 
-.sheetMusicAppBody {
-  height: 100%;
-  margin: 0;
-}
-
 .sheetMusicApp {
   display: flex;
   flex-direction: column;
@@ -18,13 +13,19 @@
 }
 
 .header {
+  position: relative;
   display: flex;
-  align-items: center;
-  width: 100%;
+  align-items: flex-end;
+  width: calc(100% + 2em);
+  // margin-top: -1em;
+  margin-left: -1em;
   padding: var(--spacing-md);
 
   @include media-md {
-    padding: var(--spacing-lg) var(--spacing-md);
+    width: calc(100% + 4em);
+    margin-top: -2em;
+    margin-left: -2em;
+    padding: var(--spacing-xlg) var(--spacing-md);
   }
 
   // @include media-lg {
@@ -43,34 +44,23 @@
 //   margin-bottom: var(--spacing-lg);
 // }
 
-// .headerDivider {
-//   display: none;
-//   width: 1px;
-//   height: 0.5rem;
-//   margin: auto var(--spacing-md);
-//   background-color: var(--colour-white);
-
-//   @include media-lg {
-//     display: block;
-//     width: 0.5rem;
-//     height: 1px;
-//     margin: var(--spacing-sm) 0 var(--spacing-lg);
-//   }
-// }
+.headerDivider {
+  width: 1px;
+  height: var(--spacing-sm);
+  margin: auto var(--spacing-sm) 0;
+  background-color: var(--colour-white);
+}
 
 .dxlabLogo {
   display: block;
-  margin-right: var(--spacing-md);
-  margin-left: auto;
 
-  // @include media-sm {
-  //   height: 1.4em;
-  // }
+  @include media-sm {
+    height: 1.4em;
+  }
 }
 
 .virtuosoLogo {
   display: block;
-  // margin-right: var(--spacing-md);
 }
 
 .slnswLogo {
@@ -79,29 +69,33 @@
   @include media-sm {
     display: block;
     height: 1.4em;
-    // margin-left: auto;
+    margin-left: auto;
   }
 }
 
-.menu {
-  @extend .font-uppercase;
+// .menu {
+//   @extend .font-uppercase;
 
-  display: flex;
-  margin-bottom: -0.2em;
-  margin-left: var(--spacing-lg);
-  // margin: 0 auto;
-  font-size: var(--font-size-sm);
-  font-family: var(--font-secondary);
-}
+//   display: flex;
+//   margin-bottom: -0.2em;
+//   margin-left: var(--spacing-lg);
+//   // margin: 0 auto;
+//   font-size: var(--font-size-sm);
+//   font-family: var(--font-secondary);
 
-.menuItem {
-  margin-right: var(--spacing-lg);
-}
+//   @include media-sm {
+//     display: none;
+//   }
+// }
+
+// .menuItem {
+//   margin-right: var(--spacing-lg);
+// }
 
 .menuIconButton {
   position: absolute;
-  right: 0;
-  // margin-left: auto;
+  top: var(--spacing-xxxs);
+  right: var(--spacing-xxxs);
 
   @include media-md {
     display: none;
@@ -109,11 +103,11 @@
 }
 
 .content {
-  display: flex;
-  flex: 3;
-  height: 100%;
+  display: block;
+  // flex: 3;
+  // height: 100%;
   // overflow: auto;
-  background-color: var(--colour-white);
+  // background-color: var(--colour-white);
 }
 
 // .sidebar {
