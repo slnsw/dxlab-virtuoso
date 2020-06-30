@@ -44,8 +44,6 @@ const VirtuosoApp = ({ className, children }) => {
 
         <VirtuosoLogo className={css.virtuosoLogo} />
 
-        {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
-
         {/* <Menu
           className={css.menu}
           menuItemClassName={css.menuItem}

@@ -3,13 +3,8 @@
 .sheetMusicApp {
   display: flex;
   flex-direction: column;
-  // max-width: var(--container-width-xlg);
   height: 100%;
   margin: 0 auto;
-
-  // @include media-lg {
-  //   flex-direction: row;
-  // }
 }
 
 .header {
@@ -36,13 +31,6 @@
   //   padding: var(--spacing-xlg);
   // }
 }
-
-// .headerLogos {
-//   display: flex;
-//   justify-content: space-between;
-//   width: 100%;
-//   margin-bottom: var(--spacing-lg);
-// }
 
 .headerDivider {
   width: 1px;
