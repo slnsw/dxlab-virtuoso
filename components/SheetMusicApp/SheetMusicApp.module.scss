@@ -45,24 +45,14 @@
 // }
 
 .headerDivider {
-  // display: none;
   width: 1px;
   height: var(--spacing-sm);
   margin: auto var(--spacing-sm) 0;
   background-color: var(--colour-white);
-
-  // @include media-lg {
-  //   display: block;
-  //   width: 0.5rem;
-  //   height: 1px;
-  //   margin: var(--spacing-sm) 0 var(--spacing-lg);
-  // }
 }
 
 .dxlabLogo {
   display: block;
-  // margin-right: var(--spacing-xlg);
-  // margin-right: auto;
 
   @include media-sm {
     height: 1.4em;
@@ -71,7 +61,6 @@
 
 .virtuosoLogo {
   display: block;
-  // margin-right: var(--spacing-md);
 }
 
 .slnswLogo {
