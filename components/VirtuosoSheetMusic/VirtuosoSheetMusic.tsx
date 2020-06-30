@@ -1,17 +1,17 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
-import SheetMusic from '@slnsw/react-sheet-music';
+import Virtuoso from '@slnsw/react-sheet-music';
 import { Range } from 'react-range';
 
 import Select from '../Select/Select';
 import CTAButton from '../CTAButton';
 import Icon from '../Icon/Icon';
 
-import samples from './samples';
+import samples from '../VirtuosoApp/samples';
 
-import css from './SheetMusicContent.module.scss';
+import css from './VirtuosoSheetMusic.module.scss';
 
-const SheetMusicContent = ({ song: currentSong }) => {
+const VirtuosoContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
     currentSong.key
   }\n${currentSong.lines.join('\n')}`;
@@ -309,7 +309,7 @@ const SheetMusicContent = ({ song: currentSong }) => {
         <p className={css.creator}>{currentSong.creator}</p>
       </header>
 
-      <SheetMusic
+      <Virtuoso
         isPlaying={isPlaying}
         bpm={tempo}
         scale={1}
@@ -370,4 +370,4 @@ const SheetMusicContent = ({ song: currentSong }) => {
   );
 };
 
-export default SheetMusicContent;
+export default VirtuosoContent;

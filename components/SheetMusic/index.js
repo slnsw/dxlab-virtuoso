@@ -1,1 +1,1 @@
-export { default } from './SheetMusic';
+export { default } from './Virtuoso';

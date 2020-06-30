@@ -8,7 +8,7 @@ const VirtuosoLogo = ({ className }) => {
   return (
     <div className={[className].join(' ')}>
       <h1 className={css.virtuosoLogo}>
-        <Link href="/sheet-music">
+        <Link href="/virtuoso">
           <a>
             Virtu<strong>OSO</strong>
             <svg width="2em" height="1.4em">

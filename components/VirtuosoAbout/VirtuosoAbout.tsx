@@ -1,8 +1,8 @@
 import React from 'react';
 
-import css from './SheetMusicAbout.module.scss';
+import css from './VirtuosoAbout.module.scss';
 
-const SheetMusicAbout = () => {
+const VirtuosoAbout = () => {
   return (
     <div className={css.sheetMusicAbout}>
       <h1>About VirtuOSO</h1>
@@ -25,17 +25,15 @@ const SheetMusicAbout = () => {
         Composers and music publishers of the day found that there was a ready
         market for patriotic songs and music about local suburbs and events. Who
         could resist titles like{' '}
-        <a href="/sheet-music/song/the-glebe-rowing-club-polka">
+        <a href="/virtuoso/song/the-glebe-rowing-club-polka">
           The Glebe Rowing Club Polka
         </a>
         ,{' '}
-        <a href="/sheet-music/song/the-glebe-rowing-club-polka">
+        <a href="/virtuoso/song/the-glebe-rowing-club-polka">
           The Sutherland Waltz
         </a>
         ,{' '}
-        <a href="/sheet-music/song/overland-mail-galop">
-          The Overland Mail Galop
-        </a>{' '}
+        <a href="/virtuoso/song/overland-mail-galop">The Overland Mail Galop</a>{' '}
         or The Cricketers’ Quadrille?
       </p>
       <p>
@@ -54,4 +52,4 @@ const SheetMusicAbout = () => {
   );
 };
 
-export default SheetMusicAbout;
+export default VirtuosoAbout;

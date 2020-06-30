@@ -10,13 +10,13 @@ import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 // import CTAButton from '../CTAButton';
-// import SheetMusicContent from './SheetMusicContent';
-// import SheetMusicAbout from '../SheetMusicAbout';
+// import VirtuosoContent from './VirtuosoContent';
+// import VirtuosoAbout from '../VirtuosoAbout';
 
-import css from './SheetMusicApp.module.scss';
+import css from './VirtuosoApp.module.scss';
 import VirtuosoLogo from './VirtuosoLogo';
 
-const SheetMusicApp = ({ className, children }) => {
+const VirtuosoApp = ({ className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   // Override default body styles
@@ -52,13 +52,13 @@ const SheetMusicApp = ({ className, children }) => {
           menuItems={[
             {
               name: 'Home',
-              url: '/sheet-music',
+              url: '/virtuoso',
               isActive: false,
               ariaLabel: 'Home',
             },
             {
               name: 'About',
-              url: '/sheet-music/about',
+              url: '/virtuoso/about',
               isActive: false,
               ariaLabel: 'About',
             },
@@ -81,8 +81,8 @@ const SheetMusicApp = ({ className, children }) => {
   );
 };
 
-SheetMusicApp.propTypes = {
+VirtuosoApp.propTypes = {
   className: PropTypes.string,
 };
 
-export default SheetMusicApp;
+export default VirtuosoApp;

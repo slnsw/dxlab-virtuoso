@@ -1,30 +1,27 @@
 import React from 'react';
 
+import VirtuosoHomeMasthead from '../VirtuosoHomeMasthead';
 import Link from '../Link';
 
-import css from './SheetMusicHome.module.scss';
+import songs from '../VirtuosoApp/songs';
 
-import songs from '../SheetMusicApp/songs';
+import css from './VirtuosoHome.module.scss';
 
 type Props = {
   className?: string;
 };
 
-const SheetMusicHome: React.FC<Props> = ({ className }) => {
+const VirtuosoHome: React.FC<Props> = ({ className }) => {
   return (
     <div className={[css.sheetMusicHome, className || ''].join(' ')}>
-      <p>
-        <Link href="/sheet-music/about">
-          <a>About</a>
-        </Link>
-      </p>
+      <VirtuosoHomeMasthead />
 
       <section className={css.songList}>
         {songs.map((song) => {
           return (
             <article className={css.song} key={song.slug}>
               <div className={css.songImageWrapper}>
-                <Link href={`/sheet-music/song/${song.slug}`}>
+                <Link href={`/virtuoso/song/${song.slug}`}>
                   <a>
                     <img src={song.imageUrl} alt={song.title} />
                   </a>
@@ -33,7 +30,7 @@ const SheetMusicHome: React.FC<Props> = ({ className }) => {
 
               <div className={css.songContent}>
                 <h1>
-                  <Link href={`/sheet-music/song/${song.slug}`}>
+                  <Link href={`/virtuoso/song/${song.slug}`}>
                     <a>{song.title}</a>
                   </Link>
                 </h1>
@@ -52,4 +49,4 @@ const SheetMusicHome: React.FC<Props> = ({ className }) => {
   );
 };
 
-export default SheetMusicHome;
+export default VirtuosoHome;

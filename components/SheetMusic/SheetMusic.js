@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SheetMusic = ({
+const Virtuoso = ({
   id = 'sheet-music',
   isPlaying,
   notation,
@@ -494,8 +494,8 @@ const SheetMusic = ({
   );
 };
 
-SheetMusic.propTypes = {
+Virtuoso.propTypes = {
   className: PropTypes.string,
 };
 
-export default SheetMusic;
+export default Virtuoso;
