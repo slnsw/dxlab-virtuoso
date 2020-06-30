@@ -1,10 +1,5 @@
 @import '../../styles/global.scss';
 
-// .sheetMusicAppBody {
-//   height: 100%;
-//   margin: 0;
-// }
-
 .sheetMusicApp {
   display: flex;
   flex-direction: column;
@@ -18,14 +13,18 @@
 }
 
 .header {
+  position: relative;
   display: flex;
-  align-items: center;
-  width: calc(100% + 4em);
-  margin-top: -2em;
-  margin-left: -2em;
+  align-items: flex-end;
+  width: calc(100% + 2em);
+  // margin-top: -1em;
+  margin-left: -1em;
   padding: var(--spacing-md);
 
   @include media-md {
+    width: calc(100% + 4em);
+    margin-top: -2em;
+    margin-left: -2em;
     padding: var(--spacing-xlg) var(--spacing-md);
   }
 
@@ -45,25 +44,25 @@
 //   margin-bottom: var(--spacing-lg);
 // }
 
-// .headerDivider {
-//   display: none;
-//   width: 1px;
-//   height: 0.5rem;
-//   margin: auto var(--spacing-md);
-//   background-color: var(--colour-white);
+.headerDivider {
+  // display: none;
+  width: 1px;
+  height: var(--spacing-sm);
+  margin: auto var(--spacing-sm) 0;
+  background-color: var(--colour-white);
 
-//   @include media-lg {
-//     display: block;
-//     width: 0.5rem;
-//     height: 1px;
-//     margin: var(--spacing-sm) 0 var(--spacing-lg);
-//   }
-// }
+  // @include media-lg {
+  //   display: block;
+  //   width: 0.5rem;
+  //   height: 1px;
+  //   margin: var(--spacing-sm) 0 var(--spacing-lg);
+  // }
+}
 
 .dxlabLogo {
   display: block;
-  margin-right: var(--spacing-md);
-  margin-left: auto;
+  // margin-right: var(--spacing-xlg);
+  // margin-right: auto;
 
   @include media-sm {
     height: 1.4em;
@@ -81,29 +80,33 @@
   @include media-sm {
     display: block;
     height: 1.4em;
-    // margin-left: auto;
+    margin-left: auto;
   }
 }
 
-.menu {
-  @extend .font-uppercase;
+// .menu {
+//   @extend .font-uppercase;
 
-  display: flex;
-  margin-bottom: -0.2em;
-  margin-left: var(--spacing-lg);
-  // margin: 0 auto;
-  font-size: var(--font-size-sm);
-  font-family: var(--font-secondary);
-}
+//   display: flex;
+//   margin-bottom: -0.2em;
+//   margin-left: var(--spacing-lg);
+//   // margin: 0 auto;
+//   font-size: var(--font-size-sm);
+//   font-family: var(--font-secondary);
 
-.menuItem {
-  margin-right: var(--spacing-lg);
-}
+//   @include media-sm {
+//     display: none;
+//   }
+// }
+
+// .menuItem {
+//   margin-right: var(--spacing-lg);
+// }
 
 .menuIconButton {
   position: absolute;
-  right: 0;
-  // margin-left: auto;
+  top: var(--spacing-xxxs);
+  right: var(--spacing-xxxs);
 
   @include media-md {
     display: none;

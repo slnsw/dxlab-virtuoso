@@ -13,6 +13,12 @@ type Props = {
 const SheetMusicHome: React.FC<Props> = ({ className }) => {
   return (
     <div className={[css.sheetMusicHome, className || ''].join(' ')}>
+      <p>
+        <Link href="/sheet-music/about">
+          <a>About</a>
+        </Link>
+      </p>
+
       <section className={css.songList}>
         {songs.map((song) => {
           return (

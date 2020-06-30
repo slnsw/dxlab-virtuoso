@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import Head from 'next/head';
 
 import App from '../App';
-import Menu from '../Menu/Menu';
+// import Menu from '../Menu/Menu';
 // import Link from '../Link';
 // import Sidebar from '../Sidebar';
 import DXLabLogo from '../DXLabLogo';
@@ -39,13 +39,15 @@ const SheetMusicApp = ({ className, children }) => {
       </Head> */}
 
       <header className={css.header}>
-        <VirtuosoLogo className={css.virtuosoLogo} />
+        <DXLabLogo className={css.dxlabLogo} />
 
-        {/* <span className={css.headerDivider}></span> */}
+        <span className={css.headerDivider}></span>
+
+        <VirtuosoLogo className={css.virtuosoLogo} />
 
         {/* <p>♩ ♪ ♫ ♬ ♭</p> */}
 
-        <Menu
+        {/* <Menu
           className={css.menu}
           menuItemClassName={css.menuItem}
           menuItems={[
@@ -62,7 +64,7 @@ const SheetMusicApp = ({ className, children }) => {
               ariaLabel: 'About',
             },
           ]}
-        />
+        /> */}
 
         <MenuIconButton
           isOpen={isMobileMenuOpen}
@@ -71,8 +73,6 @@ const SheetMusicApp = ({ className, children }) => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }}
         />
-
-        <DXLabLogo className={css.dxlabLogo} />
 
         <SLNSWLogo className={css.slnswLogo} />
       </header>
