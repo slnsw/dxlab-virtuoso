@@ -27,40 +27,70 @@ V:1
 
   return (
     <div className={[css.virtuosoHomeMasthead, className || ''].join(' ')}>
-      <p className={css.aboutLink}>
-        <CTALink href="/virtuoso/about">About</CTALink>
-      </p>
+      <div className={css.inside}>
+        <div className={css.image1}>
+          {/* <img
+          src="https://files02.sl.nsw.gov.au/fotoweb/thumbnails/3600_0/9759/97597875.jpg"
+          alt="77 Squad R.A.A.F., October 1952"
+        /> */}
+        </div>
 
-      <SheetMusic
-        id="masthead"
+        <div className={css.image2}>
+          <img
+            src="https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_300/9577/95773440.jpg"
+            alt=""
+          />
+        </div>
+
+        <p className={css.aboutLink}>
+          <CTALink href="/virtuoso/about">About</CTALink>
+        </p>
+
+        <SheetMusic
+          id="masthead"
+          notation={notation}
+          responsive={true}
+          // staffWidth={800}
+          className={css.staff}
+        />
+
+        {/* <SheetMusic
+        id="masthead2"
         notation={notation}
         responsive={true}
         // staffWidth={800}
-        className={css.staff}
-      />
+        className={css.staff2}
+      /> */}
 
-      <p className={css.description}>
-        Play sheet music
-        <br />
-        from the Library's
-        <br />
-        collection
-      </p>
+        <p className={css.description}>
+          Play sheet music
+          <br />
+          from the Library's
+          <br />
+          collection
+        </p>
 
-      <VirtuosoLogo className={css.virtuosoLogo} />
+        <VirtuosoLogo className={css.virtuosoLogo} />
 
-      <div className={css.oso}>Online sheet orchestra</div>
+        <p className={css.oso}>
+          <span>O</span>nline <span>s</span>heet <span>o</span>rchestra
+        </p>
 
-      <div className={[css.musicSymbol, css.musicSymbol1].join(' ')}>
-        <p>♬</p>
-      </div>
+        <div className={[css.musicSymbol, css.musicSymbol1].join(' ')}>
+          <p>♬</p>
+        </div>
 
-      <div className={[css.musicSymbol, css.musicSymbol2].join(' ')}>
-        <p>♩</p>
-      </div>
+        <div className={[css.musicSymbol, css.musicSymbol2].join(' ')}>
+          <p>♩</p>
+        </div>
 
-      <div className={[css.musicSymbol, css.musicSymbol3].join(' ')}>
-        <p>♫</p>
+        <div className={[css.musicSymbol, css.musicSymbol3].join(' ')}>
+          <p>♫</p>
+        </div>
+
+        <div className={[css.musicSymbol, css.musicSymbol4].join(' ')}>
+          <p>♭</p>
+        </div>
       </div>
 
       {/* <p>♩ ♪ ♫ ♭</p> */}

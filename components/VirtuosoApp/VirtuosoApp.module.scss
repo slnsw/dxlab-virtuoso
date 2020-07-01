@@ -22,14 +22,6 @@
     margin-left: -2em;
     padding: var(--spacing-xlg) var(--spacing-md);
   }
-
-  // @include media-lg {
-  //   flex: 1;
-  //   flex-direction: column;
-  //   align-items: flex-start;
-  //   max-width: 17rem;
-  //   padding: var(--spacing-xlg);
-  // }
 }
 
 .headerDivider {
@@ -52,12 +44,13 @@
 }
 
 .slnswLogo {
+  z-index: 1;
   display: none;
+  height: 1.4em;
+  margin-left: auto;
 
   @include media-sm {
     display: block;
-    height: 1.4em;
-    margin-left: auto;
   }
 }
 
