@@ -4,7 +4,7 @@ import SheetMusic from '@slnsw/react-sheet-music';
 import css from './VirtuosoHomeMasthead.module.scss';
 import VirtuosoLogo from '../VirtuosoApp/VirtuosoLogo';
 
-import songs from '../VirtuosoApp/songs';
+// import songs from '../VirtuosoApp/songs';
 import CTALink from '../CTALink';
 
 type Props = {
@@ -12,12 +12,12 @@ type Props = {
 };
 
 const VirtuosoHomeMasthead: React.FC<Props> = ({ className }) => {
-  const currentSong = songs[0];
-  const notation2 = `${currentSong.header}K:${
-    currentSong.key
-  }\n${currentSong.lines.join('\n')}`;
+  // const currentSong = songs[0];
+  // const notation2 = `${currentSong.header}K:${
+  //   currentSong.key
+  // }\n${currentSong.lines.join('\n')}`;
 
-  console.log(notation2);
+  // console.log(notation2);
   const notation = `X:1
 M:4/4
 L:1/4
@@ -41,6 +41,8 @@ V:1
             alt=""
           />
         </div>
+
+        <div className={css.image3}></div>
 
         <p className={css.aboutLink}>
           <CTALink href="/virtuoso/about">About</CTALink>
