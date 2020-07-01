@@ -16,6 +16,7 @@ const VirtuosoHome: React.FC<Props> = ({ className }) => {
     <div className={[css.sheetMusicHome, className || ''].join(' ')}>
       <VirtuosoHomeMasthead />
 
+      <h2 className={css.heading}>♪ Sheet music</h2>
       <section className={css.songList}>
         {songs.map((song) => {
           return (

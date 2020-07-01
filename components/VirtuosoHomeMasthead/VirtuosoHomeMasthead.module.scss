@@ -1,5 +1,193 @@
 @import '../../styles/global.scss';
 
 .virtuosoHomeMasthead {
-  display: block;
+  margin-right: -1rem;
+  margin-left: -1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  overflow: hidden;
+
+  @include media-sm {
+    margin-top: -5rem;
+    margin-right: -2rem;
+    margin-left: -2rem;
+    padding-top: 5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  @include media-xlg {
+    overflow: visible;
+  }
+}
+
+.inside {
+  position: relative;
+  display: grid;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  height: 400px;
+
+  @include media-sm {
+    height: 500px;
+  }
+}
+
+.image1 {
+  position: absolute;
+  top: 2rem;
+  right: -10rem;
+  z-index: 0;
+  // display: none;
+  width: 20rem;
+  height: 20rem;
+  overflow: hidden;
+  background-image: url('https://files02.sl.nsw.gov.au/fotoweb/thumbnails/3600_0/9759/97597875.jpg');
+  background-position: center;
+  background-size: 105%;
+  border-radius: 20em;
+  opacity: 0.3;
+
+  @include media-sm {
+    top: -9rem;
+    right: -10rem;
+    width: 30rem;
+    height: 30rem;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.image2 {
+  position: absolute;
+  top: 0;
+  left: -7rem;
+  z-index: 0;
+  width: 12rem;
+  height: 12rem;
+  overflow: hidden;
+  border-radius: 20em;
+  opacity: 0.3;
+
+  @include media-sm {
+    top: 2rem;
+    left: -6rem;
+    width: 16rem;
+    height: 16rem;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.aboutLink {
+  grid-row-start: 5;
+  grid-column-start: 1;
+
+  // @include media-sm {
+  //   display: block;
+  // }
+}
+
+.description {
+  z-index: 1;
+  grid-row-start: 2;
+  grid-row-end: span 2;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+
+  @include media-sm {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+}
+
+.staff {
+  z-index: 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  background-color: transparent;
+
+  @include media-sm {
+    grid-row-start: 2;
+  }
+
+  path {
+    fill: var(--colour-white);
+  }
+}
+
+.virtuosoLogo {
+  @extend .font-uppercase;
+
+  grid-row-start: 4;
+  // grid-column-start: 2;
+  font-size: var(--font-size-xxlg);
+  font-family: var(--font-secondary);
+
+  @include media-sm {
+    font-size: var(--font-size-xxxxlg);
+  }
+}
+
+.musicSymbol {
+  font-size: var(--font-size-xlg);
+}
+
+.musicSymbol1 {
+  z-index: 1;
+  grid-row-start: 3;
+  grid-column-start: 5;
+
+  @include media-sm {
+    grid-column-start: 6;
+  }
+}
+
+.musicSymbol2 {
+  z-index: 1;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  grid-column-start: 2;
+}
+
+.musicSymbol3 {
+  z-index: 1;
+  grid-row-start: 3;
+  grid-column-start: 1;
+}
+
+.musicSymbol4 {
+  z-index: 1;
+  display: none;
+  grid-row-start: 4;
+  grid-column-start: 5;
+
+  @include media-sm {
+    display: block;
+  }
+}
+
+.oso {
+  @extend .font-uppercase;
+
+  grid-row-start: 5;
+  grid-column-start: 4;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-secondary);
+
+  @include media-sm {
+    grid-row-start: 5;
+    grid-column-start: 2;
+  }
+
+  span {
+    color: var(--colour-primary);
+    font-weight: 600;
+  }
 }

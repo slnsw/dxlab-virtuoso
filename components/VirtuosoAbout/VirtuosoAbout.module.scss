@@ -6,9 +6,11 @@
   flex-direction: column;
   align-items: left;
   width: 100%;
-  padding: 0 var(--spacing-md);
-  padding-right: 20%;
-  padding-left: 10%;
+  max-width: var(--container-width-lg);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xxlg);
+  // padding-right: 20%;
+  // padding-left: 10%;
   overflow: auto;
   color: var(--colour-black);
   background-color: var(--colour-white);

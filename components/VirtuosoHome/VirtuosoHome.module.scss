@@ -5,13 +5,29 @@
   width: 100%;
   max-width: var(--container-width-lg);
   margin: 0 auto;
-  padding-top: 2em;
+  // padding-top: 2em;
+}
+
+.heading {
+  // display: inline-block;
+  // padding-top: var(--spacing-xs);
+  // padding-right: var(--spacing-md);
+  max-width: var(--container-width-lg);
+  margin-right: auto;
+  margin-bottom: var(--spacing-xxlg);
+  margin-left: auto;
+  // font-weight: 500;
+  font-size: var(--font-size-md);
+  // text-align: center;
+  // border-top: 1px solid var(--colour-white);
 }
 
 .songList {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  max-width: var(--container-width-lg);
+  margin: 0 auto;
 
   @include media-md {
     grid-gap: var(--spacing-xlg);
