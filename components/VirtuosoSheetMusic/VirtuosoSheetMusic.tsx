@@ -158,8 +158,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
         {/* <CTAButton>Play</CTAButton> */}
 
-        <div className={css.tempoControls}>
-          <span>Tempo:</span>
+        <form onSubmit={handleTempoExit} className={css.tempoControls}>
+          <label>Tempo:</label>
           <CTAButton
             theme="light"
             className={css['button--tempo']}
@@ -168,18 +168,13 @@ const VirtuosoContent = ({ song: currentSong }) => {
           >
             <Icon name="remove" />
           </CTAButton>
-          <form onSubmit={handleTempoExit}>
-            <span>
-              {/* {tempo}</span> */}
-              <input
-                type="text"
-                value={tempoFieldValue}
-                className={css['tempoInput']}
-                onChange={handleTempoChange}
-                onBlur={handleTempoExit}
-              />
-            </span>
-          </form>
+          <input
+            type="text"
+            value={tempoFieldValue}
+            className={css['tempoInput']}
+            onChange={handleTempoChange}
+            onBlur={handleTempoExit}
+          />
           <CTAButton
             theme="light"
             className={css['button--tempo']}
@@ -188,7 +183,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
           >
             <Icon name="add" />
           </CTAButton>
-        </div>
+        </form>
 
         <CTAButton
           onClick={() => setShowMoreControls(!showMoreControls)}
