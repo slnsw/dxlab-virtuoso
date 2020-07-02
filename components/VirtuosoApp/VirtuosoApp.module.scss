@@ -16,11 +16,11 @@
   margin-left: -1em;
   padding: var(--spacing-md);
 
-  @include media-md {
+  @include media-sm {
     width: calc(100% + 4em);
     margin-top: -2em;
     margin-left: -2em;
-    padding: var(--spacing-xlg) var(--spacing-md);
+    padding: var(--spacing-xlg) var(--spacing-xlg);
   }
 }
 
