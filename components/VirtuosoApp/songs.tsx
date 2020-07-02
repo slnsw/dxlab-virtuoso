@@ -213,86 +213,6 @@ const songs = [
     ],
     bpm: 130,
   },
-  // {
-  //   title: 'The Sutherland Waltz',
-  //   slug: 'the-sutherland-waltz',
-  //   creator: 'Katie Linton',
-  //   url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //   imageUrl:
-  //     'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3747/37479310.jpg',
-  //   key: 'Ebmaj',
-  //   header: 'X:1\nM:3/4\nL:1/4\n%%score {1 2}\n',
-  //   instruments: [
-  //     {
-  //       name: 'Piano',
-  //       volume: 0,
-  //       type: 'piano',
-  //     },
-  //     {
-  //       name: 'Piano bass clef',
-  //       volume: -5,
-  //       type: 'piano',
-  //     },
-  //   ],
-  //   lines: [
-  //     'V:1 clef=treble name=INTRO-',
-  //     '"_Con Bravara"([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [B^c]|[Bd] z z|z3|([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [Bd]|[Be] z z|z3|',
-  //     '(B,2 B,/) [B/b]|[Bb] z [^c=e]|[df] z z|Z|B,3|!arpeggio![D2FAB] z|"8va"!arpeggio![Bdfa] z z||',
-  //     "!arpeggio![GBeg] z !arpeggio![Begb]|!arpeggio![egbe'] z !arpeggio![gbe'g']|([f3bd'f']|[fbd'f']) z !arpeggio![egbe']|[dbd'] z [cac']|[Bfb] z [Afa]|([G3Bg]|[GBg]) [Ff] [Gg]|",
-  //     "[A3/2ca] [A/fa] ([Afa]|[Aa]) [Gg] [Aa]|[B3/2b] [B/b] ([Bb]|[Bb]) [=A=a] [Bb]|[c3/2c'] [c/c'] [cc']|!<(![cc'] [dbd'] [e=ae']|[dbd']!<)! z z|z [cc'] [Bb]|",
-  //     "!arpeggio![GBeg] z !arpeggio![Begb]|!arpeggio![egbe'] z !arpeggio![gbe'g']|(!arpeggio![f3bd'f']|[fbd'f']) z [ee']|[dbd'] z [cac']|[Bfb] z [Afa]|([G3eg]|[Geg]) [Ff] [Gg]|",
-  //     "[A3/2a] [A/a] ([Aa]|[Aa]) [Gg] [Aa]|[B3/2b] [B/b] ([Bb]|[Bb]) [=A=a] [Bb]|[c3/2c'] [c/c'] [cc']|[cc'] [gg'] [ff']|e/g/b/e'/g/b/|e' z f||",
-  //     // bass in your face
-  //     'V:2 clef=bass name=DUCTION',
-  //     '"ff"(B,2 B,/) B,/|B,2 =E|F z z|z3|(B,2 B,/) B,/|B,2 [K: clef=treble]F|[B,G] z z|z3|', // A,,|[D,,B,,] z z|z3|',
-  //     '(B,,2 B,,/) B,,/|B,, z [K: clef=treble] G|[B,A] z z|Z[K: clef=bass]|[B,,,3B,,]|!arpeggio![B,,2F,B,] z|!arpeggio![D,A,C] "rit"[C,,C,] [D,,D,]||',
-  //     '[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [G,B,E]|[B,,B,] [F,A,B,D] [F,A,B,D]|[F,,F,] [F,B,D] [G,B,E]|[B,,,B,,] [A,B,D] [A,B,D]|[D,,D,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [=E,,=E,]|',
-  //     '[F,,F,] [A,CF] [A,CF]|[B,,,B,,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[G,,G,] [=A,CE] [_G,,_G,]|[F,,F,] [F,A,E] [F,A,E]|[G,,G,] [D,,D,] [C,,C,]|[B,,,B,,] [F,B,D] [F,B,D]|[B,,,B,,] [F,A,B,D] [F,A,B,D]|',
-  //     '[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [G,B,E]|[B,,B,] [F,A,B,D] [F,A,B,D]|[F,,F,] [F,B,D] [G,B,E]|[B,,,B,,] [F,A,B,D] [F,A,B,D]|[D,,D,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[B,,,B,,] [G,B,E] [=E,,=E,]|',
-  //     '[F,,F,] [A,CF] [A,CF]|[B,,,B,,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[G,,G,] [F,=A,CE] [_G,,_G,]|[F,,F,] [F,A,E] [F,A,E]|F, [A,B,D] [A,B,D]|E, B,, G,,|E,, F,,, z||',
-  //   ],
-  //   bpm: 160,
-  // },
-  {
-    title: 'The Sutherland Waltz',
-    slug: 'the-sutherland-waltz',
-    creator: 'Katie Linton',
-    url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-    imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
-    key: 'Ebmaj',
-    header: 'X:1\nM:3/4\nL:1/4\n%%score {1 2}\n',
-    instruments: [
-      {
-        name: 'Piano',
-        volume: 0,
-        type: 'piano',
-      },
-      {
-        name: 'Piano bass clef',
-        volume: -5,
-        type: 'piano',
-      },
-    ],
-    lines: [
-      'V:1 clef=treble name=INTRO-',
-      '"_Con Bravara"([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [B^c]|[Bd] z z|z3|([B2b] [B/b]) [B/b]|"8va"[Bdfb] z [Bd]|[Be] z z|z3|',
-      '(B,2 B,/) [B/b]|[Bb] z [^c=e]|[df] z z|Z|B,3|!arpeggio![D2FAB] z|"8va"!arpeggio![Bdfa] z z||',
-      "!arpeggio![GBeg] z !arpeggio![Begb]|!arpeggio![egbe'] z !arpeggio![gbe'g']|([f3bd'f']|[fbd'f']) z !arpeggio![egbe']|[dbd'] z [cac']|[Bfb] z [Afa]|([G3Bg]|[GBg]) [Ff] [Gg]|",
-      "[A3/2ca] [A/fa] ([Afa]|[Aa]) [Gg] [Aa]|[B3/2b] [B/b] ([Bb]|[Bb]) [=A=a] [Bb]|[c3/2c'] [c/c'] [cc']|!<(![cc'] [dbd'] [e=ae']|[dbd']!<)! z z|z [cc'] [Bb]|",
-      "!arpeggio![GBeg] z !arpeggio![Begb]|!arpeggio![egbe'] z !arpeggio![gbe'g']|(!arpeggio![f3bd'f']|[fbd'f']) z [ee']|[dbd'] z [cac']|[Bfb] z [Afa]|([G3eg]|[Geg]) [Ff] [Gg]|",
-      "[A3/2a] [A/a] ([Aa]|[Aa]) [Gg] [Aa]|[B3/2b] [B/b] ([Bb]|[Bb]) [=A=a] [Bb]|[c3/2c'] [c/c'] [cc']|[cc'] [gg'] [ff']|e/g/b/e'/g/b/|e' z f||",
-      // bass in your face
-      'V:2 clef=bass name=DUCTION',
-      '"ff"(B,2 B,/) B,/|B,2 =E|F z z|z3|(B,2 B,/) B,/|B,2 [K: clef=treble]F|[B,G] z z|z3|', // A,,|[D,,B,,] z z|z3|',
-      '(B,,2 B,,/) B,,/|B,, z [K: clef=treble] G|[B,A] z z|Z[K: clef=bass]|[B,,,3B,,]|!arpeggio![B,,2F,B,] z|!arpeggio![D,A,C] "rit"[C,,C,] [D,,D,]||',
-      '[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [G,B,E]|[B,,B,] [F,A,B,D] [F,A,B,D]|[F,,F,] [F,B,D] [G,B,E]|[B,,,B,,] [A,B,D] [A,B,D]|[D,,D,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [=E,,=E,]|',
-      '[F,,F,] [A,CF] [A,CF]|[B,,,B,,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[G,,G,] [=A,CE] [_G,,_G,]|[F,,F,] [F,A,E] [F,A,E]|[G,,G,] [D,,D,] [C,,C,]|[B,,,B,,] [F,B,D] [F,B,D]|[B,,,B,,] [F,A,B,D] [F,A,B,D]|',
-      '[E,,E,] [G,B,E] [G,B,E]|[E,,E,] [G,B,E] [G,B,E]|[B,,B,] [F,A,B,D] [F,A,B,D]|[F,,F,] [F,B,D] [G,B,E]|[B,,,B,,] [F,A,B,D] [F,A,B,D]|[D,,D,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[B,,,B,,] [G,B,E] [=E,,=E,]|',
-      '[F,,F,] [A,CF] [A,CF]|[B,,,B,,] [F,B,D] [F,B,D]|[E,,E,] [G,B,E] [G,B,E]|[G,,G,] [F,=A,CE] [_G,,_G,]|[F,,F,] [F,A,E] [F,A,E]|F, [A,B,D] [A,B,D]|E, B,, G,,|E,, F,,, z||',
-    ],
-    bpm: 160,
-  },
   {
     title: 'The Sutherland Waltz2',
     slug: 'the-sutherland-waltz2',
@@ -391,6 +311,48 @@ const songs = [
       'D, [A,CF] [A,CF] | [D,,D,] [F,B,D] [F,B,D] |F,, [F,_A,D] [F,A,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [E,,E,] z z | [E,,,E,,] z z | [E,,E,] z z ||',
     ],
     bpm: 160,
+  },
+  {
+    title: 'Sunny New South Wales',
+    slug: 'sunny-new-south-wales',
+    creator: 'E. Lewis Scott',
+    url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
+    key: 'Bb',
+    header: 'X:1\nM:4/4\nL:1/8\n%%score 1 2 | 3\n',
+    instruments: [
+      {
+        name: 'Voice',
+        volume: 0,
+        type: 'clarinet',
+      },
+      {
+        name: 'Piano treble clef',
+        volume: -6,
+        type: 'piano',
+      },
+      {
+        name: 'Piano bass clef',
+        volume: -6,
+        type: 'piano',
+      },
+    ],
+    lines: [
+      'V:1 treble nm="Voice" snm="Voice"',
+      'V:2 treble',
+      'V:3 bass',
+
+      'V:1',
+      'x/0 | x/0 | x/0 | x/0 | x/0 |$ x/0 | x/0 | x/0 | x/0 |$[K:Bb][K:treble] F z z2 z2 z2 | F D F B d (cB) !wedge!A | G B A G F2 z F | F D F2 Bd/c/ B A | Gc c =B c2 z F |$ F-D F-B (dcB) A | G B A G F2 z F | c c (=Bc) d c c c |(GB) D =E F2 z F | %18',
+      'V:2',
+      "[Ff] z z2 z2 z2 | [Ff][Dd][Ff][Bb] [dd'][cc'][Ba][bc] | [Gg][Ba][Aa][Gg][Ff] z2 [Ff] | [Ef][Dd][Ff][cb] [dd'][cc'][Bb][Aa] | [Gg][cc'][cd'][A=a] [cc']2 z [Ff] |$ [Ff][Dd][Ff][Ba] [dd'][cc'][Bb][Aa] | [Gf][Aa][cb][Ag] [Ff]2 z d | d^c/d/ e/d/^F/d/ =c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] a2 z [FAD] ||$ z z z2 z2 z2 | z [F,B,D].[F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] | z [F,B,D][F,B,DD][F,B,D] z [F,B,D][F,B,D][F,B,D] | %13",
+      'z [B,=E][B,E][EB,] [A,CF]2- [CF] z |$ [B,DF]z[B,DF][B,DF] z [B,DF][B,DF][B,DF] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] | z [F,CF][F,CF][F,CF] z [A,CF][A,CF][A,CF] | [B,DG] z [B,C=E] z [A,CF]2- [A,CF]2 | %18',
+      'V:3',
+      '[M:4/4] z z z2 z2 z2 | B,,[D,F,B,][B,D,F,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | [C,,C,]2 [C,E,B,]2 ([F,,F,][^F,,^F,][G,,G,][A,,A,]) |$ B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][B,,D,F,B,] | E,[F,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,] z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 | [F,,F,]2 [F,A,CE]2 [B,D]2 B,,,2 ||$ z z z2 z2 z2 | [B,,,B,,]2 z2 [B,,,B,,]2 z2 | %11',
+      ',[E,,D,]2 z2 [B,,,B,,]2 z2 | [B,,,B,,]2 z2 [G,,,G,,]2 z2 | ([C,,C,]4 [F,,F,])[^F,,^F,][G,,G,][A,,A,] |$ [B,,B,]2 z2 [B,,,B,,]2 z2 | [E,,E,]2 z2 [B,,,B,,]2 z2 | [A,,,A,,]2 z2 [F,,F,]2 z2 | [G,,,B,,] z [C,,C,] z (G,,C,F,) z | %18',
+    ],
+    bpm: 100,
   },
 ];
 
