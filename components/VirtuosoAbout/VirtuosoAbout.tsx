@@ -5,7 +5,7 @@ import css from './VirtuosoAbout.module.scss';
 const VirtuosoAbout = () => {
   return (
     <div className={css.sheetMusicAbout}>
-      <h1>About VirtuOSO</h1>
+      <h1>About</h1>
 
       <p>
         Welcome to VirtuOSO, the{' '}

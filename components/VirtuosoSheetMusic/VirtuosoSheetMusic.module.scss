@@ -6,6 +6,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: var(--container-width-lg);
+  margin: 0 auto;
   padding: 0 var(--spacing-md);
   overflow: auto;
   color: var(--colour-black);
@@ -23,7 +25,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-md) 0 var(--spacing-xxxs);
   background-color: var(--colour-white);
   border-bottom: 1px solid var(--colour-black);
 }
@@ -55,23 +57,28 @@
 }
 
 .tempoControls {
-  display: none;
-  margin-left: auto;
+  @extend .font-uppercase;
 
-  form {
-    display: inline;
-  }
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 
   .tempoInput {
     width: 50px;
+    height: 3em * 0.77;
     color: var(--colour-black);
-    background-color: var(--colour-grey-lighter);
+    text-align: center;
+    vertical-align: middle;
+    // background-color: transparent;
+    background-color: var(--colour-grey-lightest);
+    // border: 1px solid var(--colour-black);
     border: none;
   }
 
-  @include media-lg {
-    display: block;
-  }
+  // @include media-lg {
+  //   display: flex;
+  //   align-items: baseline;
+  // }
 }
 
 .button--light {

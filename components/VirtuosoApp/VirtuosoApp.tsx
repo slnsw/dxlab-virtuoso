@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Head from 'next/head';
 
 import App from '../App';
-// import Menu from '../Menu/Menu';
-// import Link from '../Link';
-// import Sidebar from '../Sidebar';
+import HeaderNavV2 from '../HeaderNavV2';
+import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
-// import CTAButton from '../CTAButton';
-// import VirtuosoContent from './VirtuosoContent';
-// import VirtuosoAbout from '../VirtuosoAbout';
+import VirtuosoLogo from './VirtuosoLogo';
+
+import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './VirtuosoApp.module.scss';
-import VirtuosoLogo from './VirtuosoLogo';
 
 const VirtuosoApp = ({ className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -33,6 +30,8 @@ const VirtuosoApp = ({ className, children }) => {
   //   };
   // });
 
+  useLockBodyScroll(isMobileMenuOpen);
+
   return (
     <App
       title="Virtuoso"
@@ -45,24 +44,28 @@ const VirtuosoApp = ({ className, children }) => {
 
         <VirtuosoLogo className={css.virtuosoLogo} />
 
-        {/* <Menu
-          className={css.menu}
-          menuItemClassName={css.menuItem}
-          menuItems={[
-            {
-              name: 'Home',
-              url: '/virtuoso',
-              isActive: false,
-              ariaLabel: 'Home',
-            },
-            {
-              name: 'About',
-              url: '/virtuoso/about',
-              isActive: false,
-              ariaLabel: 'About',
-            },
-          ]}
-        /> */}
+        <HeaderNavV2 isOpen={isMobileMenuOpen}>
+          <div className={css.headerNavInside}>
+            <Menu
+              className={css.menu}
+              menuItemClassName={css.menuItem}
+              menuItems={[
+                {
+                  name: 'Home',
+                  url: '/virtuoso',
+                  isActive: false,
+                  ariaLabel: 'Home',
+                },
+                {
+                  name: 'About',
+                  url: '/virtuoso/about',
+                  isActive: false,
+                  ariaLabel: 'About',
+                },
+              ]}
+            />
+          </div>
+        </HeaderNavV2>
 
         <MenuIconButton
           isOpen={isMobileMenuOpen}

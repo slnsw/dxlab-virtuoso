@@ -35,7 +35,7 @@
 
 .image1 {
   position: absolute;
-  top: 2rem;
+  top: 0rem;
   right: -10rem;
   z-index: 0;
   // display: none;
@@ -83,6 +83,29 @@
   }
 }
 
+.image3 {
+  z-index: 0;
+  display: none;
+  grid-row-start: 3;
+  grid-column-start: 4;
+  width: 7rem;
+  height: 7rem;
+  overflow: hidden;
+  background-image: url('https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_300/9608/96084219.jpg');
+  background-position: center;
+  background-size: 105%;
+  border-radius: 20em;
+  opacity: 1;
+
+  @include media-sm {
+    display: block;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
 .aboutLink {
   grid-row-start: 5;
   grid-column-start: 1;
@@ -107,6 +130,7 @@
 
 .staff {
   z-index: 1;
+  display: none;
   grid-row-start: 1;
   grid-row-end: span 1;
   grid-column-start: 3;
@@ -114,6 +138,7 @@
   background-color: transparent;
 
   @include media-sm {
+    display: block;
     grid-row-start: 2;
   }
 
