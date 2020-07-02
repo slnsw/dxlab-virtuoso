@@ -1,6 +1,7 @@
 @import '../../styles/global.scss';
 
 .virtuosoHomeMasthead {
+  width: 100vw;
   margin-right: -1rem;
   margin-left: -1rem;
   padding-right: 1rem;
@@ -16,9 +17,9 @@
     padding-left: 2rem;
   }
 
-  @include media-xlg {
-    overflow: visible;
-  }
+  // @include media-xlg {
+  //   overflow: visible;
+  // }
 }
 
 .inside {
@@ -26,7 +27,9 @@
   display: grid;
   grid-template-rows: 20% 20% 20% 20% 20%;
   grid-template-columns: 20% 20% 20% 20% 20%;
+  max-width: var(--container-width-lg);
   height: 400px;
+  margin: 0 auto;
 
   @include media-sm {
     height: 500px;
@@ -35,7 +38,7 @@
 
 .image1 {
   position: absolute;
-  top: 0rem;
+  top: 0;
   right: -10rem;
   z-index: 0;
   // display: none;
@@ -46,7 +49,7 @@
   background-position: center;
   background-size: 105%;
   border-radius: 20em;
-  opacity: 0.3;
+  opacity: 0.4;
 
   @include media-sm {
     top: -9rem;
@@ -62,17 +65,17 @@
 
 .image2 {
   position: absolute;
-  top: 0;
+  top: 1rem;
   left: -7rem;
   z-index: 0;
   width: 12rem;
   height: 12rem;
   overflow: hidden;
   border-radius: 20em;
-  opacity: 0.3;
+  opacity: 0.4;
 
   @include media-sm {
-    top: 2rem;
+    top: 1rem;
     left: -6rem;
     width: 16rem;
     height: 16rem;
@@ -97,9 +100,9 @@
   border-radius: 20em;
   opacity: 1;
 
-  @include media-sm {
-    display: block;
-  }
+  // @include media-sm {
+  //   display: block;
+  // }
 
   img {
     width: 100%;
@@ -120,7 +123,7 @@
   grid-row-start: 2;
   grid-row-end: span 2;
   grid-column-start: 1;
-  grid-column-end: span 2;
+  grid-column-end: span 3;
 
   @include media-sm {
     grid-row-start: 2;
@@ -166,25 +169,35 @@
 
 .musicSymbol1 {
   z-index: 1;
-  grid-row-start: 3;
-  grid-column-start: 5;
+  grid-row-start: 2;
+  grid-column-start: 4;
 
   @include media-sm {
-    grid-column-start: 6;
+    grid-row-start: 3;
+    grid-column-start: 4;
   }
 }
 
 .musicSymbol2 {
   z-index: 1;
   grid-row-start: 1;
-  grid-row-end: span 1;
-  grid-column-start: 2;
+  grid-column-start: 1;
+
+  @include media-sm {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
 }
 
 .musicSymbol3 {
   z-index: 1;
   grid-row-start: 3;
-  grid-column-start: 1;
+  grid-column-start: 2;
+
+  @include media-sm {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
 }
 
 .musicSymbol4 {

@@ -65,7 +65,7 @@ V:1
       /> */}
 
         <p className={css.description}>
-          Play sheet music
+          Listen to sheet music
           <br />
           from the Library's
           <br />

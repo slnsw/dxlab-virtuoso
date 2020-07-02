@@ -12,6 +12,8 @@ const Link = (props) => {
       href = '/diary-files/entry/[id]';
     } else if (props.as.indexOf('/diary-files/related') >= 0) {
       href = '/diary-files/related/[id]';
+    } else if (props.as.indexOf('/virtuoso/song') >= 0) {
+      href = '/virtuoso/song/[slug]';
     } else {
       href = props.as;
     }
