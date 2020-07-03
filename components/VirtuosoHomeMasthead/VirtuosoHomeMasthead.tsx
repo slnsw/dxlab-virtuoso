@@ -52,7 +52,10 @@ V:1
           id="masthead"
           notation={notation}
           responsive={true}
-          // staffWidth={800}
+          // staffWidth={500}
+          // paddingTop={0}
+          // paddingLeft={0}
+          // paddingRight={0}
           className={css.staff}
         />
 
