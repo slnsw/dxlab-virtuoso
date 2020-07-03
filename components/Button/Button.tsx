@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import css from './Button.module.scss';
 
 type Props = {
+  disabled?: boolean;
   children: React.ReactNode;
   className?: string;
 };
@@ -16,9 +16,10 @@ type Methods = null;
 // render method of `Link`.
 // https://github.com/zeit/next.js/issues/7915
 const Button = React.forwardRef<Methods, Props>(
-  ({ children, className, ...restProps }, ref) => {
+  ({ disabled, children, className, ...restProps }, ref) => {
     return (
       <button
+        disabled={disabled}
         className={[css.button, className || ''].join(' ')}
         {...restProps}
         ref={ref}
@@ -28,9 +29,5 @@ const Button = React.forwardRef<Methods, Props>(
     );
   },
 );
-
-// Button.propTypes = {
-//   className: PropTypes.string,
-// };
 
 export default Button;
