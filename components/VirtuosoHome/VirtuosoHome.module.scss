@@ -38,6 +38,7 @@
 .song {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   color: var(--colour-black);
   background-color: var(--colour-white);
 
