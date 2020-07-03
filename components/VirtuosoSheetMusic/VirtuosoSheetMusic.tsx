@@ -7,6 +7,7 @@ import { Range } from 'react-range';
 import Select from '../Select/Select';
 import CTAButton from '../CTAButton';
 import Icon from '../Icon/Icon';
+// import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
 
@@ -342,6 +343,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
           // setPianoNotes([]);
         }}
       />
+
+      {/* <ShareBox title="test" pathname="/virtuoso" /> */}
 
       <Song bpm={tempo}>
         {currentSong.instruments.map((instrument, instrumentIndex) => {
