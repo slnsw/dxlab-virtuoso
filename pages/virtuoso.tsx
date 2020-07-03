@@ -6,6 +6,19 @@ import VirtuosoSheetMusic from '../components/VirtuosoSheetMusic';
 import VirtuosoAbout from '../components/VirtuosoAbout';
 
 import songs from '../components/VirtuosoApp/songs';
+import VirtuosoHomeMasthead from '../components/VirtuosoMasthead';
+
+const config = {
+  '/virtuoso': {
+    title: 'Home',
+  },
+  '/virtuoso/about': {
+    title: 'About',
+  },
+  '/virtuoso/song/[slug]': {
+    title: 'Song',
+  },
+};
 
 const VirtuosoPage = ({ router }) => {
   const { pathname, query } = router;
@@ -19,8 +32,21 @@ const VirtuosoPage = ({ router }) => {
     [currentSong] = songs;
   }
 
+  const title =
+    pathname === '/virtuoso/song/[slug]'
+      ? currentSong.title
+      : config[pathname].title;
+
   return (
-    <VirtuosoApp pathname={pathname}>
+    <VirtuosoApp
+      title={title}
+      // TODO: Add this when ready
+      // metaImageUrl
+    >
+      {(pathname === '/virtuoso' || pathname === '/virtuoso/about') && (
+        <VirtuosoHomeMasthead pathname={pathname} />
+      )}
+
       {pathname === '/virtuoso' && <VirtuosoHome />}
       {pathname === '/virtuoso/about' && <VirtuosoAbout />}
       {pathname === '/virtuoso/song/[slug]' && currentSong && (

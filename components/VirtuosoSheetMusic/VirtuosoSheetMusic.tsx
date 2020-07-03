@@ -21,6 +21,9 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
 
+  // NOTE: this is a bit buggy - sorry!
+  const [autoScroll, setAutoScroll] = React.useState(true);
+
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
     currentSong.instruments.map(() => 'loading'),
@@ -80,6 +83,16 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
+
+      if (autoScroll) {
+        const bottomStaffNotes = event.elements[event.elements.length - 1];
+        const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
+
+        bottomNote.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }
     }
   };
 
@@ -156,9 +169,15 @@ const VirtuosoContent = ({ song: currentSong }) => {
             </>
           )}
         </CTAButton>
-
+        &nbsp;
+        <CTAButton
+          theme="light"
+          onClick={() => setAutoScroll(!autoScroll)}
+          disabled={isPlaying}
+        >
+          Auto scroll: {autoScroll ? 'on' : 'off'}
+        </CTAButton>
         {/* <CTAButton>Play</CTAButton> */}
-
         <form onSubmit={handleTempoExit} className={css.tempoControls}>
           <label>Tempo:</label>
           <CTAButton
@@ -185,7 +204,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
             <Icon name="add" />
           </CTAButton>
         </form>
-
         <CTAButton
           onClick={() => setShowMoreControls(!showMoreControls)}
           theme="light"
@@ -193,7 +211,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
         >
           {showMoreControls ? 'Hide' : 'More'}
         </CTAButton>
-
         {showMoreControls && (
           <div className={css.instrumentControls}>
             {currentSong.instruments.map((instrument, i) => {

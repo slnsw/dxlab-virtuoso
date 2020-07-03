@@ -1,6 +1,6 @@
 import React from 'react';
 
-import VirtuosoHomeMasthead from '../VirtuosoHomeMasthead';
+// import VirtuosoHomeMasthead from '../VirtuosoHomeMasthead';
 import Link from '../Link';
 
 import songs from '../VirtuosoApp/songs';
@@ -14,7 +14,7 @@ type Props = {
 const VirtuosoHome: React.FC<Props> = ({ className }) => {
   return (
     <>
-      <VirtuosoHomeMasthead />
+      {/* <VirtuosoHomeMasthead /> */}
       <div className={[css.sheetMusicHome, className || ''].join(' ')}>
         <h2 className={css.heading}>♪ Sheet music</h2>
         <section className={css.songList}>

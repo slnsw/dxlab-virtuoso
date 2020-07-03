@@ -1,23 +1,18 @@
 import React from 'react';
 import SheetMusic from '@slnsw/react-sheet-music';
 
-import css from './VirtuosoHomeMasthead.module.scss';
+import css from './VirtuosoMasthead.module.scss';
 import VirtuosoLogo from '../VirtuosoApp/VirtuosoLogo';
 
 // import songs from '../VirtuosoApp/songs';
 import CTALink from '../CTALink';
 
 type Props = {
+  pathname?: string;
   className?: string;
 };
 
-const VirtuosoHomeMasthead: React.FC<Props> = ({ className }) => {
-  // const currentSong = songs[0];
-  // const notation2 = `${currentSong.header}K:${
-  //   currentSong.key
-  // }\n${currentSong.lines.join('\n')}`;
-
-  // console.log(notation2);
+const VirtuosoMasthead: React.FC<Props> = ({ pathname, className }) => {
   const notation = `X:1
 M:4/4
 L:1/4
@@ -26,7 +21,7 @@ V:1
 |A G/ B/ E F|E A/ c/ B G/F/|`;
 
   return (
-    <div className={[css.virtuosoHomeMasthead, className || ''].join(' ')}>
+    <div className={[css.virtuosoMasthead, className || ''].join(' ')}>
       <div className={css.inside}>
         <div className={css.image1}>
           {/* <img
@@ -45,7 +40,13 @@ V:1
         <div className={css.image3}></div>
 
         <p className={css.aboutLink}>
-          <CTALink href="/virtuoso/about">About</CTALink>
+          {pathname === '/virtuoso' && (
+            <CTALink href="/virtuoso/about">About</CTALink>
+          )}
+
+          {pathname === '/virtuoso/about' && (
+            <CTALink href="/virtuoso">Home</CTALink>
+          )}
         </p>
 
         <SheetMusic
@@ -103,4 +104,4 @@ V:1
   );
 };
 
-export default VirtuosoHomeMasthead;
+export default VirtuosoMasthead;

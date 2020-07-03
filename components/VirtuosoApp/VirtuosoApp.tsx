@@ -15,14 +15,14 @@ import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './VirtuosoApp.module.scss';
 
-const VirtuosoApp = ({ className, children }) => {
+const VirtuosoApp = ({ title, className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   useLockBodyScroll(isMobileMenuOpen);
 
   return (
     <App
-      title="Virtuoso"
+      title={`${title} - Virtuoso`}
       className={[css.sheetMusicApp, className || ''].join(' ')}
     >
       <header className={css.header}>
