@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import App from '../App';
 import HeaderNavV2 from '../HeaderNavV2';
+import Progress from '../Progress';
 import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
@@ -16,19 +17,6 @@ import css from './VirtuosoApp.module.scss';
 
 const VirtuosoApp = ({ className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
-  // Override default body styles
-  // React.useEffect(() => {
-  //   document
-  //     .getElementsByTagName('body')[0]
-  //     .classList.add(css.sheetMusicAppBody);
-
-  //   return () => {
-  //     document
-  //       .getElementsByTagName('body')[0]
-  //       .classList.remove(css.sheetMusicAppBody);
-  //   };
-  // });
 
   useLockBodyScroll(isMobileMenuOpen);
 
@@ -77,6 +65,8 @@ const VirtuosoApp = ({ className, children }) => {
 
         <SLNSWLogo className={css.slnswLogo} />
       </header>
+
+      <Progress />
 
       <div className={css.content}>{children}</div>
 

@@ -9,6 +9,10 @@ const Virtuoso = ({
   scale = 1,
   staffWidth = 800,
   oneSvgPerLine,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
   className,
   onClick,
   onBeat,
@@ -324,6 +328,10 @@ const Virtuoso = ({
           scale,
           staffwidth: staffWidth,
           responsive: 'resize',
+          paddingtop: paddingTop,
+          paddingright: paddingRight,
+          paddingbottom: paddingBottom,
+          paddingleft: paddingLeft,
           oneSvgPerLine,
           ...(typeof onClick === 'function'
             ? {

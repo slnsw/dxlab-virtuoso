@@ -214,8 +214,8 @@ const songs = [
     bpm: 130,
   },
   {
-    title: 'The Sutherland Waltz2',
-    slug: 'the-sutherland-waltz2',
+    title: 'The Sutherland Waltz',
+    slug: 'the-sutherland-waltz',
     creator: 'Katie Linton',
     url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
     imageUrl:

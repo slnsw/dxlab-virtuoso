@@ -52,7 +52,10 @@ V:1
           id="masthead"
           notation={notation}
           responsive={true}
-          // staffWidth={800}
+          // staffWidth={500}
+          // paddingTop={0}
+          // paddingLeft={0}
+          // paddingRight={0}
           className={css.staff}
         />
 
@@ -65,7 +68,7 @@ V:1
       /> */}
 
         <p className={css.description}>
-          Play sheet music
+          Listen to sheet music
           <br />
           from the Library's
           <br />
