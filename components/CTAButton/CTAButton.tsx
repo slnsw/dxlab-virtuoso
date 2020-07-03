@@ -7,6 +7,7 @@ import css from './CTAButton.module.scss';
 
 type Props = {
   theme?: string;
+  disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
   onClick?: Function;
@@ -14,6 +15,7 @@ type Props = {
 
 const CTAButton: React.FC<Props> = ({
   theme,
+  disabled,
   className,
   children,
   ...restProps
@@ -25,17 +27,12 @@ const CTAButton: React.FC<Props> = ({
         theme === 'light' ? css.light : '',
         className || '',
       ].join(' ')}
+      disabled={disabled}
       {...restProps}
     >
       {children}
     </Button>
   );
-};
-
-CTAButton.propTypes = {
-  theme: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.node,
 };
 
 export default CTAButton;
