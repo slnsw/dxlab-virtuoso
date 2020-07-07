@@ -1,9 +1,9 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
-import SheetMusic from '@slnsw/react-sheet-music';
+// import SheetMusic from '@slnsw/react-sheet-music';
 import { Range } from 'react-range';
 
-// import SheetMusic from '../SheetMusic';
+import SheetMusic from '../SheetMusic';
 import Select from '../Select/Select';
 import CTAButton from '../CTAButton';
 import Icon from '../Icon/Icon';
