@@ -136,6 +136,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
                   if (p.pitch) {
                     const m = computeNoteAndOctaveFromMidiNoteNumber(p.pitch);
                     console.log(p.pitch, m);
+                    console.log(p);
                   }
                 });
               }
@@ -151,9 +152,10 @@ const SheetMusic: React.FunctionComponent<Props> = ({
                   // console.log(noteList.current[`s${startChar}e${endChar}`]);
                   // console.log(event.midiPitches);
                   return noteList.current[`s${startChar}e${endChar}`];
-                } else {
-                  return null;
                 }
+                // else {
+                //   return null;
+                // }
               });
               // now smoosh all the notes into one array and remove nulls (rests)
               const charNotes = []

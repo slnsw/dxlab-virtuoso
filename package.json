@@ -26,7 +26,7 @@
     "@slnsw/react-sheet-music": "0.0.5",
     "@tanem/react-nprogress": "^3.0.19",
     "@zeit/next-css": "^1.0.1",
-    "abcjs": "^5.12.0",
+    "abcjs": "^6.0.0-beta.10",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
     "apollo-link-http": "^1.5.16",

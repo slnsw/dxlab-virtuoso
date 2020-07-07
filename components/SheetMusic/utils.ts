@@ -1,4 +1,6 @@
-import { Note } from '../SheetMusic';
+/* eslint-disable */
+
+// import { Note } from '../SheetMusic';
 
 export const listAdjustments = (adjs) => {
   const out = {};
