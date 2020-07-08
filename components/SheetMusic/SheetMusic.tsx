@@ -126,6 +126,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
           }
         },
         eventCallback: (event) => {
+          console.log('event', event);
           if (typeof onEvent === 'function') {
             if (event === null) {
               onEvent(null);

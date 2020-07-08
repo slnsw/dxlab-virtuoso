@@ -175,8 +175,8 @@ const songs = [
     ],
     lines: [
       'V:1 clef=treble name=VIVACE.',
-      'd>e|A>B|c/A/E/F/|G/ z/ z/ d/:|',
-      "+segno+:|B/d/g/a/|g>g|d/g/b/c'/|b>b|b/a/a/d/|",
+      '!ff!d>e|A>B|c/A/E/F/|G/ z/ z/ d/||',
+      "+segno+:|!p!B/d/g/a/|g>g|d/g/b/c'/|b>b|b/a/a/d/|",
       'a>a|a/g/g/B/|d>d|B/d/g/a/|g>g|',
       "d/g/b/c'/|b>b|b/a/a/g/|a/g/g/d/|g/f/e/f/|1g/ z/ g/ d/:|2g/ z/ g/ z/||",
       // page 2
@@ -196,8 +196,8 @@ const songs = [
       // annnd
       // bass clef data
       'V:2 clef=bass',
-      '[K:Gmaj][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]:|',
-      ':|"p" G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F/,[C/D] F/,[C/D]|',
+      '[K:Gmaj][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]||',
+      ':|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F/,[C/D] F/,[C/D]|',
       'D,/[C/D] D,/[C/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|',
       'G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|C,/[E,/A,] C,/[E,/A,]|D,/[G,/B,] D,/[G,/B,]|D,/[A,/C] D,/[A,/C]|1[G,/B,] z/ [G,/B,] x/:|2[G,/B,] z/ [G,/B,] z/||',
       // page 2

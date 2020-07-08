@@ -89,10 +89,12 @@ const VirtuosoContent = ({ song: currentSong }) => {
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-        bottomNote.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-        });
+        if (bottomNote) {
+          bottomNote.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+          });
+        }
       }
     }
   };
