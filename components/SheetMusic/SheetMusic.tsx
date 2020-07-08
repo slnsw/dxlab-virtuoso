@@ -191,19 +191,17 @@ const SheetMusic: React.FunctionComponent<Props> = ({
           const lyrics = document.getElementsByClassName('abcjs-lyric');
 
           // Remove all highlighted notes
-          for (let note of [].slice.call(notes)) {
+          [].slice.call(notes).forEach((note) => {
             note.classList.remove('abcjs-note_playing');
-          }
+          });
 
-          // Remove all highlighted rests
-          for (let rest of [].slice.call(rests)) {
+          [].slice.call(rests).forEach((rest) => {
             rest.classList.remove('abcjs-rest_playing');
-          }
+          });
 
-          // Remove all highlighted lyrics
-          for (let lyric of [].slice.call(lyrics)) {
+          [].slice.call(lyrics).forEach((lyric) => {
             lyric.classList.remove('abcjs-lyric_playing');
-          }
+          });
 
           // Highlight current playing lyric/rest/note
           event.elements.forEach((nodes) => {
