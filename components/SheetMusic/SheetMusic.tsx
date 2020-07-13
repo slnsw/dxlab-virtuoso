@@ -7,6 +7,7 @@ import { parseJSON, computeNoteAndOctaveFromMidiNoteNumber } from './utils';
 type Props = {
   id?: string;
   isPlaying?: boolean;
+  isAtStart?: boolean;
   /** In ABC notation format */
   notation?: string;
   bpm?: number;
@@ -36,6 +37,7 @@ export type Note = {
 const SheetMusic: React.FunctionComponent<Props> = ({
   id = 'sheet-music',
   isPlaying,
+  isAtStart = true,
   notation,
   bpm = 80,
   scale = 1,
@@ -56,7 +58,8 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   // console.log(paddingRight);
   const timer = React.useRef<{
     start: Function;
-    stop: Function;
+    pause: Function;
+    reset: Function;
   }>();
   const abcjs = React.useRef<{
     renderAbc: Function;
@@ -235,10 +238,16 @@ const SheetMusic: React.FunctionComponent<Props> = ({
       if (isPlaying) {
         timer.current.start();
       } else {
-        timer.current.stop();
+        timer.current.pause();
       }
     }
   }, [isPlaying]);
+
+  React.useEffect(() => {
+    if (timer && timer.current) {
+      timer.current.reset();
+    }
+  }, [isAtStart]);
 
   if (!notation) {
     return null;

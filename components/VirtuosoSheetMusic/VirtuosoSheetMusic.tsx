@@ -20,6 +20,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   }\n${currentSong.lines.join('\n')}`;
 
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isAtStart, setIsAtStart] = React.useState(true);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
 
@@ -75,6 +76,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
+      setIsAtStart(true);
     }
   };
 
@@ -166,7 +168,18 @@ const VirtuosoContent = ({ song: currentSong }) => {
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
         <CTAButton
-          onClick={() => setIsPlaying(!isPlaying)}
+          onClick={() => setIsAtStart(true)}
+          theme="light"
+          disabled={!isSamplesLoaded || isAtStart}
+        >
+          <Icon name="play-skip-back" />
+        </CTAButton>
+        &nbsp;
+        <CTAButton
+          onClick={() => {
+            setIsPlaying(!isPlaying);
+            setIsAtStart(false);
+          }}
           // className={css['button--light']}
           theme="light"
           disabled={!isSamplesLoaded}
@@ -342,6 +355,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
       <SheetMusic
         isPlaying={isPlaying}
+        isAtStart={isAtStart}
         bpm={tempo}
         scale={1}
         notation={notation}
