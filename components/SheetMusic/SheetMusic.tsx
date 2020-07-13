@@ -53,7 +53,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   onLineEnd,
   // returnFormat = 'event',
 }) => {
-  console.log(paddingRight);
+  // console.log(paddingRight);
   const timer = React.useRef<{
     start: Function;
     stop: Function;
@@ -126,7 +126,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
           }
         },
         eventCallback: (event) => {
-          console.log('event', event);
+          // console.log('event', event);
           if (typeof onEvent === 'function') {
             if (event === null) {
               onEvent(null);
@@ -135,9 +135,9 @@ const SheetMusic: React.FunctionComponent<Props> = ({
               if (event.midiPitches) {
                 event.midiPitches.forEach((p) => {
                   if (p.pitch) {
-                    const m = computeNoteAndOctaveFromMidiNoteNumber(p.pitch);
-                    console.log(p.pitch, m);
-                    console.log(p);
+                    // const m = computeNoteAndOctaveFromMidiNoteNumber(p.pitch);
+                    // console.log(p.pitch, m);
+                    // console.log(p);
                   }
                 });
               }

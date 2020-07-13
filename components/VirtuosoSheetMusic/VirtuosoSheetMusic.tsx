@@ -10,6 +10,7 @@ import Icon from '../Icon/Icon';
 // import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
+import { scroller } from '../../lib/scroller';
 
 import css from './VirtuosoSheetMusic.module.scss';
 
@@ -48,6 +49,20 @@ const VirtuosoContent = ({ song: currentSong }) => {
     setTempo(currentSong.bpm);
     setTempoFieldValue(currentSong.bpm);
   }, [currentSong]);
+
+  React.useEffect(() => {
+    scroller.init(document.body);
+  }, []);
+
+  React.useEffect(() => {
+    if (isPlaying) {
+      // Do some shit
+      scroller.start();
+    } else {
+      scroller.stop();
+      // Don't do some shit
+    }
+  }, [isPlaying]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
 
