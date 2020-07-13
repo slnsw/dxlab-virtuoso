@@ -23,15 +23,18 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const scroller = React.useRef<{
     start: Function;
     stop: Function;
+    updateIncrement: Function;
+    destroy: Function;
   }>();
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
+  const [increment] = React.useState(0.5);
 
   // NOTE: this is a bit buggy - sorry!
-  const [autoScroll, setAutoScroll] = React.useState(true);
+  const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
@@ -59,20 +62,25 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
   React.useEffect(() => {
     if (scroller) {
-      scroller.current = createScroller(document.body);
-      // scroller.init(document.body);
+      if (!scroller.current) {
+        scroller.current = createScroller({ increment });
+      } else {
+        scroller.current.updateIncrement(increment);
+      }
     }
-  }, []);
+
+    return function cleanup() {
+      scroller.current.destroy();
+    };
+  }, [increment]);
 
   React.useEffect(() => {
-    if (isPlaying) {
-      // Do some shit
+    if (isPlaying && isAutoScroll) {
       scroller.current.start();
     } else {
       scroller.current.stop();
-      // Don't do some shit
     }
-  }, [isPlaying]);
+  }, [isPlaying, isAutoScroll]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
 
@@ -230,10 +238,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
         &nbsp;
         <CTAButton
           theme="light"
-          onClick={() => setAutoScroll(!autoScroll)}
-          disabled={isPlaying}
+          onClick={() => setIsAutoScroll(!isAutoScroll)}
+          // disabled={isPlaying}
         >
-          Auto scroll: {autoScroll ? 'on' : 'off'}
+          Auto scroll: {isAutoScroll ? 'on' : 'off'}
         </CTAButton>
         {/* <CTAButton>Play</CTAButton> */}
         <form onSubmit={handleTempoExit} className={css.tempoControls}>

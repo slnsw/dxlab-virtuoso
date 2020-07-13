@@ -2,11 +2,13 @@
  * Scroller Factory
  */
 
-export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
-  if (!element) {
-    throw new Error('Need an element to scroll');
-  }
-
+/**
+ * Scroll controller for the window
+ */
+export const createScroller = ({
+  increment: initialIncrement = 0.4,
+  fps = 60,
+} = {}) => {
   const fpsInterval = 1000 / fps;
   // https://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript
   const max = document.documentElement.scrollHeight;
@@ -16,9 +18,7 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
   let requestId;
   let scrollCount = 0;
   let scrollTimer;
-
-  // TODO: Remove event listener
-  document.addEventListener('mousewheel', handleUserScroll);
+  let increment = initialIncrement;
 
   function step() {
     // console.log(scrollTimer);
@@ -48,9 +48,14 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
 
   function start() {
     if (!requestId) {
-      const initialOffset = window.pageYOffset;
-      scrollCount = initialOffset;
+      // Ensure page starts scrolling from current offset
+      scrollCount = window.pageYOffset;
 
+      // Add listeners for user scrolling
+      // TODO: Add touch
+      document.addEventListener('mousewheel', handleUserScroll);
+
+      // Kick off step loop
       step();
     }
   }
@@ -58,6 +63,16 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
   function stop() {
     window.cancelAnimationFrame(requestId);
     requestId = undefined;
+
+    destroy();
+  }
+
+  function updateIncrement(updatedIncrement) {
+    increment = updatedIncrement;
+  }
+
+  function destroy() {
+    document.removeEventListener('mousewheel', handleUserScroll);
   }
 
   function handleUserScroll(e) {
@@ -80,12 +95,14 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
     scrollCount = window.pageYOffset;
 
     start();
-    console.log(scrollCount, 'timeout');
+    // console.log(scrollCount, 'timeout');
   }
 
   return {
     start,
     stop,
+    updateIncrement,
+    destroy,
   };
 };
 
