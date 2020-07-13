@@ -11,6 +11,7 @@ import Icon from '../Icon/Icon';
 
 import samples from '../VirtuosoApp/samples';
 import { createScroller } from '../../lib/scroller';
+import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
 
@@ -25,6 +26,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   }>();
 
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isAtStart, setIsAtStart] = React.useState(true);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
 
@@ -80,9 +82,28 @@ const VirtuosoContent = ({ song: currentSong }) => {
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
+  /*
+   * handle page being off screen
+   */
+  useDocumentVisibility((e) => {
+    const document = e.target as HTMLDocument;
+
+    if (document.hidden || document.visibilityState === 'hidden') {
+      if (isPlaying) {
+        setIsPlaying(false);
+        console.log('hidden! stopping play');
+      }
+    }
+    // else {
+    // setIsPlaying(true);
+    // console.log('Not hidden - starting play');
+    // }
+  });
+
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
+      setIsAtStart(true);
     }
   };
 
@@ -174,7 +195,18 @@ const VirtuosoContent = ({ song: currentSong }) => {
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
         <CTAButton
-          onClick={() => setIsPlaying(!isPlaying)}
+          onClick={() => setIsAtStart(true)}
+          theme="light"
+          disabled={!isSamplesLoaded || isAtStart}
+        >
+          <Icon name="play-skip-back" />
+        </CTAButton>
+        &nbsp;
+        <CTAButton
+          onClick={() => {
+            setIsPlaying(!isPlaying);
+            setIsAtStart(false);
+          }}
           // className={css['button--light']}
           theme="light"
           disabled={!isSamplesLoaded}
@@ -350,6 +382,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
       <SheetMusic
         isPlaying={isPlaying}
+        isAtStart={isAtStart}
         bpm={tempo}
         scale={1}
         notation={notation}
