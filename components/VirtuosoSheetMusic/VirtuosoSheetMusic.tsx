@@ -129,17 +129,17 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
 
-      if (autoScroll) {
-        const bottomStaffNotes = event.elements[event.elements.length - 1];
-        const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
+      // if (autoScroll) {
+      //   const bottomStaffNotes = event.elements[event.elements.length - 1];
+      //   const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-        if (bottomNote) {
-          bottomNote.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-          });
-        }
-      }
+      //   if (bottomNote) {
+      //     bottomNote.scrollIntoView({
+      //       behavior: 'smooth',
+      //       block: 'nearest',
+      //     });
+      //   }
+      // }
     }
   };
 

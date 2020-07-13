@@ -15,8 +15,15 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
   let now;
   let requestId;
   let scrollCount = 0;
+  let scrollTimer;
+
+  // TODO: Remove event listener
+  document.addEventListener('mousewheel', handleUserScroll);
 
   function step() {
+    // console.log(scrollTimer);
+
+    // Calculate elapsed time since last loop
     now = Date.now();
     const elapsed = now - then;
 
@@ -24,9 +31,9 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
       // Get ready for next frame by setting then=now, but also adjust for your
       // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
       then = now - (elapsed % fpsInterval);
-
       const { pageYOffset, innerHeight } = window;
 
+      // Work out whether there is enough space to keep scrolling
       const canScroll = pageYOffset + innerHeight < max;
       // console.log(canScroll, pageYOffset, innerHeight, max);
 
@@ -39,20 +46,45 @@ export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
     requestId = window.requestAnimationFrame(step);
   }
 
+  function start() {
+    if (!requestId) {
+      const initialOffset = window.pageYOffset;
+      scrollCount = initialOffset;
+
+      step();
+    }
+  }
+
   function stop() {
     window.cancelAnimationFrame(requestId);
     requestId = undefined;
   }
 
-  return {
-    start() {
-      if (!requestId) {
-        const initialOffset = window.pageYOffset;
-        scrollCount = initialOffset;
+  function handleUserScroll(e) {
+    // This is triggered by any scroll changes
 
-        step();
-      }
-    },
+    // Detect when scrolling is stopped, in particular momentum scrolling.
+    if (scrollTimer) {
+      // Keep on clearing timeout until scrolling stops
+      window.clearTimeout(scrollTimer);
+    }
+
+    stop();
+
+    // If timeout triggers, it means that scrolling has stopped
+    scrollTimer = window.setTimeout(() => onTimeout(), 200);
+  }
+
+  function onTimeout() {
+    // Track scrolling position so when scroll starts up again, we are in the right spot.
+    scrollCount = window.pageYOffset;
+
+    start();
+    console.log(scrollCount, 'timeout');
+  }
+
+  return {
+    start,
     stop,
   };
 };
