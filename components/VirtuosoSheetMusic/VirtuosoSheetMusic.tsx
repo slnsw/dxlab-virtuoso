@@ -10,7 +10,7 @@ import Icon from '../Icon/Icon';
 // import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
-import { createScroller } from '../../lib/scroller';
+import { createWindowScroller } from '../../lib/window-scroller';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
@@ -63,7 +63,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   React.useEffect(() => {
     if (scroller) {
       if (!scroller.current) {
-        scroller.current = createScroller({ increment });
+        scroller.current = createWindowScroller({ increment });
       } else {
         scroller.current.updateIncrement(increment);
       }
