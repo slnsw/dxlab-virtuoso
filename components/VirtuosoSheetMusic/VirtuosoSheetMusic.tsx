@@ -11,6 +11,7 @@ import Icon from '../Icon/Icon';
 
 import samples from '../VirtuosoApp/samples';
 import { scroller } from '../../lib/scroller';
+import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
 
@@ -72,6 +73,24 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
+
+  /*
+   * handle page being off screen
+   */
+  useDocumentVisibility((e) => {
+    const document = e.target as HTMLDocument;
+
+    if (document.hidden || document.visibilityState === 'hidden') {
+      if (isPlaying) {
+        setIsPlaying(false);
+        console.log('hidden! stopping play');
+      }
+    }
+    // else {
+    // setIsPlaying(true);
+    // console.log('Not hidden - starting play');
+    // }
+  });
 
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber === totalBeats) {
