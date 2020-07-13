@@ -238,6 +238,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
       if (isPlaying) {
         timer.current.start();
       } else {
+        console.log('use effect');
         timer.current.pause();
       }
     }
