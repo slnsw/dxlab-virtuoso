@@ -2,6 +2,61 @@
  * Scroller Factory
  */
 
+export const createScroller = (element, { increment = 0.4, fps = 30 } = {}) => {
+  if (!element) {
+    throw new Error('Need an element to scroll');
+  }
+
+  const fpsInterval = 1000 / fps;
+  // https://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript
+  const max = document.documentElement.scrollHeight;
+
+  let then = Date.now();
+  let now;
+  let requestId;
+  let scrollCount = 0;
+
+  function step() {
+    now = Date.now();
+    const elapsed = now - then;
+
+    if (elapsed > fpsInterval) {
+      // Get ready for next frame by setting then=now, but also adjust for your
+      // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
+      then = now - (elapsed % fpsInterval);
+
+      const { pageYOffset, innerHeight } = window;
+
+      const canScroll = pageYOffset + innerHeight < max;
+      // console.log(canScroll, pageYOffset, innerHeight, max);
+
+      // If not, increment by 0.
+      scrollCount += canScroll ? increment : 0;
+
+      window.scroll(0, scrollCount);
+    }
+
+    requestId = window.requestAnimationFrame(step);
+  }
+
+  function stop() {
+    window.cancelAnimationFrame(requestId);
+    requestId = undefined;
+  }
+
+  return {
+    start() {
+      if (!requestId) {
+        const initialOffset = window.pageYOffset;
+        scrollCount = initialOffset;
+
+        step();
+      }
+    },
+    stop,
+  };
+};
+
 export const scroller = {
   // Pixel or sub-pixel amount to scroll
   increment: undefined,
@@ -16,7 +71,7 @@ export const scroller = {
   disableOnScroll: false,
   // Back and forth scrolling
   isPingPong: false,
-  fps: 30,
+  fps: 60,
   canScroll: false,
   init(
     element,
@@ -103,7 +158,7 @@ export const scroller = {
         // If not, increment by 0.
         this.scrollCount += canScroll ? this.increment : 0;
 
-        console.log(this.scrollCount);
+        // console.log(this.scrollCount);
 
         if (canScroll && this.canScroll === false) {
           this.canScroll = true;
