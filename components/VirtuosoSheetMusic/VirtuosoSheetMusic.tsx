@@ -27,8 +27,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
     updateIncrement: Function;
     destroy: Function;
   }>();
+
   // Experimenting... KH
   const isScrollingRef = React.useRef(false);
+  const isAutoScrollRef = React.useRef(true);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
@@ -146,11 +148,16 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
 
-      if (isAutoScroll) {
+      // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
+      if (isAutoScrollRef.current) {
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-        if (bottomNote && isScrollingRef.current === false) {
+        if (
+          bottomNote &&
+          isScrollingRef.current === false &&
+          event.measureStart
+        ) {
           const { y } = bottomNote.getBoundingClientRect();
 
           if (y < 0 || y > window.innerHeight) {
@@ -161,7 +168,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
               setTimeout(() => {
                 isScrollingRef.current = false;
                 scroller.current.start();
-              }, 1500);
+              }, 500);
             });
 
             // NOTE: 200 is best guess for now
@@ -282,7 +289,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
         &nbsp;
         <CTAButton
           theme="light"
-          onClick={() => setIsAutoScroll(!isAutoScroll)}
+          onClick={() => {
+            setIsAutoScroll(!isAutoScroll);
+            isAutoScrollRef.current = !isAutoScrollRef.current;
+          }}
           // disabled={isPlaying}
         >
           Auto scroll: {isAutoScroll ? 'on' : 'off'}
