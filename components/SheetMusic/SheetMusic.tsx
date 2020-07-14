@@ -25,6 +25,7 @@ type Props = {
   onEvent?: Function;
   onLineEnd?: Function;
   returnFormat?: string;
+  songPercentage: number;
 };
 
 export type Note = {
@@ -54,6 +55,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   onEvent,
   onLineEnd,
   // returnFormat = 'event',
+  songPercentage = 0,
 }) => {
   // console.log(paddingRight);
   const timer = React.useRef<{
@@ -77,8 +79,8 @@ const SheetMusic: React.FunctionComponent<Props> = ({
 
   // let noteList;
   // let json;
-  const [currentEvent, setCurrentEvent] = React.useState(0);
-  let totalBeats;
+  //   const [currentEvent, setCurrentEvent] = React.useState(0);
+  //   let totalBeatsInSong;
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -180,13 +182,10 @@ const SheetMusic: React.FunctionComponent<Props> = ({
             if (event === null) {
               onEvent(null);
             } else {
-              if (timer?.current?.currentEvent) {
-                setCurrentEvent(timer.current.currentEvent);
-                console.log(
-                  timer.current.currentEvent, // timer.current.totalBeats) * 100,
-                );
-              }
-              console.log(event);
+              //   if (timer?.current?.currentEvent) {
+              //     setCurrentEvent(timer.current.currentEvent);
+              //   }
+              //   console.log(event);
               // This is just here for testing - it outputs the midiNote data and our conversion
               if (event.midiPitches) {
                 event.midiPitches.forEach((p) => {
@@ -254,13 +253,21 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   /* eslint-enable */
 
   React.useEffect(() => {
+    const perc = `${songPercentage}%`;
+    if (timer && timer.current) {
+      timer.current.setProgress(perc);
+      console.log('Setting progress to: ', perc);
+    }
+  }, [songPercentage]);
+
+  React.useEffect(() => {
     if (timer && timer.current) {
       if (isPlaying) {
         timer.current.start();
       } else {
         console.log('use effect');
         timer.current.pause();
-        console.log(timer.current);
+        // console.log(timer.current);
         console.log('paused');
       }
     }

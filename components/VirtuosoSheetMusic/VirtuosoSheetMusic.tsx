@@ -38,6 +38,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
     wasStoppedByVisibilityChange,
     setWasStoppedByVisibilityChange,
   ] = React.useState(false);
+  const [songPercentage, setSongPercentage] = React.useState(0);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
@@ -47,6 +48,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const [samplesStatus, setSamplesStatus] = React.useState(
     currentSong.instruments.map(() => 'loading'),
   );
+
+  const [showMoreControls, setShowMoreControls] = React.useState(false);
+  const [currentBeat, setCurrentBeat] = React.useState(0);
+  const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
 
   // Set up an array of instrument volumes
   const [instrumentVolumes, setInstrumentVolumes] = React.useState(
@@ -89,10 +94,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
     }
   }, [isPlaying, isAutoScroll]);
 
-  const [showMoreControls, setShowMoreControls] = React.useState(false);
-  const [currentBeat, setCurrentBeat] = React.useState(0);
-  const [totalBeats, setTotalBeats] = React.useState(100);
-
   const [allNotes, setAllNotes] = React.useState([]);
 
   // Check if all samples have been loaded
@@ -119,7 +120,9 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
   const handleBeat = (beatNumber, totalBeats) => {
     setCurrentBeat(beatNumber);
-    setTotalBeats(totalBeats);
+    setTotalBeatsInSong(totalBeats);
+    console.log('Current beat: ', currentBeat); // / hmmmmm
+    console.log('Total beats: ', totalBeatsInSong);
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
       setIsAtStart(true);
@@ -263,6 +266,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
             if (wasStoppedByVisibilityChange && !isPlaying) {
               // we are starting again after going out of focus,
               // make sure song position is correct
+              const percentage =
+                Math.round((currentBeat / totalBeatsInSong) * 10000) / 100;
+              console.log(percentage);
+              setSongPercentage(percentage);
             }
             setIsPlaying(!isPlaying);
           }}
@@ -462,6 +469,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
           // setVocalNotes([]);
           // setPianoNotes([]);
         }}
+        songPercentage={songPercentage}
       />
 
       {/* <ShareBox title="test" pathname="/virtuoso" /> */}
