@@ -60,6 +60,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
     start: Function;
     pause: Function;
     reset: Function;
+    setProgress: Function;
   }>();
   const abcjs = React.useRef<{
     renderAbc: Function;
@@ -240,6 +241,8 @@ const SheetMusic: React.FunctionComponent<Props> = ({
       } else {
         console.log('use effect');
         timer.current.pause();
+        console.log(timer.current);
+        console.log('paused');
       }
     }
   }, [isPlaying]);
@@ -247,6 +250,9 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   React.useEffect(() => {
     if (timer && timer.current) {
       timer.current.reset();
+      if (typeof timer.current.setProgress === 'function') {
+        timer.current.setProgress('0%');
+      }
     }
   }, [isAtStart]);
 

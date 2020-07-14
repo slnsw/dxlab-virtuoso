@@ -25,7 +25,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
 
-  // NOTE: this is a bit buggy - sorry!
+  // NOTE: this is a bit buggy - sorry! YOU WILL BE!
   const [autoScroll, setAutoScroll] = React.useState(true);
 
   // Set up an array of sample statuses
