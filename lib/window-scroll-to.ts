@@ -18,12 +18,16 @@ export function createWindowScrollTo(callback = null) {
 
         if (currentTime >= duration) {
           clearInterval(interval);
-
-          if (typeof callback === 'function') {
-            callback();
-          }
         }
       }, increment);
+
+      const timeout = setTimeout(() => {
+        if (typeof callback === 'function') {
+          callback();
+        }
+
+        clearTimeout(timeout);
+      }, duration);
     },
     stop: () => {
       clearInterval(interval);

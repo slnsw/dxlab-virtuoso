@@ -11,10 +11,10 @@ import Icon from '../Icon/Icon';
 
 import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
+import { createWindowScrollTo } from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
-// import { createWindowScrollTo } from '../../lib/window-scroll-to';
 
 const VirtuosoContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -27,6 +27,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
     updateIncrement: Function;
     destroy: Function;
   }>();
+  // Experimenting... KH
+  const isScrollingRef = React.useRef(false);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
@@ -135,17 +137,26 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
 
-      // if (autoScroll) {
-      //   const bottomStaffNotes = event.elements[event.elements.length - 1];
-      //   const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
+      if (isAutoScroll) {
+        const bottomStaffNotes = event.elements[event.elements.length - 1];
+        const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-      //   if (bottomNote) {
-      //     bottomNote.scrollIntoView({
-      //       behavior: 'smooth',
-      //       block: 'nearest',
-      //     });
-      //   }
-      // }
+        if (bottomNote && isScrollingRef.current === false) {
+          const { y } = bottomNote.getBoundingClientRect();
+
+          if (y < 0) {
+            scroller.current.stop();
+
+            const scrollTo = createWindowScrollTo(() => {
+              isScrollingRef.current = false;
+              scroller.current.start();
+            });
+
+            scrollTo.start(window.pageYOffset + y - 200);
+            isScrollingRef.current = true;
+          }
+        }
+      }
     }
   };
 
