@@ -32,6 +32,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
+  const [
+    wasStoppedByVisibilityChange,
+    setWasStoppedByVisibilityChange,
+  ] = React.useState(false);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
@@ -84,6 +88,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
   }, [isPlaying, isAutoScroll]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
+  const [currentBeat, setCurrentBeat] = React.useState(0);
+  const [totalBeats, setTotalBeats] = React.useState(100);
 
   const [allNotes, setAllNotes] = React.useState([]);
 
@@ -98,6 +104,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
     if (document.hidden || document.visibilityState === 'hidden') {
       if (isPlaying) {
+        setWasStoppedByVisibilityChange(true);
         setIsPlaying(false);
         console.log('hidden! stopping play');
       }
@@ -109,6 +116,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
   });
 
   const handleBeat = (beatNumber, totalBeats) => {
+    setCurrentBeat(beatNumber);
+    setTotalBeats(totalBeats);
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
       setIsAtStart(true);
@@ -239,8 +248,16 @@ const VirtuosoContent = ({ song: currentSong }) => {
         &nbsp;
         <CTAButton
           onClick={() => {
+            if (isPlaying) {
+              setWasStoppedByVisibilityChange(false);
+            } else {
+              setIsAtStart(false);
+            }
+            if (wasStoppedByVisibilityChange && !isPlaying) {
+              // we are starting again after going out of focus,
+              // make sure song position is correct
+            }
             setIsPlaying(!isPlaying);
-            setIsAtStart(false);
           }}
           // className={css['button--light']}
           theme="light"
