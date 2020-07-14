@@ -14,6 +14,7 @@ import { createWindowScroller } from '../../lib/window-scroller';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
+// import { createWindowScrollTo } from '../../lib/window-scroll-to';
 
 const VirtuosoContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
@@ -32,8 +33,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
-
-  // NOTE: this is a bit buggy - sorry!
   const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
   // Set up an array of sample statuses
@@ -84,7 +83,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
 
-  // const [notes, setNotes] = React.useState([]);
   const [allNotes, setAllNotes] = React.useState([]);
 
   // Check if all samples have been loaded
@@ -202,6 +200,17 @@ const VirtuosoContent = ({ song: currentSong }) => {
   return (
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
+        {/* <CTAButton
+          onClick={() => {
+            const scrollTo = createWindowScrollTo({
+              duration: 500,
+            });
+            scrollTo.start(500);
+          }}
+          theme="light"
+        >
+          Test scroll
+        </CTAButton> */}
         <CTAButton
           onClick={() => setIsAtStart(true)}
           theme="light"
