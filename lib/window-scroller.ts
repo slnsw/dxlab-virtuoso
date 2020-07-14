@@ -52,8 +52,8 @@ export const createWindowScroller = ({
       scrollCount = window.pageYOffset;
 
       // Add listeners for user scrolling
-      // TODO: Add touch
       document.addEventListener('mousewheel', handleUserScroll);
+      document.addEventListener('touchmove', handleUserScroll);
 
       // Kick off step loop
       step();
@@ -73,12 +73,13 @@ export const createWindowScroller = ({
 
   function destroy() {
     document.removeEventListener('mousewheel', handleUserScroll);
+    document.removeEventListener('touchmove', handleUserScroll);
   }
 
   /**
    * Handle any user interaction that causes scroll changes
    */
-  function handleUserScroll(e) {
+  function handleUserScroll() {
     // Detect when scrolling is stopped, in particular momentum scrolling.
     if (userTimeout) {
       // Keep on clearing timeout until scrolling stops

@@ -1,12 +1,13 @@
 /**
  * Window scroll utility
+ * TODO: Make cancelable + X axis
  */
 export function createWindowScrollTo(callback = null) {
   let currentTime = 0;
   let interval;
 
   return {
-    start: (to, { duration = 5000, increment = 10 } = {}) => {
+    start: (to, { duration = 500, increment = 10 } = {}) => {
       const start = window.pageYOffset;
       const change = to - start;
 
