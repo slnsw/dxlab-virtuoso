@@ -251,7 +251,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
     if (timer && timer.current) {
       timer.current.reset();
       if (typeof timer.current.setProgress === 'function') {
-        timer.current.setProgress('0%');
+        timer.current.setProgress('0%'); // doesn't seem to move highlight back to start!?
       }
     }
   }, [isAtStart]);

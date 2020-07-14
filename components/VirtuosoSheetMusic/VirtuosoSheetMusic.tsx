@@ -10,23 +10,30 @@ import Icon from '../Icon/Icon';
 // import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
-import { scroller } from '../../lib/scroller';
+import { createWindowScroller } from '../../lib/window-scroller';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
+// import { createWindowScrollTo } from '../../lib/window-scroll-to';
 
 const VirtuosoContent = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
     currentSong.key
   }\n${currentSong.lines.join('\n')}`;
 
+  const scroller = React.useRef<{
+    start: Function;
+    stop: Function;
+    updateIncrement: Function;
+    destroy: Function;
+  }>();
+
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
-
-  // NOTE: this is a bit buggy - sorry! YOU WILL BE!
-  const [autoScroll, setAutoScroll] = React.useState(true);
+  const [increment] = React.useState(0.5);
+  const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
@@ -53,22 +60,29 @@ const VirtuosoContent = ({ song: currentSong }) => {
   }, [currentSong]);
 
   React.useEffect(() => {
-    scroller.init(document.body);
-  }, []);
+    if (scroller) {
+      if (!scroller.current) {
+        scroller.current = createWindowScroller({ increment });
+      } else {
+        scroller.current.updateIncrement(increment);
+      }
+    }
+
+    return function cleanup() {
+      scroller.current.destroy();
+    };
+  }, [increment]);
 
   React.useEffect(() => {
-    if (isPlaying) {
-      // Do some shit
-      scroller.start();
+    if (isPlaying && isAutoScroll) {
+      scroller.current.start();
     } else {
-      scroller.stop();
-      // Don't do some shit
+      scroller.current.stop();
     }
-  }, [isPlaying]);
+  }, [isPlaying, isAutoScroll]);
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
 
-  // const [notes, setNotes] = React.useState([]);
   const [allNotes, setAllNotes] = React.useState([]);
 
   // Check if all samples have been loaded
@@ -121,17 +135,17 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
 
-      if (autoScroll) {
-        const bottomStaffNotes = event.elements[event.elements.length - 1];
-        const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
+      // if (autoScroll) {
+      //   const bottomStaffNotes = event.elements[event.elements.length - 1];
+      //   const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-        if (bottomNote) {
-          bottomNote.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-          });
-        }
-      }
+      //   if (bottomNote) {
+      //     bottomNote.scrollIntoView({
+      //       behavior: 'smooth',
+      //       block: 'nearest',
+      //     });
+      //   }
+      // }
     }
   };
 
@@ -186,6 +200,17 @@ const VirtuosoContent = ({ song: currentSong }) => {
   return (
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
+        {/* <CTAButton
+          onClick={() => {
+            const scrollTo = createWindowScrollTo({
+              duration: 500,
+            });
+            scrollTo.start(500);
+          }}
+          theme="light"
+        >
+          Test scroll
+        </CTAButton> */}
         <CTAButton
           onClick={() => setIsAtStart(true)}
           theme="light"
@@ -222,10 +247,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
         &nbsp;
         <CTAButton
           theme="light"
-          onClick={() => setAutoScroll(!autoScroll)}
-          disabled={isPlaying}
+          onClick={() => setIsAutoScroll(!isAutoScroll)}
+          // disabled={isPlaying}
         >
-          Auto scroll: {autoScroll ? 'on' : 'off'}
+          Auto scroll: {isAutoScroll ? 'on' : 'off'}
         </CTAButton>
         {/* <CTAButton>Play</CTAButton> */}
         <form onSubmit={handleTempoExit} className={css.tempoControls}>
