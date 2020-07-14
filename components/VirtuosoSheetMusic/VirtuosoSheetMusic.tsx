@@ -157,11 +157,14 @@ const VirtuosoContent = ({ song: currentSong }) => {
           const { y } = bottomNote.getBoundingClientRect();
 
           if (y < 0 || y > window.innerHeight) {
+            isScrollingRef.current = true;
             scroller.current.stop();
 
             const scrollTo = createWindowScrollTo(() => {
-              isScrollingRef.current = false;
-              scroller.current.start();
+              setTimeout(() => {
+                isScrollingRef.current = false;
+                scroller.current.start();
+              }, 1500);
             });
 
             // NOTE: 200 is best guess for now
@@ -170,7 +173,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
             } else {
               scrollTo.start(window.pageYOffset + y - 200);
             }
-            isScrollingRef.current = true;
           }
         }
       }
