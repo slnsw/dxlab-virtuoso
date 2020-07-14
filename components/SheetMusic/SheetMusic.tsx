@@ -61,6 +61,8 @@ const SheetMusic: React.FunctionComponent<Props> = ({
     pause: Function;
     reset: Function;
     setProgress: Function;
+    currentEvent: number;
+    totalBeats: number;
   }>();
   const abcjs = React.useRef<{
     renderAbc: Function;
@@ -75,6 +77,8 @@ const SheetMusic: React.FunctionComponent<Props> = ({
 
   // let noteList;
   // let json;
+  const [currentEvent, setCurrentEvent] = React.useState(0);
+  let totalBeats;
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -114,6 +118,47 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   }, [JSON.stringify(notation)]);
   /* eslint-enable */
 
+  const clearHighlights = () => {
+    const notes = document.getElementsByClassName('abcjs-note');
+    const rests = document.getElementsByClassName('abcjs-rest');
+    const lyrics = document.getElementsByClassName('abcjs-lyric');
+
+    // Remove all highlighted notes
+    [].slice.call(notes).forEach((note) => {
+      note.classList.remove('abcjs-note_playing');
+    });
+
+    [].slice.call(rests).forEach((rest) => {
+      rest.classList.remove('abcjs-rest_playing');
+    });
+
+    [].slice.call(lyrics).forEach((lyric) => {
+      lyric.classList.remove('abcjs-lyric_playing');
+    });
+  };
+
+  const highlightItems = (event) => {
+    // first clear any highlighted elements
+    clearHighlights();
+    // Highlight current playing lyric/rest/note
+    event.elements.forEach((nodes) => {
+      nodes.forEach((node) => {
+        const classes = node.className.baseVal;
+        let type;
+
+        if (classes.indexOf('abcjs-lyric') > -1) {
+          type = 'lyric';
+        } else if (classes.indexOf('abcjs-rest') > -1) {
+          type = 'rest';
+        } else if (classes.indexOf('abcjs-note') > -1) {
+          type = 'note';
+        }
+
+        node.classList.add(`abcjs-${type}_playing`);
+      });
+    });
+  };
+
   React.useEffect(() => {
     if (notation && abcjs?.current && tune?.current && json?.current) {
       timer.current = new abcjs.current.TimingCallbacks(tune.current[0], {
@@ -135,6 +180,13 @@ const SheetMusic: React.FunctionComponent<Props> = ({
             if (event === null) {
               onEvent(null);
             } else {
+              if (timer?.current?.currentEvent) {
+                setCurrentEvent(timer.current.currentEvent);
+                console.log(
+                  timer.current.currentEvent, // timer.current.totalBeats) * 100,
+                );
+              }
+              console.log(event);
               // This is just here for testing - it outputs the midiNote data and our conversion
               if (event.midiPitches) {
                 event.midiPitches.forEach((p) => {
@@ -190,40 +242,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
             return null;
           }
 
-          const notes = document.getElementsByClassName('abcjs-note');
-          const rests = document.getElementsByClassName('abcjs-rest');
-          const lyrics = document.getElementsByClassName('abcjs-lyric');
-
-          // Remove all highlighted notes
-          [].slice.call(notes).forEach((note) => {
-            note.classList.remove('abcjs-note_playing');
-          });
-
-          [].slice.call(rests).forEach((rest) => {
-            rest.classList.remove('abcjs-rest_playing');
-          });
-
-          [].slice.call(lyrics).forEach((lyric) => {
-            lyric.classList.remove('abcjs-lyric_playing');
-          });
-
-          // Highlight current playing lyric/rest/note
-          event.elements.forEach((nodes) => {
-            nodes.forEach((node) => {
-              const classes = node.className.baseVal;
-              let type;
-
-              if (classes.indexOf('abcjs-lyric') > -1) {
-                type = 'lyric';
-              } else if (classes.indexOf('abcjs-rest') > -1) {
-                type = 'rest';
-              } else if (classes.indexOf('abcjs-note') > -1) {
-                type = 'note';
-              }
-
-              node.classList.add(`abcjs-${type}_playing`);
-            });
-          });
+          highlightItems(event);
           return null;
         },
       });
@@ -250,9 +269,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   React.useEffect(() => {
     if (timer && timer.current) {
       timer.current.reset();
-      if (typeof timer.current.setProgress === 'function') {
-        timer.current.setProgress('0%'); // doesn't seem to move highlight back to start!?
-      }
+      clearHighlights();
     }
   }, [isAtStart]);
 
