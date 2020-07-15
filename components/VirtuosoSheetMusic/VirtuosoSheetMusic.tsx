@@ -31,6 +31,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   // Experimenting... KH
   const isScrollingRef = React.useRef(false);
   const isAutoScrollRef = React.useRef(true);
+  const currentBeatRef = React.useRef(0);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
@@ -50,7 +51,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   );
 
   const [showMoreControls, setShowMoreControls] = React.useState(false);
-  const [currentBeat, setCurrentBeat] = React.useState(0);
+  // const [currentBeat, setCurrentBeat] = React.useState(0);
   const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
 
   // Set up an array of instrument volumes
@@ -115,7 +116,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
 
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber && beatNumber > 0) {
-      setCurrentBeat(beatNumber);
+      // setCurrentBeat(beatNumber);
+      currentBeatRef.current = beatNumber;
     }
     if (totalBeats && totalBeats > 0) {
       setTotalBeatsInSong(totalBeats);
@@ -269,7 +271,9 @@ const VirtuosoContent = ({ song: currentSong }) => {
               // We are starting again after going out of focus,
               // make sure song position is correct
               const percentage =
-                Math.round((currentBeat / totalBeatsInSong) * 10000) / 100;
+                Math.round(
+                  (currentBeatRef.current / totalBeatsInSong) * 10000,
+                ) / 100;
               console.log(percentage);
               setSongPercentage(percentage);
             }
