@@ -61,6 +61,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
     currentSong.instruments.map((instrument) => instrument.type),
   );
 
+  // const songPercentage = currentBeat / totalBeatsInSong;
+
   React.useEffect(() => {
     setInstrumentTypes(
       currentSong.instruments.map((instrument) => instrument.type),
@@ -109,6 +111,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
       if (isPlaying) {
         setWasStoppedByVisibilityChange(true);
         setIsPlaying(false);
+        setSongPercentage(currentBeat / totalBeatsInSong);
         console.log('hidden! stopping play');
       }
     }
@@ -118,11 +121,13 @@ const VirtuosoContent = ({ song: currentSong }) => {
     // }
   });
 
+  console.log('Current beat: ', currentBeat); // / hmmmmm
+  console.log('Total beats: ', totalBeatsInSong);
+  console.log(songPercentage);
+
   const handleBeat = (beatNumber, totalBeats) => {
     setCurrentBeat(beatNumber);
     setTotalBeatsInSong(totalBeats);
-    console.log('Current beat: ', currentBeat); // / hmmmmm
-    console.log('Total beats: ', totalBeatsInSong);
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
       setIsAtStart(true);
