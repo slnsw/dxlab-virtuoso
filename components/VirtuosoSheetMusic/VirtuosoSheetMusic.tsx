@@ -268,6 +268,19 @@ const VirtuosoContent = ({ song: currentSong }) => {
     setIsPlaying(!isPlaying);
   };
 
+  const handleSkipBackClick = () => {
+    setIsAtStart(true);
+  };
+
+  const handleAutoScrollClick = () => {
+    setIsAutoScroll(!isAutoScroll);
+    isAutoScrollRef.current = !isAutoScrollRef.current;
+  };
+
+  const handleShowMoreControlsClick = () => {
+    setShowMoreControls(!showMoreControls);
+  };
+
   return (
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
@@ -283,7 +296,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
           Test scroll
         </CTAButton> */}
         <CTAButton
-          onClick={() => setIsAtStart(true)}
+          onClick={handleSkipBackClick}
           theme="light"
           disabled={!isSamplesLoaded || isAtStart}
         >
@@ -315,10 +328,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         &nbsp;
         <CTAButton
           theme="light"
-          onClick={() => {
-            setIsAutoScroll(!isAutoScroll);
-            isAutoScrollRef.current = !isAutoScrollRef.current;
-          }}
+          onClick={handleAutoScrollClick}
           // disabled={isPlaying}
         >
           Auto scroll: {isAutoScroll ? 'on' : 'off'}
@@ -351,7 +361,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
           </CTAButton>
         </form>
         <CTAButton
-          onClick={() => setShowMoreControls(!showMoreControls)}
+          onClick={handleShowMoreControlsClick}
           theme="light"
           className={css['button--light']}
         >
