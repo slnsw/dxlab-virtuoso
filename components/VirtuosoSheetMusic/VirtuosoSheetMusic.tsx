@@ -11,7 +11,7 @@ import Icon from '../Icon/Icon';
 
 import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
-import { createWindowScrollTo } from '../../lib/window-scroll-to';
+// import { createWindowScrollTo } from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
@@ -27,10 +27,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
     updateIncrement: Function;
     destroy: Function;
   }>();
-
-  // Experimenting... KH
-  const isScrollingRef = React.useRef(false);
-  const isAutoScrollRef = React.useRef(true);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
@@ -161,35 +157,17 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
 
-      // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
-      if (isAutoScrollRef.current) {
+      if (event.measureStart) {
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-        if (
-          bottomNote &&
-          isScrollingRef.current === false &&
-          event.measureStart
-        ) {
+        if (bottomNote) {
           const { y } = bottomNote.getBoundingClientRect();
 
-          if (y < 0 || y > window.innerHeight) {
-            isScrollingRef.current = true;
-            scroller.current.stop();
-
-            const scrollTo = createWindowScrollTo(() => {
-              setTimeout(() => {
-                isScrollingRef.current = false;
-                scroller.current.start();
-              }, 500);
-            });
-
-            // NOTE: 200 is best guess for now
-            if (y > window.innerHeight) {
-              scrollTo.start(window.pageYOffset + y - window.innerHeight + 200);
-            } else {
-              scrollTo.start(window.pageYOffset + y - 200);
-            }
+          if (y < 0) {
+            console.log('Current note above fold');
+          } else if (y > window.innerHeight) {
+            console.log('Current note below fold');
           }
         }
       }
@@ -308,7 +286,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
           theme="light"
           onClick={() => {
             setIsAutoScroll(!isAutoScroll);
-            isAutoScrollRef.current = !isAutoScrollRef.current;
           }}
           // disabled={isPlaying}
         >
