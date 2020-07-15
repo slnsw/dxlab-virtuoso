@@ -253,10 +253,9 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   /* eslint-enable */
 
   React.useEffect(() => {
-    const perc = `${songPercentage}%`;
-    if (timer && timer.current) {
+    const perc = songPercentage && songPercentage / 100;
+    if (perc && timer && timer.current) {
       timer.current.setProgress(perc);
-      console.log('Setting progress to: ', perc);
     }
   }, [songPercentage]);
 
@@ -265,10 +264,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
       if (isPlaying) {
         timer.current.start();
       } else {
-        console.log('use effect');
         timer.current.pause();
-        // console.log(timer.current);
-        console.log('paused');
       }
     }
   }, [isPlaying]);

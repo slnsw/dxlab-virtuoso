@@ -11,7 +11,7 @@ import Icon from '../Icon/Icon';
 
 import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
-// import { createWindowScrollTo } from '../../lib/window-scroll-to';
+import { createWindowScrollTo } from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
@@ -27,6 +27,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
     updateIncrement: Function;
     destroy: Function;
   }>();
+
+  // Experimenting... KH
+  const isScrollingRef = React.useRef(false);
+  const isAutoScrollRef = React.useRef(true);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
@@ -100,35 +104,23 @@ const VirtuosoContent = ({ song: currentSong }) => {
    */
   useDocumentVisibility((e) => {
     const document = e.target as HTMLDocument;
-
-    if (document.hidden || document.visibilityState === 'hidden') {
-      if (isPlaying) {
-        setWasStoppedByVisibilityChange(true);
-        setIsPlaying(false);
-        // setSongPercentage(
-        //   Math.round((currentBeat / totalBeatsInSong) * 10000) / 100,
-        // );
-        console.log('hidden! stopping play');
-      }
+    if (
+      isPlaying &&
+      (document.hidden || document.visibilityState === 'hidden')
+    ) {
+      setWasStoppedByVisibilityChange(true);
+      setIsPlaying(false);
     }
-    // else {
-    // setIsPlaying(true);
-    // console.log('Not hidden - starting play');
-    // }
   });
 
-  console.log('Current beat: ', currentBeat);
-  console.log('Total beats: ', totalBeatsInSong);
-  console.log(songPercentage);
-
   const handleBeat = (beatNumber, totalBeats) => {
-    console.log('handle beat');
     if (beatNumber && beatNumber > 0) {
       setCurrentBeat(beatNumber);
-    } else {
-      console.log('beatNumber suss!!!! ', beatNumber);
     }
-    setTotalBeatsInSong(totalBeats);
+    if (totalBeats && totalBeats > 0) {
+      setTotalBeatsInSong(totalBeats);
+    }
+    // end of song reached
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
       setIsAtStart(true);
@@ -157,17 +149,35 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // setNotes(event.notes);
       setAllNotes(allEventNotes);
 
-      if (event.measureStart) {
+      // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
+      if (isAutoScrollRef.current) {
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
-        if (bottomNote) {
+        if (
+          bottomNote &&
+          isScrollingRef.current === false &&
+          event.measureStart
+        ) {
           const { y } = bottomNote.getBoundingClientRect();
 
-          if (y < 0) {
-            console.log('Current note above fold');
-          } else if (y > window.innerHeight) {
-            console.log('Current note below fold');
+          if (y < 0 || y > window.innerHeight) {
+            isScrollingRef.current = true;
+            scroller.current.stop();
+
+            const scrollTo = createWindowScrollTo(() => {
+              setTimeout(() => {
+                isScrollingRef.current = false;
+                scroller.current.start();
+              }, 500);
+            });
+
+            // NOTE: 200 is best guess for now
+            if (y > window.innerHeight) {
+              scrollTo.start(window.pageYOffset + y - window.innerHeight + 200);
+            } else {
+              scrollTo.start(window.pageYOffset + y - 200);
+            }
           }
         }
       }
@@ -247,18 +257,23 @@ const VirtuosoContent = ({ song: currentSong }) => {
         <CTAButton
           onClick={() => {
             if (isPlaying) {
+              // We are stopping!
+              // Make sure we know that we are not
+              // stopping because of going out of focus:
               setWasStoppedByVisibilityChange(false);
             } else {
+              // We have started. Make sure we note that.
               setIsAtStart(false);
             }
             if (wasStoppedByVisibilityChange && !isPlaying) {
-              // we are starting again after going out of focus,
+              // We are starting again after going out of focus,
               // make sure song position is correct
               const percentage =
                 Math.round((currentBeat / totalBeatsInSong) * 10000) / 100;
               console.log(percentage);
               setSongPercentage(percentage);
             }
+            // Either way toggle play status
             setIsPlaying(!isPlaying);
           }}
           // className={css['button--light']}
@@ -286,6 +301,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
           theme="light"
           onClick={() => {
             setIsAutoScroll(!isAutoScroll);
+            isAutoScrollRef.current = !isAutoScrollRef.current;
           }}
           // disabled={isPlaying}
         >
