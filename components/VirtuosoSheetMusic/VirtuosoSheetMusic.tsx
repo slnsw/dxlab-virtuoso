@@ -234,6 +234,40 @@ const VirtuosoContent = ({ song: currentSong }) => {
     );
   };
 
+  const handleInstrumentLoad = (instrumentIndex) =>
+    setSamplesStatus((prevSamplesStatus) => {
+      return prevSamplesStatus.map((status, i) => {
+        if (i === instrumentIndex) {
+          return 'loaded';
+        }
+
+        return status;
+      });
+    });
+
+  const handlePlayClick = () => {
+    if (isPlaying) {
+      // We are stopping!
+      // Make sure we know that we are not
+      // stopping because of going out of focus:
+      setWasStoppedByVisibilityChange(false);
+    } else {
+      // We have started. Make sure we note that.
+      setIsAtStart(false);
+    }
+
+    if (wasStoppedByVisibilityChange && !isPlaying) {
+      // We are starting again after going out of focus,
+      // make sure song position is correct
+      const percentage =
+        Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
+      console.log(percentage);
+      setSongPercentage(percentage);
+    }
+    // Either way toggle play status
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className={css.sheetMusicContent}>
       <div className={css.songControls}>
@@ -257,29 +291,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         </CTAButton>
         &nbsp;
         <CTAButton
-          onClick={() => {
-            if (isPlaying) {
-              // We are stopping!
-              // Make sure we know that we are not
-              // stopping because of going out of focus:
-              setWasStoppedByVisibilityChange(false);
-            } else {
-              // We have started. Make sure we note that.
-              setIsAtStart(false);
-            }
-            if (wasStoppedByVisibilityChange && !isPlaying) {
-              // We are starting again after going out of focus,
-              // make sure song position is correct
-              const percentage =
-                Math.round(
-                  (currentBeatRef.current / totalBeatsInSong) * 10000,
-                ) / 100;
-              console.log(percentage);
-              setSongPercentage(percentage);
-            }
-            // Either way toggle play status
-            setIsPlaying(!isPlaying);
-          }}
+          onClick={handlePlayClick}
           // className={css['button--light']}
           theme="light"
           disabled={!isSamplesLoaded}
@@ -472,10 +484,10 @@ const VirtuosoContent = ({ song: currentSong }) => {
         // }}
         onBeat={handleBeat}
         onEvent={handleEvent}
-        onLineEnd={() => {
-          // setVocalNotes([]);
-          // setPianoNotes([]);
-        }}
+        // onLineEnd={() => {
+        //   // setVocalNotes([]);
+        //   // setPianoNotes([]);
+        // }}
         songPercentage={songPercentage}
       />
 
@@ -501,17 +513,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
                   release: 1,
                 }}
                 // onLoad={() => setIsVocalLoaded(true)}
-                onLoad={() =>
-                  setSamplesStatus((prevSamplesStatus) => {
-                    return prevSamplesStatus.map((status, i) => {
-                      if (i === instrumentIndex) {
-                        return 'loaded';
-                      }
-
-                      return status;
-                    });
-                  })
-                }
+                onLoad={() => handleInstrumentLoad(instrumentIndex)}
               />
             </Track>
           );
