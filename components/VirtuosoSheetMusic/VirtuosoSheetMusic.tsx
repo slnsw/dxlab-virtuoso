@@ -1,12 +1,13 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 // import SheetMusic from '@slnsw/react-sheet-music';
-import { Range } from 'react-range';
+// import { Range } from 'react-range';
 
 import SheetMusic from '../SheetMusic';
-import Select from '../Select/Select';
-import CTAButton from '../CTAButton';
-import Icon from '../Icon/Icon';
+import VirtuosoMusicControls from '../VirtuosoMusicControls';
+// import Select from '../Select/Select';
+// import CTAButton from '../CTAButton';
+// import Icon from '../Icon/Icon';
 // import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
@@ -41,7 +42,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
   ] = React.useState(false);
   const [songPercentage, setSongPercentage] = React.useState(0);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
-  const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
+  // const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
   const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
@@ -50,7 +51,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
     currentSong.instruments.map(() => 'loading'),
   );
 
-  const [showMoreControls, setShowMoreControls] = React.useState(false);
+  // const [showMoreControls, setShowMoreControls] = React.useState(false);
   // const [currentBeat, setCurrentBeat] = React.useState(0);
   const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
 
@@ -70,7 +71,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
       currentSong.instruments.map((instrument) => instrument.volume),
     );
     setTempo(currentSong.bpm);
-    setTempoFieldValue(currentSong.bpm);
+    // setTempoFieldValue(currentSong.bpm);
   }, [currentSong]);
 
   React.useEffect(() => {
@@ -186,53 +187,53 @@ const VirtuosoContent = ({ song: currentSong }) => {
     }
   };
 
-  const handleVolumeChange = (vol, i) => {
-    setInstrumentVolumes(
-      instrumentVolumes.map((v, index) => {
-        return i === index // parseInt(event.target.name, 10)
-          ? parseFloat(vol)
-          : v;
-      }),
-    );
-  };
+  // const handleVolumeChange = (vol, i) => {
+  //   setInstrumentVolumes(
+  //     instrumentVolumes.map((v, index) => {
+  //       return i === index // parseInt(event.target.name, 10)
+  //         ? parseFloat(vol)
+  //         : v;
+  //     }),
+  //   );
+  // };
 
-  const handleTempoChangeUp = () => {
-    const newTempo = tempo < 500 ? tempo + 1 : tempo;
-    setTempo(newTempo);
-    setTempoFieldValue(newTempo);
-  };
+  // const handleTempoChangeUp = () => {
+  //   const newTempo = tempo < 500 ? tempo + 1 : tempo;
+  //   setTempo(newTempo);
+  //   setTempoFieldValue(newTempo);
+  // };
 
-  const handleTempoChangeDown = () => {
-    const newTempo = tempo > 9 ? tempo - 1 : tempo;
-    setTempo(newTempo);
-    setTempoFieldValue(newTempo);
-  };
+  // const handleTempoChangeDown = () => {
+  //   const newTempo = tempo > 9 ? tempo - 1 : tempo;
+  //   setTempo(newTempo);
+  //   setTempoFieldValue(newTempo);
+  // };
 
-  const handleTempoChange = (e) => {
-    setTempoFieldValue(e.target.value);
-  };
+  // const handleTempoChange = (e) => {
+  //   setTempoFieldValue(e.target.value);
+  // };
 
-  const handleTempoExit = (event) => {
-    let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
-    if (newTempo > 500) {
-      newTempo = 500;
-    }
-    if (newTempo < 1) {
-      newTempo = 1;
-    }
-    setTempo(newTempo);
-    setTempoFieldValue(newTempo);
-    event.preventDefault();
-  };
+  // const handleTempoExit = (event) => {
+  //   let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
+  //   if (newTempo > 500) {
+  //     newTempo = 500;
+  //   }
+  //   if (newTempo < 1) {
+  //     newTempo = 1;
+  //   }
+  //   setTempo(newTempo);
+  //   setTempoFieldValue(newTempo);
+  //   event.preventDefault();
+  // };
 
-  const handleInstrumentChange = (option, i) => {
-    setInstrumentTypes(
-      instrumentTypes.map((type, instrumentIndex) => {
-        console.log(samplesStatus);
-        return instrumentIndex === i ? option.value : type;
-      }),
-    );
-  };
+  // const handleInstrumentChange = (option, i) => {
+  //   setInstrumentTypes(
+  //     instrumentTypes.map((type, instrumentIndex) => {
+  //       console.log(samplesStatus);
+  //       return instrumentIndex === i ? option.value : type;
+  //     }),
+  //   );
+  // };
 
   const handleInstrumentLoad = (instrumentIndex) =>
     setSamplesStatus((prevSamplesStatus) => {
@@ -245,56 +246,70 @@ const VirtuosoContent = ({ song: currentSong }) => {
       });
     });
 
-  const handlePlayClick = () => {
-    if (isPlaying) {
-      // We are stopping!
-      // Make sure we know that we are not
-      // stopping because of going out of focus:
-      setWasStoppedByVisibilityChange(false);
-    } else {
-      // We have started. Make sure we note that.
-      setIsAtStart(false);
-    }
+  // const handlePlayClick = () => {
+  //   if (isPlaying) {
+  //     // We are stopping!
+  //     // Make sure we know that we are not
+  //     // stopping because of going out of focus:
+  //     setWasStoppedByVisibilityChange(false);
+  //   } else {
+  //     // We have started. Make sure we note that.
+  //     setIsAtStart(false);
+  //   }
 
-    if (wasStoppedByVisibilityChange && !isPlaying) {
-      // We are starting again after going out of focus,
-      // make sure song position is correct
-      const percentage =
-        Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
-      console.log(percentage);
-      setSongPercentage(percentage);
-    }
-    // Either way toggle play status
-    setIsPlaying(!isPlaying);
-  };
+  //   if (wasStoppedByVisibilityChange && !isPlaying) {
+  //     // We are starting again after going out of focus,
+  //     // make sure song position is correct
+  //     const percentage =
+  //       Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
+  //     console.log(percentage);
+  //     setSongPercentage(percentage);
+  //   }
+  //   // Either way toggle play status
+  //   setIsPlaying(!isPlaying);
+  // };
 
-  const handleSkipBackClick = () => {
-    setIsAtStart(true);
-  };
+  // const handleSkipBackClick = () => {
+  //   setIsAtStart(true);
+  // };
 
-  const handleAutoScrollClick = () => {
-    setIsAutoScroll(!isAutoScroll);
-    isAutoScrollRef.current = !isAutoScrollRef.current;
-  };
+  // const handleAutoScrollClick = () => {
+  //   setIsAutoScroll(!isAutoScroll);
+  //   isAutoScrollRef.current = !isAutoScrollRef.current;
+  // };
 
-  const handleShowMoreControlsClick = () => {
-    setShowMoreControls(!showMoreControls);
-  };
+  // const handleShowMoreControlsClick = () => {
+  //   setShowMoreControls(!showMoreControls);
+  // };
 
   return (
     <div className={css.sheetMusicContent}>
-      <div className={css.songControls}>
-        {/* <CTAButton
-          onClick={() => {
-            const scrollTo = createWindowScrollTo({
-              duration: 500,
-            });
-            scrollTo.start(500);
-          }}
-          theme="light"
-        >
-          Test scroll
-        </CTAButton> */}
+      <VirtuosoMusicControls
+        className={''}
+        currentSong={currentSong}
+        samples={samples}
+        instrumentTypes={instrumentTypes}
+        setInstrumentTypes={setInstrumentTypes}
+        tempo={tempo}
+        setTempo={setTempo}
+        instrumentVolumes={instrumentVolumes}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        isAtStart={isAtStart}
+        setIsAtStart={setIsAtStart}
+        isSamplesLoaded={isSamplesLoaded}
+        isAutoScroll={isAutoScroll}
+        setIsAutoScroll={setIsAutoScroll}
+        setInstrumentVolumes={setInstrumentVolumes}
+        wasStoppedByVisibilityChange={wasStoppedByVisibilityChange}
+        setWasStoppedByVisibilityChange={setWasStoppedByVisibilityChange}
+        currentBeatRef={currentBeatRef}
+        isAutoScrollRef={isAutoScrollRef}
+        totalBeatsInSong={totalBeatsInSong}
+        setSongPercentage={setSongPercentage}
+      />
+      {/* <div className={css.songControls}>
+        
         <CTAButton
           onClick={handleSkipBackClick}
           theme="light"
@@ -333,7 +348,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         >
           Auto scroll: {isAutoScroll ? 'on' : 'off'}
         </CTAButton>
-        {/* <CTAButton>Play</CTAButton> */}
+        
         <form onSubmit={handleTempoExit} className={css.tempoControls}>
           <label>Tempo:</label>
           <CTAButton
@@ -424,9 +439,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
                       />
                     )}
                   />
-                  {/* <span className={css['dB-level']}>
-                    {instrumentVolumes[i]} dB
-                  </span> */}
+
 
                   <label htmlFor={`instrument${i}`}>instrument</label>
                   <Select
@@ -443,27 +456,13 @@ const VirtuosoContent = ({ song: currentSong }) => {
                     isDisabled={isPlaying} // why u no work?
                   />
 
-                  {/* {Object.entries(samples).map(([key]) => {
-                    return (
-                      <div key={`${i}${key}`}>
-                        <input
-                          type="radio"
-                          id={`instrument${i}${key}`}
-                          name={`instrument${i}`}
-                          value={key}
-                          checked={false}
-                          onChange={handleInstrumentChange}
-                        />
-                        <label htmlFor={key}>{key}</label>
-                      </div>
-                    );
-                  })} */}
+
                 </div>
               );
             })}
           </div>
         )}
-      </div>
+      </div> */}
 
       <header className={css.header}>
         <a href={currentSong.url}>
