@@ -59,7 +59,7 @@
     "react-redux": "^7.1.3",
     "react-select": "^3.1.0",
     "react-sheet-music": "0.0.1",
-    "reactronica": "^0.3.2",
+    "reactronica": "^0.4.4",
     "redux": "^4.0.5",
     "stylelint-webpack-plugin": "^1.2.3",
     "text-miner": "^1.3.0",
