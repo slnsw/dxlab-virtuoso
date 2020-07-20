@@ -8,17 +8,17 @@
 // SONG CONTROLS
 // ----------------------------------------------------------------------------
 
-.songControls {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: var(--spacing-md) 0 var(--spacing-xxxs);
-  background-color: var(--colour-white);
-  border-bottom: 1px solid var(--colour-black);
-}
+// .songControls {
+//   position: sticky;
+//   top: 0;
+//   z-index: 20;
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+//   padding: var(--spacing-md) 0 var(--spacing-xxxs);
+//   background-color: var(--colour-white);
+//   border-bottom: 1px solid var(--colour-black);
+// }
 
 .instrumentControls {
   position: absolute;
