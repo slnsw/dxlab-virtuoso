@@ -101,6 +101,10 @@
       "destination": "/feed/"
     },
     {
+      "source": "/we-are-what-we-steal",
+      "destination": "/we-are-what-we-steal/"
+    },
+    {
       "source": "/young-ct-2018",
       "destination": "/young-ct-2018/"
     }
@@ -196,7 +200,7 @@
     },
     {
       "source": "/we-are-what-we-steal/(.*)",
-      "destination": "https://dxlab-we-are-what-we-steal-unkleho.dxlab1.vercel.app/we-are-what-we-steal/$1"
+      "destination": "https://dxlab-we-are-what-we-steal.vercel.app/we-are-what-we-steal/$1"
     },
     {
       "source": "/young-ct-2018/(.*)",
