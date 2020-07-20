@@ -155,9 +155,9 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   };
 
   return (
-    <div className={[css.VirtuosoMusicControls, className || ''].join(' ')}>
-      <div className={css.songControls}>
-        {/* <CTAButton
+    <div className={[css.virtuosoMusicControls, className || ''].join(' ')}>
+      {/* <div className={css.songControls}> */}
+      {/* <CTAButton
           onClick={() => {
             const scrollTo = createWindowScrollTo({
               duration: 500,
@@ -168,155 +168,155 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         >
           Test scroll
         </CTAButton> */}
+      <CTAButton
+        onClick={handleSkipBackClick}
+        theme="light"
+        disabled={!isSamplesLoaded || isAtStart}
+      >
+        <Icon name="play-skip-back" />
+      </CTAButton>
+      &nbsp;
+      <CTAButton
+        onClick={handlePlayClick}
+        // className={css['button--light']}
+        theme="light"
+        disabled={!isSamplesLoaded}
+      >
+        {!isSamplesLoaded ? (
+          'Loading'
+        ) : (
+          <>
+            {isPlaying ? (
+              <>
+                <Icon name="stop" /> Stop
+              </>
+            ) : (
+              <>
+                <Icon name="play" /> Play
+              </>
+            )}
+          </>
+        )}
+      </CTAButton>
+      &nbsp;
+      <CTAButton
+        theme="light"
+        onClick={handleAutoScrollClick}
+        // disabled={isPlaying}
+      >
+        Auto scroll: {isAutoScroll ? 'on' : 'off'}
+      </CTAButton>
+      {/* <CTAButton>Play</CTAButton> */}
+      <form onSubmit={handleTempoExit} className={css.tempoControls}>
+        <label>Tempo:</label>
         <CTAButton
-          onClick={handleSkipBackClick}
           theme="light"
-          disabled={!isSamplesLoaded || isAtStart}
+          className={css['button--tempo']}
+          onClick={handleTempoChangeDown}
+          disabled={isPlaying}
         >
-          <Icon name="play-skip-back" />
+          <Icon name="remove" />
         </CTAButton>
-        &nbsp;
-        <CTAButton
-          onClick={handlePlayClick}
-          // className={css['button--light']}
-          theme="light"
-          disabled={!isSamplesLoaded}
-        >
-          {!isSamplesLoaded ? (
-            'Loading'
-          ) : (
-            <>
-              {isPlaying ? (
-                <>
-                  <Icon name="stop" /> Stop
-                </>
-              ) : (
-                <>
-                  <Icon name="play" /> Play
-                </>
-              )}
-            </>
-          )}
-        </CTAButton>
-        &nbsp;
+        <input
+          type="text"
+          value={tempoFieldValue}
+          className={css['tempoInput']}
+          onChange={handleTempoChange}
+          onBlur={handleTempoExit}
+        />
         <CTAButton
           theme="light"
-          onClick={handleAutoScrollClick}
-          // disabled={isPlaying}
+          className={css['button--tempo']}
+          onClick={handleTempoChangeUp}
+          disabled={isPlaying}
         >
-          Auto scroll: {isAutoScroll ? 'on' : 'off'}
+          <Icon name="add" />
         </CTAButton>
-        {/* <CTAButton>Play</CTAButton> */}
-        <form onSubmit={handleTempoExit} className={css.tempoControls}>
-          <label>Tempo:</label>
-          <CTAButton
-            theme="light"
-            className={css['button--tempo']}
-            onClick={handleTempoChangeDown}
-            disabled={isPlaying}
-          >
-            <Icon name="remove" />
-          </CTAButton>
-          <input
-            type="text"
-            value={tempoFieldValue}
-            className={css['tempoInput']}
-            onChange={handleTempoChange}
-            onBlur={handleTempoExit}
-          />
-          <CTAButton
-            theme="light"
-            className={css['button--tempo']}
-            onClick={handleTempoChangeUp}
-            disabled={isPlaying}
-          >
-            <Icon name="add" />
-          </CTAButton>
-        </form>
-        <CTAButton
-          onClick={handleShowMoreControlsClick}
-          theme="light"
-          className={css['button--light']}
-        >
-          {showMoreControls ? 'Hide' : 'More'}
-        </CTAButton>
-        {showMoreControls && (
-          <div className={css.instrumentControls}>
-            {currentSong.instruments.map((instrument, i) => {
-              const sampleOptions = Object.entries(samples).map(([key]) => {
-                return {
-                  label: key,
-                  value: key,
-                };
-              });
+      </form>
+      <CTAButton
+        onClick={handleShowMoreControlsClick}
+        theme="light"
+        className={css['button--light']}
+      >
+        {showMoreControls ? 'Hide' : 'More'}
+      </CTAButton>
+      {showMoreControls && (
+        <div className={css.instrumentControls}>
+          {currentSong.instruments.map((instrument, i) => {
+            const sampleOptions = Object.entries(samples).map(([key]) => {
+              return {
+                label: key,
+                value: key,
+              };
+            });
 
-              // console.log(instrumentVolumes[i]);
+            // console.log(instrumentVolumes[i]);
 
-              return (
-                <div className={css.instrumentControlGroup} key={i}>
-                  <p>{instrument.name}</p>
-                  <label htmlFor={`volume${i}`}>
-                    volume {instrumentVolumes[i].toFixed(1)} <span>d</span>B
-                  </label>
-                  <Range
-                    className={css.volumeSlider}
-                    id={`volume${i}`}
-                    key={i}
-                    name={i}
-                    min={-48}
-                    max={3}
-                    values={[instrumentVolumes[i]]}
-                    step={0.5}
-                    onChange={(vol) => handleVolumeChange(vol, i)}
-                    // disabled={isPlaying}
-                    renderTrack={({ props, children }) => (
-                      <div
-                        {...props}
-                        style={{
-                          ...props.style,
-                          height: '6px',
-                          width: '100%',
-                          backgroundColor: '#ccc',
-                          marginTop: '1.2rem',
-                          marginBottom: '1.6rem',
-                        }}
-                      >
-                        {children}
-                      </div>
-                    )}
-                    renderThumb={({ props }) => (
-                      <div
-                        {...props}
-                        style={{
-                          ...props.style,
-                          height: '40px',
-                          width: '16px',
-                          backgroundColor: 'white',
-                          border: '1px solid black',
-                        }}
-                      />
-                    )}
-                  />
-                  {/* <span className={css['dB-level']}>
+            return (
+              <div className={css.instrumentControlGroup} key={i}>
+                <p>{instrument.name}</p>
+                <label htmlFor={`volume${i}`}>
+                  volume {instrumentVolumes[i].toFixed(1)} <span>d</span>B
+                </label>
+                <Range
+                  className={css.volumeSlider}
+                  id={`volume${i}`}
+                  key={i}
+                  name={i}
+                  min={-48}
+                  max={3}
+                  values={[instrumentVolumes[i]]}
+                  step={0.5}
+                  onChange={(vol) => handleVolumeChange(vol, i)}
+                  // disabled={isPlaying}
+                  renderTrack={({ props, children }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: '6px',
+                        width: '100%',
+                        backgroundColor: '#ccc',
+                        marginTop: '1.2rem',
+                        marginBottom: '1.6rem',
+                      }}
+                    >
+                      {children}
+                    </div>
+                  )}
+                  renderThumb={({ props }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: '40px',
+                        width: '16px',
+                        backgroundColor: 'white',
+                        border: '1px solid black',
+                      }}
+                    />
+                  )}
+                />
+                {/* <span className={css['dB-level']}>
                     {instrumentVolumes[i]} dB
                   </span> */}
 
-                  <label htmlFor={`instrument${i}`}>instrument</label>
-                  <Select
-                    variant="light"
-                    value={{
-                      value: instrumentTypes[i],
-                      label: instrumentTypes[i],
-                      // value: instrument.type,
-                      // label: instrument.type,
-                    }}
-                    // menuIsOpen={true}
-                    options={sampleOptions}
-                    onChange={(option) => handleInstrumentChange(option, i)}
-                    isDisabled={isPlaying} // why u no work?
-                  />
+                <label htmlFor={`instrument${i}`}>instrument</label>
+                <Select
+                  variant="light"
+                  value={{
+                    value: instrumentTypes[i],
+                    label: instrumentTypes[i],
+                    // value: instrument.type,
+                    // label: instrument.type,
+                  }}
+                  // menuIsOpen={true}
+                  options={sampleOptions}
+                  onChange={(option) => handleInstrumentChange(option, i)}
+                  isDisabled={isPlaying} // why u no work?
+                />
 
-                  {/* {Object.entries(samples).map(([key]) => {
+                {/* {Object.entries(samples).map(([key]) => {
                     return (
                       <div key={`${i}${key}`}>
                         <input
@@ -331,12 +331,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                       </div>
                     );
                   })} */}
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      {/* </div> */}
     </div>
   );
 };
