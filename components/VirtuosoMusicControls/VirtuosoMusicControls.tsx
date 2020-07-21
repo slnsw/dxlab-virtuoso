@@ -21,7 +21,6 @@ type Props = {
   tempo: number;
   instrumentVolumes: any;
   isPlaying: boolean;
-  setIsPlaying: Function;
   isAtStart: boolean;
   setIsAtStart: Function;
   isSamplesLoaded: boolean;
@@ -34,6 +33,7 @@ type Props = {
   isAutoScrollRef: any;
   totalBeatsInSong: number;
   setSongPercentage: Function;
+  onPlayClick: Function;
   onTempoChange: Function;
 };
 
@@ -47,7 +47,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   tempo,
   instrumentVolumes,
   isPlaying,
-  setIsPlaying,
   isAtStart,
   setIsAtStart,
   isSamplesLoaded,
@@ -60,6 +59,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   isAutoScrollRef,
   totalBeatsInSong,
   setSongPercentage,
+  onPlayClick,
   onTempoChange,
 }) => {
   const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
@@ -96,12 +96,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   const handleTempoExit = () => {
     let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
 
-    if (newTempo > 500) {
-      newTempo = 500;
+    if (newTempo > 200) {
+      newTempo = 200;
     }
 
-    if (newTempo < 1) {
-      newTempo = 1;
+    if (newTempo < 10) {
+      newTempo = 10;
     }
 
     onTempoChange(newTempo);
@@ -153,8 +153,9 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       console.log(percentage);
       setSongPercentage(percentage);
     }
+
     // Either way toggle play status
-    setIsPlaying(!isPlaying);
+    onPlayClick(!isPlaying);
   };
 
   const handleSkipBackClick = () => {
@@ -222,9 +223,9 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       >
         Auto scroll: {isAutoScroll ? 'on' : 'off'}
       </CTAButton>
-      {/* <CTAButton>Play</CTAButton> */}
       <form onSubmit={handleFormSubmit} className={css.tempoControls}>
         <label>Tempo:</label>
+
         <CTAButton
           theme="light"
           className={css['button--tempo']}
