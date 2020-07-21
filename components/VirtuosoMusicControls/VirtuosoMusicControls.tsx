@@ -17,14 +17,13 @@ type Props = {
   }[];
   samples: any;
   instrumentTypes: any;
-  setInstrumentTypes: Function;
+  // setInstrumentTypes: Function;
   tempo: number;
   instrumentVolumes: any;
   isPlaying: boolean;
   isAtStart: boolean;
   isSamplesLoaded: boolean;
   isAutoScroll: boolean;
-  setInstrumentVolumes: Function;
   // wasStoppedByVisibilityChange: boolean;
   // setWasStoppedByVisibilityChange: Function;
   // currentBeat: number;
@@ -35,6 +34,9 @@ type Props = {
   onTempoChange: Function;
   onSkipBackClick: Function;
   onAutoScrollClick: Function;
+  // setInstrumentVolumes: Function;
+  onInstrumentVolumeChange: Function;
+  onInstrumentTypeChange: Function;
 };
 
 const VirtuosoMusicControls: React.FC<Props> = ({
@@ -42,14 +44,14 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   instruments = [],
   samples,
   instrumentTypes,
-  setInstrumentTypes,
+  // setInstrumentTypes,
   tempo,
   instrumentVolumes,
   isPlaying,
   isAtStart,
   isSamplesLoaded,
   isAutoScroll,
-  setInstrumentVolumes,
+  // setInstrumentVolumes,
   // wasStoppedByVisibilityChange,
   // setWasStoppedByVisibilityChange,
   // currentBeat,
@@ -60,19 +62,11 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onTempoChange,
   onSkipBackClick,
   onAutoScrollClick,
+  onInstrumentVolumeChange,
+  onInstrumentTypeChange,
 }) => {
   const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
-
-  const handleVolumeChange = (vol, i) => {
-    setInstrumentVolumes(
-      instrumentVolumes.map((v, index) => {
-        return i === index // parseInt(event.target.name, 10)
-          ? parseFloat(vol)
-          : v;
-      }),
-    );
-  };
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 500 ? tempo + 1 : tempo;
@@ -113,8 +107,18 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     event.preventDefault();
   };
 
-  const handleInstrumentChange = (option, i) => {
-    setInstrumentTypes(
+  const handleInstrumentVolumeChange = (vol, i) => {
+    onInstrumentVolumeChange(
+      instrumentVolumes.map((v, index) => {
+        return i === index // parseInt(event.target.name, 10)
+          ? parseFloat(vol)
+          : v;
+      }),
+    );
+  };
+
+  const handleInstrumentTypeChange = (option, i) => {
+    onInstrumentTypeChange(
       instrumentTypes.map((type, instrumentIndex) => {
         // console.log(samplesStatus);
         return instrumentIndex === i ? option.value : type;
@@ -265,7 +269,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                   max={3}
                   values={[instrumentVolumes[i]]}
                   step={0.5}
-                  onChange={(vol) => handleVolumeChange(vol, i)}
+                  onChange={(vol) => handleInstrumentVolumeChange(vol, i)}
                   // disabled={isPlaying}
                   renderTrack={({ props, children }) => (
                     <div
@@ -310,7 +314,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                   }}
                   // menuIsOpen={true}
                   options={sampleOptions}
-                  onChange={(option) => handleInstrumentChange(option, i)}
+                  onChange={(option) => handleInstrumentTypeChange(option, i)}
                   isDisabled={isPlaying} // why u no work?
                 />
 
@@ -323,7 +327,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                           name={`instrument${i}`}
                           value={key}
                           checked={false}
-                          onChange={handleInstrumentChange}
+                          onChange={handleInstrumentTypeChange}
                         />
                         <label htmlFor={key}>{key}</label>
                       </div>

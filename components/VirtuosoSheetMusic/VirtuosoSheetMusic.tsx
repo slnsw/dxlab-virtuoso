@@ -290,14 +290,12 @@ const VirtuosoContent = ({ song: currentSong }) => {
         instruments={currentSong.instruments}
         samples={samples}
         instrumentTypes={instrumentTypes}
-        setInstrumentTypes={setInstrumentTypes}
         tempo={tempo}
         instrumentVolumes={instrumentVolumes}
         isPlaying={isPlaying}
         isAtStart={isAtStart}
         isSamplesLoaded={isSamplesLoaded}
         isAutoScroll={isAutoScroll}
-        setInstrumentVolumes={setInstrumentVolumes}
         // wasStoppedByVisibilityChange={wasStoppedByVisibilityChange}
         // setWasStoppedByVisibilityChange={setWasStoppedByVisibilityChange}
         // currentBeat={currentBeatRef.current}
@@ -307,6 +305,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
         onTempoChange={setTempo}
         onSkipBackClick={() => setIsAtStart(true)}
         onAutoScrollClick={setIsAutoScroll}
+        onInstrumentVolumeChange={setInstrumentVolumes}
+        onInstrumentTypeChange={setInstrumentTypes}
       />
 
       <header className={css.header}>
