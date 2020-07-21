@@ -1,7 +1,9 @@
 @import '../../styles/global.scss';
 
 .virtuosoMusicControls {
-  // color: white;
+  label {
+    margin-bottom: 0;
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -19,32 +21,6 @@
 //   background-color: var(--colour-white);
 //   border-bottom: 1px solid var(--colour-black);
 // }
-
-.instrumentControls {
-  position: absolute;
-  top: 4rem;
-  right: 0;
-  z-index: 10;
-  display: block;
-  width: var(--container-width-xs);
-  padding: var(--spacing-lg);
-  background-color: var(--colour-white);
-  border: 1px solid var(--colour-black);
-
-  span {
-    text-transform: lowercase;
-  }
-
-  p {
-    margin-bottom: var(--spacing-xs);
-    font-weight: 700;
-    font-family: var(--font-secondary);
-  }
-}
-
-.instrumentControlGroup {
-  margin-bottom: var(--spacing-xlg);
-}
 
 .tempoControls {
   @extend .font-uppercase;
@@ -83,20 +59,6 @@
   }
 }
 
-.button--light {
-  @extend .font-uppercase;
-
-  // width: fit-content;
-  // padding-top: var(--spacing-xxs);
-  // padding-right: var(--spacing-xxxs);
-  // padding-bottom: var(--spacing-xxxs);
-  // padding-left: var(--spacing-xxs);
-  // color: var(--colour-black);
-  // font-size: var(--font-size-lg);
-  // line-height: 1;
-  // border: 1px solid var(--colour-black);
-}
-
 .button--tempo {
   margin-right: var(--spacing-xxs);
   margin-left: var(--spacing-xxs);
@@ -108,10 +70,66 @@
   border-color: #999;
 }
 
-.volumeSlider {
-  // width: 69%;
-  margin-bottom: var(--spacing-xs);
-  padding-top: var(--spacing-xlg);
+.instrumentControls {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  z-index: 10;
+  display: block;
+  width: var(--container-width-xs);
+  margin-top: -1px;
+  padding: var(--spacing-lg);
+  background-color: var(--colour-white);
+  border: 1px solid var(--colour-black);
+
+  @include media-sm {
+    width: 100%;
+  }
+
+  span {
+    text-transform: lowercase;
+  }
 }
 
-// ----------------------------------------------------------------------------
+.instrumentControlGroup {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--colour-black);
+
+  @include media-sm {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+.instrumentControlGroup:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.instrumentName {
+  margin-bottom: var(--spacing-xs);
+  font-weight: 700;
+
+  @include media-sm {
+    flex: 1;
+  }
+}
+
+.volumeGroup {
+  margin-bottom: var(--spacing-xs);
+  // padding-top: var(--spacing-xlg);
+
+  @include media-sm {
+    flex: 1;
+    margin-right: var(--spacing-md);
+  }
+}
+
+.instrumentSelectGroup {
+  @include media-sm {
+    flex: 1;
+  }
+}
