@@ -46,6 +46,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
   const [increment] = React.useState(0.5);
   const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
+  console.log(tempo);
+
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
     currentSong.instruments.map(() => 'loading'),
@@ -292,7 +294,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
         instrumentTypes={instrumentTypes}
         setInstrumentTypes={setInstrumentTypes}
         tempo={tempo}
-        setTempo={setTempo}
         instrumentVolumes={instrumentVolumes}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
@@ -308,6 +309,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         isAutoScrollRef={isAutoScrollRef}
         totalBeatsInSong={totalBeatsInSong}
         setSongPercentage={setSongPercentage}
+        onTempoChange={setTempo}
       />
       {/* <div className={css.songControls}>
         

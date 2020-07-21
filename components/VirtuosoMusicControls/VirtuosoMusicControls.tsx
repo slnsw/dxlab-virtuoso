@@ -19,7 +19,6 @@ type Props = {
   instrumentTypes: any;
   setInstrumentTypes: Function;
   tempo: number;
-  setTempo: Function;
   instrumentVolumes: any;
   isPlaying: boolean;
   setIsPlaying: Function;
@@ -35,6 +34,7 @@ type Props = {
   isAutoScrollRef: any;
   totalBeatsInSong: number;
   setSongPercentage: Function;
+  onTempoChange: Function;
 };
 
 const VirtuosoMusicControls: React.FC<Props> = ({
@@ -45,7 +45,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   instrumentTypes,
   setInstrumentTypes,
   tempo,
-  setTempo,
   instrumentVolumes,
   isPlaying,
   setIsPlaying,
@@ -61,6 +60,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   isAutoScrollRef,
   totalBeatsInSong,
   setSongPercentage,
+  onTempoChange,
 }) => {
   const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
@@ -77,30 +77,36 @@ const VirtuosoMusicControls: React.FC<Props> = ({
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 500 ? tempo + 1 : tempo;
-    setTempo(newTempo);
+    onTempoChange(newTempo);
     setTempoFieldValue(newTempo);
   };
 
   const handleTempoChangeDown = () => {
     const newTempo = tempo > 9 ? tempo - 1 : tempo;
-    setTempo(newTempo);
+    onTempoChange(newTempo);
     setTempoFieldValue(newTempo);
   };
 
   const handleTempoChange = (e) => {
+    // const newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
+
     setTempoFieldValue(e.target.value);
   };
 
   const handleTempoExit = (event) => {
     let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
+
     if (newTempo > 500) {
       newTempo = 500;
     }
+
     if (newTempo < 1) {
       newTempo = 1;
     }
-    setTempo(newTempo);
+
+    onTempoChange(newTempo);
     setTempoFieldValue(newTempo);
+
     event.preventDefault();
   };
 
