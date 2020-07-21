@@ -9,7 +9,12 @@ import css from './VirtuosoMusicControls.module.scss';
 
 type Props = {
   className?: string;
-  currentSong: any;
+  // currentSong: any;
+  instruments?: {
+    name: string;
+    volume: number;
+    type: string;
+  }[];
   samples: any;
   instrumentTypes: any;
   setInstrumentTypes: Function;
@@ -34,7 +39,8 @@ type Props = {
 
 const VirtuosoMusicControls: React.FC<Props> = ({
   className,
-  currentSong,
+  // currentSong,
+  instruments = [],
   samples,
   instrumentTypes,
   setInstrumentTypes,
@@ -242,7 +248,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       </CTAButton>
       {showMoreControls && (
         <div className={css.instrumentControls}>
-          {currentSong.instruments.map((instrument, i) => {
+          {instruments.map((instrument, i) => {
             const sampleOptions = Object.entries(samples).map(([key]) => {
               return {
                 label: key,

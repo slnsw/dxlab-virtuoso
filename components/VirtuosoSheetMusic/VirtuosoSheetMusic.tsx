@@ -286,7 +286,8 @@ const VirtuosoContent = ({ song: currentSong }) => {
     <div className={css.sheetMusicContent}>
       <VirtuosoMusicControls
         className={css.songControls}
-        currentSong={currentSong}
+        // currentSong={currentSong}
+        instruments={currentSong.instruments}
         samples={samples}
         instrumentTypes={instrumentTypes}
         setInstrumentTypes={setInstrumentTypes}
