@@ -42,7 +42,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
   ] = React.useState(false);
   const [songPercentage, setSongPercentage] = React.useState(0);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
-  // const [tempoFieldValue, setTempoFieldValue] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
   const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
@@ -295,7 +294,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         instrumentVolumes={instrumentVolumes}
         isPlaying={isPlaying}
         isAtStart={isAtStart}
-        setIsAtStart={setIsAtStart}
+        // setIsAtStart={setIsAtStart}
         isSamplesLoaded={isSamplesLoaded}
         isAutoScroll={isAutoScroll}
         setIsAutoScroll={setIsAutoScroll}
@@ -306,8 +305,12 @@ const VirtuosoContent = ({ song: currentSong }) => {
         isAutoScrollRef={isAutoScrollRef}
         totalBeatsInSong={totalBeatsInSong}
         setSongPercentage={setSongPercentage}
-        onPlayClick={setIsPlaying}
+        onPlayClick={(state) => {
+          setIsPlaying(state);
+          setIsAtStart(false);
+        }}
         onTempoChange={setTempo}
+        onSkipBackClick={() => setIsAtStart(true)}
       />
       {/* <div className={css.songControls}>
         

@@ -22,7 +22,6 @@ type Props = {
   instrumentVolumes: any;
   isPlaying: boolean;
   isAtStart: boolean;
-  setIsAtStart: Function;
   isSamplesLoaded: boolean;
   isAutoScroll: boolean;
   setIsAutoScroll: Function;
@@ -35,11 +34,11 @@ type Props = {
   setSongPercentage: Function;
   onPlayClick: Function;
   onTempoChange: Function;
+  onSkipBackClick: Function;
 };
 
 const VirtuosoMusicControls: React.FC<Props> = ({
   className,
-  // currentSong,
   instruments = [],
   samples,
   instrumentTypes,
@@ -48,7 +47,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   instrumentVolumes,
   isPlaying,
   isAtStart,
-  setIsAtStart,
   isSamplesLoaded,
   isAutoScroll,
   setIsAutoScroll,
@@ -61,6 +59,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   setSongPercentage,
   onPlayClick,
   onTempoChange,
+  onSkipBackClick,
 }) => {
   const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
@@ -140,9 +139,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       // Make sure we know that we are not
       // stopping because of going out of focus:
       setWasStoppedByVisibilityChange(false);
-    } else {
-      // We have started. Make sure we note that.
-      setIsAtStart(false);
     }
 
     if (wasStoppedByVisibilityChange && !isPlaying) {
@@ -159,7 +155,8 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   };
 
   const handleSkipBackClick = () => {
-    setIsAtStart(true);
+    // setIsAtStart(true);
+    onSkipBackClick();
   };
 
   const handleAutoScrollClick = () => {
