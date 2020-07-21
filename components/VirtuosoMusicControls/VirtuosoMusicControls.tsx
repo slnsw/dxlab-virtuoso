@@ -50,32 +50,23 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onInstrumentVolumeChange,
   onInstrumentTypeChange,
 }) => {
-  const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
+  // const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(true);
 
   const handleTempoChangeUp = () => {
-    const newTempo = tempo < 500 ? tempo + 1 : tempo;
+    const newTempo = tempo < 200 ? tempo + 1 : tempo;
     onTempoChange(newTempo);
-    setTempoFieldValue(newTempo);
+    // setTempoFieldValue(newTempo);
   };
 
   const handleTempoChangeDown = () => {
-    const newTempo = tempo > 9 ? tempo - 1 : tempo;
+    const newTempo = tempo > 10 ? tempo - 1 : tempo;
     onTempoChange(newTempo);
-    setTempoFieldValue(newTempo);
+    // setTempoFieldValue(newTempo);
   };
 
   const handleTempoChange = (e) => {
-    // const newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
-
-    setTempoFieldValue(e.target.value);
-  };
-
-  const handleTempoExit = () => {
-    let newTempo =
-      typeof tempoFieldValue === 'string'
-        ? Number.parseInt(tempoFieldValue, 10) || 1
-        : tempoFieldValue;
+    let newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
 
     if (newTempo > 200) {
       newTempo = 200;
@@ -86,12 +77,34 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     }
 
     onTempoChange(newTempo);
-    setTempoFieldValue(newTempo);
+    // setTempoFieldValue(e.target.value);
+  };
+
+  const handleTempoExit = (e) => {
+    // let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
+    let newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
+    // const handleTempoExit = () => {
+    //   let newTempo =
+    //     typeof tempoFieldValue === 'string'
+    //       ? Number.parseInt(tempoFieldValue, 10) || 1
+    //       : tempoFieldValue;
+
+    if (newTempo > 200) {
+      newTempo = 200;
+    }
+
+    if (newTempo < 10) {
+      newTempo = 10;
+    }
+
+    onTempoChange(newTempo);
+    // setTempoFieldValue(newTempo);
 
     // event.preventDefault();
   };
 
   const handleFormSubmit = (event) => {
+    // handleTempoExit(event);
     event.preventDefault();
   };
 
@@ -129,6 +142,21 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     // Either way toggle play status
     onPlayClick(!isPlaying);
   };
+
+  const handleSpaceBarPress = (e) => {
+    if (e.keyCode === 32) {
+      handlePlayClick();
+      e.preventDefault();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', handleSpaceBarPress, false);
+
+    return () => {
+      document.removeEventListener('keydown', handleSpaceBarPress, false);
+    };
+  }, [handleSpaceBarPress]);
 
   const handleSkipBackClick = () => {
     onSkipBackClick();
@@ -181,9 +209,8 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       >
         Auto scroll: {isAutoScroll ? 'on' : 'off'}
       </CTAButton>
-      <form onSubmit={handleFormSubmit} className={css.tempoControls}>
+      <div className={css.tempoControls}>
         <label>Tempo:</label>
-
         <CTAButton
           theme="light"
           className={css['button--tempo']}
@@ -192,15 +219,17 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         >
           <Icon name="remove" />
         </CTAButton>
-        <input
-          type="number"
-          value={tempoFieldValue}
-          className={css['tempoInput']}
-          min={10}
-          max={200}
-          onChange={handleTempoChange}
-          onBlur={handleTempoExit}
-        />
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="number"
+            value={tempo}
+            className={css['tempoInput']}
+            min={10}
+            max={200}
+            onChange={handleTempoChange}
+            onBlur={handleTempoExit}
+          />
+        </form>
         <CTAButton
           theme="light"
           className={css['button--tempo']}
@@ -209,7 +238,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         >
           <Icon name="add" />
         </CTAButton>
-      </form>
+      </div>
       <CTAButton
         onClick={handleShowMoreControlsClick}
         theme="light"
