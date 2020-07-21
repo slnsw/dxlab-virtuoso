@@ -22,24 +22,23 @@ type Props = {
   instrumentVolumes: any;
   isPlaying: boolean;
   isAtStart: boolean;
-  setIsAtStart: Function;
   isSamplesLoaded: boolean;
   isAutoScroll: boolean;
-  setIsAutoScroll: Function;
   setInstrumentVolumes: Function;
-  wasStoppedByVisibilityChange: boolean;
-  setWasStoppedByVisibilityChange: Function;
-  currentBeatRef: any;
-  isAutoScrollRef: any;
-  totalBeatsInSong: number;
-  setSongPercentage: Function;
+  // wasStoppedByVisibilityChange: boolean;
+  // setWasStoppedByVisibilityChange: Function;
+  // currentBeat: number;
+  // isAutoScrollRef: any;
+  // totalBeatsInSong: number;
+  // setSongPercentage: Function;
   onPlayClick: Function;
   onTempoChange: Function;
+  onSkipBackClick: Function;
+  onAutoScrollClick: Function;
 };
 
 const VirtuosoMusicControls: React.FC<Props> = ({
   className,
-  // currentSong,
   instruments = [],
   samples,
   instrumentTypes,
@@ -48,19 +47,19 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   instrumentVolumes,
   isPlaying,
   isAtStart,
-  setIsAtStart,
   isSamplesLoaded,
   isAutoScroll,
-  setIsAutoScroll,
   setInstrumentVolumes,
-  wasStoppedByVisibilityChange,
-  setWasStoppedByVisibilityChange,
-  currentBeatRef,
-  isAutoScrollRef,
-  totalBeatsInSong,
-  setSongPercentage,
+  // wasStoppedByVisibilityChange,
+  // setWasStoppedByVisibilityChange,
+  // currentBeat,
+  // isAutoScrollRef,
+  // totalBeatsInSong,
+  // setSongPercentage,
   onPlayClick,
   onTempoChange,
+  onSkipBackClick,
+  onAutoScrollClick,
 }) => {
   const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
@@ -135,36 +134,16 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   //   });
 
   const handlePlayClick = () => {
-    if (isPlaying) {
-      // We are stopping!
-      // Make sure we know that we are not
-      // stopping because of going out of focus:
-      setWasStoppedByVisibilityChange(false);
-    } else {
-      // We have started. Make sure we note that.
-      setIsAtStart(false);
-    }
-
-    if (wasStoppedByVisibilityChange && !isPlaying) {
-      // We are starting again after going out of focus,
-      // make sure song position is correct
-      const percentage =
-        Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
-      console.log(percentage);
-      setSongPercentage(percentage);
-    }
-
     // Either way toggle play status
     onPlayClick(!isPlaying);
   };
 
   const handleSkipBackClick = () => {
-    setIsAtStart(true);
+    onSkipBackClick();
   };
 
   const handleAutoScrollClick = () => {
-    setIsAutoScroll(!isAutoScroll);
-    isAutoScrollRef.current = !isAutoScrollRef.current;
+    onAutoScrollClick(!isAutoScroll);
   };
 
   const handleShowMoreControlsClick = () => {
