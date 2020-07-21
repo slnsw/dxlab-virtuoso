@@ -25,12 +25,12 @@ type Props = {
   isSamplesLoaded: boolean;
   isAutoScroll: boolean;
   setInstrumentVolumes: Function;
-  wasStoppedByVisibilityChange: boolean;
-  setWasStoppedByVisibilityChange: Function;
-  currentBeat: number;
+  // wasStoppedByVisibilityChange: boolean;
+  // setWasStoppedByVisibilityChange: Function;
+  // currentBeat: number;
   // isAutoScrollRef: any;
-  totalBeatsInSong: number;
-  setSongPercentage: Function;
+  // totalBeatsInSong: number;
+  // setSongPercentage: Function;
   onPlayClick: Function;
   onTempoChange: Function;
   onSkipBackClick: Function;
@@ -50,12 +50,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   isSamplesLoaded,
   isAutoScroll,
   setInstrumentVolumes,
-  wasStoppedByVisibilityChange,
-  setWasStoppedByVisibilityChange,
-  currentBeat,
+  // wasStoppedByVisibilityChange,
+  // setWasStoppedByVisibilityChange,
+  // currentBeat,
   // isAutoScrollRef,
-  totalBeatsInSong,
-  setSongPercentage,
+  // totalBeatsInSong,
+  // setSongPercentage,
   onPlayClick,
   onTempoChange,
   onSkipBackClick,
@@ -134,22 +134,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   //   });
 
   const handlePlayClick = () => {
-    if (isPlaying) {
-      // We are stopping!
-      // Make sure we know that we are not
-      // stopping because of going out of focus:
-      setWasStoppedByVisibilityChange(false);
-    }
-
-    if (wasStoppedByVisibilityChange && !isPlaying) {
-      // We are starting again after going out of focus,
-      // make sure song position is correct
-      const percentage =
-        Math.round((currentBeat / totalBeatsInSong) * 10000) / 100;
-      console.log(percentage);
-      setSongPercentage(percentage);
-    }
-
     // Either way toggle play status
     onPlayClick(!isPlaying);
   };
