@@ -89,31 +89,38 @@
   span {
     text-transform: lowercase;
   }
-
-  p {
-    margin-bottom: var(--spacing-xs);
-    font-weight: 700;
-    font-family: var(--font-secondary);
-  }
 }
 
 .instrumentControlGroup {
-  margin-bottom: var(--spacing-xlg);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--colour-black);
 
   @include media-sm {
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
   }
 }
 
 .instrumentControlGroup:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
-.volumeSlider {
+.instrumentName {
   margin-bottom: var(--spacing-xs);
-  padding-top: var(--spacing-xlg);
+  font-weight: 700;
+
+  @include media-sm {
+    flex: 1;
+  }
+}
+
+.volumeGroup {
+  margin-bottom: var(--spacing-xs);
+  // padding-top: var(--spacing-xlg);
 
   @include media-sm {
     flex: 1;
@@ -121,7 +128,7 @@
   }
 }
 
-.instrumentSelect {
+.instrumentSelectGroup {
   @include media-sm {
     flex: 1;
   }
