@@ -55,7 +55,7 @@
 
   .tempoInput {
     width: 50px;
-    height: 3em * 0.77;
+    height: 2.8em; // 3em * 0.77;
     color: var(--colour-black);
     text-align: center;
     vertical-align: middle;
@@ -69,6 +69,18 @@
   //   display: flex;
   //   align-items: baseline;
   // }
+
+  /* Hide Arrow from type=number Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  /* Hide Arrow from type=number Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 }
 
 .button--light {
