@@ -24,17 +24,17 @@ type Props = {
   isAtStart: boolean;
   isSamplesLoaded: boolean;
   isAutoScroll: boolean;
-  setIsAutoScroll: Function;
   setInstrumentVolumes: Function;
   wasStoppedByVisibilityChange: boolean;
   setWasStoppedByVisibilityChange: Function;
   currentBeatRef: any;
-  isAutoScrollRef: any;
+  // isAutoScrollRef: any;
   totalBeatsInSong: number;
   setSongPercentage: Function;
   onPlayClick: Function;
   onTempoChange: Function;
   onSkipBackClick: Function;
+  onAutoScrollClick: Function;
 };
 
 const VirtuosoMusicControls: React.FC<Props> = ({
@@ -49,17 +49,17 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   isAtStart,
   isSamplesLoaded,
   isAutoScroll,
-  setIsAutoScroll,
   setInstrumentVolumes,
   wasStoppedByVisibilityChange,
   setWasStoppedByVisibilityChange,
   currentBeatRef,
-  isAutoScrollRef,
+  // isAutoScrollRef,
   totalBeatsInSong,
   setSongPercentage,
   onPlayClick,
   onTempoChange,
   onSkipBackClick,
+  onAutoScrollClick,
 }) => {
   const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
@@ -155,13 +155,11 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   };
 
   const handleSkipBackClick = () => {
-    // setIsAtStart(true);
     onSkipBackClick();
   };
 
   const handleAutoScrollClick = () => {
-    setIsAutoScroll(!isAutoScroll);
-    isAutoScrollRef.current = !isAutoScrollRef.current;
+    onAutoScrollClick(!isAutoScroll);
   };
 
   const handleShowMoreControlsClick = () => {

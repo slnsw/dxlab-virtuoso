@@ -294,15 +294,12 @@ const VirtuosoContent = ({ song: currentSong }) => {
         instrumentVolumes={instrumentVolumes}
         isPlaying={isPlaying}
         isAtStart={isAtStart}
-        // setIsAtStart={setIsAtStart}
         isSamplesLoaded={isSamplesLoaded}
         isAutoScroll={isAutoScroll}
-        setIsAutoScroll={setIsAutoScroll}
         setInstrumentVolumes={setInstrumentVolumes}
         wasStoppedByVisibilityChange={wasStoppedByVisibilityChange}
         setWasStoppedByVisibilityChange={setWasStoppedByVisibilityChange}
         currentBeatRef={currentBeatRef}
-        isAutoScrollRef={isAutoScrollRef}
         totalBeatsInSong={totalBeatsInSong}
         setSongPercentage={setSongPercentage}
         onPlayClick={(state) => {
@@ -311,6 +308,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         }}
         onTempoChange={setTempo}
         onSkipBackClick={() => setIsAtStart(true)}
+        onAutoScrollClick={setIsAutoScroll}
       />
       {/* <div className={css.songControls}>
         
