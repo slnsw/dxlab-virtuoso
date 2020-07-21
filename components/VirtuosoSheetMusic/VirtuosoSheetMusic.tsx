@@ -186,54 +186,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
     }
   };
 
-  // const handleVolumeChange = (vol, i) => {
-  //   setInstrumentVolumes(
-  //     instrumentVolumes.map((v, index) => {
-  //       return i === index // parseInt(event.target.name, 10)
-  //         ? parseFloat(vol)
-  //         : v;
-  //     }),
-  //   );
-  // };
-
-  // const handleTempoChangeUp = () => {
-  //   const newTempo = tempo < 500 ? tempo + 1 : tempo;
-  //   setTempo(newTempo);
-  //   setTempoFieldValue(newTempo);
-  // };
-
-  // const handleTempoChangeDown = () => {
-  //   const newTempo = tempo > 9 ? tempo - 1 : tempo;
-  //   setTempo(newTempo);
-  //   setTempoFieldValue(newTempo);
-  // };
-
-  // const handleTempoChange = (e) => {
-  //   setTempoFieldValue(e.target.value);
-  // };
-
-  // const handleTempoExit = (event) => {
-  //   let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
-  //   if (newTempo > 500) {
-  //     newTempo = 500;
-  //   }
-  //   if (newTempo < 1) {
-  //     newTempo = 1;
-  //   }
-  //   setTempo(newTempo);
-  //   setTempoFieldValue(newTempo);
-  //   event.preventDefault();
-  // };
-
-  // const handleInstrumentChange = (option, i) => {
-  //   setInstrumentTypes(
-  //     instrumentTypes.map((type, instrumentIndex) => {
-  //       console.log(samplesStatus);
-  //       return instrumentIndex === i ? option.value : type;
-  //     }),
-  //   );
-  // };
-
   const handleInstrumentLoad = (instrumentIndex) =>
     setSamplesStatus((prevSamplesStatus) => {
       return prevSamplesStatus.map((status, i) => {
@@ -261,7 +213,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
       // make sure song position is correct
       const percentage =
         Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
-      console.log(percentage);
+
       setSongPercentage(percentage);
     }
 
@@ -269,24 +221,15 @@ const VirtuosoContent = ({ song: currentSong }) => {
     setIsPlaying(!isPlaying);
   };
 
-  // const handleSkipBackClick = () => {
-  //   setIsAtStart(true);
-  // };
-
   // const handleAutoScrollClick = () => {
   //   setIsAutoScroll(!isAutoScroll);
   //   isAutoScrollRef.current = !isAutoScrollRef.current;
-  // };
-
-  // const handleShowMoreControlsClick = () => {
-  //   setShowMoreControls(!showMoreControls);
   // };
 
   return (
     <div className={css.sheetMusicContent}>
       <VirtuosoMusicControls
         className={css.songControls}
-        // currentSong={currentSong}
         instruments={currentSong.instruments}
         samples={samples}
         instrumentTypes={instrumentTypes}
@@ -296,11 +239,6 @@ const VirtuosoContent = ({ song: currentSong }) => {
         isAtStart={isAtStart}
         isSamplesLoaded={isSamplesLoaded}
         isAutoScroll={isAutoScroll}
-        // wasStoppedByVisibilityChange={wasStoppedByVisibilityChange}
-        // setWasStoppedByVisibilityChange={setWasStoppedByVisibilityChange}
-        // currentBeat={currentBeatRef.current}
-        // totalBeatsInSong={totalBeatsInSong}
-        // setSongPercentage={setSongPercentage}
         onPlayClick={handlePlayClick}
         onTempoChange={setTempo}
         onSkipBackClick={() => setIsAtStart(true)}
