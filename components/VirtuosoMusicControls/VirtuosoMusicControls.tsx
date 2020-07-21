@@ -93,7 +93,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     setTempoFieldValue(e.target.value);
   };
 
-  const handleTempoExit = (event) => {
+  const handleTempoExit = () => {
     let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
 
     if (newTempo > 500) {
@@ -107,6 +107,10 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     onTempoChange(newTempo);
     setTempoFieldValue(newTempo);
 
+    // event.preventDefault();
+  };
+
+  const handleFormSubmit = (event) => {
     event.preventDefault();
   };
 
@@ -219,7 +223,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         Auto scroll: {isAutoScroll ? 'on' : 'off'}
       </CTAButton>
       {/* <CTAButton>Play</CTAButton> */}
-      <form onSubmit={handleTempoExit} className={css.tempoControls}>
+      <form onSubmit={handleFormSubmit} className={css.tempoControls}>
         <label>Tempo:</label>
         <CTAButton
           theme="light"
@@ -230,9 +234,11 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           <Icon name="remove" />
         </CTAButton>
         <input
-          type="text"
+          type="number"
           value={tempoFieldValue}
           className={css['tempoInput']}
+          min={10}
+          max={200}
           onChange={handleTempoChange}
           onBlur={handleTempoExit}
         />
