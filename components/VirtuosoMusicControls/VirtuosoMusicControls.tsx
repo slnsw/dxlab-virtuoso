@@ -24,17 +24,10 @@ type Props = {
   isAtStart: boolean;
   isSamplesLoaded: boolean;
   isAutoScroll: boolean;
-  // wasStoppedByVisibilityChange: boolean;
-  // setWasStoppedByVisibilityChange: Function;
-  // currentBeat: number;
-  // isAutoScrollRef: any;
-  // totalBeatsInSong: number;
-  // setSongPercentage: Function;
   onPlayClick: Function;
   onTempoChange: Function;
   onSkipBackClick: Function;
   onAutoScrollClick: Function;
-  // setInstrumentVolumes: Function;
   onInstrumentVolumeChange: Function;
   onInstrumentTypeChange: Function;
 };
@@ -44,20 +37,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   instruments = [],
   samples,
   instrumentTypes,
-  // setInstrumentTypes,
   tempo,
   instrumentVolumes,
   isPlaying,
   isAtStart,
   isSamplesLoaded,
   isAutoScroll,
-  // setInstrumentVolumes,
-  // wasStoppedByVisibilityChange,
-  // setWasStoppedByVisibilityChange,
-  // currentBeat,
-  // isAutoScrollRef,
-  // totalBeatsInSong,
-  // setSongPercentage,
   onPlayClick,
   onTempoChange,
   onSkipBackClick,
@@ -87,7 +72,10 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   };
 
   const handleTempoExit = () => {
-    let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
+    let newTempo =
+      typeof tempoFieldValue === 'string'
+        ? Number.parseInt(tempoFieldValue, 10) || 1
+        : tempoFieldValue;
 
     if (newTempo > 200) {
       newTempo = 200;
@@ -156,18 +144,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
 
   return (
     <div className={[css.virtuosoMusicControls, className || ''].join(' ')}>
-      {/* <div className={css.songControls}> */}
-      {/* <CTAButton
-          onClick={() => {
-            const scrollTo = createWindowScrollTo({
-              duration: 500,
-            });
-            scrollTo.start(500);
-          }}
-          theme="light"
-        >
-          Test scroll
-        </CTAButton> */}
       <CTAButton
         onClick={handleSkipBackClick}
         theme="light"
@@ -178,7 +154,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       &nbsp;
       <CTAButton
         onClick={handlePlayClick}
-        // className={css['button--light']}
         theme="light"
         disabled={!isSamplesLoaded}
       >
@@ -261,10 +236,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                   volume {instrumentVolumes[i].toFixed(1)} <span>d</span>B
                 </label>
                 <Range
-                  className={css.volumeSlider}
-                  id={`volume${i}`}
                   key={i}
-                  name={i}
                   min={-48}
                   max={3}
                   values={[instrumentVolumes[i]]}
@@ -273,14 +245,17 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                   // disabled={isPlaying}
                   renderTrack={({ props, children }) => (
                     <div
+                      className={css.volumeSlider}
+                      id={`volume${i}`}
+                      // name={i}
                       {...props}
                       style={{
                         ...props.style,
                         height: '6px',
                         width: '100%',
                         backgroundColor: '#ccc',
-                        marginTop: '1.2rem',
-                        marginBottom: '1.6rem',
+                        // marginTop: '1.2rem',
+                        // marginBottom: '1.6rem',
                       }}
                     >
                       {children}
@@ -305,6 +280,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
 
                 <label htmlFor={`instrument${i}`}>instrument</label>
                 <Select
+                  className={css.instrumentSelect}
                   variant="light"
                   value={{
                     value: instrumentTypes[i],

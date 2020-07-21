@@ -19,12 +19,12 @@
 
 .songControls {
   position: sticky;
-  top: 0;
+  top: calc(var(--spacing-xxs) * -1);
   z-index: 20;
   display: flex;
   align-items: center;
   width: 100%;
-  padding: var(--spacing-md) 0 var(--spacing-xxxs);
+  padding: var(--spacing-md) 0 var(--spacing-xs);
   background-color: var(--colour-white);
   border-bottom: 1px solid var(--colour-black);
 }
