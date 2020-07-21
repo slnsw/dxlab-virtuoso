@@ -299,7 +299,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
         setInstrumentVolumes={setInstrumentVolumes}
         wasStoppedByVisibilityChange={wasStoppedByVisibilityChange}
         setWasStoppedByVisibilityChange={setWasStoppedByVisibilityChange}
-        currentBeatRef={currentBeatRef}
+        currentBeat={currentBeatRef.current}
         totalBeatsInSong={totalBeatsInSong}
         setSongPercentage={setSongPercentage}
         onPlayClick={(state) => {

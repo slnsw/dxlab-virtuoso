@@ -27,7 +27,7 @@ type Props = {
   setInstrumentVolumes: Function;
   wasStoppedByVisibilityChange: boolean;
   setWasStoppedByVisibilityChange: Function;
-  currentBeatRef: any;
+  currentBeat: number;
   // isAutoScrollRef: any;
   totalBeatsInSong: number;
   setSongPercentage: Function;
@@ -52,7 +52,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   setInstrumentVolumes,
   wasStoppedByVisibilityChange,
   setWasStoppedByVisibilityChange,
-  currentBeatRef,
+  currentBeat,
   // isAutoScrollRef,
   totalBeatsInSong,
   setSongPercentage,
@@ -145,7 +145,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       // We are starting again after going out of focus,
       // make sure song position is correct
       const percentage =
-        Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
+        Math.round((currentBeat / totalBeatsInSong) * 10000) / 100;
       console.log(percentage);
       setSongPercentage(percentage);
     }
