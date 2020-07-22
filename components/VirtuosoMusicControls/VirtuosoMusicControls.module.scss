@@ -25,7 +25,7 @@
 .tempoControls {
   @extend .font-uppercase;
 
-  display: flex;
+  display: none;
   align-items: center;
   margin-left: auto;
 
@@ -41,10 +41,9 @@
     border: none;
   }
 
-  // @include media-lg {
-  //   display: flex;
-  //   align-items: baseline;
-  // }
+  @include media-sm {
+    display: flex;
+  }
 
   /* Hide Arrow from type=number Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
