@@ -52,7 +52,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onInstrumentTypeChange,
 }) => {
   // const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
-  const [showMoreControls, setShowMoreControls] = React.useState(true);
+  const [showMoreControls, setShowMoreControls] = React.useState(false);
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 200 ? tempo + 1 : tempo;
