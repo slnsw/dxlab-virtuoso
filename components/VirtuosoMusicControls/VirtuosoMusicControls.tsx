@@ -263,7 +263,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       </CTAButton>
 
       {/* {showMoreControls && ( */}
-      <div className={css.instrumentControlsContainer}>
+      <div
+        className={[css.instrumentControlsContainer].join(' ')}
+        // style={{
+        //   overflow: showMoreControls ? 'visible' : 'hidden',
+        // }}
+      >
         <div
           className={[
             css.instrumentControls,

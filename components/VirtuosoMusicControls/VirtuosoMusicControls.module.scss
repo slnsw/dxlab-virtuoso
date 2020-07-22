@@ -27,9 +27,10 @@
 
 .tempoInput {
   width: 5em;
-  height: 2.78em; // 3em * 0.77;
+  height: 2.3em;
   margin-right: var(--spacing-sm);
   color: var(--colour-black);
+  font-size: var(--font-size-md);
   text-align: center;
   vertical-align: middle;
   background-color: transparent;
@@ -80,19 +81,21 @@
 
 .instrumentControlsContainer {
   position: absolute;
-  top: 4rem;
+  top: calc(4rem - var(--spacing-xxxs));
   right: 0;
   z-index: 10;
   display: block;
-  width: var(--container-width-xs);
+  width: 100%;
+  max-width: var(--container-width-sm);
   overflow: hidden;
 
   @include media-sm {
-    width: 100%;
+    top: 4em;
   }
 }
 
 .instrumentControls {
+  width: 100%;
   margin-top: -1px;
   padding: var(--spacing-lg);
   background-color: var(--colour-white);
