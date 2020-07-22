@@ -66,15 +66,15 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   };
 
   const handleTempoChange = (e) => {
-    let newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
+    const newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
 
-    if (newTempo > 200) {
-      newTempo = 200;
-    }
+    // if (newTempo > 200) {
+    //   newTempo = 200;
+    // }
 
-    if (newTempo < 10) {
-      newTempo = 10;
-    }
+    // if (newTempo < 10) {
+    //   newTempo = 10;
+    // }
 
     onTempoChange(newTempo);
     // setTempoFieldValue(e.target.value);
