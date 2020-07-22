@@ -235,6 +235,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             max={200}
             onChange={handleTempoChange}
             onBlur={handleTempoExit}
+            disabled={isPlaying}
           />
         </form>
         <CTAButton

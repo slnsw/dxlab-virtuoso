@@ -27,6 +27,7 @@ const VirtuosoContent = ({ song: currentSong }) => {
     stop: Function;
     updateIncrement: Function;
     destroy: Function;
+    status: Function;
   }>();
 
   // Experimenting... KH
@@ -152,7 +153,9 @@ const VirtuosoContent = ({ song: currentSong }) => {
       setAllNotes(allEventNotes);
 
       // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
-      if (isAutoScrollRef.current) {
+      // if (isAutoScrollRef.current) {
+      if (scroller.current.status()) {
+        // console.log(scroller.current.status());
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
