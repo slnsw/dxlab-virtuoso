@@ -96,10 +96,13 @@
 
 .content {
   display: block;
-  // flex: 3;
-  // height: 100%;
-  // overflow: auto;
-  // background-color: var(--colour-white);
+  margin-right: calc(var(--spacing-lg) * -1);
+  margin-left: calc(var(--spacing-lg) * -1);
+
+  @include media-sm {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 // .sidebar {
