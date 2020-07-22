@@ -19,14 +19,10 @@ const DesignSystemPage = () => {
       <Head>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </Head>
-
       <h1>Design System</h1>
-
       <h2>Components</h2>
-
       <h3>Search Text Input</h3>
       <SearchTextInput />
-
       <h3>Select</h3>
       <Select
         options={[
@@ -44,7 +40,6 @@ const DesignSystemPage = () => {
           },
         ]}
       />
-
       <h3>CTALink</h3>
       <p>
         <CTALink href="/">Home Page</CTALink>
@@ -53,7 +48,6 @@ const DesignSystemPage = () => {
       <p>
         <CTALink href="/">Home Page</CTALink>
       </p>
-
       <p>
         <CTALink href="/" size="sm">
           Small CTALink
@@ -63,33 +57,59 @@ const DesignSystemPage = () => {
           Secondary Small CTALink
         </CTALink>
       </p>
-
       <p>
         <CTALink href="/" variant="secondary">
           Secondary CTALink
         </CTALink>
       </p>
-
       <h3>CTAButton</h3>
-      <CTAButton>Example Button</CTAButton>
-
+      <p>
+        <CTAButton>Primary</CTAButton>{' '}
+        <CTAButton variant="secondary">Secondary</CTAButton>
+      </p>
+      <p>
+        <CTAButton size="sm">Small</CTAButton>{' '}
+        <CTAButton size="sm" variant="secondary">
+          Small
+        </CTAButton>
+      </p>
+      <div
+        style={{
+          width: 'fit-content',
+          // display: 'inline-block',
+          marginTop: 'var(--spacing-md)',
+          padding: 'var(--spacing-md)',
+          backgroundColor: 'var(--colour-white)',
+        }}
+      >
+        <p>
+          <CTAButton theme="light">Light primary</CTAButton>{' '}
+          <CTAButton theme="light" variant="secondary">
+            Light secondary
+          </CTAButton>
+        </p>
+        <p>
+          <CTAButton size="sm" theme="light">
+            Light primary
+          </CTAButton>{' '}
+          <CTAButton size="sm" theme="light" variant="secondary">
+            Light secondary
+          </CTAButton>
+        </p>
+      </div>
       <h3>Modal</h3>
       <CTAButton onClick={() => setIsModalActive(true)}>Show modal</CTAButton>
-
       <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
         Modal Content
       </Modal>
-
       <h3>Overlay</h3>
       <CTAButton onClick={() => setIsOverlayActive(true)}>
         Show overlay
       </CTAButton>
-
       <Overlay
         isActive={isOverlayActive}
         onClick={() => setIsOverlayActive(false)}
       />
-
       <h2>Icons</h2>
       <p>
         Not using <a href="https://ionicons.com/">Ionicons</a> any more. But

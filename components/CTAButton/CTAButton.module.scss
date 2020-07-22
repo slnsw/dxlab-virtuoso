@@ -40,6 +40,22 @@
   }
 }
 
+.sm {
+  height: 2em;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.4em;
+}
+
+.secondary {
+  background-color: var(--colour-grey-darkest);
+  border: 1px solid var(--colour-grey-darkest);
+}
+
 .light {
   --colour-white: var(--colour-black);
+}
+
+.light.secondary {
+  background-color: var(--colour-grey-lightest);
+  border: 1px solid var(--colour-grey-lightest);
 }

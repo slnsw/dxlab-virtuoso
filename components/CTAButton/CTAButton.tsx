@@ -1,12 +1,13 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import Button from '../Button';
 
 import css from './CTAButton.module.scss';
 
 type Props = {
-  theme?: string;
+  size?: 'sm' | 'md';
+  theme?: 'dark' | 'light';
+  variant?: 'primary' | 'secondary';
   disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -14,7 +15,9 @@ type Props = {
 };
 
 const CTAButton: React.FC<Props> = ({
-  theme,
+  size = 'md',
+  theme = 'dark',
+  variant = 'primary',
   disabled,
   className,
   children,
@@ -24,7 +27,9 @@ const CTAButton: React.FC<Props> = ({
     <Button
       className={[
         css.ctaButton,
+        size === 'sm' ? css.sm : '',
         theme === 'light' ? css.light : '',
+        variant === 'secondary' ? css.secondary : '',
         className || '',
       ].join(' ')}
       disabled={disabled}
