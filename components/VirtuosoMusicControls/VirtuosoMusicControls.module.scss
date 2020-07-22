@@ -97,14 +97,25 @@
 .instrumentControls {
   width: 100%;
   margin-top: -1px;
-  padding: var(--spacing-lg);
+  margin-bottom: 10rem; // Hack to prevent Select box from cropping
+  padding: var(--spacing-md);
   background-color: var(--colour-white);
   border: 1px solid var(--colour-black);
   transform: translateY(-100%);
   transition: 0.3s $ease-in-out-quint;
 
+  @include media-sm {
+    padding: var(--spacing-lg);
+  }
+
   span {
     text-transform: lowercase;
+  }
+
+  label {
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    font-size: var(--font-size-xs);
   }
 }
 
@@ -113,13 +124,13 @@
 }
 
 .instrumentControlGroup {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxs);
   padding-bottom: var(--spacing-md);
   border-bottom: 1px solid var(--colour-black);
 
   @include media-sm {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     margin-bottom: var(--spacing-md);
   }
 }
@@ -130,12 +141,37 @@
   border-bottom: none;
 }
 
-.instrumentName {
-  margin-bottom: var(--spacing-xs);
-  font-weight: 700;
+.instrumentNameGroup {
+  display: flex;
 
   @include media-sm {
     flex: 1;
+    flex-direction: column;
+  }
+
+  label {
+    display: none;
+
+    @include media-sm {
+      display: block;
+    }
+  }
+}
+
+.instrumentName {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+
+  @include media-sm {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+    margin-left: var(--spacing-xxxs);
+    font-weight: 700;
   }
 }
 
@@ -145,7 +181,9 @@
 
   @include media-sm {
     flex: 1;
-    margin-right: var(--spacing-md);
+    // margin-top: 20px;
+    margin-right: var(--spacing-lg);
+    margin-bottom: 0;
   }
 }
 

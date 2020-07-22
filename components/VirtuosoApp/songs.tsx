@@ -15,16 +15,19 @@ const songs = [
         name: 'Voice',
         volume: 0,
         type: 'clarinet',
+        clef: 'treble',
       },
       {
         name: 'Piano treble clef',
         volume: -6,
         type: 'piano',
+        clef: 'treble',
       },
       {
         name: 'Piano bass clef',
         volume: -6,
         type: 'piano',
+        clef: 'bass',
       },
     ],
     lines: [
@@ -99,11 +102,13 @@ const songs = [
         name: 'Treble clef',
         volume: 0,
         type: 'piano',
+        clef: 'treble',
       },
       {
         name: 'Bass clef',
         volume: 0,
         type: 'piano',
+        clef: 'bass',
       },
     ],
     lines: [
@@ -163,11 +168,13 @@ const songs = [
         name: 'Piano',
         volume: 0,
         type: 'piano',
+        clef: 'treble',
       },
       {
         name: 'Piano bass clef',
         volume: -5,
         type: 'piano',
+        clef: 'bass',
       },
     ],
     lines: [
@@ -228,11 +235,13 @@ const songs = [
         name: 'Piano',
         volume: 0,
         type: 'piano',
+        clef: 'treble',
       },
       {
         name: 'Piano bass clef',
         volume: -5,
         type: 'piano',
+        clef: 'bass',
       },
     ],
     lines: [
@@ -327,16 +336,19 @@ const songs = [
         name: 'Voice',
         volume: 0,
         type: 'clarinet',
+        clef: 'treble',
       },
       {
         name: 'Piano treble clef',
         volume: -6,
         type: 'piano',
+        clef: 'treble',
       },
       {
         name: 'Piano bass clef',
         volume: -6,
         type: 'piano',
+        clef: 'bass',
       },
     ],
     lines: [

@@ -8,13 +8,12 @@ const Select = ({
   options,
   defaultValue,
   value,
-  // isSearchable = false,
   menuIsOpen,
   variant = 'dark',
   className,
   onChange,
   isDisabled,
-  isSearchable,
+  isSearchable = false,
 }) => {
   const variantColour =
     variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
@@ -81,7 +80,7 @@ const Select = ({
           return {
             ...provided,
             padding: 0,
-            fontFamily: 'var(--font-)',
+            fontFamily: 'var(--font-primary)',
           };
         },
         // Value in 'control'
@@ -90,7 +89,7 @@ const Select = ({
             ...provided,
             color: variantColour,
             top: '48%',
-            // fontFamily: 'var(--font-primary)',
+            fontFamily: 'var(--font-primary)',
           };
         },
         dropdownIndicator: (provided) => {
