@@ -219,7 +219,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       <div className={css.tempoControls}>
         <label>Tempo:</label>
         <CTAButton
-          className={css['button--tempo']}
+          className={[css.button, css.tempoButton].join(' ')}
           theme="light"
           disabled={isPlaying}
           onClick={handleTempoChangeDown}
@@ -239,7 +239,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         </form>
         <CTAButton
           theme="light"
-          className={css['button--tempo']}
+          className={[css.button, css.tempoButton].join(' ')}
           onClick={handleTempoChangeUp}
           disabled={isPlaying}
         >
@@ -253,16 +253,23 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         className={[css.button, css.moreControlsButton].join(' ')}
       >
         {showMoreControls ? 'Settings' : 'Settings'}
+
         <Icon
-          name="options"
+          name={showMoreControls ? 'close' : 'options'}
           style={{
             marginLeft: 'var(--spacing-sm)',
           }}
         />
       </CTAButton>
 
-      {showMoreControls && (
-        <div className={css.instrumentControls}>
+      {/* {showMoreControls && ( */}
+      <div className={css.instrumentControlsContainer}>
+        <div
+          className={[
+            css.instrumentControls,
+            showMoreControls ? css.instrumentControlsVisible : '',
+          ].join(' ')}
+        >
           {instruments.map((instrument, i) => {
             const sampleOptions = Object.entries(samples).map(([key]) => {
               return {
@@ -344,7 +351,8 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             );
           })}
         </div>
-      )}
+      </div>
+      {/* )} */}
       {/* </div> */}
     </div>
   );

@@ -14,31 +14,40 @@
 
   @include media-sm {
     display: flex;
+    margin-left: var(--spacing-xxs);
+    padding-left: var(--spacing-md);
+    line-height: 1;
+    border-left: 1px solid var(--colour-black);
   }
 
+  label {
+    margin-right: var(--spacing-sm);
+  }
+}
+
+.tempoInput {
+  width: 5em;
+  height: 2.78em; // 3em * 0.77;
+  margin-right: var(--spacing-sm);
+  color: var(--colour-black);
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  // background-color: var(--colour-grey-lightest);
+  border: 1px solid var(--colour-black);
+  // border: none;
+
   /* Hide Arrow from type=number Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
     margin: 0;
     -webkit-appearance: none;
   }
 
   /* Hide Arrow from type=number Firefox */
-  input[type='number'] {
+  &[type='number'] {
     -moz-appearance: textfield;
   }
-}
-
-.tempoInput {
-  width: 50px;
-  height: 2.78em; // 3em * 0.77;
-  color: var(--colour-black);
-  text-align: center;
-  vertical-align: middle;
-  // background-color: transparent;
-  background-color: var(--colour-grey-lightest);
-  // border: 1px solid var(--colour-black);
-  border: none;
 }
 
 .button {
@@ -53,13 +62,13 @@
   }
 }
 
-.button--tempo {
+.buttonTempo {
   margin-right: var(--spacing-xxs);
   margin-left: var(--spacing-xxs);
 }
 
-.button--tempo:disabled,
-.button--tempo[disabled] {
+.buttonTempo:disabled,
+.buttonTempo[disabled] {
   color: #999;
   border-color: #999;
 }
@@ -69,25 +78,35 @@
   margin-left: auto;
 }
 
-.instrumentControls {
+.instrumentControlsContainer {
   position: absolute;
   top: 4rem;
   right: 0;
   z-index: 10;
   display: block;
   width: var(--container-width-xs);
-  margin-top: -1px;
-  padding: var(--spacing-lg);
-  background-color: var(--colour-white);
-  border: 1px solid var(--colour-black);
+  overflow: hidden;
 
   @include media-sm {
     width: 100%;
   }
+}
+
+.instrumentControls {
+  margin-top: -1px;
+  padding: var(--spacing-lg);
+  background-color: var(--colour-white);
+  border: 1px solid var(--colour-black);
+  transform: translateY(-100%);
+  transition: 0.3s $ease-in-out-quint;
 
   span {
     text-transform: lowercase;
   }
+}
+
+.instrumentControlsVisible {
+  transform: translateY(0);
 }
 
 .instrumentControlGroup {
