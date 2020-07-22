@@ -317,7 +317,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                           width: '100%',
                           backgroundColor: 'var(--colour-grey-lighter)',
                           marginTop: '1.5rem',
-                          marginBottom: '1.5rem',
+                          marginBottom: '1.2rem',
                         }}
                       >
                         {children}

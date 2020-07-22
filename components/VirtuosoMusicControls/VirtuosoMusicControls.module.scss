@@ -124,12 +124,13 @@
 }
 
 .instrumentControlGroup {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: var(--spacing-xxs);
   padding-bottom: var(--spacing-md);
   border-bottom: 1px solid var(--colour-black);
 
   @include media-sm {
-    display: flex;
     align-items: stretch;
     margin-bottom: var(--spacing-md);
   }
@@ -143,6 +144,7 @@
 
 .instrumentNameGroup {
   display: flex;
+  flex: 1 0 100%;
 
   @include media-sm {
     flex: 1;
@@ -176,19 +178,14 @@
 }
 
 .volumeGroup {
-  margin-bottom: var(--spacing-xs);
-  // padding-top: var(--spacing-xlg);
+  flex: 1;
+  margin-right: var(--spacing-md);
 
   @include media-sm {
-    flex: 1;
-    // margin-top: 20px;
     margin-right: var(--spacing-lg);
-    margin-bottom: 0;
   }
 }
 
 .instrumentSelectGroup {
-  @include media-sm {
-    flex: 1;
-  }
+  flex: 1;
 }

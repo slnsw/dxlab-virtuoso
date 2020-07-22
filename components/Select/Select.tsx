@@ -81,6 +81,7 @@ const Select = ({
             ...provided,
             padding: 0,
             fontFamily: 'var(--font-primary)',
+            textTransform: 'capitalize',
           };
         },
         // Value in 'control'
@@ -90,6 +91,7 @@ const Select = ({
             color: variantColour,
             top: '48%',
             fontFamily: 'var(--font-primary)',
+            textTransform: 'capitalize',
           };
         },
         dropdownIndicator: (provided) => {
