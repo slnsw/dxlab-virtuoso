@@ -167,16 +167,18 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   return (
     <div className={[css.virtuosoMusicControls, className || ''].join(' ')}>
       <CTAButton
-        className={css.button}
         theme="light"
+        variant="secondary"
         disabled={!isSamplesLoaded || isAtStart}
+        className={css.button}
         onClick={handleSkipBackClick}
       >
         <Icon name="play-skip-back" />
       </CTAButton>
       <CTAButton
-        className={css.button}
         theme="light"
+        variant="secondary"
+        className={css.button}
         disabled={!isSamplesLoaded}
         onClick={handlePlayClickCallback}
       >
@@ -199,8 +201,9 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         )}
       </CTAButton>
       <CTAButton
-        className={css.button}
         theme="light"
+        variant="secondary"
+        className={css.button}
         onClick={handleAutoScrollClick}
         // disabled={isPlaying}
       >
@@ -209,9 +212,10 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       <div className={css.tempoControls}>
         <label>Tempo:</label>
         <CTAButton
-          className={[css.button, css.tempoButton].join(' ')}
           theme="light"
+          variant="secondary"
           disabled={isPlaying}
+          className={[css.button, css.tempoButton].join(' ')}
           onClick={handleTempoChangeDown}
         >
           <Icon name="remove" />
@@ -230,18 +234,20 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         </form>
         <CTAButton
           theme="light"
+          variant="secondary"
+          disabled={isPlaying}
           className={[css.button, css.tempoButton].join(' ')}
           onClick={handleTempoChangeUp}
-          disabled={isPlaying}
         >
           <Icon name="add" />
         </CTAButton>
       </div>
 
       <CTAButton
-        onClick={handleShowMoreControlsClick}
         theme="light"
+        variant="secondary"
         className={[css.button, css.moreControlsButton].join(' ')}
+        onClick={handleShowMoreControlsClick}
       >
         {showMoreControls ? 'Settings' : 'Settings'}
 

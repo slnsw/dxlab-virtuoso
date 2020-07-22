@@ -55,21 +55,19 @@
   margin-right: var(--spacing-sm);
   font-weight: 600;
   font-size: var(--font-size-xs);
-  background-color: var(--colour-grey-lightest);
-  border: 1px solid var(--colour-grey-lightest);
 
   @include media-sm {
     font-size: var(--font-size-sm);
   }
 }
 
-.buttonTempo {
-  margin-right: var(--spacing-xxs);
-  margin-left: var(--spacing-xxs);
-}
+// .tempoButton {
+//   margin-right: var(--spacing-xxs);
+//   margin-left: var(--spacing-xxs);
+// }
 
-.buttonTempo:disabled,
-.buttonTempo[disabled] {
+.tempoButton:disabled,
+.tempoButton[disabled] {
   color: #999;
   border-color: #999;
 }
