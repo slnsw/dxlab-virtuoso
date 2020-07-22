@@ -5,6 +5,7 @@ export const createWindowScroller = ({
   increment: initialIncrement = 0.4,
   fps = 60,
 } = {}) => {
+  let isScrolling = false;
   let increment = initialIncrement;
   const fpsInterval = 1000 / fps;
   // Get complete height of window
@@ -48,6 +49,7 @@ export const createWindowScroller = ({
 
   function start() {
     if (!requestId) {
+      isScrolling = true;
       // Ensure page starts scrolling from current offset
       scrollCount = window.pageYOffset;
 
@@ -62,10 +64,15 @@ export const createWindowScroller = ({
   }
 
   function stop() {
+    isScrolling = false;
     window.cancelAnimationFrame(requestId);
     requestId = undefined;
 
     destroy();
+  }
+
+  function status() {
+    return isScrolling;
   }
 
   function updateIncrement(updatedIncrement) {
@@ -104,5 +111,6 @@ export const createWindowScroller = ({
     stop,
     updateIncrement,
     destroy,
+    status,
   };
 };
