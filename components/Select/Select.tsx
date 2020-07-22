@@ -1,10 +1,40 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 
 import css from './Select.module.scss';
 
-const Select = ({
+// Select.propTypes = {
+//   options: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       value: PropTypes.string,
+//       label: PropTypes.string,
+//     }),
+//   ),
+//   variant: PropTypes.oneOf(['dark', 'light']),
+//   menuIsOpen: PropTypes.bool,
+//   className: PropTypes.string,
+//   isDisabled: PropTypes.bool,
+// };
+
+type Props = {
+  options: Option[];
+  defaultValue?: Option;
+  value?: Option;
+  variant?: 'dark' | 'light';
+  menuIsOpen?: boolean;
+  isSearchable?: boolean;
+  isDisabled?: boolean;
+  className?: string;
+  onChange?: Function;
+};
+
+type Option = {
+  value: string;
+  label: string;
+};
+
+const Select: React.FC<Props> = ({
   options,
   defaultValue,
   value,
@@ -23,7 +53,6 @@ const Select = ({
       options={options}
       defaultValue={defaultValue}
       value={value}
-      // isSearchable={isSearchable}
       className={[css.select, className || ''].join(' ')}
       styles={{
         placeholder: (provider) => {
@@ -139,19 +168,6 @@ const Select = ({
       isSearchable={isSearchable}
     />
   );
-};
-
-Select.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-      label: PropTypes.string,
-    }),
-  ),
-  variant: PropTypes.oneOf(['dark', 'light']),
-  menuIsOpen: PropTypes.bool,
-  className: PropTypes.string,
-  isDisabled: PropTypes.bool,
 };
 
 export default Select;

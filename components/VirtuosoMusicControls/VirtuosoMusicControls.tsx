@@ -128,17 +128,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     );
   };
 
-  // const handleInstrumentLoad = (instrumentIndex) =>
-  //   setSamplesStatus((prevSamplesStatus) => {
-  //     return prevSamplesStatus.map((status, i) => {
-  //       if (i === instrumentIndex) {
-  //         return 'loaded';
-  //       }
-
-  //       return status;
-  //     });
-  //   });
-
   const handlePlayClick = () => {
     // Either way toggle play status
     onPlayClick(!isPlaying);

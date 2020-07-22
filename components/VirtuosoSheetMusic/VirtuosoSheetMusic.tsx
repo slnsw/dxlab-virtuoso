@@ -17,7 +17,7 @@ import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
 
-const VirtuosoContent = ({ song: currentSong }) => {
+const VirtuosoSheetMusic = ({ song: currentSong }) => {
   const notation = `${currentSong.header}K:${
     currentSong.key
   }\n${currentSong.lines.join('\n')}`;
@@ -318,4 +318,4 @@ const VirtuosoContent = ({ song: currentSong }) => {
   );
 };
 
-export default VirtuosoContent;
+export default VirtuosoSheetMusic;
