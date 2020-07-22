@@ -177,49 +177,52 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   return (
     <div className={[css.virtuosoMusicControls, className || ''].join(' ')}>
       <CTAButton
-        onClick={handleSkipBackClick}
+        className={css.button}
         theme="light"
         disabled={!isSamplesLoaded || isAtStart}
+        onClick={handleSkipBackClick}
       >
         <Icon name="play-skip-back" />
       </CTAButton>
-      &nbsp;
       <CTAButton
-        onClick={handlePlayClickCallback}
+        className={css.button}
         theme="light"
         disabled={!isSamplesLoaded}
+        onClick={handlePlayClickCallback}
       >
         {!isSamplesLoaded ? (
-          'Loading'
+          <>
+            <Icon name="reload" />
+          </>
         ) : (
           <>
             {isPlaying ? (
               <>
-                <Icon name="stop" /> Stop
+                <Icon name="stop" />
               </>
             ) : (
               <>
-                <Icon name="play" /> Play
+                <Icon name="play" />
               </>
             )}
           </>
         )}
       </CTAButton>
-      &nbsp;
       <CTAButton
+        className={css.button}
         theme="light"
         onClick={handleAutoScrollClick}
         // disabled={isPlaying}
       >
-        Auto scroll: {isAutoScroll ? 'on' : 'off'}
+        Autoscroll {isAutoScroll ? 'on' : 'off'}
       </CTAButton>
       <div className={css.tempoControls}>
         <label>Tempo:</label>
         <CTAButton
-          theme="light"
           className={css['button--tempo']}
-          onClick={handleTempoChangeDown}
+          theme="light"
           disabled={isPlaying}
+          onClick={handleTempoChangeDown}
         >
           <Icon name="remove" />
         </CTAButton>
@@ -243,13 +246,21 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           <Icon name="add" />
         </CTAButton>
       </div>
+
       <CTAButton
         onClick={handleShowMoreControlsClick}
         theme="light"
-        // className={css['button--light']}
+        className={[css.button, css.moreControlsButton].join(' ')}
       >
-        {showMoreControls ? 'Hide' : 'More'}
+        {showMoreControls ? 'Settings' : 'Settings'}
+        <Icon
+          name="options"
+          style={{
+            marginLeft: 'var(--spacing-sm)',
+          }}
+        />
       </CTAButton>
+
       {showMoreControls && (
         <div className={css.instrumentControls}>
           {instruments.map((instrument, i) => {
@@ -259,8 +270,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                 value: key,
               };
             });
-
-            // console.log(instrumentVolumes[i]);
 
             return (
               <div className={css.instrumentControlGroup} key={i}>

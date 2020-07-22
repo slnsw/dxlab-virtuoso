@@ -6,40 +6,11 @@
   }
 }
 
-// ----------------------------------------------------------------------------
-// SONG CONTROLS
-// ----------------------------------------------------------------------------
-
-// .songControls {
-//   position: sticky;
-//   top: 0;
-//   z-index: 20;
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   padding: var(--spacing-md) 0 var(--spacing-xxxs);
-//   background-color: var(--colour-white);
-//   border-bottom: 1px solid var(--colour-black);
-// }
-
 .tempoControls {
   @extend .font-uppercase;
 
   display: none;
   align-items: center;
-  margin-left: auto;
-
-  .tempoInput {
-    width: 50px;
-    height: 2.78em; // 3em * 0.77;
-    color: var(--colour-black);
-    text-align: center;
-    vertical-align: middle;
-    // background-color: transparent;
-    background-color: var(--colour-grey-lightest);
-    // border: 1px solid var(--colour-black);
-    border: none;
-  }
 
   @include media-sm {
     display: flex;
@@ -58,6 +29,30 @@
   }
 }
 
+.tempoInput {
+  width: 50px;
+  height: 2.78em; // 3em * 0.77;
+  color: var(--colour-black);
+  text-align: center;
+  vertical-align: middle;
+  // background-color: transparent;
+  background-color: var(--colour-grey-lightest);
+  // border: 1px solid var(--colour-black);
+  border: none;
+}
+
+.button {
+  margin-right: var(--spacing-sm);
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  background-color: var(--colour-grey-lightest);
+  border: 1px solid var(--colour-grey-lightest);
+
+  @include media-sm {
+    font-size: var(--font-size-sm);
+  }
+}
+
 .button--tempo {
   margin-right: var(--spacing-xxs);
   margin-left: var(--spacing-xxs);
@@ -67,6 +62,11 @@
 .button--tempo[disabled] {
   color: #999;
   border-color: #999;
+}
+
+.moreControlsButton {
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .instrumentControls {

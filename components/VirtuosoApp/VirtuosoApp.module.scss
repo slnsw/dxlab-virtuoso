@@ -98,8 +98,8 @@
 
 .content {
   display: block;
-  margin-right: calc(var(--spacing-lg) * -1);
-  margin-left: calc(var(--spacing-lg) * -1);
+  margin-right: calc(var(--spacing-md) * -1);
+  margin-left: calc(var(--spacing-md) * -1);
 
   @include media-sm {
     margin-right: 0;

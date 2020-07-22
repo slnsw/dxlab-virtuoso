@@ -33,7 +33,8 @@
   // TODO: Convert postcss colours to SASS or hardcode
 
   /* Greys */
-  --colour-grey-lightest: rgb(211, 211, 211);
+  // --colour-grey-lightest: rgb(211, 211, 211);
+  --colour-grey-lightest: rgb(235, 235, 235);
   --colour-grey-lighter: rgb(193, 193, 193);
   --colour-grey-light: color(var(--colour-white) shade(40%));
   --colour-grey: color(var(--colour-white) shade(50%));
