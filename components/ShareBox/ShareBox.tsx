@@ -1,80 +1,59 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
 import setupSocials from '../../lib/social';
 
-// import './ShareBox.css';
+import css from './ShareBox.module.scss';
 
 type Props = {
-  pathname: string;
   title: string;
   text: string;
+  pathname: string;
   imageUrl: string;
+  theme?: 'dark' | 'light';
 };
 
-class ShareBox extends Component<Props> {
-  static propTypes = {
-    pathname: PropTypes.string,
-    title: PropTypes.string,
-    text: PropTypes.string,
-    imageUrl: PropTypes.string,
-  };
+const ShareBox: React.FC<Props> = ({
+  title,
+  text,
+  pathname,
+  imageUrl,
+  theme = 'dark',
+}) => {
+  const { fbLink, twitterLink } = setupSocials(title, text, pathname, imageUrl);
 
-  render() {
-    const { title, text, pathname, imageUrl } = this.props;
+  return (
+    <div
+      className={[css.shareBox, theme === 'light' ? css.light : ''].join(' ')}
+    >
+      <div className={css.title}>Share</div>
 
-    const { fbLink, twitterLink } = setupSocials(
-      title,
-      text,
-      pathname,
-      imageUrl,
-    );
+      <div className={css.icons}>
+        <a
+          href={fbLink}
+          aria-label="Share this post on Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span
+            className={[css.icon, 'slnsw-icon-facebook'].join(' ')}
+            aria-hidden="true"
+          />
+        </a>
 
-    // const tweetText = encodeURIComponent(`${text} #dxlab @statelibrarynsw`);
-    // const fbAppId = process.env.DXLAB_WEBSITE_FB_APP_ID;
-
-    // // TODO: Use baseUrl variable
-    // const url = encodeURIComponent(`http://dxlab.sl.nsw.gov.au${pathname}`);
-    // const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
-    //   title,
-    // )}&description=${encodeURIComponent(text)}${
-    //   imageUrl ? `&picture=${imageUrl}` : ''
-    // }`;
-
-    // const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
-
-    return (
-      <div className="share-box">
-        <div className="share-box__title">Share</div>
-
-        <div className="share-box__icons">
-          <a
-            href={fbLink}
-            aria-label="Share this post on Facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span
-              className="share-box__icon slnsw-icon-facebook"
-              aria-hidden="true"
-            />
-          </a>
-
-          <a
-            href={twitterLink}
-            aria-label="Share this post on Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span
-              className="share-box__icon slnsw-icon-twitter"
-              aria-hidden="true"
-            />
-          </a>
-        </div>
+        <a
+          href={twitterLink}
+          aria-label="Share this post on Twitter"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span
+            className={[css.icon, 'slnsw-icon-twitter'].join(' ')}
+            aria-hidden="true"
+          />
+        </a>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default ShareBox;

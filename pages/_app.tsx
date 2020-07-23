@@ -41,7 +41,6 @@ import '../components/Popover/Popover.scss';
 import '../components/RelatedCollectionItems/RelatedCollectionItems.scss';
 import '../components/SearchModal/SearchModal.scss';
 import '../components/SectionTitle/SectionTitle.scss';
-import '../components/ShareBox/ShareBox.scss';
 import '../components/SimpleTile/SimpleTile.scss';
 import '../components/Table/Table.scss';
 import '../components/Tile/Tile.scss';

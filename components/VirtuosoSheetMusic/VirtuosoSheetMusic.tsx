@@ -1,14 +1,10 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 // import SheetMusic from '@slnsw/react-sheet-music';
-// import { Range } from 'react-range';
 
 import SheetMusic from '../SheetMusic';
 import VirtuosoMusicControls from '../VirtuosoMusicControls';
-// import Select from '../Select/Select';
-// import CTAButton from '../CTAButton';
-// import Icon from '../Icon/Icon';
-// import ShareBox from '../ShareBox';
+import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
@@ -286,7 +282,11 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
         songPercentage={songPercentage}
       />
 
-      {/* <ShareBox title="test" pathname="/virtuoso" /> */}
+      <ShareBox
+        title={currentSong.title}
+        pathname={`/virtuoso/song/${currentSong.slug}`}
+        theme="light"
+      />
 
       <Song bpm={tempo}>
         {currentSong.instruments.map((instrument, instrumentIndex) => {
