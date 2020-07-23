@@ -8,7 +8,7 @@ import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
-import { createWindowScrollTo } from '../../lib/window-scroll-to';
+import windowScrollTo from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
@@ -166,18 +166,28 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
             isScrollingRef.current = true;
             scroller.current.stop();
 
-            const scrollTo = createWindowScrollTo(() => {
-              setTimeout(() => {
-                isScrollingRef.current = false;
-                scroller.current.start();
-              }, 500);
-            });
-
             // NOTE: 200 is best guess for now
             if (y > window.innerHeight) {
-              scrollTo.start(window.pageYOffset + y - window.innerHeight + 200);
+              windowScrollTo.start(
+                window.pageYOffset + y - window.innerHeight + 200,
+                {
+                  callback: () => {
+                    setTimeout(() => {
+                      isScrollingRef.current = false;
+                      scroller.current.start();
+                    }, 500);
+                  },
+                },
+              );
             } else {
-              scrollTo.start(window.pageYOffset + y - 200);
+              windowScrollTo.start(window.pageYOffset + y - 200, {
+                callback: () => {
+                  setTimeout(() => {
+                    isScrollingRef.current = false;
+                    scroller.current.start();
+                  }, 500);
+                },
+              });
             }
           }
         }
@@ -185,7 +195,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     }
   };
 
-  const handleInstrumentLoad = (instrumentIndex) =>
+  const handleInstrumentLoad = (instrumentIndex) => {
     setSamplesStatus((prevSamplesStatus) => {
       return prevSamplesStatus.map((status, i) => {
         if (i === instrumentIndex) {
@@ -195,6 +205,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
         return status;
       });
     });
+  };
 
   const handlePlayClick = (newIsPlaying) => {
     if (newIsPlaying) {
@@ -302,12 +313,13 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
                 type="sampler"
                 // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
                 key={instrumentType}
-                notes={notes}
+                // NOTE: Fixes weird buffer bug when switching samples
+                // Consider making Reactronica more robust
+                notes={isPlaying ? notes : []}
                 samples={samples[instrumentType]}
                 options={{
                   release: 1,
                 }}
-                // onLoad={() => setIsVocalLoaded(true)}
                 onLoad={() => handleInstrumentLoad(instrumentIndex)}
               />
             </Track>
