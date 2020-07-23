@@ -13,6 +13,30 @@ export const pianoSamples = {
   A4: `${AUDIO_BASE_URL}/Keys/Upright+Piano/Player_dyn3_rr1_030.mp3`,
 };
 
+export const organSamples = {
+  C2: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_01.mp3`,
+  'D#2': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_04.mp3`,
+  'F#2': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_07.mp3`,
+  A2: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_10.mp3`,
+  C3: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_13.mp3`,
+  'D#3': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_16.mp3`,
+  'F#3': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_19.mp3`,
+  A3: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_22.mp3`,
+  C4: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_25.mp3`,
+  'D#4': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_28.mp3`,
+  'F#4': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_31.mp3`,
+  A4: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_34.mp3`,
+  C5: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_37.mp3`,
+  'D#5': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_40.mp3`,
+  'F#5': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_43.mp3`,
+  A5: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_46.mp3`,
+  C6: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_49.mp3`,
+  'D#6': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_52.mp3`,
+  'F#6': `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_55.mp3`,
+  A6: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_58.mp3`,
+  C7: `${AUDIO_BASE_URL}/Keys/Organ/Loud/Rode_Man3Open_61.mp3`,
+};
+
 export const fluteSamples = {
   A3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_A3_v1_1.mp3`,
   C3: `${AUDIO_BASE_URL}/Woodwinds/Flute/expvib/LDFlute_expvib_C3_v1_1.mp3`,
@@ -39,6 +63,7 @@ export const clariSamples = {
 
 const samples = {
   piano: pianoSamples,
+  organ: organSamples,
   flute: fluteSamples,
   clarinet: clariSamples,
 };
