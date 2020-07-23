@@ -2,6 +2,8 @@ import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 // import SheetMusic from '@slnsw/react-sheet-music';
 
+import Link from '../Link';
+import Icon from '../Icon';
 import SheetMusic from '../SheetMusic';
 import VirtuosoMusicControls from '../VirtuosoMusicControls';
 import ShareBox from '../ShareBox';
@@ -237,95 +239,103 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
   // };
 
   return (
-    <div className={css.sheetMusicContent}>
-      <VirtuosoMusicControls
-        className={css.songControls}
-        instruments={currentSong.instruments}
-        samples={samples}
-        instrumentTypes={instrumentTypes}
-        tempo={tempo}
-        instrumentVolumes={instrumentVolumes}
-        isPlaying={isPlaying}
-        isAtStart={isAtStart}
-        isSamplesLoaded={isSamplesLoaded}
-        isAutoScroll={isAutoScroll}
-        onPlayClick={handlePlayClick}
-        onTempoChange={setTempo}
-        onSkipBackClick={() => setIsAtStart(true)}
-        onAutoScrollClick={setIsAutoScroll}
-        onInstrumentVolumeChange={setInstrumentVolumes}
-        onInstrumentTypeChange={setInstrumentTypes}
-      />
-
-      <header className={css.header}>
-        <a href={currentSong.url}>
-          <img
-            className={css.thumbnail}
-            src={currentSong.imageUrl}
-            alt={currentSong.title}
-          />
+    <div className={css.virtuosoSheetMusic}>
+      <Link href="/virtuoso">
+        <a className={css.backLink}>
+          <Icon name="chevron-back" size="sm" />{' '}
+          <span className={css.backLinkText}>Back</span>
         </a>
+      </Link>
+      <div className={css.sheetMusicContent}>
+        <VirtuosoMusicControls
+          className={css.songControls}
+          instruments={currentSong.instruments}
+          samples={samples}
+          instrumentTypes={instrumentTypes}
+          tempo={tempo}
+          instrumentVolumes={instrumentVolumes}
+          isPlaying={isPlaying}
+          isAtStart={isAtStart}
+          isSamplesLoaded={isSamplesLoaded}
+          isAutoScroll={isAutoScroll}
+          onPlayClick={handlePlayClick}
+          onTempoChange={setTempo}
+          onSkipBackClick={() => setIsAtStart(true)}
+          onAutoScrollClick={setIsAutoScroll}
+          onInstrumentVolumeChange={setInstrumentVolumes}
+          onInstrumentTypeChange={setInstrumentTypes}
+        />
 
-        <h1 className={css.title}>{currentSong.title}</h1>
-        <p className={css.creator}>{currentSong.creator}</p>
-      </header>
+        <header className={css.header}>
+          <a href={currentSong.url}>
+            <img
+              className={css.thumbnail}
+              src={currentSong.imageUrl}
+              alt={currentSong.title}
+            />
+          </a>
 
-      <SheetMusic
-        isPlaying={isPlaying}
-        isAtStart={isAtStart}
-        bpm={tempo}
-        scale={1}
-        notation={notation}
-        // staffWidth={width}
-        oneSvgPerLine={true}
-        className={css.sheetMusic}
-        // onClick={(element) => {
-        // This is undocumented
-        // console.log(element.abselem);
-        // element.abselem.highlight('test', 'blue');
-        // }}
-        onBeat={handleBeat}
-        onEvent={handleEvent}
-        // onLineEnd={() => {
-        //   // setVocalNotes([]);
-        //   // setPianoNotes([]);
-        // }}
-        songPercentage={songPercentage}
-      />
+          <h1 className={css.title}>{currentSong.title}</h1>
+          <p className={css.creator}>{currentSong.creator}</p>
+        </header>
 
-      <ShareBox
-        title={currentSong.title}
-        pathname={`/virtuoso/song/${currentSong.slug}`}
-        theme="light"
-      />
+        <SheetMusic
+          isPlaying={isPlaying}
+          isAtStart={isAtStart}
+          bpm={tempo}
+          scale={1}
+          notation={notation}
+          // staffWidth={width}
+          oneSvgPerLine={true}
+          className={css.sheetMusic}
+          // onClick={(element) => {
+          // This is undocumented
+          // console.log(element.abselem);
+          // element.abselem.highlight('test', 'blue');
+          // }}
+          onBeat={handleBeat}
+          onEvent={handleEvent}
+          // onLineEnd={() => {
+          //   // setVocalNotes([]);
+          //   // setPianoNotes([]);
+          // }}
+          songPercentage={songPercentage}
+        />
 
-      <Song bpm={tempo}>
-        {currentSong.instruments.map((instrument, instrumentIndex) => {
-          const instrumentType = instrumentTypes[instrumentIndex];
-          const notes = allNotes[instrumentIndex] || [];
+        <ShareBox
+          title={currentSong.title}
+          pathname={`/virtuoso/song/${currentSong.slug}`}
+          theme="light"
+        />
 
-          return (
-            <Track
-              volume={instrumentVolumes[instrumentIndex]}
-              key={`${instrument.type}${instrumentIndex}`}
-            >
-              <Instrument
-                type="sampler"
-                // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
-                key={instrumentType}
-                // NOTE: Fixes weird buffer bug when switching samples
-                // Consider making Reactronica more robust
-                notes={isPlaying ? notes : []}
-                samples={samples[instrumentType]}
-                options={{
-                  release: 1,
-                }}
-                onLoad={() => handleInstrumentLoad(instrumentIndex)}
-              />
-            </Track>
-          );
-        })}
-      </Song>
+        <Song bpm={tempo}>
+          {currentSong.instruments.map((instrument, instrumentIndex) => {
+            const instrumentType = instrumentTypes[instrumentIndex];
+            const notes = allNotes[instrumentIndex] || [];
+
+            return (
+              <Track
+                volume={instrumentVolumes[instrumentIndex]}
+                key={`${instrument.type}${instrumentIndex}`}
+              >
+                <Instrument
+                  type="sampler"
+                  // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
+                  key={instrumentType}
+                  // NOTE: Fixes weird buffer bug when switching samples
+                  // Consider making Reactronica more robust
+                  notes={isPlaying ? notes : []}
+                  samples={samples[instrumentType]}
+                  options={{
+                    release: 1,
+                  }}
+                  onLoad={() => handleInstrumentLoad(instrumentIndex)}
+                />
+              </Track>
+            );
+          })}
+        </Song>
+      </div>
     </div>
   );
 };
