@@ -8,7 +8,7 @@ import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
-import { createWindowScrollTo } from '../../lib/window-scroll-to';
+import windowScrollTo from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
@@ -166,18 +166,28 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
             isScrollingRef.current = true;
             scroller.current.stop();
 
-            const scrollTo = createWindowScrollTo(() => {
-              setTimeout(() => {
-                isScrollingRef.current = false;
-                scroller.current.start();
-              }, 500);
-            });
-
             // NOTE: 200 is best guess for now
             if (y > window.innerHeight) {
-              scrollTo.start(window.pageYOffset + y - window.innerHeight + 200);
+              windowScrollTo.start(
+                window.pageYOffset + y - window.innerHeight + 200,
+                {
+                  callback: () => {
+                    setTimeout(() => {
+                      isScrollingRef.current = false;
+                      scroller.current.start();
+                    }, 500);
+                  },
+                },
+              );
             } else {
-              scrollTo.start(window.pageYOffset + y - 200);
+              windowScrollTo.start(window.pageYOffset + y - 200, {
+                callback: () => {
+                  setTimeout(() => {
+                    isScrollingRef.current = false;
+                    scroller.current.start();
+                  }, 500);
+                },
+              });
             }
           }
         }

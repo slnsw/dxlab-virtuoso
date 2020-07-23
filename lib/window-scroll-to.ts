@@ -2,12 +2,31 @@
  * Window scroll utility
  * TODO: Make cancelable + X axis
  */
-export function createWindowScrollTo(callback = null) {
-  let currentTime = 0;
+export function createWindowScrollTo() {
   let interval;
 
+  function handleUserScroll() {
+    removeListeners();
+    clearInterval(interval);
+  }
+
+  function addListeners() {
+    document.addEventListener('mousewheel', handleUserScroll);
+    document.addEventListener('touchmove', handleUserScroll);
+    document.addEventListener('touchend', handleUserScroll);
+  }
+
+  function removeListeners() {
+    document.removeEventListener('mousewheel', handleUserScroll);
+    document.removeEventListener('touchmove', handleUserScroll);
+    document.removeEventListener('touchend', handleUserScroll);
+  }
+
   return {
-    start: (to, { duration = 500, increment = 10 } = {}) => {
+    start: (to, { duration = 500, increment = 10, callback = null } = {}) => {
+      addListeners();
+
+      let currentTime = 0;
       const start = window.pageYOffset;
       const change = to - start;
 
@@ -30,11 +49,8 @@ export function createWindowScrollTo(callback = null) {
       }, duration);
     },
     stop: () => {
+      removeListeners();
       clearInterval(interval);
-
-      if (typeof callback === 'function') {
-        callback();
-      }
     },
     status: () => {
       return interval;
@@ -56,3 +72,5 @@ const easeInOutQuad = (t, b, c, d) => {
   tt -= 1;
   return (-c / 2) * (tt * (tt - 2) - 1) + b;
 };
+
+export default createWindowScrollTo();
