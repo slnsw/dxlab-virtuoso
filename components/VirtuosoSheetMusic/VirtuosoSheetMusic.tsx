@@ -195,7 +195,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     }
   };
 
-  const handleInstrumentLoad = (instrumentIndex) =>
+  const handleInstrumentLoad = (instrumentIndex) => {
     setSamplesStatus((prevSamplesStatus) => {
       return prevSamplesStatus.map((status, i) => {
         if (i === instrumentIndex) {
@@ -205,6 +205,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
         return status;
       });
     });
+  };
 
   const handlePlayClick = (newIsPlaying) => {
     if (newIsPlaying) {
@@ -312,12 +313,13 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
                 type="sampler"
                 // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
                 key={instrumentType}
-                notes={notes}
+                // NOTE: Fixes weird buffer bug when switching samples
+                // Consider making Reactronica more robust
+                notes={isPlaying ? notes : []}
                 samples={samples[instrumentType]}
                 options={{
                   release: 1,
                 }}
-                // onLoad={() => setIsVocalLoaded(true)}
                 onLoad={() => handleInstrumentLoad(instrumentIndex)}
               />
             </Track>
