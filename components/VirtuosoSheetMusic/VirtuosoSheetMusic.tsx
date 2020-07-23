@@ -32,7 +32,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
 
   // Experimenting... KH
   const isScrollingRef = React.useRef(false);
-  const isAutoScrollRef = React.useRef(true);
+  // const isAutoScrollRef = React.useRef(true);
   const currentBeatRef = React.useRef(0);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
