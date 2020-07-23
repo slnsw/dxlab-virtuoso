@@ -21,7 +21,7 @@ type Props = {
   options: Option[];
   defaultValue?: Option;
   value?: Option;
-  variant?: 'dark' | 'light';
+  theme?: 'dark' | 'light';
   menuIsOpen?: boolean;
   isSearchable?: boolean;
   isDisabled?: boolean;
@@ -39,14 +39,17 @@ const Select: React.FC<Props> = ({
   defaultValue,
   value,
   menuIsOpen,
-  variant = 'dark',
+  theme = 'dark',
   className,
   onChange,
   isDisabled,
   isSearchable = false,
 }) => {
-  const variantColour =
-    variant === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
+  const themeColour =
+    theme === 'light' ? 'var(--colour-black)' : 'var(--colour-white)';
+  const bgColour =
+    theme === 'light' ? 'var(--colour-white)' : 'var(--colour-black)';
+  const disabledOpacity = 0.4;
 
   return (
     <ReactSelect
@@ -55,13 +58,18 @@ const Select: React.FC<Props> = ({
       value={value}
       className={[css.select, className || ''].join(' ')}
       styles={{
-        placeholder: (provider) => {
+        placeholder: (provider, state) => {
           return {
             ...provider,
             // Adjustment due to Barlow font
             top: '48%',
-            color: variantColour,
+            color: themeColour,
             fontFamily: 'var(--font-primary)',
+            ...(state.isDisabled
+              ? {
+                  opacity: disabledOpacity,
+                }
+              : {}),
           };
         },
         control: (provided, state) => {
@@ -69,9 +77,9 @@ const Select: React.FC<Props> = ({
 
           return {
             ...provided,
-            borderColor: variantColour,
+            borderColor: themeColour,
             '&:hover': {
-              borderColor: variantColour,
+              borderColor: themeColour,
               // outlineWidth: '2px !important',
               // outlineStyle: 'solid !important',
               // outlineColor: 'red !important',
@@ -81,26 +89,24 @@ const Select: React.FC<Props> = ({
               : null,
             ...(state.isDisabled
               ? {
-                  backgroundColor: 'var(--colour-grey-darkest)',
+                  backgroundColor: bgColour,
                 }
               : {}),
           };
         },
         option: (provided) => {
-          // console.log(provided);
-
           return {
             ...provided,
             borderWidth: 1,
             borderStyle: 'solid',
-            borderColor: variantColour,
+            borderColor: themeColour,
             borderTop: 'none',
           };
         },
         menu: (provided) => {
           return {
             ...provided,
-            borderTop: `1px solid ${variantColour}`,
+            borderTop: `1px solid ${themeColour}`,
             boxShadow: 'none',
             // margin: 0,
           };
@@ -111,52 +117,61 @@ const Select: React.FC<Props> = ({
             padding: 0,
             fontFamily: 'var(--font-primary)',
             textTransform: 'capitalize',
+            color: themeColour,
           };
         },
         // Value in 'control'
         singleValue: (provided) => {
           return {
             ...provided,
-            color: variantColour,
+            color: themeColour,
             top: '48%',
             fontFamily: 'var(--font-primary)',
             textTransform: 'capitalize',
           };
         },
-        dropdownIndicator: (provided) => {
+        indicatorSeparator: (provided) => {
           return {
             ...provided,
-            color: variantColour,
+            backgroundColor: themeColour,
+          };
+        },
+        dropdownIndicator: (provided, state) => {
+          return {
+            ...provided,
+            color: themeColour,
             padding: '10px 10px 11px 10px',
-
             ':hover': 'var(--colour-primary)',
+            ...(state.isDisabled
+              ? {
+                  opacity: disabledOpacity,
+                }
+              : {}),
           };
         },
       }}
-      theme={(theme) => {
+      theme={(selectTheme) => {
         // console.log(theme);
 
         return {
-          ...theme,
+          ...selectTheme,
           borderRadius: 0,
           colors: {
-            ...theme.colors,
+            ...selectTheme.colors,
             primary: 'var(--colour-primary)',
             // Hover option background-color
             primary25:
-              variant === 'light'
+              theme === 'light'
                 ? 'var(--colour-grey-lightest)'
                 : 'var(--colour-grey-darkest)',
             primary50:
-              variant === 'light'
+              theme === 'light'
                 ? 'var(--colour-grey-lighter)'
                 : 'var(--colour-grey-darker)',
             // primary75: 'var(--colour-primary)',
             neutral0:
-              variant === 'light'
-                ? 'var(--colour-white)'
-                : 'var(--colour-black)',
-            neutral20: variantColour,
+              theme === 'light' ? 'var(--colour-white)' : 'var(--colour-black)',
+            neutral20: themeColour,
             // neutral80: 'var(--colour-white)',
             // neutral90: 'var(--colour-white)',
           },

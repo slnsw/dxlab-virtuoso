@@ -40,6 +40,69 @@ const DesignSystemPage = () => {
           },
         ]}
       />
+      Disabled:
+      <Select
+        isDisabled={true}
+        options={[
+          {
+            label: 'Roger Federer',
+            value: 'federer',
+          },
+          {
+            label: 'Raphael Nadal',
+            value: 'nadal',
+          },
+          {
+            label: 'Novak Djokovic',
+            value: 'djokovic',
+          },
+        ]}
+      />
+      <div
+        style={{
+          width: '20rem',
+          marginTop: 'var(--spacing-md)',
+          padding: 'var(--spacing-md)',
+          backgroundColor: 'var(--colour-white)',
+        }}
+      >
+        <Select
+          theme="light"
+          options={[
+            {
+              label: 'Roger Federer',
+              value: 'federer',
+            },
+            {
+              label: 'Raphael Nadal',
+              value: 'nadal',
+            },
+            {
+              label: 'Novak Djokovic',
+              value: 'djokovic',
+            },
+          ]}
+        />
+        <br />
+        <Select
+          theme="light"
+          isDisabled={true}
+          options={[
+            {
+              label: 'Roger Federer',
+              value: 'federer',
+            },
+            {
+              label: 'Raphael Nadal',
+              value: 'nadal',
+            },
+            {
+              label: 'Novak Djokovic',
+              value: 'djokovic',
+            },
+          ]}
+        />
+      </div>
       <h3>CTALink</h3>
       <p>
         <CTALink href="/">Home Page</CTALink>
