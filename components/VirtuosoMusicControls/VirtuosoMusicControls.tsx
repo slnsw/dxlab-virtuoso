@@ -122,7 +122,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   const handleInstrumentTypeChange = (option, i) => {
     onInstrumentTypeChange(
       instrumentTypes.map((type, instrumentIndex) => {
-        // console.log(samplesStatus);
         return instrumentIndex === i ? option.value : type;
       }),
     );
@@ -275,7 +274,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             });
 
             return (
-              <div className={css.instrumentControlGroup} key={i}>
+              <div className={css.instrumentControlGroup} key={instrument.name}>
                 <div className={css.instrumentNameGroup}>
                   <label>Name</label>
                   <div className={css.instrumentName}>
@@ -350,7 +349,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                     // menuIsOpen={true}
                     options={sampleOptions}
                     onChange={(option) => handleInstrumentTypeChange(option, i)}
-                    isDisabled={isPlaying} // why u no work?
+                    isDisabled={isPlaying} // why u no work? Works now - but they are all black
                   />
                 </div>
               </div>
