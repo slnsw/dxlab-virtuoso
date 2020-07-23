@@ -339,7 +339,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                   <label htmlFor={`instrument${i}`}>instrument</label>
                   <Select
                     // className={css.instrumentSelect}
-                    variant="light"
+                    theme="light"
                     value={{
                       value: instrumentTypes[i],
                       label: instrumentTypes[i],
