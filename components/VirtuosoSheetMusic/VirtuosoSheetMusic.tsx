@@ -28,9 +28,8 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     status: Function;
   }>();
 
-  // Experimenting... KH
-  const isScrollingRef = React.useRef(false);
-  // const isAutoScrollRef = React.useRef(true);
+  // Flag to prevent multiple scrollTo's
+  const isScrollingToRef = React.useRef(false);
   const currentBeatRef = React.useRef(0);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -42,6 +41,11 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
   const [songPercentage, setSongPercentage] = React.useState(0);
   const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
+
+  // isAutoScroll is stale in handleEvent and is difficult to rebind in ABC JS
+  // isAutoScrollRef is mutable so its value is fresh. Need to keep
+  // isAutoScrollRef and isAutoScroll in sync though
+  const isAutoScrollRef = React.useRef(true);
   const [isAutoScroll, setIsAutoScroll] = React.useState(true);
 
   // Set up an array of sample statuses
@@ -49,28 +53,27 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     currentSong.instruments.map(() => 'loading'),
   );
 
-  // const [showMoreControls, setShowMoreControls] = React.useState(false);
   // const [currentBeat, setCurrentBeat] = React.useState(0);
   const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
 
-  // Set up an array of instrument volumes
+  // Set up an array of instrument volumes and types
   const [instrumentVolumes, setInstrumentVolumes] = React.useState(
     currentSong.instruments.map((instrument) => instrument.volume),
   );
   const [instrumentTypes, setInstrumentTypes] = React.useState(
     currentSong.instruments.map((instrument) => instrument.type),
   );
+  const [allNotes, setAllNotes] = React.useState([]);
 
-  React.useEffect(() => {
-    setInstrumentTypes(
-      currentSong.instruments.map((instrument) => instrument.type),
-    );
-    setInstrumentVolumes(
-      currentSong.instruments.map((instrument) => instrument.volume),
-    );
-    setTempo(currentSong.bpm);
-    // setTempoFieldValue(currentSong.bpm);
-  }, [currentSong]);
+  // React.useEffect(() => {
+  //   setInstrumentTypes(
+  //     currentSong.instruments.map((instrument) => instrument.type),
+  //   );
+  //   setInstrumentVolumes(
+  //     currentSong.instruments.map((instrument) => instrument.volume),
+  //   );
+  //   setTempo(currentSong.bpm);
+  // }, [currentSong]);
 
   React.useEffect(() => {
     if (scroller) {
@@ -94,8 +97,6 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     }
   }, [isPlaying, isAutoScroll]);
 
-  const [allNotes, setAllNotes] = React.useState([]);
-
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
@@ -118,10 +119,12 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
       // setCurrentBeat(beatNumber);
       currentBeatRef.current = beatNumber;
     }
+
     if (totalBeats && totalBeats > 0) {
       setTotalBeatsInSong(totalBeats);
     }
-    // end of song reached
+
+    // End of song reached
     if (beatNumber === totalBeats) {
       setIsPlaying(false);
       setIsAtStart(true);
@@ -147,25 +150,25 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
         },
       );
 
-      // setNotes(event.notes);
+      // Triggers notes to be played
       setAllNotes(allEventNotes);
 
       // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
-      // if (isAutoScrollRef.current) {
-      if (scroller.current.status()) {
+      if (isAutoScrollRef.current) {
+        // if (scroller.current.status()) {
         // console.log(scroller.current.status());
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
         if (
           bottomNote &&
-          isScrollingRef.current === false &&
+          isScrollingToRef.current === false &&
           event.measureStart
         ) {
           const { y } = bottomNote.getBoundingClientRect();
 
           if (y < 0 || y > window.innerHeight) {
-            isScrollingRef.current = true;
+            isScrollingToRef.current = true;
             scroller.current.stop();
 
             // NOTE: 200 is best guess for now
@@ -175,8 +178,11 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
                 {
                   callback: () => {
                     setTimeout(() => {
-                      isScrollingRef.current = false;
-                      scroller.current.start();
+                      isScrollingToRef.current = false;
+
+                      if (isAutoScrollRef.current) {
+                        scroller.current.start();
+                      }
                     }, 500);
                   },
                 },
@@ -185,8 +191,11 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
               windowScrollTo.start(window.pageYOffset + y - 200, {
                 callback: () => {
                   setTimeout(() => {
-                    isScrollingRef.current = false;
-                    scroller.current.start();
+                    isScrollingToRef.current = false;
+
+                    if (isAutoScrollRef.current) {
+                      scroller.current.start();
+                    }
                   }, 500);
                 },
               });
@@ -233,10 +242,10 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     setIsPlaying(!isPlaying);
   };
 
-  // const handleAutoScrollClick = () => {
-  //   setIsAutoScroll(!isAutoScroll);
-  //   isAutoScrollRef.current = !isAutoScrollRef.current;
-  // };
+  const handleAutoScrollClick = () => {
+    setIsAutoScroll((isAuto) => !isAuto);
+    isAutoScrollRef.current = !isAutoScrollRef.current;
+  };
 
   return (
     <div className={css.virtuosoSheetMusic}>
@@ -246,6 +255,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
           <span className={css.backLinkText}>Back</span>
         </a>
       </Link>
+
       <div className={css.sheetMusicContent}>
         <VirtuosoMusicControls
           className={css.songControls}
@@ -261,7 +271,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
           onPlayClick={handlePlayClick}
           onTempoChange={setTempo}
           onSkipBackClick={() => setIsAtStart(true)}
-          onAutoScrollClick={setIsAutoScroll}
+          onAutoScrollClick={handleAutoScrollClick}
           onInstrumentVolumeChange={setInstrumentVolumes}
           onInstrumentTypeChange={setInstrumentTypes}
         />
@@ -295,10 +305,6 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
           // }}
           onBeat={handleBeat}
           onEvent={handleEvent}
-          // onLineEnd={() => {
-          //   // setVocalNotes([]);
-          //   // setPianoNotes([]);
-          // }}
           songPercentage={songPercentage}
         />
 
