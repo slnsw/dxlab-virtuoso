@@ -199,25 +199,28 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           </>
         )}
       </CTAButton>
+
       <CTAButton
         theme="light"
         variant="secondary"
-        className={css.button}
+        // size="sm"
+        className={[css.button, css.autoScrollButton].join(' ')}
         onClick={handleAutoScrollClick}
-        // disabled={isPlaying}
       >
-        Autoscroll {isAutoScroll ? 'on' : 'off'}
+        Autoscroll {isAutoScroll ? <>on&nbsp;</> : 'off'}
       </CTAButton>
+
       <div className={css.tempoControls}>
         <label>Tempo:</label>
         <CTAButton
           theme="light"
           variant="secondary"
           disabled={isPlaying}
-          className={[css.button, css.tempoButton].join(' ')}
-          onClick={handleTempoChangeDown}
+          size="sm"
+          className={[css.tempoButton, css.addTempoButton].join(' ')}
+          onClick={handleTempoChangeUp}
         >
-          <Icon name="remove" />
+          <Icon name="add" />
         </CTAButton>
         <form onSubmit={handleFormSubmit}>
           <input
@@ -231,14 +234,16 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             disabled={isPlaying}
           />
         </form>
+
         <CTAButton
           theme="light"
           variant="secondary"
+          size="sm"
           disabled={isPlaying}
-          className={[css.button, css.tempoButton].join(' ')}
-          onClick={handleTempoChangeUp}
+          className={[css.tempoButton].join(' ')}
+          onClick={handleTempoChangeDown}
         >
-          <Icon name="add" />
+          <Icon name="remove" />
         </CTAButton>
       </div>
 

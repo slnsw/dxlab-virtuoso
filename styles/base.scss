@@ -87,6 +87,10 @@ a:active {
   }
 }
 
+a:focus {
+  @extend .outline;
+}
+
 p {
   margin-top: 0;
   margin-bottom: var(--font-size-xlg);
@@ -180,6 +184,7 @@ button,
 textarea,
 input[type='text'],
 input[type='button'],
+input[type='number'],
 input[type='submit'] {
   border-radius: 0;
   -webkit-appearance: none;

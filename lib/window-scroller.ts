@@ -72,7 +72,7 @@ export const createWindowScroller = ({
   }
 
   function status() {
-    return isScrolling;
+    return isScrolling ? 'scrolling' : 'stopped';
   }
 
   function updateIncrement(updatedIncrement) {

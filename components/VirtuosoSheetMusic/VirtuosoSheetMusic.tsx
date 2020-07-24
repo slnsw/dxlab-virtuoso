@@ -97,6 +97,12 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     }
   }, [isPlaying, isAutoScroll]);
 
+  React.useEffect(() => {
+    if (isPlaying) {
+      setIsAtStart(false);
+    }
+  }, [isPlaying]);
+
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
@@ -224,9 +230,11 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
       // Make sure we know that we are not
       // stopping because of going out of focus:
       setWasStoppedByVisibilityChange(false);
-    } else {
-      // We have started. Make sure we note that.
-      setIsAtStart(false);
+
+      // Luke, I've commented this out, let me know if that is okay
+      // } else {
+      //   // We have started. Make sure we note that.
+      //   setIsAtStart(false);
     }
 
     if (wasStoppedByVisibilityChange && !isPlaying) {
@@ -299,9 +307,9 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
           oneSvgPerLine={true}
           className={css.sheetMusic}
           // onClick={(element) => {
-          // This is undocumented
-          // console.log(element.abselem);
-          // element.abselem.highlight('test', 'blue');
+          //   // This is undocumented
+          //   console.log(element);
+          //   // element.abselem.highlight('test', 'blue');
           // }}
           onBeat={handleBeat}
           onEvent={handleEvent}

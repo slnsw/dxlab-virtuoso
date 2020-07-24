@@ -6,6 +6,20 @@
   }
 }
 
+.button {
+  margin-right: var(--spacing-sm);
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+
+  @include media-sm {
+    font-size: var(--font-size-sm);
+  }
+}
+
+.autoScrollButton {
+  letter-spacing: 0.25em;
+}
+
 .tempoControls {
   @extend .font-uppercase;
 
@@ -28,7 +42,7 @@
 .tempoInput {
   width: 4em;
   height: 2.3em;
-  margin-right: var(--spacing-sm);
+  margin-right: var(--spacing-xxxs);
   color: var(--colour-black);
   font-size: var(--font-size-md);
   text-align: center;
@@ -51,25 +65,18 @@
   }
 }
 
-.button {
-  margin-right: var(--spacing-sm);
-  font-weight: 600;
+.tempoButton {
   font-size: var(--font-size-xs);
-
-  @include media-sm {
-    font-size: var(--font-size-sm);
-  }
 }
-
-// .tempoButton {
-//   margin-right: var(--spacing-xxs);
-//   margin-left: var(--spacing-xxs);
-// }
 
 .tempoButton:disabled,
 .tempoButton[disabled] {
   color: #999;
   border-color: #999;
+}
+
+.addTempoButton {
+  margin-right: var(--spacing-xs);
 }
 
 .moreControlsButton {
