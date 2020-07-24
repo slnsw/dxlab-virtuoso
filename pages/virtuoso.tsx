@@ -7,6 +7,7 @@ import VirtuosoAbout from '../components/VirtuosoAbout';
 
 import songs from '../components/VirtuosoApp/songs';
 import VirtuosoHomeMasthead from '../components/VirtuosoMasthead';
+import Four04 from './_error';
 
 const config = {
   '/virtuoso': {
@@ -24,12 +25,10 @@ const VirtuosoPage = ({ router }) => {
   const { pathname, query } = router;
   const slug = query.slug || 'national-song-our-sailor-prince';
 
-  // console.log('pathname', pathname);
+  const currentSong = songs.find((s) => s.slug === slug);
 
-  let currentSong = songs.find((s) => s.slug === slug);
-  // need to handle if slug doesn't exist - for now just go to first song
   if (!currentSong) {
-    [currentSong] = songs;
+    return <Four04 />;
   }
 
   const title =
