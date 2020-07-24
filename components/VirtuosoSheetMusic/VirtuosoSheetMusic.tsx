@@ -20,14 +20,15 @@ import css from './VirtuosoSheetMusic.module.scss';
 const VirtuosoSheetMusic = ({
   song: currentSong,
   tempo,
+  songKey,
   instrumentVolumes,
   instrumentTypes,
 }) => {
   const router = useRouter();
 
-  const notation = `${currentSong.header}K:${
-    currentSong.key
-  }\n${currentSong.lines.join('\n')}`;
+  const notation = `${currentSong.header}K:${songKey}\n${currentSong.lines.join(
+    '\n',
+  )}`;
 
   const scroller = React.useRef<{
     start: Function;
@@ -321,6 +322,26 @@ const VirtuosoSheetMusic = ({
     );
   };
 
+  const handleKeyClick = (key) => {
+    const query = {
+      tempo: router.query.tempo,
+      vol: router.query.vol,
+      type: router.query.type,
+      key: key.indexOf('m') > 0 ? key.replace('m', '') : `${key}m`,
+    };
+
+    router.replace(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      {
+        pathname: router.asPath.split('?')[0],
+        query,
+      },
+    );
+  };
+
   return (
     <div className={css.virtuosoSheetMusic}>
       <Link href="/virtuoso">
@@ -336,6 +357,7 @@ const VirtuosoSheetMusic = ({
           instruments={currentSong.instruments}
           samples={samples}
           tempo={tempo}
+          songKey={songKey}
           instrumentTypes={instrumentTypes}
           instrumentVolumes={instrumentVolumes}
           isPlaying={isPlaying}
@@ -350,6 +372,7 @@ const VirtuosoSheetMusic = ({
           onInstrumentVolumeChange={handleInstrumentVolumeChange}
           // onInstrumentTypeChange={setInstrumentTypes}
           onInstrumentTypeChange={handleInstrumentTypeChange}
+          onKeyClick={handleKeyClick}
         />
 
         <header className={css.header}>

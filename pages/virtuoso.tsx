@@ -39,6 +39,7 @@ const VirtuosoPage = ({ router }) => {
     query.vol || currentSong.instruments.map((instrument) => instrument.volume);
   const instrumentTypes =
     query.type || currentSong.instruments.map((instrument) => instrument.type);
+  const songKey = query.key || currentSong.key;
 
   return (
     <VirtuosoApp
@@ -60,6 +61,7 @@ const VirtuosoPage = ({ router }) => {
             parseInt(volume, 10),
           )}
           instrumentTypes={instrumentTypes}
+          songKey={songKey}
         />
       )}
     </VirtuosoApp>

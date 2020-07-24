@@ -30,7 +30,7 @@
   margin: 0 auto;
 
   @include media-md {
-    grid-gap: var(--spacing-xlg);
+    grid-gap: var(--spacing-xxlg);
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
   }
 }
@@ -55,7 +55,7 @@
 
 .songImageWrapper {
   @include media-sm {
-    padding: var(--spacing-xs) var(--spacing-xs) 0;
+    padding: var(--spacing-md) var(--spacing-md) 0;
   }
 
   img {

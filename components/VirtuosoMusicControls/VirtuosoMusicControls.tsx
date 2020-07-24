@@ -17,9 +17,10 @@ type Props = {
     clef: 'treble' | 'bass';
   }[];
   samples: any;
+  tempo: number;
+  songKey: string;
   instrumentTypes: string[];
   // setInstrumentTypes: Function;
-  tempo: number;
   instrumentVolumes: number[];
   isPlaying: boolean;
   isAtStart: boolean;
@@ -31,14 +32,16 @@ type Props = {
   onAutoScrollClick: Function;
   onInstrumentVolumeChange: Function;
   onInstrumentTypeChange: Function;
+  onKeyClick: Function;
 };
 
 const VirtuosoMusicControls: React.FC<Props> = ({
   className,
   instruments = [],
   samples,
-  instrumentTypes,
   tempo,
+  songKey,
+  instrumentTypes,
   instrumentVolumes,
   isPlaying,
   isAtStart,
@@ -50,6 +53,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onAutoScrollClick,
   onInstrumentVolumeChange,
   onInstrumentTypeChange,
+  onKeyClick,
 }) => {
   // const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
@@ -245,6 +249,18 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             <Icon name="remove" />
           </CTAButton>
         </form>
+      </div>
+
+      <div className={css.keyControls}>
+        <label>Key:</label>
+        <CTAButton
+          theme="light"
+          disabled={isPlaying}
+          className={css.keyButton}
+          onClick={() => onKeyClick(songKey)}
+        >
+          {songKey}
+        </CTAButton>
       </div>
 
       <CTAButton

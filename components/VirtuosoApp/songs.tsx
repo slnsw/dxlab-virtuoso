@@ -161,7 +161,8 @@ const songs = [
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357060.jpg',
     // imageUrl:
     //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
-    key: 'Gmaj',
+    // key: 'Gmaj',
+    key: 'G',
     header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
     instruments: [
       {
@@ -228,7 +229,8 @@ const songs = [
     url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
-    key: 'Ebmaj',
+    // key: 'Ebmaj',
+    key: 'Eb',
     header: 'X:1\nM:3/4\nL:1/4\n%%score { 1 | 2 }\n',
     instruments: [
       {

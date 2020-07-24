@@ -28,6 +28,7 @@
   @include media-md {
     display: flex;
     align-items: center;
+    margin-right: var(--spacing-md);
     margin-left: var(--spacing-xxs);
     padding-left: var(--spacing-md);
     line-height: 1;
@@ -83,6 +84,27 @@
 
 .addTempoButton {
   margin-right: var(--spacing-xs);
+}
+
+.keyControls {
+  display: none;
+
+  @include media-md {
+    display: flex;
+    align-items: center;
+    padding-left: var(--spacing-md);
+    border-left: 1px solid var(--colour-black);
+  }
+
+  label {
+    margin-right: var(--spacing-sm);
+    font-weight: 600;
+  }
+}
+
+.keyButton {
+  font-weight: 600;
+  text-transform: none;
 }
 
 .moreControlsButton {
