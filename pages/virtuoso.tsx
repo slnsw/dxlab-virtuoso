@@ -24,7 +24,6 @@ const config = {
 const VirtuosoPage = ({ router }) => {
   const { pathname, query } = router;
   const slug = query.slug || 'national-song-our-sailor-prince';
-
   const currentSong = songs.find((s) => s.slug === slug);
 
   if (!currentSong) {
@@ -35,6 +34,11 @@ const VirtuosoPage = ({ router }) => {
     pathname === '/virtuoso/song/[slug]'
       ? currentSong.title
       : config[pathname].title;
+  const tempo = query.tempo || currentSong.tempo;
+  const instrumentVolumes =
+    query.vol || currentSong.instruments.map((instrument) => instrument.volume);
+  const instrumentTypes =
+    query.type || currentSong.instruments.map((instrument) => instrument.type);
 
   return (
     <VirtuosoApp
@@ -48,8 +52,15 @@ const VirtuosoPage = ({ router }) => {
 
       {pathname === '/virtuoso' && <VirtuosoHome />}
       {pathname === '/virtuoso/about' && <VirtuosoAbout />}
-      {pathname === '/virtuoso/song/[slug]' && currentSong && (
-        <VirtuosoSheetMusic song={currentSong} />
+      {pathname === '/virtuoso/song/[slug]' && (
+        <VirtuosoSheetMusic
+          song={currentSong}
+          tempo={parseInt(tempo, 10)}
+          instrumentVolumes={instrumentVolumes.map((volume) =>
+            parseInt(volume, 10),
+          )}
+          instrumentTypes={instrumentTypes}
+        />
       )}
     </VirtuosoApp>
   );

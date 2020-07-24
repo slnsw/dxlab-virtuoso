@@ -85,7 +85,7 @@ const songs = [
       'W:But in our prayers we’ll link the names',
       'W:Of Alfred and our Queen.',
     ],
-    bpm: 80,
+    tempo: 80,
   },
   {
     title: 'The Glebe Rowing Club Polka',
@@ -150,7 +150,7 @@ const songs = [
       '[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|F,[B,DF] F,[B,DF]|F,[A,CF] F,[A,CF]|G,[B,CE] C,[B,CE]|F,[A,CF] C,[B,CE]|',
       '[FF,]C,A,,F,,|[F,,F,][F,,F,][F,,F,][F,,F,]|[F,,2F,2] [C,2C2]|"_tremolo"(!trem2![F,,4F,]|!fermata![F,,4F,4])]|',
     ],
-    bpm: 90,
+    tempo: 90,
   },
   {
     title: 'Overland mail galop',
@@ -219,7 +219,7 @@ const songs = [
       '!accent![A,,A,]>A,,|!accent!C, !accent!E,|!accent!A, !accent!E,|!accent!C, !accent!A,,|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|',
       'G,,/[F,/G,B,][F,/G,B,][F,/G,B,]|C,/[E,/G,C][E,/G,C][E,/G,C]|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,/[D/F] G,/[D/F]|[C/E] z/ [C/E] z/ !D.C.!||',
     ],
-    bpm: 130,
+    tempo: 130,
   },
   {
     title: 'The Sutherland Waltz',
@@ -320,7 +320,7 @@ const songs = [
       '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [F,=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, [G,B,E] [G,B,E] |',
       'D, [A,CF] [A,CF] | [D,,D,] [F,B,D] [F,B,D] |F,, [F,_A,D] [F,A,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [E,,E,] z z | [E,,,E,,] z z | [E,,E,] z z ||',
     ],
-    bpm: 160,
+    tempo: 160,
   },
   {
     title: 'Sunny New South Wales',
@@ -397,7 +397,7 @@ const songs = [
       '!f!z|B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | [E,,E,] z !fermata![C,,C,] z [F,,F,]2 !fermata![F,,F,]2 |',
       '[E,,E,] !fermata!z [F,,F,]2 [B,,,B,,]3 || !f!z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 |[F,,F,]2 [F,A,CE]2 [B,,B,]2 [B,,,B,,] ||',
     ],
-    bpm: 100,
+    tempo: 100,
   },
 ];
 

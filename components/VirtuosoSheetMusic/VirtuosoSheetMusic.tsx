@@ -1,5 +1,7 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
+import { useRouter } from 'next/router';
+// import queryString from 'query-string';
 // import SheetMusic from '@slnsw/react-sheet-music';
 
 import Link from '../Link';
@@ -15,7 +17,14 @@ import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 
 import css from './VirtuosoSheetMusic.module.scss';
 
-const VirtuosoSheetMusic = ({ song: currentSong }) => {
+const VirtuosoSheetMusic = ({
+  song: currentSong,
+  tempo,
+  instrumentVolumes,
+  instrumentTypes,
+}) => {
+  const router = useRouter();
+
   const notation = `${currentSong.header}K:${
     currentSong.key
   }\n${currentSong.lines.join('\n')}`;
@@ -39,7 +48,7 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     setWasStoppedByVisibilityChange,
   ] = React.useState(false);
   const [songPercentage, setSongPercentage] = React.useState(0);
-  const [tempo, setTempo] = React.useState(currentSong.bpm);
+  // const [tempo, setTempo] = React.useState(currentSong.bpm);
   const [increment] = React.useState(0.5);
 
   // isAutoScroll is stale in handleEvent and is difficult to rebind in ABC JS
@@ -57,12 +66,12 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
   const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
 
   // Set up an array of instrument volumes and types
-  const [instrumentVolumes, setInstrumentVolumes] = React.useState(
-    currentSong.instruments.map((instrument) => instrument.volume),
-  );
-  const [instrumentTypes, setInstrumentTypes] = React.useState(
-    currentSong.instruments.map((instrument) => instrument.type),
-  );
+  // const [instrumentVolumes, setInstrumentVolumes] = React.useState(
+  //   currentSong.instruments.map((instrument) => instrument.volume),
+  // );
+  // const [instrumentTypes, setInstrumentTypes] = React.useState(
+  //   currentSong.instruments.map((instrument) => instrument.type),
+  // );
   const [allNotes, setAllNotes] = React.useState([]);
 
   // React.useEffect(() => {
@@ -255,6 +264,63 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
     isAutoScrollRef.current = !isAutoScrollRef.current;
   };
 
+  const handleTempoChange = (newTempo) => {
+    const query = {
+      tempo: newTempo,
+      vol: router.query.vol,
+      type: router.query.type,
+    };
+
+    router.replace(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      {
+        pathname: router.asPath.split('?')[0],
+        query,
+      },
+    );
+  };
+
+  const handleInstrumentVolumeChange = (newVolumes) => {
+    const query = {
+      tempo: router.query.tempo,
+      vol: newVolumes,
+      type: router.query.type,
+    };
+
+    router.replace(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      {
+        pathname: router.asPath.split('?')[0],
+        query,
+      },
+    );
+  };
+
+  const handleInstrumentTypeChange = (newTypes) => {
+    const query = {
+      tempo: router.query.tempo,
+      vol: router.query.vol,
+      type: newTypes,
+    };
+
+    router.replace(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      {
+        pathname: router.asPath.split('?')[0],
+        query,
+      },
+    );
+  };
+
   return (
     <div className={css.virtuosoSheetMusic}>
       <Link href="/virtuoso">
@@ -269,19 +335,21 @@ const VirtuosoSheetMusic = ({ song: currentSong }) => {
           className={css.songControls}
           instruments={currentSong.instruments}
           samples={samples}
-          instrumentTypes={instrumentTypes}
           tempo={tempo}
+          instrumentTypes={instrumentTypes}
           instrumentVolumes={instrumentVolumes}
           isPlaying={isPlaying}
           isAtStart={isAtStart}
           isSamplesLoaded={isSamplesLoaded}
           isAutoScroll={isAutoScroll}
           onPlayClick={handlePlayClick}
-          onTempoChange={setTempo}
+          onTempoChange={handleTempoChange}
           onSkipBackClick={() => setIsAtStart(true)}
           onAutoScrollClick={handleAutoScrollClick}
-          onInstrumentVolumeChange={setInstrumentVolumes}
-          onInstrumentTypeChange={setInstrumentTypes}
+          // onInstrumentVolumeChange={setInstrumentVolumes}
+          onInstrumentVolumeChange={handleInstrumentVolumeChange}
+          // onInstrumentTypeChange={setInstrumentTypes}
+          onInstrumentTypeChange={handleInstrumentTypeChange}
         />
 
         <header className={css.header}>

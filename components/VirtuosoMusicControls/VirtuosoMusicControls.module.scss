@@ -24,14 +24,19 @@
   @extend .font-uppercase;
 
   display: none;
-  align-items: center;
 
   @include media-md {
     display: flex;
+    align-items: center;
     margin-left: var(--spacing-xxs);
     padding-left: var(--spacing-md);
     line-height: 1;
     border-left: 1px solid var(--colour-black);
+  }
+
+  form {
+    display: flex;
+    align-items: center;
   }
 
   label {

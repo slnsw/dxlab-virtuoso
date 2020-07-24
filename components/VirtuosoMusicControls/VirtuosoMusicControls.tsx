@@ -17,10 +17,10 @@ type Props = {
     clef: 'treble' | 'bass';
   }[];
   samples: any;
-  instrumentTypes: any;
+  instrumentTypes: string[];
   // setInstrumentTypes: Function;
   tempo: number;
-  instrumentVolumes: any;
+  instrumentVolumes: number[];
   isPlaying: boolean;
   isAtStart: boolean;
   isSamplesLoaded: boolean;
@@ -212,17 +212,17 @@ const VirtuosoMusicControls: React.FC<Props> = ({
 
       <div className={css.tempoControls}>
         <label>Tempo:</label>
-        <CTAButton
-          theme="light"
-          variant="secondary"
-          disabled={isPlaying}
-          size="sm"
-          className={[css.tempoButton, css.addTempoButton].join(' ')}
-          onClick={handleTempoChangeUp}
-        >
-          <Icon name="add" />
-        </CTAButton>
         <form onSubmit={handleFormSubmit}>
+          <CTAButton
+            theme="light"
+            variant="secondary"
+            disabled={isPlaying}
+            size="sm"
+            className={[css.tempoButton, css.addTempoButton].join(' ')}
+            onClick={handleTempoChangeUp}
+          >
+            <Icon name="add" />
+          </CTAButton>
           <input
             type="number"
             value={tempo}
@@ -233,18 +233,18 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             onBlur={handleTempoExit}
             disabled={isPlaying}
           />
-        </form>
 
-        <CTAButton
-          theme="light"
-          variant="secondary"
-          size="sm"
-          disabled={isPlaying}
-          className={[css.tempoButton].join(' ')}
-          onClick={handleTempoChangeDown}
-        >
-          <Icon name="remove" />
-        </CTAButton>
+          <CTAButton
+            theme="light"
+            variant="secondary"
+            size="sm"
+            disabled={isPlaying}
+            className={[css.tempoButton].join(' ')}
+            onClick={handleTempoChangeDown}
+          >
+            <Icon name="remove" />
+          </CTAButton>
+        </form>
       </div>
 
       <CTAButton
