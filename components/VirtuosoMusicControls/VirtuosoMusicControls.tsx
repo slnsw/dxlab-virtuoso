@@ -253,7 +253,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         className={[css.button, css.moreControlsButton].join(' ')}
         onClick={handleShowMoreControlsClick}
       >
-        {showMoreControls ? 'Settings' : 'Settings'}
+        <span>{showMoreControls ? 'Settings' : 'Settings'}</span>
 
         <Icon
           name={showMoreControls ? 'close' : 'options'}
