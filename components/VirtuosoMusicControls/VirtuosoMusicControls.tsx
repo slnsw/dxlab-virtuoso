@@ -245,6 +245,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         songKey={songKey}
         className={css.desktopKeyControls}
         onClick={onKeyClick}
+        isPlaying={isPlaying}
       />
 
       {/* <div className={css.keyControls}>
@@ -306,6 +307,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
               songKey={songKey}
               className={css.mobileKeyControls}
               onClick={onKeyClick}
+              isPlaying={isPlaying}
             />
           </div>
 

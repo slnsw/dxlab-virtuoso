@@ -92,6 +92,16 @@ const songs = [
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
       },
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3750/37501761.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3750/37501762.jpg',
+      },
     ],
   },
   {
@@ -158,6 +168,28 @@ const songs = [
       '[FF,]C,A,,F,,|[F,,F,][F,,F,][F,,F,][F,,F,]|[F,,2F,2] [C,2C2]|"_tremolo"(!trem2![F,,4F,]|!fermata![F,,4F,4])]|',
     ],
     tempo: 90,
+    files: [
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316361.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316362.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316363.jpg',
+      },
+    ],
   },
   {
     title: 'Overland mail galop',
@@ -228,6 +260,28 @@ const songs = [
       'G,,/[F,/G,B,][F,/G,B,][F,/G,B,]|C,/[E,/G,C][E,/G,C][E,/G,C]|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,/[D/F] G,/[D/F]|[C/E] z/ [C/E] z/ !D.C.!||',
     ],
     tempo: 130,
+    files: [
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357060.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357062.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357063.jpg',
+      },
+    ],
   },
   {
     title: 'The Sutherland Waltz',
@@ -330,6 +384,38 @@ const songs = [
       'D, [A,CF] [A,CF] | [D,,D,] [F,B,D] [F,B,D] |F,, [F,_A,D] [F,A,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [E,,E,] z z | [E,,,E,,] z z | [E,,E,] z z ||',
     ],
     tempo: 160,
+    files: [
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479311.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479312.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479313.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479314.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479315.jpg',
+      },
+    ],
   },
   // {
   //   title: 'Sunny New South Wales',
@@ -415,6 +501,7 @@ const songs = [
     url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
+
     key: 'Bb',
     header: 'X:1\nM:4/4\nL:1/8\n%%score 1 2 | 3\n',
     instruments: [
@@ -491,6 +578,28 @@ const songs = [
       ' !f!z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 |[F,,F,]2 [F,A,CE]2 [B,,B,]2 [B,,,B,,] ||',
     ],
     tempo: 100,
+    files: [
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507451.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507452.jpg',
+      },
+      {
+        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507453.jpg',
+      },
+    ],
   },
 ];
 
