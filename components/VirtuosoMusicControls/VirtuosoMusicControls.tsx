@@ -257,10 +257,14 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           theme="light"
           disabled={isPlaying}
           className={css.keyButton}
+          dangerouslySetInnerHTML={{
+            __html:
+              songKey.indexOf('b') > -1
+                ? `${songKey.replace('b', '<sup>b</sup>')}`
+                : songKey,
+          }}
           onClick={() => onKeyClick(songKey)}
-        >
-          {songKey}
-        </CTAButton>
+        ></CTAButton>
       </div>
 
       <CTAButton
