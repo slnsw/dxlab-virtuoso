@@ -121,6 +121,7 @@
   width: 100%;
   max-width: var(--container-width-sm);
   overflow: hidden;
+  pointer-events: none;
 
   @include media-sm {
     top: 4em;
@@ -130,12 +131,12 @@
 .instrumentControls {
   width: 100%;
   margin-top: -1px;
-  margin-bottom: 10rem; // Hack to prevent Select box from cropping
   padding: var(--spacing-md);
   background-color: var(--colour-white);
   border: 1px solid var(--colour-black);
   transform: translateY(-100%);
   transition: 0.3s $ease-in-out-quint;
+  pointer-events: all;
 
   @include media-sm {
     padding: var(--spacing-lg);
@@ -153,6 +154,7 @@
 }
 
 .instrumentControlsVisible {
+  margin-bottom: 20rem; // Hack to prevent Select box from cropping
   transform: translateY(0);
 }
 
