@@ -401,6 +401,87 @@ const songs = [
     ],
     tempo: 100,
   },
+  {
+    title: 'Sunny New South Wales2',
+    slug: 'sunny-new-south-wales2',
+    creator: 'E. Lewis Scott',
+    url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
+    key: 'Bb',
+    header: 'X:1\nM:4/4\nL:1/8\n%%score 1 2 | 3\n',
+    instruments: [
+      {
+        name: 'Voice',
+        volume: 0,
+        type: 'violin',
+        clef: 'treble',
+      },
+      {
+        name: 'Piano treble clef',
+        volume: -6,
+        type: 'piano',
+        clef: 'treble',
+      },
+      {
+        name: 'Piano bass clef',
+        volume: -6,
+        type: 'piano',
+        clef: 'bass',
+      },
+    ],
+    lines: [
+      'V:1 treble',
+      'V:2 treble',
+      'V:3 bass',
+
+      'V:1',
+      'z | Z | Z | Z | Z |',
+      'Z | Z | Z | Z ||',
+      'F| F D F B d (cB) A | G B A G F2 z F | F D F B dc B A |',
+      'w:We|often _hear~ men~ boast~ about~ the~ land|that~ gave * them~ birth, And|each~ one~~ thinks~ his~ native~ land~ the~ fair~-|',
+      ' Gc c =B c2 z F |F-D F-B (dcB) A | G B A G F2 z F |',
+      'w:est~ spot _on~ earth; In|beauty, _riches, _power * * no|land~ can~ his sur-pass, * To|',
+
+      ' c c (=Bc) d c c c |(GB) D =E F2 z F |(Fe) ec c A A D |',
+      "w:his~ all~ other _lands~ on~ earth~ can't|e-ven~ hold a glass! * If| other~ people~ have~ their~ boast,~ say why|",
+      ' F d d B F2 z F | F e e c c A A F | F d d B F2 z F |',
+      "w:then~ should~ not~ we?~ For we|can~ drink~ our~ jovial * toast~ and~ sing|with~ three~ times~ three, * There's|",
+      'F D FB d c B _A | G E G B !fermata!e2 z e | d B c A B G !fermata!F F |',
+      "w:not a _country~ in~ the~ world~ where |all that's~ good~ pre-vails, * As|here~ it does,~ in this,~ our land,~ our|",
+      ' GB B A B2 x ||"@-80,40 Chorus" F |F D F B dc B A | G B A GF z2 F |',
+      "w:_Sunny~ New~ South~ Wales!~ Then|Then|toast~ with~ me our~ happy~ land~ Where *|all that's~ good~ prevails; * Our|",
+      ' G G !fermata!c c B A !fermata!G F |(G!fermata!e) G A B2 x ||z | z8 | z2 z2 z z2 ||',
+      "w:colour's~ blue,~ our~ hearts~ are~ true,~ In| _Sunny~ New~ South~ Wales.|||",
+
+      // Voice 2
+      'V:2',
+      "[Ff] | [Ff][Dd][Ff][Bb] [dd'][cc'][Ba][bc] | [Gg][Ba][Aa][Gg][Ff] z2 [Ff] | [Ef][Dd][Ff][cb] [dd'][cc'][Bb][Aa] | [Gg][cc'][cd'][A=a] [cc']2 z [Ff] |",
+      "!ff![Ff][Dd][Ff][Ba] [dd'][cc'][Bb][Aa] | [Gf][Aa][cb][Ag] [Ff]2 \"_Cres:\"z d | d^c/d/ e/d/^F/d/ =c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] a2 z [FAD] ||",
+      'z | z [F,B,D][F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] | z [F,B,D][F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] |',
+      'z [B,=E][B,E][EB,] ([A,C-F]2 [CF]) z |z [B,DF][B,DF][B,DF] z [B,DF][B,DF][B,DF] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] |',
+
+      ' z [F,CF][F,CF][F,CF] z [A,CF][A,CF][A,CF] | [B,DG] z [B,C=E] z [A,CF]2- [A,CF] z |[A,E]F,[A,E]F, [A,E]F,[A,E]F, |',
+      ' [DF]F,[B,D]F, [B,D]F,[B,D]F, | [A,E]F,[A,E]F, [A,E]F,[A,E]F, | [B,D]F,[B,D]F, [B,D]F,[B,D]F, |',
+      'z [F,B,D][F,B,D][F,B,D] z [B,DG,][B,DG,][G,B,D] | z [G,B,E][G,B,E][G,EB,] [B,G,E]2 z2 | [FCd] z [DAc] z [DFB] z [B,DF] z |',
+      ' [B,EG]B [B,EB]A [DFB]3 ||F |FDFB dcBA | GBAG F2 z F |',
+      " [B,EG] z !fermata![=ECc] z [CFB]A [B,G][A,F] |[B,EG] z [CEG]A [B,DFB]3 || d | dc/d/ e/d/^F/d/ c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] [Gb]2 [DFB] ||",
+
+      // Voice 3
+      'V:3',
+      '!f! z | B,,[D,F,B,][B,D,F,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | [C,,C,]2 [C,E,B,]2 ([F,,F,][^F,,^F,][G,,G,][A,,A,]) |',
+      'B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][B,,D,F,B,] | E,[F,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,] z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 | [F,,F,]2 [F,A,CE]2 [B,D]2 B,,,2 ||',
+      '!p! z | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |[E,,D,]2 z2 [B,,,B,,]2 z2 | [B,,,B,,]2 z2 [G,,,G,,]2 z2 |',
+      ' ([C,,C,-]4 ([F,,F,])[^F,,^F,][G,,G,][A,,A,]) |[B,,B,]2 z2 [B,,,B,,]2 z2 | [E,,E,]2 z2 [B,,,B,,]2 z2 |',
+
+      ' [A,,,A,,]2 z2 [F,,F,]2 z2 | [G,,,B,,] z [C,,C,] z (G,,C,F,) z |F,,2 z2 F,,2 z2 |',
+      ' [B,,,B,,]2 z2 [B,,,B,,]2 z2 | F,,2 z2 F,,2 z2 | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |',
+      '[B,,,B,,]2 z2 [_A,,,_A,,]2 z2 | [G,,,G,,]2 z2 [E,,E,]2 z2 | [B,,B,] z [F,,F,] z [G,,G,] z !fermata![B,,B,,,] z |',
+      ' [E,,E,]2 z2 [B,,B,]3 ||!f!z|B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] |',
+      ' [E,,E,] z !fermata![C,,C,] z [F,,F,]2 !fermata![F,,F,]2 |[E,,E,] !fermata!z [F,,F,]2 [B,,,B,,]3 || !f!z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 |[F,,F,]2 [F,A,CE]2 [B,,B,]2 [B,,,B,,] ||',
+    ],
+    tempo: 100,
+  },
 ];
 
 export default songs;
