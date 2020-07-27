@@ -56,7 +56,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onKeyClick,
 }) => {
   // const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
-  const [showMoreControls, setShowMoreControls] = React.useState(true);
+  const [showMoreControls, setShowMoreControls] = React.useState(false);
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 200 ? tempo + 1 : tempo;
@@ -352,16 +352,13 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                           ...props.style,
                           height: '43px',
                           width: '16px',
-                          backgroundColor: 'white',
-                          border: '1px solid black',
+                          backgroundColor: 'var(--colour-white)',
+                          border: '1px solid var(--colour-black)',
                         }}
                       />
                     )}
                   />
                 </div>
-                {/* <span className={css['dB-level']}>
-                    {instrumentVolumes[i]} dB
-                  </span> */}
 
                 <div className={css.instrumentSelectGroup}>
                   <label htmlFor={`instrument${i}`}>instrument</label>
