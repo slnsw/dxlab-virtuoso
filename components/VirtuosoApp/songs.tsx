@@ -86,6 +86,13 @@ const songs = [
       'W:Of Alfred and our Queen.',
     ],
     tempo: 80,
+    files: [
+      {
+        url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
+      },
+    ],
   },
   {
     title: 'The Glebe Rowing Club Polka',

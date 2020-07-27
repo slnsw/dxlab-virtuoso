@@ -94,6 +94,7 @@
 }
 
 .sheetMusicContent .sheetMusic {
-  max-width: var(--container-width-lg);
+  // max-width: var(--container-width-lg);
+  max-width: 55rem;
   background-color: var(--colour-white);
 }

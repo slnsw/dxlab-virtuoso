@@ -439,6 +439,7 @@ const VirtuosoSheetMusic = ({
           theme="light"
         />
 
+        {/* Reactronica Audio */}
         <Song bpm={tempo}>
           {currentSong.instruments.map((instrument, instrumentIndex) => {
             const instrumentType = instrumentTypes[instrumentIndex];
