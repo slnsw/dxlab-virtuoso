@@ -4,12 +4,24 @@ import Link from '../Link';
 
 import css from './VirtuosoLogo.module.scss';
 
-const VirtuosoLogo = ({ className }) => {
+type Props = {
+  fontWeight?: 'normal' | 'bold';
+  className?: string;
+};
+
+const VirtuosoLogo: React.FC<Props> = ({
+  fontWeight = 'normal',
+  className,
+}) => {
   return (
     <div className={[className].join(' ')}>
       <h1 className={css.virtuosoLogo}>
         <Link href="/virtuoso">
-          <a>
+          <a
+            style={{
+              fontWeight,
+            }}
+          >
             Virtu<strong>OSO</strong>
             <svg width="2em" height="1.4em">
               <ellipse

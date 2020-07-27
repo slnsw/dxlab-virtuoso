@@ -76,27 +76,33 @@ V:1
           collection
         </p>
 
-        <VirtuosoLogo className={css.virtuosoLogo} />
+        <VirtuosoLogo fontWeight="bold" className={css.virtuosoLogo} />
 
         <p className={css.oso}>
           <span>O</span>nline <span>s</span>heet <span>o</span>rchestra
         </p>
 
-        <div className={[css.musicSymbol, css.musicSymbol1].join(' ')}>
+        {/* <div className={[css.musicSymbol, css.musicSymbol1].join(' ')}>
           <p>♬</p>
-        </div>
+        </div> */}
 
         <div className={[css.musicSymbol, css.musicSymbol2].join(' ')}>
-          <p>♩</p>
+          <p
+            style={{
+              marginLeft: '-0.2em',
+            }}
+          >
+            ♩
+          </p>
         </div>
 
-        <div className={[css.musicSymbol, css.musicSymbol3].join(' ')}>
+        {/* <div className={[css.musicSymbol, css.musicSymbol3].join(' ')}>
           <p>♫</p>
-        </div>
+        </div> */}
 
-        <div className={[css.musicSymbol, css.musicSymbol4].join(' ')}>
+        {/* <div className={[css.musicSymbol, css.musicSymbol4].join(' ')}>
           <p>♭</p>
-        </div>
+        </div> */}
       </div>
 
       {/* <p>♩ ♪ ♫ ♭</p> */}

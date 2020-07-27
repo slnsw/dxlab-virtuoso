@@ -168,16 +168,16 @@
   font-size: var(--font-size-xlg);
 }
 
-.musicSymbol1 {
-  z-index: 1;
-  grid-row-start: 2;
-  grid-column-start: 4;
+// .musicSymbol1 {
+//   z-index: 1;
+//   grid-row-start: 2;
+//   grid-column-start: 4;
 
-  @include media-sm {
-    grid-row-start: 3;
-    grid-column-start: 4;
-  }
-}
+//   @include media-sm {
+//     grid-row-start: 3;
+//     grid-column-start: 4;
+//   }
+// }
 
 .musicSymbol2 {
   z-index: 1;
@@ -190,27 +190,27 @@
   }
 }
 
-.musicSymbol3 {
-  z-index: 1;
-  grid-row-start: 3;
-  grid-column-start: 2;
+// .musicSymbol3 {
+//   z-index: 1;
+//   grid-row-start: 3;
+//   grid-column-start: 2;
 
-  @include media-sm {
-    grid-row-start: 3;
-    grid-column-start: 1;
-  }
-}
+//   @include media-sm {
+//     grid-row-start: 3;
+//     grid-column-start: 1;
+//   }
+// }
 
-.musicSymbol4 {
-  z-index: 1;
-  display: none;
-  grid-row-start: 4;
-  grid-column-start: 5;
+// .musicSymbol4 {
+//   z-index: 1;
+//   display: none;
+//   grid-row-start: 4;
+//   grid-column-start: 5;
 
-  @include media-sm {
-    display: block;
-  }
-}
+//   @include media-sm {
+//     display: block;
+//   }
+// }
 
 .oso {
   @extend .font-uppercase;
