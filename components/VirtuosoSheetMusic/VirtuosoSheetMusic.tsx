@@ -60,7 +60,14 @@ const VirtuosoSheetMusic = ({
 
   // Set up an array of sample statuses
   const [samplesStatus, setSamplesStatus] = React.useState(
-    currentSong.instruments.map(() => 'loading'),
+    currentSong.instruments.map((_, i) => {
+      // Synth is generated from browser, so no loading needed
+      if (instrumentTypes[i] === 'synth') {
+        return 'loaded';
+      }
+
+      return 'loading';
+    }),
   );
 
   // const [currentBeat, setCurrentBeat] = React.useState(0);
@@ -266,11 +273,9 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleTempoChange = (newTempo) => {
-    const query = {
+    const query = buildQuery(router.query, {
       tempo: newTempo,
-      vol: router.query.vol,
-      type: router.query.type,
-    };
+    });
 
     router.replace(
       {
@@ -285,11 +290,9 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleInstrumentVolumeChange = (newVolumes) => {
-    const query = {
-      tempo: router.query.tempo,
+    const query = buildQuery(router.query, {
       vol: newVolumes,
-      type: router.query.type,
-    };
+    });
 
     router.replace(
       {
@@ -304,11 +307,9 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleInstrumentTypeChange = (newTypes) => {
-    const query = {
-      tempo: router.query.tempo,
-      vol: router.query.vol,
+    const query = buildQuery(router.query, {
       type: newTypes,
-    };
+    });
 
     router.replace(
       {
@@ -323,12 +324,9 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleKeyClick = (key) => {
-    const query = {
-      tempo: router.query.tempo,
-      vol: router.query.vol,
-      type: router.query.type,
+    const query = buildQuery(router.query, {
       key: key.indexOf('m') > 0 ? key.replace('m', '') : `${key}m`,
-    };
+    });
 
     router.replace(
       {
@@ -340,6 +338,34 @@ const VirtuosoSheetMusic = ({
         query,
       },
     );
+  };
+
+  const buildQuery = (oldQuery, newQuery) => {
+    const query = {
+      ...(oldQuery.tempo
+        ? {
+            tempo: oldQuery.tempo,
+          }
+        : {}),
+      ...(oldQuery.vol
+        ? {
+            vol: oldQuery.vol,
+          }
+        : {}),
+      ...(oldQuery.type
+        ? {
+            type: oldQuery.type,
+          }
+        : {}),
+      ...(oldQuery.key
+        ? {
+            key: oldQuery.key,
+          }
+        : {}),
+      ...newQuery,
+    };
+
+    return query;
   };
 
   return (
