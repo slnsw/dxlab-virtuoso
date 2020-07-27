@@ -23,16 +23,14 @@
 .tempoControls {
   @extend .font-uppercase;
 
-  display: none;
+  display: flex;
+  align-items: center;
+  line-height: 1;
 
   @include media-md {
-    display: flex;
-    align-items: center;
     margin-right: var(--spacing-md);
     margin-left: var(--spacing-xxs);
     padding-left: var(--spacing-md);
-    line-height: 1;
-    border-left: 1px solid var(--colour-black);
   }
 
   form {
@@ -43,6 +41,37 @@
   label {
     margin-right: var(--spacing-sm);
     font-weight: 600;
+  }
+}
+
+.desktopTempoControls {
+  display: none;
+
+  @include media-md {
+    display: flex;
+    border-left: 1px solid var(--colour-black);
+  }
+}
+
+.mobileTempoControls {
+  flex-direction: column;
+
+  label {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.mobileInstrumentControls {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--colour-black);
+
+  @include media-md {
+    display: none;
   }
 }
 
@@ -87,11 +116,7 @@
 }
 
 .keyControls {
-  display: none;
-
   @include media-md {
-    display: flex;
-    align-items: center;
     padding-left: var(--spacing-md);
     border-left: 1px solid var(--colour-black);
   }
@@ -99,6 +124,24 @@
   label {
     margin-right: var(--spacing-sm);
     font-weight: 600;
+  }
+}
+
+.mobileKeyControls {
+  label {
+    margin-right: 0;
+    margin-bottom: var(--spacing-xxs);
+    font-size: var(--font-size-xs);
+    text-align: center;
+  }
+}
+
+.desktopKeyControls {
+  display: none;
+
+  @include media-md {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -141,16 +184,6 @@
   @include media-sm {
     padding: var(--spacing-lg);
   }
-
-  span {
-    text-transform: lowercase;
-  }
-
-  label {
-    margin-bottom: var(--spacing-xs);
-    font-weight: 600;
-    font-size: var(--font-size-xs);
-  }
 }
 
 .instrumentControlsVisible {
@@ -168,6 +201,16 @@
   @include media-sm {
     align-items: stretch;
     margin-bottom: var(--spacing-md);
+  }
+
+  span {
+    text-transform: lowercase;
+  }
+
+  label {
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    font-size: var(--font-size-xs);
   }
 }
 

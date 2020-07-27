@@ -56,7 +56,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onKeyClick,
 }) => {
   // const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
-  const [showMoreControls, setShowMoreControls] = React.useState(false);
+  const [showMoreControls, setShowMoreControls] = React.useState(true);
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 200 ? tempo + 1 : tempo;
@@ -214,44 +214,25 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         Autoscroll {isAutoScroll ? <>on&nbsp;</> : 'off'}
       </CTAButton>
 
-      <div className={css.tempoControls}>
-        <label>Tempo:</label>
-        <form onSubmit={handleFormSubmit}>
-          <CTAButton
-            theme="light"
-            variant="secondary"
-            size="sm"
-            disabled={isPlaying}
-            className={[css.tempoButton, css.addTempoButton].join(' ')}
-            onClick={handleTempoChangeDown}
-          >
-            <Icon name="remove" />
-          </CTAButton>
-          <input
-            type="number"
-            value={tempo}
-            className={css['tempoInput']}
-            min={10}
-            max={200}
-            onChange={handleTempoChange}
-            onBlur={handleTempoExit}
-            disabled={isPlaying}
-          />
-          <CTAButton
-            theme="light"
-            variant="secondary"
-            disabled={isPlaying}
-            size="sm"
-            className={[css.tempoButton].join(' ')}
-            onClick={handleTempoChangeUp}
-          >
-            <Icon name="add" />
-          </CTAButton>
-        </form>
-      </div>
+      <TempoControls
+        tempo={tempo}
+        isPlaying={isPlaying}
+        className={css.desktopTempoControls}
+        onSubmit={handleFormSubmit}
+        onChange={handleTempoChange}
+        onBlur={handleTempoExit}
+        onDownClick={handleTempoChangeDown}
+        onUpClick={handleTempoChangeUp}
+      />
 
-      <div className={css.keyControls}>
-        <label>Key:</label>
+      <KeyControls
+        songKey={songKey}
+        className={css.desktopKeyControls}
+        onClick={onKeyClick}
+      />
+
+      {/* <div className={css.keyControls}>
+        <label>Key</label>
         <CTAButton
           theme="light"
           disabled={isPlaying}
@@ -264,7 +245,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           }}
           onClick={() => onKeyClick(songKey)}
         ></CTAButton>
-      </div>
+      </div> */}
 
       <CTAButton
         theme="light"
@@ -289,6 +270,29 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             showMoreControls ? css.instrumentControlsVisible : '',
           ].join(' ')}
         >
+          <div className={css.mobileInstrumentControls}>
+            <TempoControls
+              tempo={tempo}
+              isPlaying={isPlaying}
+              className={css.mobileTempoControls}
+              onSubmit={handleFormSubmit}
+              onChange={handleTempoChange}
+              onBlur={handleTempoExit}
+              onDownClick={handleTempoChangeDown}
+              onUpClick={handleTempoChangeUp}
+            />
+            <div
+              style={{
+                borderLeft: '1px solid var(--colour-black)',
+              }}
+            />
+            <KeyControls
+              songKey={songKey}
+              className={css.mobileKeyControls}
+              onClick={onKeyClick}
+            />
+          </div>
+
           {instruments.map((instrument, i) => {
             const sampleOptions = Object.entries(samples).map(([key]) => {
               return {
@@ -383,6 +387,75 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       </div>
       {/* )} */}
       {/* </div> */}
+    </div>
+  );
+};
+
+const TempoControls = ({
+  tempo,
+  isPlaying,
+  className,
+  onSubmit,
+  onDownClick,
+  onUpClick,
+  onChange,
+  onBlur,
+}) => {
+  return (
+    <div className={[css.tempoControls, className || ''].join(' ')}>
+      <label>Tempo</label>
+      <form onSubmit={onSubmit}>
+        <CTAButton
+          theme="light"
+          variant="secondary"
+          size="sm"
+          disabled={isPlaying}
+          className={[css.tempoButton, css.addTempoButton].join(' ')}
+          onClick={onDownClick}
+        >
+          <Icon name="remove" />
+        </CTAButton>
+        <input
+          type="number"
+          value={tempo}
+          className={css['tempoInput']}
+          min={10}
+          max={200}
+          onChange={onChange}
+          onBlur={onBlur}
+          disabled={isPlaying}
+        />
+        <CTAButton
+          theme="light"
+          variant="secondary"
+          disabled={isPlaying}
+          size="sm"
+          className={[css.tempoButton].join(' ')}
+          onClick={onUpClick}
+        >
+          <Icon name="add" />
+        </CTAButton>
+      </form>
+    </div>
+  );
+};
+
+const KeyControls = ({ songKey, isPlaying, className, onClick }) => {
+  return (
+    <div className={[css.keyControls, className || ''].join(' ')}>
+      <label>Key</label>
+      <CTAButton
+        theme="light"
+        disabled={isPlaying}
+        className={css.keyButton}
+        dangerouslySetInnerHTML={{
+          __html:
+            songKey.indexOf('b') > -1
+              ? `${songKey.replace('b', '<sup>b</sup>')}`
+              : songKey,
+        }}
+        onClick={() => onClick(songKey)}
+      ></CTAButton>
     </div>
   );
 };
