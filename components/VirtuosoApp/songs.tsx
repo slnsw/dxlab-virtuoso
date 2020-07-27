@@ -451,8 +451,9 @@ const songs = [
       "w:not a _country~ in~ the~ world~ where |all that's~ good~ pre-vails, * As|here~ it does,~ in this,~ our land,~ our|",
       ' GB B A B2 x ||"@-80,40 Chorus" F |F D F B dc B A | G B A GF z2 F |',
       "w:_Sunny~ New~ South~ Wales!~ Then|Then|toast~ with~ me our~ happy~ land~ Where *|all that's~ good~ prevails; * Our|",
-      ' G G !fermata!c c B A !fermata!G F |(G!fermata!e) G A B2 x ||z | z8 | z2 z2 z z2 ||',
-      "w:colour's~ blue,~ our~ hearts~ are~ true,~ In| _Sunny~ New~ South~ Wales.|||",
+      ' G G !fermata!c c B A !fermata!G F |(G!fermata!e) G A B2 x ||',
+      "w:colour's~ blue,~ our~ hearts~ are~ true,~ In| _Sunny~ New~ South~ Wales.|",
+      'z | z8 | z2 z2 z z2 ||',
 
       // Voice 2
       'V:2',
@@ -465,7 +466,8 @@ const songs = [
       ' [DF]F,[B,D]F, [B,D]F,[B,D]F, | [A,E]F,[A,E]F, [A,E]F,[A,E]F, | [B,D]F,[B,D]F, [B,D]F,[B,D]F, |',
       'z [F,B,D][F,B,D][F,B,D] z [B,DG,][B,DG,][G,B,D] | z [G,B,E][G,B,E][G,EB,] [B,G,E]2 z2 | [FCd] z [DAc] z [DFB] z [B,DF] z |',
       ' [B,EG]B [B,EB]A [DFB]3 ||F |FDFB dcBA | GBAG F2 z F |',
-      " [B,EG] z !fermata![=ECc] z [CFB]A [B,G][A,F] |[B,EG] z [CEG]A [B,DFB]3 || d | dc/d/ e/d/^F/d/ c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] [Gb]2 [DFB] ||",
+      ' [B,EG] z !fermata![=ECc] z [CFB]A [B,G][A,F] |[B,EG] z [CEG]A [B,DFB]3 ||',
+      " d | dc/d/ e/d/^F/d/ c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] [Gb]2 [DFB] ||",
 
       // Voice 3
       'V:3',
@@ -478,7 +480,8 @@ const songs = [
       ' [B,,,B,,]2 z2 [B,,,B,,]2 z2 | F,,2 z2 F,,2 z2 | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |',
       '[B,,,B,,]2 z2 [_A,,,_A,,]2 z2 | [G,,,G,,]2 z2 [E,,E,]2 z2 | [B,,B,] z [F,,F,] z [G,,G,] z !fermata![B,,B,,,] z |',
       ' [E,,E,]2 z2 [B,,B,]3 ||!f!z|B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] |',
-      ' [E,,E,] z !fermata![C,,C,] z [F,,F,]2 !fermata![F,,F,]2 |[E,,E,] !fermata!z [F,,F,]2 [B,,,B,,]3 || !f!z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 |[F,,F,]2 [F,A,CE]2 [B,,B,]2 [B,,,B,,] ||',
+      ' [E,,E,] z !fermata![C,,C,] z [F,,F,]2 !fermata![F,,F,]2 |[E,,E,] !fermata!z [F,,F,]2 [B,,,B,,]3 ||',
+      ' !f!z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 |[F,,F,]2 [F,A,CE]2 [B,,B,]2 [B,,,B,,] ||',
     ],
     tempo: 100,
   },
