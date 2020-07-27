@@ -22,7 +22,12 @@
   display: inline-flex;
   align-items: center;
   margin-bottom: var(--spacing-sm);
+  margin-left: var(--spacing-lg);
   font-size: var(--font-size-xs);
+
+  @include media-sm {
+    margin-left: 0;
+  }
 
   &:link,
   &:visited {
