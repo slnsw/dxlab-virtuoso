@@ -355,7 +355,7 @@ const VirtuosoSheetMusic = ({
         <VirtuosoMusicControls
           className={css.songControls}
           instruments={currentSong.instruments}
-          samples={samples}
+          // samples={samples}
           tempo={tempo}
           songKey={songKey}
           instrumentTypes={instrumentTypes}
@@ -424,7 +424,10 @@ const VirtuosoSheetMusic = ({
                 key={`${instrument.type}${instrumentIndex}`}
               >
                 <Instrument
-                  type="sampler"
+                  type={instrumentType === 'synth' ? 'synth' : 'sampler'}
+                  oscillator={{
+                    type: 'triangle',
+                  }}
                   // Need to pass key prop here to flush sample changes. Otherwise previous instrument sample buffers will overlap and may play
                   key={instrumentType}
                   // NOTE: Fixes weird buffer bug when switching samples

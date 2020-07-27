@@ -4,6 +4,7 @@ import { Range } from 'react-range';
 import Select from '../Select/Select';
 import CTAButton from '../CTAButton';
 import Icon from '../Icon/Icon';
+import samples from '../VirtuosoApp/samples';
 
 import css from './VirtuosoMusicControls.module.scss';
 
@@ -16,7 +17,7 @@ type Props = {
     type: string;
     clef: 'treble' | 'bass';
   }[];
-  samples: any;
+  // samples: any;
   tempo: number;
   songKey: string;
   instrumentTypes: string[];
@@ -35,10 +36,25 @@ type Props = {
   onKeyClick: Function;
 };
 
+const sampleOptions = Object.entries(samples).map(([key]) => {
+  return {
+    label: key,
+    value: key,
+  };
+});
+
+const instrumentOptions = [
+  ...sampleOptions,
+  {
+    label: 'synth',
+    value: 'synth',
+  },
+];
+
 const VirtuosoMusicControls: React.FC<Props> = ({
   className,
   instruments = [],
-  samples,
+  // samples,
   tempo,
   songKey,
   instrumentTypes,
@@ -294,13 +310,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           </div>
 
           {instruments.map((instrument, i) => {
-            const sampleOptions = Object.entries(samples).map(([key]) => {
-              return {
-                label: key,
-                value: key,
-              };
-            });
-
             return (
               <div className={css.instrumentControlGroup} key={instrument.name}>
                 <div className={css.instrumentNameGroup}>
@@ -372,7 +381,8 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                       // label: instrument.type,
                     }}
                     // menuIsOpen={true}
-                    options={sampleOptions}
+                    // options={sampleOptions}
+                    options={instrumentOptions}
                     onChange={(option) => handleInstrumentTypeChange(option, i)}
                     isDisabled={isPlaying} // why u no work? Works now - but they are all black
                   />
