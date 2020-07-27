@@ -220,12 +220,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
           <CTAButton
             theme="light"
             variant="secondary"
-            disabled={isPlaying}
             size="sm"
+            disabled={isPlaying}
             className={[css.tempoButton, css.addTempoButton].join(' ')}
-            onClick={handleTempoChangeUp}
+            onClick={handleTempoChangeDown}
           >
-            <Icon name="add" />
+            <Icon name="remove" />
           </CTAButton>
           <input
             type="number"
@@ -237,16 +237,15 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             onBlur={handleTempoExit}
             disabled={isPlaying}
           />
-
           <CTAButton
             theme="light"
             variant="secondary"
-            size="sm"
             disabled={isPlaying}
+            size="sm"
             className={[css.tempoButton].join(' ')}
-            onClick={handleTempoChangeDown}
+            onClick={handleTempoChangeUp}
           >
-            <Icon name="remove" />
+            <Icon name="add" />
           </CTAButton>
         </form>
       </div>
