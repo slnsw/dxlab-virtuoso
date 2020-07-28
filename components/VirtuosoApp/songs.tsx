@@ -136,7 +136,7 @@ const songs = [
       'e2 d>c|A2 G>F|E2 B2|A2 AA|dB GB|+>+A2 GF|',
       'E2 DC|A2 cf|e2 d>c|A2 G>F|E2 B2|A2 AA|',
       // page 2
-      '+>+Gd/c/ +>+BA/G/|+>+FF/G/ +>+AG/F/|+>+ED/C/ DE|FFF+segno+:||:[K:Amin] "3rd Strain" d/f/|a2 bd\'|',
+      '+>+Gd/c/ +>+BA/G/|+>+FF/G/ +>+AG/F/|+>+ED/C/ DE|FFF+segno+:||:[K:Am] "3rd Strain" d/f/|a2 bd\'|',
       "e2 dc|BG e>d|ca g>g|+>+ad ab|c'gec|Bf e>d|",
       "(c/e/g/e/) c(d/f/)|a2 bd'|e2 dc|BG e>d|ca g>g|+>+ad ab|",
       "c'gec|Bf e>d|c[EGc][EGc] z||c'/g/e/c/ ab|bb c'2|[fa][fa] [fa][eg]|",
@@ -155,7 +155,7 @@ const songs = [
       'G,[B,CE][B,CE] z|F,[A,CF][A,C] z|G,[B,C] C,[B,CE]|F,[A,CF][A,CF] z|B,,[D,G,] B,,[D,G,]|C,[F,A,C] C,[F,A,C]|',
       'C,[G,B,] C,[G,B,]|F,[A,CF] F,[A,CF]|G,[B,CE][B,CE] z|F,[A,CF][A,C] z|G,[B,C] C,[B,CE]|F,[A,CF][A,CF] z|',
       // page 2
-      'B,,[D,G,] B,,[D,G,]|C,[F,A,] C,[F,A,]|C,[G,B,] C,[G,B,]|[F,A,][A,C][A,C]:||:[K:Amin] z|D,[F,G,B,] G,,[F,G,B,]|',
+      'B,,[D,G,] B,,[D,G,]|C,[F,A,] C,[F,A,]|C,[G,B,] C,[G,B,]|[F,A,][A,C][A,C]:||:[K:Am] z|D,[F,G,B,] G,,[F,G,B,]|',
       'C,[G,C] E,[G,C]|D,[F,G,B,] G,,[F,G,B,]|C,[G,C] E,[G,C]|F,[A,D] F,[A,D]|G,[CE] G,[CE]|G,[B,D] G,[B,D]|',
       'E,[G,C] C, z|D,[F,G,B,] G,,[F,G,B,]|C,[G,C] E,[G,C]|D,[F,G,B,] G,,[F,G,B,]|C,[G,C] E,[G,C]|F,[A,D] F,[A,D]|',
       'G,[CE] G,[CE]|G,[B,F] G,[B,F]|[CE][C,C][C,C] z||E,[G,C] D,[G,B,]|D,[G,D] E,[G,C]|E,[A,C] G,[CE]|',
@@ -227,7 +227,7 @@ const songs = [
       "|:!ff![d/fad'] !p!z/ d/e/|f/g/ a|!ff![d/gbd'] !p!z/ b/a/|g/a/ d|d A/B/|",
       "c/e/ d|d G/A/|B/e/ d|!ff![d/fad'] !p!z/ d/e/|f/g/ a|",
       "!ff![d/gbd'] !p!z/ b/a/|g/a/ d|d A/B/|c/e/d/g/|f/b/a/d/|g/ z/ g/ z/:|",
-      "[K:Amin][Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|[dd']>c'|b>a|g>a|",
+      "[K:Am][Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|[dd']>c'|b>a|g>a|",
       "g/a/d/f/|{ef}e/^d/e/ z/|[Gg]>[^F^f]|[Gg]>[^F^f]|[G/g][A/a][B/b][c/c']|",
       "[dd']>c'|b>a|g>a|g/a/B/d/|{cd}c/B/c/ z/||",
       // page 3
@@ -240,7 +240,7 @@ const songs = [
       // annnd
       // bass clef data
       'V:2 clef=bass stem=down',
-      '[K:Gmaj][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]||',
+      '[K:G][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]||',
       ':|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F/,[C/D] F/,[C/D]|',
       'D,/[C/D] D,/[C/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|',
       'G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|C,/[E,/A,] C,/[E,/A,]|D,/[G,/B,] D,/[G,/B,]|D,/[A,/C] D,/[A,/C]|1[G,/B,] z/ [G,/B,] x/:|2[G,/B,] z/ [G,/B,] z/||',
@@ -248,7 +248,7 @@ const songs = [
       '|:F,/[C/D] F,/[C/D]|F,/[C/D] F,/[C/D]|G,/[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|F,/[C/D] D,/[C/D]|',
       'F,/[C/D] D,/[C/D]|G,/[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|F,/[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|',
       'G,/[B,/D] D,/[B,/D]|G,/[B,/D] D,/[B,/D]|F,/[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|F,/[C/D] D,/[C/D]|[G,/B,D] z/ [G,/B,/D] z/:|',
-      '[K:Amin]C,/"dolce"[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|',
+      '[K:Am]C,/"dolce"[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|',
       'B,,/[F,/G,] G,,/[F,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|C,/[E,/G,] G,,/[E,/G,]|',
       'B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|B,,/[F,/G,] G,,/[F,/G,]|[C,/E,G,][C,/E,G,][C,/E,G,] z/||',
       // page 3
@@ -316,7 +316,7 @@ const songs = [
       "\"@-92,45WALTZ\"!f!!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [fbd'f']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [gGB]3- | [GBg] [Ff] [Gg] |",
       "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z | z [cc'] [Bb] |",
       "[GBeg] z [Begb] | [egbe'] z [gbe'g'] | [fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
-      "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cb] [gg'] [ff'] |\"@65,32 8va ------|\"e/g/b/e'/f/b/ | e' z f ||:[K:Bbmaj]",
+      "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cb] [gg'] [ff'] |\"@65,32 8va ------|\"e/g/b/e'/f/b/ | e' z f ||:[K:Bb]",
       // page 2
       '!p!z {gf}e z | z {fe}c z | z {fd}B G | F z F | "_cres"^F z [FAcd] | [Ace] z [Ace^f] | [Bdg] z [Bdg] | !f![Acea] [Aceg] [Acd^f] |!p!z {gf}e z |',
       'z {fe}c z | z {fd}B g | !f![Acfa] z [Acfa] | [Adfa] z [Adfa] | [cefa] [cefg] [cefa] | [Bdfb] [Bdfb] [Bdfb] |[1 [Bdfb] z f :|[2 x z2 ||',

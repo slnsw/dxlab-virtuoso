@@ -123,6 +123,22 @@ const VirtuosoSheetMusic = ({
     }
   }, [isPlaying]);
 
+  const keySwap = (k) => {
+    if (k === 'treble' || k === 'bass') {
+      return k;
+    }
+    return k.indexOf('m') > -1 ? k.replace('m', '') : `${k}m`;
+  };
+
+  React.useEffect(() => {
+    console.log('Key changed: ', songKey);
+    const re = /\[K:(.+)\]/g;
+    const newLines = currentSong.lines.map((l) => {
+      return l.match(re);
+    });
+    // console.log(newLines);
+  }, [songKey]);
+
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
