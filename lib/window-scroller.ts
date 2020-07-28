@@ -5,6 +5,7 @@ export const createWindowScroller = ({
   increment: initialIncrement = 0.4,
   fps = 60,
 } = {}) => {
+  let userScrollStatus = 'stopped';
   let isScrolling = false;
   let increment = initialIncrement;
   const fpsInterval = 1000 / fps;
@@ -63,8 +64,6 @@ export const createWindowScroller = ({
   }
 
   function stop() {
-    // console.log('stop', requestId);
-
     window.cancelAnimationFrame(requestId);
     isScrolling = false;
     requestId = undefined;
@@ -99,6 +98,8 @@ export const createWindowScroller = ({
       window.clearTimeout(userTimeout);
     }
 
+    // Internally flag that we have 'paused' due to user scroll
+    userScrollStatus = 'paused';
     stop();
 
     // If timeout triggers, it means that scrolling has stopped
@@ -106,7 +107,11 @@ export const createWindowScroller = ({
       // Track scrolling position so when scroll starts up again, we are in the right spot.
       scrollCount = window.pageYOffset;
 
-      start();
+      // Check for whether we 'paused' due to user scroll, otherwise we may start scrolling due to the event listeners firing.
+      if (userScrollStatus === 'paused') {
+        userScrollStatus = 'scrolling';
+        start();
+      }
     }, 1000);
   }
 
