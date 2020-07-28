@@ -25,6 +25,17 @@ const VirtuosoPage = ({ router }) => {
   const { pathname, query } = router;
   const slug = query.slug || 'national-song-our-sailor-prince';
   const currentSong = songs.find((s) => s.slug === slug);
+  const currentSongIndex = songs.findIndex((s) => s.slug === slug);
+  let prevSong = null;
+  let nextSong = null;
+
+  if (currentSongIndex > 0) {
+    prevSong = songs[currentSongIndex - 1].slug;
+  }
+
+  if (currentSongIndex < songs.length - 1) {
+    nextSong = songs[currentSongIndex + 1].slug;
+  }
 
   if (!currentSong) {
     return <Four04 />;
@@ -56,6 +67,8 @@ const VirtuosoPage = ({ router }) => {
       {pathname === '/virtuoso/song/[slug]' && (
         <VirtuosoSheetMusic
           song={currentSong}
+          prevSong={prevSong}
+          nextSong={nextSong}
           tempo={parseInt(tempo, 10)}
           instrumentVolumes={instrumentVolumes.map((volume) =>
             parseInt(volume, 10),

@@ -40,6 +40,50 @@
   margin-left: var(--spacing-xs);
 }
 
+.prevNextLinks {
+  display: flex;
+  width: 100%;
+}
+
+.prevLink {
+  @extend .font-uppercase;
+
+  display: inline-flex;
+  align-items: left;
+  margin-right: auto;
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-xs);
+
+  &:link,
+  &:visited {
+    color: var(--colour-black);
+  }
+}
+
+.prevLinkText {
+  display: inline-block;
+  margin-left: var(--spacing-xs);
+}
+
+.nextLink {
+  @extend .font-uppercase;
+
+  display: inline-flex;
+  margin-bottom: var(--spacing-sm);
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+
+  &:link,
+  &:visited {
+    color: var(--colour-black);
+  }
+}
+
+.nextLinkText {
+  display: inline-block;
+  margin-right: var(--spacing-xs);
+}
+
 // ----------------------------------------------------------------------------
 // SONG CONTROLS
 // ----------------------------------------------------------------------------

@@ -40,6 +40,45 @@ export function getSVG(name) {
           }}
         />
       );
+    case 'chevron-forward-sharp':
+      return (
+        <polyline
+          points="184 112 328 256 184 400"
+          style={{
+            fill: 'none',
+            stroke: '#FFF',
+            strokeLinecap: 'square',
+            strokeMiterlimit: 10,
+            strokeWidth: '48px',
+          }}
+        />
+      );
+    case 'chevron-back-dark-sharp':
+      return (
+        <polyline
+          points="328 112 184 256 328 400"
+          style={{
+            fill: 'none',
+            stroke: '#000',
+            strokeLinecap: 'square',
+            strokeMiterlimit: 10,
+            strokeWidth: '48px',
+          }}
+        />
+      );
+    case 'chevron-forward-dark-sharp':
+      return (
+        <polyline
+          points="184 112 328 256 184 400"
+          style={{
+            fill: 'none',
+            stroke: '#000',
+            strokeLinecap: 'square',
+            strokeMiterlimit: 10,
+            strokeWidth: '48px',
+          }}
+        />
+      );
     case 'arrow-redo-sharp':
       return (
         <g>
