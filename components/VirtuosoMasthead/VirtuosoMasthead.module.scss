@@ -10,11 +10,16 @@
 
   @include media-sm {
     margin-top: -5rem;
-    margin-right: -2rem;
-    margin-left: -2rem;
+    margin-right: -1rem;
+    margin-left: -1rem;
     padding-top: 5rem;
     padding-right: 2rem;
     padding-left: 2rem;
+  }
+
+  @include media-md {
+    margin-right: -2rem;
+    margin-left: -2rem;
   }
 
   // @include media-xlg {

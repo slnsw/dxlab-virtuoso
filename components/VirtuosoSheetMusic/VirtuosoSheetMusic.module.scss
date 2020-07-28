@@ -133,7 +133,7 @@
 .creator {
   @extend .font-uppercase;
 
-  margin-bottom: 0;
+  margin-bottom: var(--spacing-lg);
   font-family: var(--font-secondary);
 }
 

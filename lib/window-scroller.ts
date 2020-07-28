@@ -63,11 +63,13 @@ export const createWindowScroller = ({
   }
 
   function stop() {
-    isScrolling = false;
+    // console.log('stop', requestId);
+
     window.cancelAnimationFrame(requestId);
+    isScrolling = false;
     requestId = undefined;
 
-    destroy();
+    removeEventListeners();
   }
 
   function status() {
@@ -78,7 +80,7 @@ export const createWindowScroller = ({
     increment = updatedIncrement;
   }
 
-  function destroy() {
+  function removeEventListeners() {
     document.removeEventListener('mousewheel', handleUserScroll);
     document.removeEventListener('touchmove', handleUserScroll);
   }
@@ -87,6 +89,8 @@ export const createWindowScroller = ({
    * Handle any user interaction that causes scroll changes
    */
   function handleUserScroll() {
+    // console.log('handleUserScroll', userTimeout);
+
     // Detect when scrolling is stopped, in particular momentum scrolling.
     if (userTimeout) {
       // Keep on clearing timeout until scrolling stops
@@ -108,7 +112,10 @@ export const createWindowScroller = ({
     start,
     stop,
     updateIncrement,
-    destroy,
+    destroy: () => {
+      stop();
+      removeEventListeners();
+    },
     status,
   };
 };
