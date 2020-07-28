@@ -19,6 +19,8 @@ import css from './VirtuosoSheetMusic.module.scss';
 
 const VirtuosoSheetMusic = ({
   song: currentSong,
+  prevSong,
+  nextSong,
   tempo,
   songKey,
   instrumentVolumes,
@@ -432,7 +434,24 @@ const VirtuosoSheetMusic = ({
           onEvent={handleEvent}
           songPercentage={songPercentage}
         />
-
+        <div className={css.prevNextLinks}>
+          {prevSong && (
+            <Link href={`/virtuoso/song/${prevSong}`}>
+              <a className={css.prevLink}>
+                <Icon name="chevron-back-dark" size="sm" />{' '}
+                <span className={css.prevLinkText}>Previous song</span>
+              </a>
+            </Link>
+          )}
+          {nextSong && (
+            <Link href={`/virtuoso/song/${nextSong}`}>
+              <a className={css.nextLink}>
+                <span className={css.nextLinkText}>Next song</span>{' '}
+                <Icon name="chevron-forward-dark" size="sm" />
+              </a>
+            </Link>
+          )}
+        </div>
         <ShareBox
           title={currentSong.title}
           pathname={`/virtuoso/song/${currentSong.slug}`}
