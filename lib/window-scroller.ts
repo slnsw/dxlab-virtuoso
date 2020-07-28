@@ -5,8 +5,8 @@ export const createWindowScroller = ({
   increment: initialIncrement = 0.4,
   fps = 60,
 } = {}) => {
-  let userScrollStatus = 'stopped';
-  let isScrolling = false;
+  let scrollStatus = 'stopped';
+  // let isScrolling = false;
   let increment = initialIncrement;
   const fpsInterval = 1000 / fps;
   // Get complete height of window
@@ -50,7 +50,7 @@ export const createWindowScroller = ({
 
   function start() {
     if (!requestId) {
-      isScrolling = true;
+      // isScrolling = true;
       // Ensure page starts scrolling from current offset
       scrollCount = window.pageYOffset;
 
@@ -65,14 +65,15 @@ export const createWindowScroller = ({
 
   function stop() {
     window.cancelAnimationFrame(requestId);
-    isScrolling = false;
+    // isScrolling = false;
     requestId = undefined;
 
     removeEventListeners();
   }
 
   function status() {
-    return isScrolling ? 'scrolling' : 'stopped';
+    // return isScrolling ? 'scrolling' : 'stopped';
+    return scrollStatus;
   }
 
   function updateIncrement(updatedIncrement) {
@@ -93,13 +94,9 @@ export const createWindowScroller = ({
     // Detect when scrolling is stopped, in particular momentum scrolling.
     if (userTimeout) {
       // Keep on clearing timeout until scrolling stops
-      // console.log('clearTimeout', userTimeout);
-
       window.clearTimeout(userTimeout);
     }
 
-    // Internally flag that we have 'paused' due to user scroll
-    userScrollStatus = 'paused';
     stop();
 
     // If timeout triggers, it means that scrolling has stopped
@@ -107,17 +104,22 @@ export const createWindowScroller = ({
       // Track scrolling position so when scroll starts up again, we are in the right spot.
       scrollCount = window.pageYOffset;
 
-      // Check for whether we 'paused' due to user scroll, otherwise we may start scrolling due to the event listeners firing.
-      if (userScrollStatus === 'paused') {
-        userScrollStatus = 'scrolling';
+      // Check for whether scroller.start() was run, otherwise we may start scrolling due to trigger happy event listeners firing.
+      if (scrollStatus === 'scrolling') {
         start();
       }
     }, 1000);
   }
 
   return {
-    start,
-    stop,
+    start: () => {
+      scrollStatus = 'scrolling';
+      start();
+    },
+    stop: () => {
+      scrollStatus = 'stopped';
+      stop();
+    },
     updateIncrement,
     destroy: () => {
       stop();

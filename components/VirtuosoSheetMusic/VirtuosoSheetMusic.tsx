@@ -373,7 +373,7 @@ const VirtuosoSheetMusic = ({
 
   return (
     <div className={css.virtuosoSheetMusic}>
-      <Link href="/virtuoso">
+      <Link as="/virtuoso">
         <a className={css.backLink}>
           <Icon name="chevron-back" size="sm" />{' '}
           <span className={css.backLinkText}>Back</span>
