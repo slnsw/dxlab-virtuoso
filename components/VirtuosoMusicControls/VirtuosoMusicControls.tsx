@@ -189,7 +189,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         theme="light"
         variant="secondary"
         disabled={!isSamplesLoaded || isAtStart}
-        size="sm"
+        // size="sm"
         className={css.button}
         onClick={handleSkipBackClick}
       >
@@ -224,7 +224,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       <CTAButton
         theme="light"
         variant="secondary"
-        size="sm"
+        // size="sm"
         className={[css.button, css.autoScrollButton].join(' ')}
         onClick={handleAutoScrollClick}
       >
