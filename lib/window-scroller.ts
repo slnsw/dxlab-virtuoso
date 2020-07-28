@@ -63,8 +63,10 @@ export const createWindowScroller = ({
   }
 
   function stop() {
-    isScrolling = false;
+    // console.log('stop', requestId);
+
     window.cancelAnimationFrame(requestId);
+    isScrolling = false;
     requestId = undefined;
 
     removeEventListeners();
@@ -87,6 +89,8 @@ export const createWindowScroller = ({
    * Handle any user interaction that causes scroll changes
    */
   function handleUserScroll() {
+    // console.log('handleUserScroll', userTimeout);
+
     // Detect when scrolling is stopped, in particular momentum scrolling.
     if (userTimeout) {
       // Keep on clearing timeout until scrolling stops

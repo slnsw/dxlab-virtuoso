@@ -201,23 +201,23 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         disabled={!isSamplesLoaded}
         onClick={handlePlayClickCallback}
       >
-        {!isSamplesLoaded ? (
+        {/* {!isSamplesLoaded ? (
           <>
             <Icon name="reload" />
           </>
         ) : (
+          <> */}
+        {isPlaying ? (
           <>
-            {isPlaying ? (
-              <>
-                <Icon name="stop" />
-              </>
-            ) : (
-              <>
-                <Icon name="play" />
-              </>
-            )}
+            <Icon name="stop" />
+          </>
+        ) : (
+          <>
+            <Icon name="play" />
           </>
         )}
+        {/* </>
+        )} */}
       </CTAButton>
 
       <CTAButton

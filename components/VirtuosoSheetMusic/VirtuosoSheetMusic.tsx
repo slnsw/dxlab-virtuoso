@@ -8,6 +8,7 @@ import Link from '../Link';
 import Icon from '../Icon';
 import SheetMusic from '../SheetMusic';
 import VirtuosoMusicControls from '../VirtuosoMusicControls';
+import CTAButton from '../CTAButton';
 import ShareBox from '../ShareBox';
 
 import samples from '../VirtuosoApp/samples';
@@ -102,9 +103,6 @@ const VirtuosoSheetMusic = ({
     }
 
     return function cleanup() {
-      console.log('cleanup');
-
-      scroller.current.stop();
       scroller.current.destroy();
     };
   }, [increment]);
@@ -415,6 +413,22 @@ const VirtuosoSheetMusic = ({
 
           <h1 className={css.title}>{currentSong.title}</h1>
           <p className={css.creator}>{currentSong.creator}</p>
+          <CTAButton
+            theme="light"
+            disabled={!isSamplesLoaded}
+            onClick={() => {
+              setIsPlaying(!isPlaying);
+            }}
+          >
+            {isSamplesLoaded ? (
+              <>
+                <Icon name={isPlaying ? 'stop' : 'play'} />{' '}
+                {isPlaying ? 'Stop' : 'Play'}
+              </>
+            ) : (
+              'Loading'
+            )}
+          </CTAButton>
         </header>
 
         <SheetMusic
