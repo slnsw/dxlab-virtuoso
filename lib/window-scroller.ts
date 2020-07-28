@@ -67,7 +67,7 @@ export const createWindowScroller = ({
     window.cancelAnimationFrame(requestId);
     requestId = undefined;
 
-    destroy();
+    removeEventListeners();
   }
 
   function status() {
@@ -78,7 +78,7 @@ export const createWindowScroller = ({
     increment = updatedIncrement;
   }
 
-  function destroy() {
+  function removeEventListeners() {
     document.removeEventListener('mousewheel', handleUserScroll);
     document.removeEventListener('touchmove', handleUserScroll);
   }
@@ -108,7 +108,10 @@ export const createWindowScroller = ({
     start,
     stop,
     updateIncrement,
-    destroy,
+    destroy: () => {
+      stop();
+      removeEventListeners();
+    },
     status,
   };
 };

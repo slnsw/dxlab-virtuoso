@@ -102,6 +102,9 @@ const VirtuosoSheetMusic = ({
     }
 
     return function cleanup() {
+      console.log('cleanup');
+
+      scroller.current.stop();
       scroller.current.destroy();
     };
   }, [increment]);
