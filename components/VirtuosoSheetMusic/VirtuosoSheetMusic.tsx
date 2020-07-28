@@ -451,9 +451,16 @@ const VirtuosoSheetMusic = ({
           onEvent={handleEvent}
           songPercentage={songPercentage}
         />
+
+        <ShareBox
+          title={currentSong.title}
+          pathname={`/virtuoso/song/${currentSong.slug}`}
+          theme="light"
+        />
+
         <div className={css.prevNextLinks}>
           {prevSong && (
-            <Link href={`/virtuoso/song/${prevSong}`}>
+            <Link as={`/virtuoso/song/${prevSong}`}>
               <a className={css.prevLink}>
                 <Icon name="chevron-back-dark" size="sm" />{' '}
                 <span className={css.prevLinkText}>Previous song</span>
@@ -461,7 +468,7 @@ const VirtuosoSheetMusic = ({
             </Link>
           )}
           {nextSong && (
-            <Link href={`/virtuoso/song/${nextSong}`}>
+            <Link as={`/virtuoso/song/${nextSong}`}>
               <a className={css.nextLink}>
                 <span className={css.nextLinkText}>Next song</span>{' '}
                 <Icon name="chevron-forward-dark" size="sm" />
@@ -469,11 +476,6 @@ const VirtuosoSheetMusic = ({
             </Link>
           )}
         </div>
-        <ShareBox
-          title={currentSong.title}
-          pathname={`/virtuoso/song/${currentSong.slug}`}
-          theme="light"
-        />
 
         {/* Reactronica Audio */}
         <Song bpm={tempo}>
