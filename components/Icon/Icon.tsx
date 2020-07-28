@@ -34,7 +34,7 @@ const Icon = ({ name, size = 'md', colour, style, className }) => {
 
 Icon.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xlg', 'xxlg']),
-  colour: PropTypes.oneOf(['white', 'grey', 'black']),
+  colour: PropTypes.oneOf(['white', 'grey', 'black', 'highlight']),
   style: PropTypes.object,
   className: PropTypes.string,
 };

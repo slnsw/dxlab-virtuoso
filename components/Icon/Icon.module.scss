@@ -14,11 +14,11 @@
     }
   }
 
-  .svg:hover {
-    > * {
-      fill: var(--colour-primary);
-    }
-  }
+  // .svg:hover {
+  //   > * {
+  //     fill: var(--colour-primary);
+  //   }
+  // }
 }
 
 .white {
@@ -41,6 +41,14 @@
   .svg {
     > * {
       fill: var(--colour-black);
+    }
+  }
+}
+
+.highlight {
+  .svg {
+    > * {
+      fill: var(--colour-highlight);
     }
   }
 }

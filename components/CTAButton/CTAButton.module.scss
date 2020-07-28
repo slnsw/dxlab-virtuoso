@@ -35,10 +35,10 @@
 .ctaButton:disabled {
   opacity: 0.5;
 
-  &:hover {
-    color: inherit;
-    border: 1px solid var(--colour-white);
-  }
+  // &:hover {
+  //   color: inherit;
+  //   border: 1px solid var(--colour-white);
+  // }
 }
 
 .sm {
@@ -59,4 +59,8 @@
 .light.secondary {
   background-color: var(--colour-grey-lightest);
   border: 1px solid var(--colour-grey-lightest);
+
+  &:hover {
+    border: 1px solid var(--colour-highlight);
+  }
 }
