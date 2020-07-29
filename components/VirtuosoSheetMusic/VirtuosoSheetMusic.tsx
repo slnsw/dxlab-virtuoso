@@ -29,7 +29,34 @@ const VirtuosoSheetMusic = ({
 }) => {
   const router = useRouter();
 
-  const notation = `${currentSong.header}K:${songKey}\n${currentSong.lines.join(
+  const keySwap = (k) => {
+    if (k === 'treble' || k === 'bass') {
+      return k;
+    }
+    return k.indexOf('m') > -1 ? k.replace('m', '') : `${k}m`;
+  };
+
+  const songKeySwap = (s) => {
+    const re = /\[(K:.+?)\]/;
+    const newLines = s.map((l) => {
+      const m = l.match(re);
+
+      return m
+        ? `${l.substr(0, m.index)}[${keySwap(m[1])}${l.slice(
+            m.index + m[1].length + 1,
+          )}`
+        : l;
+    });
+    // console.log(newLines);
+    return newLines;
+  };
+
+  const parsedLines =
+    currentSong.key !== songKey
+      ? songKeySwap(currentSong.lines)
+      : currentSong.lines;
+
+  const notation = `${currentSong.header}K:${songKey}\n${parsedLines.join(
     '\n',
   )}`;
 
@@ -122,22 +149,6 @@ const VirtuosoSheetMusic = ({
       setIsAtStart(false);
     }
   }, [isPlaying]);
-
-  const keySwap = (k) => {
-    if (k === 'treble' || k === 'bass') {
-      return k;
-    }
-    return k.indexOf('m') > -1 ? k.replace('m', '') : `${k}m`;
-  };
-
-  React.useEffect(() => {
-    console.log('Key changed: ', songKey);
-    const re = /\[K:(.+)\]/g;
-    const newLines = currentSong.lines.map((l) => {
-      return l.match(re);
-    });
-    // console.log(newLines);
-  }, [songKey]);
 
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');

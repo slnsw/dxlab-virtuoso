@@ -353,7 +353,7 @@ const songs = [
       '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [A,B,D] [A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [=E,,=E,] |',
       '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] |',
       '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,F,B,D] [A,F,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [B,,,B,,] [G,B,E] [=E,,=E,] |',
-      '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [F,=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, B,, G,, | E,, E,,, z ||:[K:Bbmaj]',
+      '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [F,=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, B,, G,, | E,, E,,, z ||:[K:Bb]',
       // page 2
       '[F,,F,] [A,CE] [A,CE] | A,, [F,A,CE] [CE] | [B,,B,] [B,D] [B,D] | B,, [B,D] [B,D] | D, [A,CD] [A,CD] | A, [CE] [CE] | D, [B,D] [B,D] | [=F,,=F,] [A,CE] [A,CE] |[F,,F,] [A,CE] [A,CE] |',
       'C, [F,A,E] [F,A,E] | B,, [F,B,D] [F,B,D] | F, [A,C] [A,C] | [D,,D,] [A,DF] [A,DF] | C, [A,CE] [F,,F,] | [B,,,B,,] [F,B,D] [F,B,D] |[1 [B,,,B,,] [F,B,D] z :|[2 [B,,,B,,] [C,,C,] [D,,D,] ||',
