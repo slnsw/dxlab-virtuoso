@@ -80,8 +80,8 @@
   opacity: 0.4;
 
   @include media-sm {
-    top: 1rem;
-    left: -6rem;
+    top: 0;
+    left: -7rem;
     width: 16rem;
     height: 16rem;
   }
@@ -148,7 +148,7 @@
   background-color: transparent;
 
   @include media-sm {
-    display: block;
+    display: none;
   }
 
   path {

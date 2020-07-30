@@ -383,10 +383,10 @@ const VirtuosoSheetMusic = ({
 
         <header className={css.header}>
           <div className={css.images}>
-            <a href={currentSong.url} className={css.imageHolder}>
+            <a href={currentSong.files[0].url} className={css.imageHolder}>
               <img
                 className={css.image}
-                src={currentSong.files[0].imageUrl}
+                src={currentSong.imageUrl}
                 alt={`${currentSong.title}, file 1`}
               />
             </a>

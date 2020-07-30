@@ -4,8 +4,9 @@ const songs = [
     slug: 'national-song-our-sailor-prince',
     creator: 'Neild, J. C',
     url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
-    imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
+    // imageUrl:
+    //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
+    imageUrl: '/virtuoso/images/national-song.png',
     key: 'A',
     // NOTE: '%%score 1 {2 | 3}' groups 1 and 2 together, seems to be a bug in ABCJS
     header: 'X:1\nM:4/4\nL:1/4\n%%score 1 2 | 3\n',
@@ -88,19 +89,19 @@ const songs = [
     tempo: 80,
     files: [
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+        url: 'https://collection.sl.nsw.gov.au/digital/PDwmkX2vLk6mO',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
       },
       {
         url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
         imageUrl:
-          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3750/37501761.jpg',
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501761.jpg',
       },
       {
         url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
         imageUrl:
-          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/150_150/3750/37501762.jpg',
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501762.jpg',
       },
     ],
   },
@@ -109,8 +110,7 @@ const songs = [
     slug: 'the-glebe-rowing-club-polka',
     creator: 'Bull, Josie L.',
     url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
-    imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
+    imageUrl: 'virtuoso/images/the-glebe-rowing-club-polka.png',
     key: 'F',
     header: 'X:1\nM:2/4\nL:1/8\n%%score {1 | 2}\n',
     // instruments: ['piano', 'piano'],
@@ -196,11 +196,7 @@ const songs = [
     slug: 'overland-mail-galop',
     creator: "D'Albert, Charles",
     url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
-    imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357060.jpg',
-    // imageUrl:
-    //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
-    // key: 'Gmaj',
+    imageUrl: '/virtuoso/images/overland-mail-galop.png',
     key: 'G',
     header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
     instruments: [
@@ -604,7 +600,7 @@ const songs = [
   // },
 
   {
-    title: 'Australian quadrilles - ENGEHURST',
+    title: 'Australian quadrilles: Engehurst',
     slug: 'australian-quadrilles-engehurst',
     creator: 'Ellard, Wm. (William)',
     url: 'https://collection.sl.nsw.gov.au/record/74VvqegAgybl/g738LRD6xrJx4',
