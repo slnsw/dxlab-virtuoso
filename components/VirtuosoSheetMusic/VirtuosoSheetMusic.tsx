@@ -1,7 +1,6 @@
 import React from 'react';
 import { Song, Track, Instrument } from 'reactronica';
 import { useRouter } from 'next/router';
-// import queryString from 'query-string';
 // import SheetMusic from '@slnsw/react-sheet-music';
 
 import Link from '../Link';
@@ -349,34 +348,6 @@ const VirtuosoSheetMusic = ({
     );
   };
 
-  const buildQuery = (oldQuery, newQuery) => {
-    const query = {
-      ...(oldQuery.tempo
-        ? {
-            tempo: oldQuery.tempo,
-          }
-        : {}),
-      ...(oldQuery.vol
-        ? {
-            vol: oldQuery.vol,
-          }
-        : {}),
-      ...(oldQuery.type
-        ? {
-            type: oldQuery.type,
-          }
-        : {}),
-      ...(oldQuery.key
-        ? {
-            key: oldQuery.key,
-          }
-        : {}),
-      ...newQuery,
-    };
-
-    return query;
-  };
-
   return (
     <div className={css.virtuosoSheetMusic}>
       <Link as="/virtuoso">
@@ -411,13 +382,31 @@ const VirtuosoSheetMusic = ({
         />
 
         <header className={css.header}>
-          <a href={currentSong.url}>
-            <img
-              className={css.thumbnail}
-              src={currentSong.imageUrl}
-              alt={currentSong.title}
-            />
-          </a>
+          <div className={css.images}>
+            <a href={currentSong.url} className={css.imageHolder}>
+              <img
+                className={css.image}
+                src={currentSong.files[0].imageUrl}
+                alt={`${currentSong.title}, file 1`}
+              />
+            </a>
+
+            <div className={css.thumbnails}>
+              {currentSong.files
+                .slice(1, currentSong.files.length)
+                .map((file, index) => {
+                  return (
+                    <a href={file.url} className={css.thumbnailHolder}>
+                      <img
+                        className={css.thumbnail}
+                        src={file.imageUrl}
+                        alt={`${currentSong.title}, file ${index + 1}`}
+                      />
+                    </a>
+                  );
+                })}
+            </div>
+          </div>
 
           <h1 className={css.title}>{currentSong.title}</h1>
           <p className={css.creator}>{currentSong.creator}</p>
@@ -517,6 +506,34 @@ const VirtuosoSheetMusic = ({
       </div>
     </div>
   );
+};
+
+const buildQuery = (oldQuery, newQuery) => {
+  const query = {
+    ...(oldQuery.tempo
+      ? {
+          tempo: oldQuery.tempo,
+        }
+      : {}),
+    ...(oldQuery.vol
+      ? {
+          vol: oldQuery.vol,
+        }
+      : {}),
+    ...(oldQuery.type
+      ? {
+          type: oldQuery.type,
+        }
+      : {}),
+    ...(oldQuery.key
+      ? {
+          key: oldQuery.key,
+        }
+      : {}),
+    ...newQuery,
+  };
+
+  return query;
 };
 
 export default VirtuosoSheetMusic;

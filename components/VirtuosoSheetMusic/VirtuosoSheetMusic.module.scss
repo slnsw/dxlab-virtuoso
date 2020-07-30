@@ -114,13 +114,43 @@
   text-align: center;
 }
 
-.thumbnail {
+.images {
+  margin-bottom: var(--spacing-lg);
+}
+
+.imageHolder {
+  display: inline-block;
+  margin-bottom: var(--spacing-xxxs);
+}
+
+.image {
   max-width: 8rem;
-  margin-bottom: var(--spacing-md);
+  height: auto;
+  vertical-align: top;
+}
+
+.thumbnails {
+  display: flex;
+}
+
+.thumbnailHolder {
+  height: auto;
+  margin-right: var(--spacing-xxxs);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.thumbnail {
+  width: auto;
+  height: 4rem;
+  vertical-align: top;
 }
 
 .title {
   margin-top: 0;
+  margin-bottom: var(--spacing-xxxs);
   color: var(--colour-black);
   font-weight: 600;
   font-size: var(--font-size-xlg);
@@ -133,7 +163,8 @@
 .creator {
   @extend .font-uppercase;
 
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xlg);
+  font-size: var(--font-size-sm);
   font-family: var(--font-secondary);
 }
 
