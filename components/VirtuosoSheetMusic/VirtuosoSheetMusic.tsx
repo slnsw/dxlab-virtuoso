@@ -15,6 +15,7 @@ import samples from '../VirtuosoApp/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
 import windowScrollTo from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
+import { songKeySwap } from './keySwap';
 
 import css from './VirtuosoSheetMusic.module.scss';
 
@@ -28,28 +29,6 @@ const VirtuosoSheetMusic = ({
   instrumentTypes,
 }) => {
   const router = useRouter();
-
-  const keySwap = (k) => {
-    if (k === 'treble' || k === 'bass') {
-      return k;
-    }
-    return k.indexOf('m') > -1 ? k.replace('m', '') : `${k}m`;
-  };
-
-  const songKeySwap = (s) => {
-    const re = /\[(K:.+?)\]/;
-    const newLines = s.map((l) => {
-      const m = l.match(re);
-
-      return m
-        ? `${l.substr(0, m.index)}[${keySwap(m[1])}${l.slice(
-            m.index + m[1].length + 1,
-          )}`
-        : l;
-    });
-    // console.log(newLines);
-    return newLines;
-  };
 
   const parsedLines =
     currentSong.key !== songKey
