@@ -51,6 +51,7 @@ const VirtuosoApp = ({ title, className, children }) => {
                   ariaLabel: 'About',
                 },
               ]}
+              onMenuItemClick={() => setIsMobileMenuOpen(false)}
             />
           </div>
         </HeaderNavV2>

@@ -396,7 +396,11 @@ const VirtuosoSheetMusic = ({
                 .slice(1, currentSong.files.length)
                 .map((file, index) => {
                   return (
-                    <a href={file.url} className={css.thumbnailHolder}>
+                    <a
+                      href={file.url}
+                      className={css.thumbnailHolder}
+                      key={file.imageUrl}
+                    >
                       <img
                         className={css.thumbnail}
                         src={file.imageUrl}
