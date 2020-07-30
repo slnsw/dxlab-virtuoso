@@ -417,83 +417,7 @@ const songs = [
       },
     ],
   },
-  // {
-  //   title: 'Sunny New South Wales',
-  //   slug: 'sunny-new-south-wales',
-  //   creator: 'E. Lewis Scott',
-  //   url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
-  //   imageUrl:
-  //     'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
-  //   key: 'Bb',
-  //   header: 'X:1\nM:4/4\nL:1/8\n%%score 1 2 | 3\n',
-  //   instruments: [
-  //     {
-  //       name: 'Voice',
-  //       volume: 0,
-  //       type: 'clarinet',
-  //       clef: 'treble',
-  //     },
-  //     {
-  //       name: 'Piano treble clef',
-  //       volume: -6,
-  //       type: 'piano',
-  //       clef: 'treble',
-  //     },
-  //     {
-  //       name: 'Piano bass clef',
-  //       volume: -6,
-  //       type: 'piano',
-  //       clef: 'bass',
-  //     },
-  //   ],
-  //   lines: [
-  //     'V:1 treble',
-  //     'V:2 treble',
-  //     'V:3 bass',
 
-  //     'V:1',
-  //     'z | Z | Z | Z | Z |',
-  //     'Z | Z | Z | Z ||',
-  //     'F| F D F B d (cB) A | G B A G F2 z F | F D F B dc B A | Gc c =B c2 z F |',
-  //     'w:We|often _hear~ men~ boast~ about~ the~ land|that~ gave * them~ birth, And|each~ one~~ thinks~ his~ native~ land~ the~ fair~-|est spot _on~ earth; In|',
-  //     'F-D F-B (dcB) A | G B A G F2 z F | c c (=Bc) d c c c |(GB) D =E F2 z F |',
-  //     "w:beauty, _riches, _power * * no|land~ can~ his sur-pass, * To|his~ all~ other _lands~ on~ earth~ can't|e-ven~ hold a glass! * If|",
-  //     // page 2
-  //     '(Fe) ec c A A D | F d d B F2 z F | F e e c c A A F | F d d B F2 z F |',
-  //     "w: other~ people~ have~ their~ boast,~ say why|then~ should~ not~ we?~ For we|can~ drink~ our~ jovial * toast~ and~ sing|with~ three~ times~ three, * There's|",
-  //     'F D FB d c B _A | G E G B !fermata!e2 z e | d B c A B G !fermata!F F | GB B A B2 x ||',
-  //     "w:not a _country~ in~ the~ world~ where |all that's~ good~ pre-vails, * As|here~ it does,~ in this,~ our land,~ our|_Sunny~ New~ South~ Wales!~ Then|",
-  //     '"@-80,40 Chorus" F |F D F B dc B A | G B A GF z2 F | G G !fermata!c c B A !fermata!G F |',
-  //     "w:Then|toast~ with~ me our~ happy~ land~ Where *|all that's~ good~ prevails; * Our|colour's~ blue,~ our~ hearts~ are~ true,~ In|",
-  //     '(G!fermata!e) G A B2 x ||z | z8 | z2 z2 z z2 ||',
-  //     'w: _Sunny~ New~ South~ Wales.|||',
-
-  //     // Voice 2
-  //     'V:2',
-  //     "[Ff] | [Ff][Dd][Ff][Bb] [dd'][cc'][Ba][bc] | [Gg][Ba][Aa][Gg][Ff] z2 [Ff] | [Ef][Dd][Ff][cb] [dd'][cc'][Bb][Aa] | [Gg][cc'][cd'][A=a] [cc']2 z [Ff] |",
-  //     "!ff![Ff][Dd][Ff][Ba] [dd'][cc'][Bb][Aa] | [Gf][Aa][cb][Ag] [Ff]2 \"_Cres:\"z d | d^c/d/ e/d/^F/d/ =c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] a2 z [FAD] ||",
-  //     'z | z [F,B,D][F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] | z [F,B,D][F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] |z [B,=E][B,E][EB,] ([A,C-F]2 [CF]) z |',
-  //     'z [B,DF][B,DF][B,DF] z [B,DF][B,DF][B,DF] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] | z [F,CF][F,CF][F,CF] z [A,CF][A,CF][A,CF] | [B,DG] z [B,C=E] z [A,CF]2- [A,CF] z |',
-  //     // page 2
-  //     '[A,E]F,[A,E]F, [A,E]F,[A,E]F, | [DF]F,[B,D]F, [B,D]F,[B,D]F, | [A,E]F,[A,E]F, [A,E]F,[A,E]F, | [B,D]F,[B,D]F, [B,D]F,[B,D]F, |',
-  //     'z [F,B,D][F,B,D][F,B,D] z [B,DG,][B,DG,][G,B,D] | z [G,B,E][G,B,E][G,EB,] [B,G,E]2 z2 | [FCd] z [DAc] z [DFB] z [B,DF] z | [B,EG]B [B,EB]A [DFB]3 ||',
-  //     'F |FDFB dcBA | GBAG F2 z F | [B,EG] z !fermata![=ECc] z [CFB]A [B,G][A,F] |',
-  //     "[B,EG] z [CEG]A [B,DFB]3 || d | dc/d/ e/d/^F/d/ c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] [Gb]2 [DFB] ||",
-
-  //     // Voice 3
-  //     'V:3',
-  //     '!f! z | B,,[D,F,B,][B,D,F,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | [C,,C,]2 [C,E,B,]2 ([F,,F,][^F,,^F,][G,,G,][A,,A,]) |',
-  //     'B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][B,,D,F,B,] | E,[F,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,] z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 | [F,,F,]2 [F,A,CE]2 [B,D]2 B,,,2 ||',
-  //     '!p! z | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |[E,,D,]2 z2 [B,,,B,,]2 z2 | [B,,,B,,]2 z2 [G,,,G,,]2 z2 | ([C,,C,-]4 ([F,,F,])[^F,,^F,][G,,G,][A,,A,]) |',
-  //     '[B,,B,]2 z2 [B,,,B,,]2 z2 | [E,,E,]2 z2 [B,,,B,,]2 z2 | [A,,,A,,]2 z2 [F,,F,]2 z2 | [G,,,B,,] z [C,,C,] z (G,,C,F,) z |',
-  //     // page 2
-  //     'F,,2 z2 F,,2 z2 | [B,,,B,,]2 z2 [B,,,B,,]2 z2 | F,,2 z2 F,,2 z2 | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |',
-  //     '[B,,,B,,]2 z2 [_A,,,_A,,]2 z2 | [G,,,G,,]2 z2 [E,,E,]2 z2 | [B,,B,] z [F,,F,] z [G,,G,] z !fermata![B,,B,,,] z | [E,,E,]2 z2 [B,,B,]3 ||',
-  //     '!f!z|B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | [E,,E,] z !fermata![C,,C,] z [F,,F,]2 !fermata![F,,F,]2 |',
-  //     '[E,,E,] !fermata!z [F,,F,]2 [B,,,B,,]3 || !f!z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 |[F,,F,]2 [F,A,CE]2 [B,,B,]2 [B,,,B,,] ||',
-  //   ],
-  //   tempo: 100,
-  // },
   {
     title: 'Sunny New South Wales',
     slug: 'sunny-new-south-wales',
@@ -598,6 +522,135 @@ const songs = [
         url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507453.jpg',
+      },
+    ],
+  },
+  // {
+  //   title: 'The Bridge We Have Been Waiting For',
+  //   slug: 'the-bridge-we-have-been-waiting-for',
+  //   creator: 'Jack Lumsdaine',
+  //   url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+  //   imageUrl:
+  //     'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
+
+  //   key: 'Bb',
+  //   header: 'X:1\nM:6/8\nL:1/8\n%%score 1 2 | 3\n',
+  //   instruments: [
+  //     {
+  //       name: 'Voice',
+  //       volume: 0,
+  //       type: 'violin',
+  //       clef: 'treble',
+  //     },
+  //     {
+  //       name: 'Piano treble clef',
+  //       volume: -6,
+  //       type: 'piano',
+  //       clef: 'treble',
+  //     },
+  //     {
+  //       name: 'Piano bass clef',
+  //       volume: -6,
+  //       type: 'piano',
+  //       clef: 'bass',
+  //     },
+  //   ],
+  //   lines: [
+  //     'V:1 treble',
+  //     'V:2 treble',
+  //     'V:3 bass',
+
+  //     'V:1',
+  //     'z3|z6|z6|z6|z6|z6|',
+  //     ' z6 | z6 | z6 || D2 ^C D2 C | D2 ^C D3 |',
+  //     ' F2 =E F2 E | F2 =E F2 A | c3- c2 B | c3 B3 | A6- |',
+  //     ' A6 | G2 ^F G2 F | G2 ^F G3 | G2 ^F G2 F | G2 ^F G3 |',
+  //     // w: |||||||||See the peo- ple|* the *|Hear the tamp- ing|of the feet to|days' * a|hol- i-|day||Flags are fly- ing|eve- ry- where|Carn.- * val is|* the a1r|
+  //     // w: ||||||||||* Street *|||||||||||
+  //     'V:2',
+  //     'F3 | B3 F3 | D3 B,3 | [B,DF]3- [B,DF]2 [B,EG] | [F,B,DF]3 [B,DF]2 [^A,=E^F] | [G,G]2 [B,=E] [CEA]2 B |',
+  //     '[_EFAc]3- [EFAc]2 B | [B,DFB]2 F[CE]GA | [B,DFB]2 z2 z2 || [B,D]2 ^C [B,D]2 C | [B,D]2 ^C [B,D]3 |',
+  //     '[DF]2 =E [DFB,]2 E | [B,DF]2 =E [DFB,]2 A | [Cc]3- [Cc]2 B | [Cc]3 [B,B]3 | [A,A]6 |',
+  //     '[A,A]6 | [CEG]2 ^F [CEG]2 F | [=B,FG]2 ^F [B,FG]3 | [CEG]2 ^F [CEG]2 F | [=B,FG]2 ^F [B,FG]3 |',
+  //     'V:3',
+  //     'F,3 | B,3 F,3 | D,3 B,,3 | [D,,D,]3- [D,,D,]2 [E,,E,] | [D,,D,]3 .[D,,D,]2 [^C,,^C,] | [C,,C,]3 [C,,C,]3 |',
+  //     '[F,,C,]3- [F,,C,]3 | [B,,,B,,]2 [F,,F,]2 z2 | [B,,,B,,]2 z2 z2 || [B,,F,]2 =E, [B,,F,]2 =E, | [B,,F,]2 =E, [B,,F,]3 |',
+  //     ' [B,,F,]3 [F,,F,]3 | [B,,F,]3 F,,3 | [D,,D,]6 | [_D,,_D,]3 [D,,D,]3 | C,6 |',
+  //     ' [F,,F,]6 | [C,,C,]3 G,,3 | D,3 G,,3 | [C,,C,]3 G,,3 | D,3 G,,3 |',
+  //   ],
+  //   tempo: 100,
+  //   files: [
+  //     {
+  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+  //       imageUrl:
+  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
+  //     },
+  //     {
+  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+  //       imageUrl:
+  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507451.jpg',
+  //     },
+  //     {
+  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+  //       imageUrl:
+  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507452.jpg',
+  //     },
+  //     {
+  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+  //       imageUrl:
+  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507453.jpg',
+  //     },
+  //   ],
+  // },
+
+  {
+    title: 'Australian quadrilles - ENGEHURST',
+    slug: 'australian-quadrilles-engehurst',
+    creator: 'Ellard, Wm. (William)',
+    url: 'https://collection.sl.nsw.gov.au/record/74VvqegAgybl/g738LRD6xrJx4',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3692/36922674.jpg',
+    // key: 'Ebmaj',
+    key: 'F',
+    header: 'X:1\nM:6/8\nL:1/8\n%%score { 1 2 }\n',
+    instruments: [
+      {
+        name: 'Piano',
+        volume: 0,
+        type: 'piano',
+        clef: 'treble',
+      },
+      {
+        name: 'Piano bass clef',
+        volume: -3,
+        type: 'piano',
+        clef: 'bass',
+      },
+    ],
+    lines: [
+      'V:1 treble',
+      'V:2 bass',
+      'V:1',
+      "\"@-98,0 No.5\"+segno+ [ff'] | [dd']2 [Bb] [Aa]2 [Gg] | [Ff]2 [Aa] [Dd]2 [Ee] | [Ff]2 [Gg] [Aa]2 [Bb] | [cc']3 [Aa]2 [ff'] |",
+      "[dd']2 [Bb] [Aa]2 [Gg] | [Ff]2 [Aa] [Dd]2 [Ff] | [Ee]2 [Gg] [Cc]2 [Ee] | ([Ff]3 [Ff]2) :: c | A2 c d2 e |",
+      'f2 c A2 F | A2 c d2 e | f3 e2 f | d2 B A2 G | [Ff]2 [Aa] [Dd]2 [Ff] |',
+      "[Ee]2 [Gg] [Cc]2 [Ee] | ([Ff]3 [FAf]2) !fermata!|| c' | d'3 f'e'd' | c'3 c'ba | b3 d'c'b |",
+      " a2 c' f'2 c' | d'3 f'e'd' | c'3 c'=ba | g/g'/f'/e'/d'/c'/ =b/a/g/f/e/d/ | c =B/c/e/g/ c'3 ||",
+
+      'V:2',
+      'z | B,,D,G, A,,^C,A, | D,F,A, B,,D,G, | A,,C,F, A,F,C, | A,,C,F, A,F,C, |',
+      'B,,D,G, A,,^C,A, | D,F,A, B,,D,G, | C,G,B, C,G,B, | F,A,C F2 :: z | F,A,C F,B,D |',
+      'F,A,C F,A,C | F,A,C F,B,^C | A,DF [A,^C]EG | B,DG A,,^C,A, | D,F,A, B,,D,G, |',
+      ' C,G,B, C,G,B, | F,A,C F2 !fermata!!fine!|| z | F,B,D FDB, | F,A,C FCA, | F,B,C E3 |',
+      'F,A,C DCA, | F,B,D A,CB, | F,A,C F z2 | [G,CE]3 [G,=B,F]3 | [CE] z2 "@-20,-70 al Segno"[CE]3 !D.C.!S||',
+    ],
+    tempo: 80,
+    files: [
+      {
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VvqegAgybl/g738LRD6xrJx4',
+        imageUrl:
+          'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3692/36922674.jpg',
       },
     ],
   },
