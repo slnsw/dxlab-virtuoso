@@ -396,7 +396,11 @@ const VirtuosoSheetMusic = ({
                 .slice(1, currentSong.files.length)
                 .map((file, index) => {
                   return (
-                    <a href={file.url} className={css.thumbnailHolder}>
+                    <a
+                      href={file.url}
+                      className={css.thumbnailHolder}
+                      key={file.imageUrl}
+                    >
                       <img
                         className={css.thumbnail}
                         src={file.imageUrl}
@@ -408,8 +412,6 @@ const VirtuosoSheetMusic = ({
             </div>
           </div>
 
-          <h1 className={css.title}>{currentSong.title}</h1>
-          <p className={css.creator}>{currentSong.creator}</p>
           <CTAButton
             theme="light"
             disabled={!isSamplesLoaded}
@@ -426,6 +428,11 @@ const VirtuosoSheetMusic = ({
               'Loading'
             )}
           </CTAButton>
+
+          <br />
+
+          <h1 className={css.title}>{currentSong.title}</h1>
+          <p className={css.creator}>{currentSong.creator}</p>
         </header>
 
         <SheetMusic
