@@ -56,10 +56,12 @@
 
 .headerNavInside {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  margin-top: -4rem;
 }
 
 .menu {
@@ -68,8 +70,7 @@
   // display: flex;
   margin-bottom: -0.2em;
   margin-left: var(--spacing-lg);
-  // margin: 0 auto;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   font-family: var(--font-secondary);
   text-align: center;
 
@@ -81,6 +82,11 @@
 .menuItem {
   margin-right: var(--spacing-lg);
   padding: var(--spacing-lg);
+  // border-top: 1px solid var(--colour-white);
+
+  &:first-child {
+    border-bottom: 1px solid var(--colour-white);
+  }
 }
 
 .menuIconButton {

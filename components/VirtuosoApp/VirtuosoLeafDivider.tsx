@@ -1,4 +1,8 @@
-const VirtuosoLeafDivider = ({ className }) => {
+type Props = {
+  className?: string;
+};
+
+const VirtuosoLeafDivider = ({ className }: Props) => {
   return (
     <svg width="100" height="12" className={className}>
       <path

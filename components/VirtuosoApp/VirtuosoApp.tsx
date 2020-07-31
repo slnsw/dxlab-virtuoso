@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 
 import App from '../App';
 import HeaderNavV2 from '../HeaderNavV2';
@@ -14,9 +15,13 @@ import VirtuosoLogo from './VirtuosoLogo';
 import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './VirtuosoApp.module.scss';
+import VirtuosoVertDivider from './VirtuosoVertDivider';
+import VirtuosoLeafDivider from './VirtuosoLeafDivider';
+import VirtuosoRibbonDivider from './VirtuosoRibbonDivider';
 
 const VirtuosoApp = ({ title, className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const router = useRouter();
 
   useLockBodyScroll(isMobileMenuOpen);
 
@@ -34,6 +39,8 @@ const VirtuosoApp = ({ title, className, children }) => {
 
         <HeaderNavV2 isOpen={isMobileMenuOpen}>
           <div className={css.headerNavInside}>
+            <VirtuosoVertDivider />
+            <VirtuosoRibbonDivider />
             <Menu
               className={css.menu}
               menuItemClassName={css.menuItem}
@@ -51,8 +58,10 @@ const VirtuosoApp = ({ title, className, children }) => {
                   ariaLabel: 'About',
                 },
               ]}
+              pathname={router.pathname}
               onMenuItemClick={() => setIsMobileMenuOpen(false)}
             />
+            <VirtuosoLeafDivider />
           </div>
         </HeaderNavV2>
 
