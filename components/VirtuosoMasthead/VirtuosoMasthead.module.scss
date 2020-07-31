@@ -186,15 +186,22 @@
 //   }
 // }
 
+.vertDivider,
 .musicSymbol2 {
   z-index: 1;
   grid-row-start: 1;
   grid-column-start: 1;
+  margin-top: var(--spacing-md);
+  margin-left: -5px;
 
   @include media-sm {
     grid-row-start: 1;
     grid-column-start: 2;
   }
+}
+
+.musicSymbol2 {
+  display: none;
 }
 
 // .musicSymbol3 {

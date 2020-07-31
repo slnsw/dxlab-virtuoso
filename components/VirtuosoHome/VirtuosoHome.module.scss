@@ -12,12 +12,19 @@
   }
 }
 
+.leafDivider {
+  display: block;
+  margin: 0 auto;
+}
+
 .heading {
   max-width: var(--container-width-lg);
+  margin-top: var(--spacing-xlg);
   margin-right: auto;
   margin-bottom: var(--spacing-lg);
   margin-left: auto;
   font-size: var(--font-size-md);
+  text-align: center;
 
   @include media-sm {
     margin-bottom: var(--spacing-xxlg);

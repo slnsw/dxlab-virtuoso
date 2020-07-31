@@ -6,6 +6,7 @@ import VirtuosoLogo from '../VirtuosoApp/VirtuosoLogo';
 
 // import songs from '../VirtuosoApp/songs';
 import CTALink from '../CTALink';
+import VirtuosoVertDivider from '../VirtuosoApp/VirtuosoVertDivider';
 
 type Props = {
   pathname?: string;
@@ -95,6 +96,8 @@ V:1
             ♩
           </p>
         </div>
+
+        <VirtuosoVertDivider className={css.vertDivider} />
 
         {/* <div className={[css.musicSymbol, css.musicSymbol3].join(' ')}>
           <p>♫</p>
