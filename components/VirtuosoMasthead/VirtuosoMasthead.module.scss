@@ -44,7 +44,7 @@
 .image1 {
   position: absolute;
   top: 0;
-  right: -10rem;
+  right: -9rem;
   z-index: 0;
   // display: none;
   width: 20rem;
@@ -73,6 +73,7 @@
   top: 1rem;
   left: -7rem;
   z-index: 0;
+  display: none;
   width: 12rem;
   height: 12rem;
   overflow: hidden;
@@ -80,6 +81,7 @@
   opacity: 0.4;
 
   @include media-sm {
+    display: block;
     top: 0;
     left: -7rem;
     width: 16rem;
