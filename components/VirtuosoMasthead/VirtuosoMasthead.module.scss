@@ -167,7 +167,8 @@
   font-family: var(--font-secondary);
 
   @include media-sm {
-    font-size: var(--font-size-xxxxlg);
+    // font-size: var(--font-size-xxxxlg);
+    font-size: 4.6em;
   }
 }
 
