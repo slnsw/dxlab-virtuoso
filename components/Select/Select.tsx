@@ -121,13 +121,18 @@ const Select: React.FC<Props> = ({
           };
         },
         // Value in 'control'
-        singleValue: (provided) => {
+        singleValue: (provided, state) => {
           return {
             ...provided,
             color: themeColour,
             top: '48%',
             fontFamily: 'var(--font-primary)',
             textTransform: 'capitalize',
+            ...(state.isDisabled
+              ? {
+                  opacity: disabledOpacity,
+                }
+              : {}),
           };
         },
         indicatorSeparator: (provided) => {
