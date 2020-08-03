@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 import App from '../App';
@@ -19,7 +18,25 @@ import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './VirtuosoApp.module.scss';
 
-const VirtuosoApp = ({ title, className, children }) => {
+type Props = {
+  title: string;
+  className?: string;
+  metaDescription?: string;
+  metaImageUrl?: string;
+  metaImageWidth?: number;
+  metaImageHeight?: number;
+  children: React.ReactNode;
+};
+
+const VirtuosoApp: React.FC<Props> = ({
+  title,
+  metaDescription,
+  metaImageUrl,
+  metaImageWidth,
+  metaImageHeight,
+  className,
+  children,
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const router = useRouter();
 
@@ -29,6 +46,10 @@ const VirtuosoApp = ({ title, className, children }) => {
     <App
       title={`${title} - Virtuoso`}
       className={[css.sheetMusicApp, className || ''].join(' ')}
+      metaDescription={metaDescription}
+      metaImageUrl={metaImageUrl}
+      metaImageWidth={metaImageWidth}
+      metaImageHeight={metaImageHeight}
     >
       <header className={css.header}>
         <DXLabLogo className={css.dxlabLogo} />
@@ -83,10 +104,6 @@ const VirtuosoApp = ({ title, className, children }) => {
       <Footer />
     </App>
   );
-};
-
-VirtuosoApp.propTypes = {
-  className: PropTypes.string,
 };
 
 export default VirtuosoApp;
