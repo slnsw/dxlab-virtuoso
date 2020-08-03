@@ -425,7 +425,9 @@ const VirtuosoSheetMusic = ({
                 {isPlaying ? 'Stop' : 'Play'}
               </>
             ) : (
-              'Loading'
+              <>
+                <Icon name="reload" className={css.loadingIcon} /> {'Loading'}
+              </>
             )}
           </CTAButton>
 

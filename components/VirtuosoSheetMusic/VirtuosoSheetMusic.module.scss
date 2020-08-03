@@ -189,6 +189,21 @@
   }
 }
 
+.loadingIcon {
+  transform-origin: 47% 50.5%;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 .sheetMusicContent .sheetMusic {
   // max-width: var(--container-width-lg);
   max-width: 55rem;
