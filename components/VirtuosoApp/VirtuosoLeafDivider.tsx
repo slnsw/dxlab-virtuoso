@@ -1,8 +1,12 @@
 type Props = {
+  theme?: 'dark' | 'light';
   className?: string;
 };
 
-const VirtuosoLeafDivider = ({ className }: Props) => {
+const VirtuosoLeafDivider = ({ theme = 'dark', className }: Props) => {
+  const colour =
+    theme === 'dark' ? 'var(--colour-white)' : 'var(--colour-black)';
+
   return (
     <svg width="100" height="12" className={className}>
       <path
@@ -11,7 +15,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         h 43
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -21,7 +25,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         h 43
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -32,7 +36,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         l -5 5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -43,7 +47,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         l -5 5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -54,7 +58,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         l -5 5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -65,7 +69,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         l 5 5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -76,7 +80,7 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         l 5 5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
@@ -87,11 +91,11 @@ const VirtuosoLeafDivider = ({ className }: Props) => {
         l 5 5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={colour}
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       />
-      <circle cx={50} cy={5} r={4} fill="var(--colour-white)" />
+      <circle cx={50} cy={5} r={4} fill={colour} />
     </svg>
   );
 };

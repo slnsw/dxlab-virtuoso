@@ -17,6 +17,7 @@ import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 import { songKeySwap } from './keySwap';
 
 import css from './VirtuosoSheetMusic.module.scss';
+import VirtuosoLeafDivider from '../VirtuosoApp/VirtuosoLeafDivider';
 
 const VirtuosoSheetMusic = ({
   song: currentSong,
@@ -433,6 +434,7 @@ const VirtuosoSheetMusic = ({
 
           <h1 className={css.title}>{currentSong.title}</h1>
           <p className={css.creator}>{currentSong.creator}</p>
+          <VirtuosoLeafDivider theme="light" />
         </header>
 
         <SheetMusic
