@@ -4,20 +4,20 @@ import { useRouter } from 'next/router';
 
 import App from '../App';
 import HeaderNavV2 from '../HeaderNavV2';
-import Progress from '../Progress';
+// import Progress from '../Progress';
 import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 import { VirtuosoThinLogo } from './VirtuosoLogo';
+import VirtuosoVertDivider from './VirtuosoVertDivider';
+import VirtuosoLeafDivider from './VirtuosoLeafDivider';
+import VirtuosoRibbonDivider from './VirtuosoRibbonDivider';
 
 import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './VirtuosoApp.module.scss';
-import VirtuosoVertDivider from './VirtuosoVertDivider';
-import VirtuosoLeafDivider from './VirtuosoLeafDivider';
-import VirtuosoRibbonDivider from './VirtuosoRibbonDivider';
 
 const VirtuosoApp = ({ title, className, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -76,7 +76,7 @@ const VirtuosoApp = ({ title, className, children }) => {
         <SLNSWLogo className={css.slnswLogo} />
       </header>
 
-      <Progress />
+      {/* <Progress /> */}
 
       <div className={css.content}>{children}</div>
 

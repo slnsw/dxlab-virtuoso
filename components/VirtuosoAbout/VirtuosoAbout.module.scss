@@ -8,8 +8,13 @@
   width: 100%;
   max-width: var(--container-width-md);
   margin: 0 auto;
-  padding: 0 var(--spacing-xxlg);
+  padding: var(--spacing-xxlg);
   overflow: auto;
   color: var(--colour-black);
   background-color: var(--colour-white);
+
+  h1 {
+    margin-top: 0;
+    font-size: var(--font-size-xlg);
+  }
 }

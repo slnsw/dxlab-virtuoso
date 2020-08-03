@@ -129,8 +129,12 @@
 
 .image {
   width: auto;
-  max-height: 8rem;
+  height: 8rem;
   vertical-align: top;
+
+  @include media-sm {
+    height: 10rem;
+  }
 }
 
 .thumbnails {
@@ -151,6 +155,10 @@
   width: auto;
   height: 3rem;
   vertical-align: top;
+
+  @include media-sm {
+    height: 4rem;
+  }
 }
 
 .title {
@@ -175,6 +183,10 @@
   margin-bottom: var(--spacing-lg);
   font-size: var(--font-size-sm);
   font-family: var(--font-secondary);
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxlg);
+  }
 }
 
 .sheetMusicContent .sheetMusic {
