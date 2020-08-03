@@ -362,7 +362,6 @@ const VirtuosoSheetMusic = ({
         <VirtuosoMusicControls
           className={css.songControls}
           instruments={currentSong.instruments}
-          // samples={samples}
           tempo={tempo}
           songKey={songKey}
           instrumentTypes={instrumentTypes}
@@ -459,6 +458,8 @@ const VirtuosoSheetMusic = ({
         <ShareBox
           title={currentSong.title}
           pathname={`/virtuoso/song/${currentSong.slug}`}
+          text={currentSong.description}
+          imageUrl={currentSong.imageUrl}
           theme="light"
         />
 
