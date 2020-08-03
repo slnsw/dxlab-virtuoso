@@ -17,6 +17,7 @@ import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';
 import { songKeySwap } from './keySwap';
 
 import css from './VirtuosoSheetMusic.module.scss';
+import VirtuosoLeafDivider from '../VirtuosoApp/VirtuosoLeafDivider';
 
 const VirtuosoSheetMusic = ({
   song: currentSong,
@@ -362,7 +363,6 @@ const VirtuosoSheetMusic = ({
         <VirtuosoMusicControls
           className={css.songControls}
           instruments={currentSong.instruments}
-          // samples={samples}
           tempo={tempo}
           songKey={songKey}
           instrumentTypes={instrumentTypes}
@@ -426,7 +426,9 @@ const VirtuosoSheetMusic = ({
                 {isPlaying ? 'Stop' : 'Play'}
               </>
             ) : (
-              'Loading'
+              <>
+                <Icon name="reload" className={css.loadingIcon} /> {'Loading'}
+              </>
             )}
           </CTAButton>
 
@@ -434,6 +436,7 @@ const VirtuosoSheetMusic = ({
 
           <h1 className={css.title}>{currentSong.title}</h1>
           <p className={css.creator}>{currentSong.creator}</p>
+          <VirtuosoLeafDivider theme="light" />
         </header>
 
         <SheetMusic
@@ -458,6 +461,8 @@ const VirtuosoSheetMusic = ({
         <ShareBox
           title={currentSong.title}
           pathname={`/virtuoso/song/${currentSong.slug}`}
+          text={currentSong.description}
+          imageUrl={currentSong.imageUrl}
           theme="light"
         />
 

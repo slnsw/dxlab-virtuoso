@@ -1,25 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 import App from '../App';
 import HeaderNavV2 from '../HeaderNavV2';
-import Progress from '../Progress';
+// import Progress from '../Progress';
 import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 import { VirtuosoThinLogo } from './VirtuosoLogo';
-
-import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
-
-import css from './VirtuosoApp.module.scss';
 import VirtuosoVertDivider from './VirtuosoVertDivider';
 import VirtuosoLeafDivider from './VirtuosoLeafDivider';
 import VirtuosoRibbonDivider from './VirtuosoRibbonDivider';
 
-const VirtuosoApp = ({ title, className, children }) => {
+import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
+
+import css from './VirtuosoApp.module.scss';
+
+type Props = {
+  title: string;
+  className?: string;
+  metaDescription?: string;
+  metaImageUrl?: string;
+  metaImageWidth?: number;
+  metaImageHeight?: number;
+  children: React.ReactNode;
+};
+
+const VirtuosoApp: React.FC<Props> = ({
+  title,
+  metaDescription,
+  metaImageUrl,
+  metaImageWidth,
+  metaImageHeight,
+  className,
+  children,
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const router = useRouter();
 
@@ -29,6 +46,10 @@ const VirtuosoApp = ({ title, className, children }) => {
     <App
       title={`${title} - Virtuoso`}
       className={[css.sheetMusicApp, className || ''].join(' ')}
+      metaDescription={metaDescription}
+      metaImageUrl={metaImageUrl}
+      metaImageWidth={metaImageWidth}
+      metaImageHeight={metaImageHeight}
     >
       <header className={css.header}>
         <DXLabLogo className={css.dxlabLogo} />
@@ -76,17 +97,13 @@ const VirtuosoApp = ({ title, className, children }) => {
         <SLNSWLogo className={css.slnswLogo} />
       </header>
 
-      <Progress />
+      {/* <Progress /> */}
 
       <div className={css.content}>{children}</div>
 
       <Footer />
     </App>
   );
-};
-
-VirtuosoApp.propTypes = {
-  className: PropTypes.string,
 };
 
 export default VirtuosoApp;

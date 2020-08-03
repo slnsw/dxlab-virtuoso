@@ -3,6 +3,10 @@ const songs = [
     title: 'National Song: Our Sailor Prince',
     slug: 'national-song-our-sailor-prince',
     creator: 'Neild, J. C',
+    year: '1867',
+    contents: '1 score (3 p.) ; 37 cm.',
+    description:
+      "Respectfully dedicated to His Royal Highness Prince Alfred. Sung by the composer at Mr. C. E. Horsley's concerts",
     url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
     // imageUrl:
     //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
@@ -109,9 +113,11 @@ const songs = [
     title: 'The Glebe Rowing Club Polka',
     slug: 'the-glebe-rowing-club-polka',
     creator: 'Bull, Josie L.',
+    year: '1870-1880',
+    contents: '1 score (3 p.) ; 36 cm.',
+    description: 'Dedicated to the members of the Glebe Rowing Club',
     url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
-    imageUrl:
-      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg', // 'virtuoso/images/the-glebe-rowing-club-polka.png',
+    imageUrl: '/virtuoso/images/the-glebe-rowing-club-polka.png',
     key: 'F',
     header: 'X:1\nM:2/4\nL:1/8\n%%score {1 | 2}\n',
     // instruments: ['piano', 'piano'],
@@ -197,6 +203,9 @@ const songs = [
     slug: 'overland-mail-galop',
     creator: "D'Albert, Charles",
     url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+    year: '1858-1864',
+    contents: '1 score (4 p.) ; 31 cm.',
+    description: null,
     imageUrl: '/virtuoso/images/overland-mail-galop.png',
     key: 'G',
     header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
@@ -284,10 +293,12 @@ const songs = [
     title: 'The Sutherland Waltz',
     slug: 'the-sutherland-waltz',
     creator: 'Katie Linton',
+    year: '1899',
+    contents: '1 score ( [5] p.) ; 38 cm.',
+    description: 'Dedicated to my mother. For Piano.',
     url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
-    // key: 'Ebmaj',
     key: 'Eb',
     header: 'X:1\nM:3/4\nL:1/4\n%%score { 1 | 2 }\n',
     instruments: [
@@ -414,11 +425,13 @@ const songs = [
       },
     ],
   },
-
   {
     title: 'Sunny New South Wales',
     slug: 'sunny-new-south-wales',
     creator: 'E. Lewis Scott',
+    year: '1880-1899',
+    contents: '1 score (2 p.) ; 36 cm.',
+    description: 'A popular and patriotic song.',
     url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
@@ -604,6 +617,10 @@ const songs = [
     title: 'Australian quadrilles: Engehurst',
     slug: 'australian-quadrilles-engehurst',
     creator: 'Ellard, Wm. (William)',
+    year: '1835',
+    contents: '1 score (5) p. : ill. ; 34 cm.',
+    description:
+      'Selected from the newest and most celebrated operas composed and arranged for the pianoforte or harp,',
     url: 'https://collection.sl.nsw.gov.au/record/74VvqegAgybl/g738LRD6xrJx4',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3692/36922674.jpg',

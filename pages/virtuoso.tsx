@@ -23,7 +23,7 @@ const config = {
 
 const VirtuosoPage = ({ router }) => {
   const { pathname, query } = router;
-  const slug = query.slug || 'national-song-our-sailor-prince';
+  const { slug } = query;
   const currentSong = songs.find((s) => s.slug === slug);
   const currentSongIndex = songs.findIndex((s) => s.slug === slug);
   let prevSong = null;
@@ -37,7 +37,7 @@ const VirtuosoPage = ({ router }) => {
     nextSong = songs[currentSongIndex + 1].slug;
   }
 
-  if (!currentSong) {
+  if (pathname === '/virtuoso/song/[slug]' && !currentSong) {
     return <Four04 />;
   }
 
@@ -45,18 +45,28 @@ const VirtuosoPage = ({ router }) => {
     pathname === '/virtuoso/song/[slug]'
       ? currentSong.title
       : config[pathname].title;
-  const tempo = query.tempo || currentSong.tempo;
+  const tempo = query.tempo || currentSong?.tempo;
   const instrumentVolumes =
-    query.vol || currentSong.instruments.map((instrument) => instrument.volume);
+    query.vol ||
+    currentSong?.instruments.map((instrument) => instrument.volume);
   const instrumentTypes =
-    query.type || currentSong.instruments.map((instrument) => instrument.type);
-  const songKey = query.key || currentSong.key;
+    query.type || currentSong?.instruments.map((instrument) => instrument.type);
+  const songKey = query.key || currentSong?.key;
+
+  const metaDescription =
+    currentSong?.description ||
+    "Listen to interactive sheet music from The State Library of NSW's Library's collection";
+  const metaImageUrl =
+    currentSong?.imageUrl || '/virtuoso/images/virtuoso-social.jpg';
 
   return (
     <VirtuosoApp
       title={title}
+      metaDescription={metaDescription}
+      metaImageUrl={metaImageUrl}
       // TODO: Add this when ready
-      // metaImageUrl
+      // metaImageWidth
+      // metaImageHeight
     >
       {(pathname === '/virtuoso' || pathname === '/virtuoso/about') && (
         <VirtuosoHomeMasthead pathname={pathname} />

@@ -1,8 +1,9 @@
 type Props = {
+  theme?: 'dark' | 'light';
   className?: string;
 };
 
-const VirtuosoRibbonDivider = ({ className }: Props) => {
+const VirtuosoRibbonDivider = ({ theme = 'dark', className }: Props) => {
   return (
     <svg width="100" height="12" className={className}>
       <path
@@ -13,7 +14,9 @@ const VirtuosoRibbonDivider = ({ className }: Props) => {
         a 3,2 0 0,0 0,-5
         "
         fill="transparent"
-        stroke="var(--colour-white)"
+        stroke={
+          theme === 'dark' ? 'var(--colour-white)' : 'var(--colour-black)'
+        }
         strokeWidth={1}
         // shapeRendering="optimizeSpeed"
       ></path>

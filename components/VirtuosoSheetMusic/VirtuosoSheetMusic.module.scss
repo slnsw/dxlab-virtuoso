@@ -128,9 +128,13 @@
 }
 
 .image {
-  max-width: 8rem;
-  height: auto;
+  width: auto;
+  height: 8rem;
   vertical-align: top;
+
+  @include media-sm {
+    height: 10rem;
+  }
 }
 
 .thumbnails {
@@ -149,8 +153,12 @@
 
 .thumbnail {
   width: auto;
-  height: 4rem;
+  height: 3rem;
   vertical-align: top;
+
+  @include media-sm {
+    height: 4rem;
+  }
 }
 
 .title {
@@ -158,19 +166,42 @@
   margin-bottom: var(--spacing-xxxs);
   color: var(--colour-black);
   font-weight: 600;
-  font-size: var(--font-size-xlg);
+  font-size: var(--font-size-lg);
   font-family: var(--font-primary);
   letter-spacing: 0;
   text-align: center;
   text-transform: none;
+
+  @include media-sm {
+    font-size: var(--font-size-xlg);
+  }
 }
 
 .creator {
   @extend .font-uppercase;
 
-  margin-bottom: 0;
+  margin-bottom: var(--spacing-lg);
   font-size: var(--font-size-sm);
   font-family: var(--font-secondary);
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxlg);
+  }
+}
+
+.loadingIcon {
+  transform-origin: 47% 50.5%;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .sheetMusicContent .sheetMusic {
