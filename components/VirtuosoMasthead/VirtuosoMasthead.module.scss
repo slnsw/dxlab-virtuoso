@@ -161,14 +161,16 @@
 .virtuosoLogo {
   @extend .font-uppercase;
 
+  z-index: 1;
   grid-row-start: 4;
-  // grid-column-start: 2;
+  grid-column: span 2;
+  width: 14rem;
   font-size: var(--font-size-xxlg);
   font-family: var(--font-secondary);
+  transform: translate(0, -41%);
 
   @include media-sm {
-    // font-size: var(--font-size-xxxxlg);
-    font-size: 4.6em;
+    width: 28rem;
   }
 }
 

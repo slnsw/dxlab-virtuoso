@@ -26,7 +26,7 @@
 
 .headerDivider {
   width: 1px;
-  height: var(--spacing-sm);
+  height: var(--spacing-xxs);
   margin: auto var(--spacing-sm) 0;
   background-color: var(--colour-white);
 }
@@ -41,6 +41,16 @@
 
 .virtuosoLogo {
   display: block;
+  height: 1.3em;
+  margin-top: -0.3em;
+
+  @include media-sm {
+    flex: 1 0 115px;
+    height: auto;
+    // width: 99px;
+    // height: 23px;
+    // margin-top: auto;
+  }
 }
 
 .slnswLogo {

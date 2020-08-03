@@ -10,7 +10,7 @@ import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
 import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
-import VirtuosoLogo from './VirtuosoLogo';
+import { VirtuosoThinLogo } from './VirtuosoLogo';
 
 import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
@@ -35,7 +35,7 @@ const VirtuosoApp = ({ title, className, children }) => {
 
         <span className={css.headerDivider}></span>
 
-        <VirtuosoLogo className={css.virtuosoLogo} />
+        <VirtuosoThinLogo className={css.virtuosoLogo} />
 
         <HeaderNavV2 isOpen={isMobileMenuOpen}>
           <div className={css.headerNavInside}>
