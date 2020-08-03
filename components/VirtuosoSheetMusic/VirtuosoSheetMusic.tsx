@@ -164,6 +164,7 @@ const VirtuosoSheetMusic = ({
 
   const handleEvent = (event) => {
     if (event && event.notes) {
+      console.log(event.notes);
       const allEventNotes = currentSong.instruments.map(
         (_, instrumentIndex) => {
           return (
