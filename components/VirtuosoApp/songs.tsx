@@ -11,6 +11,9 @@ const songs = [
     // imageUrl:
     //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
     imageUrl: '/virtuoso/images/national-song.png',
+    metaImageUrl: '/virtuoso/images/national-song-social.jpg',
+    metaImageWidth: 1200,
+    metaImageHeight: 638,
     key: 'A',
     // NOTE: '%%score 1 {2 | 3}' groups 1 and 2 together, seems to be a bug in ABCJS
     header: 'X:1\nM:4/4\nL:1/4\n%%score 1 {2 | 3}\n',
@@ -18,7 +21,7 @@ const songs = [
     instruments: [
       {
         name: 'Voice',
-        volume: 0,
+        volume: -6,
         type: 'clarinet',
         clef: 'treble',
       },
@@ -118,6 +121,9 @@ const songs = [
     description: 'Dedicated to the members of the Glebe Rowing Club',
     url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
     imageUrl: '/virtuoso/images/the-glebe-rowing-club-polka.png',
+    metaImageUrl: '/virtuoso/images/the-glebe-rowing-club-polka-social.jpg',
+    metaImageWidth: 1200,
+    metaImageHeight: 638,
     key: 'F',
     header: 'X:1\nM:2/4\nL:1/8\n%%score {1 | 2}\n',
     // instruments: ['piano', 'piano'],
@@ -207,6 +213,9 @@ const songs = [
     contents: '1 score (4 p.) ; 31 cm.',
     description: null,
     imageUrl: '/virtuoso/images/overland-mail-galop.png',
+    metaImageUrl: '/virtuoso/images/overland-mail-galop-social.jpg',
+    metaImageWidth: 1200,
+    metaImageHeight: 638,
     key: 'G',
     header: 'X:1\nM:2/4\nL:1/4\n%%score {1 2}\n',
     instruments: [
@@ -299,6 +308,9 @@ const songs = [
     url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
+    metaImageUrl: '/virtuoso/images/the-sutherland-waltz-social.jpg',
+    metaImageWidth: 1200,
+    metaImageHeight: 638,
     key: 'Eb',
     header: 'X:1\nM:3/4\nL:1/4\n%%score { 1 | 2 }\n',
     instruments: [
@@ -436,6 +448,9 @@ const songs = [
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
 
+    metaImageUrl: '/virtuoso/images/sunny-new-south-wales-social.jpg',
+    metaImageWidth: 1200,
+    metaImageHeight: 638,
     key: 'Bb',
     header: 'X:1\nM:4/4\nL:1/8\n%%score 1 {2 | 3}\n',
     instruments: [
@@ -625,6 +640,9 @@ const songs = [
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3692/36922674.jpg',
     // key: 'Ebmaj',
+    metaImageUrl: '/virtuoso/images/australian-quadrilles-engehurst-social.jpg',
+    metaImageWidth: 1200,
+    metaImageHeight: 638,
     key: 'F',
     header: 'X:1\nM:6/8\nL:1/8\n%%score { 1 2 }\n',
     instruments: [

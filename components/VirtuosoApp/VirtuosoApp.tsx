@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import App from '../App';
+import Link from '../Link';
 import HeaderNavV2 from '../HeaderNavV2';
 // import Progress from '../Progress';
 import Menu from '../Menu';
@@ -56,7 +57,11 @@ const VirtuosoApp: React.FC<Props> = ({
 
         <span className={css.headerDivider}></span>
 
-        <VirtuosoThinLogo className={css.virtuosoLogo} />
+        <Link href="/virtuoso">
+          <a className={css.virtuosoLogo}>
+            <VirtuosoThinLogo />
+          </a>
+        </Link>
 
         <HeaderNavV2 isOpen={isMobileMenuOpen}>
           <div className={css.headerNavInside}>
