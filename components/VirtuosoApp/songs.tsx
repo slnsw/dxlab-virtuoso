@@ -13,7 +13,8 @@ const songs = [
     imageUrl: '/virtuoso/images/national-song.png',
     key: 'A',
     // NOTE: '%%score 1 {2 | 3}' groups 1 and 2 together, seems to be a bug in ABCJS
-    header: 'X:1\nM:4/4\nL:1/4\n%%score 1 2 | 3\n',
+    header: 'X:1\nM:4/4\nL:1/4\n%%score 1 {2 | 3}\n',
+    // instruments: ['clarinet', 'piano', 'piano'],
     instruments: [
       {
         name: 'Voice',
@@ -37,7 +38,7 @@ const songs = [
     lines: [
       // voice 1
       'V:1 name="VOICE"',
-      '"_Con Spirito alla Marcia."Z|z4|z4|',
+      'z4|z4|z4|',
       'z4|E A/ c/ B G/F/|E e c2|',
       'w:|1.~Our Sail~-or Prince thy|no~-ble ship|',
       'w:|2.~Our Sail~-or Prince we|wel~-come Thee|',
@@ -50,7 +51,7 @@ const songs = [
       'w:Mo~- thers’ sake|The Queen to us so|dear,|',
       'E c/ B/4A/4 e c|d A B3/2 c/|E F A B|',
       'w:Hail to the * might~- ty|Land of Gold, Of|wav~- ing corn and|',
-      'w:In this fair * south~- ern|Land of ours, Through|o~- cean rolls be~-|',
+      'w:In this fair * south~- ern|Land of ours, Though|o~- cean rolls be~-|',
       'G2 z2|E c/ B/4A/4 e c|d A B2|',
       'w:vine|Of count-less * mul~- ti~-|tudes of sheep|',
       'w:tween|Our shores and * dear old|Eng~- land’s shores|',
@@ -59,7 +60,7 @@ const songs = [
       'w:We still re~- vere the|Queen.|||',
       // voice 2
       'V:2 clef=treble name="PIANO-"',
-      "!f![Ee] [Aa] [cc'] [B/b][A/a]|[Bb] [ee'] [c2c'2]|[Aa] [F/f][B/b] [cc'] [Bb]|",
+      "\"@-5,55 Con Spirito alla Marcia.\" !f![Ee] [Aa] [cc'] [B/b][A/a]|[Bb] [ee'] [c2c'2]|[Aa] [F/f][d/d'] [cc'] [Bb]|",
       '[Aa] [CEA] z [CEA]|z [CEA] z [B,DG]|z [B,DE] z [CEc]',
       '[A,/E/A/] z/ [D/E/G/] z/ [C/E/A/] z/ [C/F/c/] z/|z [^DG^B] z [=DG=B]|z [CEA] z [B,DG]|',
       // page 2
@@ -68,7 +69,7 @@ const songs = [
       '[B,EG] [EBd] [Ac] [EGB]|z [CEA] z [CEA]|z [A,DA] z [B,^DA]|',
       '[CEA] [A,EA] !fermata![B,^DA] [B,=DG]|[CA] ((3E/A/c/) e E|[EF] A/>d/ [Ec] ((3e/d/c/)|[EA] [CE] [CA] z ||',
       // voice 3
-      'V:3 clef=bass name="FORTE"',
+      'V:3 clef=bass name="FORTE."',
       'A,, [E,A,C] A,, [E,A,C]|G,, [E,G,D] A,, [E,A,C]|[C,,C,] [D,F,B,] [E,,E,] [E,G,D]|',
       '[A,,A,] z [A,,E,A,] z |[A,,A,] z [E,,E,] z|[G,,G,] z [A,,A,] z|',
       '[C,,/C,/] z/ [B,,,/B,,/] z/ [A,,,/A,,/] z/ [A,,/A,/] z/|[G,,G,] z [E,,E,] z|[A,,A,] z [E,,E,] z|',
@@ -76,20 +77,20 @@ const songs = [
       '[G,,G,] z [A,,A,] z|[C,,/C,/] z/ [D,,/D,/] z/ [E,,/E,/] z/ [E,,/E,/] z/|[A,,/A,/] z/ [A,-C-E-A] [A,/C/E/] z/ z|',
       '[A,,A,] z [G,,/G,/] z/ [A,,/A,/] z/ |[F,,2F,2] [E,,3/2E,3/2] [D,,/D,/]|[C,,C,] [D,,D,] [F,,F,] [D,,D,]|',
       '[E,,E,] E,2 E,|[A,,A,] z [=G,,=G,] z|[F,,F,] z [=F,,=F,] z|',
-      '[E,,E,] [C,,C,] !invertedfermata![B,,,B,,] [E,,E,]|[A,,A,] [C,2A,2E2] [C,A,]|[D,A,] [F,A,D] [E,A,] [E,B,DEG]|[A,,C,] [A,,E,A,] [A,,E,A,] z !fine!||',
+      '[E,,E,] [C,,C,] !invertedfermata![B,,,B,,] [E,,E,]|[A,,A,] [C,2A,2E2] [C,A,]|[D,A,] [F,A,D] [E,A,] [E,B,DEG]|[A,C] [A,,E,A,] [A,,E,A,] !fine! z||',
 
       'W:THIRD VERSE',
       'W:',
       'W:Though we have left the dear old land,',
       'W:We love it e’en the same,',
-      'W:And glory we the Britons still',
+      'W:And glory we are Britons still',
       'W:In heart, if not in name.',
       'W:We’ll ne’er forget that to these shores',
-      'W:Our Sailer Prince has been:',
+      'W:Our Sailor Prince has been:',
       'W:But in our prayers we’ll link the names',
       'W:Of Alfred and our Queen.',
     ],
-    tempo: 80,
+    tempo: 110,
     files: [
       {
         url: 'https://collection.sl.nsw.gov.au/digital/PDwmkX2vLk6mO',
@@ -164,12 +165,12 @@ const songs = [
       'B,,[D,G,] B,,[D,G,]|C,[F,A,] C,[F,A,]|C,[G,B,] C,[G,B,]|[F,A,][A,C][A,C]:||:[K:Am] z|D,[F,G,B,] G,,[F,G,B,]|',
       'C,[G,C] E,[G,C]|D,[F,G,B,] G,,[F,G,B,]|C,[G,C] E,[G,C]|F,[A,D] F,[A,D]|G,[CE] G,[CE]|G,[B,D] G,[B,D]|',
       'E,[G,C] C, z|D,[F,G,B,] G,,[F,G,B,]|C,[G,C] E,[G,C]|D,[F,G,B,] G,,[F,G,B,]|C,[G,C] E,[G,C]|F,[A,D] F,[A,D]|',
-      'G,[CE] G,[CE]|G,[B,F] G,[B,F]|[CE][C,C][C,C] z||E,[G,C] D,[G,B,]|D,[G,D] E,[G,C]|E,[A,C] G,[CE]|',
+      'G,[CE] G,[CE]|G,[B,F] G,[B,F]|[CE][C,C][C,C] z||E,[G,C] D,[G,B,]|D,[G,D] E,[G,C]|F,[A,C] G,[CE]|',
       'G,[B,F] G,[B,F]|E,[G,C] D,[G,B,]|D,[G,D] E,[G,C]|F,[A,C] G,[CE]|G,[B,F] [C2E2]|E,[G,C] D,[G,B,]|',
       'D,[G,D] E,[G,C]|F,[A,C] G,[CE]|G,[B,F] G,[B,D]|E,[G,C] D,[G,B,]|D,[G,D] E,[G,C]|F,[A,C] G,[CE]|',
       // page 3
-      'G,[B,F] [CE]:||[K:F] Oz|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] [F,,F,][A,CF]|[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|',
-      '[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] F,[A,CF]|G,[CE] G,[=B,F]|[CE][CE][CE] z|[G,,G,][B,CE] [C,,C,][A,CF]|[F,,F,][A,CF] [F,,F,][A,CF]|',
+      'G,[B,F] [CE]:||[K:F] z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] [F,,F,][A,CF]|[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|',
+      '[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] F,[A,CF]|G,[CE] G,[=B,F]|[CE][CE][CE] z|[G,,G,][B,CE] [C,,C,][B,CE]|[F,,F,][A,CF] [F,,F,][A,CF]|',
       '[G,,G,][B,CE] [C,C][B,CE]|F,[A,CF] F,[A,CF]|F,[B,DF] F,[B,DF]|F,[A,CF] F,[A,CF]|G,[B,CE] C,[B,CE]|F,[A,CF] C,[B,CE]|',
       '[FF,]C,A,,F,,|[F,,F,][F,,F,][F,,F,][F,,F,]|[F,,2F,2] [C,2C2]|"_tremolo"(!trem2![F,,4F,]|!fermata![F,,4F,4])]|',
     ],
@@ -225,7 +226,7 @@ const songs = [
     lines: [
       'V:1 clef=treble name=VIVACE.',
       '!ff!d>e|A>B|c/A/E/F/|G/ z/ z/ d/||',
-      "+segno+:|!p!B/d/g/a/|g>g|d/g/b/c'/|b>b|b/a/a/d/|",
+      "+segno+|:!p!B/d/g/a/|g>g|d/g/b/c'/|b>b|b/a/a/d/|",
       'a>a|a/g/g/B/|d>d|B/d/g/a/|g>g|',
       "d/g/b/c'/|b>b|b/a/a/g/|a/g/g/d/|g/f/e/f/|1g/ z/ g/ d/:|2g/ z/ g/ z/||",
       // page 2
@@ -237,16 +238,16 @@ const songs = [
       "[dd']>c'|b>a|g>a|g/a/B/d/|{cd}c/B/c/ z/||",
       // page 3
       "[Ee]>[^D^d]|[Ee]>[^D^d]|!f![E/e]=d'/c'/b/|{ab}a/^g/ a|[Gg]>[^F^f]|[Gg]>[^F^f]|",
-      "!f![G/g]=f'/e'/d'/|{c'd'}c'/b/ c'|!p!d'/f'/e'/d'/|c'/g/{b/}a/g/|f/a/g/a/|e/f/ g|d'/f'/e'/d'/|",
+      "!f![G/g]=f'/e'/d'/|{c'd'}c'/b/ c'|!p!d'/f'/e'/d'/|c'/g/{b/}a/g/|f/a/g/f/|e/f/ g|d'/f'/e'/d'/|",
       "c'/g/{b/}a/g/|a/g/a/b/|c'/ z/ c'/ z/|!p!d'/f'/e'/d'/|c'/g/{b/}a/g/|f/a/g/f/|e/f/ g|",
       "d'/f'/e'/d'/|c'/g/{b}a/g/|a/g/a/b/|!ff![e/gc'][e/gc'][e/gc'][e/gc']|[e/gc'][e/gc'][e/gc'][e/gc']|[e/gc'][e/gc'][e/gc'][e/gc']|[e/gc'][e/gc'][e/gc'][e/gc']|",
-      "[e/gc'][e/gc'][e/gc'][e/gc']|[e/gc'][e/gc'][e/gc'][e/gc']|[e/gc'][e/gc'][e/gc'][e/gc']|[e/gc'][e/gc'][e/gc'][e/gc']|d'/f'/e'/d'/|c'/g/{b}a/g/|",
+      "[e/ac'][e/ac'][e/ac'][e/ac']|[e/ac'][e/ac'][e/ac'][e/ac']|[e/ac'][e/ac'][e/ac'][e/ac']|[e/ac'][e/ac'][e/ac'][e/ac']|d'/f'/e'/d'/|c'/g/{b}a/g/|",
       "f/a/g/f/|e/f/ g|d'/f'/e'/d'/|c'/g/{b}a/g/|a/g/a/b/|c'/ z/ c'/ z/+segno+||",
       // annnd
       // bass clef data
       'V:2 clef=bass stem=down',
-      '[K:G][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[A,,/A,][B,/D] G,/[B,/D]||',
-      ':|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F/,[C/D] F/,[C/D]|',
+      '[K:G][D,D]>[E,E]|[A,,A,]>[B,,B,]|[C,/C][A,,/A,][E,,/E,][F,,/F,]|[G,,/G,][B,/D] G,/[B,/D]||',
+      '|:G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|F,/[C/D] F,/[C/D]|',
       'D,/[C/D] D,/[C/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/D] G,/[B,/D]|G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|',
       'G,/[B,/DG] G,/[B,/DG]|G,/[B,/DG] G,/[B,/DG]|C,/[E,/A,] C,/[E,/A,]|D,/[G,/B,] D,/[G,/B,]|D,/[A,/C] D,/[A,/C]|1[G,/B,] z/ [G,/B,] x/:|2[G,/B,] z/ [G,/B,] z/||',
       // page 2
@@ -262,7 +263,7 @@ const songs = [
       'G,/[C/E] G,/[C/E]|G,/[D/F] G,/[D/F]|[C/E] z/ [C/E] z/|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,,/[F,/G,B,][F,/G,B,][F,/G,B,]|C,/[E,/G,C][E,/G,C][E,/G,C]|',
       'F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,/[D/F] G,/[D/F]|[CE]>C,|!accent!E, !accent!G,|!accent!C !accent!G,|!accent!E, !accent!C,|',
       '!accent![A,,A,]>A,,|!accent!C, !accent!E,|!accent!A, !accent!E,|!accent!C, !accent!A,,|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|',
-      'G,,/[F,/G,B,][F,/G,B,][F,/G,B,]|C,/[E,/G,C][E,/G,C][E,/G,C]|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,/[D/F] G,/[D/F]|[C/E] z/ [C/E] z/ !D.C.!||',
+      'G,,/[F,/G,B,][F,/G,B,][F,/G,B,]|C,/[E,/G,C][E,/G,C][E,/G,C]|F,/[A,/D] F,/[A,/D]|G,/[C/E] G,/[C/E]|G,/[D/F] G,/[D/F]|[C/E] z/ [C/E]  !D.C.! z/||',
     ],
     tempo: 130,
     files: [
