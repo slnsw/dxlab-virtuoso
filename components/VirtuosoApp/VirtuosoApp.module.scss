@@ -45,8 +45,9 @@
   margin-top: -0.3em;
 
   @include media-sm {
-    flex: 1 0 115px;
-    height: auto;
+    flex: 1 0 100px;
+    height: 22px;
+    // height: auto;
     // width: 99px;
     // height: 23px;
     // margin-top: auto;
