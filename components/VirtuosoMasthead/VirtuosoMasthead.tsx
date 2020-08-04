@@ -1,5 +1,5 @@
 import React from 'react';
-import SheetMusic from '@slnsw/react-sheet-music';
+// import SheetMusic from '@slnsw/react-sheet-music';
 
 import css from './VirtuosoMasthead.module.scss';
 import { VirtuosoThickLogo } from '../VirtuosoApp/VirtuosoLogo';
@@ -14,12 +14,12 @@ type Props = {
 };
 
 const VirtuosoMasthead: React.FC<Props> = ({ pathname, className }) => {
-  const notation = `X:1
-M:4/4
-L:1/4
-K:A
-V:1
-|A G/ B/ E F|E A/ c/ B G/F/|`;
+  //   const notation = `X:1
+  // M:4/4
+  // L:1/4
+  // K:A
+  // V:1
+  // |A G/ B/ E F|E A/ c/ B G/F/|`;
 
   return (
     <div className={[css.virtuosoMasthead, className || ''].join(' ')}>
@@ -50,7 +50,7 @@ V:1
           )}
         </p>
 
-        <SheetMusic
+        {/* <SheetMusic
           id="masthead"
           notation={notation}
           responsive={true}
@@ -59,7 +59,7 @@ V:1
           // paddingLeft={0}
           // paddingRight={0}
           className={css.staff}
-        />
+        /> */}
 
         {/* <SheetMusic
         id="masthead2"
