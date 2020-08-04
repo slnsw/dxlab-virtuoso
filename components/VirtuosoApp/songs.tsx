@@ -21,7 +21,7 @@ const songs = [
     instruments: [
       {
         name: 'Voice',
-        volume: 0,
+        volume: -6,
         type: 'clarinet',
         clef: 'treble',
       },
