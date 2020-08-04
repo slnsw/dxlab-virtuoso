@@ -21,8 +21,7 @@ const config = {
   },
 };
 
-const VirtuosoPage = ({ router }) => {
-  const { pathname, query } = router;
+const VirtuosoPage = ({ query, pathname }) => {
   const { slug } = query;
   const currentSong = songs.find((s) => s.slug === slug);
   const currentSongIndex = songs.findIndex((s) => s.slug === slug);
@@ -58,15 +57,16 @@ const VirtuosoPage = ({ router }) => {
     "Listen to interactive sheet music from The State Library of NSW's Library's collection";
   const metaImageUrl =
     currentSong?.imageUrl || '/virtuoso/images/virtuoso-social.jpg';
+  const metaImageWidth = currentSong?.imageUrl ? 1200 : null;
+  const metaImageHeight = currentSong?.imageUrl ? 638 : null;
 
   return (
     <VirtuosoApp
       title={title}
       metaDescription={metaDescription}
       metaImageUrl={metaImageUrl}
-      // TODO: Add this when ready
-      // metaImageWidth
-      // metaImageHeight
+      metaImageWidth={metaImageWidth}
+      metaImageHeight={metaImageHeight}
     >
       {(pathname === '/virtuoso' || pathname === '/virtuoso/about') && (
         <VirtuosoHomeMasthead pathname={pathname} />
@@ -89,6 +89,17 @@ const VirtuosoPage = ({ router }) => {
       )}
     </VirtuosoApp>
   );
+};
+
+/*
+ * Without getInitialProps, query in router of component starts off as {} and then changes to { slug: 'blah' }. This is annoying.
+ * Now query resolves straight to { slug: 'blah' }, immediately bypassing a 404 page check, which is a good thing.
+ */
+VirtuosoPage.getInitialProps = ({ query, pathname }) => {
+  return {
+    query,
+    pathname,
+  };
 };
 
 export default VirtuosoPage;
