@@ -319,19 +319,19 @@ const songs = [
       'V:1 treble',
       'V:2 bass',
       'V:1',
-      '"@-92,45INTRODUCTION"!ff!"@-87,-44Con Bravara"[Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [^cB] | [Bd] z z | z3 | [Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [Bd] | [Be] z z | z3 |',
-      'B,2- B,/ [Bb]/ | [Bb] z [^c=e] | [df] z z | Z | B,3 |!arpeggio![DFAB]2 z |!arpeggio![dfab]2 z |"8va ----|"!arpeggio![Bdfa] "_rit"z z ||',
+      '"@-92,45INTRODUCTION"!ff!"@-89,-46Con Bravura"[Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [^cB] | [Bd] z z | z3 | [Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [Bd] | [Be] z z | z3 |',
+      'B,2- B,/ [Bb]/ | [Bb] z [^c=e] | [df] z z | z4 | B,3 |!arpeggio![DFAB]2 z |!arpeggio![dfab]2 z |"8va ----|"!arpeggio![Bdfa] "_rit"z z ||',
       "\"@-92,45WALTZ\"!f!!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [fbd'f']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [gGB]3- | [GBg] [Ff] [Gg] |",
       "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z | z [cc'] [Bb] |",
       "[GBeg] z [Begb] | [egbe'] z [gbe'g'] | [fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
-      "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cb] [gg'] [ff'] |\"@65,32 8va ------|\"e/g/b/e'/f/b/ | e' z f ||:[K:Bb]",
+      "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [gg'] [ff'] |\"@65,32 8va ------|\"e/g/b/e'/g/b/ | e' z f ||:[K:Bb]",
       // page 2
-      '!p!z {gf}e z | z {fe}c z | z {fd}B G | F z F | "_cres"^F z [FAcd] | [Ace] z [Ace^f] | [Bdg] z [Bdg] | !f![Acea] [Aceg] [Acd^f] |!p!z {gf}e z |',
-      'z {fe}c z | z {fd}B g | !f![Acfa] z [Acfa] | [Adfa] z [Adfa] | [cefa] [cefg] [cefa] | [Bdfb] [Bdfb] [Bdfb] |[1 [Bdfb] z f :|[2 x z2 ||',
+      '!p!z {gf}e z | z {fe}c z | z {fd}B G | F z F | "_cres"^F z [FAcd] | [Ace] z [Ace^f] | [Bdg] z [Bdg] | !f![Acea] [Aceg] [Acd=f] |!p!z {gf}e z |',
+      'z {fe}c z | z {fd}B g | !f![Acfa] z [Acfa] | [Adfa] z [Adfa] | [cefa] [cefg] [cefa] | [B3/2dfb] [B/dfb] [Bdfb] |[1 [Bdfb] z f :|[2 x z2 ||',
       "[K:Eb]!f! !arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [ff'bd']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [GBeg]3- |[GBeg] [Ff] [Gg] |",
-      "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [fbd']!<)! z z |z [cc'] [Bb] |",
+      "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z |z [cc'] [Bb] |",
       "!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | !arpeggio![fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Geg]3- |[Geg] [Ff] [Gg] |",
-      '"@-50,-45cres"[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc\']3/2 [dc\']/ [dc\'] | [cc\'] "@0,32 8ve ---|"[Gg] [Ff] | "@65,32 8ve ------|"e/g/b/e\'/g/b/ |e\' z z |',
+      '"@-50,-45cres"[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc\']3/2 [cc\']/ [cc\'] | [cc\'] "@0,32 8ve ---|"[Gg] [Ff] | "@65,32 8ve ------|"e/g/b/e\'/g/b/ |e\' z z |',
       // page 3
       '[K:Ab]!p![EAc] z [E=B] | [EAc] z/ c/=B/c/ | [EGBd] z [Ec] | [EGBd] z/ d/c/d/ | !f![EGBd] z [EGc] | [EGBd] [Geg]3/2 f/ | (e/!<(!=d/f/!<)!e/c/A/) |',
       '(C/E/!<(!A/c/e/a/)!<)! |!mf![EGB] z [E=A] | [EGB] z/ B/=A/B/ | [EGc] z [E=B] | [EGc] z/ c/=B/c/ | [EGd] z [EGc] | ([E/Gd]c/B/=A/c/B/) |',
@@ -347,9 +347,9 @@ const songs = [
       "[1!ff! [eac'e']3/2 [eac'e']/ [eac'e'] :|[2 \"_rit\"[d/gbd']g/_a/=a/c'/b/ ||[K:Eb] !mp!((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/) b |",
       "(f/a/b/c'/) b | (e/g/b/c'/) b | (=e/g/b/c'/) b | (b/c'/b/g/) e | d z c | ((3a/b/a/) f d | c z B | ",
       // page 5
-      "(d/f/a/c'/b/a/) | (g/f/e/d/c/B/) | c z d | [GBe]3/2 [GBe]/ [GBe] ||!ff! !arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | ([g-b-e'-g']3 |",
-      "[fbd'f']) z !arpeggio![egbe'] | [dbd'] z [cad'] | [Bfb] z [Afa] | [GBeg]3- | [GBeg] [Ff] [Gg] | [Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] |",
-      "[Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [dbd'] [e=ae'] | [cbd'] z z | z [cc'] [Bb] | !arpeggio![GBeg] z !arpeggio![Begb] |",
+      "(d/f/a/c'/b/a/) | (g/f/e/d/c/B/) | c z d | [GBe]3/2 [GBe]/ [GBe] ||!ff! !arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | ([f-b-d'-f']3 |",
+      "[fbd'f']) z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [GBeg]3- | [GBeg] [Ff] [Gg] | [Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] |",
+      "[Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [dbd'] [e=ae'] | [dbd'] z z | z [cc'] [Bb] | !arpeggio![GBeg] z !arpeggio![Begb] |",
       "!arpeggio![egbe'] z !arpeggio![e'gbg'] | !arpeggio![fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
       "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [gg'] [ff'] | [ee']3/2 [dd']/ [ee'] |",
       "[ff'] [ee'] [cc'] | [Bb]3/2 [=A=a]/ [Bb] | [cc']3/2 [=B=b]/ [cc'] | [dd']3/2 [cc']/ [dd'] | [egbe'] z z | [gbe'g'] z z | {/E}[EB,G,] z z !fermata!||",
@@ -357,7 +357,7 @@ const songs = [
       // bass clef:
       'V:2',
       'B,2- B,/ B,/ | B,2 =E | F z z | z3 | B,2- B,/ B,/ | B,2[K:treble] F | [B,G] z z | z3 | %8',
-      'B,,2- B,,/ B,,/ | B,, z[K:treble] G | [B,A] z z | Z[K:bass]| [B,,,B,,]3 |!arpeggio![B,,F,A,]2 z |[K:treble]!arpeggio![B,FA]2 z |!arpeggio![Bfa][K:bass] [C,,C,] [D,,D,] ||',
+      'B,,2- B,,/ B,,/ | B,, z[K:treble] G | [B,A] z z | z4 [K:bass]| [B,,,B,,]3 |!arpeggio![B,,F,A,]2 z |[K:treble]!arpeggio![B,FA]2 z |!arpeggio![Bfa][K:bass] [C,,C,] [D,,D,] ||',
       '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [A,B,D] [A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [=E,,=E,] |',
       '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] |',
       '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,F,B,D] [A,F,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [B,,,B,,] [G,B,E] [=E,,=E,] |',
@@ -377,7 +377,7 @@ const songs = [
       'E, [G,B,D] [G,B,D] | E, [G,B,D] [G,B,D] | [A,,,A,,] E,, C,, | A,,, A,, z ||:[K:Eb]',
       'E,, [G,B,E] [G,B,E] |B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | G,, [B,EG] [B,EG] |',
       // page 4
-      'C, [G,B,C=F] [G,B,CF] | E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
+      'C, [G,B,C=E] [G,B,CE] | E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
       'F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,F] | [E,,E,] [G,,,G,,] [=A,,,=A,,] ||[K:Bb] B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] |',
       'F,, [A,CE] [A,CE] | F,, [A,CE] [A,CE] | C, [F,A,C] [F,A,C] | F,, [A,CE] [A,CE] | B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] |',
       'B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] | F,, [A,CE] [A,CE] | F, [A,CE] [A,CE] | ^F, [A,D] [A,D] | G, [B,D] [B,D] | D, [^F,A,D] [F,A,D] |',
@@ -437,7 +437,7 @@ const songs = [
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
 
     key: 'Bb',
-    header: 'X:1\nM:4/4\nL:1/8\n%%score 1 2 | 3\n',
+    header: 'X:1\nM:4/4\nL:1/8\n%%score 1 {2 | 3}\n',
     instruments: [
       {
         name: 'Voice',
@@ -465,7 +465,7 @@ const songs = [
 
       'V:1',
       'z | Z | Z | Z | Z |',
-      'Z | Z | Z | Z ||',
+      'Z | Z | Z | z2 z2 z2 z ||',
       'F| F D F B d (cB) A | G B A G F2 z F | F D F B dc B A |',
       'w:We|often _hear~ men~ boast~ about~ the~ land|that~ gave * them~ birth, And|each~ one~~ thinks~ his~ native~ land~ the~ fair~-|',
       ' Gc c =B c2 z F |(FD) (FB) (dcB) A | G B A G F2 z F |',
@@ -477,16 +477,16 @@ const songs = [
       "w:then~ should~ not~ we?~ For we|can~ drink~ our~ jovial * toast~ and~ sing|with~ three~ times~ three, * There's|",
       'F D FB d c B _A | G E G B !fermata!e2 z e | d B c A B G !fermata!F F |',
       "w:not a _country~ in~ the~ world~ where |all that's~ good~ pre-vails, * As|here~ it does,~ in this,~ our land,~ our|",
-      ' GB B A B2 x ||"@-80,40 Chorus" F |F D F B dc B A | G B A GF z2 F |',
+      ' GB B A B2 z ||"@-80,40 Chorus" F |F D F B dc B A | G B A GF z2 F |',
       "w:_Sunny~ New~ South~ Wales!~ Then|Then|toast~ with~ me our~ happy~ land~ Where *|all that's~ good~ prevails; * Our|",
-      ' G G !fermata!c c B A !fermata!G F |(G!fermata!e) G A B2 x ||',
+      ' G G !fermata!c c B A !fermata!G F |(G!fermata!e) G A B3 ||',
       "w:colour's~ blue,~ our~ hearts~ are~ true,~ In| _Sunny~ New~ South~ Wales.|",
-      'z | z8 | z2 z2 z z2 ||',
+      'z | z8 | z2 z2 z2 z ||',
 
       // Voice 2
       'V:2',
-      "[Ff] | [Ff][Dd][Ff][Bb] [dd'][cc'][Ba][bc] | [Gg][Ba][Aa][Gg][Ff] z2 [Ff] | [Ef][Dd][Ff][cb] [dd'][cc'][Bb][Aa] | [Gg][cc'][cd'][A=a] [cc']2 z [Ff] |",
-      "!ff![Ff][Dd][Ff][Ba] [dd'][cc'][Bb][Aa] | [Gf][Aa][cb][Ag] [Ff]2 \"_Cres:\"z d | d^c/d/ e/d/^F/d/ =c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] a2 z [FAD] ||",
+      "[Ff] | [Ff][Dd][Ff][Bb] [dd'][cc'][Bb][Aa] | [Gg][Bb][Aa][Gg][Ff] z2 [Ff] | [Ff][Dd][Ff][Bb] [dd'][cc'][Bb][Aa] | [Gg][cc'][cc'][=B=b] [cc']2 z [Ff] |",
+      "!ff![Ff][Dd][Ff][Bb] [dd'][cc'][Bb][Aa] | [Gf][Aa][Bb][Gg] [Ff]2 \"_Cres:\"z d | d^c/d/ e/d/^F/d/ =c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] b2 [FBD] ||",
       'z | z [F,B,D][F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] | z [F,B,D][F,B,D][F,B,D] z [F,B,D][F,B,D][F,B,D] |',
       'z [B,=E][B,E][EB,] ([A,C-F]2 [CF]) z |z [B,DF][B,DF][B,DF] z [B,DF][B,DF][B,DF] | z [G,B,E][G,B,E][G,B,E] z [F,B,D][F,B,D][F,B,D] |',
 
@@ -495,13 +495,13 @@ const songs = [
       'z [F,B,D][F,B,D][F,B,D] z [B,DG,][B,DG,][G,B,D] | z [G,B,E][G,B,E][G,EB,] [B,G,E]2 z2 | [FCd] z [DAc] z [DFB] z [B,DF] z |',
       ' [B,EG]B [B,EB]A [DFB]3 ||F |FDFB dcBA | GBAG F2 z F |',
       ' [B,EG] z !fermata![=ECc] z [CFB]A [B,G][A,F] |[B,EG] z [CEG]A [B,DFB]3 ||',
-      " d | dc/d/ e/d/^F/d/ c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] [Gb]2 [DFB] ||",
+      " d | dc/d/ e/d/^F/d/ c/B/A/B/ G/B/e/g/ | [Ff][ee'][Gg][Aa] [Bb]2 [DFB] ||",
 
       // Voice 3
       'V:3',
       '!f! z | B,,[D,F,B,][B,D,F,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | E,[G,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][D,F,B,] | [C,,C,]2 [C,E,B,]2 ([F,,F,][^F,,^F,][G,,G,][A,,A,]) |',
-      'B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][B,,D,F,B,] | E,[F,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,] z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 | [F,,F,]2 [F,A,CE]2 [B,D]2 B,,,2 ||',
-      '!p! z | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |[E,,D,]2 z2 [B,,,B,,]2 z2 | [B,,,B,,]2 z2 [G,,,G,,]2 z2 |',
+      'B,,[D,F,B,][D,F,B,][D,F,B,] B,,[D,F,B,][D,F,B,][B,,D,F,B,] | E,[F,B,][G,B,][G,B,] B,,[D,F,B,][D,F,B,] z | [D,,D,]2 [D,^F,A,C]2 [G,B,]2 [E,G,B,]2 | [F,,F,]2 [F,A,CE]2 [B,D]2 B,,, ||',
+      '!p! z | [B,,,B,,]2 z2 [B,,,B,,]2 z2 |[E,,E,]2 z2 [B,,,B,,]2 z2 | [B,,,B,,]2 z2 [G,,,G,,]2 z2 |',
       ' ([C,,C,-]4 ([F,,F,])[^F,,^F,][G,,G,][A,,A,]) |[B,,B,]2 z2 [B,,,B,,]2 z2 | [E,,E,]2 z2 [B,,,B,,]2 z2 |',
 
       ' [A,,,A,,]2 z2 [F,,F,]2 z2 | [G,,,B,,] z [C,,C,] z (G,,C,F,) z |F,,2 z2 F,,2 z2 |',
