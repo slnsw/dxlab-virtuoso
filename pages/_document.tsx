@@ -4,11 +4,18 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html>
-        <Head></Head>
-        {/* <Head>
-          <link rel="stylesheet" href="/_next/style.css" />
-        </Head> */}
-        <body>
+        <Head>
+          <style>{`
+          .preload-transitions * {
+            -webkit-transition: none !important;
+            -moz-transition: none !important;
+            -ms-transition: none !important;
+            -o-transition: none !important;
+            transition: none !important;
+          }`}</style>
+        </Head>
+
+        <body className="preload-transitions">
           <Main />
           <NextScript />
         </body>
