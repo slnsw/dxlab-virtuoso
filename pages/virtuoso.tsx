@@ -56,9 +56,9 @@ const VirtuosoPage = ({ query, pathname }) => {
     currentSong?.description ||
     "Listen to interactive sheet music from The State Library of NSW's Library's collection";
   const metaImageUrl =
-    currentSong?.imageUrl || '/virtuoso/images/virtuoso-social.jpg';
-  const metaImageWidth = currentSong?.imageUrl ? 1200 : null;
-  const metaImageHeight = currentSong?.imageUrl ? 638 : null;
+    currentSong?.metaImageUrl || '/virtuoso/images/virtuoso-social.jpg';
+  const metaImageWidth = currentSong?.metaImageWidth || 1200;
+  const metaImageHeight = currentSong?.metaImageHeight || 638;
 
   return (
     <VirtuosoApp
