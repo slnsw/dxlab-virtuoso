@@ -59,7 +59,7 @@ const VirtuosoSheetMusic = ({
   ] = React.useState(false);
   const [songPercentage, setSongPercentage] = React.useState(0);
   // const [tempo, setTempo] = React.useState(currentSong.bpm);
-  const [increment] = React.useState(0.5);
+  const [increment, setIncrement] = React.useState(0.5);
 
   // isAutoScroll is stale in handleEvent and is difficult to rebind in ABC JS
   // isAutoScrollRef is mutable so its value is fresh. Need to keep
@@ -132,6 +132,17 @@ const VirtuosoSheetMusic = ({
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
+  React.useEffect(() => {
+    const songLengthInSeconds = (totalBeatsInSong / currentSong.tempo) * 60;
+    console.log('Song length: ', songLengthInSeconds);
+    const distanceToScroll = document.body.scrollHeight - window.innerHeight;
+    console.log('Distance to scroll: ', distanceToScroll);
+    const pixelsPerSecond = distanceToScroll / songLengthInSeconds;
+    console.log('Pixels per sec: ', pixelsPerSecond);
+    // assume FPS of scroller is 60
+    setIncrement(pixelsPerSecond / 60);
+  }, [totalBeatsInSong, currentSong]);
+
   /*
    * handle page being off screen
    */
@@ -191,6 +202,7 @@ const VirtuosoSheetMusic = ({
         // if (scroller.current.status()) {
         // console.log(scroller.current.status());
         const bottomStaffNotes = event.elements[event.elements.length - 1];
+        // console.log(bottomStaffNotes);
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
 
         if (
@@ -508,7 +520,7 @@ const VirtuosoSheetMusic = ({
                   notes={isPlaying ? notes : []}
                   samples={samples[instrumentType]}
                   options={{
-                    release: 1,
+                    release: instrumentType === 'violin' ? 3 : 1,
                   }}
                   onLoad={() => handleInstrumentLoad(instrumentIndex)}
                 />
