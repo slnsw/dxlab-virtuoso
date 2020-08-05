@@ -34,6 +34,10 @@ export const parseJSON = (json, { bpm }) => {
           // allow for ties to carry accidentals to next bar...
           adjustments = listAdjustments(staff.key.accidentals);
         }
+        if (note.el_type === 'key') {
+          // take not of key changes anywhere along a staff
+          adjustments = listAdjustments(note.accidentals);
+        }
         if (note.startTriplet) {
           tripletMultiplier = note.tripletMultiplier;
         }
@@ -66,7 +70,7 @@ export const parseJSON = (json, { bpm }) => {
             } else if (adjustments[`${noteName}`] === 'flat') {
               accidental = 'b';
             }
-            // fix no-existant notes.
+            // fix non-existant notes.
             if (noteName === 'E' && accidental === '#') {
               noteName = 'F';
               accidental = '';

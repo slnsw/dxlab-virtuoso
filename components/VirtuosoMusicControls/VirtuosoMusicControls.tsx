@@ -71,33 +71,25 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   onInstrumentTypeChange,
   onKeyClick,
 }) => {
-  // const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
+  const [tempoFieldValue, setTempoFieldValue] = React.useState(tempo);
   const [showMoreControls, setShowMoreControls] = React.useState(false);
 
   const handleTempoChangeUp = () => {
     const newTempo = tempo < 200 ? tempo + 1 : tempo;
     onTempoChange(newTempo);
-    // setTempoFieldValue(newTempo);
+    setTempoFieldValue(newTempo);
   };
 
   const handleTempoChangeDown = () => {
     const newTempo = tempo > 10 ? tempo - 1 : tempo;
     onTempoChange(newTempo);
-    // setTempoFieldValue(newTempo);
+    setTempoFieldValue(newTempo);
   };
 
   const handleTempoChange = (e) => {
-    const newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
+    // console.log(e.target.value);
 
-    // if (newTempo > 200) {
-    //   newTempo = 200;
-    // }
-
-    // if (newTempo < 10) {
-    //   newTempo = 10;
-    // }
-
-    onTempoChange(newTempo);
+    setTempoFieldValue(e.target.value);
     // setTempoFieldValue(e.target.value);
   };
 
@@ -119,7 +111,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     }
 
     onTempoChange(newTempo);
-    // setTempoFieldValue(newTempo);
+    setTempoFieldValue(newTempo);
 
     // event.preventDefault();
   };
@@ -156,10 +148,19 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     isPlaying,
   ]);
 
+  const handleTempoExitCallback = React.useCallback(handleTempoExit, [
+    isPlaying,
+  ]);
+
   React.useEffect(() => {
     const handleSpaceBarPress = (e) => {
       if (e.keyCode === 32) {
         handlePlayClickCallback();
+        e.preventDefault();
+      }
+      if (e.keyCode === 13 && e?.target?.type === 'number') {
+        handleTempoExitCallback(e);
+        e.stopPropagation();
         e.preventDefault();
       }
     };
@@ -169,7 +170,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
     return () => {
       document.removeEventListener('keydown', handleSpaceBarPress, false);
     };
-  }, [handlePlayClickCallback]);
+  }, [handlePlayClickCallback, handleTempoExitCallback]);
 
   const handleSkipBackClick = () => {
     onSkipBackClick();
@@ -232,7 +233,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       </CTAButton>
 
       <TempoControls
-        tempo={tempo}
+        tempo={tempoFieldValue}
         isPlaying={isPlaying}
         className={css.desktopTempoControls}
         onSubmit={handleFormSubmit}
