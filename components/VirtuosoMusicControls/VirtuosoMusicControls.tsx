@@ -4,24 +4,22 @@ import { Range } from 'react-range';
 import Select from '../Select/Select';
 import CTAButton from '../CTAButton';
 import Icon from '../Icon/Icon';
+
 import samples from '../VirtuosoApp/samples';
 
 import css from './VirtuosoMusicControls.module.scss';
 
 type Props = {
   className?: string;
-  // currentSong: any;
   instruments?: {
     name: string;
     volume: number;
     type: string;
     clef: 'treble' | 'bass';
   }[];
-  // samples: any;
   tempo: number;
   songKey: string;
   instrumentTypes: string[];
-  // setInstrumentTypes: Function;
   instrumentVolumes: number[];
   isPlaying: boolean;
   isAtStart: boolean;
@@ -54,7 +52,6 @@ const instrumentOptions = [
 const VirtuosoMusicControls: React.FC<Props> = ({
   className,
   instruments = [],
-  // samples,
   tempo,
   songKey,
   instrumentTypes,
@@ -87,20 +84,11 @@ const VirtuosoMusicControls: React.FC<Props> = ({
   };
 
   const handleTempoChange = (e) => {
-    // console.log(e.target.value);
-
     setTempoFieldValue(e.target.value);
-    // setTempoFieldValue(e.target.value);
   };
 
   const handleTempoExit = (e) => {
-    // let newTempo = Number.parseInt(tempoFieldValue, 10) || 1;
     let newTempo = e.target.value ? Number.parseInt(e.target.value, 10) : '';
-    // const handleTempoExit = () => {
-    //   let newTempo =
-    //     typeof tempoFieldValue === 'string'
-    //       ? Number.parseInt(tempoFieldValue, 10) || 1
-    //       : tempoFieldValue;
 
     if (newTempo > 200) {
       newTempo = 200;
@@ -112,12 +100,9 @@ const VirtuosoMusicControls: React.FC<Props> = ({
 
     onTempoChange(newTempo);
     setTempoFieldValue(newTempo);
-
-    // event.preventDefault();
   };
 
   const handleFormSubmit = (event) => {
-    // handleTempoExit(event);
     event.preventDefault();
   };
 
@@ -192,6 +177,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         disabled={!isSamplesLoaded || isAtStart}
         // size="sm"
         className={css.button}
+        aria-label="Skip back"
         onClick={handleSkipBackClick}
       >
         <Icon name="play-skip-back" size="sm" />
@@ -201,14 +187,9 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         // variant="secondary"
         className={css.button}
         disabled={!isSamplesLoaded}
+        aria-label={isPlaying ? 'Stop' : 'Play'}
         onClick={handlePlayClickCallback}
       >
-        {/* {!isSamplesLoaded ? (
-          <>
-            <Icon name="reload" />
-          </>
-        ) : (
-          <> */}
         {isPlaying ? (
           <>
             <Icon name="stop" />
@@ -218,14 +199,11 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             <Icon name="play" />
           </>
         )}
-        {/* </>
-        )} */}
       </CTAButton>
 
       <CTAButton
         theme="light"
         variant="secondary"
-        // size="sm"
         className={[css.button, css.autoScrollButton].join(' ')}
         onClick={handleAutoScrollClick}
       >
@@ -288,6 +266,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             css.instrumentControls,
             showMoreControls ? css.instrumentControlsVisible : '',
           ].join(' ')}
+          aria-expanded={showMoreControls}
         >
           <div className={css.mobileInstrumentControls}>
             <TempoControls
