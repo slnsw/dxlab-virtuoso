@@ -35,10 +35,12 @@
 .ctaButton:disabled {
   opacity: 0.5;
 
-  // &:hover {
-  //   color: inherit;
-  //   border: 1px solid var(--colour-white);
-  // }
+  &:hover {
+    // color: inherit;
+    color: var(--colour-white);
+    border: 1px solid var(--colour-white);
+    cursor: not-allowed;
+  }
 }
 
 .sm {
@@ -50,6 +52,10 @@
 .secondary {
   background-color: var(--colour-grey-darkest);
   border: 1px solid var(--colour-grey-darkest);
+
+  &:hover:disabled {
+    border: 1px solid var(--colour-grey-darkest);
+  }
 }
 
 .light {
@@ -62,5 +68,9 @@
 
   &:hover {
     border: 1px solid var(--colour-highlight);
+  }
+
+  &:hover:disabled {
+    border: 1px solid var(--colour-grey-lightest);
   }
 }
