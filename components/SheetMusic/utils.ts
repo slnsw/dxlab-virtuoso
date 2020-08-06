@@ -21,11 +21,13 @@ export const parseJSON = (json, { bpm }) => {
   const wholeNoteMultiplier = data.lines[0].staff[0].meter.value[0].den;
   const notes = {};
   let tripletMultiplier = 1;
+  const graceNotePortion = 0.4;
   const lines = Object.values(data.lines);
   for (line of lines) {
     let staffNum = 0;
     const staves = Object.values(line.staff);
     for (staff of staves) {
+      // console.log(staff);
       const voices = staff.voices[0];
       adjustments = listAdjustments(staff.key.accidentals);
       for (const note of voices) {
@@ -35,20 +37,78 @@ export const parseJSON = (json, { bpm }) => {
           adjustments = listAdjustments(staff.key.accidentals);
         }
         if (note.el_type === 'key') {
-          // take not of key changes anywhere along a staff
+          // take note of key changes anywhere along a staff
           adjustments = listAdjustments(note.accidentals);
         }
         if (note.startTriplet) {
           tripletMultiplier = note.tripletMultiplier;
         }
         if (note.pitches && note.el_type === 'note') {
-          const duration =
+          let duration =
             note.duration *
             tripletMultiplier *
             (60 / bpm) *
             wholeNoteMultiplier;
+
           const index = `s${note.startChar}e${note.endChar}`;
           const reactronicaNotes: Note[] = [];
+
+          let graceNoteDuration;
+          if (note.gracenotes) {
+            graceNoteDuration = duration * graceNotePortion; // / note.gracenotes.length;
+            // duration = duration * (1 - graceNotePortion);
+
+            for (const pitch of note.gracenotes) {
+              const noteAndOctave = computeNoteAndOctave(pitch.pitch);
+              let noteName = noteAndOctave.note;
+              let octave = noteAndOctave.octave;
+              // note this doesn't allow for double sharp, double flat, etc
+              let accidental = '';
+              if (pitch.accidental) {
+                adjustments[`${noteName}${octave}`] = pitch.accidental;
+              }
+              if (adjustments[`${noteName}${octave}`] === 'sharp') {
+                accidental = '#';
+              } else if (adjustments[`${noteName}${octave}`] === 'flat') {
+                accidental = 'b';
+              } else if (adjustments[`${noteName}${octave}`] === 'natural') {
+                accidental = '';
+              } else if (adjustments[`${noteName}`] === 'sharp') {
+                accidental = '#';
+              } else if (adjustments[`${noteName}`] === 'flat') {
+                accidental = 'b';
+              }
+              // fix non-existant notes.
+              if (noteName === 'E' && accidental === '#') {
+                noteName = 'F';
+                accidental = '';
+              } else if (noteName === 'F' && accidental === 'b') {
+                noteName = 'E';
+                accidental = '';
+              } else if (noteName === 'B' && accidental === '#') {
+                noteName = 'C';
+                accidental = '';
+                octave += 1;
+              } else if (noteName === 'C' && accidental === 'b') {
+                noteName = 'F';
+                accidental = '';
+                octave -= 1;
+              }
+              const midiNoteNumber = computeMidiNoteNumber(
+                noteName,
+                accidental,
+                octave,
+              );
+              const noteBlob = {
+                name: `${noteName}${accidental}${octave}`,
+                duration: graceNoteDuration,
+                octave,
+                line: staffNum,
+                midiNoteNumber,
+              };
+              reactronicaNotes.push(noteBlob);
+            }
+          }
 
           for (const pitch of note.pitches) {
             const noteAndOctave = computeNoteAndOctave(pitch.pitch);

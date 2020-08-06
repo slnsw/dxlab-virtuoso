@@ -219,13 +219,13 @@ const VirtuosoSheetMusic = ({
               ? scroller.current.getIncrement() / 2
               : scroller.current.getIncrement();
           scroller.current.updateIncrement(newIncrement);
-          console.log(newIncrement);
+          // console.log(newIncrement);
         } else if (bottomOfBottomNote > window.innerHeight * 0.85) {
           // playhead is getting dangerously close to the bottom
           // of our viewPort - speed up!
           const newIncrement = scroller.current.getIncrement() * 2;
           scroller.current.updateIncrement(newIncrement);
-          console.log(newIncrement);
+          // console.log(newIncrement);
         } else {
           // Playhead is back in the middle - easy our way back to normal speed
           const currentIncrement = scroller.current.getIncrement();
@@ -233,11 +233,11 @@ const VirtuosoSheetMusic = ({
           if (currentIncrement > originalIncrement * 1.2) {
             newIncrement = currentIncrement / 2;
             scroller.current.updateIncrement(newIncrement);
-            console.log(newIncrement);
+            // console.log(newIncrement);
           } else if (currentIncrement < originalIncrement * 0.8) {
             newIncrement = currentIncrement * 2;
             scroller.current.updateIncrement(newIncrement);
-            console.log(newIncrement);
+            // console.log(newIncrement);
           }
         }
 
