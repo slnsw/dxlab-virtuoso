@@ -59,7 +59,7 @@ const VirtuosoSheetMusic = ({
     setWasStoppedByVisibilityChange,
   ] = React.useState(false);
   const [songPercentage, setSongPercentage] = React.useState(0);
-  // const [tempo, setTempo] = React.useState(currentSong.bpm);
+
   const originalIncrement = 0.5;
   const [increment] = React.useState(originalIncrement);
 
@@ -81,27 +81,8 @@ const VirtuosoSheetMusic = ({
     }),
   );
 
-  // const [currentBeat, setCurrentBeat] = React.useState(0);
   const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
-
-  // Set up an array of instrument volumes and types
-  // const [instrumentVolumes, setInstrumentVolumes] = React.useState(
-  //   currentSong.instruments.map((instrument) => instrument.volume),
-  // );
-  // const [instrumentTypes, setInstrumentTypes] = React.useState(
-  //   currentSong.instruments.map((instrument) => instrument.type),
-  // );
   const [allNotes, setAllNotes] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   setInstrumentTypes(
-  //     currentSong.instruments.map((instrument) => instrument.type),
-  //   );
-  //   setInstrumentVolumes(
-  //     currentSong.instruments.map((instrument) => instrument.volume),
-  //   );
-  //   setTempo(currentSong.bpm);
-  // }, [currentSong]);
 
   React.useEffect(() => {
     if (scroller) {
@@ -128,25 +109,17 @@ const VirtuosoSheetMusic = ({
   React.useEffect(() => {
     if (isPlaying) {
       setIsAtStart(false);
+    } else {
+      // Clear previously played notes, otherwise Reactronica will trigger again
+      setAllNotes([]);
     }
   }, [isPlaying]);
 
   // Check if all samples have been loaded
   const isSamplesLoaded = samplesStatus.every((status) => status === 'loaded');
 
-  // React.useEffect(() => {
-  //   const songLengthInSeconds = (totalBeatsInSong / currentSong.tempo) * 60;
-  //   console.log('Song length: ', songLengthInSeconds);
-  //   const distanceToScroll = document.body.scrollHeight - window.innerHeight;
-  //   console.log('Distance to scroll: ', distanceToScroll);
-  //   const pixelsPerSecond = distanceToScroll / songLengthInSeconds;
-  //   console.log('Pixels per sec: ', pixelsPerSecond);
-  //   // assume FPS of scroller is 60
-  //   setIncrement(pixelsPerSecond / 60);
-  // }, [totalBeatsInSong, currentSong]);
-
   /*
-   * handle page being off screen
+   * Handle page being off screen
    */
   useDocumentVisibility((e) => {
     const document = e.target as HTMLDocument;
@@ -161,7 +134,6 @@ const VirtuosoSheetMusic = ({
 
   const handleBeat = (beatNumber, totalBeats) => {
     if (beatNumber && beatNumber > 0) {
-      // setCurrentBeat(beatNumber);
       currentBeatRef.current = beatNumber;
     }
 
@@ -178,7 +150,6 @@ const VirtuosoSheetMusic = ({
 
   const handleEvent = (event) => {
     if (event && event.notes) {
-      // console.log(event.notes);
       const allEventNotes = currentSong.instruments.map(
         (_, instrumentIndex) => {
           return (
@@ -201,8 +172,6 @@ const VirtuosoSheetMusic = ({
 
       // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
       if (isAutoScrollRef.current) {
-        // if (scroller.current.status()) {
-        // console.log(scroller.current.status());
         const topStaffNotes = event.elements[0];
         const topNote = topStaffNotes[0];
         const bottomStaffNotes = event.elements[event.elements.length - 1];
@@ -211,6 +180,7 @@ const VirtuosoSheetMusic = ({
         const bottomOfBottomNote =
           bottomNote.getBoundingClientRect().y +
           bottomNote.getBoundingClientRect().height;
+
         if (topOfTopNote < window.innerHeight * 0.2) {
           // playhead is getting dangerously close to the top of the
           // viewPort - slow down...
@@ -219,13 +189,11 @@ const VirtuosoSheetMusic = ({
               ? scroller.current.getIncrement() / 2
               : scroller.current.getIncrement();
           scroller.current.updateIncrement(newIncrement);
-          // console.log(newIncrement);
         } else if (bottomOfBottomNote > window.innerHeight * 0.85) {
           // playhead is getting dangerously close to the bottom
           // of our viewPort - speed up!
           const newIncrement = scroller.current.getIncrement() * 2;
           scroller.current.updateIncrement(newIncrement);
-          // console.log(newIncrement);
         } else {
           // Playhead is back in the middle - easy our way back to normal speed
           const currentIncrement = scroller.current.getIncrement();
@@ -233,11 +201,9 @@ const VirtuosoSheetMusic = ({
           if (currentIncrement > originalIncrement * 1.2) {
             newIncrement = currentIncrement / 2;
             scroller.current.updateIncrement(newIncrement);
-            // console.log(newIncrement);
           } else if (currentIncrement < originalIncrement * 0.8) {
             newIncrement = currentIncrement * 2;
             scroller.current.updateIncrement(newIncrement);
-            // console.log(newIncrement);
           }
         }
 
@@ -305,11 +271,6 @@ const VirtuosoSheetMusic = ({
       // Make sure we know that we are not
       // stopping because of going out of focus:
       setWasStoppedByVisibilityChange(false);
-
-      // Luke, I've commented this out, let me know if that is okay
-      // } else {
-      //   // We have started. Make sure we note that.
-      //   setIsAtStart(false);
     }
 
     if (wasStoppedByVisibilityChange && !isPlaying) {

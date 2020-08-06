@@ -38,11 +38,11 @@ const VirtuosoAbout = () => {
       </p>
       <p>
         We have transcribed the sheet music using{' '}
-        <a href="'https://en.wikipedia.org/wiki/ABC_notation">ABC Notation</a>{' '}
-        to render the music in beautifully clear notation in your browser. Then,
-        by writing some extra code, the note and timing information has been
-        sent to our <a href="https://reactronica.com/">audio engine</a> so you
-        can hear it played back while following along in the music.
+        <a href="https://en.wikipedia.org/wiki/ABC_notation">ABC Notation</a> to
+        render the music in beautifully clear notation in your browser. Then, by
+        writing some extra code, the note and timing information has been sent
+        to our <a href="https://reactronica.com/">audio engine</a> so you can
+        hear it played back while following along in the music.
       </p>
       <p>
         If you can play any of these scores, we would love to hear your version.
