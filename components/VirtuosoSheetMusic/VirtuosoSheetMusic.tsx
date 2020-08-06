@@ -126,6 +126,9 @@ const VirtuosoSheetMusic = ({
   React.useEffect(() => {
     if (isPlaying) {
       setIsAtStart(false);
+    } else {
+      // Clear previously played notes, otherwise Reactronica will trigger again
+      setAllNotes([]);
     }
   }, [isPlaying]);
 
