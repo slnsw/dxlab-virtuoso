@@ -401,6 +401,7 @@ const TempoControls = ({
           size="sm"
           disabled={isPlaying}
           className={[css.tempoButton, css.addTempoButton].join(' ')}
+          aria-label="Increase tempo"
           onClick={onDownClick}
         >
           <Icon name="remove" />
@@ -421,6 +422,7 @@ const TempoControls = ({
           disabled={isPlaying}
           size="sm"
           className={[css.tempoButton].join(' ')}
+          aria-label="Decrease tempo"
           onClick={onUpClick}
         >
           <Icon name="add" />
@@ -438,6 +440,7 @@ const KeyControls = ({ songKey, isPlaying, className, onClick }) => {
         theme="light"
         disabled={isPlaying}
         className={css.keyButton}
+        aria-label="Toggle key between major and minor"
         dangerouslySetInnerHTML={{
           __html:
             songKey.indexOf('b') > -1
