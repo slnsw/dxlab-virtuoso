@@ -76,6 +76,10 @@ export const createWindowScroller = ({
     return scrollStatus;
   }
 
+  function getIncrement() {
+    return increment;
+  }
+
   function updateIncrement(updatedIncrement) {
     increment = updatedIncrement;
   }
@@ -126,5 +130,6 @@ export const createWindowScroller = ({
       removeEventListeners();
     },
     status,
+    getIncrement,
   };
 };

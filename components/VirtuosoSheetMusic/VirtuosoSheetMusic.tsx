@@ -45,6 +45,7 @@ const VirtuosoSheetMusic = ({
     updateIncrement: Function;
     destroy: Function;
     status: Function;
+    getIncrement: Function;
   }>();
 
   // Flag to prevent multiple scrollTo's
@@ -60,7 +61,7 @@ const VirtuosoSheetMusic = ({
   const [songPercentage, setSongPercentage] = React.useState(0);
   // const [tempo, setTempo] = React.useState(currentSong.bpm);
   const originalIncrement = 0.5;
-  const [increment, setIncrement] = React.useState(originalIncrement);
+  const [increment] = React.useState(originalIncrement);
 
   // isAutoScroll is stale in handleEvent and is difficult to rebind in ABC JS
   // isAutoScrollRef is mutable so its value is fresh. Need to keep
@@ -213,16 +214,34 @@ const VirtuosoSheetMusic = ({
         const bottomOfBottomNote =
           bottomNote.getBoundingClientRect().y +
           bottomNote.getBoundingClientRect().height;
-        if (topOfTopNote < window.innerHeight * 0.15) {
-          const newIncrement = increment / 2;
-          setIncrement(newIncrement);
+        if (topOfTopNote < window.innerHeight * 0.2) {
+          // playhead is getting dangerously close to the top of the
+          // viewPort - slow down...
+          const newIncrement =
+            scroller.current.getIncrement() > 0.1
+              ? scroller.current.getIncrement() / 2
+              : scroller.current.getIncrement();
+          scroller.current.updateIncrement(newIncrement);
           console.log(newIncrement);
         } else if (bottomOfBottomNote > window.innerHeight * 0.85) {
-          const newIncrement = increment * 2;
-          setIncrement(newIncrement);
+          // playhead is getting dangerously close to the bottom
+          // of our viewPort - speed up!
+          const newIncrement = scroller.current.getIncrement() * 2;
+          scroller.current.updateIncrement(newIncrement);
           console.log(newIncrement);
         } else {
-          setIncrement(originalIncrement);
+          // Playhead is back in the middle - easy our way back to normal speed
+          const currentIncrement = scroller.current.getIncrement();
+          let newIncrement;
+          if (currentIncrement > originalIncrement * 1.2) {
+            newIncrement = currentIncrement / 2;
+            scroller.current.updateIncrement(newIncrement);
+            console.log(newIncrement);
+          } else if (currentIncrement < originalIncrement * 0.8) {
+            newIncrement = currentIncrement * 2;
+            scroller.current.updateIncrement(newIncrement);
+            console.log(newIncrement);
+          }
         }
 
         if (
