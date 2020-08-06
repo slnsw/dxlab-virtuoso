@@ -59,7 +59,8 @@ const VirtuosoSheetMusic = ({
   ] = React.useState(false);
   const [songPercentage, setSongPercentage] = React.useState(0);
   // const [tempo, setTempo] = React.useState(currentSong.bpm);
-  const [increment] = React.useState(0.5); // setIncrement
+  const originalIncrement = 0.5;
+  const [increment, setIncrement] = React.useState(originalIncrement);
 
   // isAutoScroll is stale in handleEvent and is difficult to rebind in ABC JS
   // isAutoScrollRef is mutable so its value is fresh. Need to keep
@@ -206,7 +207,20 @@ const VirtuosoSheetMusic = ({
         const bottomStaffNotes = event.elements[event.elements.length - 1];
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
         const topOfTopNote = topNote.getBoundingClientRect().y;
-        // console.log(topOfTopNote);
+        const bottomOfBottomNote =
+          bottomNote.getBoundingClientRect().y +
+          bottomNote.getBoundingClientRect().height;
+        if (topOfTopNote < window.innerHeight * 0.15) {
+          const newIncrement = increment / 2;
+          setIncrement(newIncrement);
+          console.log(newIncrement);
+        } else if (bottomOfBottomNote > window.innerHeight * 0.85) {
+          const newIncrement = increment * 2;
+          setIncrement(newIncrement);
+          console.log(newIncrement);
+        } else {
+          setIncrement(originalIncrement);
+        }
 
         if (
           bottomNote &&
