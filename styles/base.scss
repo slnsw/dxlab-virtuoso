@@ -179,7 +179,7 @@ input[type='submit'] {
     border-color: var(--colour-highlight);
   }
 }
-/* stylelint-disable */
+
 button,
 textarea,
 input[type='text'],
@@ -195,4 +195,3 @@ input[type='submit'] {
     @extend .outline;
   }
 }
-/* stylelint-enable */

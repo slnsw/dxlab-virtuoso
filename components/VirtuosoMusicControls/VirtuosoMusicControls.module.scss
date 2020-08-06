@@ -99,17 +99,22 @@
   &[type='number'] {
     -moz-appearance: textfield;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 
 .tempoButton {
   font-size: var(--font-size-xs);
 }
 
-.tempoButton:disabled,
-.tempoButton[disabled] {
-  color: #999;
-  border-color: #999;
-}
+// .tempoButton:disabled,
+// .tempoButton[disabled] {
+//   color: #999;
+//   border-color: #999;
+// }
 
 .addTempoButton {
   margin-right: var(--spacing-xs);
