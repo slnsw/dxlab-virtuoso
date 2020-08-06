@@ -7,7 +7,8 @@ const songs = [
     contents: '1 score (3 p.) ; 37 cm.',
     description:
       "Respectfully dedicated to His Royal Highness Prince Alfred. Sung by the composer at Mr. C. E. Horsley's concerts",
-    url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+    // url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+    url: 'https://collection.sl.nsw.gov.au/record/74VK72Jokyp3/PDwmkX2vLk6mO',
     // imageUrl:
     //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
     imageUrl: '/virtuoso/images/national-song.png',
@@ -96,17 +97,20 @@ const songs = [
     tempo: 110,
     files: [
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/PDwmkX2vLk6mO',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK72Jokyp3/PDwmkX2vLk6mO',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK72Jokyp3/06ddDNk67LV8G',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501761.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK72Jokyp3/Ee6om0mmoxAWN',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501762.jpg',
       },
@@ -119,7 +123,8 @@ const songs = [
     year: '1870-1880',
     contents: '1 score (3 p.) ; 36 cm.',
     description: 'Dedicated to the members of the Glebe Rowing Club',
-    url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+    // url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+    url: 'https://collection.sl.nsw.gov.au/record/74VvB8goborA/k3BVB5VEzxxlp',
     imageUrl: '/virtuoso/images/the-glebe-rowing-club-polka.png',
     metaImageUrl: '/virtuoso/images/the-glebe-rowing-club-polka-social.jpg',
     metaImageWidth: 1200,
@@ -183,22 +188,26 @@ const songs = [
     tempo: 90,
     files: [
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VvB8goborA/k3BVB5VEzxxlp',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VvB8goborA/LwEVobbNOLXp4',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316361.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VvB8goborA/vZJdBZrx44VvM',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316362.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VvB8goborA/ZErZ80m8KJrWm',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316363.jpg',
       },
@@ -208,7 +217,8 @@ const songs = [
     title: 'Overland mail galop',
     slug: 'overland-mail-galop',
     creator: "D'Albert, Charles",
-    url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+    // url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+    url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ/GAjqa2lmXD2VG',
     year: '1858-1864',
     contents: '1 score (4 p.) ; 31 cm.',
     description: null,
@@ -277,22 +287,26 @@ const songs = [
     tempo: 130,
     files: [
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ/GAjqa2lmXD2VG',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357060.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ/zJRMq4bqOy4Qv',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357061.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ/qlqRmqX8dzdGQ',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357062.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ/ZkD2zVDPyrezj',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357063.jpg',
       },
@@ -305,7 +319,7 @@ const songs = [
     year: '1899',
     contents: '1 score ( [5] p.) ; 38 cm.',
     description: 'Dedicated to my mother. For Piano.',
-    url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+    url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/2wkqq0BWWx3by',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
     metaImageUrl: '/virtuoso/images/the-sutherland-waltz-social.jpg',
@@ -406,32 +420,38 @@ const songs = [
     tempo: 160,
     files: [
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/2wkqq0BWWx3by',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/PakgNllKqQkgk',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479311.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/G5NmNXAQZdjp3',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479312.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/6M32rlw8ll4Eq',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479313.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/d76W8AVKwbNO2',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479314.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA/LyNv0oxPEP5rr',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479315.jpg',
       },
@@ -444,7 +464,7 @@ const songs = [
     year: '1880-1899',
     contents: '1 score (2 p.) ; 36 cm.',
     description: 'A popular and patriotic song.',
-    url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+    url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl/DL7DRlkR0XAE',
     imageUrl:
       'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
 
@@ -529,104 +549,31 @@ const songs = [
     tempo: 100,
     files: [
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl/DL7DRlkR0XAE',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl/vEwrZw7l2vQNQ',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507451.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl/wQqNjKE7zvl7P',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507452.jpg',
       },
       {
-        url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
+        url:
+          'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl/B5WP4a72MgMrm',
         imageUrl:
           'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507453.jpg',
       },
     ],
   },
-  // {
-  //   title: 'The Bridge We Have Been Waiting For',
-  //   slug: 'the-bridge-we-have-been-waiting-for',
-  //   creator: 'Jack Lumsdaine',
-  //   url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
-  //   imageUrl:
-  //     'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
-
-  //   key: 'Bb',
-  //   header: 'X:1\nM:6/8\nL:1/8\n%%score 1 2 | 3\n',
-  //   instruments: [
-  //     {
-  //       name: 'Voice',
-  //       volume: 0,
-  //       type: 'violin',
-  //       clef: 'treble',
-  //     },
-  //     {
-  //       name: 'Piano treble clef',
-  //       volume: -6,
-  //       type: 'piano',
-  //       clef: 'treble',
-  //     },
-  //     {
-  //       name: 'Piano bass clef',
-  //       volume: -6,
-  //       type: 'piano',
-  //       clef: 'bass',
-  //     },
-  //   ],
-  //   lines: [
-  //     'V:1 treble',
-  //     'V:2 treble',
-  //     'V:3 bass',
-
-  //     'V:1',
-  //     'z3|z6|z6|z6|z6|z6|',
-  //     ' z6 | z6 | z6 || D2 ^C D2 C | D2 ^C D3 |',
-  //     ' F2 =E F2 E | F2 =E F2 A | c3- c2 B | c3 B3 | A6- |',
-  //     ' A6 | G2 ^F G2 F | G2 ^F G3 | G2 ^F G2 F | G2 ^F G3 |',
-  //     // w: |||||||||See the peo- ple|* the *|Hear the tamp- ing|of the feet to|days' * a|hol- i-|day||Flags are fly- ing|eve- ry- where|Carn.- * val is|* the a1r|
-  //     // w: ||||||||||* Street *|||||||||||
-  //     'V:2',
-  //     'F3 | B3 F3 | D3 B,3 | [B,DF]3- [B,DF]2 [B,EG] | [F,B,DF]3 [B,DF]2 [^A,=E^F] | [G,G]2 [B,=E] [CEA]2 B |',
-  //     '[_EFAc]3- [EFAc]2 B | [B,DFB]2 F[CE]GA | [B,DFB]2 z2 z2 || [B,D]2 ^C [B,D]2 C | [B,D]2 ^C [B,D]3 |',
-  //     '[DF]2 =E [DFB,]2 E | [B,DF]2 =E [DFB,]2 A | [Cc]3- [Cc]2 B | [Cc]3 [B,B]3 | [A,A]6 |',
-  //     '[A,A]6 | [CEG]2 ^F [CEG]2 F | [=B,FG]2 ^F [B,FG]3 | [CEG]2 ^F [CEG]2 F | [=B,FG]2 ^F [B,FG]3 |',
-  //     'V:3',
-  //     'F,3 | B,3 F,3 | D,3 B,,3 | [D,,D,]3- [D,,D,]2 [E,,E,] | [D,,D,]3 .[D,,D,]2 [^C,,^C,] | [C,,C,]3 [C,,C,]3 |',
-  //     '[F,,C,]3- [F,,C,]3 | [B,,,B,,]2 [F,,F,]2 z2 | [B,,,B,,]2 z2 z2 || [B,,F,]2 =E, [B,,F,]2 =E, | [B,,F,]2 =E, [B,,F,]3 |',
-  //     ' [B,,F,]3 [F,,F,]3 | [B,,F,]3 F,,3 | [D,,D,]6 | [_D,,_D,]3 [D,,D,]3 | C,6 |',
-  //     ' [F,,F,]6 | [C,,C,]3 G,,3 | D,3 G,,3 | [C,,C,]3 G,,3 | D,3 G,,3 |',
-  //   ],
-  //   tempo: 100,
-  //   files: [
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507450.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507451.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507452.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VKdJy7P8gl',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37507453.jpg',
-  //     },
-  //   ],
-  // },
 
   {
     title: 'Australian quadrilles: Engehurst',
@@ -686,148 +633,6 @@ const songs = [
       },
     ],
   },
-
-  // {
-  //   title: 'The Sutherland WaltzTEST',
-  //   slug: 'the-sutherland-waltz-test',
-  //   creator: 'Katie Linton',
-  //   year: '1899',
-  //   contents: '1 score ( [5] p.) ; 38 cm.',
-  //   description: 'Dedicated to my mother. For Piano.',
-  //   url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //   imageUrl:
-  //     'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
-  //   metaImageUrl: '/virtuoso/images/the-sutherland-waltz-social.jpg',
-  //   metaImageWidth: 1200,
-  //   metaImageHeight: 638,
-  //   key: 'Eb',
-  //   header: 'X:1\nM:3/4\nL:1/4\n%%score { 1 | 2 }\n',
-  //   instruments: [
-  //     {
-  //       name: 'Piano',
-  //       volume: 0,
-  //       type: 'piano',
-  //       clef: 'treble',
-  //     },
-  //     {
-  //       name: 'Piano bass clef',
-  //       volume: -5,
-  //       type: 'piano',
-  //       clef: 'bass',
-  //     },
-  //   ],
-  //   lines: [
-  //     'V:1 treble',
-  //     'V:2 bass',
-  //     'V:1',
-  //     '"@-92,45INTRODUCTION"!ff!"@-89,-46Con Bravura"[Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [^cB] | [Bd] z z | z3 | [Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [Bd] | [Be] z z | z3 |',
-  //     "[1!ff! [eac'e']3/2 [eac'e']/ [eac'e'] :|[2 \"_rit\"[d/gbd']g/_a/=a/c'/b/ ||[K:Eb] !mp!((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/) b |",
-  //     'B,2- B,/ [Bb]/ | [Bb] z [^c=e] | [df] z z | z4 | B,3 |!arpeggio![DFAB]2 z |!arpeggio![dfab]2 z |"8va ----|"!arpeggio![Bdfa] "_rit"z z ||',
-  //     "\"@-92,45WALTZ\"!f!!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [fbd'f']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [gGB]3- | [GBg] [Ff] [Gg] |",
-  //     "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z | z [cc'] [Bb] |",
-  //     "[GBeg] z [Begb] | [egbe'] z [gbe'g'] | [fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
-  //     "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [gg'] [ff'] |\"@65,32 8va ------|\"e/g/b/e'/g/b/ | e' z f ||:[K:Bb]",
-  //     // page 2
-  //     '!p!z {gf}e z | z {fe}c z | z {fd}B G | F z F | "_cres"^F z [FAcd] | [Ace] z [Ace^f] | [Bdg] z [Bdg] | !f![Acea] [Aceg] [Acd=f] |!p!z {gf}e z |',
-  //     'z {fe}c z | z {fd}B g | !f![Acfa] z [Acfa] | [Adfa] z [Adfa] | [cefa] [cefg] [cefa] | [B3/2dfb] [B/dfb] [Bdfb] |[1 [Bdfb] z f :|[2 x z2 ||',
-  //     "[K:Eb]!f! !arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [ff'bd']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [GBeg]3- |[GBeg] [Ff] [Gg] |",
-  //     "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z |z [cc'] [Bb] |",
-  //     "!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | !arpeggio![fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Geg]3- |[Geg] [Ff] [Gg] |",
-  //     '"@-50,-45cres"[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc\']3/2 [cc\']/ [cc\'] | [cc\'] "@0,32 8ve ---|"[Gg] [Ff] | "@65,32 8ve ------|"e/g/b/e\'/g/b/ |e\' z z |',
-  //     // page 3
-  //     '[K:Ab]!p![EAc] z [E=B] | [EAc] z/ c/=B/c/ | [EGBd] z [Ec] | [EGBd] z/ d/c/d/ | !f![EGBd] z [EGc] | [EGBd] [Geg]3/2 f/ | (e/!<(!=d/f/!<)!e/c/A/) |',
-  //     '(C/E/!<(!A/c/e/a/)!<)! |!mf![EGB] z [E=A] | [EGB] z/ B/=A/B/ | [EGc] z [E=B] | [EGc] z/ c/=B/c/ | [EGd] z [EGc] | ([E/Gd]c/B/=A/c/B/) |',
-  //     "\"_cres\"(c/B/A/G/B/A/) |(G/B/d/e/g/b/) |[eac'] z [e=b] |!f![eac'] z/ c'/=b/c'/ | [egbd'] z [ec'] | [egbd'] z/ d'/c'/d'/ | [egbd'] z [egc'] |",
-  //     "[ge'g']2 f' | (e'/=d'/f'/e'/c'/a/) |(e/c/e/a/c'/a/) | !mf![egb] z [e=a] | [egb] z/ b/=a/b/ | [dgb] z [dg=a] | [dgb] z [dgc'] |",
-  //     "([e/gd']c'/b/=a/c'/b/) | (b/g/e/d/B/G/) | (A/c/e/a/c'/e'/) |a' z z ||:[K:Eb] ",
-  //     "\"@-45,-65scherzando\"((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/) b | (f/a/b/c'/) b | (e/g/b/c'/) b |",
-  //     // page 4
-  //     "(=e/g/b/c'/) b | ((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/b/a/) |",
-  //     '(g/f/e/d/c/B/) | c z d |[GBe]3 ||[K:Bb] !p!(B,/C/!<(!D/E/F/G/) | (A/B/c/d/e/f/)!<)! |',
-  //     "e z c | A z z | {/g}f z c | A z z | !f![c/ec']b/=e/f/g/f/ | ^c/d/e/d/=c/B/ |",
-  //     "!p!!<(!(B,/C/D/E/F/G/) | (A/B/c/d/e/f/)!<)! | e z c | A z z | \"_cres\"a/a/ [dd'] [dd'] |b/b/ [dd'] [dd'] | c'/c'/ [dd'] [dd'] |",
-  //     "[1!ff! [eac'e']3/2 [eac'e']/ [eac'e'] :|[2 \"_rit\"[d/gbd']g/_a/=a/c'/b/ ||[K:Eb] !mp!((3b/c'/b/) g e | d z c | ((3a/b/a/) f d | c z B | (d/f/a/c'/) b |",
-  //     "(f/a/b/c'/) b | (e/g/b/c'/) b | (=e/g/b/c'/) b | (b/c'/b/g/) e | d z c | ((3a/b/a/) f d | c z B | ",
-  //     // page 5
-  //     "(d/f/a/c'/b/a/) | (g/f/e/d/c/B/) | c z d | [GBe]3/2 [GBe]/ [GBe] ||!ff! !arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | ([f-b-d'-f']3 |",
-  //     "[fbd'f']) z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [GBeg]3- | [GBeg] [Ff] [Gg] | [Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] |",
-  //     "[Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [dbd'] [e=ae'] | [dbd'] z z | z [cc'] [Bb] | !arpeggio![GBeg] z !arpeggio![Begb] |",
-  //     "!arpeggio![egbe'] z !arpeggio![e'gbg'] | !arpeggio![fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
-  //     "[Aa]3/2 [Aa]/ [Aa]- | [Aa] [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | [cc'] [gg'] [ff'] | [ee']3/2 [dd']/ [ee'] |",
-  //     "[ff'] [ee'] [cc'] | [Bb]3/2 [=A=a]/ [Bb] | [cc']3/2 [=B=b]/ [cc'] | [dd']3/2 [cc']/ [dd'] | [egbe'] z z | [gbe'g'] z z | {/E}[EB,G,] z z !fermata!||",
-
-  //     // bass clef:
-  //     'V:2',
-  //     'B,2- B,/ B,/ | B,2 =E | F z z | z3 | B,2- B,/ B,/ | B,2[K:treble] F | [B,G] z z | z3 | %8',
-  //     '[1=F, [A,CE] [EA,C] :|[2 [G,,G,] z z ||[K:Eb] E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
-  //     'B,,2- B,,/ B,,/ | B,, z[K:treble] G | [B,A] z z | z4 [K:bass]| [B,,,B,,]3 |!arpeggio![B,,F,A,]2 z |[K:treble]!arpeggio![B,FA]2 z |!arpeggio![Bfa][K:bass] [C,,C,] [D,,D,] ||',
-  //     '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [A,B,D] [A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [=E,,=E,] |',
-  //     '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] |',
-  //     '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,F,B,D] [A,F,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [B,,,B,,] [G,B,E] [=E,,=E,] |',
-  //     '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [F,=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, B,, G,, | E,, E,,, z ||:[K:Bb]',
-  //     // page 2
-  //     '[F,,F,] [A,CE] [A,CE] | A,, [F,A,CE] [CE] | [B,,B,] [B,D] [B,D] | B,, [B,D] [B,D] | D, [A,CD] [A,CD] | A, [CE] [CE] | D, [B,D] [B,D] | [=F,,=F,] [A,CE] [A,CE] |[F,,F,] [A,CE] [A,CE] |',
-  //     'C, [F,A,E] [F,A,E] | B,, [F,B,D] [F,B,D] | F, [A,C] [A,C] | [D,,D,] [A,DF] [A,DF] | C, [A,CE] [F,,F,] | [B,,,B,,] [F,B,D] [F,B,D] |[1 [B,,,B,,] [F,B,D] z :|[2 [B,,,B,,] [C,,C,] [D,,D,] ||',
-  //     '[K:Eb] [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,B,D] [A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [DF,A,B,] [DF,A,B,] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] |[E,,E,] [G,B,E] [=E,,=E,] |',
-  //     '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] |[B,,,B,,] [F,A,B,D] [F,A,B,D] |',
-  //     '[E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] |[B,,,B,,] [G,B,E] [=E,,=E,] |',
-  //     '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, B,, G,, |E,, E,,, z |',
-  //     // page 3
-  //     '[K:Ab]A,, [E,A,C] [E,A,C] | A,, [E,A,C] [E,A,C] | E,, [E,G,B,] [E,G,B,] | B,, [E,G,B,] [E,G,B,] | E,, [E,G,B,] [E,G,B,] | E,, [G,B,D] [G,B,D] | A,, [A,C] [A,C] |',
-  //     'A,, [A,C] [A,C] |E,, [G,B,D] [G,B,D] | E, [G,B,D] [G,B,D] | E, [G,C] [G,C] | E, [G,E] [G,E] | E, [G,B,D] [G,B,D] | B,, [G,B,D] [G,B,D] |',
-  //     'A,, [E,C] [E,C] | E,, [E,G,D] [E,G,D] | A,, [E,A,C] [E,A,C] | A,, [E,A,C] [E,A,C] | E,, [E,G,B,] [E,G,B,] | B,, [E,G,B,] [E,G,B,] | E,, [E,G,B,] [E,G,B,] |',
-  //     'E,, [G,B,D] [G,B,D] | A,, [A,C] [A,C] | A,, [A,C] [A,C] | E,, [G,B,D] [G,B,D] | E, [G,B,D] [G,B,D] | _F, [G,B,D] [G,B,D] | _F, [G,B,D] [G,B,D] |',
-  //     'E, [G,B,D] [G,B,D] | E, [G,B,D] [G,B,D] | [A,,,A,,] E,, C,, | A,,, A,, z ||:[K:Eb]',
-  //     'E,, [G,B,E] [G,B,E] |B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | G,, [B,EG] [B,EG] |',
-  //     // page 4
-  //     'C, [G,B,C=E] [G,B,CE] | E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
-  //     'F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,F] | [E,,E,] [G,,,G,,] [=A,,,=A,,] ||[K:Bb] B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] |',
-  //     'F,, [A,CE] [A,CE] | F,, [A,CE] [A,CE] | C, [F,A,C] [F,A,C] | F,, [A,CE] [A,CE] | B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] |',
-  //     'B,, [F,B,D] [F,B,D] | B,, [F,B,D] [F,B,D] | F,, [A,CE] [A,CE] | F, [A,CE] [A,CE] | ^F, [A,D] [A,D] | G, [B,D] [B,D] | D, [^F,A,D] [F,A,D] |',
-  //     '[1=F, [A,CE] [EA,C] :|[2 [G,,G,] z z ||[K:Eb] E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] |',
-  //     'B,, [A,B,D] [A,B,D] |G,, [B,EG] [B,EG] | C, [G,B,C=E] [G,B,CE] | E,, [G,B,E] [G,B,E] | B,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,D] [A,B,D] |',
-  //     // page 5
-  //     'F,, [A,B,D] [A,B,D] | F,, [A,B,D] [A,B,D] | B,, [A,B,F] [A,B,F] | [E,,E,] [G,B,E] [G,B,E] || [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [G,B,E] | [B,,B,] [A,B,D] [A,B,D] |',
-  //     '[F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [E,,E,] [G,B,E] [=E,,=E,] | [F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] |',
-  //     '[E,,E,] [G,B,E] [G,B,E] | [G,,G,] [=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | [F,,F,] [D,,D,] [C,,C,] | [B,,,B,,] [F,B,D] [F,B,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [E,,E,] [G,B,E] [G,B,E] |',
-  //     '[E,,E,] [G,B,E] [G,B,E] | [B,,B,] [F,A,B,D] [F,A,B,D] | [F,,F,] [F,B,D] [G,B,E] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [D,,D,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [B,,,B,,] [G,B,E] [=E,,=E,] |',
-  //     '[F,,F,] [A,CF] [A,CF] | [B,,,B,,] [F,B,D] [F,B,D] | [E,,E,] [G,B,E] [G,B,E] | [G,,G,] [F,=A,CE] [_G,,_G,] | [F,,F,] [F,A,E] [F,A,E] | F, [A,B,D] [A,B,D] | E, [G,B,E] [G,B,E] |',
-  //     'D, [A,CF] [A,CF] | [D,,D,] [F,B,D] [F,B,D] |F,, [F,_A,D] [F,A,D] | [B,,,B,,] [F,A,B,D] [F,A,B,D] | [E,,E,] z z | [E,,,E,,] z z | [E,,E,] z z ||',
-  //   ],
-  //   tempo: 160,
-  //   files: [
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479310.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479311.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479312.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479313.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479314.jpg',
-  //     },
-  //     {
-  //       url: 'https://collection.sl.nsw.gov.au/record/74VK63pbRQBA',
-  //       imageUrl:
-  //         'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3747/37479315.jpg',
-  //     },
-  //   ],
-  // },
 ];
 
 export default songs;
