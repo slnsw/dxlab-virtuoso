@@ -9,9 +9,9 @@ const songs = [
       "Respectfully dedicated to His Royal Highness Prince Alfred. Sung by the composer at Mr. C. E. Horsley's concerts",
     // url: 'https://collection.sl.nsw.gov.au/digital/file/06ddDNk67LV8G',
     url: 'https://collection.sl.nsw.gov.au/record/74VK72Jokyp3/PDwmkX2vLk6mO',
-    // imageUrl:
-    //   'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
-    imageUrl: '/virtuoso/images/national-song.png',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3750/37501760.jpg',
+    // imageUrl: '/virtuoso/images/national-song.png',
     metaImageUrl: '/virtuoso/images/national-song-social.jpg',
     metaImageWidth: 1200,
     metaImageHeight: 638,
@@ -123,15 +123,15 @@ const songs = [
     year: '1870-1880',
     contents: '1 score (3 p.) ; 36 cm.',
     description: 'Dedicated to the members of the Glebe Rowing Club',
-    // url: 'https://collection.sl.nsw.gov.au/digital/file/k3BVB5VEzxxlp',
     url: 'https://collection.sl.nsw.gov.au/record/74VvB8goborA/k3BVB5VEzxxlp',
-    imageUrl: '/virtuoso/images/the-glebe-rowing-club-polka.png',
+    // imageUrl: '/virtuoso/images/the-glebe-rowing-club-polka.png',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3731/37316360.jpg',
     metaImageUrl: '/virtuoso/images/the-glebe-rowing-club-polka-social.jpg',
     metaImageWidth: 1200,
     metaImageHeight: 638,
     key: 'F',
     header: 'X:1\nM:2/4\nL:1/8\n%%score {1 | 2}\n',
-    // instruments: ['piano', 'piano'],
     instruments: [
       {
         name: 'Treble clef',
@@ -217,12 +217,13 @@ const songs = [
     title: 'Overland mail galop',
     slug: 'overland-mail-galop',
     creator: "D'Albert, Charles",
-    // url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ',
     url: 'https://collection.sl.nsw.gov.au/record/74Vv5weGOZRZ/GAjqa2lmXD2VG',
     year: '1858-1864',
     contents: '1 score (4 p.) ; 31 cm.',
     description: null,
-    imageUrl: '/virtuoso/images/overland-mail-galop.png',
+    // imageUrl: '/virtuoso/images/overland-mail-galop.png',
+    imageUrl:
+      'https://files02.sl.nsw.gov.au/fotoweb/thumbnails/300_0/3535/35357060.jpg',
     metaImageUrl: '/virtuoso/images/overland-mail-galop-social.jpg',
     metaImageWidth: 1200,
     metaImageHeight: 638,

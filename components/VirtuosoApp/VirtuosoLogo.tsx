@@ -9,6 +9,10 @@ type Props = {
   className?: string;
 };
 
+type ThinLogoProps = {
+  className?: string;
+};
+
 const VirtuosoLogo: React.FC<Props> = ({
   fontWeight = 'normal',
   className,
@@ -170,7 +174,7 @@ export const VirtuosoThickLogo = ({ className }) => {
   );
 };
 
-export const VirtuosoThinLogo = ({ className }) => {
+export const VirtuosoThinLogo: React.FC<ThinLogoProps> = ({ className }) => {
   return (
     <svg
       id="539056c8-7db2-4b0a-8b2f-1a1d486e8cbb"

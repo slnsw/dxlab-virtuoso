@@ -247,6 +247,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       <CTAButton
         theme="light"
         variant="secondary"
+        aria-expanded={showMoreControls}
         className={[css.button, css.moreControlsButton].join(' ')}
         onClick={handleShowMoreControlsClick}
       >
@@ -266,7 +267,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
             css.instrumentControls,
             showMoreControls ? css.instrumentControlsVisible : '',
           ].join(' ')}
-          aria-expanded={showMoreControls}
         >
           <div className={css.mobileInstrumentControls}>
             <TempoControls

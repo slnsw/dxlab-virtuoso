@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.11.0] - 2020-8-XX
 
+- Add `virtuoso` interactive sheet music experiment pages and components
+- Add `abcjs` for SVG sheet music display
+- Add `reactronica` for audio
 - Add `.preload-transition` class to body to prevent transitions on load. Also added `useEffect` in `_app` to remove class after mount.
 - Improve `Select` component styles, adding `theme` prop
 - Update `design-system` page
