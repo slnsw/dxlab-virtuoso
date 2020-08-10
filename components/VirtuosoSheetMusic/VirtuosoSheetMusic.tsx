@@ -179,7 +179,10 @@ const VirtuosoSheetMusic = ({
       if (isAutoScrollRef.current) {
         const topStaffNotes = event.elements[0];
         const topNote = topStaffNotes[0];
-        const bottomStaffNotes = event.elements[event.elements.length - 1];
+        const bottomStaffNotes =
+          event.elements[event.elements.length - 1].length > 0
+            ? event.elements[event.elements.length - 1]
+            : topStaffNotes;
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
         const topOfTopNote = topNote.getBoundingClientRect().y;
         const bottomOfBottomNote =
