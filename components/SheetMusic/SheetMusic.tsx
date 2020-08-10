@@ -2,8 +2,6 @@ import React from 'react';
 
 import { parseJSON, computeNoteAndOctaveFromMidiNoteNumber } from './utils';
 
-// import './SheetMusic.css';
-
 type Props = {
   id?: string;
   isPlaying?: boolean;
@@ -19,13 +17,12 @@ type Props = {
   paddingRight?: number;
   paddingBottom?: number;
   paddingLeft?: number;
+  songPercentage: number;
   className?: string;
   onClick?: Function;
   onBeat?: Function;
   onEvent?: Function;
   onLineEnd?: Function;
-  returnFormat?: string;
-  songPercentage: number;
 };
 
 export type Note = {
@@ -49,13 +46,12 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   paddingRight,
   paddingBottom,
   paddingLeft,
+  songPercentage = 0,
   className,
   onClick,
   onBeat,
   onEvent,
   onLineEnd,
-  // returnFormat = 'event',
-  songPercentage = 0,
 }) => {
   // console.log(paddingRight);
   const timer = React.useRef<{
@@ -76,11 +72,6 @@ const SheetMusic: React.FunctionComponent<Props> = ({
   }>();
   const json = React.useRef<{}>();
   const noteList = React.useRef<{}>();
-
-  // let noteList;
-  // let json;
-  //   const [currentEvent, setCurrentEvent] = React.useState(0);
-  //   let totalBeatsInSong;
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
