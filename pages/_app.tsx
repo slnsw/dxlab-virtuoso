@@ -50,7 +50,8 @@ import '../components/TileImage/TileImage.scss';
 import '../components/WebsiteApp/WebsiteApp.scss';
 
 // Sheet Music App
-import '@slnsw/react-sheet-music/dist/SheetMusic.css';
+import '../components/SheetMusic/SheetMusic.css';
+// import '@slnsw/react-sheet-music/dist/SheetMusic.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

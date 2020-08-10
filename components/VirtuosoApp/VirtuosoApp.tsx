@@ -1,21 +1,21 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 import App from '../App';
 import Link from '../Link';
-import HeaderNavV2 from '../HeaderNavV2';
+// import HeaderNavV2 from '../HeaderNavV2';
 // import Progress from '../Progress';
-import Menu from '../Menu';
+// import Menu from '../Menu';
 import DXLabLogo from '../DXLabLogo';
 import SLNSWLogo from '../SLNSWLogo';
-import MenuIconButton from '../MenuIconButton';
+// import MenuIconButton from '../MenuIconButton';
 import Footer from '../Footer';
 import { VirtuosoThinLogo } from './VirtuosoLogo';
-import VirtuosoVertDivider from './VirtuosoVertDivider';
-import VirtuosoLeafDivider from './VirtuosoLeafDivider';
-import VirtuosoRibbonDivider from './VirtuosoRibbonDivider';
+// import VirtuosoVertDivider from './VirtuosoVertDivider';
+// import VirtuosoLeafDivider from './VirtuosoLeafDivider';
+// import VirtuosoRibbonDivider from './VirtuosoRibbonDivider';
 
-import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
+// import { useLockBodyScroll } from '../../lib/hooks/use-lock-body-scroll';
 
 import css from './VirtuosoApp.module.scss';
 
@@ -38,10 +38,10 @@ const VirtuosoApp: React.FC<Props> = ({
   className,
   children,
 }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const router = useRouter();
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  // const router = useRouter();
 
-  useLockBodyScroll(isMobileMenuOpen);
+  // useLockBodyScroll(isMobileMenuOpen);
 
   return (
     <App
@@ -63,7 +63,8 @@ const VirtuosoApp: React.FC<Props> = ({
           </a>
         </Link>
 
-        <HeaderNavV2 isOpen={isMobileMenuOpen}>
+        {/* No need for Mobile Menu yet as site is still very small */}
+        {/* <HeaderNavV2 isOpen={isMobileMenuOpen}>
           <div className={css.headerNavInside}>
             <VirtuosoVertDivider />
             <VirtuosoRibbonDivider />
@@ -97,7 +98,7 @@ const VirtuosoApp: React.FC<Props> = ({
           onClick={() => {
             setIsMobileMenuOpen(!isMobileMenuOpen);
           }}
-        />
+        /> */}
 
         <SLNSWLogo className={css.slnswLogo} />
       </header>
