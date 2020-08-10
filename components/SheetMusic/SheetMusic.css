@@ -1,0 +1,19 @@
+.sheet-music {
+  width: 100%;
+  background-color: #fff;
+}
+
+.sheet-music .abcjs-lyric_playing,
+.sheet-music .abcjs-note_playing,
+.sheet-music .abcjs-note_selected,
+.sheet-music .abcjs-rest_playing {
+  fill: #e6007e;
+  stroke: rgba(230, 0, 126, 0.05);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sheet-music .abcjs-note {
+  transition: 0.3s stroke-width;
+}
