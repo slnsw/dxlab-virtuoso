@@ -51,6 +51,7 @@ const VirtuosoSheetMusic = ({
   // Flag to prevent multiple scrollTo's
   const isScrollingToRef = React.useRef(false);
   const currentBeatRef = React.useRef(0);
+  const totalTimeRef = React.useRef(70000);
 
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [isAtStart, setIsAtStart] = React.useState(true);
@@ -132,13 +133,17 @@ const VirtuosoSheetMusic = ({
     }
   });
 
-  const handleBeat = (beatNumber, totalBeats) => {
+  const handleBeat = (beatNumber, totalBeats, totalTime) => {
     if (beatNumber && beatNumber > 0) {
       currentBeatRef.current = beatNumber;
     }
 
     if (totalBeats && totalBeats > 0) {
       setTotalBeatsInSong(totalBeats);
+    }
+
+    if (totalTime && totalTime > 0) {
+      totalTimeRef.current = totalTime;
     }
 
     // End of song reached
@@ -195,7 +200,7 @@ const VirtuosoSheetMusic = ({
           const newIncrement = scroller.current.getIncrement() * 2;
           scroller.current.updateIncrement(newIncrement);
         } else {
-          // Playhead is back in the middle - easy our way back to normal speed
+          // Playhead is back in the middle - ease our way back to normal speed
           const currentIncrement = scroller.current.getIncrement();
           let newIncrement;
           if (currentIncrement > originalIncrement * 1.2) {
@@ -284,6 +289,15 @@ const VirtuosoSheetMusic = ({
 
     // Toggle play status
     setIsPlaying(!isPlaying);
+  };
+
+  const handleNoteClick = (element) => {
+    const percentage =
+      Math.round(
+        (element.currentTrackMilliseconds[0] / totalTimeRef.current) * 10000,
+      ) / 100;
+    console.log(percentage);
+    setSongPercentage(percentage);
   };
 
   const handleAutoScrollClick = () => {
@@ -457,11 +471,16 @@ const VirtuosoSheetMusic = ({
           // staffWidth={width}
           oneSvgPerLine={true}
           className={css.sheetMusic}
-          // onClick={(element) => {
-          //   // This is undocumented
-          //   console.log(element);
-          //   // element.abselem.highlight('test', 'blue');
-          // }}
+          onClick={
+            handleNoteClick
+            //   (element) => {
+            //   // This is undocumented
+            //   console.log(
+            //     element.currentTrackMilliseconds[0] / totalTimeRef.current,
+            //   );
+            //   // element.abselem.highlight('test', 'blue');
+            // }
+          }
           onBeat={handleBeat}
           onEvent={handleEvent}
           songPercentage={songPercentage}
