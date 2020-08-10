@@ -107,6 +107,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
         });
       }
     }
+
     /* eslint-disable */
   }, [JSON.stringify(notation)]);
   /* eslint-enable */

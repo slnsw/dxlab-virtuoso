@@ -85,7 +85,7 @@ const Select: React.FC<Props> = ({
               // outlineColor: 'red !important',
             },
             boxShadow: state.isFocused
-              ? '0 0 0 3px var(--colour-primary)'
+              ? '0 0 0 3px var(--colour-primary-opacity)'
               : null,
             ...(state.isDisabled
               ? {
