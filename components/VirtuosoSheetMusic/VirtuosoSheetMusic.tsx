@@ -154,6 +154,7 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleEvent = (event) => {
+    // console.log(event);
     if (event && event.notes) {
       const allEventNotes = currentSong.instruments.map(
         (_, instrumentIndex) => {
@@ -295,11 +296,12 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleNoteClick = (element) => {
+    // console.log(element);
     const percentage =
       Math.round(
         (element.currentTrackMilliseconds[0] / totalTimeRef.current) * 10000,
       ) / 100;
-    console.log(percentage);
+    // console.log(percentage);
     setSongPercentage(percentage);
   };
 

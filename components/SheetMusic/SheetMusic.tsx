@@ -119,14 +119,17 @@ const SheetMusic: React.FunctionComponent<Props> = ({
     // Remove all highlighted notes
     [].slice.call(notes).forEach((note) => {
       note.classList.remove('abcjs-note_playing');
+      note.classList.remove('abcjs-note_selected');
     });
 
     [].slice.call(rests).forEach((rest) => {
       rest.classList.remove('abcjs-rest_playing');
+      rest.classList.remove('abcjs-note_selected');
     });
 
     [].slice.call(lyrics).forEach((lyric) => {
       lyric.classList.remove('abcjs-lyric_playing');
+      lyric.classList.remove('abcjs-note_selected');
     });
   };
 
@@ -168,7 +171,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
           }
         },
         eventCallback: (event) => {
-          // console.log('event', event);
+          console.log('event', event);
           if (typeof onEvent === 'function') {
             if (event === null) {
               onEvent(null);
