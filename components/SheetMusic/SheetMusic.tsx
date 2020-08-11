@@ -116,21 +116,31 @@ const SheetMusic: React.FunctionComponent<Props> = ({
     const notes = document.getElementsByClassName('abcjs-note');
     const rests = document.getElementsByClassName('abcjs-rest');
     const lyrics = document.getElementsByClassName('abcjs-lyric');
+    const ledgers = document.getElementsByClassName('abcjs-ledger');
 
     // Remove all highlighted notes
     [].slice.call(notes).forEach((note) => {
       note.classList.remove('abcjs-note_playing');
       note.classList.remove('abcjs-note_selected');
+      note.setAttribute('fill', 'black');
     });
 
     [].slice.call(rests).forEach((rest) => {
       rest.classList.remove('abcjs-rest_playing');
       rest.classList.remove('abcjs-note_selected');
+      rest.setAttribute('fill', 'black');
     });
 
     [].slice.call(lyrics).forEach((lyric) => {
       lyric.classList.remove('abcjs-lyric_playing');
       lyric.classList.remove('abcjs-note_selected');
+      lyric.setAttribute('fill', 'black');
+    });
+
+    [].slice.call(ledgers).forEach((ledger) => {
+      ledger.classList.remove('abcjs-ledger_playing');
+      ledger.classList.remove('abcjs-note_selected');
+      ledger.setAttribute('fill', 'black');
     });
   };
 
