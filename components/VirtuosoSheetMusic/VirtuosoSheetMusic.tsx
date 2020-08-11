@@ -100,6 +100,17 @@ const VirtuosoSheetMusic = ({
   }, [increment]);
 
   React.useEffect(() => {
+    if (scroller?.current) {
+      scroller.current.destroy();
+      scroller.current = createWindowScroller({ increment: originalIncrement });
+    }
+
+    return function cleanup() {
+      scroller.current.destroy();
+    };
+  }, [currentSong]);
+
+  React.useEffect(() => {
     if (isPlaying && isAutoScroll) {
       scroller.current.start();
     } else {
@@ -198,6 +209,7 @@ const VirtuosoSheetMusic = ({
           : null;
 
         if (topOfTopNote && topOfTopNote < window.innerHeight * 0.2) {
+          console.log('close to top!');
           // playhead is getting dangerously close to the top of the
           // viewPort - slow down...
           const newIncrement =
@@ -209,6 +221,7 @@ const VirtuosoSheetMusic = ({
           bottomOfBottomNote &&
           bottomOfBottomNote > window.innerHeight * 0.85
         ) {
+          console.log('close to bottom!');
           // playhead is getting dangerously close to the bottom
           // of our viewPort - speed up!
           const newIncrement = scroller.current.getIncrement() * 2;
