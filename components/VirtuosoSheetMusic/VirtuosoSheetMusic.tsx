@@ -179,18 +179,25 @@ const VirtuosoSheetMusic = ({
       // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
       if (isAutoScrollRef.current) {
         const topStaffNotes = event.elements[0];
-        const topNote = topStaffNotes[0];
+        // If an invisible rest (x in ABC notation) is used the array
+        // of notes may be empty. Need to handle this.
+
         const bottomStaffNotes =
           event.elements[event.elements.length - 1].length > 0
             ? event.elements[event.elements.length - 1]
             : topStaffNotes;
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
-        const topOfTopNote = topNote.getBoundingClientRect().y;
-        const bottomOfBottomNote =
-          bottomNote.getBoundingClientRect().y +
-          bottomNote.getBoundingClientRect().height;
 
-        if (topOfTopNote < window.innerHeight * 0.2) {
+        const topNote = topStaffNotes[0];
+
+        const topOfTopNote = topNote ? topNote.getBoundingClientRect().y : null;
+
+        const bottomOfBottomNote = bottomNote
+          ? bottomNote.getBoundingClientRect().y +
+            bottomNote.getBoundingClientRect().height
+          : null;
+
+        if (topOfTopNote && topOfTopNote < window.innerHeight * 0.2) {
           // playhead is getting dangerously close to the top of the
           // viewPort - slow down...
           const newIncrement =
@@ -198,7 +205,10 @@ const VirtuosoSheetMusic = ({
               ? scroller.current.getIncrement() / 2
               : scroller.current.getIncrement();
           scroller.current.updateIncrement(newIncrement);
-        } else if (bottomOfBottomNote > window.innerHeight * 0.85) {
+        } else if (
+          bottomOfBottomNote &&
+          bottomOfBottomNote > window.innerHeight * 0.85
+        ) {
           // playhead is getting dangerously close to the bottom
           // of our viewPort - speed up!
           const newIncrement = scroller.current.getIncrement() * 2;
