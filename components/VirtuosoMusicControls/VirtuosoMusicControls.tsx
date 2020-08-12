@@ -150,12 +150,14 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       }
     };
 
-    document.addEventListener('keydown', handleSpaceBarPress, false);
+    if (isSamplesLoaded) {
+      document.addEventListener('keydown', handleSpaceBarPress, false);
+    }
 
     return () => {
       document.removeEventListener('keydown', handleSpaceBarPress, false);
     };
-  }, [handlePlayClickCallback, handleTempoExitCallback]);
+  }, [handlePlayClickCallback, handleTempoExitCallback, isSamplesLoaded]);
 
   const handleSkipBackClick = () => {
     onSkipBackClick();
