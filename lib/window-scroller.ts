@@ -55,8 +55,9 @@ export const createWindowScroller = ({
       scrollCount = window.pageYOffset;
 
       // Add listeners for user scrolling
-      document.addEventListener('mousewheel', handleUserScroll);
+      document.addEventListener('wheel', handleUserScroll);
       document.addEventListener('touchmove', handleUserScroll);
+      // document.addEventListener('mousewheel', handleUserScroll);
 
       // Kick off step loop
       step();
@@ -85,8 +86,9 @@ export const createWindowScroller = ({
   }
 
   function removeEventListeners() {
-    document.removeEventListener('mousewheel', handleUserScroll);
+    document.removeEventListener('wheel', handleUserScroll);
     document.removeEventListener('touchmove', handleUserScroll);
+    // document.removeEventListener('mousewheel', handleUserScroll);
   }
 
   /**
