@@ -503,8 +503,8 @@ const VirtuosoSheetMusic = ({
           >
             {isSamplesLoaded ? (
               <>
-                <Icon name={isPlaying ? 'stop' : 'play'} />{' '}
-                {isPlaying ? 'Stop' : 'Play'}
+                <Icon name={isPlaying ? 'pause' : 'play'} />{' '}
+                {isPlaying ? 'Pause' : 'Play'}
               </>
             ) : (
               <>

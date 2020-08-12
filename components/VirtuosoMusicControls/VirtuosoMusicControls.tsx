@@ -190,12 +190,12 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         // variant="secondary"
         className={css.button}
         disabled={!isSamplesLoaded}
-        aria-label={isPlaying ? 'Stop' : 'Play'}
+        aria-label={isPlaying ? 'Pause' : 'Play'}
         onClick={handlePlayClickCallback}
       >
         {isPlaying ? (
           <>
-            <Icon name="stop" />
+            <Icon name="pause" />
           </>
         ) : (
           <>

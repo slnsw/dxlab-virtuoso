@@ -152,6 +152,13 @@ export function getSVG(name) {
           <rect x="80" y="80" width="352" height="352" />
         </g>
       );
+    case 'pause-sharp':
+      return (
+        <g>
+          <path d="M224,432H144V80h80Z" />
+          <path d="M368,432H288V80h80Z" />
+        </g>
+      );
     case 'play-skip-back-sharp':
       return (
         <g>
