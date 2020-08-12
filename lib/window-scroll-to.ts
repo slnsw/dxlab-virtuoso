@@ -11,13 +11,15 @@ export function createWindowScrollTo() {
   }
 
   function addListeners() {
-    document.addEventListener('mousewheel', handleUserScroll);
+    // document.addEventListener('mousewheel', handleUserScroll);
+    document.addEventListener('wheel', handleUserScroll);
     document.addEventListener('touchmove', handleUserScroll);
     document.addEventListener('touchend', handleUserScroll);
   }
 
   function removeListeners() {
-    document.removeEventListener('mousewheel', handleUserScroll);
+    // document.removeEventListener('mousewheel', handleUserScroll);
+    document.removeEventListener('wheel', handleUserScroll);
     document.removeEventListener('touchmove', handleUserScroll);
     document.removeEventListener('touchend', handleUserScroll);
   }

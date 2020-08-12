@@ -190,70 +190,87 @@ const VirtuosoSheetMusic = ({
       // Need to check isAutoScrollRef as isAutoScroll is stale and it is difficult to rebind handler
       if (isAutoScrollRef.current) {
         const topStaffNotes = event.elements[0];
-        // If an invisible rest (x in ABC notation) is used the array
-        // of notes may be empty. Need to handle this.
-
+        // If an invisible rest (x in ABC notation) is used, in a
+        // song the array of notes may be empty. Need to handle this.
         const bottomStaffNotes =
           event.elements[event.elements.length - 1].length > 0
             ? event.elements[event.elements.length - 1]
-            : topStaffNotes;
+            : topStaffNotes; // use top staff if bottom staff note array is empty
         const bottomNote = bottomStaffNotes[bottomStaffNotes.length - 1];
-
         const topNote = topStaffNotes[0];
-
         const topOfTopNote = topNote ? topNote.getBoundingClientRect().y : null;
-
+        const bottomOfTopNote = topNote
+          ? topNote.getBoundingClientRect().y +
+            topNote.getBoundingClientRect().height
+          : null;
         const bottomOfBottomNote = bottomNote
           ? bottomNote.getBoundingClientRect().y +
             bottomNote.getBoundingClientRect().height
           : null;
+        const topOfBottomNote = bottomNote
+          ? bottomNote.getBoundingClientRect().y
+          : null;
 
-        if (topOfTopNote && topOfTopNote < window.innerHeight * 0.2) {
-          console.log('close to top!');
+        const playheadTop =
+          topOfTopNote || topOfBottomNote
+            ? Math.min(topOfTopNote || 999999, topOfBottomNote || 9999999)
+            : null;
+        const playheadBottom =
+          bottomOfTopNote || bottomOfBottomNote
+            ? Math.max(
+                bottomOfTopNote || -999999,
+                bottomOfBottomNote || -999999,
+              )
+            : null;
+        // console.log(playheadTop, playheadBottom);
+        // if (playheadTop && playheadTop < 0) {
+        //   console.log('off the top!');
+        // }
+        if (playheadTop && playheadTop < window.innerHeight * 0.2) {
+          // console.log('close to top!');
           // playhead is getting dangerously close to the top of the
           // viewPort - slow down...
-          const newIncrement =
-            scroller.current.getIncrement() > 0.1
-              ? scroller.current.getIncrement() / 2
-              : scroller.current.getIncrement();
+          const newIncrement = 0; // actually just stop
           scroller.current.updateIncrement(newIncrement);
         } else if (
-          bottomOfBottomNote &&
-          bottomOfBottomNote > window.innerHeight * 0.85
+          playheadBottom &&
+          playheadBottom > window.innerHeight * 0.85
         ) {
-          console.log('close to bottom!');
+          // console.log('close to bottom!');
           // playhead is getting dangerously close to the bottom
           // of our viewPort - speed up!
-          const newIncrement = scroller.current.getIncrement() * 2;
+          const newIncrement =
+            scroller.current.getIncrement() + originalIncrement;
           scroller.current.updateIncrement(newIncrement);
         } else {
           // Playhead is back in the middle - ease our way back to normal speed
           const currentIncrement = scroller.current.getIncrement();
           let newIncrement;
-          if (currentIncrement > originalIncrement * 1.2) {
-            newIncrement = currentIncrement / 2;
+          if (currentIncrement > originalIncrement) {
+            newIncrement = currentIncrement - originalIncrement;
             scroller.current.updateIncrement(newIncrement);
-          } else if (currentIncrement < originalIncrement * 0.8) {
-            newIncrement = currentIncrement * 2;
+          } else if (currentIncrement < originalIncrement) {
+            newIncrement = originalIncrement;
             scroller.current.updateIncrement(newIncrement);
           }
         }
 
         if (
-          bottomNote &&
+          playheadTop &&
+          playheadBottom &&
           isScrollingToRef.current === false &&
           event.measureStart
         ) {
-          const { y } = bottomNote.getBoundingClientRect();
+          // const { y } = bottomNote.getBoundingClientRect();
 
-          if (y < 0 || y > window.innerHeight) {
+          if (playheadTop < 60 || playheadBottom > window.innerHeight) {
             isScrollingToRef.current = true;
             scroller.current.stop();
 
             // NOTE: 200 is best guess for now
-            if (y > window.innerHeight) {
+            if (playheadBottom > window.innerHeight) {
               windowScrollTo.start(
-                window.pageYOffset + y - window.innerHeight + 200,
+                window.pageYOffset + playheadBottom - window.innerHeight + 200,
                 {
                   callback: () => {
                     setTimeout(() => {
@@ -267,7 +284,7 @@ const VirtuosoSheetMusic = ({
                 },
               );
             } else {
-              windowScrollTo.start(window.pageYOffset + y - 200, {
+              windowScrollTo.start(window.pageYOffset + playheadTop - 200, {
                 callback: () => {
                   setTimeout(() => {
                     isScrollingToRef.current = false;
