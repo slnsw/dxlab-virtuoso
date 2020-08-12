@@ -114,12 +114,13 @@
 }
 
 .masthead__subtitle {
+  @extend .font-uppercase;
+
   position: absolute;
   top: 21%;
   font-weight: 500;
   font-size: var(--font-size-xs);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: var(--font-secondary);
 
   &::before {
     position: absolute;

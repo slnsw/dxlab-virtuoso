@@ -8,7 +8,7 @@ import css from './DXLabLogo.module.scss';
 const DXLabLogo = ({ href = '/', className }) => {
   return (
     <div className={[css.dxLabLogo, className || ''].join(' ')}>
-      <Link href={href}>
+      <Link href={href} prefetch={false}>
         <a>
           <img src="/images/logo-dxlab.png" alt="DX Lab Logo." />
         </a>
