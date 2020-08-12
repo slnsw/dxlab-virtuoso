@@ -5,10 +5,15 @@ import Link from '../Link';
 
 import css from './DXLabLogo.module.scss';
 
-const DXLabLogo = ({ href = '/', prefetch, className }) => {
+const DXLabLogo = ({
+  href = '/',
+  prefetch,
+  isExternalUrl = false,
+  className,
+}) => {
   return (
     <div className={[css.dxLabLogo, className || ''].join(' ')}>
-      {href.indexOf('http') === 0 ? (
+      {href.indexOf('http') === 0 || isExternalUrl ? (
         <a href={href}>
           <img src="/images/logo-dxlab.png" alt="DX Lab Logo." />
         </a>
@@ -26,6 +31,7 @@ const DXLabLogo = ({ href = '/', prefetch, className }) => {
 DXLabLogo.propTypes = {
   href: PropTypes.string,
   prefetch: PropTypes.bool,
+  isExternalUrl: PropTypes.bool,
   className: PropTypes.string,
 };
 
