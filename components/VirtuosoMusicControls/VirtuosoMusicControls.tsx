@@ -121,6 +121,7 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       instrumentTypes.map((type, instrumentIndex) => {
         return instrumentIndex === i ? option.value : type;
       }),
+      i,
     );
   };
 
@@ -229,22 +230,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
         onClick={onKeyClick}
         isPlaying={isPlaying}
       />
-
-      {/* <div className={css.keyControls}>
-        <label>Key</label>
-        <CTAButton
-          theme="light"
-          disabled={isPlaying}
-          className={css.keyButton}
-          dangerouslySetInnerHTML={{
-            __html:
-              songKey.indexOf('b') > -1
-                ? `${songKey.replace('b', '<sup>b</sup>')}`
-                : songKey,
-          }}
-          onClick={() => onKeyClick(songKey)}
-        ></CTAButton>
-      </div> */}
 
       <CTAButton
         theme="light"
@@ -366,7 +351,6 @@ const VirtuosoMusicControls: React.FC<Props> = ({
                       // label: instrument.type,
                     }}
                     // menuIsOpen={true}
-                    // options={sampleOptions}
                     options={instrumentOptions}
                     onChange={(option) => handleInstrumentTypeChange(option, i)}
                     isDisabled={isPlaying} // why u no work? Works now - but they are all black

@@ -477,7 +477,7 @@ const songs = [
     instruments: [
       {
         name: 'Voice',
-        volume: 0,
+        volume: -6,
         type: 'violin',
         clef: 'treble',
       },

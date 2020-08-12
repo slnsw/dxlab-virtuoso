@@ -384,7 +384,22 @@ const VirtuosoSheetMusic = ({
     );
   };
 
-  const handleInstrumentTypeChange = (newTypes) => {
+  const handleInstrumentTypeChange = (newTypes, instrumentIndex) => {
+    const newSamplesStatus = samplesStatus.map((status, i) => {
+      // Synth is generated from browser, so no loading needed
+      if (instrumentTypes[i] === 'synth') {
+        return 'loaded';
+      }
+
+      if (i === instrumentIndex) {
+        return 'loading';
+      }
+
+      return status;
+    });
+
+    setSamplesStatus(newSamplesStatus);
+
     const query = buildQuery(router.query, {
       type: newTypes,
     });
@@ -443,9 +458,7 @@ const VirtuosoSheetMusic = ({
           onTempoChange={handleTempoChange}
           onSkipBackClick={() => setIsAtStart(true)}
           onAutoScrollClick={handleAutoScrollClick}
-          // onInstrumentVolumeChange={setInstrumentVolumes}
           onInstrumentVolumeChange={handleInstrumentVolumeChange}
-          // onInstrumentTypeChange={setInstrumentTypes}
           onInstrumentTypeChange={handleInstrumentTypeChange}
           onKeyClick={handleKeyClick}
         />
