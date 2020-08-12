@@ -53,7 +53,8 @@ const VirtuosoApp: React.FC<Props> = ({
       metaImageHeight={metaImageHeight}
     >
       <header className={css.header}>
-        <DXLabLogo className={css.dxlabLogo} />
+        {/* Use absolute href because switching between website and virtuoso seems to reload some css files in production. This causes visible changes due to a change in css loading order. */}
+        <DXLabLogo href={'/'} isExternalUrl={true} className={css.dxlabLogo} />
 
         <span className={css.headerDivider}></span>
 
