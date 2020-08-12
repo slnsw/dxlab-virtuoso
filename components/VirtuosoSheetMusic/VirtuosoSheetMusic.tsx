@@ -499,16 +499,7 @@ const VirtuosoSheetMusic = ({
           // staffWidth={width}
           oneSvgPerLine={true}
           className={css.sheetMusic}
-          onClick={
-            handleNoteClick
-            //   (element) => {
-            //   // This is undocumented
-            //   console.log(
-            //     element.currentTrackMilliseconds[0] / totalTimeRef.current,
-            //   );
-            //   // element.abselem.highlight('test', 'blue');
-            // }
-          }
+          onClick={handleNoteClick}
           onBeat={handleBeat}
           onEvent={handleEvent}
           songPercentage={songPercentage}

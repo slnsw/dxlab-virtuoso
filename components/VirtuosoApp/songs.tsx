@@ -347,7 +347,7 @@ const songs = [
       'V:2 bass',
       'V:1',
       '"@-92,45INTRODUCTION"!ff!"@-89,-46Con Bravura"[Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [^cB] | [Bd] z z | z3 | [Bb]2- [Bb]/ "8va"[Bb]/ | "----|"[Bdfb] z [Bd] | [Be] z z | z3 |',
-      'B,2- B,/ [Bb]/ | [Bb] z [^c=e] | [df] z z | z4 | B,3 |!arpeggio![DFAB]2 z |!arpeggio![dfab]2 z |"8va ----|"!arpeggio![Bdfa] "_rit"z z ||',
+      'B,2- B,/ [Bb]/ | [Bb] z [^c=e] | [df] z z | z4 [K:clef=treble]| B,3 |!arpeggio![DFAB]2 z |!arpeggio![dfab]2 z |"8va ----|"!arpeggio![Bdfa] "_rit"z z ||',
       "\"@-92,45WALTZ\"!f!!arpeggio![GBeg] z !arpeggio![Begb] | !arpeggio![egbe'] z !arpeggio![gbe'g'] | [fbd'f']3- | [fbd'f'] z !arpeggio![egbe'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [gGB]3- | [GBg] [Ff] [Gg] |",
       "[Aca]3/2 [Afa]/ ([A-fa] | [Aa]) [Gg] [Aa] | [Bb]3/2 [Bb]/ [Bb]- | [Bb] [=A=a] [Bb] | [cc']3/2 [cc']/ [cc'] | !<(![cc'] [dbd'] [e=ae'] | [dbd']!<)! z z | z [cc'] [Bb] |",
       "[GBeg] z [Begb] | [egbe'] z [gbe'g'] | [fbd'f']3- | [fbd'f'] z [ee'] | [dbd'] z [cac'] | [Bfb] z [Afa] | [Gge]3- | [Geg] [Ff] [Gg] |",
