@@ -1,5 +1,4 @@
-import { Link as RouteLink } from '../routes';
-// import RouteLink from 'next/link';
+import RouteLink from 'next/link';
 
 const Link = (props) => {
   let href;

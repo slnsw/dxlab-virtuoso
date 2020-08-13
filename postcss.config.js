@@ -19,31 +19,3 @@ module.exports = {
     'postcss-reporter',
   ],
 };
-
-// module.exports = {
-//   plugins: [
-//     [
-//       'postcss-easy-import',
-//       {
-//         prefix: '_',
-//       },
-//     ],
-//     [
-//       'postcss-custom-properties',
-//       {
-//         importFrom: './styles/variables.css',
-//       },
-//     ],
-//     'postcss-mixins',
-//     [
-//       'postcss-cssnext',
-//       {
-//         features: {
-//           autoprefixer: false, // Next.js already runs autoprefixer
-//         },
-//       },
-//     ],
-//     'lost',
-//     'postcss-reporter',
-//   ],
-// };
