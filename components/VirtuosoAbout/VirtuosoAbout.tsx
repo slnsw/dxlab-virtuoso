@@ -9,7 +9,7 @@ const VirtuosoAbout = () => {
 
       <p>
         Welcome to VirtuOSO, the{' '}
-        <a href="https://dxlab.sl.nsw.gov.au">DX Lab</a>’s experiment that plays
+        <a href="https://dxlab.sl.nsw.gov.au">DX Lab’s</a> experiment that plays
         transcribed sheet music from the Library’s collection.
       </p>
       <p>
@@ -37,12 +37,18 @@ const VirtuosoAbout = () => {
         or The Cricketers’ Quadrille?
       </p>
       <p>
-        We have transcribed the sheet music using{' '}
-        <a href="https://en.wikipedia.org/wiki/ABC_notation">ABC Notation</a> to
-        render the music in beautifully clear notation in your browser. Then, by
-        writing some extra code, the note and timing information has been sent
-        to our <a href="https://reactronica.com/">audio engine</a> so you can
+        We have transcribed the sheet music with{' '}
+        <a href="https://en.wikipedia.org/wiki/ABC_notation">ABC Notation</a>{' '}
+        and used <a href="https://www.abcjs.net/">ABC JS</a> to render the music
+        in beautifully clear notation in your browser. Then, by writing some
+        extra code, the note and timing information has been sent to our audio
+        engine (<a href="https://reactronica.com/">Reactronica</a>) so you can
         hear it played back while following along in the music.
+      </p>
+      <p>
+        The music is highly interactive, so you can control the tempo, switch
+        between major and minor keys and even change the sound of the
+        instruments for your own remixes.
       </p>
       <p>
         If you can play any of these scores, we would love to hear your version.
