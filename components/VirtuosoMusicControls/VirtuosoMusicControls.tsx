@@ -187,21 +187,16 @@ const VirtuosoMusicControls: React.FC<Props> = ({
       </CTAButton>
       <CTAButton
         theme="light"
-        // variant="secondary"
         className={css.button}
         disabled={!isSamplesLoaded}
         aria-label={isPlaying ? 'Pause' : 'Play'}
         onClick={handlePlayClickCallback}
       >
-        {isPlaying ? (
-          <>
-            <Icon name="pause" />
-          </>
-        ) : (
-          <>
-            <Icon name="play" />
-          </>
-        )}
+        {!isSamplesLoaded ? (
+          <Icon name="reload" className={css.loadingIcon} />
+        ) : null}
+        {isSamplesLoaded && isPlaying ? <Icon name="pause" /> : null}
+        {isSamplesLoaded && !isPlaying ? <Icon name="play" /> : null}
       </CTAButton>
 
       <CTAButton

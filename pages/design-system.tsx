@@ -200,6 +200,7 @@ const DesignSystemPage = () => {
           local inline SVGs downloaded from there.
         </p>
         <Icon name="facebook" size="sm" colour="white" />
+        <Icon name="reload" size="sm" colour="white" />
         <Icon name="facebook" size="md" colour="grey" />
         <Icon name="facebook" size="lg" colour="white" />
         <Icon name="facebook" size="xlg" colour="grey" />
