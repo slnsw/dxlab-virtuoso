@@ -28,10 +28,7 @@ const VirtuosoAbout = () => {
         <a href="/virtuoso/song/the-glebe-rowing-club-polka">
           The Glebe Rowing Club Polka
         </a>
-        ,{' '}
-        <a href="/virtuoso/song/the-glebe-rowing-club-polka">
-          The Sutherland Waltz
-        </a>
+        , <a href="/virtuoso/song/the-sutherland-waltz">The Sutherland Waltz</a>
         ,{' '}
         <a href="/virtuoso/song/overland-mail-galop">The Overland Mail Galop</a>{' '}
         or{' '}
