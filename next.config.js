@@ -1,8 +1,9 @@
 require('dotenv').config();
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
+  assetPrefix: '/virtuoso',
   webpack: (config, { dev }) => {
     const customConfig = {
       ...config,
