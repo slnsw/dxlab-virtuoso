@@ -3,6 +3,7 @@ require('dotenv').config();
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
+  // dxlab-virtuoso is proxied to dxlab.sl.nsw.gov.au/virtuoso, so we need to add a prefix for _next JS files
   assetPrefix: '/virtuoso',
   webpack: (config, { dev }) => {
     const customConfig = {
