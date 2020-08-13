@@ -1,13 +1,11 @@
 {
   "name": "dxlab-virtuoso",
   "author": "Kaho Cheung",
-  "version": "1.10.4",
+  "version": "0.1.0",
   "scripts": {
-    "dev": "next dev -p 5010",
+    "dev": "next dev -p 5050",
     "start": "next start",
     "build": "NODE_ENV=production next build",
-    "deploy:prod": "now --prod && now alias https://dxlab-website.dxlab1.now.sh dxlab.sl.nsw.gov.au",
-    "deploy:staging": "now --local-config now.staging.json --confirm --prod",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
