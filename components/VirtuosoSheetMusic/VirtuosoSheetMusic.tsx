@@ -85,6 +85,8 @@ const VirtuosoSheetMusic = ({
   const [totalBeatsInSong, setTotalBeatsInSong] = React.useState(100);
   const [allNotes, setAllNotes] = React.useState([]);
 
+  console.log(samplesStatus);
+
   React.useEffect(() => {
     if (scroller) {
       if (!scroller.current) {
@@ -387,7 +389,7 @@ const VirtuosoSheetMusic = ({
   const handleInstrumentTypeChange = (newTypes, instrumentIndex) => {
     const newSamplesStatus = samplesStatus.map((status, i) => {
       // Synth is generated from browser, so no loading needed
-      if (instrumentTypes[i] === 'synth') {
+      if (newTypes[i] === 'synth') {
         return 'loaded';
       }
 
