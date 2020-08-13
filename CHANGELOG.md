@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] - 2020-8-13
 
 - Massive cleanup, remove most non-Virtuoso related files
+- Remove unused packages
 
 ## [0.1.0] - 2020-8-13
 
