@@ -34,7 +34,11 @@ const VirtuosoAbout = () => {
         </a>
         ,{' '}
         <a href="/virtuoso/song/overland-mail-galop">The Overland Mail Galop</a>{' '}
-        or The Cricketers’ Quadrille?
+        or{' '}
+        <a href="/virtuoso/song/australian-quadrilles-engehurst">
+          The Australian Quadrilles
+        </a>
+        ?
       </p>
       <p>
         We have transcribed the sheet music with{' '}
