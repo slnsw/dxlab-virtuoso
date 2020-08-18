@@ -8,7 +8,7 @@
       "name": "Luke Dearnley"
     }
   ],
-  "version": "0.2.2",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev -p 5050",
     "start": "next start",
