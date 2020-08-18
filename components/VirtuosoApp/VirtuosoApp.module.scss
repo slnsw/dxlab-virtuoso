@@ -1,0 +1,160 @@
+@import '../../styles/global.scss';
+
+.sheetMusicApp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: calc(100% + 2em);
+  // margin-top: -1em;
+  margin-left: -1em;
+  padding: var(--spacing-md);
+
+  @include media-sm {
+    width: calc(100% + 4em);
+    margin-top: -2em;
+    margin-left: -2em;
+    padding: var(--spacing-xlg) var(--spacing-xlg);
+  }
+}
+
+.headerDivider {
+  width: 1px;
+  height: var(--spacing-xxs);
+  margin: auto var(--spacing-sm) 0;
+  background-color: var(--colour-white);
+}
+
+.dxlabLogo {
+  display: block;
+
+  @include media-sm {
+    height: 1.4em;
+  }
+}
+
+.virtuosoLogo {
+  display: block;
+  height: 1.3em;
+  margin-top: -0.3em;
+
+  @include media-sm {
+    // flex: 1 0 100px;
+    height: 22px;
+    // height: auto;
+    // width: 99px;
+    // height: 23px;
+    // margin-top: auto;
+  }
+
+  svg {
+    height: 100%;
+  }
+}
+
+.slnswLogo {
+  z-index: 1;
+  display: none;
+  height: 1.4em;
+  margin-left: auto;
+
+  @include media-sm {
+    display: block;
+  }
+}
+
+// No need for Mobile Menu yet as site is still very small
+// .headerNavInside {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   height: 100%;
+//   margin-top: -4rem;
+// }
+
+// .menu {
+//   @extend .font-uppercase;
+
+//   // display: flex;
+//   margin-bottom: -0.2em;
+//   margin-left: var(--spacing-lg);
+//   font-size: var(--font-size-lg);
+//   font-family: var(--font-secondary);
+//   text-align: center;
+
+//   @include media-sm {
+//     display: none;
+//   }
+// }
+
+// .menuItem {
+//   margin-right: var(--spacing-lg);
+//   padding: var(--spacing-lg);
+//   // border-top: 1px solid var(--colour-white);
+
+//   &:first-child {
+//     border-bottom: 1px solid var(--colour-white);
+//   }
+// }
+
+// .menuIconButton {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   // top: var(--spacing-xxxs);
+//   // right: var(--spacing-xxxs);
+//   z-index: 110;
+
+//   @include media-md {
+//     display: none;
+//   }
+// }
+
+.content {
+  display: block;
+  margin-right: calc(var(--spacing-md) * -1);
+  margin-left: calc(var(--spacing-md) * -1);
+
+  @include media-md {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+// .sidebar {
+//   position: absolute;
+//   top: 3em;
+//   left: 0;
+//   z-index: 30;
+//   display: none;
+//   flex: 1;
+//   width: 100vw;
+//   padding: 1em;
+//   background-color: var(--colour-black);
+
+//   @include media-lg {
+//     position: relative;
+//     top: initial;
+//     display: block;
+//     width: auto;
+//     margin-top: var(--spacing-xxxlg);
+//     padding: initial;
+//   }
+
+//   &.isMobileSidebarOpen {
+//     display: block;
+//   }
+
+//   h1 {
+//     margin-top: 0;
+//     font-size: var(--font-size-md);
+//   }
+// }

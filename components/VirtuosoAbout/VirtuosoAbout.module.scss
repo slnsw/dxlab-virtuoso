@@ -1,0 +1,34 @@
+@import '../../styles/global.scss';
+
+.sheetMusicAbout {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  max-width: var(--container-width-md);
+  margin: 0 auto;
+  padding: var(--spacing-xxlg);
+  overflow: auto;
+  color: var(--colour-black);
+  background-color: var(--colour-white);
+
+  h1 {
+    margin-top: 0;
+    font-size: var(--font-size-xlg);
+  }
+
+  p:first-of-type {
+    font-size: var(--font-size-lg);
+
+    @include media-sm {
+      font-size: var(--font-size-xlg);
+    }
+  }
+
+  p {
+    @include media-sm {
+      font-size: var(--font-size-lg);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import './global.scss';
+
+.loader-wrapper {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 0.3em;
+  transform: translate(-50%, -50%);
+}
+
+.loader .ball {
+  position: relative;
+  width: 0;
+  height: 0.3em;
+  margin: 0;
+  background: var(--colour-white);
+  border-radius: 0.3em;
+}
+
+.loader .ball:nth-child(1) {
+  animation: ball 2s ease-in-out infinite;
+}
+
+@keyframes ball {
+  0% {
+    left: -0.3em;
+    width: 0.3em;
+  }
+
+  25% {
+    left: 0;
+    width: 100px;
+  }
+
+  50% {
+    left: 100px;
+    width: 0.3em;
+  }
+
+  75% {
+    left: 0;
+    width: 100px;
+  }
+
+  100% {
+    left: -0.3em;
+    width: 0.3em;
+  }
+}

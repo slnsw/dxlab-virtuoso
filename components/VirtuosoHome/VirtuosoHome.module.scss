@@ -1,0 +1,122 @@
+@import '../../styles/global.scss';
+
+.sheetMusicHome {
+  display: block;
+  width: 100%;
+  max-width: var(--container-width-lg);
+  margin: var(--spacing-lg) auto 0;
+  padding: 0 1rem;
+
+  @include media-sm {
+    padding: 0;
+  }
+}
+
+.leafDivider {
+  display: block;
+  margin: 0 auto;
+}
+
+.heading {
+  max-width: var(--container-width-lg);
+  margin-top: var(--spacing-xlg);
+  margin-right: auto;
+  margin-bottom: var(--spacing-lg);
+  margin-left: auto;
+  font-size: var(--font-size-md);
+  text-align: center;
+
+  @include media-sm {
+    margin-bottom: var(--spacing-xxlg);
+  }
+}
+
+.songList {
+  display: grid;
+  grid-row-gap: var(--spacing-xxxlg);
+  grid-column-gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  max-width: var(--container-width-lg);
+  margin: 0 auto;
+
+  @include media-sm {
+    grid-gap: var(--spacing-xxlg);
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  }
+}
+
+.song {
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  color: var(--colour-white);
+  // background-color: var(--colour-white);
+}
+
+.songImageWrapper {
+  // @include media-sm {
+  //   padding: var(--spacing-md) var(--spacing-md) 0;
+  // }
+  padding: var(--spacing-sm);
+  background-color: var(--colour-white);
+
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+.songContent {
+  // padding: 0 var(--spacing-xs) var(--spacing-xs);
+  padding: 0;
+  text-align: center;
+
+  @include media-sm {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+  }
+}
+
+.songContent h1 {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+  font-size: var(--font-size-md);
+  font-family: var(--font-primary);
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+
+  @include media-sm {
+    font-size: var(--font-size-lg);
+  }
+}
+
+.songCreator {
+  @extend .font-uppercase;
+
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  text-align: center;
+
+  @include media-sm {
+    margin-bottom: 0;
+  }
+}
+
+.songKey {
+  display: none;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.songBase {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+
+  @include media-sm {
+    flex-direction: row;
+  }
+}

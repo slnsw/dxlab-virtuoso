@@ -1,0 +1,31 @@
+@import '../../styles/global.scss';
+
+.sheet-music {
+  width: 100%;
+  background-color: #fff;
+}
+
+.sheet-music .abcjs-lyric_playing,
+.sheet-music .abcjs-note_playing,
+.sheet-music .abcjs-note_selected,
+.sheet-music .abcjs-rest_playing {
+  fill: var(--colour-primary);
+  stroke: rgba(230, 0, 126, 0.05);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  &:active,
+  &:focus {
+    @extend .outline;
+  }
+}
+
+.sheet-music .abcjs-lyric,
+.sheet-music .abcjs-note,
+.sheet-music .abcjs-rest {
+  &:active,
+  &:focus {
+    @extend .outline;
+  }
+}

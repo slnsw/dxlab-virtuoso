@@ -1,0 +1,289 @@
+@import '../../styles/global.scss';
+
+.virtuosoMusicControls {
+  label {
+    margin-bottom: 0;
+  }
+}
+
+.button {
+  margin-right: var(--spacing-sm);
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+
+  @include media-sm {
+    font-size: var(--font-size-sm);
+  }
+}
+
+.loadingIcon {
+  transform-origin: 47% 50.5%;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.autoScrollButton {
+  letter-spacing: 0.2em;
+}
+
+.tempoControls {
+  @extend .font-uppercase;
+
+  display: flex;
+  align-items: center;
+  line-height: 1;
+
+  @include media-md {
+    margin-right: var(--spacing-md);
+    margin-left: var(--spacing-xxs);
+    padding-left: var(--spacing-md);
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+  }
+
+  label {
+    margin-right: var(--spacing-sm);
+    font-weight: 600;
+  }
+}
+
+.desktopTempoControls {
+  display: none;
+
+  @include media-md {
+    display: flex;
+    border-left: 1px solid var(--colour-black);
+  }
+}
+
+.mobileTempoControls {
+  flex-direction: column;
+
+  label {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+.mobileInstrumentControls {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--colour-black);
+
+  @include media-md {
+    display: none;
+  }
+}
+
+.tempoInput {
+  width: 4em;
+  height: 2.3em;
+  margin-right: var(--spacing-xxxs);
+  color: var(--colour-black);
+  font-size: var(--font-size-md);
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  // background-color: var(--colour-grey-lightest);
+  border: 1px solid var(--colour-black);
+  // border: none;
+
+  /* Hide Arrow from type=number Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  /* Hide Arrow from type=number Firefox */
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.tempoButton {
+  font-size: var(--font-size-xs);
+}
+
+// .tempoButton:disabled,
+// .tempoButton[disabled] {
+//   color: #999;
+//   border-color: #999;
+// }
+
+.addTempoButton {
+  margin-right: var(--spacing-xs);
+}
+
+.keyControls {
+  @include media-md {
+    padding-left: var(--spacing-md);
+    border-left: 1px solid var(--colour-black);
+  }
+
+  label {
+    margin-right: var(--spacing-sm);
+    font-weight: 600;
+  }
+}
+
+.mobileKeyControls {
+  label {
+    margin-right: 0;
+    margin-bottom: var(--spacing-xxs);
+    font-size: var(--font-size-xs);
+    text-align: center;
+  }
+}
+
+.desktopKeyControls {
+  display: none;
+
+  @include media-md {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.keyButton {
+  font-weight: 600;
+  text-transform: none;
+}
+
+.moreControlsButton {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.instrumentControlsContainer {
+  position: absolute;
+  top: calc(4rem - var(--spacing-xxxs));
+  right: 0;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  max-width: var(--container-width-sm);
+  overflow: hidden;
+  pointer-events: none;
+
+  @include media-sm {
+    top: 4em;
+  }
+}
+
+.instrumentControls {
+  width: 100%;
+  margin-top: -1px;
+  padding: var(--spacing-md);
+  background-color: var(--colour-white);
+  border: 1px solid var(--colour-black);
+  transform: translateY(-100%);
+  transition: 0.3s $ease-in-out-quint;
+  pointer-events: all;
+
+  @include media-sm {
+    padding: var(--spacing-lg);
+  }
+}
+
+.instrumentControlsVisible {
+  margin-bottom: 20rem; // Hack to prevent Select box from cropping
+  transform: translateY(0);
+}
+
+.instrumentControlGroup {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xxs);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--colour-black);
+
+  @include media-sm {
+    align-items: stretch;
+    margin-bottom: var(--spacing-md);
+  }
+
+  span {
+    text-transform: lowercase;
+  }
+
+  label {
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    font-size: var(--font-size-xs);
+  }
+}
+
+.instrumentControlGroup:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.instrumentNameGroup {
+  display: flex;
+  flex: 1 0 100%;
+
+  @include media-sm {
+    flex: 1;
+    flex-direction: column;
+  }
+
+  label {
+    display: none;
+
+    @include media-sm {
+      display: block;
+    }
+  }
+}
+
+.instrumentName {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+
+  @include media-sm {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+    margin-left: var(--spacing-xxxs);
+    font-weight: 700;
+  }
+}
+
+.volumeGroup {
+  flex: 1;
+  margin-right: var(--spacing-md);
+
+  @include media-sm {
+    margin-right: var(--spacing-lg);
+  }
+}
+
+.instrumentSelectGroup {
+  flex: 1;
+}

@@ -1,0 +1,28 @@
+@import '../../styles/global.scss';
+
+.search-modal__title {
+  font-size: 1em;
+
+  @include media-md {
+    font-size: var(--font-size-lg);
+  }
+}
+
+.search-modal__form {
+  display: flex;
+
+  & .button {
+    flex: 1;
+    height: auto;
+    margin-left: 1em;
+    /* TODO: Add this to all buttons? */
+  }
+}
+
+.search-modal__search-box {
+  flex: 3;
+}
+
+.search-modal__results {
+  margin-top: var(--spacing-xxlg);
+}

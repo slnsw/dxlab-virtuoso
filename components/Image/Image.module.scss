@@ -1,0 +1,15 @@
+@import '../../styles/global.scss';
+
+.image {
+  vertical-align: middle;
+  opacity: 1;
+}
+
+.imageIsLoaded {
+  opacity: 1;
+  transition: 0.3s opacity;
+}
+
+.imageIsLoading {
+  opacity: 0;
+}
