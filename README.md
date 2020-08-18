@@ -13,6 +13,10 @@ $ npm install
 $ npm start
 ```
 
+## Sounds
+
+All the sounds (except for the synth) used in Virtuoso are from the [VS Chamber Orchestra](https://github.com/sgossner/VSCO-2-CE) open source library.
+
 ### ENV Variables
 
 ```
