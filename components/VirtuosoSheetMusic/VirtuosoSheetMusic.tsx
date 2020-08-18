@@ -10,7 +10,7 @@ import VirtuosoMusicControls from '../VirtuosoMusicControls';
 import CTAButton from '../CTAButton';
 import ShareBox from '../ShareBox';
 
-import samples from '../VirtuosoApp/samples';
+import samples from '../../lib/samples';
 import { createWindowScroller } from '../../lib/window-scroller';
 import windowScrollTo from '../../lib/window-scroll-to';
 import { useDocumentVisibility } from '../../lib/hooks/use-document-visibility';

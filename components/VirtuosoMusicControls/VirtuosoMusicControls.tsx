@@ -5,7 +5,7 @@ import Select from '../Select/Select';
 import CTAButton from '../CTAButton';
 import Icon from '../Icon/Icon';
 
-import samples from '../VirtuosoApp/samples';
+import samples from '../../lib/samples';
 
 import css from './VirtuosoMusicControls.module.scss';
 

@@ -13,6 +13,18 @@ $ npm install
 $ npm start
 ```
 
+## Approach
+
+Music notation is extremely complex, almost like another programming language in some ways. Luckily we discovered a JavaScript library called [ABC JS](https://github.com/paulrosen/abcjs) that renders sheet music as SVG elements in the browser.
+
+As the name suggests, **ABC JS** uses [ABC notation](https://en.wikipedia.org/wiki/ABC_notation) as the main input. Although text-based, this type of notation was powerful enough for us to transcribe a wide selection of the Library's sheet music collection.
+
+The notation and song metadata can be found in `lib/songs.ts`.
+
+## Audio
+
+To play the music, we use **ABC JS's** playback engine to trigger the sequence of notes. These notes are then passed to our audio engine - [Reactronica](https://reactronica.com), a React component library that can play sequenced music.
+
 ## Sounds
 
 All the sounds (except for the synth) used in Virtuoso are from the [VS Chamber Orchestra](https://github.com/sgossner/VSCO-2-CE) open source library.
