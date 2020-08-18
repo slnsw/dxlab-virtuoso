@@ -13,18 +13,16 @@ $ npm install
 $ npm start
 ```
 
+## Sounds
+
+All the sounds (except for the synth) used in Virtuoso are from the [VS Chamber Orchestra](https://github.com/sgossner/VSCO-2-CE) open source library.
+
 ### ENV Variables
 
 ```
 # .env
 PORT=5050
 DXLAB_WEBSITE_BASE_URL=http://localhost:5050
-
-DXLAB_WEBSITE_TEST=it works!
-
-DXLAB_WEBSITE_GRAPHQL_URL=http://localhost:5000/graphql
-DXLAB_WEBSITE_DXLAB_WP_URL=https://wp.dxlab.sl.nsw.gov.au
-
 DXLAB_WEBSITE_GTM_ID=GTM-XXXXXXX
 DXLAB_WEBSITE_FB_APP_ID=XXXXXXXXXXXXX
 ```
