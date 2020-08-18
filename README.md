@@ -23,10 +23,6 @@ All the sounds (except for the synth) used in Virtuoso are from the [VS Chamber 
 # .env
 PORT=5050
 DXLAB_WEBSITE_BASE_URL=http://localhost:5050
-
-DXLAB_WEBSITE_TEST=it works!
-
-DXLAB_WEBSITE_GRAPHQL_URL=http://localhost:5000/graphql
 DXLAB_WEBSITE_GTM_ID=GTM-XXXXXXX
 DXLAB_WEBSITE_FB_APP_ID=XXXXXXXXXXXXX
 ```
