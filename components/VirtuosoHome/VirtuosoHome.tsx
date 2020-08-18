@@ -3,7 +3,7 @@ import React from 'react';
 import VirtuosoLeafDivider from '../VirtuosoApp/VirtuosoLeafDivider';
 import Link from '../Link';
 
-import songs from '../VirtuosoApp/songs';
+import songs from '../../lib/songs';
 
 import css from './VirtuosoHome.module.scss';
 

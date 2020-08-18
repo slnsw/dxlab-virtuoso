@@ -5,9 +5,10 @@ import VirtuosoHome from '../components/VirtuosoHome';
 import VirtuosoSheetMusic from '../components/VirtuosoSheetMusic';
 import VirtuosoAbout from '../components/VirtuosoAbout';
 
-import songs from '../components/VirtuosoApp/songs';
 import VirtuosoHomeMasthead from '../components/VirtuosoMasthead';
 import Four04 from './_error';
+
+import songs from '../lib/songs';
 
 const config = {
   '/virtuoso': {
