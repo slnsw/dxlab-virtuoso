@@ -1,6 +1,6 @@
 # DX Lab Virtuoso
 
-Welcome to VirtuOSO, the DX Lab’s experiment that plays transcribed sheet music from the Library’s collection.
+Listen to rare 19th century Australian sheet music from the Library with this interactive experiment.
 
 - Website: https://dxlab.sl.nsw.gov.au/virtuoso
 
