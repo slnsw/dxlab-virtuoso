@@ -16,10 +16,6 @@ import '../components/Header/Header.scss';
 import '../components/LoaderText/LoaderText.scss';
 import '../components/Menu/Menu.scss';
 import '../components/NoImage/NoImage.scss';
-import '../components/Popover/Popover.scss';
-import '../components/SearchModal/SearchModal.scss';
-import '../components/SimpleTile/SimpleTile.scss';
-import '../components/Table/Table.scss';
 import '../components/WebsiteApp/WebsiteApp.scss';
 
 // Sheet Music App
