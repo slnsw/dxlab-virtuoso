@@ -336,13 +336,15 @@ const VirtuosoSheetMusic = ({
   };
 
   const handleNoteClick = (element) => {
-    // console.log(element);
-    const percentage =
-      Math.round(
-        (element.currentTrackMilliseconds[0] / totalTimeRef.current) * 10000,
-      ) / 100;
-    // console.log(percentage);
-    setSongPercentage(percentage);
+    console.log(element);
+    const ctm =
+      element.currentTrackMilliseconds && element.currentTrackMilliseconds[0];
+    console.log('currentTrackMilliseconds: ', ctm);
+    if (ctm) {
+      const percentage = Math.round((ctm / totalTimeRef.current) * 10000) / 100;
+      console.log('Setting song percentage: ', percentage);
+      setSongPercentage(percentage);
+    }
   };
 
   const handleAutoScrollClick = () => {
