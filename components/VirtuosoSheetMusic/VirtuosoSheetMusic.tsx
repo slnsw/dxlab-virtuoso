@@ -325,6 +325,7 @@ const VirtuosoSheetMusic = ({
     if (wasStoppedByVisibilityChange && !isPlaying) {
       // We are starting again after going out of focus,
       // make sure song position is correct
+
       const percentage =
         Math.round((currentBeatRef.current / totalBeatsInSong) * 10000) / 100;
 
