@@ -57,11 +57,14 @@ const SocialMetaHead: React.FC<Props> = ({
       )}
 
       {truncatedDescription && (
-        <meta
-          property="og:description"
-          content={truncatedDescription}
-          key="meta-og:description"
-        />
+        <>
+          <meta
+            property="og:description"
+            content={truncatedDescription}
+            key="meta-og:description"
+          />
+          <meta name="description" content={truncatedDescription}></meta>
+        </>
       )}
 
       {url && <meta property="og:url" content={url} key="meta-og:url" />}
