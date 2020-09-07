@@ -338,7 +338,7 @@ const VirtuosoSheetMusic = ({
   const handleNoteClick = (element) => {
     console.log(element);
     const ctm =
-      element.currentTrackMilliseconds && element.currentTrackMilliseconds[0];
+      element.currentTrackMilliseconds || element.currentTrackMilliseconds[0];
     console.log('currentTrackMilliseconds: ', ctm);
     if (ctm) {
       const percentage = Math.round((ctm / totalTimeRef.current) * 10000) / 100;

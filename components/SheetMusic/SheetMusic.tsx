@@ -105,6 +105,7 @@ const SheetMusic: React.FunctionComponent<Props> = ({
               }
             : {}),
         });
+        tune.current[0].setUpAudio();
       }
     }
 
