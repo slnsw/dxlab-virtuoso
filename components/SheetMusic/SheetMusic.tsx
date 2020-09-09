@@ -83,11 +83,11 @@ const SheetMusic: React.FunctionComponent<Props> = ({
         // Use abcjs' built in parser to turn the
         // text string into structured JSON:
         json.current = abcjs.current.parseOnly(notation);
+        console.log(json.current);
         // now use our function to turn that into an array
         // of notes or chords using note names and durations
         // that things like Tone.js and Reactronica understand:
         noteList.current = parseJSON(json.current, { bpm });
-
         // Now render actual score:
         tune.current = abcjs.current.renderAbc(id, notation, {
           add_classes: true,
@@ -105,7 +105,8 @@ const SheetMusic: React.FunctionComponent<Props> = ({
               }
             : {}),
         });
-        tune.current[0].setUpAudio();
+        const majik = tune.current[0].setUpAudio();
+        console.log(majik);
       }
     }
 
