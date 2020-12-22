@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2020-12-22
+
+- Update this file to get versions in sync (previous patch caused version to go to v1.0.1 - suggest this file was not updated when v1.0.0 was deployed?)
+
 ## [0.2.3] - 2020-12-22
 
 - Update about page text to include link to creating virtuoso blog post
