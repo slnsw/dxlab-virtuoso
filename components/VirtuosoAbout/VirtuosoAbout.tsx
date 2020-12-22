@@ -56,6 +56,13 @@ const VirtuosoAbout = () => {
         Please share these in social media using this #DXLab #VirtuOSO.
       </p>
       <p>
+        Read the{' '}
+        <a href="https://dxlab.sl.nsw.gov.au/blog/creating-virtuoso/">
+          blog post
+        </a>{' '}
+        if you would like to learn more about the making of Virtuoso.
+      </p>
+      <p>
         All the sounds (except for the synth) used in Virtuoso are from the{' '}
         <a href="https://vis.versilstudios.com/vsco-community.html">
           VCSO 2 open source sound library
